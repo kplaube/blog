@@ -3,11 +3,21 @@
 
 AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
+SITESUBTITLE = u'Python, Django e desenvolvimento Web'
 SITEURL = ''
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'America/SaoPaulo'
+DEFAULT_LANG = u'pt_BR'
 
-DEFAULT_LANG = u'pt'
+DELETE_OUTPUT_DIRECTORY = True
+WEBASSETS = True
+
+THEME = 'themnific-pelican-theme'
+
+FEED_ALL_RSS = 'feed/rss.xml'
+FEED_ALL_ATOM = 'feed/atom.xml'
+
+DEFAULT_PAGINATION = 10
 
 # Blogroll
 LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
@@ -19,4 +29,6 @@ LINKS =  (('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
 SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
-DEFAULT_PAGINATION = 10
+PLUGINS = (
+    'pelican.plugins.assets',
+)
