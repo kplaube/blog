@@ -50,7 +50,7 @@ e podem ter certeza que este tema será _open source_.
 ## Are you ready?
 
 Gostaria de agradecer ao [_Jackson Caset_](http://www.twitter.com/jcaset/ "Visite o perfil do Jackson no Twitter")
-do [_Profissionais TI_](http://profissionaisti.com.br "Leia sobre tecnologia, telecomunicações, desenvolvimento, entre outros")",
+do [_Profissionais TI_](http://profissionaisti.com.br "Leia sobre tecnologia, telecomunicações, desenvolvimento, entre outros"),
 [_Marinho Brandão_](http://twitter.com/marinhobrandao/ "O que será que o Marinho está twitando agora?"),
 [_Henrique Bastos_](http://www.henriquebastos.net/ "Aspirante a Pythonista? Visite o blog do Henrique Bastos"),
 [_Franscisco Souza_](http://www.franciscosouza.com.br/ "O blog do Franscisco é uma excelente fonte para informações sobre desenvolvimento"),

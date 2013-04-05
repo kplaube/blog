@@ -40,7 +40,7 @@ muito menos tempo para atualizar-se sobre as coisas que estão acontecendo no mu
 Esta “determinada URL” que o tal programa visita é chamada de _Feed RSS_.
 Este programa que você utiliza para visitar esta _URL_ chama-se “cliente RSS“,
 “agregador” ou “leitor RSS“. E o tal do _RSS_ na verdade é um padrão que
-sistemas como o que alimenta este _blog_ (_WordPress_) e os leitores _RSS_
+sistemas como o que alimenta este _blog_ e os leitores _RSS_
 usam para se comunicar.
 
 Vulgarmente falando, é um formato para divulgação de artigos.
