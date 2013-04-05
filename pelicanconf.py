@@ -11,6 +11,7 @@ SITEURL = ''
 
 TIMEZONE = 'America/Sao_Paulo'
 DEFAULT_LANG = u'pt_BR'
+DEFAULT_DATE_FORMAT = '%d %b, %Y'
 
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
@@ -29,21 +30,23 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 # Menu
 MENUITEMS = (
     ('Blog', '/'),
-    ('Portfolio', '/portfolio/'),
+    ('Projetos', '/projetos/'),
 )
 
 # Blogroll
-LINKS = (
-    ('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
-    ('Python.org', 'http://python.org'),
-    ('Jinja2', 'http://jinja.pocoo.org'),
-    ('You can modify those links in your config file', '#'),
-)
+LINKS = ()
 
 # Social
 SOCIAL = (
-    ('You can add links in your config file', '#'),
-    ('Another social link', '#'),
+    ('Bitbucket', 'http://bitbucket.org/kplaube/'),
+    ('Coderwall', 'http://coderwall.com/kplaube'),
+    ('Duolingo', 'http://duolingo.com/#/kplaube'),
+    ('GitHub', 'http://github.com/kplaube'),
+    ('LinkedIn', 'http://www.linkedin.com/in/klauslaube'),
+    ('ProfissionaisTI', 'http://www.profissionaisti.com.br/author/klaus-peter-laube/'),
+    ('Skoob', 'http://skoob.com.br/usuario/118855'),
+    ('Twitter', 'http://www.twitter.com/kplaube'),
+    ('Zootool', 'http://zootool.com/user/kplaube/'),
 )
 
 TWITTER_USERNAME = 'kplaube'
