@@ -1,6 +1,7 @@
 Title: O que é RSS?
 Date: 2010-11-12 20:15
-Tags: informativos, padroes-web, rss
+Category: informativos
+Tags: informativos, rss, web
 Slug: o-que-e-rss
 
 Conheço pessoas “bem instruídas” em _TI_ que simplesmente não sabem o que é _RSS_.

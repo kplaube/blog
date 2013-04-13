@@ -15,6 +15,7 @@ DEFAULT_DATE_FORMAT = '%d %b, %Y'
 
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
+STATIC_PATHS = ['media']
 
 THEME = 'themnific-pelican'
 

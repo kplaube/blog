@@ -1,5 +1,6 @@
 Title: Hello World!
 Date: 2010-11-12 20:10
+Category: informativos
 Tags: informativos
 Slug: hello-world
 
@@ -43,7 +44,7 @@ Um _hobby_. Não irei me preocupar tanto com a sua composição.
 Não que eu não vá aplicar minhas (poucas) habilidades em _WordPress_ neste blog.
 Só pretendo fazer deste uma espécie de “jardim Zen“, ou seja, quando achar que
 vai ser maneiro escrever um tema todo em [_HTML5_](|filename|/tag/html5.html "Leia mais sobre HTML5")
-com altos efeitos em [_CSS3_](http://klauslaube.com.br/tag/css3/ "Leia mais sobre CSS3")
+com altos efeitos em [_CSS3_](|filename|/tag/css3.html "Leia mais sobre CSS3")
 (se eu tiver tempo para isso), com certeza farei… e com certeza mostrarei como fiz,
 e podem ter certeza que este tema será _open source_.
 
