@@ -3,9 +3,7 @@ Date: 2010-11-18 09:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, javascript, acessibilidade
 
-<img src="|filename|/images/blog/javascript-acessibility.jpg"
-    alt="Ícone representando acessibilidade em Informática"
-    class="align-left" width="180" height="144">
+|img "/images/blog/javascript-acessibility.jpg" 180 144 "Ícone representando acessibilidade em Informática" "align-left"|
 Em épocas onde *RIA* está cada vez mais comum, e as interfaces [*Web*][web] resolveram
 parecer-se cada vez mais com ambientes *Desktops*, tenho reparado um
 grande movimento a favor da acessibilidade, afinal, como bons

@@ -58,10 +58,11 @@ SOURCE_CODE_URL = 'https://github.com/kplaube/klauslaube.com.br/'
 
 # Plugins
 from pelican.plugins import assets, global_license
-from plugins import summary
+from plugins import summary, image_tag
 
 PLUGINS = (
     assets,
     global_license,
+    image_tag,
     summary,
 )
