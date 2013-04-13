@@ -3,7 +3,7 @@ Date: 2010-11-13 11:30
 Category: desenvolvimento
 Tags: desenvolvimento, html5, css3, web
 
-<img src="|filename|/media/blog/html5-logo.png" alt="Logotipo HTML5" class="align-left" width="180" height="180">
+<img src="|filename|/images/blog/html5-logo.png" alt="Logotipo HTML5" class="align-left" width="180" height="180">
 Para aqueles que ainda são resistentes ao
 [*HTML5*][html5] eu digo: Desistam!
 
@@ -13,6 +13,8 @@ Para aqueles que ainda são resistentes ao
 semântica, e até mesmo *websites* profissionais (desenvolvidos por
 empresas da área do desenvolvimento *Web*), começam a tornar-se cada vez
 mais comuns.
+
+<!-- PELICAN_END_SUMMARY -->
 
 Mas é óbvio que o *HTML5* não está maduro o bastante para simplesmente
 abandonarmos a cautela e acharmos que todo o nosso público utiliza
@@ -34,7 +36,7 @@ em sua versão 9.
 Mas dá pra usar ou não?
 -----------------------
 
-<img src="|filename|/media/blog/we-can-do-html5.jpg"
+<img src="|filename|/images/blog/we-can-do-html5.jpg"
     alt="Comunidade Drupal incentivando ao uso do HTML5" class="align-left" width="192" height="245">
 Já utilizei *HTML5* em alguns projetos. Devo confidenciar que foram projetos “na
 surdina”, ou seja, os clientes e demais envolvidos não sabiam que o

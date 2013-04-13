@@ -1,19 +1,12 @@
+import pelican
 import types
-
-from pelican import signals
-from pelican.settings import _DEFAULT_CONFIG
 
 
 def initialized(pelican):
-    _DEFAULT_CONFIG.setdefault('SUMMARY_BEGIN_MARKER',
-                               '<!-- PELICAN_BEGIN_SUMMARY -->')
-    _DEFAULT_CONFIG.setdefault('SUMMARY_END_MARKER',
-                               '<!-- PELICAN_END_SUMMARY -->')
-    if pelican:
-        pelican.settings.setdefault('SUMMARY_BEGIN_MARKER',
-                                    '<!-- PELICAN_BEGIN_SUMMARY -->')
-        pelican.settings.setdefault('SUMMARY_END_MARKER',
-                                    '<!-- PELICAN_END_SUMMARY -->')
+    pelican.settings.setdefault('SUMMARY_BEGIN_MARKER',
+                                '<!-- PELICAN_BEGIN_SUMMARY -->')
+    pelican.settings.setdefault('SUMMARY_END_MARKER',
+                                '<!-- PELICAN_END_SUMMARY -->')
 
 
 def content_object_init(sender, instance):
@@ -48,9 +41,10 @@ def content_object_init(sender, instance):
                             len(instance.settings['SUMMARY_BEGIN_MARKER'])
                             if begin_summary != -1 else 0)
             end_summary = end_summary if end_summary != -1 else None
-            instance._summary = content[begin_summary:end_summary]
+            instance._summary = instance._update_content(content[begin_summary:end_summary],
+                                                         instance._context['SITEURL'])
 
 
 def register():
-    signals.initialized.connect(initialized)
-    signals.content_object_init.connect(content_object_init)
+    pelican.signals.initialized.connect(initialized)
+    pelican.signals.content_object_init.connect(content_object_init)

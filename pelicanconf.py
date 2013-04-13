@@ -7,7 +7,7 @@ sys.path.append('.')
 AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
 SITESUBTITLE = u'Python, Django e desenvolvimento Web'
-SITEURL = 'http://klauslaube.com.br'
+SITEURL = ''
 
 TIMEZONE = 'America/Sao_Paulo'
 DEFAULT_LANG = u'pt_BR'
@@ -15,7 +15,7 @@ DEFAULT_DATE_FORMAT = '%d %b, %Y'
 
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
-STATIC_PATHS = ['media']
+STATIC_PATHS = ['images']
 
 THEME = 'themnific-pelican'
 
