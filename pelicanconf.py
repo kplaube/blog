@@ -19,6 +19,7 @@ STATIC_PATHS = ['images']
 
 THEME = 'themnific-pelican'
 
+FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_PAGINATION = 10
