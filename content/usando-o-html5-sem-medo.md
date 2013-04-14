@@ -2,6 +2,7 @@ Title: Usando o HTML5 sem medo
 Date: 2010-11-13 11:30
 Category: desenvolvimento
 Tags: desenvolvimento, html5, css3, web
+Slug: usando-html5-sem-medo
 
 |img "/images/blog/html5-logo.png" 180 180 "Logotipo HTML5" "align-left"|
 Para aqueles que ainda são resistentes ao

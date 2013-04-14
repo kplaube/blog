@@ -2,6 +2,7 @@ Title: Garantindo acessibilidade com Javascript não obstrusivo
 Date: 2010-11-18 09:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, javascript, acessibilidade
+Slug: acessibilidade-javascript-nao-obstrusivo
 
 |img "/images/blog/javascript-acessibility.jpg" 180 144 "Ícone representando acessibilidade em Informática" "align-left"|
 Em épocas onde *RIA* está cada vez mais comum, e as interfaces [*Web*][web] resolveram
