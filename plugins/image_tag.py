@@ -1,7 +1,7 @@
 import pelican
 import re
 
-IMAGE_MARKER = re.compile('\|img "(?P<src>[\w/._-]+)"\s+(?P<width>\d+)\s+(?P<height>\d+)\s?(\"(?P<alt_text>[\w\s,._-]+)\")?\s?(\"(?P<css_classes>[\w\s_-]+)\")?\s?\|',
+IMAGE_MARKER = re.compile('\|img "(?P<src>[\w/._-]+)"\s+(?P<width>\d+)\s+(?P<height>\d+)\s?(\"(?P<alt_text>[\w\s\?\!,._-]+)\")?\s?(\"(?P<css_classes>[\w\s_-]+)\")?\s?\|',
                           re.UNICODE)
 
 
