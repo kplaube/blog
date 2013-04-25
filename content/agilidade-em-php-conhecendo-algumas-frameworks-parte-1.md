@@ -2,7 +2,7 @@ Title: Agilidade em PHP: Conhecendo algumas frameworks – Parte 1
 Date: 2010-11-27 13:21
 Category: desenvolvimento
 Tags: desenvolvimento, web, php, frameworks, akelos, cakephp, codeigniter, zend framework
-slug: agilidade-em-php-conhecendo-algumas-frameworks
+Slug: agilidade-em-php-conhecendo-algumas-frameworks
 
 |img "/images/blog/php-logo.png" 180 180 "O elefante mascote do PHP" "align-left"|
 Olá pessoal!
