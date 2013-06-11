@@ -5,7 +5,7 @@ Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, slackware, v
 Slug: python-django-virtualenv
 
 
-|img "/images/blog/python-django-logo.jpg" 180 180 "Python e Django" "align-left" | Olá pessoas!
+|img "/images/blog/python-django.jpg" 180 180 "Python e Django" "align-left" | Olá pessoas!
 
 Dando continuidade a série “[Montando seu ambiente de desenvolvimento
 *Django* em *Linux*][]”, vamos dar uma pincelada na tríade [*Python*][],

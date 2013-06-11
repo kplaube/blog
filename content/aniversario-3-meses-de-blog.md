@@ -2,7 +2,7 @@ Title: Aniversário: 3 meses de blog!
 Date: 2011-02-16 13:00
 Category: informativos
 Tags: informativos
-slug: aniversario-3-meses-de-blog
+Slug: aniversario-3-meses-de-blog
 
 
 Olá pessoas!
