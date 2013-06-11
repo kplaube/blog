@@ -9,7 +9,7 @@ def initialized(pelican):
                                 '<!-- PELICAN_END_SUMMARY -->')
 
 
-def content_object_init(sender, instance):
+def content_object_init(instance):
     # if summary is already specified, use it
     if 'summary' in instance.metadata:
         return

@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
-import sys
-sys.path.append('.')
+DEBUG = True
 
 AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
@@ -16,13 +15,16 @@ DEFAULT_DATE_FORMAT = '%d %b, %Y'
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
 STATIC_PATHS = ['images']
+THEME = '../themnific-pelican/'
 
-THEME = 'themnific-pelican'
+PLUGIN_PATH = 'plugins'
+PLUGINS = ['assets', 'global_license', 'image_tag', 'summary', 'tags_within_articles', ]
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_PAGINATION = 10
+
 
 # Article
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
@@ -53,18 +55,7 @@ SOCIAL = (
 
 TWITTER_USERNAME = 'kplaube'
 
+# License
 LICENSE = 'Creative Commons Attribution 3.0'
 LICENSE_URL = 'http://creativecommons.org/licenses/by/3.0/deed.pt_BR'
 SOURCE_CODE_URL = 'https://github.com/kplaube/klauslaube.com.br/'
-
-# Plugins
-from pelican.plugins import assets, global_license
-from plugins import image_tag, summary, tags_within_articles
-
-PLUGINS = (
-    assets,
-    global_license,
-    tags_within_articles,
-    image_tag,
-    summary,
-)

@@ -22,7 +22,10 @@ def replace_image_tag(match):
     return image_tag(**match.groupdict())
 
 
-def content_object_init(sender, instance):
+def content_object_init(instance):
+    if not instance._content:
+        return
+
     content = instance._content
     instance._content = re.sub(IMAGE_MARKER, replace_image_tag, content)
 
