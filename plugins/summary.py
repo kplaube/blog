@@ -38,8 +38,8 @@ def content_object_init(instance):
             # the beginning position has to take into account the length
             # of the marker
             begin_summary = (begin_summary +
-                            len(instance.settings['SUMMARY_BEGIN_MARKER'])
-                            if begin_summary != -1 else 0)
+                             len(instance.settings['SUMMARY_BEGIN_MARKER'])
+                             if begin_summary != -1 else 0)
             end_summary = end_summary if end_summary != -1 else None
             instance._summary = instance._update_content(content[begin_summary:end_summary],
                                                          instance._context['SITEURL'])
