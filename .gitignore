@@ -1,5 +1,6 @@
 *.pid
 *.pyc
 .DS_Store
+.vagrant
 Gemfile.lock
 output

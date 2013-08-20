@@ -33,6 +33,7 @@ help:
 	@echo '   dropbox_upload                   upload the web site via Dropbox    '
 	@echo '   ftp_upload                       upload the web site via FTP        '
 	@echo '   github                           upload the web site via gh-pages   '
+	@echo '   make install				       install all project dependencies   '
 	@echo '                                                                       '
 
 
@@ -72,5 +73,11 @@ ftp_upload: publish
 github: publish
 	ghp-import $(OUTPUTDIR)
 	git push origin gh-pages
+
+install:
+	bundle
+	pip install -r requirements.txt
+	pip install -r requirements-dev.txt
+	vagrant plugin install vagrant-salt
 
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload github
