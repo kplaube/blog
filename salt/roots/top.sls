@@ -1,4 +1,4 @@
 base:
   '*':
-    - python
+    - users
     - webserver
