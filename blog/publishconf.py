@@ -1,7 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+import os
+import sys
+
+HERE = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(HERE)
 
 from pelicanconf import *
+
 
 SITEURL = 'http://klauslaube.com.br'
 
