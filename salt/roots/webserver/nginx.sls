@@ -20,4 +20,4 @@ nginx:
 
 rm /etc/nginx/sites-enabled/default:
   cmd.run:
-    - ifonly: cat /etc/nginx/sites-enabled/default
+    - onlyif:  [ -f /etc/nginx/sites-enabled/default ]
