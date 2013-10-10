@@ -5,7 +5,6 @@ BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/blog/pelicanconf.py
-PUBLISHCONF=$(BASEDIR)/blog/publishconf.py
 
 FTP_HOST=localhost
 FTP_USER=anonymous
@@ -20,6 +19,7 @@ help:
 	@echo 'Makefile for a pelican Web site                                        '
 	@echo '                                                                       '
 	@echo 'Usage:                                                                 '
+	@echo '   make install				       install all project dependencies   '
 	@echo '   make html                        (re)generate the web site          '
 	@echo '   make clean                       remove the generated files         '
 	@echo '   make regenerate                  regenerate files upon modification '
@@ -28,7 +28,6 @@ help:
 	@echo '   make devserver                   start/restart develop_server.sh    '
 	@echo '   ssh_upload                       upload the web site via SSH        '
 	@echo '   rsync_upload                     upload the web site via rsync+ssh  '
-	@echo '   make install				       install all project dependencies   '
 	@echo '                                                                       '
 
 
@@ -51,7 +50,7 @@ devserver:
 	$(BASEDIR)/develop_server.sh restart
 
 publish:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
@@ -62,7 +61,6 @@ rsync_upload: publish
 install:
 	bundle
 	pip install -r requirements.txt
-	pip install -r requirements-dev.txt
 	vagrant plugin install vagrant-salt
 
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload

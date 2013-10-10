@@ -6,7 +6,8 @@ DEBUG = True
 AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
 SITESUBTITLE = u'Python, Django e desenvolvimento Web'
-SITEURL = ''
+SITEURL = 'http://local.klauslaube.com.br:8080'
+RELATIVE_URLS = False
 
 TIMEZONE = 'America/Sao_Paulo'
 DEFAULT_LANG = u'pt_BR'
@@ -54,6 +55,8 @@ SOCIAL = (
 )
 
 TWITTER_USERNAME = 'kplaube'
+#DISQUS_SITENAME = ""
+#GOOGLE_ANALYTICS = ""
 
 # License
 LICENSE = 'Creative Commons Attribution 3.0'
