@@ -9,7 +9,7 @@ sys.path.append(HERE)
 from pelicanconf import *
 
 
-SITEURL = 'http://klauslaube.com.br'
+SITEURL = 'http://local.klauslaube.com.br:8080'
 
 DELETE_OUTPUT_DIRECTORY = True
 

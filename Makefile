@@ -13,8 +13,8 @@ FTP_TARGET_DIR=/
 
 SSH_HOST=local.klauslaube.com.br
 SSH_PORT=2222
-SSH_USER=vagrant
-SSH_TARGET_DIR=/var/www/blog/
+SSH_USER=ubuntu
+SSH_TARGET_DIR=/var/www/blog
 
 help:
 	@echo 'Makefile for a pelican Web site                                        '
