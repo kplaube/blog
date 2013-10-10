@@ -4,19 +4,17 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
-CONFFILE=$(BASEDIR)/pelicanconf.py
-PUBLISHCONF=$(BASEDIR)/publishconf.py
+CONFFILE=$(BASEDIR)/blog/pelicanconf.py
+PUBLISHCONF=$(BASEDIR)/blog/publishconf.py
 
 FTP_HOST=localhost
 FTP_USER=anonymous
 FTP_TARGET_DIR=/
 
-SSH_HOST=localhost
-SSH_PORT=22
-SSH_USER=root
-SSH_TARGET_DIR=/var/www
-
-DROPBOX_DIR=~/Dropbox/Public/
+SSH_HOST=local.klauslaube.com.br
+SSH_PORT=2222
+SSH_USER=vagrant
+SSH_TARGET_DIR=/var/www/blog/
 
 help:
 	@echo 'Makefile for a pelican Web site                                        '
@@ -30,9 +28,6 @@ help:
 	@echo '   make devserver                   start/restart develop_server.sh    '
 	@echo '   ssh_upload                       upload the web site via SSH        '
 	@echo '   rsync_upload                     upload the web site via rsync+ssh  '
-	@echo '   dropbox_upload                   upload the web site via Dropbox    '
-	@echo '   ftp_upload                       upload the web site via FTP        '
-	@echo '   github                           upload the web site via gh-pages   '
 	@echo '   make install				       install all project dependencies   '
 	@echo '                                                                       '
 
@@ -64,20 +59,10 @@ ssh_upload: publish
 rsync_upload: publish
 	rsync -e "ssh -p $(SSH_PORT)" -P -rvz --delete $(OUTPUTDIR) $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
 
-dropbox_upload: publish
-	cp -r $(OUTPUTDIR)/* $(DROPBOX_DIR)
-
-ftp_upload: publish
-	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R $(OUTPUTDIR) $(FTP_TARGET_DIR) ; quit"
-
-github: publish
-	ghp-import $(OUTPUTDIR)
-	git push origin gh-pages
-
 install:
 	bundle
 	pip install -r requirements.txt
 	pip install -r requirements-dev.txt
 	vagrant plugin install vagrant-salt
 
-.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload github
+.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload
