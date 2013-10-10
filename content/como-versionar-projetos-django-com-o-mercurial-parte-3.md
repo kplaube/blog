@@ -154,20 +154,20 @@ Conte-nos através dos comentários abaixo.
 Até a próxima…
 
 
-  [parte 1]: |filename|/como-versionar-projetos-django-com-o-mercurial-parte-1.md
-  [parte 2]: |filename|/como-versionar-projetos-django-com-o-mercurial-parte-2.md
+  [parte 1]: {filename}/como-versionar-projetos-django-com-o-mercurial-parte-1.md
+  [parte 2]: {filename}/como-versionar-projetos-django-com-o-mercurial-parte-2.md
     "Como versionar projetos Django com o Mercurial - Parte 2"
-  [*Django*]: |filename|/tag/django.html
+  [*Django*]: {tag}django
     "Leia mais sobre Django"
-  [*Mercurial*]: |filename|/tag/mercurial.html
+  [*Mercurial*]: {tag}mercurial
     "Leia mais sobre Mercurial"
-  [*virtualenv*]: |filename|/tag/virtualenv.html
+  [*virtualenv*]: {tag}virtualenv
     "Leia mais sobre virtualenv"
-  [1]: |filename|/como-versionar-projetos-django-com-o-mercurial-parte-2.md
+  [1]: {filename}/como-versionar-projetos-django-com-o-mercurial-parte-2.md
     "Aprenda a como criar um repositório Mercurial no Bitbucket"
   [*Bitbucket*]: http://www.bitbucket.org/
     "Versione e compartilhe código com o Mercurial"
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
-  [Changeset no Bitbucket]: http://klauslaube.com.br/media/blog/changesets-no-bitbucket.png
+  [Changeset no Bitbucket]: {filename}/images/blog/changesets-no-bitbucket.png
     "Changeset no Bitbucket"
