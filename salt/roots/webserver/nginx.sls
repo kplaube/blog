@@ -22,7 +22,7 @@ rm /etc/nginx/sites-enabled/default:
   cmd.run:
     - onlyif:  [ -f /etc/nginx/sites-enabled/default ]
 
-/var/www/blog:
+/srv/blog:
   file.directory:
     - user: ubuntu
     - group: www-data
