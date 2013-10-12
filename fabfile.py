@@ -1,10 +1,23 @@
 import os
-from fabric.api import env, run, task
+from fabric.api import env, local, run, task
 from fabric.contrib.project import rsync_project
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 env.hosts = ['192.241.239.141']
+env.config_file = os.path.join(HERE, 'blog', 'pelicanconf.py')
+env.input_dir = os.path.join(HERE, 'content')
+env.output_dir = os.path.join(HERE, 'output')
+env.pelican_opts = ''
+env.remote_content_dir = '/srv/blog/'
+
+
+@task(default=True)
+def bootstrap():
+    install_salt()
+    provision()
+    publish()
+    upload_content()
 
 
 @task()
@@ -42,7 +55,11 @@ def upload_state_tree():
 
 @task()
 def upload_content():
-    local_content_path = os.path.join(HERE, 'output', '*')
-    remote_content_path = '/srv/blog/'
+    local_content_path = os.path.join(env.output_dir, '*')
     rsync_project(local_dir=local_content_path,
-                  remote_dir=remote_content_path)
+                  remote_dir=env.remote_content_dir)
+
+
+@task()
+def publish():
+    local('pelican {input_dir} -o {output_dir} -s {config_file} {pelican_opts}'.format(**env))

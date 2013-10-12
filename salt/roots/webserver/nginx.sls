@@ -27,3 +27,7 @@ rm /etc/nginx/sites-enabled/default:
     - user: ubuntu
     - group: www-data
     - dir_mode: 755
+    - recurse:
+      - user
+      - group
+      - mode
