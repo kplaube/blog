@@ -6,7 +6,7 @@ DEBUG = True
 AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
 SITESUBTITLE = u'Python, Django e desenvolvimento Web'
-SITEURL = 'http://local.klauslaube.com.br:8080'
+SITEURL = 'http://local.klauslaube.com.br:8000'
 RELATIVE_URLS = False
 
 TIMEZONE = 'America/Sao_Paulo'

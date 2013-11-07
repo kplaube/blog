@@ -2,6 +2,7 @@ PELICAN=pelican
 PELICANOPTS=
 
 BASEDIR=$(CURDIR)
+BINDIR=$(BASEDIR)/bin
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/blog/pelicanconf.py
@@ -39,7 +40,7 @@ serve:
 	cd $(OUTPUTDIR) && python -m SimpleHTTPServer
 
 devserver:
-	$(BASEDIR)/develop_server.sh restart
+	$(BINDIR)/develop_server.sh restart
 
 publish:
 	@fab publish
