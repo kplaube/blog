@@ -6,7 +6,7 @@ IMAGE_MARKER = re.compile('\|img "(?P<src>[\w/._-]+)"\s+(?P<width>\d+)\s+(?P<hei
 
 
 def image_tag(src, width, height, alt_text=None, css_classes=None):
-    img = '<img src="|filename|%s" width="%s" height="%s" ' % (src, width, height)
+    img = '<img src="{filename}%s" width="%s" height="%s" ' % (src, width, height)
 
     if alt_text:
         img += 'alt="%s" ' % alt_text

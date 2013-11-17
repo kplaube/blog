@@ -19,7 +19,7 @@ STATIC_PATHS = ['images']
 THEME = '../themnific-pelican/'
 
 PLUGIN_PATH = 'plugins'
-PLUGINS = ['assets', 'global_license', 'image_tag', 'summary']
+PLUGINS = ['assets', 'global_license', 'image_tag', 'summary', 'slideshare']
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
