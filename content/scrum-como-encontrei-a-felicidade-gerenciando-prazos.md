@@ -127,11 +127,11 @@ Para mim funcionou muito bem, mesmo depois de fechar a minha empresa
 (não foi culpa do *Scrum* (: ) e aplicar estes conceitos em meus
 projetos *freelancer* (falarei sobre Scrum solo em breve).
 
-  [web]: |filename|/tag/web.html "Leia mais sobre Web"
-  [scrum]: |filename|/tag/scrum.html "Leia mais sobre Scrum"
-  [python]: |filename|/tag/python.html
+  [web]: {tag}web "Leia mais sobre Web"
+  [scrum]: {tag}scrum "Leia mais sobre Scrum"
+  [python]: {tag}python
     "Leia mais sobre Python"
-  [django]: |filename|/tag/django.html
+  [django]: {tag}django
     "Leia mais sobre Django"
   [scrum_under_10_minutes]: http://www.youtube.com/watch?v=Q5k7a9YEoUI&feature=player_embedded
     "Aprenda Scrum em 10 minutos no Youtube"

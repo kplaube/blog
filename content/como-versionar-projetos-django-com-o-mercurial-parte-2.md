@@ -177,17 +177,17 @@ de utilizar o *Mercurial* para versionar seus projetos *Django*.
 Até a próxima…
 
 
-  [Como versionar projetos *Django* com o *Mercurial*]: |filename|/como-versionar-projetos-django-com-o-mercurial-parte-1.md
+  [Como versionar projetos *Django* com o *Mercurial*]: {filename}como-versionar-projetos-django-com-o-mercurial-parte-1.md
     "Leia a primeira parte deste post"
-  [Montando seu ambiente de desenvolvimento *Django* no *Linux*]: |filename|/montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
+  [Montando seu ambiente de desenvolvimento *Django* no *Linux*]: {filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
     "Tá começando com Django? É usuário Linux? Este post pode te interessar"
-  [*Mercurial*]: |filename|/tag/mercurial.html
+  [*Mercurial*]: {tag}mercurial
     "Leia mais sobre Mercurial"
   [*Wikipedia*]: http://en.wikipedia.org/wiki/Mercury_(element)
     "Leia mais sobre o elemento químico Mercúrio"
   [página oficial do *Mercurial*]: http://mercurial.selenic.com/
     "Visite a página oficial do projeto Mercurial"
-  [*Python*, *Django* e *virtualenv*]: |filename|/python-django-e-virtualenv.md
+  [*Python*, *Django* e *virtualenv*]: {filename}/python-django-e-virtualenv.md
     "Construa projetos isolados do seu sistema com virtualenv"
   [*DVCS*]: http://en.wikipedia.org/wiki/Distributed_revision_control
     "Leia mais sobre Distributed Version Control System"
@@ -195,7 +195,7 @@ Até a próxima…
     "Entenda para que serve o arquivo .hgignore"
   [*Bitbucket*]: http://bitbucket.org/
     "Bitbucket, compartilhe o seu código"
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
   [Confira o resultado]: https://bitbucket.org/kplaube/post-django-com-hg
     "Confira o repositório criado no Bitbucket"

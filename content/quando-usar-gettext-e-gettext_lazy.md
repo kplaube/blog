@@ -77,9 +77,9 @@ Referências
 Até a próxima…
 
 
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
-  [*Django*]: |filename|/tag/django.html
+  [*Django*]: {tag}django
     "Leia mais sobre Django"
   [*Marinho Brandão*]: http://www.aprendendodjango.com/o-mesmo-site-em-varios-idiomas/
     "Aprendendo Django no Planeta Terra - O mesmo site em vários idiomas"

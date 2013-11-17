@@ -94,12 +94,12 @@ Referências
     "Artigos sobre Tecnologia da Informação"
   [íntegra aqui]: http://www.profissionaisti.com.br/2010/01/bdd-desenvolvimento-orientado-a-comportamento/
     "BDD: Desenvolvimento Orientado a Comportamento"
-  [*post* anterior]: |filename|/tdd-desenvolvimento-orientado-a-testes.md
+  [*post* anterior]: {filename}02-tdd-desenvolvimento-orientado-a-testes.md
     "TDD: Desenvolvimento Orientado a Testes"
-  [*TDD*]: |filename|/tag/tdd.html
+  [*TDD*]: {tag}tdd
   [*@andrewsmedina*]: http://twitter.com/andrewsmedina
     "Siga o Andrews no Twitter."
-  [*Django*]: |filename|/tag/django.html
+  [*Django*]: {tag}django
     "Leia mais sobre Django"
   [superficie-reflexiva]: http://logbr.reflectivesurface.com/2008/10/27/algumas-consideracoes-sobre-tdd-e-bdd/
     "Leia mais no Superfície Reflexiva."

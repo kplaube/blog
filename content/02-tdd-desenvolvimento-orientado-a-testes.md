@@ -1,5 +1,5 @@
 Title: TDD: Desenvolvimento Orientado a Testes
-Date: 2011-01-27 11:30
+Date: 2011-01-27 11:30:00
 Category: desenvolvimento
 Tags: desenvolvimento, testes, tdd, agile
 Slug: tdd-desenvolvimento-orientado-testes
@@ -97,9 +97,9 @@ prática para dar maior segurança em relação a qualidade do seu
     "Tudo sobre Tecnologia! ProfissionaisTI"
   [íntegra aqui]: http://www.profissionaisti.com.br/2009/11/tdd-desenvolvimento-orientado-a-testes/
     "TDD: Desenvolvimento Orientado a Testes"
-  [*agile*]: |filename|/tag/agile.html "Leia mais sobre Agile"
-  [*Scrum*]: |filename|/tag/scrum.html "Leia mais sobre Scrum"
-  [*Test-Driven Development*]: |filename|/tag/tdd.html "Leia mais sobre TDD"
+  [*agile*]: {tag}agile "Leia mais sobre Agile"
+  [*Scrum*]: {tag}scrum "Leia mais sobre Scrum"
+  [*Test-Driven Development*]: {tag}tdd "Leia mais sobre TDD"
   [http://viniciusquaiato.com/blog/index.php/tdd-test-driven-development-c/]: http://viniciusquaiato.com/blog/index.php/tdd-test-driven-development-c/
     "Leia mais no blog do nosso amigo Vinicius"
   [http://dojofloripa.wordpress.com/2007/09/10/tudo-sobre-tdd/]: http://dojofloripa.wordpress.com/2007/09/10/tudo-sobre-tdd/

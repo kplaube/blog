@@ -86,10 +86,10 @@ Enriquecer a experiência do usuário não é crime… esquecer da
 acessibilidade sim.
 
 
-  [movimento em prol do HTML5 ganha cada vez mais força]: |filename|/2010/11/13/usando-html5-sem-medo.html
+  [movimento em prol do HTML5 ganha cada vez mais força]: {filename}01-usando-o-html5-sem-medo.md
     "Usando o HTML5 sem medo"
-  [*CSS3*]: |filename|/tag/css3.html "Leia mais sobre CSS3"
-  [*HTML5*]: |filename|/tag/html5.html "Leia mais sobre HTML5"
+  [*CSS3*]: {tag}css3 "Leia mais sobre CSS3"
+  [*HTML5*]: {tag}html5 "Leia mais sobre HTML5"
   [*Graceful Degradation*]: http://www.tableless.com.br/graceful-degradation-e-tudo-sobre-acessibilidade
     "Graceful degradation é tudo sobre Acessibilidade"
   [*CSS3 Please! The Cross-Browser CSS3 Rule Generator*]: http://css3please.com/
@@ -97,4 +97,4 @@ acessibilidade sim.
   [*CSS3 PIE*]: http://css3pie.com/ "CSS3 decorations for IE"
   [excelente *post*]: http://www.tableless.com.br/jquery-para-layouts
     "jQuery para produção de layouts"
-  [*jQuery*]: |filename|/tag/jquery.html
+  [*jQuery*]: {tag}jquery

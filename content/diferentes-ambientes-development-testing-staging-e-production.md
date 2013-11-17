@@ -116,10 +116,10 @@ seguindo no [*Twitter*][].
 Até a próxima…
 
 
-  [*agile*]: |filename|/tag/agile.html "Leia mais sobre Agile"
-  [virtualização]: |filename|/virtualbox-uma-maneira-interessante-de-possuir-varios-sos-em-uma-maquina-so.md
+  [*agile*]: {tag}agile "Leia mais sobre Agile"
+  [virtualização]: {virtualbox-uma-maneira-interessante-de-possuir-varios-sos-em-uma-maquina-so.md
     "Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só"
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
   [ambiente isolado]: http://blog.triveos.com.br/2010/04/25/trabalhando-com-python-e-django/
     "Trabalhando com Python e Django"
@@ -133,14 +133,14 @@ Até a próxima…
     "Versionamento de projetos com Subversion"
   [*DVCS*]: http://en.wikipedia.org/wiki/Distributed_Version_Control_System
     "Leia mais sobre Distributed Version Control System no Wikipedia"
-  [testes unitários]: |filename|/tag/tdd.html
+  [testes unitários]: {tag}tdd
     "Leia mais sobre TDD"
-  [aceitação]: |filename|/tag/bdd.html "Leia mais sobre BDD"
+  [aceitação]: {tag}bdd "Leia mais sobre BDD"
   [servidor de integração contínua]: http://blog.caelum.com.br/integracao-continua/
     "Leia artigo da Caelum falando sobre Continuous Integration"
   [*Uptime*]: http://uptimetecnologia.com.br/
     "Uptime, garantindo a sua segurança na internet"
-  [*Web*]: |filename|/tag/web.html "Leia mais sobre Web"
+  [*Web*]: {tag}web "Leia mais sobre Web"
   [*Effective Development Environments: Development, Test, Staging/Pre-prod and Production Environments*]: http://spacebug.com/effective_development_environments/
     "Uma excelente referência, um artigo bem escrito e objetivo."
   [*Caelum*: Integração Contínua]: http://blog.caelum.com.br/integracao-continua/
@@ -151,7 +151,7 @@ Até a próxima…
     "Um artigo claro e objetivo sobre os ambientes de Development, Staging e Production."
   [*Traditional Development/Integration/Staging/Production Practice for Software Development*]: http://dltj.org/article/software-development-practice/
     "Um post muito bom sobre desenvolvimento de software com qualidade."
-  [Montando seu ambiente de desenvolvimento *Django* no *Linux*]: |filename|/montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
+  [Montando seu ambiente de desenvolvimento *Django* no *Linux*]: {filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
     "Saiba como montar o seu ambiente de desenvolvimento para trabalhar com Django"
   [*Feeds RSS*]: /feed/rss.xml
     "Leia os posts deste blog no seu leitor RSS favorito"

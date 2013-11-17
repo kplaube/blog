@@ -21,9 +21,9 @@ O sucesso deve-se desde a rica documentação, até as excepcionais
 poderosas (e ágeis) para desenvolvimento de *software*.
 
 
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
-  [*PHP*]: |filename|/tag/php.html "Leia mais sobre PHP"
+  [*PHP*]: {tag}php "Leia mais sobre PHP"
   [*Henrique Bastos*]: http://henriquebastos.net/2011/01/09/python-e-eleito-a-linguagem-de-2010/
     "Python é eleito a linguagem de 2010"
   [lista de discussão do *Django*]: http://groups.google.com/group/django-brasil

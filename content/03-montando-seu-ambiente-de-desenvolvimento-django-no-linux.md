@@ -100,9 +100,9 @@ ou [siga-me no *Twitter*][].
 Até mais…
 
 
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
-  [*Django*]: |filename|/tag/django.html
+  [*Django*]: {tag}django
     "Leia mais sobre Django"
   [Motivação (este *post*)]: http://klauslaube.com.br/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django/
     "Montando seu ambiente de desenvolvimento Django no Linux"
@@ -142,7 +142,7 @@ Até mais…
     "Conheça o framework de cache do Django e como usá-lo com o Memcached"
   [*Django* e *Cache*: Uma dupla de alta performance – Parte 2]: http://klauslaube.com.br/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2/
     "Conheça um pouco mais do framework de cache do Django"
-  [*Web*]: |filename|/tag/web.html "Leia mais sobre Web"
+  [*Web*]: {tag}web "Leia mais sobre Web"
   [*Debian 6*]: http://www.debian.org/
     "Debian, uma das mais famosas e estáveis distros Linux"
   [*Slackware 13.1*]: http://www.slackware.com/

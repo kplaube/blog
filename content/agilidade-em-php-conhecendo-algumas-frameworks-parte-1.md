@@ -161,13 +161,13 @@ Como você pode ver, este papo de que o ambiente de desenvolvimento *PHP*
 Na parte dois deste post iremos falar da “brazuca” *Spaghetti*,
 *Kohana*, e outras… até lá!
 
-  [python]: |filename|/tag/python.html
+  [python]: {tag}python
     "Leia mais sobre Python"
-  [django]: |filename|/tag/django.html
+  [django]: {tag}django
     "Leia mais sobre Django"
-  [php]: |filename|/tag/php.html "Leia mais sobre PHP"
-  [web]: |filename|/tag/web.html "Leia mais sobre Web"
-  [javascript]: |filename|/tag/javascript
+  [php]: {tag}php "Leia mais sobre PHP"
+  [web]: {tag}web "Leia mais sobre Web"
+  [javascript]: {tag}javascript
     "Leia mais sobre Javascript"
   [ror]: http://rubyonrails.org/
     "Conheça a framework Ruby on Rails"

@@ -127,12 +127,12 @@ não caia nessa! Separar o seu desenvolvimento em camadas só faz bem para
 você, para o seu cliente e para a sociedade.
 
 
-  [acessibilidade]: |filename|/tag/acessibilidade/
+  [acessibilidade]: {tag}acessibilidade
     "Leia mais sobre Acessibilidade"
-  [*Web*]: |filename|/tag/web.html "Leia mais sobre Web"
-  [*HTML5*]: |filename|/tag/html5.html "Leia mais sobre HTML5"
-  [*CSS*]: |filename|/tag/css3.html "Leia mais sobre CSS3"
-  [*RSS*]: |filename|/o-que-e-rss.md
+  [*Web*]: {tag}web "Leia mais sobre Web"
+  [*HTML5*]: {tag}html5 "Leia mais sobre HTML5"
+  [*CSS*]: {tag}css3 "Leia mais sobre CSS3"
+  [*RSS*]: {filename}o-que-e-rss.md
     "O que é RSS?"
-  [*Javascript*]: |filename|/tag/javascript.html
+  [*Javascript*]: {tag}javascript
     "Leia mais sobre Javascript"

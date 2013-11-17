@@ -130,11 +130,11 @@ através dos comentários abaixo!
 Até a próxima…
 
 
-  [*Django*]: |filename|/tag/django.html
+  [*Django*]: {tag}django
     "Leia mais sobre Django"
-  [*virtualenv*]: |filename|/tag/virtualenv.html
+  [*virtualenv*]: {tag}virtualenv
     "Leia mais sobre virtualenv"
-  [*Python*, *Django* e *virtualenv*]: |filename|python-django-e-virtualenv.md
+  [*Python*, *Django* e *virtualenv*]: {filename}python-django-e-virtualenv.md
     "Leia mais sobre a tríade Python, Django e virtualenv"
   [neste *post* do *Osvaldo Santana*]: http://blog.triveos.com.br/2010/04/25/trabalhando-com-python-e-django/
     "Trabalhando com Python e Django à moda Osvaldo"

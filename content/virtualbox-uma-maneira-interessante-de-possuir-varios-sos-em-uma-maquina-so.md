@@ -82,7 +82,7 @@ vou “reinventar a roda”… vou apenas indicar alguns tutoriais:
 
 Até a próxima…
 
-  [web]: |filename|/tag/web.html "Leia mais sobre Web"
+  [web]: {tag}web "Leia mais sobre Web"
   [wikipedia]: http://pt.wikipedia.org/wiki/Virtualiza%C3%A7%C3%A3o
     "Leia mais sobre Virtualização na Wikipedia"
   [virtualbox_ubuntu]: http://www.vivaolinux.com.br/artigo/Instalando-o-VirtualBox-no-Ubuntu-10.04/

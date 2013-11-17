@@ -73,19 +73,15 @@ no *IE*.
 
 E vamos aguardar o [livro do *Maujor*][livro_maujor].
 
-  [logotipo_html5]: |filename|/media/blog/html5-logo.png
-    "Logotipo HTML5"
-  [html5]: |filename|/tag/html5.html "Leia mais sobre HTML5"
-  [css3]: |filename|/tag/css3.html "Leia mais sobre CSS3"
-  [web]: |filename|/tag/web.html "Leia mais sobre Web"
+  [html5]: {tag}html5 "Leia mais sobre HTML5"
+  [css3]: {tag}css3 "Leia mais sobre CSS3"
+  [web]: {tag}web "Leia mais sobre Web"
   [chrome]: http://www.google.com/chrome?hl=pt-BR
     "Baixe o Google Chrome gratuitamente"
   [morte_ie6]: http://www.tableless.com.br/aonde-nos-leva-a-morte-do-internet-explorer-6
     "Aonde nos leva a morte do IE6?"
   [when_can_i_use]: http://caniuse.com/
     "Quando poderemos usar plenamente o HTML5?"
-  [drupal_html5]: |filename|/media/blog/we-can-do-html5.jpg
-    "Comunidade do Drupal incentivando ao uso do HTML5"
   [cafe_com_browser]: http://elcio.com.br/amanha-cafe-com-browser-sobre-html/
     "Eu assisti ao Café com Browser pela internet"
   [elcio]: http://elcio.com.br/ "Visite o blog do Elcio"

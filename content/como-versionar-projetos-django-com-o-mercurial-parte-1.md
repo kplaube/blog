@@ -74,7 +74,7 @@ também pretendo mostrar como organizo os meus projetos *Django*
 Até a próxima…
 
 
-  [*Django*]: |filename|/tag/django.html
+  [*Django*]: {tag}django
     "Leia mais sobre Django"
   [*SVN*]: http://akitaonrails.com/2007/09/22/jogar-pedra-em-gato-morto-por-que-subversion-no-presta
     "Jogar Pedra em Gato Morto: por que Subversion não presta"
@@ -88,7 +88,7 @@ Até a próxima…
     "Por que Git é Melhor que X"
   [*DVCS*]: http://en.wikipedia.org/wiki/Distributed_revision_control
     "DVCS - Distributed Version Control System"
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
   [*GitHub*]: https://github.com/ "GitHub, Social coding"
   [*Bitbucket*]: https://bitbucket.org/

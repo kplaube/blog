@@ -219,11 +219,11 @@ O exemplo completo está disponível para *download* em:
 Até a próxima…
 
 
-  [*Javascript*]: |filename|/tag/javascript.html
+  [*Javascript*]: {tag}javascript
     "Leia mais sobre Javascript"
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
-  [*PHP*]: |filename|/tag/php.html "Leia mais sobre PHP"
+  [*PHP*]: {tag}php "Leia mais sobre PHP"
   [objetos de *core*]: https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects
     "Veja outros objetos globais da linguagem"
   [*Using Objects to organize your code*]: http://blog.rebeccamurphey.com/2009/10/15/using-objects-to-organize-your-code/

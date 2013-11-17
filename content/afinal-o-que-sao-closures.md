@@ -92,11 +92,11 @@ E você… tem algum exemplo bacana sobre *closures*? Não deixe de
 comentar.
 
 
-  [Orientação a Objetos]: |filename|/tag/oop.html
+  [Orientação a Objetos]: {tag}oop
     "Leia mais sobre Orientação a Objetos"
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
-  [*PHP*]: |filename|/tag/php.html "Leia mais sobre PHP"
+  [*PHP*]: {tag}php "Leia mais sobre PHP"
   [*Wikipedia*]: http://pt.wikipedia.org/wiki/Closure
     "Leia sobre closure no Wikipedia"
   [*Javascript Closures – They’re not magic*]: http://www.javascriptkit.com/javatutors/closures.shtml

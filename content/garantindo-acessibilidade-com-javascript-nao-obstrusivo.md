@@ -91,8 +91,8 @@ e acima de tudo, com a **semântica**.
 
 Até a próxima…
 
-  [web]: |filename|/tag/web.html "Leia mais sobre Web"
-  [javascript]: |filename|/tag/javascript.html
+  [web]: {tag}web "Leia mais sobre Web"
+  [javascript]: {tag}javascript
     "Leia mais sobre Javascript"
   [lynx]: http://pt.wikipedia.org/wiki/Lynx_(navegador)
     "Não conhece o Lynx?"

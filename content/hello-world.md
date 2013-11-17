@@ -17,17 +17,17 @@ reciprocidade, absorver conhecimento de vocês também).
 
 ## O que você pode esperar deste Blog
 
-Eu acredito que já trilhei um longo caminho com o [_PHP_](|filename|/tag/php.html "Leia mais sobre PHP"),
+Eu acredito que já trilhei um longo caminho com o [_PHP_]({tag}php "Leia mais sobre PHP"),
 passando pelo [_Joomla!_](http://www.joomla.org/ "Visite o site oficial do CMS Joomla!"),
 [_WordPress_](http://www.wordpress.org/ "Visite o site oficial da engine de blogs Wordpress"),
 _Spaghetti_, [_CodeIgniter_](http://codeigniter.com/ "Visite o site oficial da framework CodeIgniter")
 e mais recentemente pela [_CakePHP_](http://cakephp.org/ "Visite o site da framework para desenvolvimento rápido, CakePHP").
 Pretendo sim falar sobre _PHP_, mas de uma forma bem “light“, pois na verdade
 o objetivo principal deste _blog_ é transmitir meus conhecimentos sobre
-[_Python_](|filename|/tag/python.html "Leia mais sobre Python"),
-[_Django_](|filename|/tag/django.html "Leia mais sobre Django"),
-padrões [_Web_](|filename|/tag/web.html "Leia mais sobre Web"),
-_Software_ Livre e [_Linux_](|filename|/tag/linux.html "Leia mais sobre Linux").
+[_Python_]({tag}python "Leia mais sobre Python"),
+[_Django_]({tag}django "Leia mais sobre Django"),
+padrões [_Web_]({tag}web "Leia mais sobre Web"),
+_Software_ Livre e [_Linux_]({tag}linux "Leia mais sobre Linux").
 
 Não que eu seja um “guru” nas tecnologias mencionadas, mas aprendi contribuindo
 com o [_Profissionais TI_](http://profissionaisti.com.br "Leia sobre tecnologia, telecomunicações, desenvolvimento, entre outros")
@@ -43,8 +43,8 @@ Um _hobby_. Não irei me preocupar tanto com a sua composição.
 
 Não que eu não vá aplicar minhas (poucas) habilidades em _WordPress_ neste blog.
 Só pretendo fazer deste uma espécie de “jardim Zen“, ou seja, quando achar que
-vai ser maneiro escrever um tema todo em [_HTML5_](|filename|/tag/html5.html "Leia mais sobre HTML5")
-com altos efeitos em [_CSS3_](|filename|/tag/css3.html "Leia mais sobre CSS3")
+vai ser maneiro escrever um tema todo em [_HTML5_]({tag}html5 "Leia mais sobre HTML5")
+com altos efeitos em [_CSS3_]({tag}css3 "Leia mais sobre CSS3")
 (se eu tiver tempo para isso), com certeza farei… e com certeza mostrarei como fiz,
 e podem ter certeza que este tema será _open source_.
 

@@ -43,8 +43,8 @@ Obrigado pelas visitas!
     "Leia minhas contribuições ao Profissionais Ti"
   [schroedernanet]: http://www.schroedernanet.com.br/
     "Comércio, indústria e lazer em Schroeder"
-  [php]: |filename|/tag/php.html "Leia mais sobre PHP"
-  [python]: |filename|/tag/python.html "Leia mais sobre Python"
-  [django]: |filename|/tag/django.html "Leia mais sobre Django"
+  [php]: {tag}php "Leia mais sobre PHP"
+  [python]: {tag}python "Leia mais sobre Python"
+  [django]: {tag}django "Leia mais sobre Django"
   [seti]: http://www.setinet.com.br/ "S4 Internet Controlada"
-  [scrum]: |filename/tag/scrum.html "Leia mais sobre Scrum"
+  [scrum]: {tag}scrum "Leia mais sobre Scrum"

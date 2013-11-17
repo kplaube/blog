@@ -120,22 +120,22 @@ distro e do *Python* do seu ambiente isolado e veja o que acontece…
 Até a próxima…
 
 
-  [Montando seu ambiente de desenvolvimento *Django* em *Linux*]: |filename|/montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
+  [Montando seu ambiente de desenvolvimento *Django* em *Linux*]: {filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
     "Montando seu ambiente de desenvolvimento Django em Linux"
-  [*Python*]: |filename|/tag/python.html
+  [*Python*]: {tag}python
     "Leia mais sobre Python"
-  [*Django*]: |filename|/tag/django.html
+  [*Django*]: {tag}django
     "Leia mais sobre Django"
-  [*virtualenv*]: |filename|/tag/virtualenv.html
+  [*virtualenv*]: {tag}virtualenv
     "Leia mais sobre Virtualenv"
   [Conheça alguns motivos que lhe convencerão a usar *Python*]: http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/
     "10 motivos para se usar Python"
-  [*Linux*]: |filename|/tag/linux.html "Leia mais sobre Linux"
+  [*Linux*]: {tag}linux "Leia mais sobre Linux"
   [instalar]: http://www.python.org.br/wiki/InicieSe
     "Inicie-se no Python"
   [primeiros passos]: http://www.python.org.br/wiki/AprendaMais
     "Aprenda mais sobre Python"
-  [*SO*]: |filename|/tag/sistemas-operacionais.html
+  [*SO*]: {tag}sistemas-operacionais
     "Leia mais sobre Sistemas Operacionais"
   [1]: http://pypi.python.org/pypi/virtualenv
     "Virtual Python Environment Builder"
