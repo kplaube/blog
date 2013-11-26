@@ -41,6 +41,9 @@ serve:
 devserver:
 	$(BINDIR)/develop_server.sh restart
 
+devserver_stop:
+	$(BINDIR)/develop_server.sh stop
+
 publish:
 	@fab publish
 
