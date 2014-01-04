@@ -36,7 +36,6 @@ DISQUS_SITENAME = 'klauslaube'
 # Menu
 MENUITEMS = (
     ('Blog', '/'),
-    ('Projetos', '/projetos/'),
 )
 
 # Blogroll
