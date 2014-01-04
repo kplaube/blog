@@ -296,7 +296,7 @@ Referências
     "Conheça mais sobre o Hypertext PreProcessor"
   [*Web*]: {tag}web
     "Leia mais sobre Web"
-  [*Nginx*]: {filename}/nginx-poderoso-rapido-e-facil.md
+  [*Nginx*]: {filename}/08-nginx-poderoso-rapido-e-facil.md
     "Conheça o Nginx"
   [*Python*]: {tag}python
     "Leia mais sobre Python"

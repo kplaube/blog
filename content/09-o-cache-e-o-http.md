@@ -287,7 +287,7 @@ Referências
     "Leia mais sobre Codeigniter"
   [*Kalid Azad*]: http://betterexplained.com/articles/how-to-optimize-your-site-with-http-caching/
     "How To Optimize Your Site With HTTP Caching"
-  [*Nginx*]: {filename}/nginx-poderoso-rapido-e-facil.md
+  [*Nginx*]: {filename}/08-nginx-poderoso-rapido-e-facil.md
     "Leia mais sobre Nginx"
   [*Cookies* e sessões]: {filename}/entendendo-os-cookies-e-sessoes.md
     "Entendendo os Cookies e Sessões"
