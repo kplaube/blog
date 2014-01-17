@@ -263,8 +263,8 @@ precisamos adicionar algumas informações ao **settings.py**:
 Onde:
 
 * **johnny.middleware.LocalStoreClearMiddleware:** O *Johnny* utiliza
-    este *middleware* para gerenciar o *cache* de uma [maneira
-    'thread-safe’][]. Ele basicamente limpa este objeto ao final de cada
+    este *middleware* para gerenciar o *cache* de uma [maneira "thread-safe"][].
+    Ele basicamente limpa este objeto ao final de cada
     requisição.
 * **johnny.middleware.QueryCacheMiddleware:** É o *middleware*
     responsável pela “mágica” de *caching* no *ORM*.
@@ -342,7 +342,7 @@ Referências
     "Conheça a ferramenta de caching, Johnny Cache"
   [*PyPi*]: http://pypi.python.org/pypi
     "the Python Package Index"
-  [maneira 'thread-safe’]: https://github.com/jmoiron/johnny-cache/blob/master/johnny/transaction.py
+  [maneira "thread-safe"]: https://github.com/jmoiron/johnny-cache/blob/master/johnny/transaction.py
     "Veja o uso dessa modalidade no módulo transaction.py"
   [subclasse do *backend built-in* do *Django* para o *Memcached*]: https://github.com/jmoiron/johnny-cache/blob/master/johnny/backends/memcached.py
     "Veja o código-fonte"
