@@ -16,7 +16,7 @@ DEFAULT_DATE_FORMAT = '%d %b, %Y'
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
 STATIC_PATHS = ['images']
-THEME = 'themnific-pelican'
+THEME = 'maggner-pelican'
 
 PLUGIN_PATH = 'plugins'
 PLUGINS = ['assets', 'global_license', 'image_tag', 'summary', 'slideshare']
