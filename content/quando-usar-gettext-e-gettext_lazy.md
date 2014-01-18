@@ -35,7 +35,8 @@ caracteres).
 Além disso, passe a mensagem como *Unicode* para a função sempre que
 necessário:
 
-> texto_traduzido = ugettext(u'Descrição do produto em estoque')
+    ::python
+    texto_traduzido = ugettext(u'Descrição do produto em estoque')
 
 
 ugettext vs ugettext\_lazy

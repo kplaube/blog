@@ -21,15 +21,17 @@ Começando…
 Vamos reutilizar a estrutura dos *posts* anteriores. Para isso, inicie
 um projeto com o [*virtualenv*][]:
 
-> $ cd ~/Projetos/<br>
-> $ virtualenv DjangoComHG --no-site-packages<br>
-> $ cd DjangoComHG/
+    ::bash
+    $ cd ~/Projetos/
+    $ virtualenv DjangoComHG --no-site-packages
+    $ cd DjangoComHG/
 
 Vamos aproveitar os procedimentos descritos na [parte 2][1] deste
 *post*. Caso você ainda não tenha criado um repositório no
 [*Bitbucket*][], essa é uma boa oportunidade.
 
-> $ hg clone &lt;caminho&gt; django_com_hg
+    ::bash
+    $ hg clone <caminho> django_com_hg
 
 Não esqueça de mudar o **caminho** para o **endereço do seu
 repositório**.
@@ -41,19 +43,22 @@ Instalando o Django
 Com o *virtualenv* ativado, vamos instalar o *Django* apenas para o
 nosso ambiente *virtual* através do *pip*:
 
-> $ source bin/activate<br>
-> $ pip install django
+    ::bash
+    $ source bin/activate
+    $ pip install django
 
 Só para ter certeza que ele instalou o *Django* dentro do nosso ambiente
 virtual, vamos abrir o terminal do [*Python*][] e digitar as seguintes
 instruções:
 
-> import django<br>
-> django.__path__
+    ::python
+    import django
+    django.__path__
 
 Você deverá obter como resposta uma _string_ semelhante a esta:
 
-> $HOME/Projetos/DjangoComHG/lib/python2.6/site-packages/django/
+    ::bash
+    $HOME/Projetos/DjangoComHG/lib/python2.6/site-packages/django/
 
 
 Iniciando um projeto
@@ -63,27 +68,31 @@ Vamos fazer uma pequena brincadeira de troca de nomes de pastas, para
 que possamos criar o nosso projeto *Django* com o mesmo nome do
 repositório *Mercurial*:
 
-> $ mv post_django_com_hg post_django_com_hg.bk
+    ::bash
+    $ mv post_django_com_hg post_django_com_hg.bk
 
 Agora mandamos o **django-admin.py** iniciar o projeto:
 
-> $ django-admin.py startproject post_django_com_hg
+    ::bash
+    $ django-admin.py startproject post_django_com_hg
 
 Movemos os arquivos do nosso repositório para dentro de
 **post\_django\_com\_hg**:
 
-> $ mv post_django_com_hg.bk/* post_django_com_hg/<br>
-> $ mv post_django_com_hg.bk/.hg post_django_com_hg/<br>
-> $ mv post_django_com_hg.bk/.hgignore post_django_com_hg/
+    ::bash
+    $ mv post_django_com_hg.bk/* post_django_com_hg/
+    $ mv post_django_com_hg.bk/.hg post_django_com_hg/
+    $ mv post_django_com_hg.bk/.hgignore post_django_com_hg/
 
 Entre no diretório **post\_django\_com\_hg** e dê um **hg status**. Os
 arquivos base do \_Django- não estão no projeto. Vamos adicioná-los,
 comitá-los e dar um **push** deles para o repositório *Mercurial* no
 *Bitbucket*:
 
-> $ hg add .<br>
-> $ hg commit -m "Projeto Django iniciado"<br>
-> $ hg push
+    ::bash
+    $ hg add .
+    $ hg commit -m "Projeto Django iniciado"
+    $ hg push
 
 Nos *changesets* do repositório, veremos a contribuição enviada:
 
@@ -102,33 +111,38 @@ dizer que ele vai ter que criar um *virtualenv*, clonar o repositório e
 instalar as dependências do projeto? A resposta é “sim” – Mas podemos
 facilitar esta última parte através do *pip*:
 
-> $ pip freeze<br><br>
-> Django==1.3<br>
-> wsgiref==0.1.2
+    ::bash
+    $ pip freeze
+
+    Django==1.3
+    wsgiref==0.1.2
 
 O comando **pip freeze** vai coletar os pacotes *Python* instalados
 (nesse nosso caso, dentro do nosso ambiente virtual através do
 *virtualenv*) e exibir para a gente em formato de lista. Com isso,
 podemos criar um arquivo que armazene as dependências do nosso projeto:
 
-> $ pip freeze > requirements.txt
+    ::bash
+    $ pip freeze > requirements.txt
 
 Vamos desativar o ambiente atual, criar um novo e instalar as
 dependências listadas nesta arquivo **requirements.txt** neste novo
 ambiente:
 
-> $ deactivate<br>
-> $ cd ~/Projetos/<br>
-> $ virtualenv DjangoComHG-2 --no-site-packages<br>
-> $ source DjangoComHG-2/bin/activate<br>
-> $ pip install -r DjangoComHG/post_django_com_hg/requirements.txt
+    ::bash
+    $ deactivate
+    $ cd ~/Projetos/
+    $ virtualenv DjangoComHG-2 --no-site-packages
+    $ source DjangoComHG-2/bin/activate
+    $ pip install -r DjangoComHG/post_django_com_hg/requirements.txt
 
 Veja a mágica acontecendo… o *pip* instalará todas as dependências
 contidas em **requirements.txt** em nosso novo ambiente virtual.
 
 Podemos resumir os comandos acima em:
 
-> $ pip install -E DjangoComHG-2 -r DjangoComHG/post_django_com_hg/requirements.txt
+    ::bash
+    $ pip install -E DjangoComHG-2 -r DjangoComHG/post_django_com_hg/requirements.txt
 
 A instrução acima deverá ser escrita em um linha só.
 
@@ -139,10 +153,11 @@ Versionando dependências do projeto
 Logo o **requirements.txt** sendo um arquivo de texto, pode ser
 facilmente versionado pelo *Mercurial*:
 
-> $ cd ~/Projetos/DjangoComHG/post_django_com_hg<br>
-> $ hg add requirements.txt<br>
-> $ hg commit -m "Adicionado arquivo de dependências do pip"<br>
-> $ hg push
+    ::bash
+    $ cd ~/Projetos/DjangoComHG/post_django_com_hg
+    $ hg add requirements.txt
+    $ hg commit -m "Adicionado arquivo de dependências do pip"
+    $ hg push
 
 Finalmente, temos um projeto *Django* versionado com *Mercurial*,
 disponível no *Bitbucket*, e com dependências facilmente gerenciáveis

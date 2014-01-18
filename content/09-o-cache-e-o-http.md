@@ -27,9 +27,9 @@ O que é “caching”?
 
 Segundo [*Kalid Azad*][]:
 
-<cite>Caching is a great example of the ubiquitous time-space tradeoff
-in programming. You can save time by using space to store
-results.</cite>
+> Caching is a great example of the ubiquitous time-space tradeoff
+> in programming. You can save time by using space to store
+> results.
 
 Basicamente, ***caching*** é o ato de “economizar processamento”
 armazenando os seus resultados. Um bom exemplo é o temporário do seu
@@ -66,21 +66,25 @@ recente, o navegador faz um novo *download*.
 Vamos fazer uma requisição tendo como resposta um cabeçalho
 **Last-Modified**:
 
-> $ curl -i -I http://klauslaube.com.br/media/blog/security.jpg<br>
-> HTTP/1.1 200 OK<br>
-> ...<br>
-> Date: Tue, 01 May 2012 19:20:27 GMT<br>
-> Last-Modified: Sat, 07 Apr 2012 17:51:10 GMT<br>
-> ...
+    ::bash
+    $ curl -i -I http://klauslaube.com.br/media/blog/security.jpg
+
+    HTTP/1.1 200 OK
+    ...
+    Date: Tue, 01 May 2012 19:20:27 GMT
+    Last-Modified: Sat, 07 Apr 2012 17:51:10 GMT
+    ...
 
 Uma vez que o arquivo esteja em disco, o navegador tem como informar a
 data da última alteração. Então, fazemos uma nova requisição ao arquivo
 **security.jpg**, passando esta data no cabeçalho **If-Modified-Since**:
 
-> $ curl -i -H "If-Modified-Since: Sat, 07 Apr 2012 17:51:10 GMT" http://klauslaube.com.br/media/blog/security.jpg<br>
-> HTTP/1.1 304 Not Modified<br>
-> Date: Tue, 01 May 2012 19:22:00 GMT<br>
-> Last-Modified: Sat, 07 Apr 2012 17:51:10 GMT
+    ::bash
+    $ curl -i -H "If-Modified-Since: Sat, 07 Apr 2012 17:51:10 GMT" http://klauslaube.com.br/media/blog/security.jpg
+
+    HTTP/1.1 304 Not Modified
+    Date: Tue, 01 May 2012 19:22:00 GMT
+    Last-Modified: Sat, 07 Apr 2012 17:51:10 GMT
 
 A resposta “**304 Not Modified**“ não traz o conteúdo do arquivo em seu
 corpo, e é através desta resposta que o navegador sabe que não precisa
@@ -101,22 +105,26 @@ requisições.
 Quando trabalhamos com **ETag**, obtemos respostas com o seguinte
 cabeçalho:
 
-> $ curl -i -I http://localhost/exemplo-cache.html<br>
-> HTTP/1.1 200 OK<br>
-> ...<br>
-> Date: Tue, 01 May 2012 19:46:18 GMT<br>
-> ETag: "2c6b0d8-13-4befe555d6f80"<br>
-> ...
+    ::bash
+    $ curl -i -I http://localhost/exemplo-cache.html
+
+    HTTP/1.1 200 OK
+    ...
+    Date: Tue, 01 May 2012 19:46:18 GMT
+    ETag: "2c6b0d8-13-4befe555d6f80"
+    ...
 
 É através do valor **2c6b0d8-13-4befe555d6f80** que navegador e servidor
 saberão se aquele arquivo em questão já está armazenado em *cache*. Isso
 é possível através do cabeçalho **If-None-Match**, enviado pelo
 navegador na requisição:
 
-> $ curl -i -I -H "If-None-Match: \"2c6b0d8-13-4befe555d6f80\"" http://localhost/exemplo-cache.html<br>
-> HTTP/1.1 304 Not Modified<br>
-> Date: Tue, 01 May 2012 19:50:40 GMT<br>
-> ETag: "2c6b0d8-13-4befe555d6f80"
+    ::bash
+    $ curl -i -I -H "If-None-Match: \"2c6b0d8-13-4befe555d6f80\"" http://localhost/exemplo-cache.html
+
+    HTTP/1.1 304 Not Modified
+    Date: Tue, 01 May 2012 19:50:40 GMT
+    ETag: "2c6b0d8-13-4befe555d6f80"
 
 Uma vez que o valor bata com o identificador do arquivo, o servidor
 informa ao navegador que não houve alterações. Então, o navegador
@@ -136,12 +144,14 @@ voltará a consultar o servidor quando este tempo for alcançado.
 Com o **Expires**, o servidor retorna no cabeçalho da resposta uma data
 de validade para um determinado arquivo:
 
-> $ curl -i -I http://klauslaube.com.br/media/blog/cookies.jpg<br>
-> HTTP/1.1 200 OK<br>
-> Date: Tue, 08 May 2012 01:49:13 GMT<br>
-> ...<br>
-> Expires: Thu, 31 Dec 2037 23:55:55 GMT<br>
-> ...
+    ::bash
+    $ curl -i -I http://klauslaube.com.br/media/blog/cookies.jpg
+
+    HTTP/1.1 200 OK
+    Date: Tue, 08 May 2012 01:49:13 GMT
+    ...
+    Expires: Thu, 31 Dec 2037 23:55:55 GMT
+    ...
 
 Solicitando uma nova requisição para este mesmo arquivo, o navegador
 analisará a data local e a data de expiração. Se a data atual for maior
@@ -168,12 +178,14 @@ Com o **max-age** temos a opção de utilizar datas “relativas”, ou seja,
 podemos dizer ao navegador que o arquivo irá expirar em 1 dia (em
 segundos):
 
-> $ curl -i http://localhost/exemplo-cache.html<br>
-> HTTP/1.1 200 OK<br>
-> Date: Mon, 14 May 2012 17:04:29 GMT<br>
-> ...<br>
-> Cache-Control: max-age=86400, must-revalidate<br>
-> ...
+    ::bash
+    $ curl -i http://localhost/exemplo-cache.html
+
+    HTTP/1.1 200 OK
+    Date: Mon, 14 May 2012 17:04:29 GMT
+    ...
+    Cache-Control: max-age=86400, must-revalidate
+    ...
 
 Como você já deve ter reparado, não existe um índice de cabeçalho
 específico chamado **max-age**. Ele é na verdade um valor do índice

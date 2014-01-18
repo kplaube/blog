@@ -179,12 +179,14 @@ utilizamos na resposta um tipo [sequencial][].
 
 Agora somos capazes de servir a aplicação através de *CGI*:
 
+    ::python
     from wsgiref.handlers import CGIHandler
 
     CGIHandler().run(application)
 
 E até mesmo *FastCGI*:
 
+    ::python
     from flup.server.fcgi import WSGIServer
     
     WSGIServer(application).run()
@@ -227,6 +229,7 @@ aplicações *WSGI*, como por exemplo o [*Gunicorn*][], o [*uWSGI*][] ou
 até mesmo o [*Tornado*][]. Além da versatilidade e performance, a
 facilidade é outra característica marcante em muitas dessas ferramentas:
 
+    ::bash
     $ gunicorn -w 4 -b 127.0.0.1:5000 wsgi:application
 
 No exemplo acima, levantamos o *Gunicorn* na **porta 5000**, e

@@ -45,6 +45,7 @@ de [*assertions*][] para garantir o comportamento do código testado
 *Java* não vai sentir grandes mudanças na abordagem, já que a *unittest*
 é inspirada na [*JUnit*][] (sendo muitas vezes até chamada de *PyUnit*):
 
+    ::python
 	import unittest
 	from myapp.models import Animal
 	
@@ -63,7 +64,8 @@ O *test runner* padrão do *Django* irá procurar por subclasses de
 de testes tenta facilitar ao máximo a sua vida… execute a seguinte
 instrução e confira se a sua aplicação está *ok* ou não:
 
-> $ python manage.py test
+    ::bash
+    $ python manage.py test
 
 
 ### Peraí que não acabou! Apresentando a TestCase
@@ -87,6 +89,7 @@ interpreta [*docstrings*][] na aplicação. A sintaxe nesses trechos de
 *docstrings* é diferenciada, simulando um interpretador interativo do
 *Python*:
 
+    ::python
     # models.py
 	from django.db import models
 	
@@ -128,6 +131,7 @@ Toda a classe **TestCase** possui uma instância da **Django Test
 Client**. Então escrever testes com requisições à sua aplicação fica
 muito simples utilizando classes:
 
+    ::python
     from django.test import TestCase
 	
 	class SimpleTest(TestCase):
@@ -142,6 +146,7 @@ muito simples utilizando classes:
 É perfeitamente possível utilizar a **test client** em *doctests*
 também:
 
+    ::python
     """
 	>>> from django.test.client import Client
 	>>> c = Client()

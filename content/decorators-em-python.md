@@ -51,6 +51,7 @@ criar os seus próprios sem muito dificuldade. É possível identificar um
 *decorator* através do caractere **@**, por exemplo, a instrução abaixo
 declara o método **say\_hello** da classe **People** como estático:
 
+    ::python
     class People:
 		@staticmethod
 		def say_hello():
@@ -61,6 +62,7 @@ Vale notar que podemos reproduzir o comportamento acima sem utilizar a
 sintaxe especial de *decorators* (mas não deixamos de utilizar o
 conceito):
 
+    ::python
     class People:
 		def say_hello():
 			print 'Hello!'
@@ -76,6 +78,7 @@ Um pouco de prática
 
 Vamos por a mão na massa e criar o nosso próprio *decorator*:
 
+    ::python
 	# meu_decorator.py
 	
 	def meu_decorador(alvo):
@@ -94,10 +97,11 @@ Vamos por a mão na massa e criar o nosso próprio *decorator*:
 
 Chamando o *script* acima, teremos o seguinte resultado:
 
-> $ python meu_decorator.py
->
-> Chamando a funcao "meu_alvo"
-> Eu sou um alvo!
+    ::bash
+    $ python meu_decorator.py
+
+    Chamando a funcao "meu_alvo"
+    Eu sou um alvo!
 
 
 Vou tentar seguir um fluxo que deixe claro o que o procedimento está
@@ -131,6 +135,7 @@ que a impressão de **“Eu sou um alvo!”**.
 Bacana não? Aqui vai mais um para deixar as coisas um pouco mais claras…
 vamos simular o esquema de roteamento de uma *framework* [*Web*][]:
 
+    ::python
     rotas = []
 	
 	def rota(endereco):

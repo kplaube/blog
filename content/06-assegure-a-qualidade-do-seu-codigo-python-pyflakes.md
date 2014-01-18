@@ -45,13 +45,15 @@ Vamos analisar o código de um projeto da faculdade que eu fiz, chamado
 [*Social portal for soccer players*][] (encontra-se aberto no
 *BitBucket*):
 
-> $ pyflakes apps/notificate/views.py
+    ::bash
+    $ pyflakes apps/notificate/views.py
 
 A resposta é muito clara. Existem classes sendo importadas, mas que não
 estão sendo usadas:
 
-> apps/notificate/views.py:3: 'EmptyPage' imported but unused<br>
-> apps/notificate/views.py:3: 'InvalidPage' imported but unused
+    ::bash
+    apps/notificate/views.py:3: 'EmptyPage' imported but unused
+    apps/notificate/views.py:3: 'InvalidPage' imported but unused
 
 O funcionamento básico do *Pyflakes* é esse… simples como as melhores
 coisas devem ser!

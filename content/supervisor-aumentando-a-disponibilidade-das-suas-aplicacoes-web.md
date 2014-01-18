@@ -45,44 +45,50 @@ Instalar para administrar
 
 Para instalar, basta utilizar o *pip*:
 
-> $ pip install supervisor
+    ::bash
+    $ pip install supervisor
 
 Vamos gerar um arquivo de configuração básico:
 
-> $ echo_supervisord_conf > /etc/supervisord.conf
+    ::bash
+    $ echo_supervisord_conf > /etc/supervisord.conf
 
 Vamos aproveitar que [falamos recentemente sobre a instalação do *Nginx*][],
 para demonstrar o princípio do *Supervisor*. Adicione as
 seguintes linhas ao arquivo **/etc/supervisord.conf**:
 
+    ::nginx
     [program:nginx]
     command=/usr/local/nginx/sbin/nginx
 
 Agora iniciamos o serviço do *Supervisor*:
 
-> $ supervisord
+    ::bash
+    $ supervisord
 
 E através do **supervisorctl**, vamos iniciar e parar o *Nginx*:
 
-> $ supervisorctl start all<br>
-> nginx: started<br>
->
-> $ ps aux | grep nginx<br>
-> root      1863  0.0  0.1 (...) /usr/local/nginx/sbin/nginx<br>
->
-> $ supervisorctl stop nginx<br>
-> nginx: stopped
+    ::bash
+    $ supervisorctl start all
+    nginx: started
+
+    $ ps aux | grep nginx
+    root      1863  0.0  0.1 (...) /usr/local/nginx/sbin/nginx
+
+    $ supervisorctl stop nginx
+    nginx: stopped
 
 E agora, o “pulo do gato”. Com o *Nginx* iniciado via *Supervisor*,
 vamos fechá-lo através de um comando **kill**:
 
-> $ supervisorctl start nginx<br>
-> nginx: started<br>
->
-> $ killall nginx<br>
->
-> $ ps aux | grep nginx<br>
-> root      1917  0.0  0.1 (...) /usr/local/nginx/sbin/nginx
+    ::bash
+    $ supervisorctl start nginx
+    nginx: started
+
+    $ killall nginx
+
+    $ ps aux | grep nginx
+    root      1917  0.0  0.1 (...) /usr/local/nginx/sbin/nginx
 
 Magia? Que nada! É a ferramenta garantindo que os nossos processos não
 fiquem “down”. [*Brandon Konkle*][] e [*Senko Rasic*][] possuem exemplos

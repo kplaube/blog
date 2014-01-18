@@ -32,6 +32,7 @@ O modelo é bom, e funcionou para mim durante muito tempo. Mas de uns
 tempos para cá venho utilizando o esquema abaixo (confira um exemplo
 real):
 
+    ::text
     mysite/
         apps/
             __init__.py 
@@ -98,6 +99,7 @@ por exemplo.
 No fim das contas, geralmente a estrutura de pastas dos projetos
 *Django* fica assim:
 
+    ::text
     MySiteProject/
         bin/
         include/

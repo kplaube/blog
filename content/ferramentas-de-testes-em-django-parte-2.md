@@ -28,6 +28,7 @@ Com a [***Splinter***][], uma ferramenta para testes de aplicações
 visitar uma página, preencher um formulário ou clicar em um *link*; tudo
 isso sem preocupar-se com *parsing*, nós, *DOM*, nem nada do tipo:
 
+    ::python
     from splinter.browser
 	import Browser
 
@@ -72,6 +73,7 @@ detalhada, ele percorre o seu projeto (ou uma determinada região de seu
 escolha) executando subclasses da **unittest.TestCase** ou funções que
 contenham “test”. Por exemplo:
 
+    ::python
     # test_subclasse.py
 	import unittest
 	
@@ -87,12 +89,13 @@ contenham “test”. Por exemplo:
 Ao executar o comando **nosetests** o *nose* se encarregará de procurar
 e carregar os testes:
 
-> $ nosetests
-> ..
-> ----------------------------------------------------------------------
-> Ran 2 tests in 0.005s
->
-> OK
+    ::bash
+    $ nosetests
+    ..
+    ----------------------------------------------------------------------
+    Ran 2 tests in 0.005s
+
+    OK
 
 
 É claro que existe uma “mágica” aí. Na verdade o *nose* pesquisará por
@@ -129,6 +132,7 @@ do que da área técnica, e automatize a validação delas.
 O mais bacana é que ela já vem preparada para o *Django*, permitindo que
 a gente execute os testes de comportamento de forma fácil e rápida:
 
+    ::text
     Feature: Rocking with lettuce and django
 	
 		Scenario: Simple Hello World
@@ -143,6 +147,7 @@ a gente execute os testes de comportamento de forma fácil e rápida:
 Estória escrita, vamos escrever o *script* *Python* que validará se está
 tudo de acordo:
 
+    ::python
     from lettuce import *
 	from lxml import html
 	from django.test.client import Client
@@ -164,7 +169,8 @@ tudo de acordo:
 
 Basta executá-lo da seguinte maneira:
 
-> $ python manage.py harvest
+    ::bash
+    $ python manage.py harvest
 
 [Confira mais informações sobre como utilizar o *lettuce* com *Django*][].
 
@@ -183,6 +189,7 @@ disponibilidade do serviço do *Twitter*, portanto, escrevemos um “objeto
 mentiroso”, que simulará este serviço, aceitando uma entrada e gerando
 um saída:
 
+    ::python
     import fudge
 	
 	@fudge.patch('oauthtwitter.OAuthApi')

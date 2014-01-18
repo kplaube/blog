@@ -46,10 +46,12 @@ Vamos analisar o código do [*Django Brasil*][] (você não sabia? O site é
 *open source*!), mais especificamente o arquivo **models.py** da *app*
 **blog**:
 
-> $ pep8 src/djangobrasil/apps/blog/models.py<br><br>
-> src/djangobrasil/apps/blog/models.py:42:65: W291 trailing whitespace
-> src/djangobrasil/apps/blog/models.py:62:1: E302 expected 2 blank lines, found 1
-> src/djangobrasil/apps/blog/models.py:105:80: E501 line too long (89 characters)
+    ::bash
+    $ pep8 src/djangobrasil/apps/blog/models.py
+
+    src/djangobrasil/apps/blog/models.py:42:65: W291 trailing whitespace
+    src/djangobrasil/apps/blog/models.py:62:1: E302 expected 2 blank lines, found 1
+    src/djangobrasil/apps/blog/models.py:105:80: E501 line too long (89 characters)
 
 Como podemos ver, a ferramenta nos mostra a linha e coluna onde o
 problema foi encontrado, apresentando uma breve descrição da incoerência
@@ -59,7 +61,8 @@ que estamos cometendo em relação às recomendações da
 Para obter uma resposta mais “verbose“, podemos passar alguns parâmetros
 para o **pep8**:
 
-> $ pep8 src/djangobrasil/apps/blog/models.py --show-source --show-pep8<br>
+    ::bash
+    $ pep8 src/djangobrasil/apps/blog/models.py --show-source --show-pep8
 
 Viu só?! Dessa forma podemos aprender sobre a *PEP 8* enquanto “ferimos” as 
 convenções de código em nossos projetos :D
@@ -67,14 +70,15 @@ convenções de código em nossos projetos :D
 Para finalizar, podemos contar as ocorrências de problemas com a
 *PEP 8* em determinada região do projeto:
 
-> $ pep8 src/djangobrasil/apps/blog/ --statistics -qq --filename=*.py<br>
->
-> 1       E225 missing whitespace around operator<br>
-> 7       E302 expected 2 blank lines, found 1<br>
-> 1       E303 too many blank lines (2)<br>
-> 11      E501 line too long (89 characters)<br>
-> 4       W291 trailing whitespace<br>
-> 2       W391 blank line at end of file<br>
+    ::bash
+    $ pep8 src/djangobrasil/apps/blog/ --statistics -qq --filename=*.py
+
+    1       E225 missing whitespace around operator
+    7       E302 expected 2 blank lines, found 1
+    1       E303 too many blank lines (2)
+    11      E501 line too long (89 characters)
+    4       W291 trailing whitespace
+    2       W391 blank line at end of file
 
 Nenhum problema muito grave de convenções de código na *app blog* do
 *DjangoBrasil* ;)

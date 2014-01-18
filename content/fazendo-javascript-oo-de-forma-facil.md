@@ -26,6 +26,7 @@ como os objetos **Array**, **Math** e **String**. Estes (e outros
 [objetos de *core*][]) são instâncias do objeto **Object**, que você
 pode representar através da seguinte expressão:
 
+    ::javascript
     var meuObjeto = { };
     typeof(meuObjeto); // object
     typeof(Math);      // object
@@ -33,6 +34,7 @@ pode representar através da seguinte expressão:
 Você encontrará uma forma (muito bacana por sinal) de construir objetos
 através de expressões como essas:
 
+    ::javascript
     var fooBar = {
         init: function() {
             console.log("Posso funcionar como um inicializador!");
@@ -70,6 +72,7 @@ Função ou Classe?
 Já utilizei algumas vezes o modelo acima… mas devo dizer que sou adepto
 a uma outra forma de construirmos classes em *Javascript*:
 
+    ::javascript
     var Pessoa = function() {
         console.log("Pessoa instanciada!");
     };
@@ -104,6 +107,7 @@ acredito ser a mais usual. Não tenho propriedade para dizer se é o modo
 certo ou mais elegante, apenas é o modo que incorpora características de
 *OOP* que melhor me atendeu:
 
+    ::javascript
     var Linguagem = function(nome, versao) {
         this.nome = nome;
         this.versao = versao;
@@ -116,6 +120,7 @@ passados imediatamente na hora de instanciá-la.
 Para criar um método para esta classe, vamos recorrer ao *prototype* do
 *Javascript*:
 
+    ::javascript
     Linguagem.prototype.descricaoCompleta = function() {
         return this.nome + " vr. " + this.versao;
     };
@@ -129,6 +134,7 @@ Se tentarmos executar a expressão **Linguagem.descricaoCompleta**,
 iremos nos deparar com um erro de método inexistente. Mas, se
 instanciarmos a classe veremos que o método está acessível:
 
+    ::javascript
     var python = new Linguagem("Python", "2.7");
     console.log(python);                      // Linguagem
     console.log(python.descricaoCompleta());  // Python vr.2.7
@@ -137,6 +143,7 @@ Acima utilizamos o conceito de métodos e atributos de instância. Através
 do modelo *Object Literal* podemos ter um comportamento parecido com o
 conceito de métodos de classe:
 
+    ::javascript
     var Linguagem = function(nome, versao) {
         this.nome = nome;
         this.versao = versao;  // Chamando um método que está fora do prototype da classe
@@ -168,7 +175,7 @@ Herdar é preciso
 Para entender como criar heranças com o *prototype* do *Javascript*,
 vamos primeiramente criar um tipo chamado *Framework*:
 
-
+    ::javascript
     var Framework = function(nomeFramework, nome, versao) {
         this.nome = nome;
         this.versao = versao;
@@ -183,6 +190,7 @@ E é aqui que a mágica acontece… instanciamos o tipo *Linguagem* no
 *Framework* possua todas as propriedades de Linguagem. Depois corrigimos
 o constructor, apontando ele novamente para *Framework*:
 
+    ::javascript
     // Cria herança com Linguagem
     Framework.prototype = new Linguagem();
 
@@ -191,6 +199,7 @@ o constructor, apontando ele novamente para *Framework*:
 
 Vamos adicionar um método exclusivo da classe *Framework*:
 
+    ::javascript
     Framework.prototype.feitoEm = function() {
         return this.nomeFramework + " é feito em " + this.nome;
     };
@@ -198,6 +207,7 @@ Vamos adicionar um método exclusivo da classe *Framework*:
 Instanciamos algumas vezes a classe *Framework*, e teremos o
 comportamento esperado de uma herança:
 
+    ::javascript
     var django = new Framework("Django", "Python", "2.7");
 
     console.log(django);                      // Framework

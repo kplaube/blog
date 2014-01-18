@@ -57,21 +57,24 @@ distribuição *Linux*, sem maiores problemas.
 Vamos começar fazendo o *download* da versão mais recente (até então),
 direto do site oficial do *Nginx*:
 
-> $ wget http://nginx.org/download/nginx-1.0.11.tar.gz
+    ::bash
+    $ wget http://nginx.org/download/nginx-1.0.11.tar.gz
 
 O procedimento de instalação não difere em nada do método tradicional
 que estamos acostumados no *Linux*. Apenas lembre-se de executar o
 **make install** como **root**:
 
-> $ tar -zxvf nginx-1.0.11.tar.gz; cd nginx-1.0.11<br>
-> $ ./configure<br>
-> $ make<br>
-> $ make install
+    ::bash
+    $ tar -zxvf nginx-1.0.11.tar.gz; cd nginx-1.0.11
+    $ ./configure
+    $ make
+    $ make install
 
 O *Nginx* será instalado em **/usr/local/nginx/**. Você pode iniciar o
 serviço através do comando (como **root**):
 
-> $ /usr/local/nginx/sbin/nginx
+    ::bash
+    $ /usr/local/nginx/sbin/nginx
 
 Acessando o seu *localhost*, o serviço estará pronto e dando boas
 vindas!
@@ -87,11 +90,13 @@ Abra (como **root**) o arquivo **/usr/local/nginx/conf/nginx.conf**, no
 final do arquivo, adicione a seguinte expressão antes do fechamento das
 chaves:
 
+    ::nginx
     include example;
 
 Esta expressão importará o arquivo **/usr/local/nginx/conf/example**,
 que criaremos a seguir:
 
+    ::nginx
     server {
         listen        127.0.0.1:8080;
         server_name   example;
@@ -105,8 +110,9 @@ que criaremos a seguir:
 
 Intuitivo não?! Vamos criar o *path* onde armazenaremos o *HTML*:
 
-> mkdir /var/www/example<br>
-> echo "It works! " > /var/www/example/index.html
+    ::bash
+    mkdir /var/www/example
+    echo "It works! " > /var/www/example/index.html
 
 Basta acessar o endereço **localhost:8080**, e pronto!
 

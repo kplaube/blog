@@ -54,6 +54,7 @@ data de “validade vencida”.
 Para entender como essa troca de informação é feita, vamos criar um
 *cookie* com o [*PHP*][]:
 
+    ::php
     <?php
         // cookies.php
         
@@ -73,14 +74,15 @@ hora de vida** (a hora atual mais 3600 segundos).
 Quando visitamos pela primeira vez o **cookies.php**, temos a seguinte
 resposta:
 
-> $ curl -I localhost/cookies.php<br>
->
-> HTTP/1.1 200 OK<br>
-> Date: Wed, 04 Apr 2012 00:35:33 GMT<br>
-> Server: Apache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8r DAV/2 PHP/5.3.8<br>
-> X-Powered-By: PHP/5.3.8<br>
-> Set-Cookie: cookie_teste=Algum+valor...; expires=Wed, 04-Apr-2012 01:35:33 GMT<br>
-> Content-Type: text/html
+    ::bash
+    $ curl -I localhost/cookies.php
+
+    HTTP/1.1 200 OK
+    Date: Wed, 04 Apr 2012 00:35:33 GMT
+    Server: Apache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8r DAV/2 PHP/5.3.8
+    X-Powered-By: PHP/5.3.8
+    Set-Cookie: cookie_teste=Algum+valor...; expires=Wed, 04-Apr-2012 01:35:33 GMT
+    Content-Type: text/html
 
 Através da função **setcookie** do *PHP*, estamos enviando um item
 chamado **Set-Cookie** no cabeçalho *HTTP* da resposta. É através deste
@@ -128,6 +130,7 @@ Quando iniciamos uma sessão, é enviado um *cookie* para o navegador, com
 um valor único que corresponde a sessão aberta no servidor *Web*. Vamos
 ilustrar através do exemplo abaixo:
 
+    ::php
     <?php
         // sessions.php
 
@@ -145,17 +148,18 @@ O código acima inicia uma sessão através do método **session\_start**.
 Na primeira visita, será criado um índice **usuario** com o valor
 **João**. A resposta da nossa requisição será a seguinte:
 
-> $ curl -I localhost/sessions.php<br>
->
-> HTTP/1.1 200 OK<br>
-> Date: Wed, 04 Apr 2012 01:51:57 GMT<br>
-> Server: Apache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8r DAV/2 PHP/5.3.8<br>
-> X-Powered-By: PHP/5.3.8<br>
-> Set-Cookie: PHPSESSID=4h91dkp7pcp8184nil8rt9ok13; path=/<br>
-> Expires: Thu, 19 Nov 1981 08:52:00 GMT<br>
-> Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0<br>
-> Pragma: no-cache<br>
-> Content-Type: text/html<br>
+    ::bash
+    $ curl -I localhost/sessions.php
+
+    HTTP/1.1 200 OK
+    Date: Wed, 04 Apr 2012 01:51:57 GMT
+    Server: Apache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8r DAV/2 PHP/5.3.8
+    X-Powered-By: PHP/5.3.8
+    Set-Cookie: PHPSESSID=4h91dkp7pcp8184nil8rt9ok13; path=/
+    Expires: Thu, 19 Nov 1981 08:52:00 GMT
+    Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+    Pragma: no-cache
+    Content-Type: text/html
 
 Por partes:
 

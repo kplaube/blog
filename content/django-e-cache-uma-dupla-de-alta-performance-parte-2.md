@@ -42,6 +42,7 @@ jogos e atletas. Como esta consulta é consideravelmente demorada,
 utilizamos a *API* de *cache* para melhorar os tempos de resposta.
 Exemplo:
 
+    ::python
     from django.core.cache import cache
     ...
     def jogos_por_edicao(edicao_slug):
@@ -60,6 +61,7 @@ aceita um terceiro parâmetro, que é o tempo de vida desta informação em
 Para remover esta informação do *cache*, basta utilizarmos o método
 **cache.delete**:
 
+    ::python
     cache.delete('jogos_%s' % edicao_slug)
 
 Você tem a liberdade de fazer *caching* de qualquer região da sua
@@ -83,6 +85,7 @@ melhorar um pouquinho este fluxo, sem necessitar do *Memcached*, basta
 adicionarmos o **django.template.loaders.cached.Loader** ao
 **TEMPLATE\_LOADERS** do **settings.py**:
 
+    ::python
     TEMPLATE_LOADERS = (
         ('django.template.loaders.cached.Loader', (
             'django.template.loaders.filesystem.Loader',
@@ -111,6 +114,7 @@ de interpretação do *template*.
 Na [documentação][] há um exemplo bem interessante, onde é feito o
 *cache* de um *sidebar* inteiro:
 
+    ::html
     {% load cache %}
 
     {% cache 500 sidebar %}
@@ -141,6 +145,7 @@ Para que isso seja possível, é necessário a utilização dos *middlewares*
 **django.middleware.cache.UpdateCacheMiddleware** e
 **django.middleware.cache.FetchFromCacheMiddleware**:
 
+    ::python
     MIDDLEWARE_CLASSES = (
         'django.middleware.cache.UpdateCacheMiddleware',
         ...
@@ -160,6 +165,7 @@ Além da configuração das seguintes constantes:
 
 Ao acessar as *views*, temos uma agradável surpresa:
 
+    ::bash
     $ curl -I http://localhost:8000/
     
     HTTP/1.0 200 OK
@@ -189,6 +195,7 @@ de outras. Para tanto, podemos utilizar *decorators* que “sobrescrevem”
 as configurações utilizadas pelo *per-site*, permitindo assim um
 controle mais granular sobre o tempo de *cache* das *views*. Exemplo:
 
+    ::python
     from django.views.generic.simple import direct_to_template
     from django.views.decorators.cache import cache_page
 
@@ -207,6 +214,7 @@ legível).
 E quando acessamos esta *view*, é possível reparar que inclusive os
 valores dos cabeçalhos *HTTP* são outros:
 
+    ::bash
     $ curl -I http://localhost:8000/outra-view/
     
     HTTP/1.0 200 OK
@@ -246,6 +254,7 @@ O *Johnny Cache* está no [*PyPi*][], então basta um **pip install
 johnny-cache** para realizarmos a instalação. Para configurar,
 precisamos adicionar algumas informações ao **settings.py**:
 
+    ::python
     MIDDLEWARE_CLASSES = (
         'johnny.middleware.LocalStoreClearMiddleware',
         'johnny.middleware.QueryCacheMiddleware',

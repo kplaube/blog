@@ -26,14 +26,16 @@ o Mercurial em linha de comando através de comandos iniciados por
 Antes de iniciarmos, vamos dizer ao *Mercurial* quem nós somos. Abra o
 arquivo **.hgrc** do seu **home**:
 
-> $ vim ~/.hgrc
+    ::bash
+    $ vim ~/.hgrc
 
 É fundamental que nossos *commits* estejam marcados com nosso nome, e um
 e-mail para contato. Vamos escrever estas duas informações neste
 arquivo:
 
-> [ui]<br>
-> username = seu nome < seuemail@provedor.com >
+    ::ini
+    [ui]
+    username = seu nome < seuemail@provedor.com >
 
 Salve o arquivo… e estamos prontos para iniciar.
 
@@ -50,14 +52,16 @@ Para deixar o exemplo mais interessante, vamos utilizar o *virtualenv*.
 Dúvidas? Confira o *post* [*Python*, *Django* e *virtualenv*][] e
 visualize aonde pretendemos chegar:
 
-> $ cd ˜/Projetos/<br>
-> $ virtualenv DjangoComHG --no-site-packages<br>
->
-> $ cd DjangoComHG
+    ::bash
+    $ cd ˜/Projetos/
+    $ virtualenv DjangoComHG --no-site-packages
+
+    $ cd DjangoComHG
 
 Agora sim, vamos criar um projeto através da seguinte expressão:
 
-> $ hg init django-com-hg
+    ::bash
+    $ hg init django-com-hg
 
 Projeto criado… vamos partir para as tarefas mais comuns no *Mercurial*.
 
@@ -75,10 +79,11 @@ Para o primeiro *commit* (persistir nossas alterações localmente)
 escreva um arquivo **.hgignore** ([saiba mais do que se trata][]) e um
 arquivo **README**:
 
-> $ cd django-com-hg/<br>
-> $ ls -a
->
-> .hg     .hgignore     README
+    ::bash
+    $ cd django-com-hg/
+    $ ls -a
+
+    .hg     .hgignore     README
 
 A pasta **.hg** na verdade é quem vai identificar e armazenar todas as
 informações do nosso projeto. Sem ela, você deixa de ter o controle
@@ -89,19 +94,22 @@ resultado seja auto-sugestivo. O *Mercurial* ainda não sabe o que fazer
 com os arquivos no projeto, portanto diremos a ele que queremos
 versionar estes arquivos:
 
-> $ hg add .hgignore README
+    ::bash
+    $ hg add .hgignore README
 
 Uma nova execução do **hg status** vai apontar que os arquivos foram
 marcados para adição, porém, ainda não foram adicionados. Você vai
 confirmar está operação através do comando *commit*:
 
-> $ hg commit -m "Primeiro commit com .hgignore"
+    ::bash
+    $ hg commit -m "Primeiro commit com .hgignore"
 
 O parâmetro **-m** serve para passarmos uma mensagem de descrição do
 *commit* que estamos fazendo. Isto facilita na leitura do *log* de
 *commits* realizados:
 
-> $ hg log
+    ::bash
+    $ hg log
 
 Estes serão os comandos que provavelmente você usará constantemente
 enquanto desenvolve.
@@ -133,7 +141,8 @@ persistidas em nosso repositório local para o repositório remoto,
 mesclando-as com as contribuições de outros usuários envolvidos no
 projeto:
 
-> $ hg push https://bitbucket.org/kplaube/post-django-com-hg
+    ::bash
+    $ hg push https://bitbucket.org/kplaube/post-django-com-hg
 
 **Lembre-se** de mudar o endereço acima para o endereço do seu
 repositório no *Bitbucket*. Visite a página do seu repositório e veja o
@@ -143,13 +152,15 @@ Mas dessa forma, teremos que sempre executar o comando **push**
 informando o endereço do repositório. Vamos deixar esta tarefa mais
 simples editando o arquivo **hgrc** dentro da pasta **.hg** do projeto:
 
-> $ cd ~/Projetos/DjangoComHG/django-com-hg/<br>
-> $ vim .hg/hgrc
+    ::bash
+    $ cd ~/Projetos/DjangoComHG/django-com-hg/
+    $ vim .hg/hgrc
 
 Coloque o seguinte:
 
-> [paths]<br>
-> default = https://kplaube@bitbucket.org/kplaube/post-django-com-hg
+    ::ini
+    [paths]
+    default = https://kplaube@bitbucket.org/kplaube/post-django-com-hg
 
 **Lembre-se** de mudar o endereço acima para o endereço do seu
 repositório no *Bitbucket*.

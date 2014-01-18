@@ -30,7 +30,8 @@ sobre o [*Clone Digger*][]. Então, vamos direto para a parte prática.
 Para iniciar a análise, basta chamar o executável apontando para o
 diretório do seu projeto:
 
-> $ clonedigger meuprojeto/
+    ::bash
+    $ clonedigger meuprojeto/
 
 Será gerado um arquivo chamado **output.html**, com um relatório
 detalhado ([como este][]). Serão apresentadas informações como a

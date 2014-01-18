@@ -36,6 +36,7 @@ Ok… sou a favor das pessoas que dizem que é difícil compreender alguns
 conceitos apenas por parágrafos formados por palavras bem escritas.
 Vamos ao exemplo:
 
+    ::javascript
     var digaSeuNome = function( nome ) {
         var msg = "Olá " + nome + ". Seja bem-vindo!";
         var exibeMensagem = function() {
@@ -53,6 +54,7 @@ o conceito de *closure*.
 
 Não achou muito útil? Dê uma olhada no exemplo abaixo:
 
+    ::javascript
     var FabricaDeUsuarios = function( ) {
         var id = 0;
         var criaUsuario = function( nome ) {

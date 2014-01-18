@@ -28,9 +28,9 @@ Eu juro que tentei escrever uma introdução
 para este tópico, mas a descricão contida no [site oficial do *Memcached*][] é
 tão boa, que vou simplesmente copiá-la:
 
-<cite>Memcached is an in-memory key-value store for small chunks of arbitrary
-data (strings, objects) from results of database calls,
-API calls, or page rendering.<cite>
+> Memcached is an in-memory key-value store for small chunks of arbitrary
+> data (strings, objects) from results of database calls,
+> API calls, or page rendering.
 
 Em outras palavras, é uma ferramenta *open source*, que tem como função
 o armazenamento (e gerenciamento) de resultados de *queries*, conteúdo
@@ -64,16 +64,18 @@ bom para ambientes de desenvolvimento). [Leia mais sobre][].
 Neste *post*, vamos nos concentrar na configuração do *Django* com o
 *Memcached*. Para instalar, [basta compilar através do make][]:
 
-> $ wget http://memcached.org/latest<br>
-> $ tar -zxvf memcached-1.4.13.tar.gz<br>
-> $ cd memcached-1.4.13<br>
-> $ ./configure<br>
-> $ make && make test<br>
-> $ make install
+    ::bash
+    $ wget http://memcached.org/latest
+    $ tar -zxvf memcached-1.4.13.tar.gz
+    $ cd memcached-1.4.13
+    $ ./configure
+    $ make && make test
+    $ make install
 
 Utilizando a [*python-memcached*][] como *binding* *Python* para o
 *Memcached*, basta adicionarmos o seguinte *backend* ao **settings.py**:
 
+    ::python
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',

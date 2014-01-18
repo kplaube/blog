@@ -46,16 +46,19 @@ isolados** para os projetos utilizando o [*virtualenv*][1].
 No *Slackware* vamos instalar o [*setuptools*][], que é um *framework*
 que facilita a instalação e criação de pacotes *Python*:
 
-> $ wget http://peak.telecommunity.com/dist/ez_setup.py
+    ::bash
+    $ wget http://peak.telecommunity.com/dist/ez_setup.py
 
 Para instalá-lo é necessário ser ***root***:
 
-> $ python ez_setup.py
+    ::bash
+    $ python ez_setup.py
 
 Em seguida, vamos instalar o *virtualenv* com a ajuda do
 ***easy_install*** (que faz parte do pacote *setuptools*):
 
-> $ easy_install virtualenv
+    ::bash
+    $ easy_install virtualenv
 
 Esta é uma forma interessante para você instalar módulos *Python* em seu
 sistema sem recorrer ao sistema de pacotes do *SO*.
@@ -63,7 +66,8 @@ sistema sem recorrer ao sistema de pacotes do *SO*.
 Agora, como um **usuário comum**, vamos criar um ambiente em nosso
 ***home*** para testarmos o *virtualenv*:
 
-> $ virtualenv ~/projeto_django
+    ::bash
+    $ virtualenv ~/projeto_django
 
 Entrando nesta pasta, você irá se deparar com três diretórios:
 
@@ -79,7 +83,8 @@ Entrando nesta pasta, você irá se deparar com três diretórios:
 Você apenas criou seu ambiente… para ativá-lo basta dar o seguinte
 comando:
 
-> $ source ~/projeto_django/bin/activate
+    ::bash
+    $ source ~/projeto_django/bin/activate
 
 Pronto! Se você executar o *Python* agora, você estará utilizando as
 *libs* **deste ambiente**. Isso pode permitir que você mova este
@@ -90,7 +95,8 @@ dependências do seu projeto.
 
 Para “sair” do ambiente, basta executar o comando **deactivate**:
 
-> $ deactivate
+    ::bash
+    $ deactivate
 
 Pronto… muito simples, não?
 
@@ -104,11 +110,13 @@ Vamos instalar o *Django* neste **ambiente isolado**. Ativaremos
 novamente o **virtualenv** e usaremos o ***easy_install*** para nos
 ajudar com esta tarefa:
 
-> $ source ~/projeto_django/bin/activate $ easy_install django
+    ::bash
+    $ source ~/projeto_django/bin/activate $ easy_install django
 
 No final da operação, você irá se deparar com uma saída similar a esta:
 
-> Installed /home/user/projeto_django/lib/python2.6/site-packages/Django-1.2.5-py2.6.egg Processing dependencies for django Finished processing dependencies for django
+    ::text
+    Installed /home/user/projeto_django/lib/python2.6/site-packages/Django-1.2.5-py2.6.egg Processing dependencies for django Finished processing dependencies for django
 
 Isto é a garantia que o *Django* foi **instalado dentro deste
 ambiente**, e não está visível para o escopo global da distribuição.

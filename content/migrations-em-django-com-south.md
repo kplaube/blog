@@ -26,11 +26,13 @@ O [*South*][] é muito, mas muito simples de instalar. Utilizando o
 *pip*, basta o seguinte comando para termos os *eggs* em nosso
 **PYTHONPATH**:
 
-> $ pip install south
+    ::bash
+    $ pip install south
 
 Não podemos esquecer de adicioná-lo ao **INSTALLED\_APPS** do
 **settings.py** (afinal, trata-se de uma *app Django*):
 
+    ::python
     INSTALLED_APPS = (
         'django.contrib.auth',  
         ... 
@@ -47,8 +49,12 @@ Direto para a prática
 Sem perder tempo, vamos construir uma *app Django* para que possamos
 demonstrar o uso do *South*:
 
-> $ python manage.py startapp blog
+    ::bash
+    $ python manage.py startapp blog
 
+Lembrando de adicioná-la ao nossos **settings.py**:
+
+    ::python
     # settings.py
     INSTALLED_APPS = (
         'django.contrib.auth',
@@ -60,6 +66,7 @@ demonstrar o uso do *South*:
 Vamos criar um modelo bem básico, com alguns campos (posteriormente,
 incrementaremos esta estrutura):
 
+    ::python
     # blog/models.py
     from django.db import models
     
@@ -70,7 +77,8 @@ incrementaremos esta estrutura):
 Através do comando **schemamigration**, com parâmetro **–-initial**,
 criaremos a nossa primeira migration:
 
-> $ python manage.py schemamigration blog --initial
+    ::bash
+    $ python manage.py schemamigration blog --initial
 
 Vale notar que o comando acima não cria nenhuma tabela no banco de
 dados. O que ele faz é criar um conjunto de instruções que representa
@@ -80,12 +88,13 @@ criadas.
 
 Por exemplo, vamos de fato criar a tabela *blog* no banco de dados:
 
-> $ python manage.py migrate blog<br>
->
-> Running migrations for blog:<br>
-> - blog:0001_initial<br>
-> - Loading initial data for blog.<br>
-> No fixtures found.
+    ::bash
+    $ python manage.py migrate blog
+
+    Running migrations for blog:
+    - blog:0001_initial
+    - Loading initial data for blog.
+    No fixtures found.
 
 Se houvesse alguma *fixture*, o *South* faria o *insert* das informações
 para você.
@@ -98,6 +107,7 @@ no caso acima, o **0001** indica que esta é a primeira).
 Vamos adicionar um campo no modelo (que equivale a uma coluna no banco
 de dados), para ilustrar a criação de novas *migrations*:
 
+    ::python
     # blog/models.py
     
     class Blog(models.Model):
@@ -109,23 +119,25 @@ Não é mais necessário o uso do parâmetro **-–initial**, de agora em
 diante precisaremos do parâmetro **–-auto** (que construirá a
 *migration* automaticamente, de acordo com a primeira já existente):
 
-> $ python manage.py schemamigration blog --auto<br>
-> 
-> + Added field resumo on blog.Blog<br>
-> Created 0002_auto__add_field_blog_resumo.py. You can now apply this migration<br>
-> with: ./manage.py migrate blog
+    ::bash
+    $ python manage.py schemamigration blog --auto
+
+    + Added field resumo on blog.Blog
+    Created 0002_auto__add_field_blog_resumo.py. You can now apply this migration
+    with: ./manage.py migrate blog
 
 Pronto! Uma nova *migration* foi criada… e com um nome bem intuitivo
 (repare no prefixo numérico). Basta darmos a ordem de replicar estas
 instruções no banco de dados:
 
-> $ python manage.py migrate blog<br>
->
-> Running migrations for blog:<br>
-> - Migrating forwards to 0002_auto__add_field_blog_resumo.<br>
-> - blog:0002_auto__add_field_blog_resumo<br>
-> - Loading initial data for blog.<br>
-> No fixtures found.
+    ::bash
+    $ python manage.py migrate blog
+
+    Running migrations for blog:
+    - Migrating forwards to 0002_auto__add_field_blog_resumo.
+    - blog:0002_auto__add_field_blog_resumo
+    - Loading initial data for blog.
+    No fixtures found.
 
 A nova coluna foi inserida na tabela *blog*, sem necessitar de nenhuma
 intervenção manual. Se você ficou curioso para saber como essa “mágica”

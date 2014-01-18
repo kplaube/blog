@@ -90,14 +90,17 @@ manipulação de dados complexos.
 
 Ou seja, você não verá uma notação como essa em uma *query*:
 
+    ::sql
     SELECT NOW().to_char('HH12:MI:SS');
 
 E sim, a notação utilizando funções:
 
+    ::sql
     SELECT to_char(NOW(), 'HH12:MI:SS');
 
 Mas em compensação, você verá que **to\_char** é uma [função polimórfica][]:
 
+    ::sql
     SELECT to_char(10.3333333, '99.99');
 
 Se você não está satisfeito, e não se sente confortável com o termo
@@ -107,6 +110,7 @@ e partindo dele sou obrigado a concordar que
 o *Postgres* é de fato um banco objeto-relacional quando me deparo com o
 seguinte cenário:
 
+    ::sql
     CREATE TYPE inventory_item AS (
         name            text,
         supplier_id     integer,

@@ -58,7 +58,8 @@ Para dar um exemplo de uso do *Fabric*, podemos utilizar o esquema de
 
 Antes de mais nada, é necessário ter o *Fabric* instalado:
 
-> $ pip install fabric
+    ::bash
+    $ pip install fabric
 
 Todo o procedimento será escrito em um arquivo chamado **fabfile.py**.
 Com o comando **fab**, a ferramenta carregará este arquivo e permitirá a
@@ -66,22 +67,23 @@ execução de todos os métodos públicos definidos dentro dele.
 
 Vamos listar todos os métodos que [criei no **fabfile.py** do *blog*][]:
 
-> $ fab -l<br>
-> 
-> Available commands:<br>
->
-> bootstrap            Initialize remote host environment.<br>
-> collect_static       Collect all static files from Django apps and copy ...<br>
-> create_virtualenv    Setup virtualenv on remote host.<br>
-> database_restart     Restart the database server on remote server.<br>
-> deploy               Send the code to the remote host.<br>
-> http_restart         Restart the HTTP server on remote server.<br>
-> migrate              Execute South on remote host, to update the databas...<br>
-> production           Use production environment on remote host.<br>
-> staging              Use staging environment on remote host.<br>
-> syncdb               Execute syncdb on remote host.<br>
-> update_apache_conf   Move apache and fastcgi files to the public html.<br>
-> update_requirements  Update Python dependencies on remote host.
+    ::bash
+    $ fab -l
+
+    Available commands:
+
+    bootstrap            Initialize remote host environment.
+    collect_static       Collect all static files from Django apps and copy ...
+    create_virtualenv    Setup virtualenv on remote host.
+    database_restart     Restart the database server on remote server.
+    deploy               Send the code to the remote host.
+    http_restart         Restart the HTTP server on remote server.
+    migrate              Execute South on remote host, to update the databas...
+    production           Use production environment on remote host.
+    staging              Use staging environment on remote host.
+    syncdb               Execute syncdb on remote host.
+    update_apache_conf   Move apache and fastcgi files to the public html.
+    update_requirements  Update Python dependencies on remote host.
 
 Como é possível notar na listagem acima, temos operações de *deploy*
 (**deploy**, **syncdb**, **update\_requirements** e
@@ -91,7 +93,8 @@ Como é possível notar na listagem acima, temos operações de *deploy*
 ambiente o *deploy* será realizado. Por exemplo, a cada nova subida de
 *release*, executo o seguinte comando:
 
-> $ fab production deploy http_restart
+    ::bash
+    $ fab production deploy http_restart
 
 Onde basicamente:
 

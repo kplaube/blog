@@ -29,6 +29,7 @@ pode ser obtido com [*Javascript*][], através de eventos ou de seletores
 (como o **:eq**). Com a ajuda deste artifício, conseguimos entregar uma
 solução muito simples e funcional. Exemplo:
 
+    ::css
     #menu a {
         color: blue;
     }
@@ -49,6 +50,7 @@ Outro exemplo muito bom, é se precisássemos que apenas o primeiro item
 fosse de cor laranja:
 
 
+    ::css
     #menu li:first-child a {
         color: orange;
     }
@@ -69,6 +71,7 @@ esforço, de interpretação de *Javascript*, e de elementos
 “não-semânticos”. Por exemplo, queremos que a primeira letra de um
 parágrafo ganhe destaque:
 
+    ::html
     <p>
         <span>L</span>orem ipsum dolor sit amet, consectetur
         adipiscing elit. Pellentesque in scelerisque quam...
@@ -76,6 +79,7 @@ parágrafo ganhe destaque:
 
 O *CSS* ficaria mais ou menos assim:
 
+    ::css
     p {
         font-size: 14px;
     }
@@ -91,6 +95,7 @@ Veja exemplo no [*jsFiddle*][2].
 Podemos alcançar o mesmo resultado, sem necessitar do **span**, através
 do pseudo-elemento **first-letter**:
 
+    ::css
     p {
         font-size: 14px;
     }

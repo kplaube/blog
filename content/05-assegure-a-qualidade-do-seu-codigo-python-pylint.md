@@ -32,7 +32,8 @@ Na prática
 
 Vamos testar as conformidades do arquivo **site.py** segundo o *Pylint*:
 
-> $ pylint /usr/lib/python2.7/dist-packages/site.py
+    ::bash
+    $ pylint /usr/lib/python2.7/dist-packages/site.py
 
 O resultado pode parecer assustador. Então “vamos começar pelo começo”.
 
@@ -41,21 +42,24 @@ código** e **relatório**; O primeiro, como o nome sugere, apresenta uma
 análise de código bem semelhante a apresentada pelo *pep8*. Porém no
 seguinte formato:
 
-> MESSAGE_TYPE: LINE_NUM:[OBJECT:] MESSAGE
+    ::text
+    MESSAGE_TYPE: LINE_NUM:[OBJECT:] MESSAGE
 
 Vamos pegar a primeira linha gerada pelo *Pylint* para entender melhor:
 
-> C:  1: Missing docstring
+    ::text
+    C:  1: Missing docstring
 
 **C** é o tipo da mensagem, **1** é o número da linha (no arquivo) onde
 o problema foi constatado, **Missing docstring** é a mensagem gerada. O
 *Pylint* poderá apresentar os seguintes tipos de mensagens:
 
-> [R]efactor for a "good practice" metric violation<br>
-> [C]onvention for coding standard violation<br>
-> [W]arning for stylistic problems, or minor programming issues<br>
-> [E]rror for important programming issues (i.e. most probably bug)<br>
-> [F]atal for errors which prevented further processing
+    ::text
+    [R]efactor for a "good practice" metric violation
+    [C]onvention for coding standard violation
+    [W]arning for stylistic problems, or minor programming issues
+    [E]rror for important programming issues (i.e. most probably bug)
+    [F]atal for errors which prevented further processing
 
 Quase posso ver o brilho em seus olhos. A saída do *Pylint* deixou de
 ser enigmática, não?!
@@ -76,7 +80,8 @@ Eu avisei que o *Pylint* era “barulhento”!
 Vamos reduzir um pouco o nível de detalhes da ferramenta, passando
 alguns parâmetros:
 
-> $ pylint /usr/lib/python2.7/dist-packages/site.py --reports=n --include-ids=y --disable=W0232
+    ::bash
+    $ pylint /usr/lib/python2.7/dist-packages/site.py --reports=n --include-ids=y --disable=W0232
 
 Primeiro, com o parâmetro **–-reports=n** dizemos que não queremos
 aquele relatório gigantesco no final da análise. O **–-include-ids=y**
@@ -87,7 +92,8 @@ você adiciona no parâmetro **-–disable** (separadas por vírgula).
 Para que não seja necessário passar todos esses parâmetros todas as
 vezes que executar o *Pylint* basta gerar um arquivo **.pylintrc**:
 
-> $ pylint --reports=n --include-ids=y --disable=W0232 --generate-rcfile > ~/.pylintrc
+    ::bash
+    $ pylint --reports=n --include-ids=y --disable=W0232 --generate-rcfile > ~/.pylintrc
 
 É possível gerar este arquivo por projeto, podendo mudar a
 especificidade das métricas de acordo com a necessidade. Quer saber
@@ -97,11 +103,12 @@ mais? [Leia este tutorial muito bom][], direto da documentação do
 Para entender os códigos das mensagens, [confira a listagem nesta *wiki*][],
 ou utilize o parâmetro **-–help-msg**:
 
-> $ pylint --help-msg=R0904:<br>
-> 
-> R0904: \*Too many public methods (%s/%s)\*<br>
-> Used when class has too many public methods, try to reduce this to get a more<br>
-> simple (and so easier to use) class. This message belongs to the design checker.
+    ::bash
+    $ pylint --help-msg=R0904:
+
+    R0904: \*Too many public methods (%s/%s)\*
+    Used when class has too many public methods, try to reduce this to get a more
+    simple (and so easier to use) class. This message belongs to the design checker.
 
 
 Referências

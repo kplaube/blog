@@ -27,6 +27,7 @@ os dois métodos de criação de objetos (este artigo é fortemente baseado
 na publicação deles). Vamos adotar a estratégia deles e criar estruturas
 semelhantes utilizando *Object Literal* e *Constructors*:
 
+    ::javascript
     var object_literal = {
         Automovel: {
             quantidadeRodas: 4
@@ -44,6 +45,7 @@ Acima já reparamos numa das maiores vantagens do *Object Literal*:
 **criar *namespaces***. Isolamos as duas declarações para que possamos
 usar os mesmos nomes:
 
+    ::javascript
     // object literal
     var carro = object_literal.Automovel;
     console.log('quantidade de rodas:', carro.quantidadeRodas); // 4
@@ -64,6 +66,7 @@ Os métodos entram em ação
 
 Vamos atribuir aos nossos automóveis a capacidade de **ligarMotor**:
 
+    ::javascript
     var object_literal = {
         Automovel: {
             quantidadeRodas: 4,
@@ -99,6 +102,7 @@ função anônima associada à propriedade **ligarMotor**, da propriedade
 mesmo ocorre em **ligarMotor** de constructor, o **this** é capaz de
 acessar os valores e métodos nas instâncias de **Automovel**:
 
+    ::javascript
     // object literal
     carro.ligarMotor();
     console.log('motor ligado:', carro.motorLigado); // true
@@ -114,6 +118,7 @@ Atributos diferentes para instâncias diferentes
 Sabemos que um automóvel pode ter 2, 4, 6 ou até 8 rodas, então vamos
 adaptá-los:
 
+    ::javascript
     var constructor = {
         Automovel: function(qtndRodas) {
             this.quantidadeRodas = qtndRodas;
@@ -124,6 +129,7 @@ adaptá-los:
 Ué?! Mas e o **Object Literal**? Pois é.. como ele não pode gerar
 instâncias (novamente, ele já é um objeto), temos que alterar “na mão”:
 
+    ::javascript
     // object literal
     var moto = object_literal.Automovel;
     moto.quantidadeRodas = 2;
@@ -136,6 +142,7 @@ instâncias (novamente, ele já é um objeto), temos que alterar “na mão”:
 Só por curiosidade, como estarão os nossos objetos **carro**? (Lá vem a
 pegadinha =P )
 
+    ::javascript
     // object literal
     console.log('quantidade de rodas (carro):', carro.quantidadeRodas); // 2
 
@@ -155,6 +162,7 @@ A grosso modo, com uso de *Constructor Functions*, criamos uma
 na memória (instância). Assim, a propriedade **quantidadeRodas** de moto
 é diferente da propriedade de mesmo nome, da instância **carro** ([leia mais sobre instâncias e classes][]):
 
+    ::javascript
     // constructor function
     console.log('carro == moto:', carro == moto) // false
 
@@ -168,6 +176,7 @@ depois à variável **moto**, na verdade estávamos criando referências a
 instânca contida em **object\_literal.Automovel** (ou seja, as três
 variáveis correspondem ao mesmo endereço e valor na memória):
 
+    ::javascript
     // object literal
     console.log('carro == moto:', carro == moto) // true
 
@@ -175,6 +184,7 @@ Portanto, se eu criar uma variável chamada **moto2** e atribuir a ela a
 instância de **constructor.Automovel** contida em **moto**, terei o
 mesmo resultado que acima:
 
+    ::javascript
     // constructor function
     var moto2 = moto;
     moto2.quantidadeRodas = 3;
