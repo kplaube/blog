@@ -19,7 +19,7 @@ STATIC_PATHS = ['images']
 THEME = 'maggner-pelican'
 
 PLUGIN_PATH = 'plugins'
-PLUGINS = ['assets', 'global_license', 'image_tag', 'summary', 'slideshare']
+PLUGINS = ['global_license', 'image_tag', 'summary', 'slideshare', ]
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
@@ -61,4 +61,6 @@ TWITTER_USERNAME = 'kplaube'
 # License
 LICENSE = 'Creative Commons Attribution 3.0'
 LICENSE_URL = 'http://creativecommons.org/licenses/by/3.0/deed.pt_BR'
+LICENSE_TITLE = 'Share, adapt, use. But mention the author'
 SOURCE_CODE_URL = 'https://github.com/kplaube/klauslaube.com.br/'
+SOURCE_CODE_REPOSITORY = 'GitHub'
