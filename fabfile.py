@@ -1,15 +1,22 @@
 import os
 from fabric.api import env, local, run, task
+from fabric.context_managers import shell_env
 from fabric.contrib.project import rsync_project
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-env.hosts = ['192.241.239.141']
 env.config_file = os.path.join(HERE, 'blog', 'pelicanconf.py')
 env.input_dir = os.path.join(HERE, 'content')
 env.output_dir = os.path.join(HERE, 'output')
 env.pelican_opts = ''
 env.remote_content_dir = '/srv/blog/'
+
+
+@task()
+def vagrant():
+    env.siteurl = 'http://local.klauslaube.com.br:8080'
+    env.hosts = ['localhost', ]
+    env.port = 2222
 
 
 @task(default=True)
@@ -62,4 +69,5 @@ def upload_content():
 
 @task()
 def publish():
-    local('pelican {input_dir} -o {output_dir} -s {config_file} {pelican_opts}'.format(**env))
+    with shell_env(SITEURL=env.siteurl):
+        local('pelican {input_dir} -o {output_dir} -s {config_file} {pelican_opts}'.format(**env))

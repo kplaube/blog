@@ -45,10 +45,10 @@ devserver_stop:
 	$(BINDIR)/develop_server.sh stop
 
 publish:
-	@fab publish
+	@fab $(host) publish
 
 rsync_upload: publish
-	@fab upload_content -u $(SSH_USER)
+	@fab $(host) upload_content -u $(SSH_USER)
 
 install:
 	bundle

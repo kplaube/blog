@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
+import os
+
 DEBUG = True
 
 AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
 SITESUBTITLE = u'Python, Django e desenvolvimento Web'
-SITEURL = 'http://local.klauslaube.com.br:8000'
+SITEURL = os.environ.get('SITEURL', 'http://local.klauslaube.com.br:8000')
 RELATIVE_URLS = False
 
 TIMEZONE = 'America/Sao_Paulo'
