@@ -49,14 +49,11 @@ LINKS = ()
 # Social
 SOCIAL = (
     ('Bitbucket', 'http://bitbucket.org/kplaube/'),
-    ('Coderwall', 'http://coderwall.com/kplaube'),
     ('Duolingo', 'http://duolingo.com/#/kplaube'),
     ('GitHub', 'http://github.com/kplaube'),
     ('LinkedIn', 'http://www.linkedin.com/in/klauslaube'),
     ('ProfissionaisTI', 'http://www.profissionaisti.com.br/author/klaus-peter-laube/'),
-    ('Skoob', 'http://skoob.com.br/usuario/118855'),
     ('Twitter', 'http://www.twitter.com/kplaube'),
-    ('Zootool', 'http://zootool.com/user/kplaube/'),
 )
 
 TWITTER_USERNAME = 'kplaube'
