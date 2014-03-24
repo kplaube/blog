@@ -58,7 +58,7 @@ SOCIAL = (
 
 TWITTER_USERNAME = 'kplaube'
 DISQUS_SITENAME = 'klauslaube'
-#GOOGLE_ANALYTICS = ""
+GOOGLE_ANALYTICS = "UA-19657400-1"
 
 # License
 LICENSE = 'Creative Commons Attribution 3.0'
