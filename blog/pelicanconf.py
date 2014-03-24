@@ -35,9 +35,8 @@ DEFAULT_PAGINATION = 10
 # Article
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
-TAG_URL = '/tag/{slug}.html'
-TAG_CLOUD_MAX_ITEMS = 30
-DISQUS_SITENAME = 'klauslaube'
+TAG_URL = "%s/tag/{slug}.html" % SITEURL
+TAG_CLOUD_MAX_ITEMS = 20
 
 # Menu
 MENUITEMS = (
@@ -61,12 +60,12 @@ SOCIAL = (
 )
 
 TWITTER_USERNAME = 'kplaube'
-#DISQUS_SITENAME = ""
+DISQUS_SITENAME = 'klauslaube'
 #GOOGLE_ANALYTICS = ""
 
 # License
 LICENSE = 'Creative Commons Attribution 3.0'
 LICENSE_URL = 'http://creativecommons.org/licenses/by/3.0/deed.pt_BR'
 LICENSE_TITLE = 'Share, adapt, use. But mention the author'
-SOURCE_CODE_URL = 'https://github.com/kplaube/klauslaube.com.br/'
+SOURCE_CODE_URL = 'https://github.com/kplaube/blog/'
 SOURCE_CODE_REPOSITORY = 'GitHub'
