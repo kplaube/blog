@@ -35,6 +35,7 @@ DEFAULT_PAGINATION = 10
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 TAG_URL = '/tag/{slug}.html'
+TAG_CLOUD_MAX_ITEMS = 30
 DISQUS_SITENAME = 'klauslaube'
 
 # Menu
