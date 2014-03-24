@@ -22,7 +22,8 @@ STATIC_PATHS = ['images']
 THEME = 'maggner-pelican'
 
 PLUGIN_PATH = 'plugins'
-PLUGINS = ['global_license', 'image_tag', 'summary', 'slideshare', ]
+PLUGINS = ['global_license', 'image_tag', 'summary', 'slideshare',
+    'related_posts', ]
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
