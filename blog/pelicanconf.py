@@ -25,6 +25,7 @@ PLUGINS = ['global_license', 'image_tag', 'summary', 'slideshare', ]
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
+TAG_FEED_RSS = 'feeds/tags/%s.xml'
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_PAGINATION = 10
 
