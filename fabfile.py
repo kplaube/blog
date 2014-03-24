@@ -19,6 +19,12 @@ def vagrant():
     env.port = 2222
 
 
+@task()
+def prod():
+	env.siteurl = 'http://192.241.239.141'
+	env.hosts = ['192.241.239.141', ]
+
+
 @task(default=True)
 def bootstrap():
     install_salt()
