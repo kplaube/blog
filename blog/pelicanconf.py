@@ -9,6 +9,7 @@ AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
 SITESUBTITLE = u'Python, Django e desenvolvimento Web'
 SITEURL = os.environ.get('SITEURL', 'http://local.klauslaube.com.br:8000')
+SITEDESCRIPTION = u'Artigos sobre desenvolvimento Web, Python Django, padrões Web e Linux.'
 RELATIVE_URLS = False
 
 TIMEZONE = 'America/Sao_Paulo'
