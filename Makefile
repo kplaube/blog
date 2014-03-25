@@ -51,7 +51,6 @@ rsync_upload: publish
 	@fab $(host) upload_content -u $(SSH_USER)
 
 install:
-	bundle
 	pip install -r requirements.txt
 	vagrant plugin install vagrant-salt
 
