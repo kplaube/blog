@@ -52,7 +52,7 @@ SOCIAL = (
     ('Duolingo', 'http://duolingo.com/#/kplaube'),
     ('GitHub', 'http://github.com/kplaube'),
     ('LinkedIn', 'http://www.linkedin.com/in/klauslaube'),
-    ('ProfissionaisTI', 'http://www.profissionaisti.com.br/author/klaus-peter-laube/'),
+    ('ProfissionaisTI', 'http://www.profissionaisti.com.br/author/klaus/'),
     ('Twitter', 'http://www.twitter.com/kplaube'),
 )
 
