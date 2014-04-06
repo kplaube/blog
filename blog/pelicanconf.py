@@ -23,7 +23,7 @@ THEME = 'maggner-pelican'
 
 PLUGIN_PATH = 'plugins'
 PLUGINS = ['global_license', 'image_tag', 'summary', 'slideshare',
-    'related_posts', ]
+    'related_posts', 'better_meta', ]
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
