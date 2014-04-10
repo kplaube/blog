@@ -3,6 +3,7 @@ Date: 2013-08-05 15:39:45
 Category: opiniao
 Tags: opiniao, front-end, evento
 Slug: opiniao-front-bh-2013
+meta_description: Descontraído porém relevante. Talvez essa seja a melhor definição para o Front in BH, que contou com palestrantes de peso e com uma organização que, além de surpreendente, tirou um “gosto ruim” que eu tinha em relação a eventos de front-end.
 
 
 |img "/images/blog/front-in-bh-logo.png" 180 180 "Logo do Front in BH" "align-left"|

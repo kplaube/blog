@@ -2,6 +2,7 @@ Title: Front in Rio 2011 - Eu fui!
 Date: 2011-06-19 21:24:00
 Category: desenvolvimento
 Tags: desenvolvimento, eventos, android, canvas, css3, frontinrio, html5, svg
+meta_description: Um resumo do que aconteceu no evento Front in Rio, edição 2011. Dentro os destaques, @font-face com o Maujor, e desenvolvimento de jogos sem Canvas.
 
 
 |img "/images/blog/front-in-rio-logo.png" 180 180 "Logotipo Front in Rio 2011" "align-left"|

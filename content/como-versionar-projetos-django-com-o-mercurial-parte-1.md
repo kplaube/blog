@@ -3,6 +3,7 @@ Date: 2011-05-10 23:34
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, git, mercurial
 Slug: como-versionar-projetos-django-mercurial-parte
+meta_description: Se você está começando em Django esta será uma grande oportunidade para você conhecer o Mercurial.
 
 
 |img "/images/blog/mercurial-logo.png" 180 216 "Logotipo do Mercurial" "align-left"|

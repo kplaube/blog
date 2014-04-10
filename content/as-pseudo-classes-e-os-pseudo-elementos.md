@@ -3,6 +3,7 @@ Date: 2012-09-05 09:42:49
 Category: desenvolvimento
 Tags: desenvolvimento, web, padroes-web, css3
 Slug: pseudo-classes-e-os-pseudo-elementos
+meta_description: O CSS tem diversas coisas legais. Uma quantidade de propriedades, valores, funcionalidades, que por inúmeras vezes me fogem da memória. Uma das coisas mais interessantes do CSS, mas que geralmente me confundem, são as pseudo-classes e os pseudo-elementos.
 
 
 |img "/images/blog/css3-logo.png" 180 180 "Logo do CSS3" "align-left"|

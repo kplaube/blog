@@ -3,6 +3,7 @@ Date: 2012-07-22 14:33:58
 Category: desenvolvimento
 Tags: desenvolvimento, web, python, django, memcached, johnny-cache, cache
 Slug: django-e-cache-uma-dupla-de-alta-performance-2
+meta_description: Podemos utilizar a camada de cache em diferentes pontos da aplicação. Com o esquema de middlewares do Django, podemos ter essa camada aplicada diretamente ao fluxo de interpretação do framework, o que pode reduzir consideravelmente o uso de recursos de nossa hospedagem, sem mesmo termos alterado código das nossas apps.
 
 
 |img "/images/blog/memcached-logo.jpg" 180 180 "Logo do Memcached" "align-left"|

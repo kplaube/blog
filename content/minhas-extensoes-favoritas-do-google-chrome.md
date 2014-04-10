@@ -3,6 +3,7 @@ Date: 2011-08-09 23:17:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, google-chrome
 Slug: minhas-extensoes-favoritas-google-chrome
+meta_description: O Google Chrome há muito já provou ser um fantástico navegador, conheça alguns add-ons que me fizeram esquecer rapidamente do Firefox.
 
 
 |img "/images/blog/google-chrome-logo.png" 180 180 "Logotipo do Google Chrome" "align-left"|

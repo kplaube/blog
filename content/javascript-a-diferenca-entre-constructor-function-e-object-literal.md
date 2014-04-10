@@ -3,6 +3,7 @@ Date: 2011-10-23 15:07:00
 Category: desenvolvimento
 Tags: desenvolvimento, javascript, prototype, oop, web
 Slug: javascript-constructor-function-object-literal
+meta_description: Você sabe aonde e como usar um Object Literal ou uma Constructor Function, em Javascript? Descubra as diferenças entre essas duas formas de fazer Javascript Orientado a Objetos.
 
 
 |img "/images/blog/javascript-code.jpg" 180 180 "Código Javascript" "align-left"|

@@ -3,6 +3,7 @@ Date: 2012-12-09 14:38:15
 Category: opiniao
 Tags: opiniao, python brasil, python, evento
 Slug: opiniao-python-brasil-8
+meta_description: Nos dias 21 a 24 de Novembro de 2012 aconteceu a Python Brasil. Em sua oitava edição, o evento mais aguardado pelos desenvolvedores Python “tupiniquins” me causou a melhor das impressões!
 
 
 |img "/images/blog/python-brasil-8.jpg" 180 180 "Logo Python Brasil 8" "align-left"|

@@ -3,6 +3,7 @@ Date: 2011-02-16 16:09
 Category: desenvolvimento
 Tags: desenvolvimento, web, html, css, javascript, acessibilidade
 Slug: camadas-desenvolvimento-web
+meta_description: Se eu aprendi alguma coisa com o xHTML, foi: Separar marcação, estilos e comportamento tornam a sua vida muito mais feliz.
 
 
 |img "/images/blog/www.jpg" 180 179 "World Wide Web" "align-left"|

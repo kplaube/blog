@@ -3,6 +3,8 @@ Date: 2011-06-12 21:38:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, html5, rgraph, padroes-web
 Slug: graficos-estatisticos-em-canvas-rgraph
+meta_description: Conheça a RGraph, um simples, porém poderosa, biblioteca javascript para criação de dados estatísticos em Canvas (html5).
+
 
 |img "/images/blog/rgraph-exemplo.png" 180 164 "Exemplo de gráfico com RGraph" "align-left"|
 Uma dica rápida e rasteira para quem quer gerar gráficos estatísticos para suas aplicações [*Web*][].

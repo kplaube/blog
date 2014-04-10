@@ -3,6 +3,7 @@ Date: 2014-03-26 12:00:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, blog, pelican, python
 Slug: pelican-e-os-static-site-generators
+meta_description: O Django é de longe o meu framework Python favorito. Mas para determinadas tarefas, ele vira overhead. É aí que entra o Pelican.
 
 
 |img "/images/blog/pelican.png" 180 180 "Logo do Pelican" "align-left"|

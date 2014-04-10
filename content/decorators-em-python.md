@@ -3,6 +3,8 @@ Date: 2011-08-02 20:00:00
 Category: desenvolvimento
 Tags: desenvolvimento, python, oop, design-patterns, decorators
 Slug: decorators-em-python
+meta_description: Decorators alteram dinamicamente a funcionalidade de uma função, método ou classe, sem uso direto de subclasses ou alterando o código-fonte da função “decorada”.
+
 
 |img "/images/blog/python-logo.png" 180 180 "Logotipo do Python" "align-left"|
 E na mesma linha dos [*closures*][], eu passei a

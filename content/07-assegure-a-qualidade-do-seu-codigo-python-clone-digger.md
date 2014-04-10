@@ -3,6 +3,7 @@ Date: 2011-10-16 22:10:00
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, qualidade, clone-digger
 Slug: assegure-qualidade-seu-codigo-python-clone-digger
+meta_description: Para facilitar a busca por código duplicado, podemos utilizar uma ferramenta chamada Clone Digger. Prático, rápido e muito simples. Agora ficou fácil "caçar" código duplicado em projetos Python.
 
 
 |img "/images/blog/ovelha-dolly.jpg" 180 180 "Código clonado?" "align-left"|

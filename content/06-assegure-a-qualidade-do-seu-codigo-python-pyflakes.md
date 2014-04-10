@@ -3,6 +3,7 @@ Date: 2011-10-02 17:58:00
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, pyflakes, qualidade
 Slug: assegure-qualidade-seu-codigo-python-pyflakes
+meta_description: o Pyflakes é uma ferramenta de qualidade que analisa o seu código Python atrás de erros (de sintaxe e importação, por exemplo), retornando um relatório muito objetivo com o arquivo, linha e o tipo de incoerência que ele encontrou.
 
 
 |img "/images/blog/software-quality.jpg" 180 180 "Qualidade" "align-left"|

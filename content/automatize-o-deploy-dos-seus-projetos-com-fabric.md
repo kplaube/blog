@@ -3,6 +3,7 @@ Date: 2012-02-26 19:40:13
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, fabric, deploy
 Slug: automatize-o-deploy-dos-seus-projetos-com-fabric
+meta_description: O Fabric é uma lib Python, e ferramenta de linha de comando, para auxiliá-lo no deploy e administração de seus sistemas Web, independentemente da linguagem de programação escolhida.
 
 
 |img "/images/blog/deploy.jpg" 180 180 "Deploy now!" "align-left"|

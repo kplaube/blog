@@ -3,6 +3,7 @@ Date: 2012-05-14 23:14:46
 Category: desenvolvimento
 Tags: desenvolvimento, web, infra-estrutura, cache, http
 Slug: o-cache-e-o-http 
+meta_description: Em tempos de alta demanda, o cache pode tornar-se o melhor amigo das aplicações Web. Qualquer milissegundo economizado é um ponto a mais com o seu usuário, com os mecanismos de busca e com o seu serviço de hospedagem.
 
 
 |img "/images/blog/performance.jpg" 180 180 "Cache e tempo de requisição" "align-left"|

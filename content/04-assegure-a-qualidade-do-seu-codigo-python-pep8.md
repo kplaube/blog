@@ -3,6 +3,8 @@ Date: 2011-08-26 13:51:00
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, qualidade, pep8
 Slug: assegure-qualidade-seu-codigo-python-pep
+meta_description: As "PEPs" (Python Enhancement Proposal) são documentos que geralmente abordam alguma nova funcionalidade da linguagem, propósitos, procedimentos ou ambiente. O pep8 é uma ferramenta simples (e muito eficaz) que analisa o seu código Python segundo as convenções de código descritas na PEP 8.
+
 
 |img "/images/blog/python-code.jpg" 180 180 "Código-fonte Python" "align-left"|
 **Convenções de código!** Já tive a oportunidade de [escrever sobre elas no *Profissionais TI*][]. Benção ou

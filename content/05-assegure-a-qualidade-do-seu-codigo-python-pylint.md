@@ -3,6 +3,7 @@ Date: 2011-09-06 17:48:00
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, pylint, qualidade
 Slug: assegura-a-qualidade-de-codigo-python-pylint
+meta_description: o Pylint analisa de forma minuciosa o código do seu projeto Python, lhe retornando uma variedade de relatórios sobre todo o tipo de problema que ele encontra. Indo de incoerências com a PEP 8, até nome de variáveis.
 
 
 |img "/images/blog/code-quality.png" 180 180 "Analogia a qualidade e código" "align-left"|

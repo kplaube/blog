@@ -3,6 +3,7 @@ Date: 2011-07-23 18:00:00
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, bdd, tdd, testes
 Slug: ferramentas-de-testes-em-django-parte-2
+meta_description: Conheça algumas ferramentas que irão enriquecer o seu ambiente de desenvolvimento Python e Django, e lhe trarão maior segurança em seus testes de software.
 
 
 |img "/images/blog/crash-test-2.jpg" 180 180 "Imagem de um boneco de testes automotivos" "align-left"|

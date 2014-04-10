@@ -3,6 +3,7 @@ Date: 2011-05-16 22:27
 Category: desenvolvimento
 Tags: desenvolvimento, web, javascript, oop
 Slug: fazendo-javascript-oo-de-forma-facil
+meta_description: Embora o Javascript (em sua essência) seja Orientado a Objetos, temos que admitir que ele foge um pouco do convencional através do estilo de escrita prototype.
 
 
 |img "/images/blog/javascript-logo.png" 180 180 "Logotipo do Javascript" "align-left"|

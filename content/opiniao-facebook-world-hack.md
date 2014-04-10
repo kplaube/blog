@@ -3,6 +3,7 @@ Date: 2012-09-02 12:37:10
 Category: opiniao
 Tags: opiniao, facebook, world hack, evento
 Slug: opiniao-facebook-world-hack
+meta_description: No dia 30 de agosto de 2012 (sexta-feira), rolou o Facebook Developers World Hack – São Paulo, onde engenheiros do próprio Facebook deram palestras sobre o desenvolvimento com a API social, distribuição e monetização. Acompanhe as minhas críticas ao evento...
 
 
 |img "/images/blog/facebook-developers.jpg" 180 180 "Facebook Developers World Hack" "align-left"|

@@ -3,6 +3,8 @@ Date: 2010-11-12 20:20
 Category: desenvolvimento
 Tags: desenvolvimento, web, python, django
 Slug: motive-se-por-que-usar-python-e-django
+meta_description: Se você ainda está em dúvida sobre utilizar Python e Django, abaixo segue uma compilação dos posts que já fiz ao Profissionais TI sobre esta fantástica linguagem de programação que é o Python, e esta maravilhosa framework chamada Django.
+
 
 Se você ainda está em dúvida sobre utilizar [_Python_](http://www.python.org/ "Site oficial do Python")
 e [_Django_](http://www.djangoproject.com/ "Site oficial do Django"), abaixo

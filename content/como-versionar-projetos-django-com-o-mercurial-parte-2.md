@@ -3,6 +3,7 @@ Date: 2011-05-22 11:04
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, mercurial
 Slug: como-versionar-projetos-django-mercurial-parte-2
+meta_description: Conheça os comandos básicos do Mercurial e aprenda a criar um repositório remoto e a compartilhar o seu código com outros desenvolvedores.
 
 
 |img "/images/blog/mercurial-logo.png" 180 216 "Logotipo do Mercurial" "align-left"|

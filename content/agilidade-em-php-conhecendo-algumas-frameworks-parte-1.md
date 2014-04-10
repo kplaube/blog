@@ -3,6 +3,8 @@ Date: 2010-11-27 13:21
 Category: desenvolvimento
 Tags: desenvolvimento, web, php, frameworks, akelos, cakephp, codeigniter, zend framework
 Slug: agilidade-em-php-conhecendo-algumas-frameworks
+meta_description: É possível atingir uma agilidade considerável em PHP através de frameworks como a Akelos, CakePHP, Symfony e Code Igniter.
+
 
 |img "/images/blog/php-logo.png" 180 180 "O elefante mascote do PHP" "align-left"|
 Olá pessoal!

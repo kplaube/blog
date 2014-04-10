@@ -3,6 +3,7 @@ Date: 2012-01-23 21:28:00
 Category: infra-estrutura
 Tags: infra-estrutura, ambiente-de-desenvolvimento, web, supervisor, linux
 Slug: supervisor-gerencie-os-processos-seu-servidor-web
+meta_description: A proposta do Supervisor é simples: permitir que usuários possam controlar e monitorar processos (e grupos de processos) em um sistema Unix-like.
 
 
 |img "/images/blog/supervisor-logo.gif" 180 180 "Logotipo do Supervisor" "align-left"|

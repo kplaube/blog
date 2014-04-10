@@ -3,6 +3,8 @@ Date: 2010-11-13 11:30
 Category: desenvolvimento
 Tags: desenvolvimento, html5, css3, web
 Slug: usando-html5-sem-medo
+meta_description: É notável como gradativamente a gente vem ouvindo cada vez mais sobre HTML5 e CSS3. Os sites com experimentos não param de aparecer na Web...
+
 
 |img "/images/blog/html5-logo.png" 180 180 "Logotipo HTML5" "align-left"|
 Para aqueles que ainda são resistentes ao

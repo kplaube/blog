@@ -3,6 +3,7 @@ Date: 2012-04-15 18:03:48
 Category: desenvolvimento
 Tags: desenvolvimento, web, segurança, xss, csrf, sql-injection, php-injection, django, php, codeigniter
 Slug: problemas-de-seguranca-em-aplicacoes-web
+meta_description: Quando estamos desenvolvendo nossas aplicações Web, temos que “pensar” como um usuário mal-intencionado. Não somente para garantir o bom funcionamento da mesma, mas também para garantir a segurança e bem-estar dos “usuários civis” que consomem os nossos serviços.
 
 
 |img "/images/blog/security.jpg" 180 180 "Segurança" "align-left"|

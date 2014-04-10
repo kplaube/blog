@@ -3,6 +3,7 @@ Date: 2012-06-17 15:52:22
 Category: desenvolvimento
 Tags: desenvolvimento, web, python, django, memcached, cache
 Slug: django-e-cache-uma-dupla-de-alta-performance-1
+meta_description: Desenvolvedores Django podem contar com boas soluções, do próprio framework e de terceiros, que podem melhorar o caching das aplicações. Neste post, vamos apresentar o framework de caching do Django e como configurá-lo com o Memcached.
 
 
 |img "/images/blog/django-logo.png" 180 180 "Logo do Django" "align-left"|

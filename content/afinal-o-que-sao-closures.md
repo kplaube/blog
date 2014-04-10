@@ -3,6 +3,7 @@ Date: 2011-05-29 13:52:00
 Category: desenvolvimento
 Tags: desenvolvimento, closures, oop, javascript
 Slug: afinal-o-que-sao-closures
+meta_description: Vamos descobrir através do Javascript o que é e como funciona o conceito de closures.
 
 
 |img "/images/blog/closures.jpg" 180 180 "Caixa de papelão representando Closures" "align-left"|

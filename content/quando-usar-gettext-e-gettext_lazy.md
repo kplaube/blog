@@ -3,6 +3,7 @@ Date: 2011-06-01 09:41:00
 Category: desenvolvimento
 Tags: desenvolvimento, python, django, i18n
 Slug: quando-usar-gettext-gettext_lazy
+meta_description: O que devo utilizar? gettext ou ugettext? Aprenda neste tutorial quando o onde utilizar a internacionalização do Django.
 
 
 |img "/images/blog/python-logo.png" 180 180 "Logotipo do Python" "align-left"|

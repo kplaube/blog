@@ -3,6 +3,8 @@ Date: 2010-12-01 21:14
 Category: infra-estrutura
 Tags: infra-estrutura, sistemas-operacionais, virtualizacao, virtualbox
 Slug: virtualbox-varios-sos-numa-maquina-so
+meta_description: O VirtualBox é uma das maneiras mais fáceis de possuir vários Sistemas Operacionais em um sistema apenas.
+
 
 |img "/images/blog/virtualizacao.jpg" 180 180 "Representação de virtualização" "align-left"|
 Sabe quando você quer testar uma distribuição (ou *SO*) diferente mas não quer mexer diretamente no

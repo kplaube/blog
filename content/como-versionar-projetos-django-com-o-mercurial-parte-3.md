@@ -3,6 +3,8 @@ Date: 2011-06-04 12:27
 Category: Desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, virtualenv, mercurial, pip
 Slug: como-versionar-projetos-django-mercurial-parte-3
+meta_description: A parte final do tutorial sobre Django e Mercurial dando um exemplo prático com  uso de pip e virtualenv.
+
 
 |img "/images/blog/django-logo.png" 180 180 "Logotipo do Django" "align-left"|
 

@@ -3,6 +3,7 @@ Date: 2011-07-18 22:06:00
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, testes, bdd, tdd
 Slug: ferramentas-de-testes-em-django-parte-1
+meta_description: É possível sim fazer testes automatizados em Django! Neste post vamos conhecer as principais ferramentes de teste em Python e Django
 
 
 |img "/images/blog/crash-test.jpg" 180 180 "Os bonecos dos testes automotivos" "align-left"|

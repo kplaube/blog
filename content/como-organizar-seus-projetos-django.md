@@ -3,6 +3,7 @@ Date: 2011-04-11 20:11
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, virtualenv
 Slug: como-organizar-seus-projetos-django
+meta_description: Pretendo compartilhar com vocês a forma que venho utilizando para organizar meus projetos Django com o uso do virtualenv.
 
 
 |img "/images/blog/django-logo.png" 180 180 "Logotipo do Django" "align-left"|

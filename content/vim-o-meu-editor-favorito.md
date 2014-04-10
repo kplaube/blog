@@ -3,6 +3,7 @@ Date: 2013-03-04 22:34:38
 Category: desenvolvimento
 Tags: ambiente-de-desenvolvimento, editores-de-texto, vim
 Slug: vim-o-meu-editor-favorito
+meta_description: Há um bom tempo que eu trabalho com o Vim, não pretendo contar a sua história nem ensinar a usá-lo, vou simplesmente apresentar os motivos pelo qual eu gosto desse simpático editor de textos.
 
 
 |img "/images/blog/vim-logo.png" 180 180 "Logo do editor VIM" "align-left"|
