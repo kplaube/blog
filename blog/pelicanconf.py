@@ -39,7 +39,7 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 TAG_URL = "%s/tag/{slug}.html" % SITEURL
 TAG_CLOUD_MAX_ITEMS = 20
 FAVICON_URL = "%s/images/favicon.ico" % SITEURL
-OG_IMAGE_URL = "%s/images/opengraph.jpg" % SITEURL
+DEFAULT_OG_IMAGE = "%s/images/opengraph.jpg" % SITEURL
 
 # Menu
 MENUITEMS = (
