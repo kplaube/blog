@@ -6,7 +6,7 @@ Slug: vim-o-meu-editor-favorito
 meta_description: Há um bom tempo que eu trabalho com o Vim, não pretendo contar a sua história nem ensinar a usá-lo, vou simplesmente apresentar os motivos pelo qual eu gosto desse simpático editor de textos.
 
 
-|img "/images/blog/vim-logo.png" 180 180 "Logo do editor VIM" "align-left"|
+{% img align-left /images/blog/vim-logo.png 180 180 Logo do editor VIM %}
 Há um bom tempo que eu trabalho com o [*Vim*][],
 tanto tempo que quando estou em qualquer outro editor escrevo **:wq**
 para salvar e sair.
@@ -45,7 +45,7 @@ facilidades e melhorias na experiência de uso (principalmente pelo uso
 da *GUI*), em relação ao “*Vim* puro”, que tornam o dia-a-dia muito mais
 fácil e prático.
 
-|img "/images/blog/vim-layout.png" 600 199 "Teclas do VIM" "align-center"|
+{% img align-center /images/blog/vim-layout.png 600 199 Teclas do VIM %}
 
 Outro ponto interessante é que seja no *Linux*, *Mac* ou *Windows*, a
 experiência básica é a mesma. Você “sofre” menos com o *layout* do

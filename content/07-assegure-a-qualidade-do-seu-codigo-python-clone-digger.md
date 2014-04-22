@@ -6,7 +6,7 @@ Slug: assegure-qualidade-seu-codigo-python-clone-digger
 meta_description: Para facilitar a busca por código duplicado, podemos utilizar uma ferramenta chamada Clone Digger. Prático, rápido e muito simples. Agora ficou fácil "caçar" código duplicado em projetos Python.
 
 
-|img "/images/blog/ovelha-dolly.jpg" 180 180 "Código clonado?" "align-left"|
+{% img align-left /images/blog/ovelha-dolly.jpg 180 180 Código clonado? %}
 Mesmo que você possa verificar a qualidade do seu
 código com [*pep8*][], [*Pylint*][] e [*Pyflakes*][], uma das virtudes
 de um projeto de *software* é não possuir código duplicado (leia mais

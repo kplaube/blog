@@ -6,7 +6,7 @@ Slug: montando-seu-ambiente-de-desenvolvimento-django
 meta_description: Série de publicações sobre ambiente de desenvolvimento Python/Django em Linux. Veja como é fácil ter um ambiente de alto nível para os seus projetos.
 
 
-|img "/images/blog/django-logo.png" 180 180 "Logotipo do Django" "align-left"|
+{% img align-left /images/blog/django-logo.png 180 180 Logotipo do Django %}
 Olá pessoas!
 
 Vou iniciar uma série de publicações mostrando na prática como montar o
@@ -53,7 +53,7 @@ ambiente de desenvolvimento diferente:
 
 ### Sistemas Operacionais: Debian e Slackware
 
-|img "/images/blog/tux.png" 120 120 "Tux, o mascote do Linux" "align-left"|
+{% img align-left /images/blog/tux.png 120 120 Tux, o mascote do Linux %}
 Embora eu vá utilizar o [*Debian 6*][] no
 ambiente de desenvolvimento, isolarei o ambiente de *staging* em uma
 máquina virtual. Nela, terei o [*Slackware 13.1*][] “básico”, e a partir

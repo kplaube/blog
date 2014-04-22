@@ -4,7 +4,7 @@ Category: notícias
 Tags: noticias, delicious
 Slug: orfao-delicious-eu-tambem
 
-|img "/images/blog/delicious-logo.jpg" 180 180 "Delicious descontinuado?" "align-left"|
+{% img align-left /images/blog/delicious-logo.jpg 180 180 Delicious descontinuado? %}
 
 Para os desavisados, o [*Yahoo!*][yahoo]
 anunciou que irá [descontinuar][] / [vender][] uma série de serviços,

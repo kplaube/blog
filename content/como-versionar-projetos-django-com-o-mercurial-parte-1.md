@@ -6,7 +6,7 @@ Slug: como-versionar-projetos-django-mercurial-parte
 meta_description: Se você está começando em Django esta será uma grande oportunidade para você conhecer o Mercurial.
 
 
-|img "/images/blog/mercurial-logo.png" 180 216 "Logotipo do Mercurial" "align-left"|
+{% img align-left /images/blog/mercurial-logo.png 180 216 Logotipo do Mercurial %}
 Olá pessoas!
 
 E cá estamos, tentando de qualquer forma manter este *blog* alimentado
@@ -24,7 +24,7 @@ meus projetos Django.
 Peraí! Por que não Git?
 -----------------------
 
-|img "/images/blog/git-logo.png" 97 188 "Logotipo do Git" "align-left"|
+{% img align-left /images/blog/git-logo.png 97 188 Logotipo do Git %}
 Sem dúvida o [*Git*][] é a ferramenta do momento em
 se tratando de controle de versões, e vem sendo muito utilizada por
 rubistas e pythonistas (eu incluso nessa última galera).
@@ -47,7 +47,7 @@ um *flame* em cima deste assunto. A opção é melhor que não ter opção…
 GitHub x Bitbucket
 ------------------
 
-|img "/images/blog/bitbucket-github.png" 150 150 "Bitbucket x Github" "align-left"|
+{% img align-left /images/blog/bitbucket-github.png 150 150 Bitbucket x Github %}
 Agora uma coisa eu não posso deixar de concordar: O [*GitHub*][] é (na minha opinião) melhor que o
 [*Bitbucket*][].
 

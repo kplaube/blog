@@ -6,7 +6,7 @@ Slug: como-organizar-seus-projetos-django
 meta_description: Pretendo compartilhar com vocês a forma que venho utilizando para organizar meus projetos Django com o uso do virtualenv.
 
 
-|img "/images/blog/django-logo.png" 180 180 "Logotipo do Django" "align-left"|
+{% img align-left /images/blog/django-logo.png 180 180 Logotipo do Django %}
 Olá pessoas!
 
 Pretendo compartilhar com vocês a forma que venho utilizando para

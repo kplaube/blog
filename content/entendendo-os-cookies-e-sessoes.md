@@ -6,7 +6,7 @@ Slug: entendendo-os-cookies-e-sessoes
 meta_description: O protocolo HTTP é stateless, ou seja, não mantém o estado de uma requisição. Para suprir esta necessidade, são apresentados os Cookies e Sessões.
 
 
-|img "/images/blog/cookies.jpg" 180 180 "Representação de cookies" "align-left"|
+{% img align-left /images/blog/cookies.jpg 180 180 Representação de cookies %}
 Por muito tempo eu abstrai o conceito de
 *cookies* e sessões, e nunca cheguei a prestar muita atenção no seu
 funcionamento. Recentemente, trabalhando com uma infra mais preocupada
@@ -100,7 +100,7 @@ caso do *PHP*, através do *array* global **$\_COOKIE**).
 
 Abaixo, um exemplo de requisição utilizando o *Google Chrome*:
 
-|img "/images/blog/exemplo-php-cookies.png" 610 315 "Item cookie no cabeçalho de resposta da requisição HTTP" "center"|
+{% img align-center /images/blog/exemplo-php-cookies.png 610 315 Item cookie no cabeçalho de resposta da requisição HTTP %}
 
 [Clique para ampliar]({filename}/images/blog/exemplo-php-cookies.png)
 

@@ -6,7 +6,7 @@ Slug: camadas-desenvolvimento-web
 meta_description: Se eu aprendi alguma coisa com o xHTML, foi: Separar marcação, estilos e comportamento tornam a sua vida muito mais feliz.
 
 
-|img "/images/blog/www.jpg" 180 179 "World Wide Web" "align-left"|
+{% img align-left /images/blog/www.jpg 180 179 World Wide Web %}
 Se eu aprendi alguma coisa com o *xHTML*, foi:
 **Separar marcação, estilos e comportamento tornam a sua vida muito mais
 feliz**.
@@ -24,7 +24,7 @@ Vamos conhecer um pouco mais sobre desenvolvimento e padrões Web?
 Marcação com uma boa dose de semântica
 --------------------------------------
 
-|img "/images/blog/html-icon.png" 180 180 "Representação de documentos HTML" "align-left"|
+{% img /images/blog/html-icon.png 180 180 Representação de documentos HTML %}
 Algumas referências vão chamar esta camada de “marcação”, outras vão direto ao
 ponto chamando-a de “informação”. Eu gosto de pensar que é através da **marcação**
 que damos significado a **informação**.
@@ -50,9 +50,7 @@ como eles devem lidar com ela.
 Embelezando com estilos
 -----------------------
 
-</p>
-
-|img "/images/blog/css-icon.png" 180 180 "Ícone representando documento CSS" "align-left"|
+{% img /images/blog/css-icon.png 180 180 Ícone representando documento CSS %}
 Antes de fazer minha primeira
 aula de *Tableless*, eu nem fazia ideia de quão importante são as folhas
 de estilos. Você já deve imaginar como eu desenvolvia para a *Web*:
@@ -89,7 +87,7 @@ premissa da *Web 3.0*.
 Interação e comportamento
 -------------------------
 
-|img "/images/blog/js-icon.png" 180 180 "Ícone representando documento Javascript" "align-left"|
+{% img /images/blog/js-icon.png 180 180 Ícone representando documento Javascript %}
 O [*Javascript*][] é interpretado pelo navegador. Com ele, nossas aplicações *Web* podem
 fazer com que o navegador tenha um comportamento (ou interaja com os
 elementos) de uma maneira diferente da usual.

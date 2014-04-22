@@ -6,7 +6,7 @@ Slug: assegura-a-qualidade-de-codigo-python-pylint
 meta_description: o Pylint analisa de forma minuciosa o código do seu projeto Python, lhe retornando uma variedade de relatórios sobre todo o tipo de problema que ele encontra. Indo de incoerências com a PEP 8, até nome de variáveis.
 
 
-|img "/images/blog/code-quality.png" 180 180 "Analogia a qualidade e código" "align-left"|
+{% img align-left /images/blog/code-quality.png 180 180 Analogia a qualidade e código %}
 Se você precisa de uma ferramenta mais poderosa que o [*pep8*][], talvez você
 precise do ***Pylint***.
 

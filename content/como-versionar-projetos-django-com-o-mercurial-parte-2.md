@@ -6,7 +6,7 @@ Slug: como-versionar-projetos-django-mercurial-parte-2
 meta_description: Conheça os comandos básicos do Mercurial e aprenda a criar um repositório remoto e a compartilhar o seu código com outros desenvolvedores.
 
 
-|img "/images/blog/mercurial-logo.png" 180 216 "Logotipo do Mercurial" "align-left"|
+{% img align-left /images/blog/mercurial-logo.png 180 216 Logotipo do Mercurial %}
 Dando continuidade ao *post* [Como versionar
 projetos *Django* com o *Mercurial*][], e a série [Montando seu ambiente
 de desenvolvimento *Django* no *Linux*][], vamos dar uma pincelada nos
@@ -120,7 +120,7 @@ Compartilhando as suas produções
 --------------------------------
 
 
-|img "/images/blog/bitbucket-logo.png" 180 180 "Logotipo do BitBucket" "align-left"|
+{% img align-left /images/blog/bitbucket-logo.png 180 180 Logotipo do BitBucket %}
 Se você ainda não tem uma conta no
 [*Bitbucket*][], essa é uma grande oportunidade para fazer uma.
 

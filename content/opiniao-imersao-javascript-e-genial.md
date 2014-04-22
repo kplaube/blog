@@ -6,7 +6,7 @@ Slug: opiniao-imersao-javascript-e-genial
 meta_description: Para inaugurar a série Opinião, onde pretendo expor algumas “críticas” sobre cursos, eventos e livros técnicos, quero compartilhar com vocês a experiência que tive com o curso Imersão Javascript, da e-Genial.
 
 
-|img "/images/blog/imersao-javascript-egenial.jpeg" 180 180 "Curso de Imersão Javascript da e-Genial" "align-left"|
+{% img align-left /images/blog/imersao-javascript-egenial.jpeg 180 180 Curso de Imersão Javascript da e-Genial %}
 Para inaugurar a série
 [Opinião][], onde pretendo expor algumas “críticas” sobre cursos,
 eventos e livros técnicos, quero compartilhar com vocês a experiência

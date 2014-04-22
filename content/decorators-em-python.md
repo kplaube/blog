@@ -6,7 +6,7 @@ Slug: decorators-em-python
 meta_description: Decorators alteram dinamicamente a funcionalidade de uma função, método ou classe, sem uso direto de subclasses ou alterando o código-fonte da função “decorada”.
 
 
-|img "/images/blog/python-logo.png" 180 180 "Logotipo do Python" "align-left"|
+{% img align-left /images/blog/python-logo.png 180 180 Logotipo do Python %}
 E na mesma linha dos [*closures*][], eu passei a
 saber realmente o que são *decorators* depois de utilizar a *framework*
 [*Django*][]. Se você está trabalhando com [Orientação a Objetos][] e

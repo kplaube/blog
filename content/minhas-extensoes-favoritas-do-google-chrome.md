@@ -6,7 +6,7 @@ Slug: minhas-extensoes-favoritas-google-chrome
 meta_description: O Google Chrome há muito já provou ser um fantástico navegador, conheça alguns add-ons que me fizeram esquecer rapidamente do Firefox.
 
 
-|img "/images/blog/google-chrome-logo.png" 180 180 "Logotipo do Google Chrome" "align-left"|
+{% img align-left /images/blog/google-chrome-logo.png 180 180 Logotipo do Google Chrome %}
 
 O [*Google Chrome*][] há muito já provou ser um fantástico navegador, me
 fazendo largar o [*Firefox*][] já na sua primeira semana de lançamento
@@ -49,7 +49,7 @@ Confira: [*BuiltWith Technology Profiler*][].
 Chrome Sniffer
 --------------
 
-|img "/images/blog/chrome-sniffer-example.png" 410 200 "Exempl do Chrome Sniffer" "align-left"|
+{% img align-left /images/blog/chrome-sniffer-example.png 410 200 Exemplo do Chrome Sniffer %}
 
 O *Chrome Sniffer* traz informações mais específicas que o
 *BuiltWith Technology*. Por exemplo, através dele sabemos que o website da
@@ -78,7 +78,7 @@ Confira: [*Delicious Tools*][].
 Eye Dropper
 -----------
 
-|img "/images/blog/eyedropper.png" 160 110 "Plugin Eyer Dropper" "align-left"|
+{% img align-left /images/blog/eyedropper.png 160 110 Plugin Eyer Dropper %}
 
 E quando estamos desenvolvendo algum *website* e bate aquela dúvida em relação
 a cores? O *Eye Dropper* facilita a nossa vida!
@@ -118,7 +118,7 @@ Confira: [*Google Reader Notifier*][].
 HTML5 Powered
 -------------
 
-|img "/images/blog/html5-powered.png" 150 150 "HTML5 Powered" "align-left"|
+{% img align-left /images/blog/html5-powered.png 150 150 HTML5 Powered %}
 
 Está embarcando na onda do [*HTML5*][]? Quer saber quais *sites* que você navega
 que são feitos na linguagem?
@@ -174,7 +174,7 @@ Confira: [*JSONView*][].
 Migre.me
 --------
 
-|img "/images/blog/migreme-logo.jpg" 150 150 "Logotipo do Migre.me" "align-left"|
+{% img align-left /images/blog/migreme-logo.jpg 150 150 Logotipo do Migre.me %}
 
 O [*migre.me*][] é o encurtador de *URLs* criado pelo hilário [*Jonny Ken*][].
 
@@ -213,7 +213,7 @@ Confira: [*Python Search*][].
 Resolution Test
 ---------------
 
-|img "/images/blog/resolution-test.png" 150 150 "Resolution Test" "align-left"|
+{% img align-left /images/blog/resolution-test.png 150 150 Resolution Test %}
 
 Quer testar o seu *website* nas mais diferentes resoluções possíveis?
 O *Resolution Test* é um *add-on* incrível que permite fazer com que o seu
@@ -253,7 +253,7 @@ Confira: [*Silver Bird*][].
 Speed Tracer (by Google)
 ------------------------
 
-|img "/images/blog/speed-tracer-logo.png" 128 128 "Speed Tracer Logo" "align-left"|
+{% img align-left /images/blog/speed-tracer-logo.png 128 128 Speed Tracer Logo %}
 
 Quer descobrir como anda a performance da sua aplicação *Web*? O *Speed Tracer*
 pode te mostrar alguns gargalos que venham a ocorrer.
@@ -290,7 +290,7 @@ Confira: [*WhatFont*][].
 YSlow
 -----
 
-|img "/images/blog/yslow-logo.png" 150 150 "Logotipo do YSlow" "align-left"|
+{% img align-left /images/blog/yslow-logo.png 150 150 Logotipo do YSlow %}
 
 E por último, mas não menos importante, uma das extensões mais famosas do
 *Firefox* (entre os desenvolvedores) ganha a sua versão para o *Google Chrome*!

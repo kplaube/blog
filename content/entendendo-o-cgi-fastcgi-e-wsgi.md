@@ -6,7 +6,7 @@ Slug: entendendo-o-cgi-fastcgi-e-wsgi
 meta_description: Neste artigo, exploramos as diferenças entre CGI, FastCGI e WSGI e apresentamos exemplo, soluções e ferramentas para servir a sua aplicação Python na Web.
 
 
-|img "/images/blog/apache-fcgi-logo.png" 180 180 "Fast CGI" "align-left"|
+{% img align-left /images/blog/apache-fcgi-logo.png 180 180 Fast CGI %}
 Pelos vários anos que programei com o [*PHP*][] e *Apache*,
 nunca precisei me preocupar com o que acontecia entre esses dois. Para
 mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas

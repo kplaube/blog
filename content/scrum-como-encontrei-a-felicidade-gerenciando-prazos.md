@@ -6,7 +6,7 @@ Slug: scrum-como-encontrei-felicidade-gerenciando-prazos
 meta_description: Posso afirmar que o grande lance do Scrum é aproximar as pessoas envolvidas em um projeto removendo o que não importa.
 
 
-|img "/images/blog/prazos.jpg" 180 180 "Gerenciando prazos" "align-left"|
+{% img align-left /images/blog/prazos.jpg 180 180 Gerenciando prazos %}
 
 Eu como desenvolvedor/programador nunca tive real interesse em
 **gerência de projetos**, o que fatalmente resultava em **projetos de
@@ -48,7 +48,7 @@ Se você não sabe o que é *Scrum*, recomendo:
 3.  Por fim, recomendo ler o *e-book* “[*Scrum* e *XP* direto das
     trincheiras][scrum_e_xp]” (sem dúvida a minha refência favorita sobre Scrum).
 
-|img "/images/blog/scrum.jpg" 416 300 "Formação Scrum, no Rugby" "align-left"|
+{% img align-left /images/blog/scrum.jpg 416 300 Formação Scrum, no Rugby %}
 
 Posso afirmar que o grande lance do
 *Scrum* é **aproximar as pessoas envolvidas em um projeto** removendo o
@@ -67,7 +67,7 @@ necessário comunicação.
 Foco garante agilidade
 ----------------------
 
-|img "/images/blog/scrum-iteration.png" 120 120 "Iterações de projetos Scrum" "align-left"|
+{% img align-left /images/blog/scrum-iteration.png 120 120 Iterações de projetos Scrum %}
 Sabendo exatamente qual era a necessidade do cliente, foi possível determinar
 o que era mais importante para o mesmo. O modelo de desenvolvimento iterativo
 permite que os desenvolvedores de *software* possam entregar **pequenas partes usáveis**

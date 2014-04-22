@@ -6,7 +6,7 @@ Slug: afinal-o-que-sao-closures
 meta_description: Vamos descobrir através do Javascript o que é e como funciona o conceito de closures.
 
 
-|img "/images/blog/closures.jpg" 180 180 "Caixa de papelão representando Closures" "align-left"|
+{% img align-left /images/blog/closures.jpg 180 180 Caixa de papelão representando Closures %}
 Olá pessoas!
 
 Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com

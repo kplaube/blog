@@ -6,7 +6,7 @@ Slug: opiniao-front-bh-2013
 meta_description: Descontraído porém relevante. Talvez essa seja a melhor definição para o Front in BH, que contou com palestrantes de peso e com uma organização que, além de surpreendente, tirou um “gosto ruim” que eu tinha em relação a eventos de front-end.
 
 
-|img "/images/blog/front-in-bh-logo.png" 180 180 "Logo do Front in BH" "align-left"|
+{% img align-left /images/blog/front-in-bh-logo.png 180 180 Logo do Front in BH %}
 No dia 03 de agosto de 2013, tive o prazer de participar do [*Front in BH*][],
 edição 2013. Organizado pelo [*@davidsonfellipe*][] e [*@keppelen*][], o evento
 contou com palestrantes de peso e com uma organização que, além de

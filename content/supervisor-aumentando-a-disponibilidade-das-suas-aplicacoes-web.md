@@ -6,7 +6,7 @@ Slug: supervisor-gerencie-os-processos-seu-servidor-web
 meta_description: A proposta do Supervisor é simples: permitir que usuários possam controlar e monitorar processos (e grupos de processos) em um sistema Unix-like.
 
 
-|img "/images/blog/supervisor-logo.gif" 180 180 "Logotipo do Supervisor" "align-left"|
+{% img align-left /images/blog/supervisor-logo.gif 180 180 Logotipo do Supervisor %}
 E se você pudesse controlar uma série de processos
 através de um comando? Ou de garantir que serviços “down” sejam
 reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder

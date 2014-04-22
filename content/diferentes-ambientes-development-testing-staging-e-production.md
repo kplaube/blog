@@ -6,7 +6,7 @@ Slug: diferentes-ambientes
 meta_description: Uma das práticas mais interessantes nessa nova onda de qualidade que está encrostada nas práticas agile de desenvolvimento de software, é o uso de diferentes ambientes para diferentes estágios do ciclo de vida de uma aplicação.
 
 
-|img "/images/blog/server-rack.jpg" 180 160 "Diferentes ambientes" "align-left"|
+{% img align-left /images/blog/server-rack.jpg 180 160 Diferentes ambientes %}
 Uma das práticas mais interessantes nessa
 “nova onda” de qualidade que está “encrostada” nas práticas [*agile*][]
 de desenvolvimento de *software*, é o uso de diferentes ambientes para

@@ -6,7 +6,7 @@ Slug: opiniao-python-brasil-8
 meta_description: Nos dias 21 a 24 de Novembro de 2012 aconteceu a Python Brasil. Em sua oitava edição, o evento mais aguardado pelos desenvolvedores Python “tupiniquins” me causou a melhor das impressões!
 
 
-|img "/images/blog/python-brasil-8.jpg" 180 180 "Logo Python Brasil 8" "align-left"|
+{% img align-left /images/blog/python-brasil-8.jpg 180 180 Logo Python Brasil 8 %}
 Nos dias 21 a 24 de Novembro de 2012 aconteceu
 a [*Python Brasil*][]. Em sua oitava edição, o evento mais aguardado
 pelos desenvolvedores [*Python*][] “tupiniquins” me surpreendeu
@@ -36,7 +36,7 @@ o pessoal era algo muito difícil para mim (geograficamente falando),
 então conhecer alguns profissionais que acompanho pelo [*Twitter*][] era
 uma das metas que eu tinha para o evento.
 
-|img "/images/blog/estande-globocom.jpg" 600 448 "Estande da Globo.com na Python brasil 8" "align-center"|
+{% img align-center /images/blog/estande-globocom.jpg 600 448 Estande da Globo.com na Python brasil 8 %}
 
 
 Resultados
@@ -88,7 +88,7 @@ Uma das melhores palestras do evento foi a do *Tarek Ziade* sobre o
 uma alternativa mais rica ao [*Supervisor*][], com monitoramento em
 tempo real e um *console Web* para gerenciamento.
 
-|img "/images/blog/palestra-tarek-circus-python-brasil-8.jpg" 600 448 "Tarek Ziade, da Mozilla, falando sobre Circus" "align-center"|
+{% img align-center /images/blog/palestra-tarek-circus-python-brasil-8.jpg 600 448 Tarek Ziade, da Mozilla, falando sobre Circus %}
 
 O *Tarek* falou também sobre empacotamento em *Python*. Eu acho a
 experiência do *pip* e *PyPI* excelente, e acho que o empacotamento é

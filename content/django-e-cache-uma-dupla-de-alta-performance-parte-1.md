@@ -6,7 +6,7 @@ Slug: django-e-cache-uma-dupla-de-alta-performance-1
 meta_description: Desenvolvedores Django podem contar com boas soluções, do próprio framework e de terceiros, que podem melhorar o caching das aplicações. Neste post, vamos apresentar o framework de caching do Django e como configurá-lo com o Memcached.
 
 
-|img "/images/blog/django-logo.png" 180 180 "Logo do Django" "align-left"|
+{% img align-left /images/blog/django-logo.png 180 180 Logo do Django %}
 Embora o [*caching HTTP*][] seja essencial
 para qualquer aplicação [*Web*][], **(IMO)**
 essa modalidade de [*cache*][] deve ser encarada como um acréscimo à

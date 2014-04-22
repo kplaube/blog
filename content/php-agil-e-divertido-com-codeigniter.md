@@ -6,7 +6,7 @@ Slug: php-agil-e-divertido-com-codeigniter
 meta_description: Não há mistérios na forma como a CodeIgniter trabalha com o MVC, utilizando o “MVC clássico”, com as rotas baseadas nos nomes do controlador e das actions, modelos com ORM através da ActiveRecord, e views utilizando a linguagem natural do PHP.
 
 
-|img "/images/blog/ci-logo.png" 180 180 "Logotipo do Codeigniter" "align-left"|
+{% img align-left /images/blog/ci-logo.png 180 180 Logotipo do Codeigniter %}
 Após experimentar [algumas *frameworks*][] [*PHP*][], recentemente tenho
 aplicado bastante tempo no estudo da [**CodeIgniter**][], e tive o prazer de
 redescobrir a diversão em programar nessa linguagem um tanto controversa.
@@ -54,7 +54,7 @@ E performance é uma das qualidades e diferenciais da *CodeIgniter*.
 Segundo o [*benchmark* realizado por *Leng Sheng Hong*][], a
 *CodeIgniter* fica atrás apenas da (também excelente) *DooPHP*:
 
-|img "/images/blog/benchmark-php.png" 610 365 "Comparativo entre Frameworks PHP" "center"|
+{% img align-center /images/blog/benchmark-php.png 610 365 Comparativo entre Frameworks PHP %}
 
 Em tempos onde performance e disponibilidade são premissas, e não mais
 diferenciais, ter uma boa ferramenta ao seu lado facilita muito o

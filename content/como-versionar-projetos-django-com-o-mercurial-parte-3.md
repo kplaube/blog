@@ -6,7 +6,7 @@ Slug: como-versionar-projetos-django-mercurial-parte-3
 meta_description: A parte final do tutorial sobre Django e Mercurial dando um exemplo prático com  uso de pip e virtualenv.
 
 
-|img "/images/blog/django-logo.png" 180 180 "Logotipo do Django" "align-left"|
+{% img align-left /images/blog/django-logo.png 180 180 Logotipo do Django %}
 
 Olá pessoas!
 
@@ -98,7 +98,7 @@ comitá-los e dar um **push** deles para o repositório *Mercurial* no
 
 Nos *changesets* do repositório, veremos a contribuição enviada:
 
-|img "/images/blog/changesets-no-bitbucket.png" 568 167 "Changeset no BitBucket" "align-center"|
+{% img align-center /images/blog/changesets-no-bitbucket.png 568 167 Changeset no BitBucket %}
 
 **Pronto!** Basicamente, para termos o *Mercurial* versionando um
 projeto *Django*, são estes os procedimentos… mas eu sei como deixar a

@@ -6,7 +6,7 @@ Slug: fazendo-javascript-oo-de-forma-facil
 meta_description: Embora o Javascript (em sua essência) seja Orientado a Objetos, temos que admitir que ele foge um pouco do convencional através do estilo de escrita prototype.
 
 
-|img "/images/blog/javascript-logo.png" 180 180 "Logotipo do Javascript" "align-left"|
+{% img align-left /images/blog/javascript-logo.png 180 180 Logotipo do Javascript %}
 Essa é uma dica valiosa para o pessoal que quer escrever um [*Javascript*][] mais “bonito”.
 
 Embora a linguagem (em sua essência) seja **Orientada a Objetos**, temos

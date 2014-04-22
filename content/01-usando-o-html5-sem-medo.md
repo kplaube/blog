@@ -6,7 +6,7 @@ Slug: usando-html5-sem-medo
 meta_description: É notável como gradativamente a gente vem ouvindo cada vez mais sobre HTML5 e CSS3. Os sites com experimentos não param de aparecer na Web...
 
 
-|img "/images/blog/html5-logo.png" 180 180 "Logotipo HTML5" "align-left"|
+{% img align-left /images/blog/html5-logo.png 180 180 Logotipo HTML5 %}
 Para aqueles que ainda são resistentes ao
 [*HTML5*][html5] eu digo: Desistam!
 
@@ -39,7 +39,7 @@ em sua versão 9.
 Mas dá pra usar ou não?
 -----------------------
 
-|img "/images/blog/we-can-do-html5.jpg" 192 245 "Comunidade Drupal incentivando ao uso do HTML5" "align-left"|
+{% img align-left /images/blog/we-can-do-html5.jpg 192 245 Comunidade Drupal incentivando ao uso do HTML5 %}
 Já utilizei *HTML5* em alguns projetos. Devo confidenciar que foram projetos “na
 surdina”, ou seja, os clientes e demais envolvidos não sabiam que o
 desenvolvimento estava sendo feito em *HTML5* (sendo revelado somente
