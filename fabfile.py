@@ -21,8 +21,8 @@ def vagrant():
 
 @task()
 def prod():
-	env.siteurl = 'http://klauslaube.com.br'
-	env.hosts = ['192.241.239.141', ]
+    env.siteurl = 'http://klauslaube.com.br'
+    env.hosts = ['192.241.239.141', ]
 
 
 @task(default=True)

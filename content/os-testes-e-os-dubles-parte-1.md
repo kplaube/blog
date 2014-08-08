@@ -6,7 +6,7 @@ Slug: os-testes-e-os-dubles-parte-1
 meta_description: Em tempos de polêmicas envolvendo os testes, nada mais justo do que falarmos sobre Test Double, mocks, stubs e os seus primos menos famosos.
 
 
-{% img align-left /images/blog/test-double.jpg 180 180 "Test Double" %}
+{% img align-left /images/blog/test-double.jpg 180 180 Test Double %}
 Em tempos onde [discussões envolvendo a relevância][2] dos [testes][3] têm
 causado furor nos diferentes campos da área do desenvolvimento de *software*,
 nada mais justo do que "chovermos no molhado", e falarmos sobre testes, *mocks*,
