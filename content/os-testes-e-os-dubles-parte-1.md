@@ -88,12 +88,12 @@ Na [documentação da biblioteca de *mock* do *Python*][11], temos a seguinte
 
 > A “mock object” is an object used to replace a real one in a system under test.
 
-Ou, [nas palavras de *Martin Folwer*][12]:
+Ou, [nas palavras de *Martin Fowler*][12]:
 
 > (...) objetos pré-programados com informações que formam uma especificação das chamadas que esperam receber.
 
 O termo *mock* faz parte de um conceito mais genérico, conhecido por
-*Test Double*. Segundo *Folwer*, esse termo é usado para qualquer objeto que
+*Test Double*. Segundo *Fowler*, esse termo é usado para qualquer objeto que
 tem por finalidade, em um teste, substituir um objeto real.
 
 Logo, quando em *Esportes1* consumimos um recurso externo, "mentimos" para o
@@ -104,7 +104,7 @@ sistema. Além do **Mock**, existem outros dublês que nos ajudam nessa tarefa:
 * **Stubs:** Providenciam respostas pré-configuradas, e normalmente não respondem a nada que não esteja programado para o teste;
 * **Spies:** Você pega um objeto real, substituindo o comportamento apenas de alguns métodos.
 
-O *InfoQ* possui um artigo do *Martin Folwer*, [traduzido para o Português][13],
+O *InfoQ* possui um artigo do *Martin Fowler*, [traduzido para o Português][13],
 onde ele conceitua bem os diferentes tipos de dublês, principalmente o *mock*
 e *stub*. Vale a leitura.
 
