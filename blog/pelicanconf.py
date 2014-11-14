@@ -19,7 +19,7 @@ DEFAULT_DATE_FORMAT = '%d %b, %Y'
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
 STATIC_PATHS = ['images']
-THEME = 'maggner-pelican'
+THEME = 'yapeme'
 
 PLUGIN_PATH = 'plugins'
 PLUGINS = ['global_license', 'summary', 'slideshare',
@@ -51,11 +51,9 @@ LINKS = ()
 
 # Social
 SOCIAL = (
-    ('Bitbucket', 'http://bitbucket.org/kplaube/'),
-    ('Duolingo', 'http://duolingo.com/#/kplaube'),
+    ('Facebook', 'http://facebook.com/klaus.laube'),
     ('GitHub', 'http://github.com/kplaube'),
     ('LinkedIn', 'http://www.linkedin.com/in/klauslaube'),
-    ('ProfissionaisTI', 'http://www.profissionaisti.com.br/author/klaus/'),
     ('Twitter', 'http://www.twitter.com/kplaube'),
 )
 
