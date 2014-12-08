@@ -19,7 +19,7 @@ DEFAULT_DATE_FORMAT = '%d %b, %Y'
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
 STATIC_PATHS = ['images']
-THEME = 'yapeme'
+THEME = 'maggner-pelican'
 
 PLUGIN_PATH = 'plugins'
 PLUGINS = ['global_license', 'summary', 'slideshare',
