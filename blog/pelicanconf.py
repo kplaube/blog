@@ -54,6 +54,7 @@ SOCIAL = (
     ('Facebook', 'http://facebook.com/klaus.laube'),
     ('GitHub', 'http://github.com/kplaube'),
     ('LinkedIn', 'http://www.linkedin.com/in/klauslaube'),
+    ('Slideshare', 'http://www.slideshare.net/kplaube'),
     ('Twitter', 'http://www.twitter.com/kplaube'),
 )
 
