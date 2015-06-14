@@ -30,7 +30,7 @@ Development environment
 You can serve the *blog* using *Pelican's* development server:
 
     make devserver
-    
+
 Now, accessing **localhost:8000** everything is fine.
 
 You can stop the development server using the **devserver_stop** task:
@@ -43,7 +43,7 @@ Provisioning
 To start the project using *Vagrant*, you need to do the following:
 
     vagrant up
-    
+
 It'll automatically provision the *Vagrant* instance for you.
 
 You must publish and send content to the *Vagrant* instance. To do that, you can use the **rsync_upload** task:
@@ -63,8 +63,8 @@ This task will install *SaltStack* on your remote host, will provision, publish 
 
 Once you have a production environment provisioned, you just need to run the **rsync_upload** task:
 
-    make rsync_upload host=prod
-    
+    make rsync_upload host=prod user=<USER>
+
 **Remember:** The hosts are configured in [**fabfile.py**][].
 
 Contributions are very welcome!
@@ -75,6 +75,6 @@ Contributions are very welcome!
   [plugins path]: https://github.com/kplaube/blog/tree/master/plugins "See all plugins used by the project"
   [*Fabric*]: http://docs.fabfile.org/ "Fabric is a Python (2.5-2.7) library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks."
   [*SaltStack*]: http://www.saltstack.com/ "Fast, scalable and flexible software for data center automation, from infrastructure and any cloud, to the entire application stack"
-  [*Digital Ocean*]: https://www.digitalocean.com/ "Simple cloud hosting, built for developers" 
+  [*Digital Ocean*]: https://www.digitalocean.com/ "Simple cloud hosting, built for developers"
   [Download *Vagrant*]: https://www.vagrantup.com/downloads "Download Vagrant"
   [**fabfile.py**]: https://github.com/kplaube/blog/blob/master/fabfile.py

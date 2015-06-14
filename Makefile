@@ -6,8 +6,6 @@ INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/blog/pelicanconf.py
 
-SSH_USER=ubuntu
-
 help:
 	@echo 'Makefile for a pelican Web site                                        '
 	@echo '                                                                       '
@@ -48,7 +46,7 @@ publish:
 	@fab $(host) publish
 
 rsync_upload: publish
-	@fab $(host) upload_content -u $(SSH_USER)
+	@fab $(host) upload_content -u $(user)
 
 install:
 	mkdir -p $(OUTPUTDIR)
