@@ -9,7 +9,7 @@ AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
 SITESUBTITLE = u'Python, Django e desenvolvimento Web'
 SITEURL = os.environ.get('SITEURL', 'http://local.klauslaube.com.br:8000')
-SITEDESCRIPTION = u'Artigos sobre desenvolvimento Web, Python Django, padrões Web e Linux.'
+SITEDESCRIPTION = u'Artigos sobre desenvolvimento Web, Python e Django.'
 RELATIVE_URLS = False
 
 TIMEZONE = 'America/Sao_Paulo'
@@ -19,11 +19,11 @@ DEFAULT_DATE_FORMAT = '%d %b, %Y'
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
 STATIC_PATHS = ['images']
-THEME = 'maggner-pelican'
+THEME = 'yapeme'
 
 PLUGIN_PATH = 'plugins'
 PLUGINS = ['global_license', 'summary', 'slideshare',
-           'related_posts', 'better_meta', 'liquid_tags.img', ]
+           'better_meta', 'liquid_tags.img', ]
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
@@ -36,15 +36,11 @@ DEFAULT_PAGINATION = 10
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 
-TAG_URL = "%s/tag/{slug}.html" % SITEURL
-TAG_CLOUD_MAX_ITEMS = 20
 FAVICON_URL = "%s/images/favicon.ico" % SITEURL
 DEFAULT_OG_IMAGE = "%s/images/opengraph.jpg" % SITEURL
 
 # Menu
-MENUITEMS = (
-    ('Blog', '/'),
-)
+MENUITEMS = ()
 
 # Blogroll
 LINKS = ()
