@@ -43,7 +43,7 @@ saneamento, dos custos, dos padrões de qualidade, da segurança, do prazo, etc.
 
 {% img align-center /images/blog/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg 620 492 O que meus amigos acham que eu faço (whatmyfriendsthinkido.net) %}
 
-Na TI, como [não há regumentação da profissão](http://www.profissionaisti.com.br/2013/06/14-motivos-para-voce-ser-contra-a-regulamentacao-dos-profissionais-de-ti/ "14 motivos para você ser contra a regulamentação dos profissionais de TI"),
+Na TI, como [não há regulamentação da profissão](http://www.profissionaisti.com.br/2013/06/14-motivos-para-voce-ser-contra-a-regulamentacao-dos-profissionais-de-ti/ "14 motivos para você ser contra a regulamentação dos profissionais de TI"),
 é muito comum vermos desenvolvedores "abraçarem" diferentes atribuições dentro
 de um projeto, e por fim, acabarem exercendo esse papel multidisciplinar.
 
