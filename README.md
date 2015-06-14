@@ -3,7 +3,7 @@ klauslaube.com.br
 
 The implementation of my [*blog*][], powered by [*Pelican*][].
 
-The current theme is [*maggner-pelican*][]. To check out all the plugins used, please, visit the [plugins path][].
+The current theme is [*yapeme*][]. To check out all the plugins used, please, visit the [plugins path][].
 
 Provisioned with [*Fabric*][] and [*SaltStack*][], the blog is nowadays hosted on [*Digital Ocean*][] (but it's not an obligation). It's structure is very simple:
 
@@ -71,7 +71,7 @@ Contributions are very welcome!
 
   [*blog*]: http://klauslaube.com.br "My personal blog"
   [*Pelican*]: https://github.com/getpelican/pelican "Static site generator that supports Markdown and reST syntax. Powered by Python"
-  [*maggner-pelican*]: https://github.com/kplaube/maggner-pelican "A responsive (and simple) theme for Pelican"
+  [*yapeme*]: https://github.com/kplaube/yapeme "A responsive (and simple) theme for Pelican"
   [plugins path]: https://github.com/kplaube/blog/tree/master/plugins "See all plugins used by the project"
   [*Fabric*]: http://docs.fabfile.org/ "Fabric is a Python (2.5-2.7) library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks."
   [*SaltStack*]: http://www.saltstack.com/ "Fast, scalable and flexible software for data center automation, from infrastructure and any cloud, to the entire application stack"
