@@ -36,6 +36,8 @@ DEFAULT_PAGINATION = 10
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 
+TAG_URL = "%s/tag/{slug}.html" % SITEURL
+
 FAVICON_URL = "%s/images/favicon.ico" % SITEURL
 DEFAULT_OG_IMAGE = "%s/images/opengraph.jpg" % SITEURL
 
