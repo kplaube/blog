@@ -110,7 +110,7 @@ pode ser encarado de forma positiva, pois fica muito clara a nossa intenção
 no teste.
 
 É relativamente comum vermos *Fakes* sendo utilizados para "dublar" acessos
-a um banco de dados. Quando falamos de testes em [*Django*]({filename}tag/django.html "Leia mais sobre Django"),
+a um banco de dados. Quando falamos de testes em [*Django*]({tag}django "Leia mais sobre Django"),
 geralmente utilizamos uma persistência mais leve (como um banco *SQLite*, por exemplo)
 que substitui um banco mais complexo, tornando a nossa suíte de testes
 mais simples.
