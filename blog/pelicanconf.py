@@ -56,10 +56,12 @@ SOCIAL = (
     ('Twitter', 'http://www.twitter.com/kplaube'),
 )
 
-TWITTER_USERNAME = 'kplaube'
 DISQUS_SITENAME = 'klauslaube'
-GOOGLE_ANALYTICS = 'UA-19657400-1'
 FACEBOOK_APP_ID = '262757647133878'
+GOOGLE_ANALYTICS = 'UA-19657400-1'
+GOOGLE_SITE_VERIFICATION = 'xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY'
+TWITTER_USERNAME = 'kplaube'
+
 
 # License
 LICENSE = 'Creative Commons Attribution 3.0'
