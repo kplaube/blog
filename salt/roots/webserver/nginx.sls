@@ -18,9 +18,13 @@ nginx:
   file.symlink:
     - target: /etc/nginx/sites-available/blog
 
-rm /etc/nginx/sites-enabled/default:
-  cmd.run:
-    - onlyif:  [ -f /etc/nginx/sites-enabled/default ]
+rm -f /etc/nginx/sites-enabled/default:
+  cmd.run
+
+service nginx restart:
+  cmd.wait:
+    - watch:
+      - cmd: rm -f /etc/nginx/sites-enabled/default
 
 /srv/blog:
   file.directory:
