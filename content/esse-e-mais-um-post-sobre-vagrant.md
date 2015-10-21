@@ -49,7 +49,7 @@ sexta-feira.
 
 Segundo o *[Wikipedia](https://en.wikipedia.org/wiki/Vagrant_%28software%29 "Leia sobre Vagrant")*:
 
-	Vagrant is computer software that creates and configures virtual development environments. It can be seen as a higher-level wrapper around virtualization software such as VirtualBox, VMware, KVM and Linux Containers (LXC), and around configuration management software such as Ansible, Chef, Salt, and Puppet.
+> Vagrant is computer software that creates and configures virtual development environments. It can be seen as a higher-level wrapper around virtualization software such as VirtualBox, VMware, KVM and Linux Containers (LXC), and around configuration management software such as Ansible, Chef, Salt, and Puppet.
 
 É isso mesmo o que você leu! O *Vagrant* é uma ferramenta que serve como uma
 "cola" entre a sua máquina *VirtualBox* e o seu provisionamento por *Puppet*.
