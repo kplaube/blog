@@ -66,6 +66,6 @@ TWITTER_USERNAME = 'kplaube'
 # License
 LICENSE = 'Creative Commons Attribution 3.0'
 LICENSE_URL = 'http://creativecommons.org/licenses/by/3.0/deed.pt_BR'
-LICENSE_TITLE = 'Share, adapt, use. But mention the author'
+LICENSE_TITLE = 'Distribua, adapte, use. Mas mencione o autor.'
 SOURCE_CODE_URL = 'https://github.com/kplaube/blog/'
 SOURCE_CODE_REPOSITORY = 'GitHub'
