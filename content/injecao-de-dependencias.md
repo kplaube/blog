@@ -40,7 +40,7 @@ você explicitamente passará as dependências que ele necessita.
 
 No *Stackoverflow* temos o
 [melhor exemplo da face da terra](http://stackoverflow.com/questions/130794/what-is-dependency-injection "What's dependency injection?")
-para exemplificar uma injeção de dependência. Abaixo um código sem o *DI*:
+para ilustrar uma injeção de dependência. Abaixo um código sem o *DI*:
 
     ::java
     public SomeClass() {
