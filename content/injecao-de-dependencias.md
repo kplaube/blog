@@ -1,7 +1,7 @@
 Title: Injeção de Dependência
 Date: 2015-10-24 16:30:00
 Category: desenvolvimento
-Tags: desenvolvimento, design-pattern, dependency injection, angularjs
+Tags: desenvolvimento, design-patterns, dependency injection, angularjs
 Slug: injecao-de-dependencia
 meta_description: Se você já teve contato com Laravel ou AngularJS, sabe muito bem que um dos maiores motivos de orgulho desses frameworks é a Injeção de Dependência. Embora o termo possa assustar, esse conceito na verdade é relativamente simples de entender.
 
