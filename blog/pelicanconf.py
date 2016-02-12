@@ -23,7 +23,7 @@ THEME = 'yapeme'
 
 PLUGIN_PATH = 'plugins'
 PLUGINS = ['global_license', 'summary', 'slideshare',
-           'better_meta', 'liquid_tags.img', ]
+           'extended_meta', 'liquid_tags.img', ]
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
