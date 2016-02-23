@@ -1,41 +1,46 @@
-PELICAN=pelican
+PRODUCTION_HOST=192.241.239.141
 
+SITEURL=http://localhost:8000
 BASEDIR=$(CURDIR)
-INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
+REMOTEOUTPUTDIR=/srv/blog
 
 help:
-	@echo 'Makefile for a pelican Web site                                        '
 	@echo '                                                                       '
 	@echo 'Usage:                                                                 '
-	@echo '   make setup				       install all project dependencies   '
-	@echo '   make html                        (re)generate the web site          '
-	@echo '   make clean                       remove the generated files         '
-	@echo '   make publish                     generate using production settings '
-	@echo '   make run 	                       serve site at http://localhost:8000'
-	@echo '   rsync_upload                     upload the web site via rsync+ssh  '
+	@echo '   make clean                       Remove the generated files         '
+	@echo '   make help                        This screen                        '
+	@echo '   make html                        Generate articles                  '
+	@echo '   make publish                     Publish articles                   '
+	@echo '   make run                         Serve site at http://localhost:8000'
+	@echo '   make setup                       Install all project dependencies   '
 	@echo '                                                                       '
 
+vagrant:
+	@$(eval SITEURL := 'http://local.klauslaube.com.br:8080')
+	@$(eval HOST := 'localhost')
 
-html: clean
-	pelican content -s $(CONFFILE)
+prod:
+	@$(eval SITEURL := 'http://klauslaube.com.br')
+	@$(eval HOST := $(PRODUCTION_HOST))
+
 
 clean:
 	find $(OUTPUTDIR) -mindepth 1 -delete
 
+html: clean
+	SITEURL=$(SITEURL) pelican content -s $(CONFFILE)
+
+publish: html
+	rsync -Cravzp $(OUTPUTDIR)/* $(user)@$(HOST):$(REMOTEOUTPUTDIR)/
+
 run: html
 	cd $(OUTPUTDIR) && python -m pelican.server
-
-publish:
-	@fab $(host) publish
-
-rsync_upload: publish
-	@fab $(host) upload_content -u $(user)
 
 setup:
 	mkdir -p $(OUTPUTDIR)
 	pip install -r requirements.txt
 	vagrant plugin install vagrant-salt
 
-.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload
+.PHONY: vagrant prod clean html run publish setup
