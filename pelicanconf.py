@@ -21,7 +21,7 @@ WEBASSETS = True
 STATIC_PATHS = ['images']
 THEME = 'yapeme'
 
-PLUGIN_PATH = 'plugins'
+PLUGIN_PATHS = ['plugins', ]
 PLUGINS = ['global_license', 'summary', 'slideshare',
            'extended_meta', 'liquid_tags.img', ]
 
