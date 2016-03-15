@@ -57,7 +57,7 @@ através de expressões como essas:
 
     // Testando chamada interna
     fooBar._private("externa");
-    
+
     // Testando chamada externa
     fooBar.spam("Eggs and Spam");  // Spam: Eggs and Spam
 
@@ -80,7 +80,7 @@ a uma outra forma de construirmos classes em *Javascript*:
 
     Pessoa();  // Pessoa instanciada!
     console.log(typeof(Pessoa));   // function
-    
+
     var pessoa1 = new Pessoa();    // Pessoa instanciada!
     console.log(typeof(pessoa1));  // object
 
@@ -159,7 +159,7 @@ conceito de métodos de classe:
         this.id++;
         return this.id;
     }
-    
+
     var javascript = new Linguagem("Javascript", "1.5");
     console.log(javascript);        // Linguagem
     console.log(javascript.meuId);  // 1
@@ -214,7 +214,7 @@ comportamento esperado de uma herança:
     console.log(django);                      // Framework
     console.log(django.descricaoCompleta());  // Python vr.2.7
     console.log(django.feitoEm());            // Django é feito em Python
-    
+
     var jquery = new Framework("jQuery", "Javascript", "1.5");
 
     console.log(jquery);                      // Framework
