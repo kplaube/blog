@@ -1,5 +1,5 @@
 Title: O simples e poderoso Pyenv
-Date: 2016-04-25 23:50:00
+Date: 2016-04-26 09:53:00
 Category: desenvolvimento
 tags: desenvolvimento, python, pyenv, virtualenv, virtualenvwrapper, macosx
 slug: o-simples-e-poderoso-pyenv
