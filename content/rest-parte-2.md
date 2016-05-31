@@ -75,9 +75,9 @@ filme?
 
 O conceito de hipermídia pode ser bastante abstrato. Segundo o *Wikipedia*:
 
-    Hipermídia é a reunião de várias mídias num ambiente computacional, suportada por sistemas eletrônicos
-    de comunicação. Hipermídia, diferentemente de multimídia, não é a mera reunião dos meios existentes, e
-    sim a fusão desses meios a partir de elementos não-lineares.
+> Hipermídia é a reunião de várias mídias num ambiente computacional, suportada por sistemas eletrônicos
+> de comunicação. Hipermídia, diferentemente de multimídia, não é a mera reunião dos meios existentes, e
+> sim a fusão desses meios a partir de elementos não-lineares.
 
 A melhor forma de entender esse conceito é se olharmos para uma forma de hipermídia muito conhecida: o hipertexto (sim,
 o "H" do [*Hypertext Markup Language*]({tag}html "Leia mais sobre HTML")). Nele, temos um "texto interativo",
