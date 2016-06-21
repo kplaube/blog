@@ -1,8 +1,8 @@
 Title: Django e ES6 com django-compressor
-Date: 2016-06-20 16:00:00
+Date: 2016-06-20 23:04:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, python, django, es6, javascript, babel, browserify
-Slug: django-e-es6-com-django-compressor-no-heroku
+Slug: django-e-es6-com-django-compressor
 meta_description: Vamos falar sobre como utilizar o Django e o django-compressor para transpilar scripts ES6 em ES5, com ajuda do Node.js e Babelify.
 
 {% img align-left /images/blog/django-js-logo.png 180 180 Logo do Django e Javascript %}
@@ -121,7 +121,7 @@ Para facilitar a comunicação entre o *Django* e o *Babel*, vamos criar um arqu
 
     ::json
     {
-      "presets": ["es2015", "stage-0"]
+      "presets": ["es2015"]
     }
 
 Voltamos ao *Django*, para terminar de configurar o nosso projeto.
