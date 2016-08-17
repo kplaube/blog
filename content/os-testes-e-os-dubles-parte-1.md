@@ -131,7 +131,7 @@ Referências
   [7]: {tag}tdd "Leia mais sobre TDD"
   [8]: {tag}bdd "Leia mais sobre BDD"
   [9]: {tag}memcached "Leia mais sobre Memcached"
-  [10]: https://docs.djangoproject.com/en/1.6/topics/testing/tools/ "Testing Tools"
+  [10]: https://docs.djangoproject.com/en/dev/topics/testing/tools/ "Testing Tools"
   [11]: http://www.voidspace.org.uk/python/mock/#terminology "Biblioteca de mock do Python"
   [12]: http://www.infoq.com/br/articles/mocks-Arent-Stubs "A diferença entre Mocks e Stubs"
   [13]: http://www.infoq.com/br/articles/mocks-Arent-Stubs "Mocks não são Stubs"
