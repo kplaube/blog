@@ -36,7 +36,7 @@ clean:
 	find $(OUTPUT_DIR) -mindepth 1 -delete
 
 html: clean
-	SITEURL=$(SITEURL) pelican content -s $(CONF_FILE)
+	SITEURL=$(SITEURL) pelican content -s $(CONF_FILE) --debug
 
 publish: html
 	rsync -Cravzp $(OUTPUT_DIR)/* $(user)@$(HOST):$(REMOTE_OUTPUT_DIR)/
