@@ -7,7 +7,7 @@ meta_description: O South ficou famoso por tornar as database migrations do Djan
 
 {% img align-left /images/blog/django-logo.png 180 180 Logotipo do Django %}
 
-Quem usa o [*Django*]({tag}django "Leia mais sobre Django") a mais tempo já ouviu
+Quem usa o [*Django*]({tag}django "Leia mais sobre Django") há mais tempo já ouviu
 falar do [*South*]({tag}south "Leia mais sobre South"). Famosa biblioteca
 responsável por trazer o comportamento de [*migrations*]({tag}migrations "Leia mais sobre Migrations")
 para o *Django*. Sem dúvida impactou inúmeros projetos e transformou o processo de
@@ -128,7 +128,7 @@ Calma! A tabela ainda não existe no banco dados. Para que isso aconteça é nec
 apenas de um *app*:
 
     ::bash
-    $python manage.py migrate lista_de_compras
+    $ python manage.py migrate lista_de_compras
 
 ## Evoluindo o Schema
 
@@ -159,7 +159,7 @@ e o campo `default`, em uma *migration*, não é tão [intuitivo como parece](ht
 
 Para fazer esse procedimento, vamos seguir as recomendações da [documentação do Django](https://docs.djangoproject.com/en/1.10/howto/writing-migrations/#migrations-that-add-unique-fields "Migrations that add unique fields").
 
-Primeiro, removemos os campos `unique=True` e `default=uuid.uuid4` da *migration* recém criada, e adicionamos
+Primeiro, removemos os atributos `unique=True` e `default=uuid.uuid4` da *migration* recém criada, e adicionamos
 o parâmetro `null=True`:
 
     ::python
@@ -197,7 +197,7 @@ do nosso projeto. O *Django* não possui nenhuma forma "automática" para geraç
 
 Com isso, uma *migration* "em branco" será criada, pronta para customização:
 
-    ::bash
+    ::python
     # migrations/0003_auto_20161010_1635.py
 
     class Migration(migrations.Migration):
@@ -227,7 +227,7 @@ Criaremos a função responsável por inserir *UUIDs* nos registros já existent
             item.save()
 
 
-Usamos o parâmetro `apps` para "importar" o modelo. Na sequência utilizamos o *ORM*
+Usamos o parâmetro `apps` para "importar" o modelo. Na sequência, utilizamos o *ORM*
 para pegar todos os items do banco de dados, iteramos por eles preenchendo o campo
 `uuid`.
 
@@ -249,7 +249,7 @@ Precisamos adicionar essa função ao atributo `operations`, da *migration*:
 Utilizamos a função `RunPython` para executar operações em nossa *migration*
 que dependem de processamento por parte da linguagem (ou do *Django*). Em alguns
 cenários, esse tipo de operação não tem um processo de *rollback*, portanto,
-deixamos explícito que não temos como desfazer a operação através do atributo
+deixamos explícito que não temos como desfazer a operação através do parâmetro
 `reverse_code` com valor `migrations.RunPython.noop`.
 
 A *migration* deve ter ficado mais ou menos assim:
@@ -286,7 +286,7 @@ um campo default, e com preenchimento obrigatório. Para tanto, basta
 executar novamente o `makemigrations`. Uma nova *migration* será criada,
 com todas as *constraints* definidas corretamente.
 
-Agora rode o `migrate`, e acabamos de criar um campo `uuid`,
+Agora rode o `migrate`. Acabamos de criar um campo `uuid`,
 preenchemos os registros já existentes no *database*, e criamos
 *constraints* para os registros que virão no futuro.
 
