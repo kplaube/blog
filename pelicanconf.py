@@ -10,10 +10,12 @@ SITENAME = u'Klaus Laube'
 SITESUBTITLE = u'Python, Django e desenvolvimento Web'
 SITEURL = os.environ.get('SITEURL', 'http://localhost:8000')
 SITEDESCRIPTION = u'Artigos sobre desenvolvimento Web, Python e Django.'
+
 RELATIVE_URLS = False
 
 TIMEZONE = 'America/Sao_Paulo'
 DEFAULT_LANG = u'pt_BR'
+I18N_TEMPLATES_LANG = u'EN'
 DEFAULT_DATE_FORMAT = '%d %b, %Y'
 
 DELETE_OUTPUT_DIRECTORY = True
@@ -22,8 +24,19 @@ STATIC_PATHS = ['images']
 THEME = 'yapeme'
 
 PLUGIN_PATHS = ['plugins', ]
-PLUGINS = ['global_license', 'summary', 'slideshare',
-           'extended_meta', 'liquid_tags.img', ]
+PLUGINS = [
+    'global_license',
+    'summary',
+    'slideshare',
+    'extended_meta',
+    'liquid_tags.img',
+    'i18n_subsites',
+]
+
+JINJA_EXTENSIONS = [
+    'jinja2.ext.i18n',
+]
+I18N_GETTEXT_NEWSTYLE = True
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = 'feed/rss.xml'
