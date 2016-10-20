@@ -25,12 +25,13 @@ THEME = 'yapeme'
 
 PLUGIN_PATHS = ['plugins', ]
 PLUGINS = [
+    'assets',
+    'extended_meta',
     'global_license',
+    'i18n_subsites',
+    'liquid_tags.img',
     'summary',
     'slideshare',
-    'extended_meta',
-    'liquid_tags.img',
-    'i18n_subsites',
 ]
 
 JINJA_EXTENSIONS = [
