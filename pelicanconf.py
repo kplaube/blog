@@ -3,8 +3,6 @@
 
 import os
 
-DEBUG = True
-
 AUTHOR = u'Klaus Peter Laube'
 SITENAME = u'Klaus Laube'
 SITESUBTITLE = u'Python, Django e desenvolvimento Web'
