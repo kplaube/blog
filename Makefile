@@ -1,9 +1,7 @@
 HOST='localhost'
-VAGRANT_HOST=$(LOCAL_HOST)
 PRODUCTION_HOST=192.241.239.141
 
 SITEURL='http://localhost:8000'
-VAGRANT_SITEURL='http://local.klauslaube.com.br:8080'
 PRODUCTION_SITEURL='http://klauslaube.com.br'
 
 BASE_DIR=$(CURDIR)
@@ -22,10 +20,6 @@ help:
 	@echo '   make setup                       Install all project dependencies   '
 	@echo '   make stop_server                 Stop the site server               '
 	@echo '                                                                       '
-
-vagrant:
-	@$(eval SITEURL := $(VAGRANT_SITEURL))
-	@$(eval HOST := $(LOCAL_HOST))
 
 prod:
 	@$(eval SITEURL := $(PRODUCTION_SITEURL))
@@ -47,10 +41,9 @@ run:
 setup:
 	mkdir -p $(OUTPUT_DIR)
 	pip install -r requirements.txt
-	vagrant plugin install vagrant-salt
 
 
 stop_server:
 	$(BASE_DIR)/develop_server.sh stop
 
-.PHONY: vagrant prod clean html run publish setup stop_server
+.PHONY: prod clean html run publish setup stop_server
