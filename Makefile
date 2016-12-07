@@ -25,7 +25,6 @@ prod:
 	@$(eval SITEURL := $(PRODUCTION_SITEURL))
 	@$(eval HOST := $(PRODUCTION_HOST))
 
-
 clean:
 	find $(OUTPUT_DIR) -mindepth 1 -delete
 
