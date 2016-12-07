@@ -21,7 +21,7 @@ WEBASSETS = True
 STATIC_PATHS = ['images']
 THEME = 'yapeme'
 
-PLUGIN_PATHS = ['plugins', 'vendor', ]
+PLUGIN_PATHS = ['vendor', 'plugins']
 PLUGINS = [
     'assets',
     'extended_meta',

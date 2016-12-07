@@ -38,9 +38,13 @@ run:
 	$(BASE_DIR)/develop_server.sh restart 8000
 
 setup:
-	mkdir -p $(OUTPUT_DIR)
+	@mkdir -p $(OUTPUT_DIR)
 	pip install -r requirements.txt
-
+	@echo "Installing plugins..."
+	pelican-plugin-installer -i assets
+	pelican-plugin-installer -i i18n_subsites
+	pelican-plugin-installer -i liquid_tags
+	pelican-plugin-installer -i https://github.com/kplaube/extended_meta
 
 stop_server:
 	$(BASE_DIR)/develop_server.sh stop
