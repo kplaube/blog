@@ -102,7 +102,7 @@ Abaixo, um exemplo de requisição utilizando o *Google Chrome*:
 
 {% img align-center /images/blog/exemplo-php-cookies.png 610 315 Item cookie no cabeçalho de resposta da requisição HTTP %}
 
-[Clique para ampliar]({filename}/images/blog/exemplo-php-cookies.png)
+[Clique para ampliar](/images/blog/exemplo-php-cookies.png)
 
 Se excluirmos os *cookies*, ou o tempo de expiração for atingido, o
 navegador deixa de anexar esta informação ao cabeçalho da requisição.
