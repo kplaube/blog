@@ -5,11 +5,12 @@ The implementation of my [*blog*][], powered by [*Pelican*][].
 
 The current theme is [*yapeme*][]. To check out all the plugins used, please, visit the [plugins path][].
 
-Provisioned with [*SaltStack*][], the blog is nowadays hosted at [*Digital Ocean*][] (but it's not an obligation). The project structure is very simple:
+The blog is nowadays hosted at [*Digital Ocean*][] (but it's not an obligation). The project structure is very simple:
 
+* **conf:** NGINX configuration files
 * **content:** All the articles written
-* **plugins:** *Pelican* plugins used to power up the *blog*
-* **salt:** The pile of instructions used by *SaltStack*
+* **plugins:** Custom *Pelican* plugins used to power up the *blog*
+* **vendor:** *Pelican* plugins installed by [pelican-plugin-manager](https://github.com/kplaube/pelican-plugin-installer)
 
 Installing
 ----------
@@ -18,9 +19,7 @@ You can install the project using **make**:
 
     make setup
 
-It'll install *Pelican* and all *Python 3* dependencies. Also will install **vagrant-salt**, to be possible to use *SaltStack* with **Vagrant**!
-
-[Download *Vagrant*][].
+It'll install *Pelican*, *Python 3* dependencies, and *Pelican* plugins.
 
 Development environment
 -----------------------
@@ -30,21 +29,6 @@ You can serve the *blog* using *Pelican's* development server:
     make run
 
 Now, accessing **localhost:8000** everything should be fine.
-
-Provisioning
-------------
-
-To start the project using *Vagrant*, you need to do the following:
-
-    vagrant up
-
-It'll automatically provision the *Vagrant* instance for you.
-
-You must publish and send content to the *Vagrant* instance. To do that, you can use the **publish** task:
-
-    make vagrant publish
-
-Finally, you can access the project through **localhost:8080**.
 
 Production environment
 ----------------------
