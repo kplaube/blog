@@ -164,7 +164,7 @@ $ curl -X GET http://localhost:8000/movies/ | json_pp
 
 ## Criação e autorização
 
-Para adicionar um filme, faremos um POST em `movies/`, para isso, precisamos adicionar um método `created`:
+Para adicionar um filme, faremos um POST em `movies/`, para isso, precisamos adicionar um método `create`:
 
 ```python
 # movies/api.py
