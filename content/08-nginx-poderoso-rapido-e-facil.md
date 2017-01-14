@@ -1,7 +1,7 @@
 Title: Nginx: Poderoso, rápido e fácil
 Date: 2011-12-19 20:41:00
-Category: infra-estrutura
-Tags: infra-estrutura, ambiente-de-desenvolvimento, nginx, linux, slackware
+Category: infraestrutura
+Tags: infraestrutura, ambiente-de-desenvolvimento, nginx, linux, slackware
 Slug: nginx-poderoso-rapido-facil
 meta_description: O Nginx é um servidor Web, proxy reverso, proxy balanceador de carga, e faz praticamente tudo que o Apache faz, só que muito mais rápido!
 

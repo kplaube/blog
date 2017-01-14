@@ -113,7 +113,7 @@ e até mesmo sobre cargos, papéis e remunerações.
 
 Na prática, se você é uma pessoa engajada com o projeto, em diferentes esferas,
 com foco em sustentabilidade, qualidade, transitando entre a base de dados,
-a infra-estrutura, a experiência do usuário, e o código em si. Você pode ter
+a infraestrutura, a experiência do usuário, e o código em si. Você pode ter
 certeza que está desempenhando papéis que cabem a um Engenheiro de Software.
 
 Até a próxima.

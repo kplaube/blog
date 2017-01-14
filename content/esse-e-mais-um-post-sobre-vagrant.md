@@ -1,7 +1,7 @@
 Title: Esse é mais um post sobre Vagrant
 Date: 2015-10-03 14:00:00
 Category: desenvolvimento
-Tags: desenvolvimento, infra-estrutura, virtualizacao, provisionamento, vagrant
+Tags: desenvolvimento, infraestrutura, virtualizacao, provisionamento, vagrant
 Slug: esse-e-mais-um-post-sobre-vagrant
 meta_description: Sem dúvida o que levou Virtualização de um buzzword para uma necessidade real na vida dos profissionais foi a diminuição do overhead na criação de ambientes virtuais. Entre essas ferramentas está o Vagrant.
 

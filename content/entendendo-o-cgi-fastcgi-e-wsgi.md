@@ -1,7 +1,7 @@
 Title: Entendendo o CGI, FastCGI e WSGI
 Date: 2012-11-02 15:09:19
 Category: desenvolvimento
-Tags: desenvolvimento, infra-estrutura, web, python, cgi, fastcgi, wsgi, gunicorn
+Tags: desenvolvimento, infraestrutura, web, python, cgi, fastcgi, wsgi, gunicorn
 Slug: entendendo-o-cgi-fastcgi-e-wsgi
 meta_description: Neste artigo, exploramos as diferenças entre CGI, FastCGI e WSGI e apresentamos exemplo, soluções e ferramentas para servir a sua aplicação Python na Web.
 
@@ -274,7 +274,7 @@ limpo e elegante. Através do *WSGI*, escalar aplicações passou a ser
 algo quase trivial, que demanda pouco esforço. Combiná-los com o *Nginx*
 dão mais fôlego a sua aplicação (principalmente se estivermos falando do
 *uWSGI* ou [*gevent*][]), e com um [sistema de provisionamento automático][]
-podem facilitar e muito o seu trabalho de infra-estrutura quando o consumo se tornar um problema.
+podem facilitar e muito o seu trabalho de infraestrutura quando o consumo se tornar um problema.
 
 
 Referências

@@ -305,7 +305,7 @@ compartilhadas pelo pessoal da [*37Signals*][]. Um deles é para nos
 preocuparmos com performance quando isto for realmente um problema.
 
 Logo, (*IMO*) não construa uma mega
-[infra-estrutura][] para uma aplicação que atende 50 usuários por dia.
+[infraestrutura][] para uma aplicação que atende 50 usuários por dia.
 Você está desperdiçando o seu tempo e linhas de código. Em
 contrapartida, qualquer esforço para melhorar a experiência do usuário,
 e para economizar recursos, **é sempre bem-vinda**.
@@ -364,7 +364,7 @@ Referências
     "Nginx: Poderoso, rápido e fácil"
   [*37Signals*]: http://37signals.com/
     "Making collaboration productive and enjoyable for people every day"
-  [infra-estrutura]: {tag}infra-estrutura
+  [infraestrutura]: {tag}infraestrutura
     "Leia mais sobre infra"
   [*Django Documentation – Cache Framework*]: https://docs.djangoproject.com/en/1.4/topics/cache/
     "Leia tudo sobre o framework de cache do Django"

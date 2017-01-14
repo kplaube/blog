@@ -1,7 +1,7 @@
 Title: Diferentes ambientes: Development, Testing, Staging e Production
 Date: 2011-03-07 12:37
-Category: infra-estrutura
-Tags: desenvolvimento, infra-estrutura, agile, ambiente-de-desenvolvimento, qualidade, testes
+Category: infraestrutura
+Tags: desenvolvimento, infraestrutura, agile, ambiente-de-desenvolvimento, qualidade, testes
 Slug: diferentes-ambientes
 meta_description: Uma das práticas mais interessantes nessa nova onda de qualidade que está encrostada nas práticas agile de desenvolvimento de software, é o uso de diferentes ambientes para diferentes estágios do ciclo de vida de uma aplicação.
 
@@ -127,7 +127,7 @@ Até a próxima…
   [Onde eu trabalho atualmente]: http://www.setinet.com.br/
     "Setinet, Internet Controlada"
   [*Nagios*]: http://www.nagios.org/
-    "Monitore a sua infra-estrutura com Nagios"
+    "Monitore a sua infraestrutura com Nagios"
   [*RRDTools*]: http://www.mrtg.org/rrdtool/
     "Data logging e gráficos com RRDTools"
   [*SVN*]: http://subversion.tigris.org/

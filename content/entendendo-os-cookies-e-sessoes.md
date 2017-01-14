@@ -1,7 +1,7 @@
 Title: Entendendo os Cookies e Sessões
 Date: 2012-04-05 16:53:12
 Category: desenvolvimento
-Tags: desenvolvimento, infra-estrutura, web, cookies, sessões, php
+Tags: desenvolvimento, infraestrutura, web, cookies, sessões, php
 Slug: entendendo-os-cookies-e-sessoes
 meta_description: O protocolo HTTP é stateless, ou seja, não mantém o estado de uma requisição. Para suprir esta necessidade, são apresentados os Cookies e Sessões.
 

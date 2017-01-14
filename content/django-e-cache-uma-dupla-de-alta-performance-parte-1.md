@@ -44,7 +44,7 @@ O *Memcached* foi construído em um esquema “cliente-servidor”, e é
 possível utilizá-lo com uma grande quantidade de linguagens de
 programação. Mas o que eu acho mais bacana na ferramenta é a
 possibilidade de utilizá-la de forma distribuída. Isso propicia uma
-flexibilidade muito maior na hora de construirmos a [infra-estrutura][]
+flexibilidade muito maior na hora de construirmos a [infraestrutura][]
 para servir as nossas aplicações *Web*.
 
 Mas a “cereja do bolo” é: O *Django* funciona muito bem com o
@@ -148,7 +148,7 @@ Referências
     "Leia mais sobre Django"
   [site oficial do *Memcached*]: http://memcached.org/
     "A distributed memory object caching system"
-  [infra-estrutura]: {tag}infra-estrutura
+  [infraestrutura]: {tag}infraestrutura
     "Leia mais sobre infra"
   [Leia mais sobre]: https://docs.djangoproject.com/en/1.3/topics/cache/#setting-up-the-cache
     "Setting up cache"

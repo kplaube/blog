@@ -1,7 +1,7 @@
 Title: Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só
 Date: 2010-12-01 21:14
-Category: infra-estrutura
-Tags: infra-estrutura, sistemas-operacionais, virtualizacao, virtualbox
+Category: infraestrutura
+Tags: infraestrutura, sistemas-operacionais, virtualizacao, virtualbox
 Slug: virtualbox-varios-sos-numa-maquina-so
 meta_description: O VirtualBox é uma das maneiras mais fáceis de possuir vários Sistemas Operacionais em um sistema apenas.
 
@@ -54,7 +54,7 @@ ou servidor. A ferramenta que tenho utilizado com muito sucesso
 
 Hoje mantido pela *Oracle* (que adquiriu a *Sun Microsystems*), o
 *Virtualbox* é uma solução ágil e objetiva no que diz respeito a
-virtualização. Não sei a opinião dos profissionais de infra-estrutura
+virtualização. Não sei a opinião dos profissionais de infraestrutura
 sobre esta ferramenta, mas já passei por duas empresas especializadas em
 serviços/produtos focados em servidores, e o *Virtualbox* estava lá
 atendendo a demanda.
