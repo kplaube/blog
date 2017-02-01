@@ -291,7 +291,7 @@ securitySchemes:
 
 Serei sincero com você, caro leitor, o código acima é uma receita de bolo para descrever
 o `securitySchemes` do tipo *OAuth 2*. Nada de muito diferente do que a gente viu até aqui,
-com exceção é o uso do `|`, que nesse caso serve para fazer textos em bloco, e da
+com exceção do uso do `|`, que nesse caso serve para fazer textos em bloco, e da
 propriedade `type` com valor `OAuth 2.0`.
 
 No nosso cenário, apenas temos intenção de proteger a escrita de dados na *API*. Para tanto,
@@ -313,7 +313,8 @@ Vamos adicionar a propriedade `securedBy` aos blocos `post` e `put`:
 (...)
 ```
 
-Pronto! A especificação da nossa *API* está completa! Para fins didáticos não utilizei recursos
+Pronto! A especificação da nossa *API* está completa! Temos uma documentação forte, que pode ser lida
+por humanos e máquinas. Para fins didáticos não utilizei recursos
 interessantes como a propriedade `example` ou a ferramenta `!include`. Mas você pode ler sobre
 eles na [especificação do *RAML* 1.0](https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md).
 
@@ -323,13 +324,11 @@ eles na [especificação do *RAML* 1.0](https://github.com/raml-org/raml-spec/bl
 
 Através de uma linguagem clara fomos capazes de construir uma especificação legível para a nossa *API*.
 Com isso, outros desenvolvedores (ou até mesmo máquinas) serão capazes de entender como funciona cada *endpoint*.
-Ferramentas como o [*Abao*](https://github.com/cybertk/abao "REST API automated testing tool")
-e [*raml2html*](https://github.com/raml2html/raml2html "RAML to HTML documentation generator") podem
-te surpreender, como no exemplo abaixo:
+Com a adição de ferramentas como o [*Abao*](https://github.com/cybertk/abao "REST API automated testing tool")
+e [*raml2html*](https://github.com/raml2html/raml2html "RAML to HTML documentation generator"), os resultados
+do uso do *RAML* podem ser surpreendentes, como no exemplo abaixo:
 
 {% img align-center-keep-size /images/blog/example-raml.png 640 383 Exemplo de documentação gerada pelo raml2html %}
-
-Considere utilizar o *RAML* na sua próxima *API* pública.
 
 Até a próxima.
 
