@@ -75,7 +75,7 @@ geralmente são compostas por outras camadas de imagens (*image layers*). Isso �
 *approach* interessante, já que uma vez que uma camada seja baixada ela não precisará ser
 baixada novamente, mesmo se outras imagens utilizarem da mesma camada:
 
-{% img align-center /images/blog/docker-image-container.jpg 610 424 Esquema representando o Sistema de Arquivo (docs.docker.com) %}
+{% img align-center-keep-size /images/blog/docker-image-container.jpg 610 424 Esquema representando o Sistema de Arquivo (docs.docker.com) %}
 
 Um *Docker Container* em vias práticas é uma "instância" da imagem... é o que a imagem se torna em memória
 ao ser executada. De forma preguiçosa, podemos fazer a analogia com a [Orientação a Objetos]({tag}oop "Leia mais sobre OOP"),
@@ -147,7 +147,7 @@ Notou a ausência do `<repositório>/`? Repositórios oficiais no *Docker Hub* n
 de um prefixo, e você pode encontrá-los na interface *Web* através do *path* `_/<nome da imagem>`.
 Por exemplo, o endereço do *Nginx* no *Docker Hub* é [https://hub.docker.com/_/nginx/](https://hub.docker.com/_/nginx/).
 
-{% img align-center /images/blog/memento-docker.png 610 458 Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br) %}
+{% img align-center-keep-size /images/blog/memento-docker.png 610 458 Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br) %}
 
 Vamos executar o *Nginx*:
 
