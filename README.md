@@ -43,6 +43,4 @@ Contributions are very welcome!
   [*Pelican*]: https://github.com/getpelican/pelican "Static site generator that supports Markdown and reST syntax. Powered by Python"
   [*yapeme*]: https://github.com/kplaube/yapeme "A responsive (and simple) theme for Pelican"
   [plugins path]: https://github.com/kplaube/blog/tree/master/plugins "See all plugins used by the project"
-  [*SaltStack*]: http://www.saltstack.com/ "Fast, scalable and flexible software for data center automation, from infrastructure and any cloud, to the entire application stack"
   [*Digital Ocean*]: https://www.digitalocean.com/ "Simple cloud hosting, built for developers"
-  [Download *Vagrant*]: https://www.vagrantup.com/downloads "Download Vagrant"
