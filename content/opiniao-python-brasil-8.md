@@ -7,19 +7,20 @@ meta_description: Nos dias 21 a 24 de Novembro de 2012 aconteceu a Python Brasil
 
 
 {% img align-left /images/blog/python-brasil-8.jpg 180 180 Logo Python Brasil 8 %}
+
 Nos dias 21 a 24 de Novembro de 2012 aconteceu
 a [*Python Brasil*][]. Em sua oitava edição, o evento mais aguardado
 pelos desenvolvedores [*Python*][] “tupiniquins” me surpreendeu
 completamente. Um dos melhores eventos que participei nos últimos
 tempos!
 
+<!-- PELICAN_END_SUMMARY -->
+
 E não é só pelo conteúdo apresentado durante as palestras, ou pelos
 convidados especiais que deram um show a parte em suas apresentações,
 mas esse “sentimento” deve-se ao fato de ser a primeira vez que fiquei
 tão próximo da comunidade *Python*, e me senti muito feliz por
 compartilhar estes dias com pessoas tão bacanas e interessantes.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Expectativas

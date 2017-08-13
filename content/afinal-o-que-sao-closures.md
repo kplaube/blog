@@ -13,6 +13,7 @@ Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com
 um nome “pomposo” para a parada (que você nunca ouviu falar)? Isso
 aconteceu comigo com *closures*.
 
+<!-- PELICAN_END_SUMMARY -->
 
 What (the hell) are closures?
 -----------------------------
@@ -21,8 +22,6 @@ Entendi o conceito de *closures* enquanto estudava *Ruby*. Na verdade,
 fica a dica… se você quer aprender [Orientação a Objetos][], aprenda
 linguagens dinâmicas como *Ruby*, [*Python*][] e até mesmo [*PHP*][].
 Depois parta para linguagens mais “hardcore” como *Java* e *C++*.
-
-<!-- PELICAN_END_SUMMARY -->
 
 Vamos deixar a [*Wikipedia*][] nos explicar o que é uma *closure*:
 

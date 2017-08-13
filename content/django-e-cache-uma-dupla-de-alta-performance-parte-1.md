@@ -15,12 +15,12 @@ problemas de performance. Os usuários poderão abdicar desta
 funcionalidade, e aí a sua aplicação não poderá depender do protocolo
 para atingir tempos de resposta atrativos.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Desenvolvedores [*Django*][] podem contar com boas soluções, do próprio
 *framework* e de terceiros, que podem melhorar o *caching* das
 aplicações (e consequentemente a performance). A grande notícia é que
 essas ferramentas são fáceis e práticas. Vamos conhecê-las?
-
-<!-- PELICAN_END_SUMMARY -->
 
 O Memcached
 -----------

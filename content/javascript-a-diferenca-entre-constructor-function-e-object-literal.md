@@ -7,17 +7,18 @@ meta_description: Você sabe aonde e como usar um Object Literal ou uma Construc
 
 
 {% img align-left /images/blog/javascript-code.jpg 180 180 Código Javascript %}
+
 Meses atrás, [escrevi sobre como era fácil criar objetos em *Javascript*][].
 Devo confessar que, a minha visão sobre a utilização da [Orientação a Objetos][]
 em [*Javascript*][] era muito superficial, e que uma dúvida muito pertinente
 surgiu na época: Onde usar *Object Literal* e onde usar classes?
 
+<!-- PELICAN_END_SUMMARY -->
+
 Hoje, depois de entender que a Orientação a Objeto no *Javascript* não é
 muito diferente da utilizada em outras linguagens, sou capaz de enxergar
 as possibilidades utilizando as duas maneiras. E este é o objetivo deste
 *post*: **compartilhar esta visão com vocês**.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Traçando um paralelo

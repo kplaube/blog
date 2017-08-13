@@ -7,18 +7,19 @@ meta_description: Descontraído porém relevante. Talvez essa seja a melhor defi
 
 
 {% img align-left /images/blog/front-in-bh-logo.png 180 180 Logo do Front in BH %}
+
 No dia 03 de agosto de 2013, tive o prazer de participar do [*Front in BH*][],
 edição 2013. Organizado pelo [*@davidsonfellipe*][] e [*@keppelen*][], o evento
 contou com palestrantes de peso e com uma organização que, além de
 surpreendente, tirou um "gosto ruim" que eu tinha em relação a eventos
 de *front-end*.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Descontraído porém relevante. Talvez essa seja a melhor definição para esta
 edição. Não participei das anteriores, mas os *feedbacks* positivos são
 suficientes para adicionar o *Front in BH* na minha agenda de eventos para o
 próximo ano.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Expectativas

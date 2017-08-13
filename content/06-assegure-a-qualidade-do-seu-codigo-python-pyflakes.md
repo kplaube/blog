@@ -15,9 +15,9 @@ analisa o seu código [*Python*][] atrás de erros (de sintaxe e
 importação, por exemplo), retornando um relatório muito objetivo com o
 arquivo, linha e o tipo de incoerência que ele encontrou.
 
-Uma excelente ferramenta para você ter “plugada” ao seu editor favorito.
-
 <!-- PELICAN_END_SUMMARY -->
+
+Uma excelente ferramenta para você ter “plugada” ao seu editor favorito.
 
 
 O que o Pyflakes faz que o Pylint não faz?

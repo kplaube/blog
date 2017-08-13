@@ -13,6 +13,8 @@ Vou iniciar uma série de publicações mostrando na prática como montar o
 seu ambiente de desenvolvimento para trabalhar com [*Python*][] e
 [*Django*][].
 
+<!-- PELICAN_END_SUMMARY -->
+
 O objetivo é ilustrar como você pode facilmente ingressar no *Django* e
 ter um conjunto de ferramentas simples e eficientes que lhe ajudarão a
 desenvolver de forma produtiva e com qualidade.

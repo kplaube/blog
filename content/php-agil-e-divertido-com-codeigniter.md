@@ -7,6 +7,7 @@ meta_description: Não há mistérios na forma como a CodeIgniter trabalha com o
 
 
 {% img align-left /images/blog/ci-logo.png 180 180 Logotipo do Codeigniter %}
+
 Após experimentar [algumas *frameworks*][] [*PHP*][], recentemente tenho
 aplicado bastante tempo no estudo da [**CodeIgniter**][], e tive o prazer de
 redescobrir a diversão em programar nessa linguagem um tanto controversa.
@@ -98,7 +99,7 @@ nível.
     "Agilidade em PHP: Conhecendo algumas frameworks – Parte 1"
   [*PHP*]: {tag}php 
     "Leia mais sobre PHP"
-  [***CodeIgniter***]: http://codeigniter.com/
+  [**CodeIgniter**]: http://codeigniter.com/
     "CodeIgniter: Open source PHP web application framework"
   [*Nettus+*]: http://net.tutsplus.com/
     "Web development tutorials, from beginner to advanced"

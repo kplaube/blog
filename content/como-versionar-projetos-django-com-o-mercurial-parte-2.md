@@ -12,6 +12,7 @@ projetos *Django* com o *Mercurial*][], e a série [Montando seu ambiente
 de desenvolvimento *Django* no *Linux*][], vamos dar uma pincelada nos
 funcionamentos básicos do [*Mercurial*][].
 
+<!-- PELICAN_END_SUMMARY -->
 
 hg? Mas não era Mercurial?
 --------------------------
@@ -21,8 +22,6 @@ que é um elemento químico com o símbolo *Hg* e o número atômico 80
 (assim disse a [*Wikipedia*][] (: ). É devido a isso que você utilizará
 o Mercurial em linha de comando através de comandos iniciados por
 **hg**.
-
-<!-- PELICAN_END_SUMMARY -->
 
 Antes de iniciarmos, vamos dizer ao *Mercurial* quem nós somos. Abra o
 arquivo **.hgrc** do seu **home**:

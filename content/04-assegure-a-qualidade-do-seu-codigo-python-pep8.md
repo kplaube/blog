@@ -10,13 +10,13 @@ meta_description: As "PEPs" (Python Enhancement Proposal) são documentos que ge
 **Convenções de código!** Já tive a oportunidade de [escrever sobre elas no *Profissionais TI*][]. Benção ou
 maldição? Há quem goste, há quem ache uma perda de tempo…
 
+<!-- PELICAN_END_SUMMARY -->
+
 Acredito muito que a organização e a qualidade do código são benéficas
 para qualquer projeto, principalmente para aqueles que possuem alta
 rotatividade de profissionais. Padrões de projetos, padrões estruturais
 e de escrita facilitam a “assimilação” do que já foi produzido, facilita
 a manutenção e “orienta” as novas produções.
-
-<!-- PELICAN_END_SUMMARY -->
 
 Se você tem problemas em decorar convenções e boas práticas, não
 desanime! O [*Python*][] possui algumas ferramentas “bacanudas” que vão

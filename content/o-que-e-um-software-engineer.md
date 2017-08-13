@@ -10,12 +10,12 @@ meta_description: A engenharia é a ciência, a arte e a profissão de adquirir 
 Certa vez, estava eu atualizando o meu *LinkedIn* quando o
 [@davidsonfellipe](https://twitter.com/davidsonfellipe "Acompanhe o Davi do Som no Twitter") me indagou sobre o título de "Analista e Desenvolvedor Web" que possuo atualmente. Segundo ele, "Front-end/Back-end Engineer" é mais atrativo para que *headhunters* cheguem a um perfil.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Contra argumentei dizendo que essa não era a minha formação, e que não me
 sentia confortável em me chamar de engenheiro. Ele, hoje um *Front-end Engineer*
 com formação em Engenharia da Computação, afirmou que isso era bobagem, e que
 eu já praticava muitas das suas atribuições no dia a dia.
-
-<!-- PELICAN_END_SUMMARY -->
 
 A partir daí comecei a me perguntar: O que raios é e o que faz um Engenheiro
 de Software?

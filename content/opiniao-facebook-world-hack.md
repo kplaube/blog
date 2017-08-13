@@ -7,6 +7,7 @@ meta_description: No dia 30 de agosto de 2012 (sexta-feira), rolou o Facebook De
 
 
 {% img align-left /images/blog/facebook-developers.jpg 180 180 Facebook Developers World Hack %}
+
 No dia 30 de agosto de 2012 (sexta-feira), rolou o [*Facebook Developers World Hack – São Paulo*][],
 onde engenheiros do próprio *Facebook* deram palestras sobre o
 desenvolvimento com a *API* social, distribuição e monetização. Após as
@@ -14,11 +15,11 @@ palestras houve um *Hack Day*, onde os vencedores nas categorias
 “Mobile”, “Game”, “Open Graph” e “Geral” foram premiados com créditos no
 *Facebook* e na *Amazon*, além de *smartphones* e *tablets*.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Um ambiente descontraído, com muita comida, bebida e música. Foi fácil
 notar que estávamos cercados de pessoas extremamente criativas. Uma
 experiência que vou levar comigo para o resto da vida.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Expectativas

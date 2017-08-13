@@ -14,6 +14,7 @@ Dando continuidade a série “[Montando seu ambiente de desenvolvimento
 *Django* em *Linux*][]”, vamos dar uma pincelada na tríade [*Python*][],
 [*Django*][] e [*virtualenv*][].
 
+<!-- PELICAN_END_SUMMARY -->
 
 Python
 ------
@@ -24,8 +25,6 @@ O *Python* já vem instalado na maioria das distribuições [*Linux*][]. Na
 verdade, até hoje nunca usei uma distro *Linux* que não tivesse o
 *Python* préviamente instalado. No *Slackware 13.1*, o *Python* está na
 versão 2.6.4. No *Debian 6*, o *Python* está na versão 2.6.6.
-
-<!-- PELICAN_END_SUMMARY -->
 
 O portal *Python Brasil* possui um excelente material para você
 [instalar][] e dar os [primeiros passos][] com *Python*.

@@ -7,17 +7,18 @@ meta_description: O protocolo HTTP é stateless, ou seja, não mantém o estado 
 
 
 {% img align-left /images/blog/cookies.jpg 180 180 Representação de cookies %}
+
 Por muito tempo eu abstrai o conceito de
 *cookies* e sessões, e nunca cheguei a prestar muita atenção no seu
 funcionamento. Recentemente, trabalhando com uma infra mais preocupada
 com a segurança, disponibilidade e performance, tive a oportunidade de
 relembrar e me aprofundar em alguns conceitos e práticas.
 
+<!-- PELICAN_END_SUMMARY -->
+
 O que já sabia é que os *cookies* são “persistências temporárias” feitas
 no lado do usuário, e sessões são persistências dependentes de
 *cookies*, mas realizadas no lado do servidor.
-
-<!-- PELICAN_END_SUMMARY -->
 
 A minha felicidade é que até aí, nada mudou :)
 

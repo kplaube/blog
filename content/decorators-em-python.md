@@ -7,6 +7,7 @@ meta_description: Decorators alteram dinamicamente a funcionalidade de uma funç
 
 
 {% img align-left /images/blog/python-logo.png 180 180 Logotipo do Python %}
+
 E na mesma linha dos [*closures*][], eu passei a
 saber realmente o que são *decorators* depois de utilizar a *framework*
 [*Django*][]. Se você está trabalhando com [Orientação a Objetos][] e
@@ -14,9 +15,9 @@ até agora não se deparou com este recurso, te garanto que um dia você
 precisará dele… afinal, é um dos [*Design Patterns*][] mais bacanas (e
 úteis) que já vi.
 
-Vamos lá “decorar” nossos métodos [*Python*][]!
-
 <!-- PELICAN_END_SUMMARY -->
+
+Vamos lá “decorar” nossos métodos [*Python*][]!
 
 
 Decoradores? Really?

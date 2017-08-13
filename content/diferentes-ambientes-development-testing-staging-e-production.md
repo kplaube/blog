@@ -7,16 +7,17 @@ meta_description: Uma das práticas mais interessantes nessa nova onda de qualid
 
 
 {% img align-left /images/blog/server-rack.jpg 180 160 Diferentes ambientes %}
+
 Uma das práticas mais interessantes nessa
 “nova onda” de qualidade que está “encrostada” nas práticas [*agile*][]
 de desenvolvimento de *software*, é o uso de diferentes ambientes para
 diferentes estágios do ciclo de vida de uma aplicação.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Com auxílio da [virtualização][], podemos implementar (sem dificuldades)
 estes ambientes em qualquer empresa que tenha como cultura entregar
 *software* de qualidade.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Development

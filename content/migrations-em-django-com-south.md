@@ -12,12 +12,12 @@ coluna, nas tabelas do seu banco de dados, depois que a aplicação já
 estava em produção? Os riscos existem (e são altos), e podem ser
 diminuidos através de processos automatizados.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Em um mundo ideal, o procedimento de *deploy* (para entregas contínuas)
 **deve ser automatizado**. Com o ***South***, “migrar” a estrutura e os
 dados da sua base de dados para a versão presente em seu novo deploy, é
 simples, prático e 100% integrado ao [*Django*][].
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Instalando o South

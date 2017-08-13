@@ -7,17 +7,18 @@ meta_description: O CSS tem diversas coisas legais. Uma quantidade de propriedad
 
 
 {% img align-left /images/blog/css3-logo.png 180 180 Logo do CSS3 %}
+
 O [*CSS*][] tem diversas coisas legais. Uma quantidade
 de propriedades, valores e funcionalidades, que por inúmeras vezes me
 fogem da memória. Uma das coisas mais interessantes do *CSS*, mas que
 geralmente me confunde, são as **pseudo-classes** e os
 **pseudo-elementos**.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Então eu resolvi escrever este *post*, e nele vou explicar a diferença e
 aplicabilidade dos dois. Espero colaborar com outras mentes tão
 preguiçosas na arte da lembrança, quanto a minha :)
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Pseudo-classes

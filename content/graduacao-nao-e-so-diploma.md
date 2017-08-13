@@ -13,13 +13,13 @@ pontos”**, sou capaz de dizer que as melhores experiências profissionais
 da minha vida estão de alguma forma relacionadas com o **ambiente
 acadêmico**.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Graças ao **curso técnico**, tive a oportunidade de trabalhar com
 [*Web*][] desde o início da minha carreira. Já na **graduação**, pude
 conviver com pessoas muito mais inteligentes e interessantes que eu.
 Pessoas com um conhecimento e *feeling* sobre o mercado de Tecnologia da
 Informação, que fizeram toda a diferença na minha vida.
-
-<!-- PELICAN_END_SUMMARY -->
 
 Também tive o prazer de trabalhar em duas empresas incubadas pelo
 [*Centro Universitário de Jaraguá do Sul (UNERJ)*][]. Nelas, tive a liberdade e

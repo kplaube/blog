@@ -15,12 +15,12 @@ performance, diminuir consumo de recursos e tempos de resposta. Qualquer
 milissegundo economizado é um ponto a mais com o seu usuário, com os
 mecanismos de busca e com o seu serviço de hospedagem.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Antes de falarmos de *cache* em aplicações [*Django*][] ou
 [*Codeigniter*][], acho interessante falarmos sobre o uso de *cache* com
 o protocolo *HTTP*. Afinal, é esta a primeira camada a “atacar” quando
 precisamos melhorar os tempos de resposta das nossas aplicações *Web*.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 O que é “caching”?

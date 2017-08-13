@@ -7,16 +7,17 @@ meta_description: Em tempos de polêmicas envolvendo os testes, nada mais justo 
 
 
 {% img align-left /images/blog/test-double.jpg 180 180 Test Double %}
+
 Em tempos onde [discussões envolvendo a relevância][2] dos [testes][3] têm
 causado furor nos diferentes campos da área do desenvolvimento de *software*,
 nada mais justo do que "chovermos no molhado", e falarmos sobre testes, *mocks*,
 *stubs* e todos os seus primos menos famosos.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Nessa primeira parte, vamos conceituar toda essa "sopa de letrinhas" e detalhar
 a forma peculiar como os testes são tratados dentro de um dos times
 da [*Globo.com*][4].
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 ## Qual causa, motivo, razão ou circunstância?

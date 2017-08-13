@@ -7,18 +7,19 @@ meta_description: Neste artigo, exploramos as diferenças entre CGI, FastCGI e W
 
 
 {% img align-left /images/blog/apache-fcgi-logo.png 180 180 Fast CGI %}
+
 Pelos vários anos que programei com o [*PHP*][] e *Apache*,
 nunca precisei me preocupar com o que acontecia entre esses dois. Para
 mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas
 [*Web*][] de forma dinâmica. Era uma troca justa: Eles não me traziam
 preocupação, logo, eu não me preocupava.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Com o passar do tempo, o uso do [*Nginx*][] e a necessidade de aprender
 [*Python*][], comecei a me deparar com o famoso “**cgi-bin**“, e
 entender que os truques que o [**mod_php**][] ocultava iam muito além
 do que eu imaginava.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 O Common Gateway Interface

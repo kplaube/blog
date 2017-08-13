@@ -13,14 +13,14 @@ eventos e livros técnicos, quero compartilhar com vocês a experiência
 que tive com o curso [Imersão *Javascript*][], ministrado pela
 [e-Genial][].
 
+<!-- PELICAN_END_SUMMARY -->
+
 Antes de qualquer coisa, tenho a obrigação de dizer: O ambiente de
 educação à distância, chamado [*TreinaTom*][], é **excelente**!
 Recentemente tive uma experiência no mínimo “duvidosa” com o [*Adobe Connect*][]...
 e entre outras ferramentas disponíveis no mercado (por
 exemplo, o [*Moodle*][]), a facilidade e experiência de uso do
 *TreinaTom* se sobressai.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Expectativas

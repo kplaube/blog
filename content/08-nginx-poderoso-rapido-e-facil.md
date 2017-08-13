@@ -7,11 +7,14 @@ meta_description: O Nginx é um servidor Web, proxy reverso, proxy balanceador d
 
 
 {% img align-left /images/blog/nginx-logo.png 180 180 Logotipo do Nginx %}
+
 Para quem (assim como eu) começou com o [*PHP*][], uma das opções mais viáveis
 para servir projetos na [*Web*][] sempre foi o [*Apache*][]. *Open source*,
 prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
 padrão em quase toda distro [*Linux*][]), há anos que ele faz a famosa
 tríade "AMP" (*Apache*, [*MySQL*][] e *PHP*).
+
+<!-- PELICAN_END_SUMMARY -->
 
 Acontece que com as demandas recentes que a *internet* tem exigido de
 algumas aplicações *Web* (como *Twitter* e *Facebook*), a necessidade
@@ -19,8 +22,6 @@ por performance começou a ser uma grande premissa em determinados tipos
 de projetos. E é apoiado nesse cenário que o ***Nginx*** vem ganhando
 cada vez mais força no mercado. Afinal, não é a toa que ele é conhecido
 por “aguentar porrada”.
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 A verdade sobre o Nginx (ou não)

@@ -12,12 +12,11 @@ através de um comando? Ou de garantir que serviços “down” sejam
 reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder
 reiniciá-los com um simples comando de terminal?
 
+<!-- PELICAN_END_SUMMARY -->
+
 O ***Supervisor*** aparece para facilitar muito a vida de quem precisa
 administrar servidores [*Web*][], e não tem muito tempo a perder com
 criação de rotinas, ou mesmo com trabalho manual.
-
-
-<!-- PELICAN_END_SUMMARY -->
 
 
 Afinal, o que é o Supervisor?

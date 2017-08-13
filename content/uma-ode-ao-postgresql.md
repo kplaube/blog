@@ -7,17 +7,18 @@ meta_description: O Postgres está sob a licença PostgreSQL License, muito simi
 
 
 {% img align-left /images/blog/postgresql-logo.png 180 180 Logotipo do PostgreSQL %}
+
 O [*MySQL*][] é um dos meus mais leais companheiros de
 projetos, desde os meus tempos de [*PHP*][] até projetos mais recentes
 com o [*Python*][]. A sua agilidade e facilidade são indiscutivelmente
 boas, tanto que renderam ao projeto um “domínio global” no ramo.
 
+<!-- PELICAN_END_SUMMARY -->
+
 Hoje, sob “cuidados” da [*Oracle*][], o projeto tem causado [certas desconfianças][].
 A criação de [um *fork*][] pelo autor original não
 ajudou, e isso [abriu margem][] para um velho, confiável e simpático
 banco de dados: o [*Postgres*][].
-
-<!-- PELICAN_END_SUMMARY -->
 
 Qual o motivo de começar um *post* sobre o *Postgres* falando do
 *MySQL*? Eu sempre me apoiei na “facilidade de uso” na hora de escolher
