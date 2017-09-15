@@ -10,7 +10,7 @@ The blog is nowadays hosted at [*Digital Ocean*][] (but it's not an obligation).
 * **conf:** NGINX configuration files
 * **content:** All the articles written
 * **plugins:** Custom *Pelican* plugins used to power up the *blog*
-* **vendor:** *Pelican* plugins installed by [pelican-plugin-manager](https://github.com/kplaube/pelican-plugin-installer)
+* **vendor:** *Pelican* plugins installed via `git submodule`
 
 Installing
 ----------

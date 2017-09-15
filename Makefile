@@ -21,15 +21,15 @@ help:
 	@echo '   make stop_server                 Stop the site server               '
 	@echo '                                                                       '
 
-prod:
-	@$(eval SITEURL := $(PRODUCTION_SITEURL))
-	@$(eval HOST := $(PRODUCTION_HOST))
-
 clean:
 	find $(OUTPUT_DIR) -mindepth 1 -delete
 
 html: clean
 	SITEURL=$(SITEURL) pelican content -s $(CONF_FILE)
+
+prod:
+	@$(eval SITEURL := $(PRODUCTION_SITEURL))
+	@$(eval HOST := $(PRODUCTION_HOST))
 
 publish: html
 	rsync -Cravzp $(OUTPUT_DIR)/* $(user)@$(HOST):$(REMOTE_OUTPUT_DIR)/
@@ -37,16 +37,19 @@ publish: html
 run:
 	$(BASE_DIR)/develop_server.sh restart 8000
 
-setup:
+setup: _install_python_dependencies _install_pelican_plugins
 	@mkdir -p $(OUTPUT_DIR)
-	pip install -r requirements.txt
-	@echo "Installing plugins..."
-	pelican-plugin-installer -i assets
-	pelican-plugin-installer -i i18n_subsites
-	pelican-plugin-installer -i liquid_tags
-	pelican-plugin-installer -i https://github.com/kplaube/extended_meta
 
 stop_server:
 	$(BASE_DIR)/develop_server.sh stop
+
+_install_python_dependencies:
+	pip install -r requirements.txt
+
+_install_pelican_plugins:
+	test -d "vendor" || git submodule add https://github.com/getpelican/pelican-plugins.git vendor
+	test -d "plugins/extended_meta" || git submodule add https://github.com/kplaube/extended_meta.git plugins/extended_meta
+	git submodule update --init --recursive
+
 
 .PHONY: prod clean html run publish setup stop_server

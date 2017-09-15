@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
 import os
@@ -33,9 +32,9 @@ PLUGINS = [
     'slideshare',
 ]
 
-JINJA_EXTENSIONS = [
-    'jinja2.ext.i18n',
-]
+JINJA_ENVIRONMENT = {
+    'extensions': ['jinja2.ext.i18n'],
+}
 I18N_GETTEXT_NEWSTYLE = True
 
 FEED_ALL_ATOM = False

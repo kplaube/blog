@@ -1,0 +1,6 @@
+[submodule "vendor"]
+	path = vendor
+	url = https://github.com/getpelican/pelican-plugins.git
+[submodule "plugins/extended_meta"]
+	path = plugins/extended_meta
+	url = https://github.com/kplaube/extended_meta.git
