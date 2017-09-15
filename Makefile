@@ -1,5 +1,5 @@
 HOST='localhost'
-PRODUCTION_HOST=192.241.239.141
+PRODUCTION_HOST=klauslaube.com.br
 
 SITEURL='http://localhost:8000'
 PRODUCTION_SITEURL='http://klauslaube.com.br'
@@ -15,6 +15,7 @@ help:
 	@echo '   make clean                       Remove the generated files         '
 	@echo '   make help                        This screen                        '
 	@echo '   make html                        Generate articles                  '
+	@echo '   make provision                   Provisions a webserver             '
 	@echo '   make publish                     Publish articles                   '
 	@echo '   make run                         Serve site at http://localhost:8000'
 	@echo '   make setup                       Install all project dependencies   '
@@ -30,6 +31,9 @@ html: clean
 prod:
 	@$(eval SITEURL := $(PRODUCTION_SITEURL))
 	@$(eval HOST := $(PRODUCTION_HOST))
+
+provision:
+	terraform apply
 
 publish: html
 	rsync -Cravzp $(OUTPUT_DIR)/* $(user)@$(HOST):$(REMOTE_OUTPUT_DIR)/
