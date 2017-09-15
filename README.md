@@ -33,7 +33,10 @@ Now, accessing **localhost:8000** everything should be fine.
 Production environment
 ----------------------
 
-Once you have a production environment provisioned, you just need to run the **publish** task:
+We have a [*Terraform*][] recipe to provision a *droplet* on *Digital Ocean*, and provisions it by
+installing a *Linux* instance and configuring *Nginx*.
+
+Once you have the production environment provisioned, you just need to run the **publish** task:
 
     make prod publish user=<USER>
 
@@ -44,3 +47,4 @@ Contributions are very welcome!
   [*yapeme*]: https://github.com/kplaube/yapeme "A responsive (and simple) theme for Pelican"
   [plugins path]: https://github.com/kplaube/blog/tree/master/plugins "See all plugins used by the project"
   [*Digital Ocean*]: https://www.digitalocean.com/ "Simple cloud hosting, built for developers"
+  [*Terraform*]: https://www.terraform.io/
