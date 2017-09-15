@@ -346,7 +346,7 @@ Referências
     "Template fragment caching"
   [*per-site cache*]: https://docs.djangoproject.com/en/1.4/topics/cache/#the-per-site-cache
     "Leia mais sobre na documentação do Django"
-  [cabeçalhos *HTTP*]: {filename}/09-o-cache-e-o-http.md
+  [cabeçalhos *HTTP*]: {filename}/o-cache-e-o-http.md
     "O cache e o HTTP"
   [*Johnny Cache*]: http://packages.python.org/johnny-cache/
     "Conheça a ferramenta de caching, Johnny Cache"
@@ -360,7 +360,7 @@ Referências
     "Veja o código-fonte do projeto no GitHub"
   [django-debug-toolbar]: http://pypi.python.org/pypi/django-debug-toolbar/
     "Excelente lib para debugging de projetos Django"
-  [já mencionei]: {filename}/08-nginx-poderoso-rapido-e-facil.md
+  [já mencionei]: {filename}/nginx-poderoso-rapido-e-facil.md
     "Nginx: Poderoso, rápido e fácil"
   [*37Signals*]: http://37signals.com/
     "Making collaboration productive and enjoyable for people every day"

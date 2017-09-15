@@ -190,7 +190,7 @@ Referências
 
   [Montando seu ambiente de desenvolvimento *Django* no *Linux*]: {filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
     "Veja outros posts desta série"
-  [testes guiem o desenvolvimento de suas aplicações]: {filename}02-tdd-desenvolvimento-orientado-a-testes.md
+  [testes guiem o desenvolvimento de suas aplicações]: {filename}tdd-desenvolvimento-orientado-a-testes.md
     "TDD: Desenvolvimento Orientado a Testes"
   [*Django*]: {tag}django
     "Leia mais sobre Django"

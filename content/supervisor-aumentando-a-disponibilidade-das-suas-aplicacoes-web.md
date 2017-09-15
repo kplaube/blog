@@ -124,7 +124,7 @@ Referências
     "Leia mais sobre Python"
   [através de *XML-RPC*]: http://supervisord.org/api.html
     "Leia mais sobre a API do Supervisor"
-  [falamos recentemente sobre a instalação do *Nginx*]: {filename}/08-nginx-poderoso-rapido-e-facil.md
+  [falamos recentemente sobre a instalação do *Nginx*]: {filename}/nginx-poderoso-rapido-e-facil.md
     "Nginx: Poderoso, rápido e fácil"
   [*Brandon Konkle*]: http://brandonkonkle.com/blog/2010/sep/14/django-uwsgi-and-nginx/
     "Django on uWSGI and Nginx"

@@ -95,7 +95,7 @@ Referências
     "Artigos sobre Tecnologia da Informação"
   [íntegra aqui]: http://www.profissionaisti.com.br/2010/01/bdd-desenvolvimento-orientado-a-comportamento/
     "BDD: Desenvolvimento Orientado a Comportamento"
-  [*post* anterior]: {filename}02-tdd-desenvolvimento-orientado-a-testes.md
+  [*post* anterior]: {filename}tdd-desenvolvimento-orientado-a-testes.md
     "TDD: Desenvolvimento Orientado a Testes"
   [*TDD*]: {tag}tdd
   [*@andrewsmedina*]: http://twitter.com/andrewsmedina

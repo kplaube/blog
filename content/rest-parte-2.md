@@ -401,7 +401,7 @@ para o servidor, no entanto, cada uma delas deve ser independente. Cada uma
 deve possuir toda a informação necessária para que o servidor possa interpretá-las
 completamente (e separadamente).
 
-Isso facilita o [*caching*]({filename}09-o-cache-e-o-http.md "O Cache e o HTTP") e
+Isso facilita o [*caching*]({filename}o-cache-e-o-http.md "O Cache e o HTTP") e
 escalabilidade da sua solução.
 
 Caso estados precisem ser armazenados, é uma responsabilidade do cliente fazê-los.

@@ -123,7 +123,7 @@ Referências
 Até a próxima…
 
 
-  [*pep8*]: {filename}/04-assegure-a-qualidade-do-seu-codigo-python-pep8.md
+  [*pep8*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pep8.md
     "Assegure a qualidade do seu código Python – pep8"
   [*Python*]: {tag}python
     "Leia mais sobre Python"

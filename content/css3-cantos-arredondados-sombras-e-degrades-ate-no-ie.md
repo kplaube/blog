@@ -87,7 +87,7 @@ Enriquecer a experiência do usuário não é crime… esquecer da
 acessibilidade sim.
 
 
-  [movimento em prol do HTML5 ganha cada vez mais força]: {filename}01-usando-o-html5-sem-medo.md
+  [movimento em prol do HTML5 ganha cada vez mais força]: {filename}usando-o-html5-sem-medo.md
     "Usando o HTML5 sem medo"
   [*CSS3*]: {tag}css3 "Leia mais sobre CSS3"
   [*HTML5*]: {tag}html5 "Leia mais sobre HTML5"

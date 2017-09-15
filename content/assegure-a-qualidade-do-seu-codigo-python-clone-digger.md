@@ -54,11 +54,11 @@ Referências
 Até a próxima…
 
 
-  [*pep8*]: {filename}/04-assegure-a-qualidade-do-seu-codigo-python-pep8.md
+  [*pep8*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pep8.md
     "Assegure a qualidade do seu código Python – pep8"
-  [*Pylint*]: {filename}/05-assegure-a-qualidade-do-seu-codigo-python-pylint.md
+  [*Pylint*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pylint.md
     "Assegure a qualidade do seu código Python – Pylint"
-  [*Pyflakes*]: {filename}/06-assegure-a-qualidade-do-seu-codigo-python-pyflakes.md
+  [*Pyflakes*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pyflakes.md
     "Assegure a qualidade do seu código Python – Pyflakes"
   [*DRY*]: http://pt.wikipedia.org/wiki/Don%27t_repeat_yourself
     "Leia mais sobre Don't Repeat Yourself no Wikipedia"

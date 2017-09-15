@@ -138,7 +138,7 @@ Referências
 * [*Wikipedia: Memcached*][]
 
 
-  [*caching HTTP*]: {filename}/09-o-cache-e-o-http.md
+  [*caching HTTP*]: {filename}/o-cache-e-o-http.md
     "O cache e o HTTP"
   [*Web*]: {tag}web
     "Leia mais sobre Web"

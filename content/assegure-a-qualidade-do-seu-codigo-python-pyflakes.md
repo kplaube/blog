@@ -85,9 +85,9 @@ Referências
 Até a próxima…
 
 
-  [*pep8*]: {filename}/04-assegure-a-qualidade-do-seu-codigo-python-pep8.md
+  [*pep8*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pep8.md
     "Assegura a qualidade do seu código Python com a pep8"
-  [*Pylint*]: {filename}/05-assegure-a-qualidade-do-seu-codigo-python-pylint.md
+  [*Pylint*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pylint.md
     "Assegure a qualidade do seu código Python com o Pylint"
   [*Pyflakes*]: https://launchpad.net/pyflakes "Pyflakes no Launchpad"
   [*Python*]: {tag}python
