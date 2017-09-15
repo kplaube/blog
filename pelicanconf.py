@@ -28,8 +28,9 @@ PLUGINS = [
     'global_license',
     'i18n_subsites',
     'liquid_tags.img',
-    'summary',
+    'optimize_images',
     'slideshare',
+    'summary',
 ]
 
 JINJA_ENVIRONMENT = {
