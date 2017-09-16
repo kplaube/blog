@@ -1,7 +1,7 @@
-Title: Eu me rendo - Material Design
+Title: Eu me rendo: Material Design
 Date: 2017-04-19 12:00:00
 Category: desenvolvimento
-Tags: desenvolvimento, web, mobile, android, css, material-design, materializecss, material-design-lite
+Tags: desenvolvimento, web, mobile, android, css, material-design, materializecss, material-design-lite, eu-me-rendo
 Slug: eu-me-rendo-material-design
 meta_description: O Material Design é uma iniciativa do Google para ter uma linguagem visual concisa em diferentes ambientes. Você sabia que é possível utilizar o Material em sua web app sem muito esforço?
 

@@ -54,6 +54,10 @@ TAG_URL = "tag/{slug}.html"
 FAVICON_URL = "%s/images/favicon.ico" % SITEURL
 DEFAULT_OG_IMAGE = "%s/images/opengraph.jpg" % SITEURL
 
+DEFAULT_METADATA = {
+    'status': 'published'
+}
+
 # Menu
 MENUITEMS = ()
 
