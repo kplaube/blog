@@ -16,9 +16,15 @@ I18N_TEMPLATES_LANG = u'EN'
 DEFAULT_DATE_FORMAT = '%d %b, %Y'
 LOCALE = ['pt_BR']
 
+DIRECT_TEMPLATES = ('index', 'tags', 'categories', 'sitemap')
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'extra/favicon.ico', 'extra/robots.txt']
+EXTRA_PATH_METADATA = {
+    'extra/favicon.ico': {'path': 'favicon.ico'},
+    'extra/robots.txt': {'path': 'robots.txt'},
+}
+SITEMAP_SAVE_AS = 'sitemap.xml'
 THEME = 'yapeme'
 
 PLUGIN_PATHS = ['vendor', 'plugins']
@@ -51,7 +57,7 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 
 TAG_URL = "tag/{slug}.html"
 
-FAVICON_URL = "%s/images/favicon.ico" % SITEURL
+FAVICON_URL = "%s/favicon.ico" % SITEURL
 DEFAULT_OG_IMAGE = "%s/images/opengraph.jpg" % SITEURL
 
 DEFAULT_METADATA = {
