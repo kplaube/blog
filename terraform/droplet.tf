@@ -1,12 +1,3 @@
-variable "do_token" {}
-variable "pub_key" {}
-variable "pvt_key" {}
-variable "ssh_fingerprint" {}
-
-provider "digitalocean" {
-    token = "${var.do_token}"
-}
-
 resource "digitalocean_droplet" "blog" {
     image = "ubuntu-17-04-x64"
     name = "blog"
