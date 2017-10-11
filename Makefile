@@ -2,7 +2,7 @@ HOST='localhost'
 PRODUCTION_HOST=klauslaube.com.br
 
 SITEURL='http://localhost:8000'
-PRODUCTION_SITEURL='http://klauslaube.com.br'
+PRODUCTION_SITEURL='https://klauslaube.com.br'
 
 BASE_DIR=$(CURDIR)
 OUTPUT_DIR=$(BASE_DIR)/output
