@@ -1,14 +1,13 @@
-import pelican
 import re
 
+import pelican
+
 SLIDESHARE_MARKER = re.compile(
-    '({|)slideshare\s+id=(?P<id>\d+)&amp;[\w\s\&\=\_\-]+(}|)'
-)
+    '({|)slideshare\s+id=(?P<id>\d+)&amp;[\w\s\&\=\_\-]+(}|)')
 SLIDESHARE_IFRAME = (
     '<iframe src="https://slideshare.net/slideshow'
     '/embed_code/%s" width="590" height="481" '
-    'marginwidth="0" marginheight="0" scrolling="no"></iframe>'
-)
+    'marginwidth="0" marginheight="0" scrolling="no"></iframe>')
 
 
 def slideshare_iframe(**kwargs):
