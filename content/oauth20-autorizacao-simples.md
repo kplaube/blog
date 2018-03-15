@@ -8,7 +8,7 @@ meta_description: OAuth 2.0 pode parecer confuso, e em alguns momentos ele é. N
 {% img align-left /images/blog/oauth2-logo.jpg 180 180 Logotipo do OAuth 2.0 %}
 
 É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
-de [*APIs*]({tag}api "Leia mais sobre API"), desde
+de [*APIs*]({tag}apis "Leia mais sobre API"), desde
 [bibliotecas]({filename}construindo-apis-em-django-com-restless.md "Construindo APIs em Django com Restless")
 até a construção de [especificações]({filename}ramilificando-as-suas-apis.md "Ramilificando as suas APIs").
 Nesse *post* vamos introduzir a camada de *auth* de uma *API* [*Web*]({tag}web "Leia mais sobre Web"), e
