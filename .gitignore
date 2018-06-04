@@ -4,6 +4,7 @@
 .vagrant
 .ropeproject
 .terraform
+.vscode
 terraform.tfvars
 terraform.tfstate
 terraform.tfstate.backup
