@@ -32,9 +32,6 @@ prod:
 	@$(eval SITEURL := $(PRODUCTION_SITEURL))
 	@$(eval HOST := $(PRODUCTION_HOST))
 
-provision:
-	terraform apply
-
 publish: html
 	rsync -Cravzp $(OUTPUT_DIR)/* $(user)@$(HOST):$(REMOTE_OUTPUT_DIR)/
 
