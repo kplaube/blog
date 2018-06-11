@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+[packages]
+pelican = "*"
+webassets = "*"
+cssmin = "*"
+"flake8" = "*"
+"bs4" = "*"
+Markdown = "*"
+pyScss = "*"
+"Jinja2" = "*"
+
+[requires]
+python_version = "3.6"

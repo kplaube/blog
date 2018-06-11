@@ -52,7 +52,7 @@ stop_server:
 	$(BASE_DIR)/develop_server.sh stop
 
 _install_python_dependencies:
-	pip install -r requirements.txt
+	pipenv install
 
 _install_pelican_plugins:
 	test -d "vendor" || git submodule add https://github.com/getpelican/pelican-plugins.git vendor
