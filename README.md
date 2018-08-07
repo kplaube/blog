@@ -27,6 +27,11 @@ You can serve the *blog* using *Pelican's* development server:
 
     make run
 
+If you are managing dependencies through `pipenv`, don't forget to activate it:
+
+    pipenv shell
+    make run
+
 Now, accessing **localhost:8000** everything should be fine.
 
 Contributions are very welcome!
