@@ -65,7 +65,9 @@ DEFAULT_METADATA = {
 }
 
 # Menu
-MENUITEMS = ()
+MENUITEMS = (
+    ('Contato', 'https://about.me/klauslaube'),
+)
 
 # Blogroll
 LINKS = ()
