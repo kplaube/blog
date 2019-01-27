@@ -5,15 +5,14 @@ name = "pypi"
 
 [dev-packages]
 jedi = "*"
+yapf = "*"
 
 [packages]
 pelican = "*"
-webassets = "*"
-cssmin = "*"
+webassets = {ref = "master", git = "https://github.com/miracle2k/webassets.git"}
 "flake8" = "*"
 "bs4" = "*"
 Markdown = "*"
-pyScss = "*"
 "Jinja2" = "*"
 
 [requires]
