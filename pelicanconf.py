@@ -21,14 +21,19 @@ DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
 STATIC_PATHS = ['images', 'extra/favicon.ico', 'extra/robots.txt']
 EXTRA_PATH_METADATA = {
-    'extra/favicon.ico': {'path': 'favicon.ico'},
-    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/favicon.ico': {
+        'path': 'favicon.ico'
+    },
+    'extra/robots.txt': {
+        'path': 'robots.txt'
+    },
 }
 SITEMAP_SAVE_AS = 'sitemap.xml'
 THEME = 'yapeme'
 
 PLUGIN_PATHS = ['vendor', 'plugins']
 PLUGINS = [
+    'summary',
     'assets',
     'extended_meta',
     'global_license',
@@ -36,7 +41,6 @@ PLUGINS = [
     'liquid_tags.img',
     'optimize_images',
     'slideshare',
-    'summary',
 ]
 
 JINJA_ENVIRONMENT = {
@@ -50,7 +54,6 @@ TAG_FEED_RSS = 'feeds/tags/%s.xml'
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_PAGINATION = 10
 
-
 # Article
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
@@ -60,14 +63,10 @@ TAG_URL = "tag/{slug}.html"
 FAVICON_URL = "%s/favicon.ico" % SITEURL
 DEFAULT_OG_IMAGE = "%s/images/opengraph.jpg" % SITEURL
 
-DEFAULT_METADATA = {
-    'status': 'published'
-}
+DEFAULT_METADATA = {'status': 'published'}
 
 # Menu
-MENUITEMS = (
-    ('Contato', 'https://about.me/klauslaube'),
-)
+MENUITEMS = (('Contato', 'https://about.me/klauslaube'), )
 
 # Blogroll
 LINKS = ()
@@ -86,7 +85,6 @@ FACEBOOK_APP_ID = '262757647133878'
 GOOGLE_ANALYTICS = 'UA-19657400-1'
 GOOGLE_SITE_VERIFICATION = 'xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY'
 TWITTER_USERNAME = 'kplaube'
-
 
 # License
 LICENSE = 'Creative Commons Attribution 3.0'
