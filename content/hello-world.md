@@ -7,13 +7,13 @@ Slug: hello-world
 Por dois longos anos esperei por este momento (talvez tenha esperado até demais),
 mas enfim… posso dizer que tenho um _blog_!
 
+<!-- PELICAN_END_SUMMARY -->
+
 Devo confidenciar. Já trabalhei com _WordPress_ antes, mas sempre como o cara
 que estava desenvolvendo um _Blog/CMS_ para alguém. Desta vez eu posso me
 considerar “do outro lado”, e é difícil hein?! Pretendo contribuir com vocês,
 caros leitores, com todo o conhecimento que possuo (e seguindo a regra da
 reciprocidade, absorver conhecimento de vocês também).
-
-<!-- PELICAN_END_SUMMARY -->
 
 ## O que você pode esperar deste Blog
 
