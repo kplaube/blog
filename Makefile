@@ -26,7 +26,7 @@ clean:
 	find $(OUTPUT_DIR) -mindepth 1 -delete
 
 html: clean
-	SITEURL=$(SITEURL) pelican content -s $(CONF_FILE)
+	SITEURL=$(SITEURL) pipenv run pelican content -s $(CONF_FILE)
 
 prod:
 	@echo "Using production settings"
@@ -43,7 +43,7 @@ publish: html
 	rm -rf .git
 
 run:
-	$(BASE_DIR)/develop_server.sh restart 8000
+	pipenv run $(BASE_DIR)/develop_server.sh restart 8000
 
 setup: _install_python_dependencies _install_pelican_plugins
 	@mkdir -p $(OUTPUT_DIR)
