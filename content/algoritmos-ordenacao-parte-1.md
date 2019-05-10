@@ -254,7 +254,7 @@ Os algoritmos listados nesse artigo não possuem performance atrativa, mas são 
 
 Nos próximos artigos vamos explorar algumas delas, como o _Merge_ e _Quicksort_.
 
-# Referências
+## Referências
 
 - [Brilliant - Bubble sort](https://brilliant.org/wiki/bubble-sort/)
 - [Brilliant - Insertion sort](https://brilliant.org/wiki/insertion/)
