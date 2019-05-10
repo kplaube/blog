@@ -5,30 +5,27 @@ Tags: desenvolvimento, infraestrutura, agile, ambiente-de-desenvolvimento, quali
 Slug: diferentes-ambientes
 meta_description: Uma das práticas mais interessantes nessa nova onda de qualidade que está encrostada nas práticas agile de desenvolvimento de software, é o uso de diferentes ambientes para diferentes estágios do ciclo de vida de uma aplicação.
 
-
 {% img align-left /images/blog/server-rack.jpg 180 160 Diferentes ambientes %}
 
 Uma das práticas mais interessantes nessa
 “nova onda” de qualidade que está “encrostada” nas práticas [*agile*][]
-de desenvolvimento de *software*, é o uso de diferentes ambientes para
+de desenvolvimento de _software_, é o uso de diferentes ambientes para
 diferentes estágios do ciclo de vida de uma aplicação.
 
 <!-- PELICAN_END_SUMMARY -->
 
 Com auxílio da [virtualização][], podemos implementar (sem dificuldades)
 estes ambientes em qualquer empresa que tenha como cultura entregar
-*software* de qualidade.
+_software_ de qualidade.
 
-
-Development
------------
+## Development
 
 Ter um ambiente isolado só seu, onde você possa codificar sem se
 preocupar com o resto da equipe. Essa é a premissa do ambiente de
 desenvolvimento.
 
 Em [*Python*][], é muito simples construirmos um [ambiente isolado][] em
-nossas máquinas, isolado até mesmo do nosso *SO*. Podemos codificar,
+nossas máquinas, isolado até mesmo do nosso SO. Podemos codificar,
 testar, errar e corrigir, sem afetar diretamente os outros membros da
 equipe.
 
@@ -36,7 +33,7 @@ equipe.
 totalmente construído em uma máquina virtual, devido as fortes
 dependências entre ferramentas como [*Nagios*][] e [*RRDTools*][].
 
-Ao fim do dia (ou de uma *feature*), você pode “comitar” suas alterações
+Ao fim do dia (ou de uma _feature_), você pode “comitar” suas alterações
 para uma máquina central, comumente chamada de “Integration” (podendo
 ser o responsável por manter um servidor [*SVN*][] ou um repositório
 central quando for um [*DVCS*][]).
@@ -47,16 +44,14 @@ trabalhavam simultaneamente (no mesmo ambiente). Funcionou e tenho
 certeza que funcionaria até hoje, mas acredito que ambientes isolado
 sejam mais organizados e seguros.
 
-
-Testing
--------
+## Testing
 
 Quando você possui uma equipe de testes em seu projeto, nada melhor do
 que montar um servidor onde você possa por à prova as últimas
 modificações inseridas em sua aplicação.
 
 Como eu nunca tive a oportunidade de trabalhar com pessoas dedicadas a
-testes, geralmente utilizo o próprio ambiente de *staging* para testes.
+testes, geralmente utilizo o próprio ambiente de _staging_ para testes.
 
 Embora [testes unitários][] e de [aceitação][] sejam amplamente
 executados em ambiente de desenvolvimento, quando o projeto ficar
@@ -68,48 +63,42 @@ Na [*Uptime*][], trabalhávamos da seguinte maneira: Existia um servidor
 que era responsável apenas por clonar o repositório central e executar
 os testes automatizados. Quando um teste falhava, um membro da equipe
 era notificado, e ele designava alguém para resolver conflitos e
-problemas. O conceito é o mesmo apresentado no *link* acima, a exceção é
+problemas. O conceito é o mesmo apresentado no _link_ acima, a exceção é
 que esse processo era uma tarefa agendada e executava em determinada
-hora do dia (e não diretamente a cada *commit* ou em um determinado
+hora do dia (e não diretamente a cada _commit_ ou em um determinado
 momento do processo de integração).
 
+## Staging
 
-Staging
--------
-
-O papel do ambiente de *staging* é ser o mais próximo da realidade, ou
+O papel do ambiente de _staging_ é ser o mais próximo da realidade, ou
 seja, ele deve ser uma réplica perfeita do ambiente de produção.
-Tratando-se de desenvolvimento [*Web*][], deve-se utilizar o mesmo
-serviço *Web*, o mesmo banco de dados, os mesmos módulos e *plugins*.
-Isso garantirá um *deploy* muito mais “suave” para o ambiente de
+Tratando-se de desenvolvimento [*web*][], deve-se utilizar o mesmo
+serviço _web_, o mesmo banco de dados, os mesmos módulos e _plugins_.
+Isso garantirá um _deploy_ muito mais “suave” para o ambiente de
 produção.
 
-No meu caso específico, utilizei o ambiente de *staging* para, além de
-testar a aplicação em um ambiente mais “real”, demonstrar as *features*
+No meu caso específico, utilizei o ambiente de _staging_ para, além de
+testar a aplicação em um ambiente mais “real”, demonstrar as _features_
 para o cliente. Logo, ele tinha algo real, e com dados que faziam
 sentido, antes mesmo do projeto ir para o ar.
 
 Ficou mais simples determinar se a solução soluciona o seu problema ou
 não.
 
-
-Production
-----------
+## Production
 
 E finalmente, o ambiente de produção.
 
 É neste ambiente que a sua aplicação ganha vida e enfrenta a dura
 realidade do mundo :)
 
+## Referências
 
-Referências
------------
-
-* [*Effective Development Environments: Development, Test, Staging/Pre-prod and Production Environments*][]
-* [*Caelum*: Integração Contínua][]
-* [Integração Contínua][]
-* [*PHP Environment: Development Staging Production*][]
-* [*Traditional Development/Integration/Staging/Production Practice for Software Development*][]
+- [*Effective Development Environments: Development, Test, Staging/Pre-prod and Production Environments*][]
+- [*Caelum*: Integração Contínua][]
+- [Integração Contínua][]
+- [*PHP Environment: Development Staging Production*][]
+- [*Traditional Development/Integration/Staging/Production Practice for Software Development*][]
 
 Acompanhe a produção dos posts da série [Montando seu ambiente de
 desenvolvimento *Django* no *Linux*][] assinando o [*Feeds RSS*][] ou me
@@ -117,44 +106,25 @@ seguindo no [*Twitter*][].
 
 Até a próxima…
 
-
-  [*agile*]: {tag}agile "Leia mais sobre Agile"
-  [virtualização]: {virtualbox-uma-maneira-interessante-de-possuir-varios-sos-em-uma-maquina-so.md
-    "Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só"
-  [*Python*]: {tag}python
-    "Leia mais sobre Python"
-  [ambiente isolado]: http://blog.triveos.com.br/2010/04/25/trabalhando-com-python-e-django/
-    "Trabalhando com Python e Django"
-  [Onde eu trabalho atualmente]: http://www.setinet.com.br/
-    "Setinet, Internet Controlada"
-  [*Nagios*]: http://www.nagios.org/
-    "Monitore a sua infraestrutura com Nagios"
-  [*RRDTools*]: http://www.mrtg.org/rrdtool/
-    "Data logging e gráficos com RRDTools"
-  [*SVN*]: http://subversion.tigris.org/
-    "Versionamento de projetos com Subversion"
-  [*DVCS*]: http://en.wikipedia.org/wiki/Distributed_Version_Control_System
-    "Leia mais sobre Distributed Version Control System no Wikipedia"
-  [testes unitários]: {tag}tdd
-    "Leia mais sobre TDD"
-  [aceitação]: {tag}bdd "Leia mais sobre BDD"
-  [servidor de integração contínua]: http://blog.caelum.com.br/integracao-continua/
-    "Leia artigo da Caelum falando sobre Continuous Integration"
-  [*Uptime*]: http://uptimetecnologia.com.br/
-    "Uptime, garantindo a sua segurança na internet"
-  [*Web*]: {tag}web "Leia mais sobre Web"
-  [*Effective Development Environments: Development, Test, Staging/Pre-prod and Production Environments*]: http://spacebug.com/effective_development_environments/
-    "Uma excelente referência, um artigo bem escrito e objetivo."
-  [*Caelum*: Integração Contínua]: http://blog.caelum.com.br/integracao-continua/
-    "A Caelum é uma das melhores referências do país sobre agile e desenvolvimento em geral."
-  [Integração Contínua]: http://devagil.wordpress.com/2007/04/14/4611-integracao-continua/
-    "Excelente artigo sobre Integração Contínua dentro do contexto de agile."
-  [*PHP Environment: Development Staging Production*]: http://www.dotkernel.com/php-development/php-environment-development-staging-production/
-    "Um artigo claro e objetivo sobre os ambientes de Development, Staging e Production."
-  [*Traditional Development/Integration/Staging/Production Practice for Software Development*]: http://dltj.org/article/software-development-practice/
-    "Um post muito bom sobre desenvolvimento de software com qualidade."
-  [Montando seu ambiente de desenvolvimento *Django* no *Linux*]: {filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
-    "Saiba como montar o seu ambiente de desenvolvimento para trabalhar com Django"
-  [*Feeds RSS*]: /feed/rss.xml
-    "Leia os posts deste blog no seu leitor RSS favorito"
-  [*Twitter*]: http://www.twitter.com/kplaube "Siga-me no Twitter"
+[*agile*]: {tag}agile "Leia mais sobre Agile"
+[virtualização]: {virtualbox-uma-maneira-interessante-de-possuir-varios-sos-em-uma-maquina-so.md "Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só"
+[*python*]: {tag}python "Leia mais sobre Python"
+[ambiente isolado]: http://blog.triveos.com.br/2010/04/25/trabalhando-com-python-e-django/ "Trabalhando com Python e Django"
+[onde eu trabalho atualmente]: http://www.setinet.com.br/ "Setinet, Internet Controlada"
+[*nagios*]: http://www.nagios.org/ "Monitore a sua infraestrutura com Nagios"
+[*rrdtools*]: http://www.mrtg.org/rrdtool/ "Data logging e gráficos com RRDTools"
+[*svn*]: http://subversion.tigris.org/ "Versionamento de projetos com Subversion"
+[*dvcs*]: http://en.wikipedia.org/wiki/Distributed_Version_Control_System "Leia mais sobre Distributed Version Control System no Wikipedia"
+[testes unitários]: {tag}tdd "Leia mais sobre TDD"
+[aceitação]: {tag}bdd "Leia mais sobre BDD"
+[servidor de integração contínua]: http://blog.caelum.com.br/integracao-continua/ "Leia artigo da Caelum falando sobre Continuous Integration"
+[*uptime*]: http://uptimetecnologia.com.br/ "Uptime, garantindo a sua segurança na internet"
+[*web*]: {tag}web "Leia mais sobre Web"
+[*effective development environments: development, test, staging/pre-prod and production environments*]: http://spacebug.com/effective_development_environments/ "Uma excelente referência, um artigo bem escrito e objetivo."
+[*caelum*: integração contínua]: http://blog.caelum.com.br/integracao-continua/ "A Caelum é uma das melhores referências do país sobre agile e desenvolvimento em geral."
+[integração contínua]: http://devagil.wordpress.com/2007/04/14/4611-integracao-continua/ "Excelente artigo sobre Integração Contínua dentro do contexto de agile."
+[*php environment: development staging production*]: http://www.dotkernel.com/php-development/php-environment-development-staging-production/ "Um artigo claro e objetivo sobre os ambientes de Development, Staging e Production."
+[*traditional development/integration/staging/production practice for software development*]: http://dltj.org/article/software-development-practice/ "Um post muito bom sobre desenvolvimento de software com qualidade."
+[montando seu ambiente de desenvolvimento *django* no *linux*]: {filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md "Saiba como montar o seu ambiente de desenvolvimento para trabalhar com Django"
+[*feeds rss*]: https://klauslaube.com.br/feed/rss.xml "Leia os posts deste blog no seu leitor RSS favorito"
+[*twitter*]: http://www.twitter.com/kplaube "Siga-me no Twitter"

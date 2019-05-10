@@ -90,6 +90,6 @@ investido e adquirido, e o fato desse conhecimento poder ser propagado.
 [*profissionais ti*]: http://www.profissionaisti.com.br/ "Profissionais TI"
 [aqui]: http://www.profissionaisti.com.br/2009/10/developers-5-conselhos-que-para-mim-funcionaram/ "Developers: 5 conselhos que para mim funcionaram"
 [*livros*]: http://skoob.com.br/usuario/118855 "Acompanhe o que eu ando lendo no Skoob"
-[*rss*]: /feed/rss.xml "Assine o nosso Feed RSS"
+[*rss*]: https://klauslaube.com.br/feed/rss.xml "Assine o nosso Feed RSS"
 [*twitter*]: http://www.twitter.com/kplaube "Acompanhe o que ando dizendo no Twitter"
 [compartilhe o seu *know-how*]: http://www.profissionaisti.com.br/colabore "Colabore com o Profissionais TI"
