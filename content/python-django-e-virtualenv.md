@@ -5,10 +5,7 @@ Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, slackware, v
 Slug: python-django-virtualenv
 meta_description: Utilizar o Python e Django em um ambiente virtual criado pelo virtualenv, além de simples é uma boa-prática.
 
-
 {% img align-left /images/blog/python-django.jpg 180 180 Python e Django %}
-
-Olá pessoas!
 
 Dando continuidade a série “[Montando seu ambiente de desenvolvimento
 *Django* em *Linux*][]”, vamos dar uma pincelada na tríade [*Python*][],
@@ -16,71 +13,67 @@ Dando continuidade a série “[Montando seu ambiente de desenvolvimento
 
 <!-- PELICAN_END_SUMMARY -->
 
-Python
-------
+## Python
 
 [Conheça alguns motivos que lhe convencerão a usar *Python*][].
 
-O *Python* já vem instalado na maioria das distribuições [*Linux*][]. Na
-verdade, até hoje nunca usei uma distro *Linux* que não tivesse o
-*Python* préviamente instalado. No *Slackware 13.1*, o *Python* está na
-versão 2.6.4. No *Debian 6*, o *Python* está na versão 2.6.6.
+O _Python_ já vem instalado na maioria das distribuições [*Linux*][]. Na
+verdade, até hoje nunca usei uma distro _Linux_ que não tivesse o
+_Python_ previamente instalado. No _Slackware 13.1_, o _Python_ está na
+versão 2.6.4. No _Debian 6_, o _Python_ está na versão 2.6.6.
 
-O portal *Python Brasil* possui um excelente material para você
-[instalar][] e dar os [primeiros passos][] com *Python*.
+O portal _Python Brasil_ possui um excelente material para você
+[instalar][] e dar os [primeiros passos][] com _Python_.
 
+## virtualenv
 
-virtualenv
-----------
-
-A linguagem *Python* não vem “de bobeira” nas distribuições *Linux*, ela
-faz parte delas, sendo utilizada para criação de uma série de *scripts*
-fundamentais. Passei por uma situação peculiar com o *Python*: estava
-usando o *OpenSuse* (não recordo a versão) e decidi atualizar a versão
-do *Python* utilizando o sistema de pacotes da distro… confirmei algumas
+A linguagem _Python_ não vem “de bobeira” nas distribuições _Linux_, ela
+faz parte delas, sendo utilizada para criação de uma série de _scripts_
+fundamentais. Passei por uma situação peculiar com o _Python_: estava
+usando o _OpenSuse_ (não recordo a versão) e decidi atualizar a versão
+do _Python_ utilizando o sistema de pacotes da distro… confirmei algumas
 operações de remoção (que não deveria ter autorizado) e acabei
 danificando minha instalação do [*SO*][].
 
 Então, para aqueles que programam em computadores pessoais, e não querem
-comprometer tanto o *SO* quanto o *workspace*, podem criar **ambientes
-isolados** para os projetos utilizando o [*virtualenv*][1].
+comprometer tanto o _SO_ quanto o _workspace_, podem criar _ambientes
+isolados_ para os projetos utilizando o [_virtualenv_][1].
 
-No *Slackware* vamos instalar o [*setuptools*][], que é um *framework*
-que facilita a instalação e criação de pacotes *Python*:
+No _Slackware_ vamos instalar o [*setuptools*][], que é um _framework_
+que facilita a instalação e criação de pacotes _Python_:
 
     ::bash
     $ wget http://peak.telecommunity.com/dist/ez_setup.py
 
-Para instalá-lo é necessário ser ***root***:
+Para instalá-lo é necessário ser _*root*_:
 
     ::bash
     $ python ez_setup.py
 
-Em seguida, vamos instalar o *virtualenv* com a ajuda do
-***easy_install*** (que faz parte do pacote *setuptools*):
+Em seguida, vamos instalar o _virtualenv_ com a ajuda do
+`_easy_install_` (que faz parte do pacote _setuptools_):
 
     ::bash
     $ easy_install virtualenv
 
-Esta é uma forma interessante para você instalar módulos *Python* em seu
-sistema sem recorrer ao sistema de pacotes do *SO*.
+Esta é uma forma interessante para você instalar módulos _Python_ em seu
+sistema sem recorrer ao sistema de pacotes do _SO_.
 
-Agora, como um **usuário comum**, vamos criar um ambiente em nosso
-***home*** para testarmos o *virtualenv*:
+Agora, como um usuário comum, vamos criar um ambiente em nosso
+`home` para testarmos o _virtualenv_:
 
     ::bash
     $ virtualenv ~/projeto_django
 
 Entrando nesta pasta, você irá se deparar com três diretórios:
 
-* **bin:** Os executáveis do seu ambiente isolado estarão aí. Você
-    poderá notar o executável *python*, o *easy_install*, o *pip* e
-    um carinha chamado “activate” (falaremos deste mais tarde).
-* **lib:** Nesta pasta você encontrará os módulos e bibliotecas
-    *Python* utilizadas por este ambiente.
-* **include:** Segundo o [*Osvaldo Santana*][], dentro desse diretório
-    estão os *links* simbólicos para todos os *headers* do *Python* que
-    são necessário para se compilar extensões escritas em *C* para ele.
+- `bin`: Os executáveis do seu ambiente isolado estarão aí. Você
+  poderá notar o executável `python`, o `easy_install`, o `pip` e um carinha chamado `activate` (falaremos deste mais tarde).
+- `lib`: Nesta pasta você encontrará os módulos e bibliotecas
+  _Python_ utilizadas por este ambiente.
+- `include`: Segundo o [*Osvaldo Santana*][], dentro desse diretório
+  estão os _links_ simbólicos para todos os _headers_ do _Python_ que
+  são necessário para se compilar extensões escritas em _C_ para ele.
 
 Você apenas criou seu ambiente… para ativá-lo basta dar o seguinte
 comando:
@@ -88,72 +81,57 @@ comando:
     ::bash
     $ source ~/projeto_django/bin/activate
 
-Pronto! Se você executar o *Python* agora, você estará utilizando as
-*libs* **deste ambiente**. Isso pode permitir que você mova este
-ambiente entre máquinas, que você instale *libs* somente neste ambiente
-(deixando o *Python* do seu *SO* “limpo”, isso pode te garantir maior
+Pronto! Se você executar o _Python_ agora, você estará utilizando as
+_libs_ deste ambiente. Isso pode permitir que você mova este
+ambiente entre máquinas, que você instale _libs_ somente neste ambiente
+(deixando o _Python_ do seu _SO_ “limpo”, isso pode te garantir maior
 performance da distro) e que você tenha um controle maior sobre as
 dependências do seu projeto.
 
-Para “sair” do ambiente, basta executar o comando **deactivate**:
+Para “sair” do ambiente, basta executar o comando `deactivate`:
 
     ::bash
     $ deactivate
 
 Pronto… muito simples, não?
 
-
-Django
-------
+## Django
 
 [Saiba um pouco mais sobre a programação *Python* para *Web*][].
 
-Vamos instalar o *Django* neste **ambiente isolado**. Ativaremos
-novamente o **virtualenv** e usaremos o ***easy_install*** para nos
+Vamos instalar o _Django_ neste ambiente isolado. Ativaremos
+novamente o _virtualenv_ e usaremos o _*easy_install*_ para nos
 ajudar com esta tarefa:
 
-    ::bash
-    $ source ~/projeto_django/bin/activate $ easy_install django
+    ::text
+    $ source ~/projeto_django/bin/activate
+    $ easy_install django
 
 No final da operação, você irá se deparar com uma saída similar a esta:
 
     ::text
     Installed /home/user/projeto_django/lib/python2.6/site-packages/Django-1.2.5-py2.6.egg Processing dependencies for django Finished processing dependencies for django
 
-Isto é a garantia que o *Django* foi **instalado dentro deste
+Isto é a garantia que o _Django_ foi **instalado dentro deste
 ambiente**, e não está visível para o escopo global da distribuição.
-Tente importa o *Django* no terminal interativo do *Python* da sua
-distro e do *Python* do seu ambiente isolado e veja o que acontece…
+Tente importa o _Django_ no terminal interativo do _Python_ da sua
+distro e do _Python_ do seu ambiente isolado e veja o que acontece…
 
 [Entenda o que é o *Django* e como ele funciona][].
 
 Até a próxima…
 
-
-  [Montando seu ambiente de desenvolvimento *Django* em *Linux*]: {filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md
-    "Montando seu ambiente de desenvolvimento Django em Linux"
-  [*Python*]: {tag}python
-    "Leia mais sobre Python"
-  [*Django*]: {tag}django
-    "Leia mais sobre Django"
-  [*virtualenv*]: {tag}virtualenv
-    "Leia mais sobre Virtualenv"
-  [Conheça alguns motivos que lhe convencerão a usar *Python*]: http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/
-    "10 motivos para se usar Python"
-  [*Linux*]: {tag}linux "Leia mais sobre Linux"
-  [instalar]: http://www.python.org.br/wiki/InicieSe
-    "Inicie-se no Python"
-  [primeiros passos]: http://www.python.org.br/wiki/AprendaMais
-    "Aprenda mais sobre Python"
-  [*SO*]: {tag}sistemas-operacionais
-    "Leia mais sobre Sistemas Operacionais"
-  [1]: http://pypi.python.org/pypi/virtualenv
-    "Virtual Python Environment Builder"
-  [*setuptools*]: http://pypi.python.org/pypi/setuptools
-    "Download, build, install, upgrade, and uninstall Python packages"
-  [*Osvaldo Santana*]: http://blog.triveos.com.br/2008/03/03/ambiente-isolado-para-python-com-virtualenv/
-    "Ambiente Isolado para Python com virtualenv"
-  [Saiba um pouco mais sobre a programação *Python* para *Web*]: http://www.profissionaisti.com.br/2009/02/programando-python-para-a-web/
-    "Programando Python para Web"
-  [Entenda o que é o *Django* e como ele funciona]: http://www.profissionaisti.com.br/2009/04/entendendo-o-django/
-    "Entendendo o Django"
+[montando seu ambiente de desenvolvimento *django* em *linux*]: {filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md "Montando seu ambiente de desenvolvimento Django em Linux"
+[*python*]: {tag}python "Leia mais sobre Python"
+[*django*]: {tag}django "Leia mais sobre Django"
+[*virtualenv*]: {tag}virtualenv "Leia mais sobre Virtualenv"
+[conheça alguns motivos que lhe convencerão a usar *python*]: http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/ "10 motivos para se usar Python"
+[*linux*]: {tag}linux "Leia mais sobre Linux"
+[instalar]: http://www.python.org.br/wiki/InicieSe "Inicie-se no Python"
+[primeiros passos]: http://www.python.org.br/wiki/AprendaMais "Aprenda mais sobre Python"
+[*so*]: {tag}sistemas-operacionais "Leia mais sobre Sistemas Operacionais"
+[1]: http://pypi.python.org/pypi/virtualenv "Virtual Python Environment Builder"
+[*setuptools*]: http://pypi.python.org/pypi/setuptools "Download, build, install, upgrade, and uninstall Python packages"
+[*osvaldo santana*]: http://blog.triveos.com.br/2008/03/03/ambiente-isolado-para-python-com-virtualenv/ "Ambiente Isolado para Python com virtualenv"
+[saiba um pouco mais sobre a programação *python* para *web*]: http://www.profissionaisti.com.br/2009/02/programando-python-para-a-web/ "Programando Python para Web"
+[entenda o que é o *django* e como ele funciona]: http://www.profissionaisti.com.br/2009/04/entendendo-o-django/ "Entendendo o Django"
