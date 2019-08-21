@@ -62,6 +62,7 @@ ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{date:%d}/{slug}.html"
 
 TAG_URL = "tag/{slug}.html"
 
+# TODO: Should use EXTRA_PATH_METADATA instead
 FAVICON_URL = "%s/favicon.ico" % SITEURL
 DEFAULT_OG_IMAGE = "%s/images/opengraph.jpg" % SITEURL
 

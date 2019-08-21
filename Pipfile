@@ -9,11 +9,12 @@ yapf = "*"
 
 [packages]
 pelican = "*"
-webassets = {ref = "master", git = "https://github.com/miracle2k/webassets.git"}
+webassets = {git = "https://github.com/miracle2k/webassets.git",ref = "master"}
 "flake8" = "*"
 "bs4" = "*"
 Markdown = "*"
 "Jinja2" = "*"
+pelican-minify = "*"
 
 [requires]
 python_version = "3.7"
