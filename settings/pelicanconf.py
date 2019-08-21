@@ -21,10 +21,19 @@ LOCALE = ["pt_BR"]
 DIRECT_TEMPLATES = ("index", "tags", "categories", "sitemap")
 DELETE_OUTPUT_DIRECTORY = True
 WEBASSETS = True
-STATIC_PATHS = ["images", "extra/favicon.ico", "extra/robots.txt"]
+STATIC_PATHS = [
+    "images", "extra/CNAME", "extra/favicon.ico", "extra/opengraph.jpg",
+    "extra/robots.txt"
+]
 EXTRA_PATH_METADATA = {
+    "extra/CNAME": {
+        "path": "CNAME"
+    },
     "extra/favicon.ico": {
         "path": "favicon.ico"
+    },
+    "extra/opengraph.jpg": {
+        "path": "opengraph.jpg"
     },
     "extra/robots.txt": {
         "path": "robots.txt"
@@ -52,7 +61,7 @@ I18N_GETTEXT_NEWSTYLE = True
 
 FEED_ALL_ATOM = False
 FEED_ALL_RSS = "feed/rss.xml"
-TAG_FEED_RSS = "feeds/tags/%s.xml"
+TAG_FEED_RSS = "feeds/tags/{slug}.xml"
 USE_FOLDER_AS_CATEGORY = False
 DEFAULT_PAGINATION = 10
 
@@ -61,10 +70,6 @@ ARTICLE_URL = "{date:%Y}/{date:%m}/{date:%d}/{slug}.html"
 ARTICLE_SAVE_AS = "{date:%Y}/{date:%m}/{date:%d}/{slug}.html"
 
 TAG_URL = "tag/{slug}.html"
-
-# TODO: Should use EXTRA_PATH_METADATA instead
-FAVICON_URL = "%s/favicon.ico" % SITEURL
-DEFAULT_OG_IMAGE = "%s/images/opengraph.jpg" % SITEURL
 
 DEFAULT_METADATA = {"status": "published"}
 

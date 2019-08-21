@@ -1,4 +1,3 @@
-HOST?=klauslaube.com.br
 GITHUB_REPO?=kplaube/blog
 
 LOCAL_SETTINGS?=settings/pelicanconf.py
@@ -13,11 +12,10 @@ html: clean
 	pipenv run pelican content -v -s $(PROD_SETTINGS)
 
 run:
-	pipenv run pelican -l -s $(LOCAL_SETTINGS)
+	pipenv run pelican content -r -l -s $(LOCAL_SETTINGS)
 
 publish: html
 	@cd $(OUTPUT_DIR) && \
-	echo "$(HOST)" > CNAME && \
 	git init . && \
 	git add . && \
 	git commit -m "Publishing..."; \
