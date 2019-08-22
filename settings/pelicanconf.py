@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*- #
-
 import os
 
 PROJECT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -13,8 +11,8 @@ SITEDESCRIPTION = u"Artigos sobre desenvolvimento Web, Python e Django."
 RELATIVE_URLS = False
 
 TIMEZONE = "America/Sao_Paulo"
-DEFAULT_LANG = u"pt_BR"
-I18N_TEMPLATES_LANG = u"EN"
+DEFAULT_LANG = "pt-br"
+I18N_TEMPLATES_LANG = "pt_BR"
 DEFAULT_DATE_FORMAT = "%d %b, %Y"
 LOCALE = ["pt_BR"]
 
@@ -47,13 +45,13 @@ PLUGIN_PATHS = [
     os.path.join(PROJECT_PATH, "plugins")
 ]
 PLUGINS = [
-    "summary",
     "assets",
     "extended_meta",
     "global_license",
     "i18n_subsites",
     "liquid_tags.img",
     "slideshare",
+    "summary",
 ]
 
 JINJA_ENVIRONMENT = {"extensions": ["jinja2.ext.i18n"]}
