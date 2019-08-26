@@ -6,7 +6,7 @@ Slug: vim-o-meu-editor-favorito
 meta_description: Há um bom tempo que eu trabalho com o Vim, não pretendo contar a sua história nem ensinar a usá-lo, vou simplesmente apresentar os motivos pelo qual eu gosto desse simpático editor de textos.
 
 
-{% img align-left /images/blog/vim-logo.png 180 180 Logo do editor VIM %}
+{% img representative-image /images/blog/vim-logo.png 180 180 Logo do editor VIM %}
 Há um bom tempo que eu trabalho com o [*Vim*][],
 tanto tempo que quando estou em qualquer outro editor escrevo **:wq**
 para salvar e sair.

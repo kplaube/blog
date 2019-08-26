@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, formatters, editores, prettier, javascript, html, css
 Slug: deixe-darem-pitaco-no-seu-codigo-com-prettier
 
-{% img align-left /images/blog/prettier-logo.png 180 180 Logo do Prettier %}
+{% img representative-image /images/blog/prettier-logo.png 180 180 Logo do Prettier %}
 
 _Code formatters_ são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
 mas depois de alguns "Hello world" em [_Go_](https://golang.org/ "Leia mais sobre Golang")

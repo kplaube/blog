@@ -5,7 +5,7 @@ Tags: desenvolvimento, web, python, django, es6, javascript, babel, browserify
 Slug: django-e-es6-com-django-compressor
 meta_description: Vamos falar sobre como utilizar o Django e o django-compressor para transpilar scripts ES6 em ES5, com ajuda do Node.js e Babelify.
 
-{% img align-left /images/blog/django-js-logo.png 180 180 Logo do Django e Javascript %}
+{% img representative-image /images/blog/django-js-logo.png 180 180 Logo do Django e Javascript %}
 
 No [*post* anterior]({filename}django-sass-django-compressor.md "Django e Sass com django-compressor"),
 falamos sobre como utilizar o [*Sass*]({tag}sass "Leia mais sobre Sass")

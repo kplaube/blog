@@ -5,7 +5,7 @@ Tags: opiniao, front-end, evento
 Slug: opiniao-front-in-bh-2017
 meta_description: Tive a oportunidade de prestigiar mais um Front in BH. Como sempre, um excelente evento de front-end em terras tupiniquins.
 
-{% img align-left /images/blog/front-in-bh-2k17-logo.jpg 180 180 Logo do Front in BH %}
+{% img representative-image /images/blog/front-in-bh-2k17-logo.jpg 180 180 Logo do Front in BH %}
 
 E [mais uma vez]({filename}opiniao-front-in-bh.md "Opinião sobre a edição de 2013") tive
 a oportunidade de acompanhar o trabalho do

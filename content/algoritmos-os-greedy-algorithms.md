@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, estrutura-de-dados, algoritmos
 Slug: os-greedy-algorithms
 
-{% img align-left /images/blog/algoritmos-3.png 180 180 Algoritmos %}
+{% img representative-image /images/blog/algoritmos-3.png 180 180 Algoritmos %}
 
 Quando estive revisando a disciplina de [algoritmos]({tag}algoritmos "Leia mais sobre Algoritmos"), me deparei com os tais "algoritmos gulosos", ou _greedy algorithms_. Lembro que na época eu automaticamente associei o termo a soluções de baixa utilidade ou performance. Mal sabia eu que estive equivocado esse tempo todo.
 

@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, qualidade, seguranca, bandit
 Slug: assegure-qualidade-seu-codigo-python-bandit
 
-{% img align-left /images/blog/bandit-logo.png 180 180 Logo do Bandit %}
+{% img representative-image /images/blog/bandit-logo.png 180 180 Logo do Bandit %}
 
 Já falamos sobre algumas ferramentas de qualidade de código [_Python_]({tag}python "Leia mais sobre Python") aqui no _blog_. De [_pycodestyle_]({filename}assegure-a-qualidade-do-seu-codigo-python-pep8.md "Assegure a qualidade do seu código Python - pep8") a [_Clone Digger_]({filename}assegure-a-qualidade-do-seu-codigo-python-clone-digger.md "Assegure a qualidade do seu código Python - Clone digger"), passando por [_Pyflakes_]({filename}assegure-a-qualidade-do-seu-codigo-python-pyflakes.md "Assegure a qualidade do seu código Python - Pyflakes") e [_Pylint_]({filename}assegure-a-qualidade-do-seu-codigo-python-pylint.md "Assegure a qualidade do seu código Python - Pylint"). Além do _flake8_ (que acredito não precisar de apresentações), uma ferramenta que passei a ter sempre no meu _toolbelt_ foi o [_Bandit_](https://github.com/PyCQA/bandit "Repositório do Bandit").
 

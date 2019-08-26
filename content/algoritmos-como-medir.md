@@ -4,7 +4,7 @@ category: desenvolvimento
 tags: desenvolvimento, estrutura-de-dados, algoritmos
 slug: algoritmos-como-medir
 
-{% img align-left /images/blog/algoritmos-2.jpg 180 180 Algoritmos %}
+{% img representative-image /images/blog/algoritmos-2.jpg 180 180 Algoritmos %}
 
 Esse *post* foi originalmente escrito para o [*Profissionais TI*](https://www.profissionaisti.com.br/2017/10/analise-de-algoritmos-como-medir/ "Leia mais no Profissionais TI").
 

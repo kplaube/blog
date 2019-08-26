@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, editores, ide, atom, python, vim
 Slug: atom-o-simpatico-editor-do-github
 
-{% img align-left /images/blog/atom-editor-logo.png 180 180 Logo do Atom %}
+{% img representative-image /images/blog/atom-editor-logo.png 180 180 Logo do Atom %}
 
 Tenho "peregrinado" por diferentes editores e _IDEs_ nesses últimos meses. Além
 do [Vim]({tag}vim "Leia mais sobre Vim"), algumas "desventuras" com _IntelliJ IDEA_,

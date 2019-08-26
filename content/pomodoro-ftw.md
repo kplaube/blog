@@ -4,7 +4,7 @@ category: produtividade
 tags: produtividade, foco, home-office, pomodoro
 slug: pomodoro-ftw
 
-{% img align-left /images/blog/pomodoro-timer.png 180 180 Pomodoro timer %}
+{% img representative-image /images/blog/pomodoro-timer.png 180 180 Pomodoro timer %}
 
 Sim, meus amigos! O título poderia ser "esse é mais um post sobre Pomodoro Technique",
 e embora haja toneladas de artigos na [*Web*]({tag}web "Leia mais sobre Web") sobre o assunto, me sinto na obrigação

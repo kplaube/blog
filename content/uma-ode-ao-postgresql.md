@@ -6,7 +6,7 @@ Slug: uma-ode-ao-postgresql
 meta_description: O Postgres está sob a licença PostgreSQL License, muito similar a BSD e MIT, que nos permite o livre uso, cópia, modificação e distribuição. Assumidamente o “banco de dados open source mais avançado do mundo”, ele é conhecido pela sua estabilidade.
 
 
-{% img align-left /images/blog/postgresql-logo.png 180 180 Logotipo do PostgreSQL %}
+{% img representative-image /images/blog/postgresql-logo.png 180 180 Logotipo do PostgreSQL %}
 
 O [*MySQL*][] é um dos meus mais leais companheiros de
 projetos, desde os meus tempos de [*PHP*][] até projetos mais recentes

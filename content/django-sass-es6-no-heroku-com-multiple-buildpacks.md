@@ -5,7 +5,7 @@ Tags: desenvolvimento, web, python, django, sass, es6, css, js, heroku, buildpac
 Slug: django-sass-es6-no-heroku-com-multiple-buildpacks
 meta_description: Vamos falar sobre como utilizar Python e Node.JS em uma mesma instância Heroku, utilizando a feature Multiple Buildpacks.
 
-{% img align-left /images/blog/heroku-logo.png 180 180 Logo do Heroku %}
+{% img representative-image /images/blog/heroku-logo.png 180 180 Logo do Heroku %}
 
 Anteriormente, falamos sobre como utilizar o `django-compressor` com [*Sass*]({tag}sass "Leia mais sobre Sass")
 e [*ES6*]({tag}es6 "Leia mais sobre ES6"). Se você quisesse utilizar o *Heroku*,

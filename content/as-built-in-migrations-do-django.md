@@ -5,7 +5,7 @@ Tags: desenvolvimento, migrations, python, django, south
 Slug: as-built-in-migrations-do-django
 meta_description: O South ficou famoso por tornar as database migrations do Django fáceis. Com as novas versões do framework, uma maneira ainda mais intuitiva está disponível.
 
-{% img align-left /images/blog/django-logo.png 180 180 Logotipo do Django %}
+{% img representative-image /images/blog/django-logo.png 180 180 Logotipo do Django %}
 
 Quem usa o [*Django*]({tag}django "Leia mais sobre Django") há mais tempo já ouviu
 falar do [*South*]({tag}south "Leia mais sobre South"). Famosa biblioteca

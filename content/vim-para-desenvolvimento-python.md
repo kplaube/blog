@@ -5,7 +5,7 @@ Tags: desenvolvimento, ambiente-de-desenvolvimento, editores-de-texto, vim, pyth
 Slug: vim-para-desenvolvimento-python
 meta_description: Ter o Vim configurado para desenvolvimento Python é em teoria algo simples. Nesse artigo vamos dar uma olhada nos mais variados plugins que podem te ajudar com esta tarefa.
 
-{% img align-left /images/blog/macvim-logo.png 180 180 Logotipo do MacVim %}
+{% img representative-image /images/blog/macvim-logo.png 180 180 Logotipo do MacVim %}
 
 Já mencionei as motivações de utilizar [*Vim*]({tag}vim "Leia mais sobre Vim")
 no ["Vim: O meu editor favorito"]({filename}vim-o-meu-editor-favorito.md "Leia o artigo completo").

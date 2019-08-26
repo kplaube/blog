@@ -5,7 +5,7 @@ Tags: agile, scrum, gerencia-de-projetos
 Slug: scrum-como-encontrei-felicidade-gerenciando-prazos
 meta_description: Posso afirmar que o grande lance do Scrum é aproximar as pessoas envolvidas em um projeto removendo o que não importa.
 
-{% img align-left /images/blog/prazos.jpg 180 180 Gerenciando prazos %}
+{% img representative-image /images/blog/prazos.jpg 180 180 Gerenciando prazos %}
 
 Eu como desenvolvedor nunca tive real interesse em
 gerência de projetos, o que fatalmente resultava em projetos de

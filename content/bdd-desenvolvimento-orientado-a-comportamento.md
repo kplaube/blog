@@ -5,7 +5,7 @@ Tags: desenvolvimento, testes, bdd, agile
 Slug: bdd-desenvolvimento-orientado-comportamento
 meta_description: TDD: testes são escritos primeiro, funções depois; O diferencial está que BDD aborda o comportamento e o resultado como um todo.
 
-{% img align-left /images/blog/bdd.jpg 180 180 Etapas do BDD %}
+{% img representative-image /images/blog/bdd.jpg 180 180 Etapas do BDD %}
 
 Esse post foi originalmente escrito para o [*Profissionais TI*][], você
 pode conferi-lo na [íntegra aqui][].

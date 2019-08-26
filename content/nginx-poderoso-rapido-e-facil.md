@@ -6,7 +6,7 @@ Slug: nginx-poderoso-rapido-facil
 meta_description: O Nginx é um servidor Web, proxy reverso, proxy balanceador de carga, e faz praticamente tudo que o Apache faz, só que muito mais rápido!
 
 
-{% img align-left /images/blog/nginx-logo.png 180 180 Logotipo do Nginx %}
+{% img representative-image /images/blog/nginx-logo.png 180 180 Logotipo do Nginx %}
 
 Para quem (assim como eu) começou com o [*PHP*][], uma das opções mais viáveis
 para servir projetos na [*Web*][] sempre foi o [*Apache*][]. *Open source*,

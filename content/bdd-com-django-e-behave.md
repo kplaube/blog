@@ -6,7 +6,7 @@ Slug: bdd-com-django-e-behave
 meta_description: Testar o comportamento da aplicação é uma grande prática de TDD. O Behave é uma biblioteca de BDD Python, que casa muito bem com o framework Django.
 
 
-{% img align-left /images/blog/bdd-given-when-then.jpg 180 180 Given, When, Then (opkey.crestechglobal.com) %}
+{% img representative-image /images/blog/bdd-given-when-then.jpg 180 180 Given, When, Then (opkey.crestechglobal.com) %}
 
 Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,
 é uma grande prática no que diz respeito a escrita de testes que guiem o

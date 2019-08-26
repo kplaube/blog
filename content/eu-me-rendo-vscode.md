@@ -5,7 +5,7 @@ Tags: desenvolvimento, web, editores, ide, vscode, vim, python, css, javascript
 Slug: eu-me-rendo-vscode
 meta_description: Chegou o momento de admitir: Estou usando um editor diferente do Vim. Nesse artigo descrevo as principais virtudes do VS Code, e a razão de simpatizar tanto com esse poderoso editor.
 
-{% img align-left /images/blog/vscode-logo.png 180 180 Logo do VS Code %}
+{% img representative-image /images/blog/vscode-logo.png 180 180 Logo do VS Code %}
 
 É, caro leitor... chegou o dia de admitir que tenho usado outro editor
 além do [*Vim*]({tag}vim "Leia mais sobre o melhor editor do universo"). Pode

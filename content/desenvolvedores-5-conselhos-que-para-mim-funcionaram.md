@@ -5,7 +5,7 @@ Tags: profissao, desenvolvimento, midias-sociais
 Slug: desenvolvedores-5-conselhos-para-mim-funcionaram
 meta_description: Livros, RSS, Twitter, Blogs, Wikis, etc. A informação está em todo o lugar, não há mais desculpas para não manter-se atualizado.
 
-{% img align-left /images/blog/code-for-food.jpg 180 180 Programo em troca de comida %}
+{% img representative-image /images/blog/code-for-food.jpg 180 180 Programo em troca de comida %}
 
 Este post foi originalmente escrito para o [*Profissionais TI*][], você
 pode conferí-lo na íntegra [aqui][].

@@ -6,7 +6,7 @@ Slug: opiniao-facebook-world-hack
 meta_description: No dia 30 de agosto de 2012 (sexta-feira), rolou o Facebook Developers World Hack – São Paulo, onde engenheiros do próprio Facebook deram palestras sobre o desenvolvimento com a API social, distribuição e monetização. Acompanhe as minhas críticas ao evento...
 
 
-{% img align-left /images/blog/facebook-developers.jpg 180 180 Facebook Developers World Hack %}
+{% img representative-image /images/blog/facebook-developers.jpg 180 180 Facebook Developers World Hack %}
 
 No dia 30 de agosto de 2012 (sexta-feira), rolou o [*Facebook Developers World Hack – São Paulo*][],
 onde engenheiros do próprio *Facebook* deram palestras sobre o

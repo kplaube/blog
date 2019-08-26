@@ -6,7 +6,7 @@ Slug: automatize-o-deploy-dos-seus-projetos-com-fabric
 meta_description: O Fabric é uma lib Python, e ferramenta de linha de comando, para auxiliá-lo no deploy e administração de seus sistemas Web, independentemente da linguagem de programação escolhida.
 
 
-{% img align-left /images/blog/deploy.jpg 180 180 Deploy now! %}
+{% img representative-image /images/blog/deploy.jpg 180 180 Deploy now! %}
 Durante a minha árdua trajetória com o [*PHP*][],
 sempre fiz “subidas” de projetos utilizando um cliente [*FTP*][]. Um
 processo manual, extremamente repetitivo (e chato).

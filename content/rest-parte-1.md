@@ -5,7 +5,7 @@ tags: desenvolvimento, rest, microservices, apis
 slug: rest-parte-1
 meta_description: A Internet já passou por muita coisa quando o assunto é API, O REST vem como uma solução elegante que está longe de ser "anárquica", porém mais longe ainda de ser complicada.
 
-{% img align-left /images/blog/soap-vs-rest.png 180 180 SOAP vs REST %}
+{% img representative-image /images/blog/soap-vs-rest.png 180 180 SOAP vs REST %}
 
 Em tempos onde os [microservices](http://www.infoq.com/br/news/2015/04/microservices-current-state "O estado da arte em micro serviços") ganham cada vez mais força, e [aplicações de sucesso](https://dev.twitter.com/rest/public "Conheça a API do Twitter") liberam a sua *API* para desenvolvedores construírem um ecossistema ao redor delas, não considerar seguir boas práticas na construção de um serviço pode ser uma tomada de decisão arriscada, tanto no quesito do negócio, quanto no quesito técnico.
 

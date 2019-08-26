@@ -6,7 +6,7 @@ Slug: assegure-qualidade-seu-codigo-python-pyflakes
 meta_description: o Pyflakes é uma ferramenta de qualidade que analisa o seu código Python atrás de erros (de sintaxe e importação, por exemplo), retornando um relatório muito objetivo com o arquivo, linha e o tipo de incoerência que ele encontrou.
 
 
-{% img align-left /images/blog/software-quality.jpg 180 180 Qualidade %}
+{% img representative-image /images/blog/software-quality.jpg 180 180 Qualidade %}
 Depois da dar uma pincelada na [*pep8*][] e no [*Pylint*][], chegou a hora de
 falarmos um pouco sobre o ***Pyflakes***.
 

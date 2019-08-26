@@ -5,7 +5,7 @@ tags: desenvolvimento, virtualenv, virtualenvwrapper, python
 slug: virtualenvwrapper-o-basico-para-um-bom-ambiente-de-desenvolvimento-python
 meta_description: Apesar do seu uso ser completamente trivial, ter virtualenvs espalhados pelo seu disco rígido pode ser chato de gerenciar. É aí que o virtualenvwrapper entra.
 
-{% img align-left /images/blog/python-logo.png 180 180 Logotipo do Python %}
+{% img representative-image /images/blog/python-logo.png 180 180 Logotipo do Python %}
 
 Já falamos sobre o [virtualenv]({tag}virtualenv "Leia mais sobre Virtualenv") há muito tempo atrás, aqui no *blog*. Tirando alguns
 detalhes técnicos, a bem da verdade é que de lá para cá, pouca coisa

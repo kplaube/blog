@@ -5,7 +5,7 @@ Tags: desenvolvimento, web, javascript, acessibilidade
 Slug: acessibilidade-javascript-nao-obstrusivo
 meta_description: Quando você lê Javascript não obstrusivo, você está lendo que uma aplicação web, mesmo que recheada de requisições Ajax, possa funcionar em navegadores mais modestos.
 
-{% img align-left /images/blog/accessibility.png 180 180 Ícone representando acessibilidade %}
+{% img representative-image /images/blog/accessibility.png 180 180 Ícone representando acessibilidade %}
 
 Em épocas onde _RIA_ está cada vez mais comum, e as interfaces [_web_][web] resolveram
 parecer-se cada vez mais com ambientes _desktops_, tenho reparado um

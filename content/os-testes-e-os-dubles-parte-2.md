@@ -5,7 +5,7 @@ tags: desenvolvimento, testes, mock, python
 slug: os-testes-e-os-dubles-parte-2
 meta_description: Vamos detalhar através de exemplos práticos os test doubles dummy, fake, stub, mock e spy.
 
-{% img align-left /images/blog/tdd-red-green-refactor.png 180 180 TDD (izenbridge.com) %}
+{% img representative-image /images/blog/tdd-red-green-refactor.png 180 180 TDD (izenbridge.com) %}
 
 
 No [*post* anterior]({filename}os-testes-e-os-dubles-parte-1.md "Os testes e os Dublês - Parte 1"), vimos um dos

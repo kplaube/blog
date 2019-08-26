@@ -5,7 +5,7 @@ Tags: desenvolvimento, web, python, django, sass, css
 Slug: django-e-sass-com-django-compressor
 meta_description: Eu sempre gostei da proposta do django-compressor: Concatenar e comprimir estáticos, utilizando como agrupadores os blocos da engine de templates do Django. Vamos dar uma espiada sobre como utilizar o Django Compressor para interpretar arquivos Sass.
 
-{% img align-left /images/blog/django-sass-logo.png 180 180 Logo do Django e Sass %}
+{% img representative-image /images/blog/django-sass-logo.png 180 180 Logo do Django e Sass %}
 
 Eu sempre gostei da proposta do `django-compressor`: Concatenar e comprimir
 estáticos, utilizando como agrupadores os blocos da *engine* de *templates*

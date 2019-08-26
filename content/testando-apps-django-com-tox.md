@@ -5,7 +5,7 @@ Tags: desenvolvimento, testes, tdd, tox, django, python, virtualenv
 Slug: testando-apps-django-com-tox
 meta_description: O Django 2.0 foi lançado, e com ele o suporte a Python 2.7 deixa de existir. Conheça o tox, uma poderosa ferramenta para executar testes em diferentes virtualenvs.
 
-{% img align-left /images/blog/django-logo.png 180 180 Logotipo do Django %}
+{% img representative-image /images/blog/django-logo.png 180 180 Logotipo do Django %}
 
 O [*Django 2.0*](https://docs.djangoproject.com/pt-br/2.0/releases/2.0/ "Django 2.0 release notes") foi lançado,
 e com ele o suporte a [*Python*]({tag}python "Leia mais sobre Python") `2.7` deixa de existir para

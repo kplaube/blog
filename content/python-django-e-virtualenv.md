@@ -5,7 +5,7 @@ Tags: desenvolvimento, ambiente-de-desenvolvimento, python, django, slackware, v
 Slug: python-django-virtualenv
 meta_description: Utilizar o Python e Django em um ambiente virtual criado pelo virtualenv, além de simples é uma boa-prática.
 
-{% img align-left /images/blog/python-django.jpg 180 180 Python e Django %}
+{% img representative-image /images/blog/python-django.jpg 180 180 Python e Django %}
 
 Dando continuidade a série “[Montando seu ambiente de desenvolvimento
 *Django* em *Linux*][]”, vamos dar uma pincelada na tríade [*Python*][],

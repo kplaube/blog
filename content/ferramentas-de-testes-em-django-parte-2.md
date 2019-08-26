@@ -6,7 +6,7 @@ Slug: ferramentas-de-testes-em-django-parte-2
 meta_description: Conheça algumas ferramentas que irão enriquecer o seu ambiente de desenvolvimento Python e Django, e lhe trarão maior segurança em seus testes de software.
 
 
-{% img align-left /images/blog/crash-test-2.jpg 180 180 Imagem de um boneco de testes automotivos %}
+{% img representative-image /images/blog/crash-test-2.jpg 180 180 Imagem de um boneco de testes automotivos %}
 No [*post* anterior][],
 conhecemos as ferramentas *default* para construção de testes
 automatizados em [*Django*][]. Acontece que você pode “sair um pouco da

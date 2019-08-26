@@ -5,7 +5,7 @@ Tags: infraestrutura, virtualizacao, containerizacao, docker
 Slug: uma-ode-ao-docker-parte-1
 meta_description: Venha ficar por dentro da containerização, utilizada pelo Docker para criar ambientes virtuais.
 
-{% img align-left /images/blog/docker-logo.png 180 180 Logotipo do Docker %}
+{% img representative-image /images/blog/docker-logo.png 180 180 Logotipo do Docker %}
 
 Virtualização é um dos assuntos que mais evoluiu nesses últimos anos de TI. Mas
 foi o termo "containerização" que teve um "boom" de popularidade recentemente. Isso graças

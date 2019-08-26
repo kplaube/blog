@@ -6,7 +6,7 @@ Slug: quando-usar-gettext-gettext_lazy
 meta_description: O que devo utilizar? gettext ou ugettext? Aprenda neste tutorial quando o onde utilizar a internacionalização do Django.
 
 
-{% img align-left /images/blog/python-logo.png 180 180 Logotipo do Python %}
+{% img representative-image /images/blog/python-logo.png 180 180 Logotipo do Python %}
 Olá pessoas!
 
 Para vocês que desenvolvem em [*Python*][] e [*Django*][] preocupando-se

@@ -5,7 +5,7 @@ tags: produtividade, estudos, carreira, cursos
 slug: aprendendo-a-aprender
 
 
-{% img align-left /images/blog/books.jpg 180 180 Estudar também faz parte %}
+{% img representative-image /images/blog/books.jpg 180 180 Estudar também faz parte %}
 
 Já mencionei o "[Aprendendo a Aprender](https://www.coursera.org/learn/aprender "Veja o curso em pt-BR")"
 no *post* sobre [*Pomodoro*]({filename}pomodoro-ftw.md "Leia mais sobre Pomodoro"), e

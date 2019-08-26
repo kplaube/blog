@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, estrutura-de-dados. algoritmos, recursividade, divide-and-conquer
 Slug: recursividade-e-dividir-e-conquistar
 
-{% img align-left /images/blog/recursion.jpeg 180 180 Recursividade ilustrada %}
+{% img representative-image /images/blog/recursion.jpeg 180 180 Recursividade ilustrada %}
 
 Sabe aquelas pessoas que têm problemas em determinar qual lado é o "esquerdo" e qual lado é o "direito"?
 Admito, sem orgulho algum, que tenho o mesmo problema com recursividade. Meu cérebro simplesmente se embaralha,

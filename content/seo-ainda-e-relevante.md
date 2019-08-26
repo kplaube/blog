@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, seo
 Slug: seo-ainda-e-relevante
 
-{% img align-left /images/blog/seo.jpg 180 180 Imagem representando o SEO %}
+{% img representative-image /images/blog/seo.jpg 180 180 Imagem representando o SEO %}
 
 Se há uma constante em desenvolvimento de _software_ é o [_hype_](https://www.significados.com.br/hype/ "Significado de hype"). Hoje vivemos o _buzz_
 ao redor de _microservices_, _machine learning_ e _blockchain_. Mas há algum tempo um dos _hypes_ que varreu o mundo do desenvolvimento [_web_]({tag}web "Leia mais sobre Web") foi o _SEO_ (ou _Search Engine Optimization_).

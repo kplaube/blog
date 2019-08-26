@@ -6,7 +6,7 @@ Slug: django-e-cache-uma-dupla-de-alta-performance-2
 meta_description: Podemos utilizar a camada de cache em diferentes pontos da aplicação. Com o esquema de middlewares do Django, podemos ter essa camada aplicada diretamente ao fluxo de interpretação do framework, o que pode reduzir consideravelmente o uso de recursos de nossa hospedagem, sem mesmo termos alterado código das nossas apps.
 
 
-{% img align-left /images/blog/memcached-logo.jpg 180 180 Logo do Memcached %}
+{% img representative-image /images/blog/memcached-logo.jpg 180 180 Logo do Memcached %}
 Continuando o *post* [*Django* e *Cache*: Uma dupla de alta performance][], vamos
 ver na prática como utilizar o *framework* de [*cache*][] do [*Django*][].
 

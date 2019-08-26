@@ -5,7 +5,7 @@ tags: desenvolvimento, python, pyenv, virtualenv, virtualenvwrapper, macosx
 slug: o-simples-e-poderoso-pyenv
 meta_description: Após ter problemas com o meu pip e virtualenvwrapper, após a atualização do Mac OS X para o El Capitan, eu conheci o Pyenv... e vou compartilhar com você o motivo pelo qual ele é uma excelente ideia!
 
-{% img align-left /images/blog/pyenv.jpg 180 180 Esquema explicando o Pyenv (mateuspaduaweb.com.br) %}
+{% img representative-image /images/blog/pyenv.jpg 180 180 Esquema explicando o Pyenv (mateuspaduaweb.com.br) %}
 
 Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
 a versão do *Mac OS X* para o *El Capitan*. Na cara e coragem,

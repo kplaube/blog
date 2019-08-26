@@ -6,7 +6,7 @@ Slug: fazendo-javascript-oo-de-forma-facil-parte-2
 meta_description: Vamos voltar ao assunto de Javascript OOP e explorar a sintaxe do ES6 para a construção de classes e objetos.
 
 
-{% img align-left /images/blog/javascript-logo.png 180 180 Logotipo do Javascript %}
+{% img representative-image /images/blog/javascript-logo.png 180 180 Logotipo do Javascript %}
 
 Há cerca de 5 anos, fiz um *post* sobre como escrever
 [Javascript OO de forma fácil]({filename}fazendo-javascript-oo-de-forma-facil.md "Leia o artigo completo")

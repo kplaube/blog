@@ -6,7 +6,7 @@ Slug: pelican-e-os-static-site-generators
 meta_description: O Django é de longe o meu framework Python favorito. Mas para determinadas tarefas, ele vira overhead. É aí que entra o Pelican.
 
 
-{% img align-left /images/blog/pelican.png 180 180 Logo do Pelican %}
+{% img representative-image /images/blog/pelican.png 180 180 Logo do Pelican %}
 O [*Django*][] é de longe o meu *framework* [*Python*][] favorito. Fácil,
 extensível, com uma série de "baterias inclusas" que tornam o desenvolvimento
 de aplicações [*Web*][] muito mais fácil e divertido.

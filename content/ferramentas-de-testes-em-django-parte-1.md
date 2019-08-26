@@ -6,7 +6,7 @@ Slug: ferramentas-de-testes-em-django-parte-1
 meta_description: É possível sim fazer testes automatizados em Django! Neste post vamos conhecer as principais ferramentes de teste em Python e Django
 
 
-{% img align-left /images/blog/crash-test.jpg 180 180 Os bonecos dos testes automotivos %}
+{% img representative-image /images/blog/crash-test.jpg 180 180 Os bonecos dos testes automotivos %}
 Dando continuidade à série
 “[Montando seu ambiente de desenvolvimento *Django* no *Linux*][]“, vou
 indicar algumas ferramentas de testes para que você também possa deixar

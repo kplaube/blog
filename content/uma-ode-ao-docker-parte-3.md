@@ -5,7 +5,7 @@ Tags: infraestrutura, virtualizacao, containerizacao, docker, nginx, python, dja
 Slug: uma-ode-ao-docker-parte-3
 meta_description: Na última parte da série, vamos falar sobre o Dockerfile e ver como empacotar uma aplicação Django de forma simples e rápida.
 
-{% img align-left /images/blog/docker-logo-3.jpg 180 180 Logotipo do Docker %}
+{% img representative-image /images/blog/docker-logo-3.jpg 180 180 Logotipo do Docker %}
 
 Nos [*posts*]({filename}uma-ode-ao-docker.md "Uma ode ao Docker - Parte 1")
 [anteriores]({filename}uma-ode-ao-docker-parte-2.md "Uma ode ao Docker - Parte 2")

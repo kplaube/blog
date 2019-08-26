@@ -5,7 +5,7 @@ Tags: profissao, carreira, desenvolvedor, software engineer
 Slug: o-que-e-um-software-engineer
 meta_description: A engenharia é a ciência, a arte e a profissão de adquirir e de aplicar os conhecimentos matemáticos, técnicos e científicos na criação, aperfeiçoamento e implementação de utilidades. Como interpretar isso para o ambiente de TI?
 
-{% img align-left /images/blog/engineering.jpg 180 180 Engineering (affordable-online-colleges.net) %}
+{% img representative-image /images/blog/engineering.jpg 180 180 Engineering (affordable-online-colleges.net) %}
 
 Certa vez, estava eu atualizando o meu *LinkedIn* quando o
 [@davidsonfellipe](https://twitter.com/davidsonfellipe "Acompanhe o Davi do Som no Twitter") me indagou sobre o título de "Analista e Desenvolvedor Web" que possuo atualmente. Segundo ele, "Front-end/Back-end Engineer" é mais atrativo para que *headhunters* cheguem a um perfil.

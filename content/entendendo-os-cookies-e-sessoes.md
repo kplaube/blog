@@ -6,7 +6,7 @@ Slug: entendendo-os-cookies-e-sessoes
 meta_description: O protocolo HTTP é stateless, ou seja, não mantém o estado de uma requisição. Para suprir esta necessidade, são apresentados os Cookies e Sessões.
 
 
-{% img align-left /images/blog/cookies.jpg 180 180 Representação de cookies %}
+{% img representative-image /images/blog/cookies.jpg 180 180 Representação de cookies %}
 
 Por muito tempo eu abstrai o conceito de
 *cookies* e sessões, e nunca cheguei a prestar muita atenção no seu

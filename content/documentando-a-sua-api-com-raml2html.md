@@ -4,7 +4,7 @@ Tags: desenvolvimento, web, rest, apis, raml, nodejs
 Slug: documentando-sua-api-com-raml2html
 meta_description: O RAML possui algumas ferramentas super bacanas em seu repertório. O raml2html é uma delas, que ajuda (e muito) na geração de documentações.
 
-{% img align-left /images/blog/raml-logo.jpg 180 180 Logotipo do RAML %}
+{% img representative-image /images/blog/raml-logo.jpg 180 180 Logotipo do RAML %}
 
 Uma das coisas mais legais em relação ao [*RAML*]({tag}raml "Leia mais sobre RAML")
 (e afins) é a diversidade de ferramentas que existem em seu ecossistema.

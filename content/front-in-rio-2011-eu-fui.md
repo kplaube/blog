@@ -5,7 +5,7 @@ Tags: desenvolvimento, eventos, android, canvas, css3, frontinrio, html5, svg
 meta_description: Um resumo do que aconteceu no evento Front in Rio, edição 2011. Dentro os destaques, @font-face com o Maujor, e desenvolvimento de jogos sem Canvas.
 
 
-{% img align-left /images/blog/front-in-rio-logo.png 180 180 Logotipo Front in Rio 2011 %}
+{% img representative-image /images/blog/front-in-rio-logo.png 180 180 Logotipo Front in Rio 2011 %}
 Enquanto as minhas esperanças de ir para o [*Rock in Rio*][] deste ano
 acabaram, não pude deixar de acompanhar meus colegas [*@romulojales*][],
 [*@kenjiyamamoto*][] e [*@davidsonFellipe*][] na edição do [*Front in Rio 2011*][].

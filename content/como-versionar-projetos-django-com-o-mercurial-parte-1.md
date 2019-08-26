@@ -6,7 +6,7 @@ Slug: como-versionar-projetos-django-mercurial-parte
 meta_description: Se você está começando em Django esta será uma grande oportunidade para você conhecer o Mercurial.
 
 
-{% img align-left /images/blog/mercurial-logo.png 180 216 Logotipo do Mercurial %}
+{% img representative-image /images/blog/mercurial-logo.png 180 216 Logotipo do Mercurial %}
 Olá pessoas!
 
 E cá estamos, tentando de qualquer forma manter este *blog* alimentado

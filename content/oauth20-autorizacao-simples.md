@@ -5,7 +5,7 @@ Tags: desenvolvimento, web, oauth, oauth2, auth, apis
 slug: oauth20-autorizacao-simples-or-is-it
 meta_description: OAuth 2.0 pode parecer confuso, e em alguns momentos ele é. Nesse post vamos revisar o conceito por trás do OAuth, e entender como os papéis interagem durante o processo de autorização.
 
-{% img align-left /images/blog/oauth2-logo.jpg 180 180 Logotipo do OAuth 2.0 %}
+{% img representative-image /images/blog/oauth2-logo.jpg 180 180 Logotipo do OAuth 2.0 %}
 
 É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
 de [*APIs*]({tag}apis "Leia mais sobre API"), desde

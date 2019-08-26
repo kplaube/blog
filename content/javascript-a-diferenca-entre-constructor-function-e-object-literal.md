@@ -6,7 +6,7 @@ Slug: javascript-constructor-function-object-literal
 meta_description: Você sabe aonde e como usar um Object Literal ou uma Constructor Function, em Javascript? Descubra as diferenças entre essas duas formas de fazer Javascript Orientado a Objetos.
 
 
-{% img align-left /images/blog/javascript-code.jpg 180 180 Código Javascript %}
+{% img representative-image /images/blog/javascript-code.jpg 180 180 Código Javascript %}
 
 Meses atrás, [escrevi sobre como era fácil criar objetos em *Javascript*][].
 Devo confessar que, a minha visão sobre a utilização da [Orientação a Objetos][]

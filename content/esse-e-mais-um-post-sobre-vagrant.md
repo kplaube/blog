@@ -6,7 +6,7 @@ Slug: esse-e-mais-um-post-sobre-vagrant
 meta_description: Sem dúvida o que levou Virtualização de um buzzword para uma necessidade real na vida dos profissionais foi a diminuição do overhead na criação de ambientes virtuais. Entre essas ferramentas está o Vagrant.
 
 
-{% img align-left /images/blog/vagrant-logo.png 180 180 Logotipo do Vagrant %}
+{% img representative-image /images/blog/vagrant-logo.png 180 180 Logotipo do Vagrant %}
 Sim! Esse é mais um *post* sobre *Vagrant*, entre tantos outros espalhados pela
 [*Web*]({tag}web "Leia mais sobre Web"). Sim! Se você já conhece a ferramenta,
 provavelmente não terá nada de novo para você nesse artigo.

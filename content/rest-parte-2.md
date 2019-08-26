@@ -5,7 +5,7 @@ tags: desenvolvimento, rest, microservices, apis
 slug: rest-parte-2
 meta_description: Vamos falar um pouco mais sobre como interagir com APIs REST, utilizando os verbos do protocolo HTTP e a biblioteca hug, que nos ajudará a ilustrar como funciona uma API na prática.
 
-{% img align-left /images/blog/rest-logo.png 180 180 Logotipo REST %}
+{% img representative-image /images/blog/rest-logo.png 180 180 Logotipo REST %}
 
 No [*post* anterior]({filename}rest-parte-1.md "Leia a parte 1"), demos uma pequena introdução
 ao conceito de *REST* e fizemos um raso comparativo com o seu "rival", o *SOAP*.

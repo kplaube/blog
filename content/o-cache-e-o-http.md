@@ -6,7 +6,7 @@ Slug: o-cache-e-o-http
 meta_description: Em tempos de alta demanda, o cache pode tornar-se o melhor amigo das aplicações Web. Qualquer milissegundo economizado é um ponto a mais com o seu usuário, com os mecanismos de busca e com o seu serviço de hospedagem.
 
 
-{% img align-left /images/blog/performance.jpg 180 180 Cache e tempo de requisição %}
+{% img representative-image /images/blog/performance.jpg 180 180 Cache e tempo de requisição %}
 
 Em tempos de alta demanda, o ***cache*** pode tornar-se o melhor amigo das
 aplicações [*Web*][].

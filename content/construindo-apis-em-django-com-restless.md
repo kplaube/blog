@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, apis, python, django, rest, restless
 meta_description: Construir APIs REST em Django nos dias atuais é uma tarefa no máximo corriqueira. Conheça o Restless, simpática biblioteca que tem por filosofia ser simples e objetiva.
 
-{% img align-left /images/blog/rest-api-logo.png 180 180 API Rest %}
+{% img representative-image /images/blog/rest-api-logo.png 180 180 API Rest %}
 
 Construir *APIs* [*REST*]({tag}rest "Leia mais sobre REST") em
 [*Django*]({tag}django "Leia mais sobre Django") nos dias atuais é uma

@@ -5,7 +5,7 @@ tags: desenvolvimento, web, rest, microservices, apis, swagger, oai
 slug: swagger-e-o-open-api-initiative
 meta_description: Swagger é a opção mais famosa no que tange a modelagem e documentação de APIs. Mas qual é a sua relação com outras especificações, incluindo a OpenApi Specification?
 
-{% img align-left /images/blog/oai-logo.png 180 180 Logotipo Open API Initiative %}
+{% img representative-image /images/blog/oai-logo.png 180 180 Logotipo Open API Initiative %}
 
 Já falamos sobre [*RAML*]({tag}raml "Leia mais sobre RAML") aqui no *blog*. Uma maneira
 de descrever *APIs*, facilitando a vida de clientes, fornecedores, e até mesmo

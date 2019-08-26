@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, editores, ide, vscode, vim, python, pyls, lsp
 Slug: lsp-e-o-pyls
 
-{% img align-left /images/blog/python-code.jpg 180 180 Código Python %}
+{% img representative-image /images/blog/python-code.jpg 180 180 Código Python %}
 
 Uma das virtudes do [_VS Code_]({tag}vscode "Leia mais sobre o editor") é como ele integra-se facilmente com diferentes linguagens.
 O esforço é pequeno, geralmente resumindo-se à instalação de um único _plugin_. Essa característica o torna uma ferramenta extremamente

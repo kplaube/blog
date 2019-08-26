@@ -5,7 +5,7 @@ tags: desenvolvimento, web, rest, microservices, apis, swagger, oai
 slug: swagger-na-pratica
 meta_description: Voltamos a falar de APIs e Swagger. Nesse artigo, vamos escrever uma especificação para uma API de filmes, e pincelar as ferramentas Swagger disponíveis no mercado.
 
-{% img align-left /images/blog/swaggerhub-logo.png 180 180 Logotipo do SwaggerHub %}
+{% img representative-image /images/blog/swaggerhub-logo.png 180 180 Logotipo do SwaggerHub %}
 
 Voltamos a falar de [*APIs*]({tag}apis "Leia mais sobre APIs"), e voltamos a falar sobre especificações.
 Para continuar o assunto sobre [*Swagger*]({filename}swagger-e-o-open-api-initiative.md "Swagger e o OAI"),

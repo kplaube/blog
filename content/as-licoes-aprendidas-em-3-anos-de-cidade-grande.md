@@ -5,7 +5,7 @@ Tags: profissao, carreira, globo.com, rio de janeiro
 meta_description: Neste mês de Maio, faz 3 anos que deixei Schroeder (SC) e me mudei para o Rio de Janeiro, para trabalhar na Globo.com. De lá para cá aconteceram inúmeras coisas na minha vida, se o seu destino é ir para a cidade grande, talvez você se interesse pelo que eu tenho a dizer.
 
 
-{% img align-left /images/blog/cristo-redentor.jpg 180 179 Cristo Redentor %}
+{% img representative-image /images/blog/cristo-redentor.jpg 180 179 Cristo Redentor %}
 Neste mês de Maio, faz 3 anos que deixei *[Schroeder (SC)][1]* e me mudei para
 o Rio de Janeiro, para trabalhar na *[Globo.com][2]*. Não tinha como ser
 diferente: Eu estava estudando as tecnologias utilizadas pelo "plim-plim" há 

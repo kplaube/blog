@@ -6,7 +6,7 @@ Slug: problemas-de-seguranca-em-aplicacoes-web
 meta_description: Quando estamos desenvolvendo nossas aplicações Web, temos que “pensar” como um usuário mal-intencionado. Não somente para garantir o bom funcionamento da mesma, mas também para garantir a segurança e bem-estar dos “usuários civis” que consomem os nossos serviços.
 
 
-{% img align-left /images/blog/security.jpg 180 180 Segurança %}
+{% img representative-image /images/blog/security.jpg 180 180 Segurança %}
 Seria perfeito se o mundo fosse feito apenas de pessoas
 bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
 a raça humana, do que o homem deixar de tirar proveito de alguma

@@ -5,7 +5,7 @@ tags: desenvolvimento, web, javascript, node, npm, grunt
 slug: vivendo-sem-o-grunt
 meta_description: No meu primeiro contato com o Grunt, ele não me convenceu. Foi ao trabalhar com Single Page Applications que a ferramenta me conquistou. Hoje, com Browserify e PostCSS fica a dúvida: Talvez você não precise do Grunt.
 
-{% img align-left /images/blog/grunt-logo.png 180 180 Logotipo do Grunt %}
+{% img representative-image /images/blog/grunt-logo.png 180 180 Logotipo do Grunt %}
 
 No meu primeiro contato com o *Grunt*, ele não me convenceu. Qual era a
 necessidade de um *task runner*  se eu já tinha o `Makefile`? O mesmo valia

@@ -6,7 +6,7 @@ Slug: migrations-em-django-south
 meta_description: Em um mundo ideal, o procedimento de deploy (para entregas contínuas) deve ser automatizado. Com o South, &quot;migrar&quot; a estrutura e os dados da sua base de dados para a versão presente em seu novo deploy, é simples, prático e 100% integrado ao Django.
 
 
-{% img align-left /images/blog/south-logo.png 180 180 Logotipo do South %}
+{% img representative-image /images/blog/south-logo.png 180 180 Logotipo do South %}
 E quem nunca precisou adicionar ou remover alguma
 coluna, nas tabelas do seu banco de dados, depois que a aplicação já
 estava em produção? Os riscos existem (e são altos), e podem ser

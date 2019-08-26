@@ -5,7 +5,7 @@ Tags: profissao, carreira, graduacao
 Slug: graduacao-nao-e-so-diploma
 
 
-{% img align-left /images/blog/books.jpg 180 180 Estudar também faz parte %}
+{% img representative-image /images/blog/books.jpg 180 180 Estudar também faz parte %}
 Esse artigo foi originalmente escrito para o jornal [*FolhaSC*][].
 
 Se eu fizer o exercício proposto por *Steve Jobs*, de **“ligar os

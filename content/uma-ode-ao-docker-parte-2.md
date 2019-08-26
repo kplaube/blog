@@ -5,7 +5,7 @@ Tags: infraestrutura, virtualizacao, containerizacao, docker, nginx
 Slug: uma-ode-ao-docker-parte-2
 meta_description: Vamos deixar a parte de containers de lado para falar um pouco mais sobre imagens, e baixar a primeira imagem do Docker Hub
 
-{% img align-left /images/blog/docker-logo-2.png 180 180 Logotipo do Docker %}
+{% img representative-image /images/blog/docker-logo-2.png 180 180 Logotipo do Docker %}
 
 No [*post* anterior]({filename}uma-ode-ao-docker.md "Uma ode ao Docker - Parte 1")
 falamos sobre o *Docker*, e arranhamos um pouco sobre a diferença entre

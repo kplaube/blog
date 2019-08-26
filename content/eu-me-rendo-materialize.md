@@ -5,7 +5,7 @@ Tags: desenvolvimento, web, mobile, android, css, material-design, materializecs
 Slug: eu-me-rendo-material-design
 meta_description: O Material Design é uma iniciativa do Google para ter uma linguagem visual concisa em diferentes ambientes. Você sabia que é possível utilizar o Material em sua web app sem muito esforço?
 
-{% img align-left /images/blog/mdl-logo.png 180 180 Logotipo do MDL %}
+{% img representative-image /images/blog/mdl-logo.png 180 180 Logotipo do MDL %}
 
 Lembro como se fosse hoje de um camarada dos tempos de *Globo.com* me falando de
 modo efusivo: Você deveria experimentar o *MaterializeCSS*, vai te poupar muito

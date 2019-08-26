@@ -4,7 +4,7 @@ Category: desenvolvimento
 Tags: desenvolvimento, estrutura-de-dados, ordenacao, algoritmos
 Slug: algoritmos-de-ordenacao-parte-1
 
-{% img align-left /images/blog/algoritmos-ordernacao.jpeg 180 180 Ordenação %}
+{% img representative-image /images/blog/algoritmos-ordernacao.jpeg 180 180 Ordenação %}
 
 Voltamos a falar sobre [algoritmos]({tag}algoritmos "Leia mais sobre Algoritmos"), e
 dessa vez o tópico é sobre ordenação de elementos. As linguagens de programação abstraem

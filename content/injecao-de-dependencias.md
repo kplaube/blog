@@ -6,7 +6,7 @@ Slug: injecao-de-dependencia
 meta_description: Se você já teve contato com Laravel ou AngularJS, sabe muito bem que um dos maiores motivos de orgulho desses frameworks é a Injeção de Dependência. Embora o termo possa assustar, esse conceito na verdade é relativamente simples de entender.
 
 
-{% img align-left /images/blog/angular-logo.png 180 180 Logotipo do AngularJS (titanui.com) %}
+{% img representative-image /images/blog/angular-logo.png 180 180 Logotipo do AngularJS (titanui.com) %}
 
 Se você já teve contato com [*Laravel*](http://laravel.com/ "PHP framework for web artisans")
 ou [*AngularJS*](https://angularjs.org/ "HTML enhanced for web apps"), sabe muito bem que

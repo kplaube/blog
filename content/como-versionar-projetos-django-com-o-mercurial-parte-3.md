@@ -6,7 +6,7 @@ Slug: como-versionar-projetos-django-mercurial-parte-3
 meta_description: A parte final do tutorial sobre Django e Mercurial dando um exemplo prático com  uso de pip e virtualenv.
 
 
-{% img align-left /images/blog/django-logo.png 180 180 Logotipo do Django %}
+{% img representative-image /images/blog/django-logo.png 180 180 Logotipo do Django %}
 
 Olá pessoas!
 

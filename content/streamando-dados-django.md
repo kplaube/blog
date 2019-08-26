@@ -5,7 +5,7 @@ tags: desenvolvimento, web, python, django, streaming, generators, wsgi, csv
 slug: streaming-dados-django
 meta_description: Embora o Django não seja a opção ideal para retornar grandes volumes de dados, ele proporciona algumas alternativas interessantes. Nesse artigo falaremos do StreamingHttpResponse, que vem embutido com o framework.
 
-{% img align-left /images/blog/django-pony.png 180 180 Django Pony %}
+{% img representative-image /images/blog/django-pony.png 180 180 Django Pony %}
 
 Recentemente na [*Loadsmart*](http://loadsmart.com/ "Book a truck with Loadsmart"),
 houve a necessidade de lidar com um cenário onde se faz necessário acessar uma *view*

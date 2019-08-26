@@ -5,7 +5,7 @@ tags: desenvolvimento, web, rest, microservices, apis, raml
 slug: ramilificando-as-suas-apis
 meta_description: RAML é uma linguagem baseada em YAML que serve para descrever APIs REST. Nesse artigo vamos abordar de forma prática o funcionamento do RAML, e citar algumas ferramentas fantásticas.
 
-{% img align-left /images/blog/raml-logo.png 180 180 Logotipo do RAML %}
+{% img representative-image /images/blog/raml-logo.png 180 180 Logotipo do RAML %}
 
 Você já tem a sua [*API*]({tag}apis "Leia mais sobre APIs")! Ela é [*REST*]({tag}rest "Leia mais sobre REST"),
 performa muito bem, e todos os seus aplicativos estão

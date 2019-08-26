@@ -6,7 +6,7 @@ Slug: pseudo-classes-e-os-pseudo-elementos
 meta_description: O CSS tem diversas coisas legais. Uma quantidade de propriedades, valores, funcionalidades, que por inúmeras vezes me fogem da memória. Uma das coisas mais interessantes do CSS, mas que geralmente me confundem, são as pseudo-classes e os pseudo-elementos.
 
 
-{% img align-left /images/blog/css3-logo.png 180 180 Logo do CSS3 %}
+{% img representative-image /images/blog/css3-logo.png 180 180 Logo do CSS3 %}
 
 O [*CSS*][] tem diversas coisas legais. Uma quantidade
 de propriedades, valores e funcionalidades, que por inúmeras vezes me

@@ -6,7 +6,7 @@ Slug: minhas-extensoes-favoritas-google-chrome
 meta_description: O Google Chrome há muito já provou ser um fantástico navegador, conheça alguns add-ons que me fizeram esquecer rapidamente do Firefox.
 
 
-{% img align-left /images/blog/google-chrome-logo.png 180 180 Logotipo do Google Chrome %}
+{% img representative-image /images/blog/google-chrome-logo.png 180 180 Logotipo do Google Chrome %}
 
 O [*Google Chrome*][] há muito já provou ser um fantástico navegador, me
 fazendo largar o [*Firefox*][] já na sua primeira semana de lançamento

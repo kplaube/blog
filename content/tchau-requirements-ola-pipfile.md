@@ -5,7 +5,7 @@ tags: desenvolvimento, python, pip, virtualenv, pipfile, pipenv
 slug: tchau-requirements-ola-pipfile
 meta_description: Admito que no começo fui cético em relação ao Pipfile. Mas hoje, após artigos e debates sobre a ferramenta, não tenho dúvida sobre a sua utilidade. Venha comigo entender como o Pipfile + Pipenv podem tornar a sua stack mais simples.
 
-{% img align-left /images/blog/python-logo.png 180 180 Logotipo do Python %}
+{% img representative-image /images/blog/python-logo.png 180 180 Logotipo do Python %}
 
 Admito que no começo fui cético em relação ao [*Pipfile*](https://github.com/pypa/pipfile "The replacement for requirements.txt"). Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o [*pip*]({tag}pip "Leia mais sobre pip"), o [*virtualenv*]({tag}virtualenv "Leia mais sobre virtualenv") e até mesmo o [*pyenv*]({tag} "Leia mais sobre Pyenv"). Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o potencial da ferramenta no seu primeiro momento.
 
