@@ -4,8 +4,8 @@ Category: infraestrutura
 Tags: desenvolvimento, infraestrutura, agile, ambiente-de-desenvolvimento, qualidade, testes
 Slug: diferentes-ambientes
 meta_description: Uma das práticas mais interessantes nessa nova onda de qualidade que está encrostada nas práticas agile de desenvolvimento de software, é o uso de diferentes ambientes para diferentes estágios do ciclo de vida de uma aplicação.
-
-{% img representative-image /images/blog/server-rack.jpg 180 160 Diferentes ambientes %}
+Image: /images/blog/server-rack.jpg
+Alt: Diferentes ambientes
 
 Uma das práticas mais interessantes nessa
 “nova onda” de qualidade que está “encrostada” nas práticas [*agile*][]

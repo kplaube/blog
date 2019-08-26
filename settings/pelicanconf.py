@@ -50,6 +50,7 @@ PLUGINS = [
     "global_license",
     "i18n_subsites",
     "liquid_tags.img",
+    "representative_image",
     "slideshare",
     "summary",
 ]

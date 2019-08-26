@@ -4,26 +4,23 @@ Category: desenvolvimento
 Tags: desenvolvimento, closures, oop, javascript
 Slug: afinal-o-que-sao-closures
 meta_description: Vamos descobrir através do Javascript o que é e como funciona o conceito de closures.
-
-
-{% img representative-image /images/blog/closures.jpg 180 180 Caixa de papelão representando Closures %}
-Olá pessoas!
+Image: /images/blog/closures.jpg
+Alt: Caixa de papelão representando Closures
 
 Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com
 um nome “pomposo” para a parada (que você nunca ouviu falar)? Isso
-aconteceu comigo com *closures*.
+aconteceu comigo com _closures_.
 
 <!-- PELICAN_END_SUMMARY -->
 
-What (the hell) are closures?
------------------------------
+## What (the hell) are closures?
 
-Entendi o conceito de *closures* enquanto estudava *Ruby*. Na verdade,
+Entendi o conceito de _closures_ enquanto estudava _Ruby_. Na verdade,
 fica a dica… se você quer aprender [Orientação a Objetos][], aprenda
-linguagens dinâmicas como *Ruby*, [*Python*][] e até mesmo [*PHP*][].
-Depois parta para linguagens mais “hardcore” como *Java* e *C++*.
+linguagens dinâmicas como _Ruby_, [*Python*][] e até mesmo [*PHP*][].
+Depois parta para linguagens mais “hardcore” como _Java_ e _C++_.
 
-Vamos deixar a [*Wikipedia*][] nos explicar o que é uma *closure*:
+Vamos deixar a [*Wikipedia*][] nos explicar o que é uma _closure_:
 
 > Uma closure ocorre normalmente quando uma função é declarada dentro do
 > corpo de outra, e a função interior referencia variáveis locais da
@@ -50,7 +47,7 @@ Vamos ao exemplo:
 
 Temos uma função definida dentro de outra função. A função interna
 utiliza de parâmetros e variáveis da função externa… basicamente, este é
-o conceito de *closure*.
+o conceito de _closure_.
 
 Não achou muito útil? Dê uma olhada no exemplo abaixo:
 
@@ -75,37 +72,27 @@ Não achou muito útil? Dê uma olhada no exemplo abaixo:
     alert(joao.id);    // 1
     alert(jose.id);    // 2
 
-Utilizamos o conceito de *closure* no exemplo acima. Abusamos do
+Utilizamos o conceito de _closure_ no exemplo acima. Abusamos do
 contexto da linguagem, onde, mesmo que estejamos “chamando” a função
-fora do escopo de **FabricaDeUsuarios**, na verdade **novoUsuario**
-trata-se de uma referência a função **criaUsuario**. Logo, ainda
-estaremos utilizando os recursos do contexto de **FabricaDeUsuarios**.
+fora do escopo de `FabricaDeUsuarios`, na verdade `novoUsuario`
+trata-se de uma referência a função `criaUsuario`. Logo, ainda
+estaremos utilizando os recursos do contexto de `FabricaDeUsuarios`.
 
+## Referências
 
-Referências
------------
+- [*Javascript Closures – They’re not magic*][]
+- [*Morris Johns – Javascript Closures for Dummies*][]
+- [*Mozilla Developer Network – Closures*][]
+- [*Walter Cruz – Closures*][]
 
-* [*Javascript Closures – They’re not magic*][]
-* [*Morris Johns – Javascript Closures for Dummies*][]
-* [*Mozilla Developer Network – Closures*][]
-* [*Walter Cruz – Closures*][]
-
-E você… tem algum exemplo bacana sobre *closures*? Não deixe de
+E você… tem algum exemplo bacana sobre _closures_? Não deixe de
 comentar.
 
-
-  [Orientação a Objetos]: {tag}oop
-    "Leia mais sobre Orientação a Objetos"
-  [*Python*]: {tag}python
-    "Leia mais sobre Python"
-  [*PHP*]: {tag}php "Leia mais sobre PHP"
-  [*Wikipedia*]: http://pt.wikipedia.org/wiki/Closure
-    "Leia sobre closure no Wikipedia"
-  [*Javascript Closures – They’re not magic*]: http://www.javascriptkit.com/javatutors/closures.shtml
-    "Alguns exemplos de closures com Javascript"
-  [*Morris Johns – Javascript Closures for Dummies*]: http://blog.morrisjohns.com/javascript_closures_for_dummies
-    "Leia sobre Closures em Javascript"
-  [*Mozilla Developer Network – Closures*]: https://developer.mozilla.org/en/JavaScript/Guide/Closures
-    "Leia sobre Closures no guia Javascript da Mozilla"
-  [*Walter Cruz – Closures*]: http://devlog.waltercruz.com/closures
-    "Closures em Ruby"
+[orientação a objetos]: {tag}oop "Leia mais sobre Orientação a Objetos"
+[*python*]: {tag}python "Leia mais sobre Python"
+[*php*]: {tag}php "Leia mais sobre PHP"
+[*wikipedia*]: http://pt.wikipedia.org/wiki/Closure "Leia sobre closure no Wikipedia"
+[*javascript closures – they’re not magic*]: http://www.javascriptkit.com/javatutors/closures.shtml "Alguns exemplos de closures com Javascript"
+[*morris johns – javascript closures for dummies*]: http://blog.morrisjohns.com/javascript_closures_for_dummies "Leia sobre Closures em Javascript"
+[*mozilla developer network – closures*]: https://developer.mozilla.org/en/JavaScript/Guide/Closures "Leia sobre Closures no guia Javascript da Mozilla"
+[*walter cruz – closures*]: http://devlog.waltercruz.com/closures "Closures em Ruby"

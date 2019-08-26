@@ -4,8 +4,8 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, padroes-web, css3, graceful-degradation, html5
 Slug: css3-cantos-arredondados-sombras-degrades-ate
 meta_description: CSS3 permite fazer cantos arredondados, sombras e degradês. É possível fazê-los também no Internet Explorer.
-
-{% img representative-image /images/blog/css3-logo.png 180 180 Logotipo do CSS3 %}
+Image: /images/blog/css3-logo.png
+Alt: Logotipo do CSS3
 
 Enquanto o [movimento em prol do HTML5 ganha cada vez mais força][], o
 que podemos falar do [*CSS3*][]?

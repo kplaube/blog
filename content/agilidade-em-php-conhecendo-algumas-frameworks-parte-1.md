@@ -4,8 +4,8 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, php, frameworks, akelos, cakephp, codeigniter, zend framework
 Slug: agilidade-em-php-conhecendo-algumas-frameworks
 meta_description: É possível atingir uma agilidade considerável em PHP através de frameworks como a Akelos, CakePHP, Symfony e Code Igniter.
-
-{% img representative-image /images/blog/php-logo.png 180 180 O elefante mascote do PHP %}
+Image: /images/blog/php-logo.png
+Alt: O elefante mascote do PHP
 
 Embora eu me considere um admirador do [_Python_][python] e [_Django_][django], é o
 [_PHP_][php] que vem “colocando comida na mesa”. É inegável a importância
@@ -44,7 +44,7 @@ voltaria a desenvolver suas soluções com [_Javascript_][javascript] puro.
 
 ## Botando o _PHP_ nos trilhos com _Akelos_
 
-{% img representative-image /images/blog/akelos-logo.jpg 180 180 Logotipo do framework Akelos %}
+{% img align-left /images/blog/akelos-logo.jpg 180 180 Logotipo do framework Akelos %}
 
 O _Akelos_ foi o primeiro _framework
 PHP_ que eu experimentei. Na época (cerca de 2 anos atrás) ele tinha
@@ -71,7 +71,7 @@ _frameworks_.
 
 ## Cozinhando aplicações em CakePHP
 
-{% img representative-image /images/blog/cake-logo.png 180 180 Logotipo do framework CakePHP %}
+{% img align-left /images/blog/cake-logo.png 180 180 Logotipo do framework CakePHP %}
 
 Posso considerar a _CakePHP_ o meu **_framework_ “oficial”** para _PHP_.
 Para começar a sua página oficial já chama a atenção pelo visual e pela disposição de conteúdo.
@@ -93,7 +93,7 @@ desenvolvimento em _PHP_.
 
 ## Injetando combustível com CodeIgniter
 
-{% img representative-image /images/blog/codeigniter-logo.png 180 180 Logotipo do framework CodeIgniter %}
+{% img align-left /images/blog/codeigniter-logo.png 180 180 Logotipo do framework CodeIgniter %}
 
 Antes de mais nada, devo dizer que só utilizo “oficialmente” a _CakePHP_ por
 causa do seu _ORM_. Caso contrário, sem dúvida nenhuma, seria usuário assíduo do
@@ -121,7 +121,7 @@ Muito provável que eu volte a utilizá-lo em outros projetos.
 
 ## O poderio do famoso Zend Framework
 
-{% img representative-image /images/blog/zend-framework-logo.png 180 180 Logotipo do Zend Framework %}
+{% img align-left /images/blog/zend-framework-logo.png 180 180 Logotipo do Zend Framework %}
 
 O meu contato com o _Zend Framework_ foi um tanto superficial, mas isso já me
 dá propriedade para dizer: de todos as citados é o _framework_ mais poderoso.

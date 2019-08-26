@@ -4,18 +4,18 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, python, django, ambiente-de-desenvolvimento, linux
 Slug: montando-seu-ambiente-de-desenvolvimento-django
 meta_description: Série de publicações sobre ambiente de desenvolvimento Python/Django em Linux. Veja como é fácil ter um ambiente de alto nível para os seus projetos.
-
-{% img representative-image /images/blog/django-logo.png 180 180 Logotipo do Django %}
+Image: /images/blog/django-logo.png
+Alt: Logotipo do Django
 
 Vou iniciar uma série de publicações mostrando na prática como montar o
 seu ambiente de desenvolvimento para trabalhar com [*Python*][] e
 [*Django*][].
 
+<!-- PELICAN_END_SUMMARY -->
+
 O objetivo é ilustrar como você pode facilmente ingressar no _Django_ e
 ter um conjunto de ferramentas simples e eficientes que lhe ajudarão a
 desenvolver de forma produtiva e com qualidade.
-
-<!-- PELICAN_END_SUMMARY -->
 
 Os tópicos serão os seguintes (sujeito a alteração):
 

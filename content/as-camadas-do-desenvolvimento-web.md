@@ -4,8 +4,8 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, html, css, javascript, acessibilidade
 Slug: camadas-desenvolvimento-web
 meta_description: Se eu aprendi alguma coisa com o xHTML, foi: Separar marcação, estilos e comportamento tornam a sua vida muito mais feliz.
-
-{% img representative-image /images/blog/www.jpg 180 179 World Wide Web %}
+Image: /images/blog/www.jpg
+Alt: World Wide Web
 
 Se eu aprendi alguma coisa com o _xHTML_, foi:
 Separar marcação, estilos e comportamento tornam a sua vida muito mais
@@ -22,7 +22,7 @@ Vamos conhecer um pouco mais sobre desenvolvimento e padrões _web_?
 
 ## Marcação com uma boa dose de semântica
 
-{% img representative-image /images/blog/html-icon.png 180 180 Representação de documentos HTML %}
+{% img align-left /images/blog/html-icon.png 180 180 Representação de documentos HTML %}
 
 Algumas referências vão chamar esta camada de “marcação”, outras vão direto ao
 ponto chamando-a de “informação”. Eu gosto de pensar que é através da marcação
@@ -47,7 +47,7 @@ como eles devem lidar com ela.
 
 ## Embelezando com estilos
 
-{% img representative-image /images/blog/css-icon.png 180 180 Ícone representando documento CSS %}
+{% img align-left /images/blog/css-icon.png 180 180 Ícone representando documento CSS %}
 
 Antes de fazer minha primeira
 aula de _Tableless_, eu nem fazia ideia de quão importante são as folhas
@@ -83,7 +83,7 @@ premissa da _Web 3.0_.
 
 ## Interação e comportamento
 
-{% img representative-image /images/blog/js-icon.png 180 180 Ícone representando documento Javascript %}
+{% img align-left /images/blog/js-icon.png 180 180 Ícone representando documento Javascript %}
 
 O [*Javascript*][] é interpretado pelo navegador. Com ele, nossas aplicações _web_ podem
 fazer com que o navegador tenha um comportamento (ou interaja com os

@@ -3,8 +3,8 @@ Date: 2011-01-11 12:16
 Category: notícias
 Tags: noticias, tiobe, python
 Slug: tiobe-elege-python-como-linguagem-de-programacao
-
-{% img representative-image /images/blog/python-logo.png 180 180 Logotipo do Python %}
+Image: /images/blog/python-logo.png
+Alt: Logotipo do Python
 
 Não é de hoje que [*Python*][] conquistou o
 respeito dos mais diversos entusiastas do mercado de Tecnologia da

@@ -4,8 +4,8 @@ Category: desenvolvimento
 Tags: desenvolvimento, testes, tdd, agile
 Slug: tdd-desenvolvimento-orientado-testes
 meta_description: Metodologias ágeis como o Scrum e o XP adotam a técnica “Test First”: Primeiro escreva um teste que falhe; Depois escreva um código que faça o teste passar; Melhore o código escrito.
-
-{% img representative-image /images/blog/tdd-all-code-is-guilty.jpg 180 152 Todo código é culpado, até provarem o contrário %}
+Image: /images/blog/tdd-all-code-is-guilty.jpg
+Alt: Todo código é culpado, até provarem o contrário
 
 Esse post foi originalmente escrito para o [*Profissionais TI*][], você
 pode conferi-lo na [íntegra aqui][].
@@ -32,6 +32,7 @@ First”:
 - Melhore o código escrito
 
 {% img align-left /images/blog/red-green-refactor.png Red, Green, Refactor! %}
+
 Além da garantia de que sua aplicação irá
 funcionar após uma atualização ou _bugfix_, devemos levar em conta que
 estamos indo além do simples ato de testar. É nisso que muita gente se

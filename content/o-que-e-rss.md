@@ -3,8 +3,8 @@ Date: 2010-11-12 20:15
 Category: informativos
 Tags: informativos, rss, web
 Slug: o-que-e-rss
-
-{% img representative-image /images/blog/rss-logo.png 180 180 RSS Logo %}
+Image: /images/blog/rss-logo.png
+Alt: RSS logo
 
 Conheço pessoas “bem instruídas” em _TI_ que simplesmente não sabem o que é _RSS_.
 Esta é a minha motivação para escrever este “primeiro post oficial” e lhe explicar,
