@@ -4,10 +4,10 @@ Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, qualidade, pep8
 Slug: assegure-qualidade-seu-codigo-python-pep
 meta_description: As "PEPs" (Python Enhancement Proposal) são documentos que geralmente abordam alguma nova funcionalidade da linguagem, propósitos, procedimentos ou ambiente. O pep8 é uma ferramenta simples (e muito eficaz) que analisa o seu código Python segundo as convenções de código descritas na PEP 8.
+Image: /images/blog/python-code.jpg
+Alt: Código-fonte Python
 
-
-{% img representative-image /images/blog/python-code.jpg 180 180 Código-fonte Python %}
-**Convenções de código!** Já tive a oportunidade de [escrever sobre elas no *Profissionais TI*][]. Benção ou
+Convenções de código! Já tive a oportunidade de [escrever sobre elas no *Profissionais TI*][]. Benção ou
 maldição? Há quem goste, há quem ache uma perda de tempo…
 
 <!-- PELICAN_END_SUMMARY -->
@@ -20,32 +20,28 @@ a manutenção e “orienta” as novas produções.
 
 Se você tem problemas em decorar convenções e boas práticas, não
 desanime! O [*Python*][] possui algumas ferramentas “bacanudas” que vão
-te auxiliar a deixar o *software* mais próximo do “estado da arte”, seja
+te auxiliar a deixar o _software_ mais próximo do “estado da arte”, seja
 garantindo as convenções de código, seja avaliando a qualidade do mesmo.
 
+## Python Enhancement Proposals
 
-Python Enhancement Proposals
-----------------------------
-
-As “PEPs“ (*Python Enhancement Proposal*) são documentos que geralmente
+As “PEPs“ (_Python Enhancement Proposal_) são documentos que geralmente
 abordam alguma nova funcionalidade da linguagem, propósitos,
 procedimentos ou ambiente. Em suma, são “guidelines” que te orientam num
 melhor uso da linguagem e suas funcionalidades, bem como podem ajudar em
 questões como arquitetura, ambiente ou processos de sua aplicação.
 
-Para saber mais sobre *PEPs*, acesse a [*PEP 1*][] que é justamente um documento
-explicando o que são e o que fazem as *Python Enhancement Proposals*.
+Para saber mais sobre _PEPs_, acesse a [*PEP 1*][] que é justamente um documento
+explicando o que são e o que fazem as _Python Enhancement Proposals_.
 
+## pep8
 
-pep8
-----
-
-O **pep8** é uma ferramenta simples (e muito eficaz) que analisa o seu
-código *Python* segundo as convenções de código descritas na
+O _pep8_ é uma ferramenta simples (e muito eficaz) que analisa o seu
+código _Python_ segundo as convenções de código descritas na
 [*PEP 8*][].
 
 Vamos analisar o código do [*Django Brasil*][] (você não sabia? O site é
-*open source*!), mais especificamente o arquivo **models.py** da *app*
+_open source_!), mais especificamente o arquivo **models.py** da _app_
 **blog**:
 
     ::bash
@@ -58,19 +54,19 @@ Vamos analisar o código do [*Django Brasil*][] (você não sabia? O site é
 Como podemos ver, a ferramenta nos mostra a linha e coluna onde o
 problema foi encontrado, apresentando uma breve descrição da incoerência
 que estamos cometendo em relação às recomendações da
-*PEP 8*.
+_PEP 8_.
 
 Para obter uma resposta mais “verbose“, podemos passar alguns parâmetros
-para o **pep8**:
+para o `pep8`:
 
     ::bash
     $ pep8 src/djangobrasil/apps/blog/models.py --show-source --show-pep8
 
-Viu só?! Dessa forma podemos aprender sobre a *PEP 8* enquanto “ferimos” as 
+Viu só?! Dessa forma podemos aprender sobre a _PEP 8_ enquanto “ferimos” as
 convenções de código em nossos projetos :D
 
 Para finalizar, podemos contar as ocorrências de problemas com a
-*PEP 8* em determinada região do projeto:
+_PEP 8_ em determinada região do projeto:
 
     ::bash
     $ pep8 src/djangobrasil/apps/blog/ --statistics -qq --filename=*.py
@@ -82,46 +78,32 @@ Para finalizar, podemos contar as ocorrências de problemas com a
     4       W291 trailing whitespace
     2       W391 blank line at end of file
 
-Nenhum problema muito grave de convenções de código na *app blog* do
-*DjangoBrasil* ;)
+Nenhum problema muito grave de convenções de código na _app blog_ do
+_DjangoBrasil_ ;)
 
 Confira: [*pep8 – Python style guide checker*][].
 
+## Referências
 
-Referências
------------
+- [*Python.org – Index of Python Enhancement Proposals (PEPs)*][]
+- [*Python.org – PEP 1: Purpose and Guidelines*][]
+- [*Python.org – PEP 8: Style Guide for Python Code*][]
+- [*Viva o Linux* – *PEP 8*: Guia de estilo para código *Python*][]
+- [*GitHub – pep8*][]
 
-* [*Python.org – Index of Python Enhancement Proposals (PEPs)*][]
-* [*Python.org – PEP 1: Purpose and Guidelines*][]
-* [*Python.org – PEP 8: Style Guide for Python Code*][]
-* [*Viva o Linux* – *PEP 8*: Guia de estilo para código *Python*][]
-* [*GitHub – pep8*][]
-
-Nos próximos *posts*, vamos dar uma pincelada no *pylint*, *pyflakes* e
-*clone digger*.
+Nos próximos _posts_, vamos dar uma pincelada no _pylint_, _pyflakes_ e
+_clone digger_.
 
 Até a próxima…
 
-
-  [escrever sobre elas no *Profissionais TI*]: http://www.profissionaisti.com.br/2009/06/codifique-como-um-verdadeiro-pythonista/
-    "Codifique como um verdadeiro Pythonista"
-  [*Python*]: {tag}python
-    "Leia mais sobre Python"
-  [*PEP 1*]: http://www.python.org/dev/peps/pep-0001/
-    "PEP1 - PEP Purpose and Guidelines"
-  [*PEP 8*]: http://www.python.org/dev/peps/pep-0008/
-    "PEP 8 - Style Guide for Python Code"
-  [*Django Brasil*]: https://github.com/djangobrasil/djangobrasil.org
-    "Repositório no GitHub do site do Django no Brasil"
-  [*pep8 – Python style guide checker*]: https://github.com/jcrocholl/pep8/
-    "Repositório no GitHub do pep8"
-  [*Python.org – Index of Python Enhancement Proposals (PEPs)*]: http://www.python.org/dev/peps/
-    "Conheça os tipos de PEPs e quais os seus propósitos"
-  [*Python.org – PEP 1: Purpose and Guidelines*]: http://www.python.org/dev/peps/pep-0001/
-    "Saiba o que é, o que faz, e como é feita uma PEP"
-  [*Python.org – PEP 8: Style Guide for Python Code*]: http://www.python.org/dev/peps/pep-0008/
-    "Conheça as convenções de código Python"
-  [*Viva o Linux* – *PEP 8*: Guia de estilo para código *Python*]: http://www.vivaolinux.com.br/artigo/PEP-8-Guia-de-estilo-para-codigo-Python
-    "Artigo do Viva o Linux que é uma adaptação para o Português da PEP 8"
-  [*GitHub – pep8*]: https://github.com/jcrocholl/pep8/
-    "Repositório no GitHub do projeto pep8"
+[escrever sobre elas no *profissionais ti*]: http://www.profissionaisti.com.br/2009/06/codifique-como-um-verdadeiro-pythonista/ "Codifique como um verdadeiro Pythonista"
+[*python*]: {tag}python "Leia mais sobre Python"
+[*pep 1*]: http://www.python.org/dev/peps/pep-0001/ "PEP1 - PEP Purpose and Guidelines"
+[*pep 8*]: http://www.python.org/dev/peps/pep-0008/ "PEP 8 - Style Guide for Python Code"
+[*django brasil*]: https://github.com/djangobrasil/djangobrasil.org "Repositório no GitHub do site do Django no Brasil"
+[*pep8 – python style guide checker*]: https://github.com/jcrocholl/pep8/ "Repositório no GitHub do pep8"
+[*python.org – index of python enhancement proposals (peps)*]: http://www.python.org/dev/peps/ "Conheça os tipos de PEPs e quais os seus propósitos"
+[*python.org – pep 1: purpose and guidelines*]: http://www.python.org/dev/peps/pep-0001/ "Saiba o que é, o que faz, e como é feita uma PEP"
+[*python.org – pep 8: style guide for python code*]: http://www.python.org/dev/peps/pep-0008/ "Conheça as convenções de código Python"
+[*viva o linux* – *pep 8*: guia de estilo para código *python*]: http://www.vivaolinux.com.br/artigo/PEP-8-Guia-de-estilo-para-codigo-Python "Artigo do Viva o Linux que é uma adaptação para o Português da PEP 8"
+[*github – pep8*]: https://github.com/jcrocholl/pep8/ "Repositório no GitHub do projeto pep8"
