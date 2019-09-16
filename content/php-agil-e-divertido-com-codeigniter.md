@@ -4,56 +4,51 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, php, codeigniter
 Slug: php-agil-e-divertido-com-codeigniter
 meta_description: Não há mistérios na forma como a CodeIgniter trabalha com o MVC, utilizando o “MVC clássico”, com as rotas baseadas nos nomes do controlador e das actions, modelos com ORM através da ActiveRecord, e views utilizando a linguagem natural do PHP.
+Image: /images/blog/ci-logo.png
+Alt: Logotipo do Codeigniter
 
-
-{% img representative-image /images/blog/ci-logo.png 180 180 Logotipo do Codeigniter %}
-
-Após experimentar [algumas *frameworks*][] [*PHP*][], recentemente tenho
-aplicado bastante tempo no estudo da [**CodeIgniter**][], e tive o prazer de
+Após experimentar [alguns *frameworks*][] [*PHP*][], recentemente tenho
+aplicado bastante tempo no estudo do [**CodeIgniter**][], e tive o prazer de
 redescobrir a diversão em programar nessa linguagem um tanto controversa.
-
-Logo de cara, quero recomendar o *screencast* da [*Nettus+*][] chamado
-[*CodeIgniter From Scratch*][]. Um excelente material para aprender (e
-se aperfeiçoar) a desenvolver aplicações [*Web*][] com [*PHP*][].
 
 <!-- PELICAN_END_SUMMARY -->
 
+Logo de cara, quero recomendar o _screencast_ da [*Nettus+*][] chamado
+[*CodeIgniter From Scratch*][]. Um excelente material para aprender (e
+se aperfeiçoar) a desenvolver aplicações [*web*][] com [*PHP*][].
 
-PHP e MVC
----------
+## PHP e MVC
 
-Não há mistérios na forma como a *CodeIgniter* trabalha com o [*MVC*][],
-utilizando o “*MVC* clássico”, com as rotas baseadas nos nomes do
-controlador e das *actions*, modelos com [*ORM*][] através da
-[*ActiveRecord*][], e *views* utilizando a linguagem natural do *PHP*
+Não há mistérios na forma como o _CodeIgniter_ trabalha com o [*MVC*][],
+utilizando o “_MVC_ clássico”, com as rotas baseadas nos nomes do
+controlador e das _actions_, modelos com [*ORM*][] através da
+[*ActiveRecord*][], e _views_ utilizando a linguagem natural do _PHP_
 para gerar a visualização das suas páginas.
 
-E este último, acredito ser uma das grandes vantagens do *PHP* com
-*MVC*. Escrever *views* com *PHP* é muito mais “natural” do que em
-qualquer outra linguagem (claro, se você entende de *PHP*). Não é
-necessário aprender nenhuma “linguagem de template”, como em algumas
-*frameworks*, pois é normal escrever o *PHP* “mesclado” ao [*HTML*][].
+E este último, acredito ser uma das grandes vantagens do _PHP_ com
+_MVC_. Escrever _views_ com _PHP_ é muito mais “natural” do que em
+qualquer outra linguagem (claro, se você entende de _PHP_). Não é
+necessário aprender nenhuma “linguagem de template”, como em alguns
+_frameworks_, pois é normal escrever o _PHP_ “mesclado” ao [*HTML*][].
 
 Em comparação à [*CakePHP*][] ou à [*Zend Framework*][], a verdade é que
-a *CodeIgniter* é relativamente “seca”. Ou seja, temos menos “recursos
+o _CodeIgniter_ é relativamente “seco”. Ou seja, temos menos “recursos
 mágicos” e somos obrigados a por a “mão na massa de verdade” em algumas
 situações. Embora isso seja encarado como um ponto negativo por alguns,
 essa característica acaba resultando em maior performance e
 simplicidade.
 
+## Performance
 
-Performance
------------
-
-A partir da versão **2.0**, a *CodeIgniter* deixou de dar suporte ao
-*PHP 4*, o que alavancou a sua performance (já que não é mais necessário criar
-*fallbacks* para os recursos do *PHP 5*). Essa decisão permite que a
-*framework* rume cada vez mais para o caminho da [Orientação a Objetos][],
+A partir da versão **2.0**, o _CodeIgniter_ deixou de dar suporte ao
+_PHP 4_, o que alavancou a sua performance (já que não é mais necessário criar
+_fallbacks_ para os recursos do _PHP 5_). Essa decisão permite que o
+_framework_ rume cada vez mais para o caminho da [Orientação a Objetos][],
 e que torne a nossa vida cada dia mais simples :)
 
-E performance é uma das qualidades e diferenciais da *CodeIgniter*.
-Segundo o [*benchmark* realizado por *Leng Sheng Hong*][], a
-*CodeIgniter* fica atrás apenas da (também excelente) *DooPHP*:
+E performance é uma das qualidades e diferenciais do _CodeIgniter_.
+Segundo o [*benchmark* realizado por *Leng Sheng Hong*][], o
+_CodeIgniter_ fica atrás apenas do (também excelente) _DooPHP_:
 
 {% img align-center /images/blog/benchmark-php.png 610 365 Comparativo entre Frameworks PHP %}
 
@@ -61,66 +56,47 @@ Em tempos onde performance e disponibilidade são premissas, e não mais
 diferenciais, ter uma boa ferramenta ao seu lado facilita muito o
 trabalho de atender a essas expectativas.
 
-
-Simplicidade
-------------
+## Simplicidade
 
 Essa qualidade eu descobri recentemente, quando tive que usar a
-[*SDK* do *Facebook*][] para desenvolver uma aplicação social com a
-*CodeIgniter*.
+[*SDK* do *Facebook*][] para desenvolver uma aplicação social com o
+_CodeIgniter_.
 
 Foi tão simples quanto jogar a classe como uma biblioteca, fazer alguns
 ajustes de nomenclatura e construção, e pronto! Estava pronta para usar,
-dentro da estrutura e fluxo da *CodeIgniter*.
+dentro da estrutura e fluxo do _CodeIgniter_.
 
-Estender a *framework* é simples e prático. Escrever *hooks* e *helpers*
+Estender o _framework_ é simples e prático. Escrever _hooks_ e _helpers_
 é tão natural quanto escrever funções. Essa simplicidade vem aliada a
-uma coleção de *features* prontas disponíveis com o *core* da
-*framework*. Também vale mencionar a facilidade de configuração e
+uma coleção de _features_ prontas disponíveis com o _core_ do
+_framework_. Também vale mencionar a facilidade de configuração e
 instalação.
 
+## Considerações finais
 
-Considerações finais
---------------------
+Se você procura um _framework PHP_ simples, que não seja tão “mágico” e
+que permita para você um trabalho descomplicado com o _MVC_, recomendo
+_CodeIgniter_.
 
-Se você procura uma *framework PHP* simples, que não seja tão “mágica” e
-que permita para você um trabalho descomplicado com o *MVC*, recomendo a
-*CodeIgniter*.
-
-É claro que ela têm algumas desvantagens se comparada a outras
-*frameworks* do mercado. Por exemplo, acredito que o desenvolvimento com
-a *CakePHP* seja mais ágil e fácil se comparado ao da *CI* (é claro,
+É claro que ele tem algumas desvantagens se comparado a outros
+_frameworks_ do mercado. Por exemplo, acredito que o desenvolvimento com
+o _CakePHP_ seja mais ágil e fácil se comparado ao _CI_ (é claro,
 isso tem um custo na performance e tamanho). Mas com a versão **2.x**, é
 visível que a ferramenta está caminhando para um desenvolvimento de alto
 nível.
 
-
-  [algumas *frameworks*]: {filename}agilidade-em-php-conhecendo-algumas-frameworks-parte-1.md
-    "Agilidade em PHP: Conhecendo algumas frameworks – Parte 1"
-  [*PHP*]: {tag}php 
-    "Leia mais sobre PHP"
-  [**CodeIgniter**]: http://codeigniter.com/
-    "CodeIgniter: Open source PHP web application framework"
-  [*Nettus+*]: http://net.tutsplus.com/
-    "Web development tutorials, from beginner to advanced"
-  [*CodeIgniter From Scratch*]: http://net.tutsplus.com/sessions/codeigniter-from-scratch/
-    "Confira a série de screencasts sobre desenvolvimento com PHP e CodeIgniter"
-  [*Web*]: {tag}web
-    "Leia mais sobre Web"
-  [*MVC*]: http://pt.wikipedia.org/wiki/MVC
-    "Leia mais sobre Model-View-Controller"
-  [*ORM*]: http://pt.wikipedia.org/wiki/Mapeamento_objeto-relacional
-    "Leia mais sobre Mapeamento Objeto-Relacional"
-  [*ActiveRecord*]: http://www.phpactiverecord.org/
-    "Faça ORM em PHP com a ActiveRecord"
-  [*HTML*]: {tag}html5
-    "Leia mais sobre HTML"
-  [*CakePHP*]: http://cakephp.org/ "Conheça a CakePHP"
-  [*Zend Framework*]: http://framework.zend.com/
-    "Conheça a poderosa Zend"
-  [Orientação a Objetos]: {tag}oop
-    "Leia mais sobre OOP"
-  [*benchmark* realizado por *Leng Sheng Hong*]: https://github.com/darkredz/Web-Framework-Benchmark/blob/master/benchmark.png
-    "Veja o repositório no GitHub do benchmark"
-  [*SDK* do *Facebook*]: https://github.com/facebook/php-sdk
-    "Conheça a SDK-PHP do Facebook, no GitHub"
+[alguns *frameworks*]: {filename}agilidade-em-php-conhecendo-algumas-frameworks-parte-1.md "Agilidade em PHP: Conhecendo algumas frameworks – Parte 1"
+[*php*]: {tag}php "Leia mais sobre PHP"
+[**codeigniter**]: http://codeigniter.com/ "CodeIgniter: Open source PHP web application framework"
+[*nettus+*]: http://net.tutsplus.com/ "Web development tutorials, from beginner to advanced"
+[*codeigniter from scratch*]: http://net.tutsplus.com/sessions/codeigniter-from-scratch/ "Confira a série de screencasts sobre desenvolvimento com PHP e CodeIgniter"
+[*web*]: {tag}web "Leia mais sobre Web"
+[*mvc*]: http://pt.wikipedia.org/wiki/MVC "Leia mais sobre Model-View-Controller"
+[*orm*]: http://pt.wikipedia.org/wiki/Mapeamento_objeto-relacional "Leia mais sobre Mapeamento Objeto-Relacional"
+[*activerecord*]: http://www.phpactiverecord.org/ "Faça ORM em PHP com a ActiveRecord"
+[*html*]: {tag}html5 "Leia mais sobre HTML"
+[*cakephp*]: http://cakephp.org/ "Conheça a CakePHP"
+[*zend framework*]: http://framework.zend.com/ "Conheça a poderosa Zend"
+[orientação a objetos]: {tag}oop "Leia mais sobre OOP"
+[*benchmark* realizado por *leng sheng hong*]: https://github.com/darkredz/Web-Framework-Benchmark/blob/master/benchmark.png "Veja o repositório no GitHub do benchmark"
+[*sdk* do *facebook*]: https://github.com/facebook/php-sdk "Conheça a SDK-PHP do Facebook, no GitHub"

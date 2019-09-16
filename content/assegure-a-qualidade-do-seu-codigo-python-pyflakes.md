@@ -4,47 +4,43 @@ Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, pyflakes, qualidade
 Slug: assegure-qualidade-seu-codigo-python-pyflakes
 meta_description: o Pyflakes é uma ferramenta de qualidade que analisa o seu código Python atrás de erros (de sintaxe e importação, por exemplo), retornando um relatório muito objetivo com o arquivo, linha e o tipo de incoerência que ele encontrou.
+Image: /images/blog/software-quality.jpg
+Alt: Qualidade
 
-
-{% img representative-image /images/blog/software-quality.jpg 180 180 Qualidade %}
 Depois da dar uma pincelada na [*pep8*][] e no [*Pylint*][], chegou a hora de
-falarmos um pouco sobre o ***Pyflakes***.
+falarmos um pouco sobre o **_Pyflakes_**.
+
+<!-- PELICAN_END_SUMMARY -->
 
 Resumidamente, o [*Pyflakes*][] é uma ferramenta de qualidade que
 analisa o seu código [*Python*][] atrás de erros (de sintaxe e
 importação, por exemplo), retornando um relatório muito objetivo com o
 arquivo, linha e o tipo de incoerência que ele encontrou.
 
-<!-- PELICAN_END_SUMMARY -->
-
 Uma excelente ferramenta para você ter “plugada” ao seu editor favorito.
 
+## O que o Pyflakes faz que o Pylint não faz?
 
-O que o Pyflakes faz que o Pylint não faz?
-------------------------------------------
-
-As comparações, acredito, serão inevitáveis. Afinal, o que o *Pyflakes*
-faz que o *Pylint* não faz? A resposta que você encontrará é muito
-simples: O ***Pyflakes* não analisa a “beleza”** do seu **código**. Ou
+As comparações, acredito, serão inevitáveis. Afinal, o que o _Pyflakes_
+faz que o _Pylint_ não faz? A resposta que você encontrará é muito
+simples: O **_Pyflakes_ não analisa a “beleza”** do seu **código**. Ou
 seja, ele apenas **verifica erros de lógica e de sintaxe**, não de
 convenções de código.
 
-Isso faz do *Pyflakes* o parceiro ideal do seu editor de código
+Isso faz do _Pyflakes_ o parceiro ideal do seu editor de código
 favorito. Por ser objetivo, favorece a análise e traz resultados
 interessantes, por exemplo, apontando variáveis criadas que nunca foram
 usadas, ou métodos importados que nunca foram chamados no escopo de um
-módulo *Python*.
+módulo _Python_.
 
 Logo, ter as duas ferramentas à mão é uma excelente pedida para
 incrementar ainda mais o seu ambiente de desenvolvimento.
 
-
-Na prática
-----------
+## Na prática
 
 Vamos analisar o código de um projeto da faculdade que eu fiz, chamado
 [*Social portal for soccer players*][] (encontra-se aberto no
-*BitBucket*):
+_BitBucket_):
 
     ::bash
     $ pyflakes apps/notificate/views.py
@@ -56,50 +52,37 @@ estão sendo usadas:
     apps/notificate/views.py:3: 'EmptyPage' imported but unused
     apps/notificate/views.py:3: 'InvalidPage' imported but unused
 
-O funcionamento básico do *Pyflakes* é esse… simples como as melhores
+O funcionamento básico do _Pyflakes_ é esse… simples como as melhores
 coisas devem ser!
 
-
-Pyflakes + Vim
---------------
+## Pyflakes + Vim
 
 Se assim como eu, você tem um “tropeço” pelo [*vim*][], você não pode
-deixar passar esse bom *plugin* chamado [*pyflakes.vim*][].
+deixar passar esse bom _plugin_ chamado [*pyflakes.vim*][].
 
 Para instalá-lo, basta seguir o guia de instalação contido no arquivo
-**README** ([leia diretamente do *GitHub*][]). Para que o *plugin*
-funcione corretamente, o seu *vim* deve ter suporte a *Python* (se não
+**README** ([leia diretamente do *GitHub*][]). Para que o _plugin_
+funcione corretamente, o seu _vim_ deve ter suporte a _Python_ (se não
 tiver, basta compilá-lo com o parâmetro **-–enable-pythoninterp**).
 
-Uma vez instalado, quando estiver editando um código *Python*, basta
+Uma vez instalado, quando estiver editando um código _Python_, basta
 utilizar o comando **:cc** para navegar entre os erros encontrados pelo
-*plugin*.
+_plugin_.
 
+## Referências
 
-Referências
------------
-
-* [*Pyflakes in Launchpad*][]
-* [*pyflakes.vim: check Python code on the fly*][]
+- [*Pyflakes in Launchpad*][]
+- [*pyflakes.vim: check Python code on the fly*][]
 
 Até a próxima…
 
-
-  [*pep8*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pep8.md
-    "Assegura a qualidade do seu código Python com a pep8"
-  [*Pylint*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pylint.md
-    "Assegure a qualidade do seu código Python com o Pylint"
-  [*Pyflakes*]: https://launchpad.net/pyflakes "Pyflakes no Launchpad"
-  [*Python*]: {tag}python
-    "Leia mais sobre Python"
-  [*Social portal for soccer players*]: https://bitbucket.org/kplaube/social-portal-for-soccer-players/overview
-    "Visite o repositório do projeto no BitBucket"
-  [*vim*]: http://www.vim.org/ "Página oficial do Vi Improved"
-  [*pyflakes.vim*]: http://symbolsystem.com/pyflakes-vim/
-    "pyflakes.vim - Verifique o seu código em tempo real"
-  [leia diretamente do *GitHub*]: https://github.com/kevinw/pyflakes-vim#readme
-    "README do pyflakes.vim no GitHub"
-  [*Pyflakes in Launchpad*]: https://launchpad.net/pyflakes
-    "Faça download agora mesmo do Pyflakes"
-  [*pyflakes.vim: check Python code on the fly*]: http://symbolsystem.com/pyflakes-vim/
-    "Utilize o Pyflakes em seu VIM"
+[*pep8*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pep8.md "Assegura a qualidade do seu código Python com a pep8"
+[*pylint*]: {filename}/assegure-a-qualidade-do-seu-codigo-python-pylint.md "Assegure a qualidade do seu código Python com o Pylint"
+[*pyflakes*]: https://launchpad.net/pyflakes "Pyflakes no Launchpad"
+[*python*]: {tag}python "Leia mais sobre Python"
+[*social portal for soccer players*]: https://bitbucket.org/kplaube/social-portal-for-soccer-players/overview "Visite o repositório do projeto no BitBucket"
+[*vim*]: http://www.vim.org/ "Página oficial do Vi Improved"
+[*pyflakes.vim*]: http://symbolsystem.com/pyflakes-vim/ "pyflakes.vim - Verifique o seu código em tempo real"
+[leia diretamente do *github*]: https://github.com/kevinw/pyflakes-vim#readme "README do pyflakes.vim no GitHub"
+[*pyflakes in launchpad*]: https://launchpad.net/pyflakes "Faça download agora mesmo do Pyflakes"
+[*pyflakes.vim: check python code on the fly*]: http://symbolsystem.com/pyflakes-vim/ "Utilize o Pyflakes em seu VIM"
