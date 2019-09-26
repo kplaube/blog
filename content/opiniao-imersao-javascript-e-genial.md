@@ -4,9 +4,9 @@ Category: opiniao
 Tags: opiniao, javascript, curso
 Slug: opiniao-imersao-javascript-e-genial
 meta_description: Para inaugurar a série Opinião, onde pretendo expor algumas “críticas” sobre cursos, eventos e livros técnicos, quero compartilhar com vocês a experiência que tive com o curso Imersão Javascript, da e-Genial.
+Image: /images/blog/imersao-javascript-egenial.jpeg
+Alt: Curso de Imersão Javascript da e-Genial
 
-
-{% img representative-image /images/blog/imersao-javascript-egenial.jpeg 180 180 Curso de Imersão Javascript da e-Genial %}
 Para inaugurar a série
 [Opinião][], onde pretendo expor algumas “críticas” sobre cursos,
 eventos e livros técnicos, quero compartilhar com vocês a experiência
@@ -20,28 +20,23 @@ educação à distância, chamado [*TreinaTom*][], é **excelente**!
 Recentemente tive uma experiência no mínimo “duvidosa” com o [*Adobe Connect*][]...
 e entre outras ferramentas disponíveis no mercado (por
 exemplo, o [*Moodle*][]), a facilidade e experiência de uso do
-*TreinaTom* se sobressai.
+_TreinaTom_ se sobressai.
 
-
-Expectativas
-------------
+## Expectativas
 
 Devo ser sincero: eu não sou um dos maiores fãs do [*Javascript*][].
 
-Como desenvolvedor [*Web*][], sempre tive contato com a linguagem, e
+Como desenvolvedor [*web*][], sempre tive contato com a linguagem, e
 sempre me virei na medida do possível. Mas de uns tempos para cá ficou
-evidente a importância do *Javascript*, tanto que ele já ultrapassou a
-“barreira” do *front-end* e já possui representantes em outras áreas do
-desenvolvimento (por exemplo, o *Node.js* no *back-end*).
+evidente a importância do _Javascript_, tanto que ele já ultrapassou a
+“barreira” do _front-end_ e já possui representantes em outras áreas do
+desenvolvimento (por exemplo, o _Node.js_ no _back-end_).
 
 Então, para não ficar “refém” da [*jQuery*][], decidi **estudar a
 linguagem desde o básico**. E foi com essa expectativa que eu me
-inscrevi no curso **Imersão *Javascript***.
+inscrevi no curso **Imersão _Javascript_**.
 
-
-Resultados
-----------
-
+## Resultados
 
 O [*Cássio Marques*][] foi o instrutor, e embora na primeira aula ele
 não tenha conseguido “prender” a minha atenção, a partir da segunda ele
@@ -49,68 +44,47 @@ conseguiu manter uma dinâmica e ritmo muito bons.
 
 A abordagem, já focando em boas práticas e técnicas amplamente
 divulgadas pelo [*Douglas Crockford*][], foi um grande diferencial. O
-*Cássio* não poupou esforços para montar um material atual, que acredito
+_Cássio_ não poupou esforços para montar um material atual, que acredito
 ser útil para qualquer desenvolvedor, mesmo aqueles mais experientes com
-*front-end*.
+_front-end_.
 
 A grade foi muito boa, partindo de tipos até objetos e heranças. Mas o
 que me marcou foi a utilização efetiva de exceções, a abordagem sobre
-[*Closures*][], e a apresentação de alguns *Design Patterns* com o
-*Javascript*.
+[*Closures*][], e a apresentação de alguns _Design Patterns_ com o
+_Javascript_.
 
 De bônus, rolou uma breve introdução ao [*Jasmine*][] e ao [*JSLint*][].
 
+## Veredicto
 
-Veredicto
----------
-
-
-Se você **quer aprender *Javascript***, não irá se decepcionar com o
+Se você **quer aprender _Javascript_**, não irá se decepcionar com o
 curso **Imersão Javascript**.
 
-Já tive contato com a *e-Genial* no curso de [*HTML5*][] e [*CSS3*][],
+Já tive contato com a _e-Genial_ no curso de [*HTML5*][] e [*CSS3*][],
 que fiz no ano passado. A equipe é muito atenciosa, e material de ensino
 e instrutores são de ótima qualidade.
 
 Acredito que eles possam melhorar o engajamento dos alunos, pois fora do
-ambiente do *TreinaTom* não há uma interação interessante (que vá além
+ambiente do _TreinaTom_ não há uma interação interessante (que vá além
 do fórum, algo que tenho presenciado no curso [*Welcome to the
 Django*][]).
 
 Resumindo: eu ví e gostei.
 
-
-  [Opinião]: {tag}opiniao
-    "Veja outras opiniões minhas sobre livros e cursos"
-  [Imersão *Javascript*]: http://www.edukee.com/pt/curso/javascript/turma-b/1326888846
-    "Conheça a grade do curso"
-  [e-Genial]: http://www.egenial.com/
-    "Cursos online para desenvolvedores e empreendedores Web"
-  [*TreinaTom*]: http://www.treinatom.com.br/pt/
-    "Conheço o ambiente Ead da e-Genial"
-  [*Adobe Connect*]: http://www.adobe.com/br/products/connect/
-    "Conheça o ambiente de comunicação pela Web da Adobe"
-  [*Moodle*]: http://moodle.org/
-    "O Moodle é uma ferramenta de educação open source"
-  [*Javascript*]: {tag}javascript
-    "Leia mais sobre Javascript"
-  [*Web*]: {tag}web 
-    "Leia mais sobre Web"
-  [*jQuery*]: http://jquery.com/
-    "Conheça o framework jQuery"
-  [*Cássio Marques*]: http://www.twitter.com/cassiomarques
-    "Siga o Cássio no Twitter"
-  [*Douglas Crockford*]: http://www.crockford.com/
-    "Visite o site pessoal do Crockford"
-  [*Closures*]: {filename}afinal-o-que-sao-closures.md
-    "Afinal, o que são Closures?"
-  [*Jasmine*]: http://pivotal.github.com/jasmine/
-    "BDD em Javascript"
-  [*JSLint*]: http://www.jslint.com/
-    "Meça a qualidade do seu código Javascript"
-  [*HTML5*]: {tag}html5
-    "Leia mais sobre HTML5"
-  [*CSS3*]: {tag}css3
-    "Leia mais sobre CSS3"
-  [*Welcome to the Django*]: http://welcometothedjango.com.br/
-    "Aprenda Python e Django na prática"
+[opinião]: {tag}opiniao "Veja outras opiniões minhas sobre livros e cursos"
+[imersão *javascript*]: http://www.edukee.com/pt/curso/javascript/turma-b/1326888846 "Conheça a grade do curso"
+[e-genial]: http://www.egenial.com/ "Cursos online para desenvolvedores e empreendedores Web"
+[*treinatom*]: http://www.treinatom.com.br/pt/ "Conheço o ambiente Ead da e-Genial"
+[*adobe connect*]: http://www.adobe.com/br/products/connect/ "Conheça o ambiente de comunicação pela Web da Adobe"
+[*moodle*]: http://moodle.org/ "O Moodle é uma ferramenta de educação open source"
+[*javascript*]: {tag}javascript "Leia mais sobre Javascript"
+[*web*]: {tag}web "Leia mais sobre Web"
+[*jquery*]: http://jquery.com/ "Conheça o framework jQuery"
+[*cássio marques*]: http://www.twitter.com/cassiomarques "Siga o Cássio no Twitter"
+[*douglas crockford*]: http://www.crockford.com/ "Visite o site pessoal do Crockford"
+[*closures*]: {filename}afinal-o-que-sao-closures.md "Afinal, o que são Closures?"
+[*jasmine*]: http://pivotal.github.com/jasmine/ "BDD em Javascript"
+[*jslint*]: http://www.jslint.com/ "Meça a qualidade do seu código Javascript"
+[*html5*]: {tag}html5 "Leia mais sobre HTML5"
+[*css3*]: {tag}css3 "Leia mais sobre CSS3"
+[*welcome to the django*]: http://welcometothedjango.com.br/ "Aprenda Python e Django na prática"
