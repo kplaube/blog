@@ -4,49 +4,46 @@ category: desenvolvimento
 tags: desenvolvimento, testes, mock, python
 slug: os-testes-e-os-dubles-parte-2
 meta_description: Vamos detalhar através de exemplos práticos os test doubles dummy, fake, stub, mock e spy.
+Image: /images/blog/tdd-red-green-refactor.png
+Alt: TDD (izenbridge.com)
 
-{% img representative-image /images/blog/tdd-red-green-refactor.png 180 180 TDD (izenbridge.com) %}
-
-
-No [*post* anterior]({filename}os-testes-e-os-dubles-parte-1.md "Os testes e os Dublês - Parte 1"), vimos um dos
-cenários de testes utilizados por times da [*Globo.com*](http://globo.com "Absolutamente tudo sobre notícias, esportes e entretenimento"), onde não escrevemos testes "isolados"
-(famigerados *[microtests](https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&album=theBasics&devLanguage=Java "Testing Single Responsibilities at High Speed")*),
+No [_post_ anterior]({filename}os-testes-e-os-dubles-parte-1.md "Os testes e os Dublês - Parte 1"), vimos um dos
+cenários de testes utilizados por times da [_Globo.com_](http://globo.com "Absolutamente tudo sobre notícias, esportes e entretenimento"), onde não escrevemos testes "isolados"
+(famigerados _[microtests](https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&album=theBasics&devLanguage=Java "Testing Single Responsibilities at High Speed")_),
 e abusamos da integração entre classes e serviços.
-
-Mas até mesmo para nós existe um limite que não podemos ultrapassar: O caso
-de uma consulta a uma *API* externa, por exemplo. Nesse cenário, precisamos
-fingir que estamos fazendo isso, sem perder a segurança em nossas asserções.
 
 <!-- PELICAN_END_SUMMARY -->
 
+Mas até mesmo para nós existe um limite que não podemos ultrapassar: O caso
+de uma consulta a uma _API_ externa, por exemplo. Nesse cenário, precisamos
+fingir que estamos fazendo isso, sem perder a segurança em nossas asserções.
 
 ## Dublês ao resgate
 
-Como já mencionado, os *test doubles* têm por finalidade substituir um objeto
+Como já mencionado, os _test doubles_ têm por finalidade substituir um objeto
 real, afim de validar algum conceito em nossos testes.
 
 Para auxiliar-nos nessa demanda, vamos utilizar a **Python Mock**, biblioteca
-de *mocking* padrão do *Python 3*. Com ela, poderemos fingir integrações
+de _mocking_ padrão do _Python 3_. Com ela, poderemos fingir integrações
 complexas da nossa aplicação, com o objetivo de testar um determinado
 comportamento em "custo" e tempos atrativos.
 
 {% img align-center /images/blog/testing-vader.jpg 500 400 I find your lack of tests disturbing (jasonpolites.github.io) %}
 
-Se você (assim como eu) ainda está no *Python 2.7.X*, podemos instalar a *lib*
+Se você (assim como eu) ainda está no _Python 2.7.X_, podemos instalar a _lib_
 através do `pip`:
 
     ::bash
     $ pip install mock
 
-[Mais instruções para instalação da *Mock*](http://www.voidspace.org.uk/python/mock/#installing "Mock - Installing").
+[Mais instruções para instalação da _Mock_](http://www.voidspace.org.uk/python/mock/#installing "Mock - Installing").
 
 Uma vez instalada, podemos partir para conceituar de forma prática cada um dos
-tipos de dublês listados no *post* anterior.
-
+tipos de dublês listados no _post_ anterior.
 
 ## Dummys
 
-Um *Dummy Object* é um tipo de dublê muito simples, que é usado apenas para
+Um _Dummy Object_ é um tipo de dublê muito simples, que é usado apenas para
 preencher passagens de parâmetros:
 
     ::python
@@ -65,14 +62,13 @@ preencher passagens de parâmetros:
 
         assert carro.rodas == 4
 
-Como observado, um *Dummy* não precisa ser necessariamente um *mock*. Um valor
+Como observado, um _Dummy_ não precisa ser necessariamente um _mock_. Um valor
 em branco, nulo, uma string vazia, qualquer coisa usada para substituir um
-objeto real em uma passagem de parâmetro, pode ser considerado um *Dummy*.
-
+objeto real em uma passagem de parâmetro, pode ser considerado um _Dummy_.
 
 ## Fakes
 
-Um *Fake* é um objeto com certa funcionalidade, muito útil para resolver
+Um _Fake_ é um objeto com certa funcionalidade, muito útil para resolver
 alguma dependência em testes, mas que não é ideal para o ambiente de
 produção:
 
@@ -105,16 +101,15 @@ produção:
         assert str(carro) == 'Fusca (Volkswagen)'
 
 No exemplo acima, (ainda) não utilizamos nenhum recurso da **Mock**. Dependendo
-do contexto, não precisamos de uma biblioteca para criarmos um *Fake*, e isso
+do contexto, não precisamos de uma biblioteca para criarmos um _Fake_, e isso
 pode ser encarado de forma positiva, pois fica muito clara a nossa intenção
 no teste.
 
-É relativamente comum vermos *Fakes* sendo utilizados para "dublar" acessos
-a um banco de dados. Quando falamos de testes em [*Django*]({tag}django "Leia mais sobre Django"),
-geralmente utilizamos uma persistência mais leve (como um banco *SQLite*, por exemplo)
+É relativamente comum vermos _Fakes_ sendo utilizados para "dublar" acessos
+a um banco de dados. Quando falamos de testes em [_Django_]({tag}django "Leia mais sobre Django"),
+geralmente utilizamos uma persistência mais leve (como um banco _SQLite_, por exemplo)
 que substitui um banco mais complexo, tornando a nossa suíte de testes
 mais simples.
-
 
 ## Mocks
 
@@ -146,17 +141,16 @@ método foi chamado durante a execução do teste:
         assert str(carro) == 'Fusca (Volkswagen)'
         fabricante.get_descricao.assert_called_once_with()
 
-*Mocks* são fundamentais quando estamos lidando com interações
+_Mocks_ são fundamentais quando estamos lidando com interações
 das quais não podemos (ou fica muito custoso) prever o comportamento.
-Particularmente, gosto de usar *Mocks* para garantir que o contrato entre o
-meu método/classe e meu serviço/*API* esteja coerente.
-
+Particularmente, gosto de usar _Mocks_ para garantir que o contrato entre o
+meu método/classe e meu serviço/_API_ esteja coerente.
 
 ## Stubs
 
-Semelhantes aos *Mocks*, com os *Stubs* temos a capacidade de retornar
+Semelhantes aos _Mocks_, com os _Stubs_ temos a capacidade de retornar
 respostas pré-definidas durante a execução de um teste. A principal diferença
-entre ambos é que com *Stubs*, não costumamos checar se eles foram propriamente
+entre ambos é que com _Stubs_, não costumamos checar se eles foram propriamente
 executados:
 
     ::python
@@ -187,9 +181,9 @@ executados:
 
     test_usando_stub()
 
-*Stubs* são excelentes para fingir interações com bibliotecas *third-party*. Não
+_Stubs_ são excelentes para fingir interações com bibliotecas _third-party_. Não
 precisamos compreender a sua complexidade, apenas fingimos que ela está lá e
-retornando valores para os nossos *test cases*. Exemplo:
+retornando valores para os nossos _test cases_. Exemplo:
 
     ::python
     from datetime import date
@@ -200,10 +194,9 @@ retornando valores para os nossos *test cases*. Exemplo:
         assert mymodule.date.today() == date(2010, 10, 8)
         assert mymodule.date(2009, 6, 8) == date(2009, 6, 8)
 
-
 ## Spies
 
-Com *Spies*, ao invés de setarmos expectativas, armazenamos as chamadas
+Com _Spies_, ao invés de setarmos expectativas, armazenamos as chamadas
 realizadas por colaboradores:
 
     ::python
@@ -237,32 +230,30 @@ realizadas por colaboradores:
 
         assert fabricante.get_descricao.call_count == 2
 
-Costumo usar *Spies* com frequência em testes *front-end*,
-principalmente utilizando [*QUnit*](https://qunitjs.com/ "Conheça a suíte de testes JS, QUnit") e [*Sinon.JS*](http://sinonjs.org/ "Spies, stubs and mocks for Javascript"),
+Costumo usar _Spies_ com frequência em testes _front-end_,
+principalmente utilizando [_QUnit_](https://qunitjs.com/ "Conheça a suíte de testes JS, QUnit") e [_Sinon.JS_](http://sinonjs.org/ "Spies, stubs and mocks for Javascript"),
 para garantir a chamada de um determinado método dentro de eventos complexos,
 onde não consigo ter certeza sobre o resultado esperado.
 
-
 ## Conclusão
 
-Já dizia o filósofo que "mockar é uma arte". A verdade é que o uso de *doubles*
-nos ajuda muito quando estamos trabalhando dentro de um contexto de *TDD*,
+Já dizia o filósofo que "mockar é uma arte". A verdade é que o uso de _doubles_
+nos ajuda muito quando estamos trabalhando dentro de um contexto de _TDD_,
 simplificando assim um relacionamento complexo entre classes/objetos, afim de
 agilizar o nosso desenvolvimento e facilitar os nosso testes.
 
-Recentemente participei de um treinamento da [*Industrial Logic*](http://www.industriallogic.com/ "Developing Software Doesn't Have To Be Slow, Stressful And Filled With Unpleasant Surprises"), sobre *Refactoring*, e a lição que ficou foi:
-Use *mocks* moderadamente. Sempre dê preferência a uma alteração na arquitetura
-do seu *software* (como por exemplo, o uso de [Injeção de Dependência](https://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_depend%C3%AAncia "Leia mais no Wikipedia")).
+Recentemente participei de um treinamento da [_Industrial Logic_](http://www.industriallogic.com/ "Developing Software Doesn't Have To Be Slow, Stressful And Filled With Unpleasant Surprises"), sobre _Refactoring_, e a lição que ficou foi:
+Use _mocks_ moderadamente. Sempre dê preferência a uma alteração na arquitetura
+do seu _software_ (como por exemplo, o uso de [Injeção de Dependência](https://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_depend%C3%AAncia "Leia mais no Wikipedia")).
 
 Se o uso de dublês for inevitável, prefira tipos mais simples
-(*Dummys* e *Fakes*). Dessa forma, os seus testes ficarão simples, legíveis e
+(_Dummys_ e _Fakes_). Dessa forma, os seus testes ficarão simples, legíveis e
 mais fáceis de manter.
 
 Até a próxima.
 
-
 ## Referências
 
-* *[Niraj Bhatt - Dummy vs. Stub vs. Spy vs. Fake vs. Mock](https://nirajrules.wordpress.com/2011/08/27/dummy-vs-stub-vs-spy-vs-fake-vs-mock/ "Leia o artigo completo sobre as nomenclaturas")*
-* *[StackOverflow - What's the difference between faking, mocking, and stubbing?](http://stackoverflow.com/questions/346372/whats-the-difference-between-faking-mocking-and-stubbing "Leia mais no StackOverflow")*
-* *[Tuts+ - TDD Terminology Simplified](http://code.tutsplus.com/articles/tdd-terminology-simplified--net-30626 "Leia mais sobre TDD no Tuts+")*
+- _[Niraj Bhatt - Dummy vs. Stub vs. Spy vs. Fake vs. Mock](https://nirajrules.wordpress.com/2011/08/27/dummy-vs-stub-vs-spy-vs-fake-vs-mock/ "Leia o artigo completo sobre as nomenclaturas")_
+- _[StackOverflow - What's the difference between faking, mocking, and stubbing?](http://stackoverflow.com/questions/346372/whats-the-difference-between-faking-mocking-and-stubbing "Leia mais no StackOverflow")_
+- _[Tuts+ - TDD Terminology Simplified](http://code.tutsplus.com/articles/tdd-terminology-simplified--net-30626 "Leia mais sobre TDD no Tuts+")_

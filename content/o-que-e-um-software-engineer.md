@@ -4,16 +4,16 @@ Category: profissao
 Tags: profissao, carreira, desenvolvedor, software engineer
 Slug: o-que-e-um-software-engineer
 meta_description: A engenharia é a ciência, a arte e a profissão de adquirir e de aplicar os conhecimentos matemáticos, técnicos e científicos na criação, aperfeiçoamento e implementação de utilidades. Como interpretar isso para o ambiente de TI?
+Image: /images/blog/engineering.jpg
+Alt: Engineering (affordable-online-colleges.net)
 
-{% img representative-image /images/blog/engineering.jpg 180 180 Engineering (affordable-online-colleges.net) %}
-
-Certa vez, estava eu atualizando o meu *LinkedIn* quando o
-[@davidsonfellipe](https://twitter.com/davidsonfellipe "Acompanhe o Davi do Som no Twitter") me indagou sobre o título de "Analista e Desenvolvedor Web" que possuo atualmente. Segundo ele, "Front-end/Back-end Engineer" é mais atrativo para que *headhunters* cheguem a um perfil.
+Certa vez, estava eu atualizando o meu _LinkedIn_ quando o
+[@davidsonfellipe](https://twitter.com/davidsonfellipe "Acompanhe o Davi do Som no Twitter") me indagou sobre o título de "Analista e Desenvolvedor Web" que possuo atualmente. Segundo ele, "Front-end/Back-end Engineer" é mais atrativo para que _headhunters_ cheguem a um perfil.
 
 <!-- PELICAN_END_SUMMARY -->
 
 Contra argumentei dizendo que essa não era a minha formação, e que não me
-sentia confortável em me chamar de engenheiro. Ele, hoje um *Front-end Engineer*
+sentia confortável em me chamar de engenheiro. Ele, hoje um _Front-end Engineer_
 com formação em Engenharia da Computação, afirmou que isso era bobagem, e que
 eu já praticava muitas das suas atribuições no dia a dia.
 
@@ -22,7 +22,7 @@ de Software?
 
 ## Engenharia?
 
-Segundo o *Wikipedia*:
+Segundo o _Wikipedia_:
 
 > A engenharia é a ciência, a arte e a profissão de adquirir e de aplicar os
 > conhecimentos matemáticos, técnicos e científicos na criação,
@@ -54,7 +54,7 @@ contornar a [crise do Software](http://pt.wikipedia.org/wiki/Crise_do_software "
 e dar um tratamento mais sistemático e controlado ao desenvolvimento de
 sistemas complexos.
 
-Segundo *[Friedrich L. Bauer](http://en.wikipedia.org/wiki/Friedrich_L._Bauer "Leia mais sobre Bauer no Wikipedia")*,
+Segundo _[Friedrich L. Bauer](http://en.wikipedia.org/wiki/Friedrich_L._Bauer "Leia mais sobre Bauer no Wikipedia")_,
 autor do que viria a ser a primeira definição sobre Engenharia de Software:
 
 > (...) é a criação e a utilização de sólidos princípios de engenharia a fim
@@ -82,21 +82,21 @@ apresentou o seu ponto de vista sobre a questão:
 
 > Já que a engenharia abrange muita coisa. O engenheiro é um cientista aplicado.
 
-O *Facebook*, por exemplo, detalha de forma bem sofisticada o que ele espera de
+O _Facebook_, por exemplo, detalha de forma bem sofisticada o que ele espera de
 um profissional com este título:
 
-* Create elegant and useful solutions to solve complex business problems by working across various teams, understanding the needs of our business partners and advertisers, and putting on your product manager hat to provide solutions to solve those problems.
-* Work closely with product management and UX design teams to define and refine feature specifications.
-* Design and develop front-end interfaces, underlying APIs, and backend systems across a number of programming languages with focus on JavaScript, React and PHP (Hack).
-* Analyze and improve the efficiency, scalability, stability, and security of business applications and in-house systems to help scale the company.
+- Create elegant and useful solutions to solve complex business problems by working across various teams, understanding the needs of our business partners and advertisers, and putting on your product manager hat to provide solutions to solve those problems.
+- Work closely with product management and UX design teams to define and refine feature specifications.
+- Design and develop front-end interfaces, underlying APIs, and backend systems across a number of programming languages with focus on JavaScript, React and PHP (Hack).
+- Analyze and improve the efficiency, scalability, stability, and security of business applications and in-house systems to help scale the company.
 
 Note a ênfase em "eficiência, escalabilidade e estabilidade". É normal vermos
 empresas exigindo certa experiência nesses quesitos nos tempos atuais (não me
-surpreenderia se os próximos requisitos para o "cargo" envolvessem *big data*
+surpreenderia se os próximos requisitos para o "cargo" envolvessem _big data_
 e "containerização").
 
-Transitar entre as diferentes esferas do conhecimento (como *front-end*,
-*back-end*, *storage*, *infra-structure*, *business*, *project management*)
+Transitar entre as diferentes esferas do conhecimento (como _front-end_,
+_back-end_, _storage_, _infra-structure_, _business_, _project management_)
 é outra característica marcante desses profissionais.
 O [SWEBOK](http://pt.wikipedia.org/wiki/Software_Engineering_Body_of_Knowledge "Leia mais no Wikipedia") (Software Engineering Body of Knowledge)
 determina quais áreas de conhecimento fazem parte da Engenharia de Software em
@@ -120,12 +120,12 @@ Até a próxima.
 
 ## Referências
 
-* [Engenharia de Software - Engenharia de Software, CREA, SBC, ACM e ENADE](https://engenhariasoftware.wordpress.com/2014/07/04/engenharia-de-software-crea-sbc-acm-e-enade/)
-* [Facebook - Software Engineer, Enterprise](https://www.facebook.com/careers/department?dept=grad&req=a0I1200000G4LPgEAN)
-* [Guia do Estudante - Engenheiro Civil](http://guiadoestudante.abril.com.br/profissoes/engenharia-producao/engenharia-civil-685209.shtml)
-* [Guia do Estudante - Qual a diferença entre Ciência da Computação e Engenharia de Software?](http://guiadoestudante.abril.com.br/orientacao-vocacional/consulte-orientador/qual-diferenca-ciencia-computacao-engenharia-software-731291.shtml)
-* [IEEE Computer Society - About SWEBOK](http://www.computer.org/web/swebok/index)
-* [*Wikibooks* - O que é Engenharia de Software?](http://pt.wikibooks.org/wiki/Engenharia_de_Software/O_que_%C3%A9_Engenharia_de_Software%3F)
-* [*Wikipedia* - Engenharia](http://pt.wikipedia.org/wiki/Engenharia)
-* [*Wikipedia* - Engenharia de Software](http://pt.wikipedia.org/wiki/Engenharia_de_software "Leia mais sobre no Wikipedia")
-* [*Wikipedia* - Friedrich L. Bauer](http://en.wikipedia.org/wiki/Friedrich_L._Bauer)
+- [Engenharia de Software - Engenharia de Software, CREA, SBC, ACM e ENADE](https://engenhariasoftware.wordpress.com/2014/07/04/engenharia-de-software-crea-sbc-acm-e-enade/)
+- [Facebook - Software Engineer, Enterprise](https://www.facebook.com/careers/department?dept=grad&req=a0I1200000G4LPgEAN)
+- [Guia do Estudante - Engenheiro Civil](http://guiadoestudante.abril.com.br/profissoes/engenharia-producao/engenharia-civil-685209.shtml)
+- [Guia do Estudante - Qual a diferença entre Ciência da Computação e Engenharia de Software?](http://guiadoestudante.abril.com.br/orientacao-vocacional/consulte-orientador/qual-diferenca-ciencia-computacao-engenharia-software-731291.shtml)
+- [IEEE Computer Society - About SWEBOK](http://www.computer.org/web/swebok/index)
+- [_Wikibooks_ - O que é Engenharia de Software?](http://pt.wikibooks.org/wiki/Engenharia_de_Software/O_que_%C3%A9_Engenharia_de_Software%3F)
+- [_Wikipedia_ - Engenharia](http://pt.wikipedia.org/wiki/Engenharia)
+- [_Wikipedia_ - Engenharia de Software](http://pt.wikipedia.org/wiki/Engenharia_de_software "Leia mais sobre no Wikipedia")
+- [_Wikipedia_ - Friedrich L. Bauer](http://en.wikipedia.org/wiki/Friedrich_L._Bauer)
