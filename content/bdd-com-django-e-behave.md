@@ -4,48 +4,47 @@ Category: desenvolvimento
 Tags: desenvolvimento, testes, bdd, aceitação, python, django, behave, splinter
 Slug: bdd-com-django-e-behave
 meta_description: Testar o comportamento da aplicação é uma grande prática de TDD. O Behave é uma biblioteca de BDD Python, que casa muito bem com o framework Django.
-
-
-{% img representative-image /images/blog/bdd-given-when-then.jpg 180 180 Given, When, Then (opkey.crestechglobal.com) %}
+Image: /images/blog/bdd-given-when-then.jpg
+Alt: Given, When, Then (opkey.crestechglobal.com)
 
 Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,
 é uma grande prática no que diz respeito a escrita de testes que guiem o
-seu desenvolvimento. Deixando a polêmica do "[TDD is dead](http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html "TDD is dead. Long live testing.")"
-de lado, criar cenários que garantem um determinado fluxo, além de servir
-como um excelente contrato à sua suite de aceitação, é uma ótima ferramenta
-para garantir que a integração *back-end/front-end* está funcionando de acordo
-com o esperado.
+seu desenvolvimento.
 
 <!-- PELICAN_END_SUMMARY -->
 
-Devo ser sincero com você, caro leitor: Fazer [*BDD*]({tag}bdd "Leia mais sobre BDD")
-com [*Django*]({tag}django "Leia mais sobre Django") (IMO) sempre foi uma dor de cabeça.
-Já utilizei algumas ferramentas, como [*unittest*]({filename}ferramentas-de-testes-em-django-parte-1.md)
-focado em comportamento, [*doctests*]({filename}ferramentas-de-testes-em-django-parte-1.md),
-[*Lettuce*]({filename}ferramentas-de-testes-em-django-parte-2.md), *Pycurracy* e até mesmo *Jasmine*...
+Deixando a polêmica do "[TDD is dead](http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html "TDD is dead. Long live testing.")"
+de lado, criar cenários que garantem um determinado fluxo, além de servir
+como um excelente contrato à sua suite de aceitação, é uma ótima ferramenta
+para garantir que a integração _back-end/front-end_ está funcionando de acordo
+com o esperado.
+
+Devo ser sincero com você, caro leitor: Fazer [_BDD_]({tag}bdd "Leia mais sobre BDD")
+com [_Django_]({tag}django "Leia mais sobre Django") (IMO) sempre foi uma dor de cabeça.
+Já utilizei algumas ferramentas, como [_unittest_]({filename}ferramentas-de-testes-em-django-parte-1.md)
+focado em comportamento, [_doctests_]({filename}ferramentas-de-testes-em-django-parte-1.md),
+[_Lettuce_]({filename}ferramentas-de-testes-em-django-parte-2.md), _Pycurracy_ e até mesmo _Jasmine_...
 Nada pareceu ser "o certo a se fazer".
 
-Recentemente esbarrei com um artigo ensinando a usar o [*Behave*](http://pythonhosted.org/behave/ "BDD for Python"),
-um *engine* de testes *BDD* para [*Python*]({tag}python "Leia mais sobre Python")...
+Recentemente esbarrei com um artigo ensinando a usar o [_Behave_](http://pythonhosted.org/behave/ "BDD for Python"),
+um _engine_ de testes _BDD_ para [_Python_]({tag}python "Leia mais sobre Python")...
 E foi aí que a minha opinião mudou.
-
 
 ## Oh, behave!
 
-O *Behave* é uma biblioteca *Python* que permite a escrita de *specs* em linguagem humana,
-e a execução dos cenários através de *asserts* em "linguagem de programação". Agnóstico de *framework*,
-é um *engine* promissor, [fácil de usar](http://pythonhosted.org/behave/tutorial.html "Conheça o tutorial do Behave"),
+O _Behave_ é uma biblioteca _Python_ que permite a escrita de _specs_ em linguagem humana,
+e a execução dos cenários através de _asserts_ em "linguagem de programação". Agnóstico de _framework_,
+é um _engine_ promissor, [fácil de usar](http://pythonhosted.org/behave/tutorial.html "Conheça o tutorial do Behave"),
 e que possui uma boa comunidade dando suporte.
 
 {% img align-center /images/blog/oh-behave.jpg 480 415 Austin Powers: Oh behave (flickr.com) %}
 
-Você pode escrever a integração do *lib* com o *Django*, como demonstrado na [documentação oficial](http://pythonhosted.org/behave/django.html "Exemplo de integração entre Behave e Django").
+Você pode escrever a integração do _lib_ com o _Django_, como demonstrado na [documentação oficial](http://pythonhosted.org/behave/django.html "Exemplo de integração entre Behave e Django").
 Como eu sou preguiçoso, prefiro utilizar o módulo `behave-django`,
 criado por [Mitchel Cabuloy](https://github.com/mixxorz "Perfil do mixxorz no GitHub"):
 
     ::bash
     $ pip install behave-django
-
 
 Não podemos esquecer de colocá-lo no `INSTALLED_APPS`:
 
@@ -56,7 +55,6 @@ Não podemos esquecer de colocá-lo no `INSTALLED_APPS`:
         ...
     )
 
-
 Agora basta criar uma estrutura na raíz do seu projeto (no mesmo nível do `manage.py`), com a seguinte formação:
 
     features/
@@ -65,7 +63,7 @@ Agora basta criar uma estrutura na raíz do seu projeto (no mesmo nível do `man
         environment.py
         funcionalidade.feature
 
-Vamos para um exemplo mais prático: *Eu quero que minha home exiba meu nome de usuário, caso eu esteja logado*.
+Vamos para um exemplo mais prático: _Eu quero que minha home exiba meu nome de usuário, caso eu esteja logado_.
 
 Começaremos pelo arquivo `.feature`. Vou chamá-lo de `features/home-logada.feature`:
 
@@ -87,38 +85,35 @@ Já podemos executar o `behave` através do `manage.py`:
 Você verá uma saída sinalizando que nosso cenário está montado, mas
 que ainda não há testes executando de fato.
 
-O arquivo de teste pode ter o nome que você desejar, o *Behave* olhará
+O arquivo de teste pode ter o nome que você desejar, o _Behave_ olhará
 para cada ocorrência dentro de `steps/` e coletará os passos que serão
 usados para a execução das especificações.
 
 Mas antes de escrevermos os testes, vamos falar de uma ferramenta essencial
-quando estamos fazendo testes de interface *Web* com *Python*.
-
+quando estamos fazendo testes de interface _web_ com _Python_.
 
 ## Splinter
 
-Diretamente da [documentação oficial](https://splinter.readthedocs.org/en/latest/ "Documentação do Splinter") do *Splinter*:
+Diretamente da [documentação oficial](https://splinter.readthedocs.org/en/latest/ "Documentação do Splinter") do _Splinter_:
 
 > Splinter is an open source tool for testing web applications using Python. It lets you automate browser actions,
 > such as visiting URLs and interacting with their items.
 
-A ferramenta fornece uma *API* única para diferentes ferramentas de
-testes de interface *Web*, como *Selenium*, *PhantomJS* e *zope.testbrowser*.
+A ferramenta fornece uma _API_ única para diferentes ferramentas de
+testes de interface _web_, como _Selenium_, _PhantomJS_ e _zope.testbrowser_.
 
 Conseguimos instalá-la de forma muito fácil, através do comando `pip`:
 
     ::bash
     $ pip install splinter
 
-
 É ele que nos permite, através de sua interface, escrever testes utilizando o driver do
-*Firefox* (por exemplo), e deixar as *tasks* executando em nosso servidor de integração
-contínua com um driver *headless*, como o *PhantomJS*.
-
+_Firefox_ (por exemplo), e deixar as _tasks_ executando em nosso servidor de integração
+contínua com um driver _headless_, como o _PhantomJS_.
 
 ### Django + Behave + Splinter == Epic Win
 
-Podemos utilizar o *Splinter* juntamente com a mecânica de teste do *Behave*.
+Podemos utilizar o _Splinter_ juntamente com a mecânica de teste do _Behave_.
 A maneira mais fácil é através do esquema de configuração da suite,
 criando o arquivo `features/environment.py`, com o seguinte conteúdo:
 
@@ -134,24 +129,22 @@ criando o arquivo `features/environment.py`, com o seguinte conteúdo:
     def after_all(context):
         context.browser.quit()
 
-
-Pronto! O contexto dos nossos testes tem a propriedade `browser`, que é a instância do *Splinter*
+Pronto! O contexto dos nossos testes tem a propriedade `browser`, que é a instância do _Splinter_
 para execução dos testes de interface.
 
-As *specs* executarão com o *Firefox*, por padrão. Caso queira alterar o navegador,
+As _specs_ executarão com o _Firefox_, por padrão. Caso queira alterar o navegador,
 basta especificá-lo na instância de `Browser`:
 
     ::python
     context.browser = Browser('chrome')
 
-
 ## Dado um determinado cenário
 
-Vamos escrever o código *Python* necessário para atender a seguinte condição:
+Vamos escrever o código _Python_ necessário para atender a seguinte condição:
 
-	Given an authenticated user
+    Given an authenticated user
 
-Para isso, criaremos um *step* específico para autenticação:
+Para isso, criaremos um _step_ específico para autenticação:
 
     ::python
     # features/steps/auth.py
@@ -170,9 +163,8 @@ Para isso, criaremos um *step* específico para autenticação:
         br.fill('password', 'test')
         br.find_by_css('.submit-row input').first.click()
 
-
-O código acima é simples e objetivo. Através do *decorator* `@given` associamos um determinado
-pedaço de código *Python* a um trecho das histórias escritas em `.feature`.
+O código acima é simples e objetivo. Através do _decorator_ `@given` associamos um determinado
+pedaço de código _Python_ a um trecho das histórias escritas em `.feature`.
 
 Rodando o `behave`, teremos uma saída similar a essa:
 
@@ -187,10 +179,8 @@ Rodando o `behave`, teremos uma saída similar a essa:
         When I access the home page    # None
         Then I see my username printed # None
 
-
 O motor de testes, além de identificar e executar o trecho de código necessário
 para contemplar uma expressão, exibe o tempo de execução da mesma.
-
 
 ## Quando alguma coisa acontece
 
@@ -207,17 +197,15 @@ Vamos para a parte onde o usuário interage com a aplicação.
         br = context.browser
         br.visit(context.base_url + '/')
 
-
-Aqui começa a ficar mais evidente o funcionamento de *steps*. Se amanhã
+Aqui começa a ficar mais evidente o funcionamento de _steps_. Se amanhã
 eu precisar de um novo cenário onde é necessário acessar a página inicial,
-eu posso aproveitar o `when` criado acima. O *Behave* fará isso automaticamente
-para você... Portanto, organizar os *steps* de uma forma que eles agrupem
+eu posso aproveitar o `when` criado acima. O _Behave_ fará isso automaticamente
+para você... Portanto, organizar os _steps_ de uma forma que eles agrupem
 um determinado grupo de ações é uma sugestão interessante.
-
 
 ## Então eu espero algum resultado
 
-E para finalizar o nosso exemplo, vamos para o *decorator*  de `@then`,
+E para finalizar o nosso exemplo, vamos para o _decorator_ de `@then`,
 que é o passo onde validamos o resultado dos acontecimentos disparados por `@when`:
 
     ::python
@@ -233,8 +221,7 @@ que é o passo onde validamos o resultado dos acontecimentos disparados por `@wh
 
         assert 'Hello test!' in body.text
 
-
-Pronto! Executamos nossas *specs* e temos o seguinte resultado:
+Pronto! Executamos nossas _specs_ e temos o seguinte resultado:
 
     ::bash
     $ python manage.py behave
@@ -253,26 +240,23 @@ Pronto! Executamos nossas *specs* e temos o seguinte resultado:
     Took 0m1.617s
     Destroying test database for alias 'default'...
 
-
 Garantimos através dos cenários acima que, dado um usuário logado,
-imprimiremos o seu *username* na rota `http://localhost:8000/`.
-
+imprimiremos o seu _username_ na rota `http://localhost:8000/`.
 
 ## Considerações finais
 
-O *Behave* é uma ótima ferramenta de *BDD* para *Python*. Sua integração
-com o *Django* e demais *frameworks* é relativamente simples, o que só
+O _Behave_ é uma ótima ferramenta de _BDD_ para _Python_. Sua integração
+com o _Django_ e demais _frameworks_ é relativamente simples, o que só
 aumenta a simpatia pela ferramenta.
 
-Já sofri muito com escrita de testes de aceitação com *Django*. Não é
+Já sofri muito com escrita de testes de aceitação com _Django_. Não é
 um veredicto, mas até o momento o sentimento é extremamente positivo em relação
-ao casamento entre *Behave* e *Django*.
+ao casamento entre _Behave_ e _Django_.
 
 Até a próxima!
 
-
 ## Referências
 
-* [*Behave: Behavior-Driven Development, Python style*](http://pythonhosted.org/behave/)
-* [*GitHub: behave-django*](https://github.com/mixxorz/behave-django)
-* [*Splinter: Tool for testing web applications using Python*](https://splinter.readthedocs.org/en/latest/)
+- [_Behave: Behavior-Driven Development, Python style_](http://pythonhosted.org/behave/)
+- [_GitHub: behave-django_](https://github.com/mixxorz/behave-django)
+- [_Splinter: Tool for testing web applications using Python_](https://splinter.readthedocs.org/en/latest/)

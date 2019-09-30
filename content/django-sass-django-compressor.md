@@ -4,42 +4,42 @@ Category: desenvolvimento
 Tags: desenvolvimento, web, python, django, sass, css
 Slug: django-e-sass-com-django-compressor
 meta_description: Eu sempre gostei da proposta do django-compressor: Concatenar e comprimir estáticos, utilizando como agrupadores os blocos da engine de templates do Django. Vamos dar uma espiada sobre como utilizar o Django Compressor para interpretar arquivos Sass.
-
-{% img representative-image /images/blog/django-sass-logo.png 180 180 Logo do Django e Sass %}
+Image: /images/blog/django-sass-logo.png
+Alt: Logo do Django e Sass
 
 Eu sempre gostei da proposta do `django-compressor`: Concatenar e comprimir
-estáticos, utilizando como agrupadores os blocos da *engine* de *templates*
-do [*Django*]({tag}django "Leia mais sobre Django").
-Além de manter a declaração dos *assets* no [*HTML*]({tag}html "Leia mais sobre HTML"),
+estáticos, utilizando como agrupadores os blocos da _engine_ de _templates_
+do [_Django_]({tag}django "Leia mais sobre Django").
+Além de manter a declaração dos _assets_ no [_HTML_]({tag}html "Leia mais sobre HTML"),
 ele ainda abre uma margem interessante para quando você precisa customizar um grupo
 de estáticos para uma determinada página.
 
 <!-- PELICAN_END_SUMMARY -->
 
-Com a chegada dos pré-processadores, como [*Sass*](http://sass-lang.com/ "CSS with superpower")
-e [*CoffeeScript*](http://coffeescript.org/ "CoffeeScript is a little language that compiles into JavaScript"),
- e fatalmente com o advento das ferramentas de *build*, deixar esse processo
-para o *Django* passou a ser questionável. É extremamente razoável passar toda
-essa responsabilidade para o [*Grunt*]({tag}grunt "Leia mais sobre Grunt"),
-e colocar apenas no seu *template* *Django* a *URL* do estático já "buildado".
+Com a chegada dos pré-processadores, como [_Sass_](http://sass-lang.com/ "CSS with superpower")
+e [_CoffeeScript_](http://coffeescript.org/ "CoffeeScript is a little language that compiles into JavaScript"),
+e fatalmente com o advento das ferramentas de _build_, deixar esse processo
+para o _Django_ passou a ser questionável. É extremamente razoável passar toda
+essa responsabilidade para o [_Grunt_]({tag}grunt "Leia mais sobre Grunt"),
+e colocar apenas no seu _template_ _Django_ a _URL_ do estático já "buildado".
 
 Na minha opinião, isso tira um pouco da vantagem descrita no primeiro parágrafo,
-e adiciona certa complexidade à nossa *stack* de desenvolvimento. Baseado nisso,
-e indo na [onda da simplificação de *build*]({filename}vivendo-sem-o-grunt.md "Vivendo sem o Grunt"),
-que eu resolvi devolver esse poder ao *Django*.
+e adiciona certa complexidade à nossa _stack_ de desenvolvimento. Baseado nisso,
+e indo na [onda da simplificação de _build_]({filename}vivendo-sem-o-grunt.md "Vivendo sem o Grunt"),
+que eu resolvi devolver esse poder ao _Django_.
 E já te adianto: Estou relativamente satisfeito com o resultado!
 
 ## Concat e minify sem Node.js
 
-O *Django Compressor* é um *app* *Django* que comprime *Javascript*
-ou *CSS*, em um único arquivo cacheável.
+O _Django Compressor_ é um _app_ _Django_ que comprime _Javascript_
+ou _CSS_, em um único arquivo cacheável.
 
 Para usá-lo, começamos instalando através do `pip`:
 
     ::shell
     $ pip install django-compressor
 
-Na sequência, precisamos adicioná-lo ao arquivo de configuração do seu projeto *Django*:
+Na sequência, precisamos adicioná-lo ao arquivo de configuração do seu projeto _Django_:
 
     ::python
     # settings.py
@@ -60,9 +60,10 @@ Não esqueça de adicioná-lo ao `STATICFILES_FINDERS`:
         'compressor.finders.CompressorFinder',
     )
 
-E no seu *template* *Django*, utilizamos a `templatetag` de compressão
-para *CSS* e *JS*:
+E no seu _template_ _Django_, utilizamos a `templatetag` de compressão
+para _CSS_ e _JS_:
 
+    ::html
     <!-- index.html -->
 
     {% load compress %}
@@ -86,21 +87,21 @@ Quando o internauta acessar a sua página, o resultado final será parecido com 
     <script type="text/javascript" src="/static/CACHE/js/82f4dc99bcc1.js"></script>
 
 Bacana, não? Como a opção `COMPRESS_ENABLED` é por padrão o inverso de `DEBUG`,
-em tempo de desenvolvimento você não verá os *assets* comprimidos,
-mas em tempo de *QA* e produção, se o seu *Django* estiver corretamente configurado,
+em tempo de desenvolvimento você não verá os _assets_ comprimidos,
+mas em tempo de _QA_ e produção, se o seu _Django_ estiver corretamente configurado,
 sim.
 
 ## Pré-compiladores
 
-Você não precisa do *Ruby* para utilizar *Sass*. Hoje, com o advento da especificação
-do *libsass*, é possível ter a ferramenta em diferentes linguagens, como
-[*Node.js*]({tag}node "Leia mais sobre Node.js") e [*Python*]({tag}python "Leia mais sobre Python"):
+Você não precisa do _Ruby_ para utilizar _Sass_. Hoje, com o advento da especificação
+do _libsass_, é possível ter a ferramenta em diferentes linguagens, como
+[_Node.js_]({tag}node "Leia mais sobre Node.js") e [_Python_]({tag}python "Leia mais sobre Python"):
 
     ::shell
     $ pip install libsass
 
 O `django-compressor` dá suporte a execução de compiladores/transpiladores dado um
-determinado `type`. Vamos ilustrar esse cenário com o uso de *Sass*:
+determinado `type`. Vamos ilustrar esse cenário com o uso de _Sass_:
 
     ::python
     # settings.py
@@ -109,40 +110,41 @@ determinado `type`. Vamos ilustrar esse cenário com o uso de *Sass*:
     )
 
 O binário `sassc` foi instalado no comando `pip install` acima. O parâmetro `infile`
-será o próprio arquivo `scss`, e `outfile` será a saída do arquivo, já compilado para *CSS*.
+será o próprio arquivo `scss`, e `outfile` será a saída do arquivo, já compilado para _CSS_.
 
 {% img align-center /images/blog/django-style.jpg 620 254 Django com estilo! %}
 
-Agora, a jogada será declarar em nosso *template* que todas as folhas de estilo escritas
-em *Sass*, terão como `type` o valor `text/x-sass`:
+Agora, a jogada será declarar em nosso _template_ que todas as folhas de estilo escritas
+em _Sass_, terão como `type` o valor `text/x-sass`:
 
+    ::html
     <!-- index.html -->
 
     {% compress css %}
         <link rel="stylesheet" href="{% static 'vendor/skeleton/normalize.css' %}" type="text/css">
         <link rel="stylesheet" href="{% static 'vendor/skeleton/skeleton.css' %}" type="text/css">
-        <link rel="stylesheet" href="{% static 'scss/app.scss' %}' type="text/x-sass">
+        <link rel="stylesheet" href="{% static 'scss/app.scss' %}" type="text/x-sass">
     {% endcompress %}
 
-A partir de agora, no momento de execução do *Compressor*, além de minificar e concatenar
-as folhas de estilo, também interpretará arquivos *Sass*.
+A partir de agora, no momento de execução do _Compressor_, além de minificar e concatenar
+as folhas de estilo, também interpretará arquivos _Sass_.
 
 ## Considerações finais
 
-E com isso, mais uma vez, mostramos que é possível ter um projeto [*Web*]({tag}web "Leia mais sobre Web"),
-utilizando ferramentas bacanas (como o *Sass*), sem necessariamente
-adicionar uma linguagem diferente à sua *stack*.
+E com isso, mais uma vez, mostramos que é possível ter um projeto [_web_]({tag}web "Leia mais sobre web"),
+utilizando ferramentas bacanas (como o _Sass_), sem necessariamente
+adicionar uma linguagem diferente à sua _stack_.
 
-O ideal é que o processo de *build* seja executado durante o procedimento
-de *deploy* do seu projeto (através do comando `python manage.py compress`). Para isso,
+O ideal é que o processo de _build_ seja executado durante o procedimento
+de _deploy_ do seu projeto (através do comando `python manage.py compress`). Para isso,
 é necessário ativar o
-[*offline compression* do *Django Compressor*](http://django-compressor.readthedocs.io/en/latest/scenarios/#offline-compression "Offline compression").
+[_offline compression_ do _Django Compressor_](http://django-compressor.readthedocs.io/en/latest/scenarios/#offline-compression "Offline compression").
 
-No próximo *post* vamos falar sobre *Django* + *ES6*.
+No próximo _post_ vamos falar sobre _Django_ + _ES6_.
 
 Até a próxima...
 
 ## Referências
 
-* [*Django Compressor - Compresses linked and inline JavaScript or CSS into a single cached file*](https://django-compressor.readthedocs.io/en/latest/)
-* [*libsass - Sass/SCSS for Python*](https://hongminhee.org/libsass-python/)
+- [_Django Compressor - Compresses linked and inline JavaScript or CSS into a single cached file_](https://django-compressor.readthedocs.io/en/latest/)
+- [_libsass - Sass/SCSS for Python_](https://hongminhee.org/libsass-python/)

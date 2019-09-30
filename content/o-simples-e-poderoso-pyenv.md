@@ -4,46 +4,46 @@ Category: desenvolvimento
 tags: desenvolvimento, python, pyenv, virtualenv, virtualenvwrapper, macosx
 slug: o-simples-e-poderoso-pyenv
 meta_description: Após ter problemas com o meu pip e virtualenvwrapper, após a atualização do Mac OS X para o El Capitan, eu conheci o Pyenv... e vou compartilhar com você o motivo pelo qual ele é uma excelente ideia!
-
-{% img representative-image /images/blog/pyenv.jpg 180 180 Esquema explicando o Pyenv (mateuspaduaweb.com.br) %}
+Image: /images/blog/pyenv.jpg
+Alt: Esquema explicando o Pyenv (mateuspaduaweb.com.br)
 
 Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
-a versão do *Mac OS X* para o *El Capitan*. Na cara e coragem,
+a versão do _Mac OS X_ para o _El Capitan_. Na cara e coragem,
 e dotado de uma ingenuidade ímpar, simplesmente apertei o botão
-*Update* e deixei com que os deuses resolvessem qual seria o
-destino do meu *workspace* após essa fatídica operação.
+_Update_ e deixei com que os deuses resolvessem qual seria o
+destino do meu _workspace_ após essa fatídica operação.
 
 <!-- PELICAN_END_SUMMARY -->
 
 Obviamente, [algumas ferramentas deixaram de funcionar](https://ohthehugemanatee.org/blog/2015/10/01/how-i-got-el-capitain-working-with-my-developer-tools/ "Veja o que fazer com se o update do El Capitan quebrar o seu ambiente de desenvolvimento"),
-incluindo a minha instalação "system wide" do [*pip*]({tag}pip "Leia mais sobre pip")
-e o meu [*virtualenvwrapper*]({tag}virtualenvwrapper} "Leia mais sobre Virtualenv").
+incluindo a minha instalação "system wide" do [_pip_]({tag}pip "Leia mais sobre pip")
+e o meu [_virtualenvwrapper_]({tag}virtualenvwrapper} "Leia mais sobre Virtualenv").
 
-Após algum tempo "googlando" eu encontrei o [*Pyenv*](https://github.com/yyuu/pyenv "Conheça o Pyenv"),
+Após algum tempo "googlando" eu encontrei o [_Pyenv_](https://github.com/yyuu/pyenv "Conheça o Pyenv"),
 e vou compartilhar com você a razão pela qual ele é uma excelente ideia.
 
 ## Múltiplas versões de Python, sem dor de cabeça
 
-O *Pyenv* é uma ferramenta que te permite selecionar qual a versão
-do [*Python*]({tag}python "Leia mais sobre Python") você está utilizando,
+O _Pyenv_ é uma ferramenta que te permite selecionar qual a versão
+do [_Python_]({tag}python "Leia mais sobre Python") você está utilizando,
 de maneira muito fácil e prática.
 
-Antes de conhecer o *Pyenv*, eu geralmente baixava o código fonte e
-compilava as versões "adicionais" do *Python* (2.6, 3.3, 3.4, etc)
+Antes de conhecer o _Pyenv_, eu geralmente baixava o código fonte e
+compilava as versões "adicionais" do _Python_ (2.6, 3.3, 3.4, etc)
 no `/opt/` da minha máquina, utilizando a versão do sistema (2.7.x)
 para a maioria dos projetos que desenvolvia. Aí no momento de criação
 do meu `virtualenv`, apontava o executável da linguagem para a versão
 específica.
 
 Com essa ferramenta eu deixo uma versão do sistema intacta, e utilizo
-de forma completamente isolada a determinada versão do *Python* do
+de forma completamente isolada a determinada versão do _Python_ do
 qual necessito, com alguns atalhos que me auxiliam na transição de
 uma versão para a outra.
 
 ## Instalando
 
-Instalar o *Pyenv* é tão trivial quanto dar um `pip install`. Por ele não
-depender do *Python* (e ser em *shell* puro) podemos utilizar o seu
+Instalar o _Pyenv_ é tão trivial quanto dar um `pip install`. Por ele não
+depender do _Python_ (e ser em _shell_ puro) podemos utilizar o seu
 [instalador de linha de comando](https://github.com/yyuu/pyenv-installer "Veja no Github"):
 
     ::bash
@@ -51,7 +51,7 @@ depender do *Python* (e ser em *shell* puro) podemos utilizar o seu
     $ pyenv update
 
 Com o comando `pyenv install -l` somos apresentados a uma lista de possíveis versões
-a serem instaladas através do utilitário (indo de *Python 2.1* até *PyPy*).
+a serem instaladas através do utilitário (indo de _Python 2.1_ até _PyPy_).
 
 Suponha que você queira instalar a versão 3.5.1 da linguagem:
 
@@ -81,8 +81,8 @@ Com o comando `versions` obtemos as versões disponíveis no computador:
 
 O asterisco indica a versão em uso atualmente.
 
-Com o comando `local`, setamos uma determinada versão do *Python* para um
-determinado *path*. Exemplo:
+Com o comando `local`, setamos uma determinada versão do _Python_ para um
+determinado _path_. Exemplo:
 
     ::bash
     $ cd ~/Workspace/blog
@@ -90,14 +90,14 @@ determinado *path*. Exemplo:
     $ pyenv version
     3.5.1 (set by /Users/klaus/Workspace/blog/.python-version)
 
-O *Pyenv* criará um arquivo `.python-version` no diretório, e
+O _Pyenv_ criará um arquivo `.python-version` no diretório, e
 todo o momento que você acessá-lo trocará a versão corrente do
 interpretador, automaticamente.
 
 {% img align-center /images/blog/sparrow.jpg 610 293 Minha cara após o update do El Capitan (thewrap.com) %}
 
-Um *workaround* para fazer o meu ambiente de trabalho funcionar,
-no *El Capitan*, foi baixar uma versão 2.7.x do *Python* e torná-la
+Um _workaround_ para fazer o meu ambiente de trabalho funcionar,
+no _El Capitan_, foi baixar uma versão 2.7.x do _Python_ e torná-la
 `global`. Exemplo:
 
     ::bash
@@ -117,14 +117,14 @@ E assim a minha vida continuou pacata e serena... até o momento que eu
 tiver que criar um `virtualenv` para uma versão diferente da minha
 versão `global`.
 
-O *Pyenv* com *virtualenvwrapper* não se entendem muito bem.
-Para facilitar a nossa vida, temos o [*pyenv-virtualenvwrapper*](https://github.com/yyuu/pyenv-virtualenvwrapper "Veja o repositório no GitHub"):
+O _Pyenv_ com _virtualenvwrapper_ não se entendem muito bem.
+Para facilitar a nossa vida, temos o [_pyenv-virtualenvwrapper_](https://github.com/yyuu/pyenv-virtualenvwrapper "Veja o repositório no GitHub"):
 
     ::bash
     $ pip install virtualenvwrapper
     $ brew install pyenv-virtualenvwrapper
 
-É necessário ativá-lo em seu *shell*:
+É necessário ativá-lo em seu _shell_:
 
     ::bash
     $ pyenv virtualenvwrapper
@@ -144,7 +144,7 @@ E agora sim, criar o seu ambiente virtual:
     virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/postactivate
     virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/get_env_details
 
-E "esquecer" do comando `pyenv` a partir do momento que você tem os seus *virtualenvs* criados:
+E "esquecer" do comando `pyenv` a partir do momento que você tem os seus _virtualenvs_ criados:
 
     ::bash
     $ workon meu_projeto_em_py_27
@@ -157,23 +157,22 @@ E "esquecer" do comando `pyenv` a partir do momento que você tem os seus *virtu
 
 ## Considerações finais
 
-O *Pyenv* é, assim como o *virtualenv*, aquele tipo de ferramenta que te mantém são e salvo
-quando a sua necessidade é trabalhar com versões completamente diferentes do *Python*.
+O _Pyenv_ é, assim como o _virtualenv_, aquele tipo de ferramenta que te mantém são e salvo
+quando a sua necessidade é trabalhar com versões completamente diferentes do _Python_.
 
-Infelizmente, o seu uso com o *virtualenvwrapper* não é lá tão *smooth* (mas está longe de
+Infelizmente, o seu uso com o _virtualenvwrapper_ não é lá tão _smooth_ (mas está longe de
 ser complicado). Para facilitar a vida, talvez adicionar o comando `pyenv virtualenvwrapper`
 ao seu `.bash_profile` ou `.zshrc` seja uma dica interessante.
 
-Ou ainda, você pode utilizar o *virtualenvwrapper* para os
-projetos *Python* 2.7.x, e o [*pyvenv*](https://docs.python.org/3/library/venv.html "Creation of virtual environments in Python 3")
+Ou ainda, você pode utilizar o _virtualenvwrapper_ para os
+projetos _Python_ 2.7.x, e o [_pyvenv_](https://docs.python.org/3/library/venv.html "Creation of virtual environments in Python 3")
 para projetos > 3.2.
 
 Até a próxima.
 
-
 ## Referências
 
-* [*Pyenv - Simple Python version management*](https://github.com/yyuu/pyenv)
-* [*Pyenv-virtualenvwrapper - An alternative approach to manage virtualenvs from pyenv*](https://github.com/yyuu/pyenv-virtualenvwrapper)
-* [*Schichao's Blog - Setting up virtualenvwrapper with pyenv using pyenv-virtualenvwrapper*](https://blog.shichao.io/2014/10/01/setup_virtualenvwrapper_with_pyenv_using_pyenv_virtualenvwrapper.html)
-* [*The Tao of Mac - Using Pyenv with El Capitan*](http://taoofmac.com/space/blog/2015/10/03/1245)
+- [_Pyenv - Simple Python version management_](https://github.com/yyuu/pyenv)
+- [_Pyenv-virtualenvwrapper - An alternative approach to manage virtualenvs from pyenv_](https://github.com/yyuu/pyenv-virtualenvwrapper)
+- [_Schichao's Blog - Setting up virtualenvwrapper with pyenv using pyenv-virtualenvwrapper_](https://blog.shichao.io/2014/10/01/setup_virtualenvwrapper_with_pyenv_using_pyenv_virtualenvwrapper.html)
+- [_The Tao of Mac - Using Pyenv with El Capitan_](http://taoofmac.com/space/blog/2015/10/03/1245)
