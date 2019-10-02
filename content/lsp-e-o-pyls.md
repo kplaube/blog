@@ -3,8 +3,8 @@ Date: 2019-05-24 10:53:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, editores, ide, vscode, vim, python, pyls, lsp
 Slug: lsp-e-o-pyls
-
-{% img representative-image /images/blog/python-code.jpg 180 180 Código Python %}
+Image: /images/blog/python-code.jpg
+Alt: Código Python
 
 Uma das virtudes do [_VS Code_]({tag}vscode "Leia mais sobre o editor") é como ele integra-se facilmente com diferentes linguagens.
 O esforço é pequeno, geralmente resumindo-se à instalação de um único _plugin_. Essa característica o torna uma ferramenta extremamente
@@ -105,9 +105,8 @@ e repetitivo se você estiver trabalhando em diferentes projetos e _virtualenvs_
 Uma alternativa mais prática é tê-lo instalado em uma instância global do [_pyenv_]({filename}o-simples-e-poderoso-pyenv.md "O simples e poderoso Pyenv"). Fica a seu critério o destino
 da instalação:
 
-```
-$ pip install python-language-server
-```
+    ::text
+    $ pip install python-language-server
 
 O próprio servidor identificará quais ferramentas você tem instaladas e habilitará determinada capacidade proporcionada por tal ferramenta (por exemplo, se o _Rope_ estiver instalado,
 será capaz de fazer _renaming_). Mas dentre elas o _Jedi_ é fundamental, e por isso é instalada automaticamente como dependência do _PyLS_.
@@ -115,23 +114,20 @@ será capaz de fazer _renaming_). Mas dentre elas o _Jedi_ é fundamental, e por
 Nesse momento temos grande parte das funcionalidades cobertas pelo _LSP_ habilitadas pelo servidor. Uma muito útil, que ainda está faltando, é o _renaming_. Segundo a lista acima, conseguimos
 tal capacidade ao instalar o _Rope_:
 
-```
-$ pip install 'python-language-server[rope]'
-```
+    ::text
+    $ pip install 'python-language-server[rope]'
 
 Se você está interessado em utilizar a configuração padrão do _python-language-server_, uma opção mais prática é instalar todos os _providers_ de uma só vez:
 
-```
-$ pip install 'python-language-server[all]'
-```
+    ::text
+    $ pip install 'python-language-server[all]'
 
 Para fins didáticos estamos resolvendo as dependências manualmente. Há uma outra forma de gerenciar quais _providers_ serão utilizados, que discutiremos a seguir.
 
 Para termos o _isort_ e o _Black_ habilitados como ferramentas de formatação, precisaremos recorrer à _plugins_ de terceiros:
 
-```
-$ pip install pyls-isort pyls-black
-```
+    ::text
+    $ pip install pyls-isort pyls-black
 
 Infelizmente, o `pyls-black` exige que você não tenha o `autopep8` instalado para funcionar. Como não há um controle manual para decidir qual será usado,
 a melhor forma é garantindo que apenas uma das duas extensões esteja instalada.
@@ -142,46 +138,43 @@ Temos tudo o que é necessário para o lado do servidor.
 
 A melhor forma de instalarmos o _LanguageClient-neovim_ é através do utilitário `Plug`:
 
-```vim
-" ~/.vimrc
+    ::vim
+    " ~/.vimrc
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ }
 
-Plug 'junegunn/fzf'
-```
+    Plug 'junegunn/fzf'
 
 Ele funciona muito bem com o [_fzf_](https://github.com/junegunn/fzf.vim "Veja o repositório oficial do projeto"), portanto, é uma boa pedida termos os dois disponíveis.
 
 O próximo passo é informar ao cliente como encontrar o servidor da linguagem:
 
-```vim
-" ~/.vimrc
+    ::vim
+    " ~/.vimrc
 
-(...)
+    (...)
 
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['pyls'],
-    \ }
-```
+    let g:LanguageClient_serverCommands = {
+        \ 'python': ['pyls'],
+        \ }
 
 Ainda precisamos dizer ao _LSP_ sobre as nossas preferências. O arquivo abaixo está situado na raíz do projeto que estou trabalhando,
 mais especificamente em `./.vim/settings.json`:
 
-```json
-{
-  "pyls": {
-    "configurationSources": ["flake8"],
-    "plugins": {
-      "yapf": {
-        "enabled": false
+    ::json
+    {
+      "pyls": {
+        "configurationSources": ["flake8"],
+        "plugins": {
+          "yapf": {
+            "enabled": false
+          }
+        }
       }
     }
-  }
-}
-```
 
 Para fins didáticos adicionei o `yapf` à configuração. Alguns _plugins_ possuem a flexibilidade de mesmo que instalados, poderem ser desabilitados.
 

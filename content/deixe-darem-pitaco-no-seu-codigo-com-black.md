@@ -3,8 +3,8 @@ Date: 2019-02-07 14:20:00
 Category: desenvolvimento
 Tags: desenvolvimento, formatters, editores, black, python, vscode, vim
 Slug: deixe-darem-pitaco-no-seu-codigo-com-black
-
-{% img representative-image /images/blog/black-logo.png 180 180 Logo do Black %}
+Image: /images/blog/black-logo.png
+Alt: Logo do Black
 
 Já abordamos [_code formatters_]({tag}formatters "Leia mais sobre formatters") aqui no _blog_. Para [_Javascript_]({tag}javascript "Leia mais sobre Javascript") temos o [_Prettier_]({filename}deixe-darem-pitaco-no-seu-codigo-com-prettier.md "Deixe darem pitaco no seu código com Prettier") como solução mais famosa, e há de se reconhecer a série de vantagens no uso da mesma. Acontece que para [_Python_]({tag}python "Leia mais sobre Python") temos algumas ferramentas tão interessantes quanto, como o _autopep8_, _yapf_ e o _Black_.
 

@@ -3,8 +3,8 @@ Date: 2019-02-21 12:45:00
 Category: desenvolvimento
 Tags: desenvolvimento, ambiente-de-desenvolvimento, python, qualidade, seguranca, bandit
 Slug: assegure-qualidade-seu-codigo-python-bandit
-
-{% img representative-image /images/blog/bandit-logo.png 180 180 Logo do Bandit %}
+Image: /images/blog/bandit-logo.png
+Alt: Logo do Bandit
 
 Já falamos sobre algumas ferramentas de qualidade de código [_Python_]({tag}python "Leia mais sobre Python") aqui no _blog_. De [_pycodestyle_]({filename}assegure-a-qualidade-do-seu-codigo-python-pep8.md "Assegure a qualidade do seu código Python - pep8") a [_Clone Digger_]({filename}assegure-a-qualidade-do-seu-codigo-python-clone-digger.md "Assegure a qualidade do seu código Python - Clone digger"), passando por [_Pyflakes_]({filename}assegure-a-qualidade-do-seu-codigo-python-pyflakes.md "Assegure a qualidade do seu código Python - Pyflakes") e [_Pylint_]({filename}assegure-a-qualidade-do-seu-codigo-python-pylint.md "Assegure a qualidade do seu código Python - Pylint"). Além do _flake8_ (que acredito não precisar de apresentações), uma ferramenta que passei a ter sempre no meu _toolbelt_ foi o [_Bandit_](https://github.com/PyCQA/bandit "Repositório do Bandit").
 
@@ -31,7 +31,7 @@ Note que o parâmetro `-r` acima instrui o utilitário a executar de forma recur
 
 O _Bandit_ considera como vulnerabilidades desde o uso de `assert` (B101), passando pelo uso de `eval` (B307), até possíveis brechas para _SQL injection_ (B608). Uma lista completa de todos os _plugins_ está disponível na [documentação oficial](https://bandit.readthedocs.io/en/latest/plugins/index.html#complete-test-plugin-listing "Confira a lista de falhas cobertas pelo Bandit").
 
-{% img align-center-keep-size /images/blog/bandit.jpg 630 336 Segurança na Web é como fazer parte do filme Agarra-me Se Puderes (adorocinema.com) %}
+{% img align-center-keep-size /images/blog/bandit.jpg 630 336 Segurança na web é como fazer parte do filme Agarra-me Se Puderes (adorocinema.com) %}
 
 Se você utiliza _pytest_ para escrever os seus testes, o item B101 pode ser um problema, uma vez que é normal utilizar `assert` ao invés do convencional `self.assertEquals`. Nesse caso, uma das formas de contornar esse comportamento é ignorando os testes:
 

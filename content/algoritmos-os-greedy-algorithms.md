@@ -1,10 +1,10 @@
-Title: Os Greedy algorithms
+Title: Os greedy algorithms
 Date: 2019-01-27 15:28:00
 Category: desenvolvimento
 Tags: desenvolvimento, estrutura-de-dados, algoritmos
 Slug: os-greedy-algorithms
-
-{% img representative-image /images/blog/algoritmos-3.png 180 180 Algoritmos %}
+Image: /images/blog/algoritmos-3.png
+Alt: Algoritmos
 
 Quando estive revisando a disciplina de [algoritmos]({tag}algoritmos "Leia mais sobre Algoritmos"), me deparei com os tais "algoritmos gulosos", ou _greedy algorithms_. Lembro que na época eu automaticamente associei o termo a soluções de baixa utilidade ou performance. Mal sabia eu que estive equivocado esse tempo todo.
 
@@ -51,7 +51,7 @@ Uma maneira mais interessante de compreender como escrevemos um algoritmo com es
 
 Todas as três formas chegam a um resultado. É possível afirmar que a primeira e última opção terão performance semelhantes, mas não necessariamente chegarão a um resultado ótimo. Encontrar o melhor resultado através da forma bruta, nesse problema, não é a melhor solução.
 
-## Qual o melhor uso de Greedy Algorithms?
+## Qual o melhor uso de greedy algorithms?
 
 Segundo o _Brilliant.org_, se as propriedades abaixo forem verdadeiras, pode-se aplicar a abordagem _greedy_ para resolução do problema:
 

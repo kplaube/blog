@@ -3,11 +3,11 @@ Date: 2019-08-20 16:05:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, seo
 Slug: seo-ainda-e-relevante
-
-{% img representative-image /images/blog/seo.jpg 180 180 Imagem representando o SEO %}
+Image: /images/blog/seo.jpg
+Alt: Imagem representando o SEO
 
 Se há uma constante em desenvolvimento de _software_ é o [_hype_](https://www.significados.com.br/hype/ "Significado de hype"). Hoje vivemos o _buzz_
-ao redor de _microservices_, _machine learning_ e _blockchain_. Mas há algum tempo um dos _hypes_ que varreu o mundo do desenvolvimento [_web_]({tag}web "Leia mais sobre Web") foi o _SEO_ (ou _Search Engine Optimization_).
+ao redor de _microservices_, _machine learning_ e _blockchain_. Mas há algum tempo um dos _hypes_ que varreu o mundo do desenvolvimento [_web_]({tag}web "Leia mais sobre web") foi o _SEO_ (ou _Search Engine Optimization_).
 
 <!-- PELICAN_END_SUMMARY -->
 
@@ -133,7 +133,7 @@ Aqui, estamos falando de uma tarefa dividida entre o desenvolvedor e o arquiteto
 
 Praticar o [_Mobile-First_](http://bradfrost.com/blog/post/mobile-first-responsive-web-design/ "mobile-first responsive web design"), é uma prática mais que essencial no seu processo de desenvolvimento. O _Google_ possui uma [ferramenta bem interessante](https://search.google.com/test/mobile-friendly "Mobile-Friendly") que valida se o seu _website_ está otimizado para dispositivos móveis.
 
-Puramente técnica essa parte, com responsabilidade dividida entre engenharia, _design_ e arquitetura da informação. Se você estiver utilizando [_Responsive Design_](https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/ "Responsive Web Design – What It Is And How To Use It") e pensando na renderização do site primeiro no _mobile_, você já está no caminho certo.
+Puramente técnica essa parte, com responsabilidade dividida entre engenharia, _design_ e arquitetura da informação. Se você estiver utilizando [_Responsive Design_](https://www.smashingmagazine.com/2011/01/guidelines-for-responsive-web-design/ "Responsive web Design – What It Is And How To Use It") e pensando na renderização do site primeiro no _mobile_, você já está no caminho certo.
 
 ## Considerações finais
 

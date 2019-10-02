@@ -3,8 +3,8 @@ Date: 2018-12-27 18:35:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, editores, ide, atom, python, vim
 Slug: atom-o-simpatico-editor-do-github
-
-{% img representative-image /images/blog/atom-editor-logo.png 180 180 Logo do Atom %}
+Image: /images/blog/atom-editor-logo.png
+Alt: Logo do Atom
 
 Tenho "peregrinado" por diferentes editores e _IDEs_ nesses últimos meses. Além
 do [Vim]({tag}vim "Leia mais sobre Vim"), algumas "desventuras" com _IntelliJ IDEA_,
@@ -32,7 +32,7 @@ mesmas tecnologias é possível estendê-lo de maneira impressionante. Aliás, o
 processo de customização é muito bem documentado, no
 [_Atom Flight Manual_](https://flight-manual.atom.io/ "Leia mais na página oficial"),
 e escrever seus próprios _plugins_ tem uma curva de aprendizado mínima se você
-já trabalhar com desenvolvimento [_Web_]({tag}web "Leia mais sobre web").
+já trabalhar com desenvolvimento [_web_]({tag}web "Leia mais sobre web").
 
 Por padrão o _Atom_ oferece _syntax highlighting_ para uma grande gama de linguagens,
 além de outros utilitários, como _fuzzy finder_, _tree view_, corretor ortográfico,

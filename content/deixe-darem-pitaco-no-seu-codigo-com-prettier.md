@@ -3,8 +3,8 @@ Date: 2019-01-12 10:55:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, formatters, editores, prettier, javascript, html, css
 Slug: deixe-darem-pitaco-no-seu-codigo-com-prettier
-
-{% img representative-image /images/blog/prettier-logo.png 180 180 Logo do Prettier %}
+Image: /images/blog/prettier-logo.png
+Alt: Logo do Prettier
 
 _Code formatters_ são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
 mas depois de alguns "Hello world" em [_Go_](https://golang.org/ "Leia mais sobre Golang")
@@ -30,9 +30,7 @@ Com "estilo comum de escrita" não estamos falando necessariamente de qualidade 
 
 E talvez esse seja o ponto marcante por trás do _Prettier_. Diretamente da [página que fala sobre a filosofia da ferramenta](https://prettier.io/docs/en/option-philosophy.html "Option Philosophy"):
 
-```
-By far the biggest reason for adopting Prettier is to stop all the on-going debates over styles.
-```
+> By far the biggest reason for adopting Prettier is to stop all the on-going debates over styles.
 
 ## Na prática
 
