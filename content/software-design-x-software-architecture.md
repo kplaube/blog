@@ -13,10 +13,14 @@ _waterfall_ seriam atribuídas a um indivíduo apenas, mas que no ágil são dil
 
 <!-- PELICAN_END_SUMMARY -->
 
-Como o time geralmente trabalhando em um escopo focado (principalmente quando estamos falando
-de [_Scrum of Scrums_](<https://www.agilealliance.org/glossary/scrum-of-scrums/#q=~(infinite~false~filters~(postType~(~'page~'post~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_video)~tags~(~'scrum*20of*20scrums))~searchTerm~'~sort~false~sortDirection~'asc~page~1)> "Leia uma breve definição sobre o assunto")),
+Como o time geralmente trabalha em um escopo focado (principalmente quando estamos falando
+de [_scrum of scrums_](<https://www.agilealliance.org/glossary/scrum-of-scrums/#q=~(infinite~false~filters~(postType~(~'page~'post~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_video)~tags~(~'scrum*20of*20scrums))~searchTerm~'~sort~false~sortDirection~'asc~page~1)> "Leia uma breve definição sobre o assunto")),
 com quem fica a responsabilidade da arquitetura de toda uma solução?
 Quem pensa no longo prazo? Na comunicação entre serviços e componentes?
+
+Até onde vai a responsabilidade de _design_ e começa a de arquitetura?
+
+## Definição
 
 Fundamentalmente, há uma clara distinção entre as disciplinas de _software design_ e
 _software architecture_:
