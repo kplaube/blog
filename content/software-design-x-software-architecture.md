@@ -21,7 +21,7 @@ Até onde vai a responsabilidade de _design_ e começa a de arquitetura?
 
 ## Definição
 
-Fundamentalmente, há uma clara distinção entre as disciplinas de _software design_ e
+Fundamentalmente, há distinção entre as disciplinas de _software design_ e
 _software architecture_:
 
 - **Software design**: Foca nos aspectos mais "baixo nível" do sistema;
@@ -56,13 +56,13 @@ Partimos do princípio que tudo origina-se de um requisito:
 
 Requisitos podem ser "funcionais" (como o exemplo acima), ou "não funcionais" (minha lista tem que ser leve, pois opero
 em uma rede móvel de baixa performance). Quando falamos de _design_ conceitual, geralmente nos referimos
-ao primeiro tipo, e através de discussões mais próximas do negócio exploramos soluções para o problema levantado.
+ao primeiro tipo, e através de discussões mais próximas do problema exploramos soluções.
 
 Nessa etapa é comum lidar com ferramentas, preferencialmente de baixo custo e fácil alteração, que consigam
 "traduzir" a solução sendo discutida em artefatos visuais, como por exemplo:
 
 - **Diagramas de alto nível:** Para exemplificar relacionamentos entre o usuário, interface e demais componentes (não técnico);
-- **Wireframes:** Para discutirmos elementos em uma interface de usuário;
+- **Wireframes:** Para discutir elementos em uma interface de usuário;
 - **Protótipos:** Para demonstrar comportamentos;
 - **Mockups:** Para refletir decisões de _design_ como cores, _layouts_, tipografia, interações, etc.
 
@@ -76,17 +76,15 @@ podemos tomar algumas liberdades para sermos mais específicos sobre as necessid
 
 ### Design técnico
 
-Com o _design_ técnico, estamos enfim discutindo aspectos voltados à "engenharia" por trás da construção da solução conceituada anteriormente.
+Com o _design_ técnico, estamos enfim discutindo aspectos voltados à solução. Mas nem por isso deixamos de ser expostos a abstrações, como por exemplo, se você estiver fazendo uso de _OOP_:
 
-Nessa etapa, ainda podemos ser expostos a ferramentas visuais, como por exemplo, se você estiver fazendo uso de _OOP_:
+- [Diagrama de Entidade e Relacionamento (ER)](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento "O que é um diagrama de entidade e relacionamento?"): Caso você esteja partindo da ótica do seu banco de dados;
+- [_UML_](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/ "What is Unified Modeling Language?"): Caso você queira esquematizar relacionamentos e ciclo de vida dos seus componentes;
+- [Cartões _CRC_](https://atomicobject.com/resources/oo-programming/crc-cards "CRC Cards"): Uma alternativa mais "barata" ao UML, útil para descrever relacionamentos entre entidades.
 
-- [Diagrama de Entidades e Relacionamento (ER)](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento "O que é um diagrama de entidade e relacionamento?"): Caso você esteja partindo de uma abordagem de modelagem de dados a partir da ótica de banco de dados;
-- UML: Caso você queira esquematizar relacionamentos e ciclo de vida dos seus componentes;
-- Cartões CRC: Uma alternativa mais "barata" ao UML, útil para descrever relacionamentos entre entidades.
+Ainda utilizando o contexto de orientação a objetos, outro tópico que pode aparecer nesse momento são os _Design Patterns_. No caso da construção de _APIs_, uma possibilidade é a construção do contrato via [_Swagger file_]({filename}swagger-e-o-open-api-initiative.md "Swagger e o Open API Initiative"). Enfim, estamos mais próximos de ideias e artefatos que representem de fato o sistema.
 
-Ainda utilizando o contexto de orientação a objetos, outro tópico que pode aparecer nesse momento são os _Design Patterns_. No caso da construção de _APIs_, é possível que aqui apareça, por exemplo, a construção do contrato via _swagger file_.
-
-https://www.coursera.org/learn/object-oriented-design/lecture/i53HB/1-1-5-competing-qualities-and-trade-offs
+Independente de qual estilo de programação você esteja usando, ou de qual região da aplicação você esteja desenvolvendo, é nesse momento que você discutirá os _trade-offs_ entre as qualidades (_code quality_, _security_, _usability_, _performance_, _time to market_, etc) definidas pelo contexto do seu projeto, bem como outros requisitos não-funcionais, e como isso impactará o _design_ (e se o mesmo precisa ser alterado para encontrar o balanço ideal).
 
 ## Software Architecture
 
@@ -94,11 +92,11 @@ https://www.coursera.org/learn/object-oriented-design/lecture/i53HB/1-1-5-compet
 
 - [Atomic Object - CRC Cards](https://atomicobject.com/resources/oo-programming/crc-cards)
 - [Codeburst.io - Software Architecture: The Difference Between Architecture And Design](https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830)
+- [Coursera - Object-Oriented Design](https://www.coursera.org/learn/object-oriented-design/home/welcome)
 - [Experience UX - What is wireframing?](https://www.experienceux.co.uk/faqs/what-is-wireframing/)
 - [Lucidchart - O que é um diagrama entidade relacionamento?](https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento)
 - [UXPin - What is a Mockup: The Final Layer of UI Design](https://www.uxpin.com/studio/blog/what-is-a-mockup-the-final-layer-of-ui-design/)
+- [Visual Paradigm: What is Unified Modeling Language (UML)?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/)
 - [Wikipedia - Requisito não funcional](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional)
 
-- https://www.synopsys.com/software-integrity/resources/knowledge-database/software-architecture.html
-- https://www.tutorialspoint.com/software_architecture_design/introduction.htm
-- https://www.coursera.org/learn/object-oriented-design/lecture/91ABf/1-1-4-software-requirements-conceptual-and-technical-designs
+https://www.synopsys.com/glossary/what-is-software-architecture.html
