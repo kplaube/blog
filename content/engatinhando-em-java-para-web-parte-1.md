@@ -54,8 +54,6 @@ Segundo a [apostila de _Java_ para _web_](https://www.caelum.com.br/apostila-jav
 
 > (...) o Java EE é um grande conjunto de especificações. Essas especificações, quando implementadas, vão auxiliar bastante o desenvolvimento da sua aplicação, pois você não precisará se preocupar com grande parte de código de infraestrutura, que demandaria muito trabalho.
 
-Conseguimos implementar a aplicação sem depender dessas especificações. Mas com isso perdemos muitas ferramentas que já estão disponíveis e que acelerarão (e muito) o desenvolvimento. Se você vem do _Python_, é quase como se optássemos por desenvolver para a _web_ sem o auxílio de nenhuma espécie de _framework_ ou biblioteca. Ou seja, pouco recomendado.
-
 Ainda citando a fonte acima:
 
 > Existem diversas dessas implementações. Já que esse software tem papel de servir sua aplicação para auxiliá-la com serviços de infraestrutura, esse software ganha o nome de servidor de aplicação. A própria Sun/Oracle desenvolve uma dessas implementações, o Glassfish que é open source e gratuito (...).
