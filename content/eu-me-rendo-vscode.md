@@ -1,7 +1,7 @@
 Title: Eu me rendo: VS Code
 Date: 2018-06-04 16:30:00
 Category: desenvolvimento
-Tags: desenvolvimento, web, editores, ide, vscode, vim, python, css, javascript
+Tags: desenvolvimento, web, editores, ide, vscode, vim, python, css, javascript, eu-me-rendo
 Slug: eu-me-rendo-vscode
 meta_description: Chegou o momento de admitir: Estou usando um editor diferente do Vim. Nesse artigo descrevo as principais virtudes do VS Code, e a razão de simpatizar tanto com esse poderoso editor.
 Image: /images/blog/vscode-logo.png
