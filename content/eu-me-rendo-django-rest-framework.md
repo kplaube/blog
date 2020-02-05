@@ -6,10 +6,22 @@ meta_description: Django REST Framework é possivelmente a biblioteca mais popul
 Image: /images/blog/django-logo.png
 Alt: Django logo
 
-Confesso que eu nunca fui simpático ao _Django REST Framework_. Antes de adotá-lo tive a oportunidade de explorar outras opções, como o [_Restless_]({filename}construindo-apis-em-django-com-restless.md "Leia mais sobre o Restless"), mas confesso que sempre havia algo faltando, ou algum esforço extra necessário para obter algo que já vinha embutido no _DRF_.
+Confesso que eu nunca fui simpático ao [_Django REST Framework_]({tag}drf "Leia mais sobre Django REST Framework"). Antes de adotá-lo tive a oportunidade de explorar outras opções, como o [_Restless_]({filename}construindo-apis-em-django-com-restless.md "Leia mais sobre o Restless"), mas admito que sempre havia algo faltando, ou algum esforço extra necessário para obter alguma funcionalidade que já vinha embutida no _DRF_.
 
 <!-- PELICAN_END_SUMMARY -->
 
-Eu comecei a aceitar a sua natureza "plug and play" após começar a escrever _APIs_ em _Java_. O _Spring_ desempenha um papel muito similar ao do _Django_, no mundo _Python_. Pode parecer um devaneio, mas a natureza "complexa" do desenvolvimento na linguagem me trouxe uma nova ótica em relação ao mundo _Python_.
+Eu comecei a aceitar a sua natureza "baterias inclusas" após me distanciar do desenvolvimento [_Python_]({tag}python "Leia mais sobre Python"). Sob uma ótica diferente, compreendi o papel do _DRF_, e fiz as pazes com esse sentimento de confiar em uma biblioteca (supostamente) complexa para construir [_APIs_]({tag}apis "Leia mais sobre APIs") (teoricamente) simples. Afinal, se "ser bloated" for um argumento decisivo, não escolheríamos [_Django_]({tag}django "Leia mais sobre Django") para escrever _APIs_ (principalmente em um contexto de microserviços).
 
-Embora exista uma variedade de opções, a dobradinha _Django_ + _DRF_ deve ser sempre considerada como uma provável opção quando o assunto é desenvolvimento de _APIs_ _REST_.
+## Motivação
+
+O que faz do DRF bom
+
+## Na prática
+
+Instalando
+
+Usando no projeto (revissta)
+
+## Considerações finais
+
+O que me fez mudar de ideia
