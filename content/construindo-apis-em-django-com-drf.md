@@ -36,11 +36,11 @@ Estamos prontos para mergulhar nos conceitos de _routers_, serializadores e _vie
 
 ## Antes de ir: O problema
 
-Embora o "iMDB-clone" seja o exemplo que eu mais goste de usar, dessa vez vamos imaginar que estamos desenvolvendo
+Embora o "iMDB-clone" seja o meu tipo de exemplo favorito, dessa vez vamos imaginar que estamos desenvolvendo
 um "Feedly-clone". O [_Feedly_](https://feedly.com/ "Visite o Feedly") é uma espécie de leitor [_RSS_]({filename}o-que-e-rss.md "O que é RSS?")
-(com esteroides).
+(com esteroides) muito popular.
 
-Por hora vamos focar em dois tipos: `Channel` e `Item`; _Channel_ é de fato o _website_ ou _blog_ que queremos registrar em
+Vamos focar em dois tipos específicos: `Channel` e `Item`; _Channel_ é de fato o _website_ ou _blog_ que queremos registrar em
 nossa plataforma. Esse é o mesmo nome utilizado pelo formato _RSS_:
 
 ```xml
@@ -145,13 +145,14 @@ from channels.serializers import ChannelSerializer
 class ChannelViewSet(viewsets.ModelViewSet):
     queryset = Channel.objects.all()
     serializer_class = ChannelSerializer
+
 ```
 
 Note que em `queryset` apontamos para o modelo `Channel`, e em `serializer_class` para a classe serializadora criada anteriormente.
 
 ## Fazendo o roteamento
 
-Como último passo para termos algo de fato visual, vamos mapear a rotas para o novo recurso criado.
+Como último passo para termos algo de fato visual, vamos mapear as rotas para o novo recurso criado.
 
 Uma das vantagens de utilizar um _viewset_ é que ele também se encarrega de fazer o mapeamento das _URLs_. Por exemplo, o `ChannelViewSet` uma vez que mapeado,
 responderá para rotas terminando em `/` e `/<id-do-channel>`. Além disso compreenderá que um `POST` em `/` é relacionado à criação de um novo elemento, bem como `DELETE` em `/<id-do-channel>` está relação à remoção:
@@ -177,9 +178,9 @@ Nesse momento já é possível presenciar um resultado mais sólido ao acessar `
 
 {% img align-center /images/blog/django-rest-framework-example.png 740 405 Exemplo ao acessar o endereço no browser %}
 
-Não ligue para a porta `:5000` no exemplo acima.
+Não ligue para a porta `:5000` no exemplo acima...
 
-Se você não é fã do _browsable api_, e não quer ter essa visão do `API Root`, troque o `DefaultRouter` por `SimpleRouter`.
+Se você não é fã do _browsable api_, e não quer ter essa visão do `API Root` (como da imagem acima), troque o `DefaultRouter` por `SimpleRouter`.
 
 ## CRUD em ação
 
@@ -197,6 +198,28 @@ curl -XPOST http://localhost:8000/api/channels/ --data '{
 }' --header "Content-Type: application/json"
 
 {"id":1,"title":"Klaus Laube","description":"Python, Django e desenvolvimento Web","link":"https://klauslaube.com.br"}
+```
+
+Como o serializador espelha as propriedades do modelo `Channel`, caso um campo obrigatório não seja enviado
+no _payload_, o próprio serializador se encarregará de fazer essa validação e de retornar detalhes do erro ao usuário:
+
+```text
+curl -i -XPOST http://localhost:8000/api/channels/ --data '{
+    "title": "Klaus Laube",
+    "description": "Python, Django, APIs, e desenvolvimento Web"
+}' --header "Content-Type: application/json"
+
+HTTP/1.1 400 Bad Request
+Date: Tue, 11 Feb 2020 18:00:44 GMT
+Server: WSGIServer/0.2 CPython/3.7.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 36
+X-Content-Type-Options: nosniff
+
+{"link":["This field is required."]}
 ```
 
 Como estamos falando de uma _API_ _REST_, é normal esperarmos que um `GET` no mesmo endereço traga uma lista de _channels_:
@@ -230,14 +253,176 @@ curl -XPUT http://localhost:8000/api/channels/1/ --data '{
 E para finalizar, com `DELETE` é possível remover o recurso:
 
 ```shell
-curl -XDELETE http://localhost:5000/api/channels/2/
+curl -XDELETE http://localhost:8000/api/channels/2/
 ```
 
 Mágico, não?!
 
 ## Serializando relacionamentos
 
-Vamos para a parte dos items.
+Passaremos a abordar agora a construção do _endpoint_ para o recurso `Item`.
+
+Começamos pelo _serializer_, que não é muito diferente do construído anteriormente para o modelo `Channel`:
+
+```python
+# channels/serializers.py
+
+(...)
+
+class ItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Item
+        fields = "__all__"
+
+```
+
+O `ModelSerializer` "automagicamente" fará o _parsing_ do relacionamento entre `Item` e `Channel`. O resultado da serialização de uma instância
+de `Item` terá uma propriedade `channel`, com a chave primária do elemento relacionado como valor:
+
+```python
+
+(...)
+
+>>> item = Item.objects.first()
+>>> serializer = ItemSerializer(item)
+>>> data = serializer.data
+
+>>> print(data["channel"])
+1
+
+```
+
+Antes de passarmos para o _viewset_, vamos discutir como ficará a _URL_ desse recurso. Se seguirmos a mesma receita utilizada para `Channel`,
+teremos um endereço semelhante com o abaixo:
+
+```text
+http://localhost:8000/api/items/<id>
+```
+
+Mas que tal se `channels` fosse parte da _URL_ de `items`? É possível atingir tal resultado com o conceito de sub recurso.
+
+## Nested resources
+
+O que queremos, na prática, é o seguinte:
+
+```text
+http://localhost:8000/api/channels/<id-do-channel>/items/<id-do-item>
+```
+
+Com isso, ao acessar `channels/1/items` (por exemplo), teremos uma listagem de todos os itens relacionados
+com o canal `1`.
+
+Infelizmente o _DRF_ não possui nenhuma "classe mágica" que faça isso acontecer com poucas linhas de código. Estratégias
+para atingir o mesmo resultado podem variar. Existe uma biblioteca que integra-se com o _DRF_ e produz um resultado
+similar ao que queremos. Estou falando da [_drf-nested-routers_](https://github.com/alanjds/drf-nested-routers "Veja o repositório do projeto"):
+
+```shell
+$ pipenv install drf-nested-routers
+```
+
+**Fica o _disclaimer_:** Como o próprio autor da biblioteca salienta na documentação, essa é uma ferramenta em estado experimental, portanto,
+cogite alternativas quando estiver fazendo o _deploy_ do código para produção. Para provar o conceito apresentado nesse _post_, ela serve
+perfeitamente.
+
+Agora sim podemos continuar com o desenvolvimento do recurso `Item`:
+
+```python
+# channels/api.py
+
+(...)
+
+
+class ItemViewSet(viewsets.ModelViewSet):
+    serializer_class = ItemSerializer
+
+    def get_queryset(self):
+        return Item.objects.filter(
+            channel=self.kwargs["channel_pk"])
+
+```
+
+Note a sobrescrita do método `get_queryset`. O parâmetro `channel_pk` será passado para o `ItemViewSet` no momento
+em que registrarmos a classe no `Router`. Com isso, de forma "lazy", estamos dizendo que os items pesquisados
+devem ser relacionados com o `channel` mencionado no _path_ do endereço acessado.
+
+De volta ao `urls.py`, atualizaremos o roteamento para ficar semelhante com o exemplo abaixo:
+
+```python
+# urls.py
+
+from django.urls import include, path
+from rest_framework_nested import routers
+
+from channels.api import ChannelViewSet, ItemViewSet
+
+api_router = routers.DefaultRouter()
+api_router.register(r"channels", ChannelViewSet)
+
+channels_router = routers.NestedDefaultRouter(
+    api_router, r"channels", lookup="channel")
+channels_router.register(r"items", ItemViewSet,
+    basename="channel-items")
+
+urlpatterns = [
+    path("api/", include(api_router.urls)),
+    path("api/", include(channels_router.urls)),
+]
+
+```
+
+Vamos aos pontos de atenção:
+
+- Importamos `routers` de `rest_framework_nested`, e não mais de `rest_framework`;
+- Agora lidamos com duas instâncias de `Router`, a primeiro vindo de `api_router = routers.DefaultRouter()`,
+  e a segunda vindo de `channels_router = routers.NestedDefaultRouter(api_router, r"channels", lookup="channel")`;
+- `DefaultRouter` continua com o mesmo comportamento do exemplo anterior;
+- Precisamos adicionar ao `urlpatterns` a instância de `DefaultRouter` e as instâncias de `NestedDefaultRouter`.
+
+`NestedDefaultRouter` espera três parâmetros:
+
+- `parent_router`: O `Router` "pai", podendo ser um `DefaultRouter` ou até mesmo outro `NestedDefaultRouter`;
+- `parent_prefix`: O prefixo de _URL_ no qual os recursos registrados passarão a ser articulados como sub recursos;
+- `lookup`: É a partir dessa informação que a chave `channel_pk` é criada e passada para o _viewset_.
+
+Aqui também, se você não quiser ter a visão de _browsable api_ habilitada, troque para o `SimpleRouter`.
+
+Pronto! O recurso `Item` está disponível para as operações exibidas anteriormente:
+
+```shell
+curl http://localhost:8000/api/channels/1/items/
+
+[{"id":1,"title":"Eu me rendo: Django REST Framework","description":"Confesso que nunca fui muito simpático ao Django REST Framework...","link":"https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html","pub_date":"2020-02-06T09:40:00Z","channel":1}]
+```
+
+O _payload_ retorna uma chave `channel` para cada item. Uma vez que estamos falando de um _nested resource_, não faz muito sentido retornarmos essa informação. A maneira mais prática de corrigirmos isso é alterando a classe serializadora:
+
+```python
+# channels/serializers.py
+
+(...)
+
+class ItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Item
+        exclude = ["channel"]
+
+```
+
+Como queremos tudo, menos o `channel`, utilizamos a propriedade `exclude` ao invés de `fields`, e determinamos o que queremos excluir da resposta.
+
+## Considerações finais
+
+Há muito o que ser discutido ainda, como customização, autenticação, segurança, _HATEOAS_, etc. Assuntos esses que pretendo abordar em _posts_ vindouros.
+
+Com o mínimo coberto no _getting started_ da documentação do _DRF_, já é
+possível termos algo _up & running_. Provar conceitos e discutir contratos
+passou a ser muito menos custoso graças à biblioteca.
+
+Essa "proximidade" de conceitos como serializadores e _viewsets_, com conceitos bem estabelecidos do _Django_ (como _forms_ e _class-based views_) faz com que o atrito seja menor, e a curva de aprendizagem mais baixa. É quase natural compreender tais artefatos à primeira vista.
+
+Se o seu projeto é feito em _Django_, e você necessita escrever _APIs_ _REST_, não perca tempo e caia de cabeça no _REST Framework_.
+
+Até a próxima.
 
 ## Referências
 
