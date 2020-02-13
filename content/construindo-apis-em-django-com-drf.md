@@ -1,5 +1,5 @@
 title: Construindo APIs em Django com Django REST Framework
-Date: 2020-02-20 10:45:00
+Date: 2020-02-13 06:15:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, apis, python, django, rest, drf
 Image: /images/blog/django-logo.png
@@ -154,6 +154,8 @@ Note que em `queryset` apontamos para o modelo `Channel`, e em `serializer_class
 
 Como último passo para termos algo de fato visual, vamos mapear as rotas para o novo recurso criado.
 
+{% img align-center /images/blog/hyperdrive.jpg 740 312 Usar DRF é como entrar em hyperdrive (pinpointe.com) %}
+
 Uma das vantagens de utilizar um _viewset_ é que ele também se encarrega de fazer o mapeamento das _URLs_. Por exemplo, o `ChannelViewSet` uma vez que mapeado,
 responderá para rotas terminando em `/` e `/<id-do-channel>`. Além disso compreenderá que um `POST` em `/` é relacionado à criação de um novo elemento, bem como `DELETE` em `/<id-do-channel>` está relação à remoção:
 
@@ -262,6 +264,8 @@ Mágico, não?!
 
 Passaremos a abordar agora a construção do _endpoint_ para o recurso `Item`.
 
+{% img align-center /images/blog/vim-jedi.jpg 640 360 Nem o DRF consegue serializar o relacionamento entre Rey e Kylo (jovemnerd.com.br) %}
+
 Começamos pelo _serializer_, que não é muito diferente do construído anteriormente para o modelo `Channel`:
 
 ```python
@@ -299,7 +303,7 @@ teremos um endereço semelhante com o abaixo:
 http://localhost:8000/api/items/<id>
 ```
 
-Mas que tal se `channels` fosse parte da _URL_ de `items`? É possível atingir tal resultado com o conceito de sub recurso.
+Mas que tal se `channels` fosse parte da _URL_ de `items`? É possível atingir tal resultado com o conceito de recurso aninhado.
 
 ## Nested resources
 
