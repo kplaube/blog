@@ -44,26 +44,62 @@ Elas devem ser tão cruciais quanto usuários são em estratégias _user-centric
 _mobile_ é em um _approach_ _mobile-first_. Utilizar uma abordagem _api-centric_
 fará com que o _design_ funcione de uma ótica diferente (possibilitando maior cuidado em relação
 a consistência e reuso), e que o negócio gire em torno do contrato que está sendo definido (ocasionando
-maior interação com outros _stakeholders_ de forma antecipada).
+maior interação com outros _stakeholders_ de forma antecipada no tempo de vida de desenvolvimento).
+
+### API-centric == Developer Experience
 
 E se pararmos para analisar friamente o que essa ideia significa, ser _api-centric_ é no fim das contas ser _user-centric_.
-O usuário nesse caso passa a ser outro desenvolvedor (do seu time, ou de terceiros), portanto,
+O usuário nesse caso passa a ser outro desenvolvedor (do mesmo time, da mesma empresa, ou de terceiros), portanto,
 _Developer eXperience_ também é parte fundamental dessa estratégia, e vem embutida em sua prática, como ilustra o ["Understanding the API-First Approach to Building Products"](https://swagger.io/resources/articles/adopting-an-api-first-approach/ "Leia mais no Swagger.io"):
 
 > Consumers of APIs are most often developers, and developer experience (DX) can make or break the success of an API. API first ensures that developers have positive experiences using your APIs. Well-designed, well-documented, consistent APIs provide positive developer experiences because it’s easier to reuse code and onboard developers, and it reduces the learning curve.
 
 ## Os 3 princípios
 
+_Lars Trieloff_, do [_Adobe Tech Blog_](https://medium.com/adobetech "Leia o blog de tecnologia da Adobe"), escreve sobre
+três princípios fundamentais para o sucesso da prática, que acredito serem essenciais para compreender a real motivação
+por trás da ideia.
+
+### 1. Your API is the first user interface of your application
+
+Vale estressar esse ponto: Pessoas utilizando a sua _API_ são os seus usuários, e a sua _API_ precisa ser projetada com
+esses usuários em mente.
+
+Partindo do princípio que sua _API_ é o caminho mais importante de interação com o seu produto, isso significa que ela
+deve ter um investimento de tempo equivalente (ou superior) ao tempo investido no desenvolvimento de interfaces
+gráficas para a sua solução.
+
+### 2. Your API comes first, then the implementation
+
+> Your implementation will change frequently, your API should not.
+
+Sua _API_ se torna um contrato que servirá como especificação para a implementação, portanto, o ideal é pensarmos como
+duas coisas separadas. Conforme a sua aplicação for evoluindo é muito provável que a sua implementação mude, mas a
+especificação/contrato/_API_ deveria (dentro do possível) se manter a mesma.
+
+### 3. Your API is described (and maybe even self-descriptive)
+
+https://medium.com/adobetech/three-principles-of-api-first-design-fa6666d9f694
+
 ## Dimensões: API-First x API-First Design x API-First Development?
+
+https://apievangelist.com/2014/08/11/what-is-an-api-first-strategy-adding-some-dimensions-to-this-new-question/
+https://apifriends.com/api-creation/api-first/
 
 ## Benefícios
 
 ## Na prática
 
+contract first
+
+https://www.oreilly.com/ideas/an-api-first-approach-for-cloud-native-app-development
+https://en.wikipedia.org/wiki/Design_by_contract
+
 ## Conclusões finais
 
 ## Referências
 
+- [Adobe Tech Blog - Three Principles of API First Design](https://medium.com/adobetech/three-principles-of-api-first-design-fa6666d9f694)
 - [DZone - An API-First Development Approach](https://dzone.com/articles/an-api-first-development-approach-1)
 - [DZone - What is API First?](https://dzone.com/articles/what-api-first)
 - [ProgrammableWeb - Introduction to API-First Design](https://www.programmableweb.com/news/introduction-to-api-first-design/analysis/2016/10/31)
