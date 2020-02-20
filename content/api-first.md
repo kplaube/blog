@@ -124,16 +124,65 @@ sobre [discutir o contrato primeiro](https://en.wikipedia.org/wiki/Design_by_con
 
 ## Os passos
 
-contract first
+Na primeira vez que ouvi falar sobre esse conceito, me perguntei como que de forma prática é possível exercitá-lo. De
+lá para cá já ouvi falar de diferentes formas e processos para adoção.
 
-## Benefícios
+Inclusive, durante meu período na [_Loadsmart_](https://loadsmart.com/#/ "Book a truck in seconds"), cheguei a
+falar exatamente sobre isso em um
+[_lightning talk_ na _Python Sul_](https://www.slideshare.net/kplaube/api-first-design "Veja os slides da apresentação API First Design: Insights from the real-life usage"), e sobre como estávamos montando esse processo.
 
-https://www.oreilly.com/ideas/an-api-first-approach-for-cloud-native-app-development
-https://en.wikipedia.org/wiki/Design_by_contract
+O contexto pode variar de acordo com o público alvo de sua _API_. Por exemplo, no artigo ["Understanding the API-First Approach to Building Products"](https://swagger.io/resources/articles/adopting-an-api-first-approach/) do _swagger.io_, há uma boa descrição do que **não** pode faltar quando o assunto é prover _APIs_ dentro de uma organização:
+
+- **Brainstorm:** Primeiro identifique os serviços chave do negócio e suas _capabilities_. Descubra quais tipos de _APIs_
+  deveriam ser oferecidas, descreva os casos de uso para tais _APIs_, e aponte potenciais _endpoints_ baseados nesses casos
+  de uso.
+- **Identifique os stakeholders:** Quem são os potenciais usuários dentro da sua organização? Tente construir uma visão
+  clara e compartilhada com os demais times da sua empresa. Permita que _stakeholders_ influenciem no _design_ da _API_ e
+  involva-os em melhorias e mudanças.
+- **Projete um contrato:** O contrato estabelecerá uma série de padrões e boas práticas. Descreve todas as _APIs_ e garanta
+  que elas funcionarão de acordo com o acordado. Seja consistente.
+- **Crie um style guide:** Com um _style guide_ será possível ter consistencia entre diferentes times e serviços, dentro
+  de uma mesma organização. _Status codes_, versionamento, erros, padrões de rota, etc. Possuir uma especificação comum reduzirá o atrito para adoção de sua _API_ por outros desenvolvedores da organização.
+- **Implemente governança:** Isso ajudará a estabelecer padrões e reforçar _outcomes_ esperados. Essa prática pode envolver
+  de _code reviews_ a [_contract tests_](https://www.mabl.com/blog/understanding-contract-testing-microservices-mabl "Understanding Contract Testing for Microservices").
+- **Automatize processos:** Utilize ferramentas para automatizar o processo de geração de documentação de _API_, validação
+  de estilo, _mocking_, versionamento, etc. Prover todo o ferramental necessário para que o usuário possa interagir com sua
+  _API_ facilmente faz parte desse passo.
+- **Controle o seu portfolio de APIs:** Não é raro esquecermos que certo serviço já existe, portanto, possuir um sistema
+  que auxilie no gerenciamento e _tracking_ de _APIs_ é fundamental.
+- **Crie um portal para desenvolvedores internos:** Tenha um lugar centralizado onde usuários possam encontrar a documentação,
+  especificação e demais contratos. _Developer Experience_ é importante.
+
+  Muitos desses passos, mesmo em um contexto onde você esteja provendo _APIs_ para usuários externos, fazem completo sentido
+  (e provavelmente já façam parte da fase de arquitetura e _design_ do seu produto). Possuir um portal no qual você exponha
+  as suas _APIs_, como elas funcionam e como um possível parceiro é capaz de integrar-se a ela, não são apenas artefatos de
+  engenharia, também são possíveis artefatos de negócios.
 
 ## Considerações finais
 
-não é sobre _REST_
+Se você já pratica [_design by contract_](https://en.wikipedia.org/wiki/Design_by_contract "Leia mais no Wikipedia),
+muito do que foi dito aqui já faz parte do seu cotidiano.
+
+E com o _microservices_ fazendo cada vez mais "parte da normalidade", _API-First_ pode parece mais um _buzzword_ para descrever
+o que já é praticado. Ainda assim, não é raro escutarmos histórias sobre dois serviços diferentes que não são
+capazes de se comunicar, ou de consultorias que produzem interface gráfica para empresas e que na hora de vinculá-la ao _back end_ a coisa simplesmente não funciona.
+
+Lembro que o meu primeiro contato com _API-First_ foi fruto de uma necessidade de expor certa funcionalidade para um certo
+grupo de possíveis parceiros. Pensar na _API_ primeiro foi um exercício interessante, uma vez que envolveu pensar numa
+plataforma coesa, e permitiu levar em consideração questões como reuso (que ocasionou na própria empresa utilizando
+a _API_ produzida).
+
+Lembro também que o _feedback_ foi muito bom, uma vez que certos mercados possuem uma postura bem conservadora, e pensar
+primeiro no usuário mostrou preocupação genuína com o problema do usuário e consequentemente com o produto sendo escrito.
+
+Contratos são difíceis de serem alterados depois de implementados, então discutí-los antes permite uma resposta mais rápida
+(e indolor) à mudanças, além de proporcionar uma possível "paralelidade" entre servidor e consumidor no desenvolvimento da
+funcionalidade (reduzindo assim tempo de _release_ e aumentando a interação durante a implementação do contrato por ambas as partes).
+
+Por maior que esse _post_ seja, no fim das contas _API-First_ é algo fundamentalmente simples, que assim como o _agile_
+parte do princípio que as pessoas (e seus problemas) são o que realmente importa.
+
+Até a próxima.
 
 ## Referências
 
