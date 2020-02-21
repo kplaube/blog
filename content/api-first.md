@@ -1,7 +1,8 @@
-title: API-First
-Date: 2020-02-20 06:15:00
+title: O API-First
+Date: 2020-02-21 09:15:00
 Category: desenvolvimento
-Tags: desenvolvimento, web, rest, apis
+Tags: desenvolvimento, web, rest, apis, api-first
+Slug: o-api-first
 Image: /images/blog/rest-api-logo.png
 Alt: API
 
@@ -23,6 +24,8 @@ _Kirsten Hunter_ [ilustra bem os efeitos colaterais de tal prática](https://www
 
 Não há nada fundamentalmente errado com essa dinâmica (inclusive, [há opiniões a favor desse conceito](https://www.youtube.com/watch?v=Tb823aqgX_0 "Bottom Up vs Top Down Design in Clojure")), mas com o mundo
 cada vez mais "microservices-driven", pensar primeiramente na interface e em quem irá usá-la pode antecipar problemas, diminuir riscos e definir contratos mais sólidos.
+
+{% img align-center /images/blog/captain-ux.jpg 640 320 Não faça o dev ser merecedor para utilizar a sua API (comicbookmovie.com) %}
 
 Não é raro escutarmos em pleno 2020 histórias sobre times distintos trabalhando em uma grande solução, que quando
 colocaram seus serviços para funcionar juntos, descobriram uma série de problemas de integração (ou até mesmo que eles
@@ -48,7 +51,10 @@ maior interação com outros _stakeholders_ de forma antecipada, dentro do tempo
 
 ### API-centric == Developer Experience
 
-E se pararmos para analisar friamente o que essa ideia significa, ser _api-centric_ é no fim das contas ser _user-centric_.
+E se pararmos para analisar friamente o que essa ideia significa, ser _api-centric_ é no fim das contas ser _user-centric_ (ou _customer-centric_).
+
+{% img align-center /images/blog/thor-ux.png 740 309 Não duvide da vontade do seu usuário. Ele vai descobrir um jeito de levantar o martelo (ibtimes.com) %}
+
 O usuário nesse caso passa a ser outro desenvolvedor (do mesmo time, da mesma empresa, ou de terceiros), portanto,
 _Developer eXperience_ também é parte fundamental dessa estratégia, e vem embutida em sua prática, como ilustra o ["Understanding the API-First Approach to Building Products"](https://swagger.io/resources/articles/adopting-an-api-first-approach/ "Leia mais no Swagger.io"):
 
@@ -89,6 +95,8 @@ também consumida por uma máquina). Por exemplo, [_RAML_]({tag}raml "Leia mais 
 [_Swagger_]({tag}swagger "Leia mais sobre Swagger"), já abordados no _blog_, são excelentes iniciativas para
 resolver essa questão.
 
+{% img align-center /images/blog/thor-ux-2.jpg 597 300 Se o Thor tivesse uma documentação bacanuda para como funciona o martelo, Caps teria usado antes (cinemablend.com) %}
+
 Mas além disso, seguir padrões é outro esforço que trará resultados na usabilidade da _API_:
 
 > When it comes to documentation for APIs, structured documentation beats unstructured documentation. Following a standard pattern for URLs, resource types, request methods, headers, request parameters, and response formats will make it easier to explore and understand functionality, and reduces surprises when your API grows.
@@ -114,7 +122,7 @@ tenha apresentado elas de forma "misturada" até aqui:
 
 Qual visão você pretende adotar depende muito do contexto. Haverá casos em que o produto já existe,
 soluções já estão no ar, e você fará o movimento para um consumo baseado em _APIs_. Ou, com sorte, você fundará
-uma _startup_ e terá o controle o suficiente para primeiramente produzir uma _API_ e depois as interfaces gráficas.
+uma _startup_ e terá controle o suficiente para primeiramente produzir uma _API_ e depois as interfaces gráficas.
 
 Assim como há diferentes "níveis de _REST_" que podemos usar no cotidiano, _API-First_ pode ser adotado em diferentes níveis
 e maneiras.
@@ -125,7 +133,9 @@ sobre [discutir o contrato primeiro](https://en.wikipedia.org/wiki/Design_by_con
 ## Os passos
 
 Na primeira vez que ouvi falar sobre esse conceito, me perguntei como que de forma prática é possível exercitá-lo. De
-lá para cá já ouvi falar de diferentes formas e processos para adoção.
+lá para cá já me deparei com diferentes formas e processos para adoção.
+
+{% img align-center /images/blog/captain-ux-2.jpg 740 416 Ver outro dev usando sua API é tão sensacional quanto o Caps usando o martelo (youtube.com) %}
 
 Inclusive, durante meu período na [_Loadsmart_](https://loadsmart.com/#/ "Book a truck in seconds"), cheguei a
 falar exatamente sobre isso em um
@@ -138,14 +148,14 @@ O contexto pode variar de acordo com o público alvo de sua _API_. Por exemplo, 
   de uso.
 - **Identifique os stakeholders:** Quem são os potenciais usuários dentro da sua organização? Tente construir uma visão
   clara e compartilhada com os demais times da sua empresa. Permita que _stakeholders_ influenciem no _design_ da _API_ e
-  involva-os em melhorias e mudanças.
-- **Projete um contrato:** O contrato estabelecerá uma série de padrões e boas práticas. Descreve todas as _APIs_ e garanta
-  que elas funcionarão de acordo com o acordado. Seja consistente.
-- **Crie um style guide:** Com um _style guide_ será possível ter consistencia entre diferentes times e serviços, dentro
+  envolva-os em melhorias e mudanças.
+- **Projete um contrato:** O contrato estabelecerá uma série de padrões e boas práticas. Descreva todas as _APIs_ e garanta
+  que elas funcionarão de acordo com o acordado.
+- **Crie um style guide:** Com um _style guide_ será possível ter consistência entre diferentes times e serviços, dentro
   de uma mesma organização. _Status codes_, versionamento, erros, padrões de rota, etc. Possuir uma especificação comum reduzirá o atrito para adoção de sua _API_ por outros desenvolvedores da organização.
 - **Implemente governança:** Isso ajudará a estabelecer padrões e reforçar _outcomes_ esperados. Essa prática pode envolver
   de _code reviews_ a [_contract tests_](https://www.mabl.com/blog/understanding-contract-testing-microservices-mabl "Understanding Contract Testing for Microservices").
-- **Automatize processos:** Utilize ferramentas para automatizar o processo de geração de documentação de _API_, validação
+- **Automatize processos:** Utilize ferramentas para automatizar o processo de geração da documentação de _API_, validação
   de estilo, _mocking_, versionamento, etc. Prover todo o ferramental necessário para que o usuário possa interagir com sua
   _API_ facilmente faz parte desse passo.
 - **Controle o seu portfolio de APIs:** Não é raro esquecermos que certo serviço já existe, portanto, possuir um sistema
@@ -164,8 +174,9 @@ Se você já pratica [_design by contract_](https://en.wikipedia.org/wiki/Design
 muito do que foi dito aqui já faz parte do seu cotidiano.
 
 E com o _microservices_ fazendo cada vez mais "parte da normalidade", _API-First_ pode parece mais um _buzzword_ para descrever
-o que já é praticado. Ainda assim, não é raro escutarmos histórias sobre dois serviços diferentes que não são
-capazes de se comunicar, ou de consultorias que produzem interface gráfica para empresas e que na hora de vinculá-la ao _back end_ a coisa simplesmente não funciona.
+o que já é comum. Ainda assim, não é raro escutarmos histórias sobre dois serviços diferentes que não são
+capazes de se comunicar, ou de prestadores de serviço que produzem interfaces gráficas para empresas e que na hora de \
+vinculá-las ao _back end_ a coisa simplesmente não funciona.
 
 Lembro que o meu primeiro contato com _API-First_ foi fruto de uma necessidade de expor certa funcionalidade para um certo
 grupo de possíveis parceiros. Pensar na _API_ primeiro foi um exercício interessante, uma vez que envolveu pensar numa
@@ -179,7 +190,7 @@ Contratos são difíceis de serem alterados depois de implementados, então disc
 (e indolor) à mudanças, além de proporcionar uma possível "paralelidade" entre servidor e consumidor no desenvolvimento da
 funcionalidade (reduzindo assim tempo de _release_ e aumentando a interação durante a implementação do contrato por ambas as partes).
 
-Por maior que esse _post_ seja, no fim das contas _API-First_ é algo fundamentalmente simples, que assim como o _agile_
+Por maior que esse _post_ seja, no fim das contas _API-First_ é algo fundamentalmente simples, que assim como o _agile_,
 parte do princípio que as pessoas (e seus problemas) são o que realmente importa.
 
 Até a próxima.
