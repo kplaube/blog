@@ -1,5 +1,5 @@
 title: API-First: Processo e ferramentas
-Date: 2020-02-28 09:15:00
+Date: 2020-03-02 10:15:00
 Category: desenvolvimento
 Tags: desenvolvimento, web, rest, prism, dredd, apis, api-first, swagger, drf, oai
 Slug: api-first-processo-e-ferramentas
@@ -231,7 +231,9 @@ A partir daqui podemos pensar sob a ótica de casos de uso.
 dependendo da sua criatividade e do seu time. Para fins didáticos vamos manter esse passo o mais simples possível.
 
 Para início de conversa o _path_ `articles/` não está alinhado o suficiente com a semântica por trás do problema. O formato _RSS_ chama o que estamos chamando de `Article` de `Item`, logo,
-se quisermos manter um linguagem ubíqua é fundamental renomearmos esse elemento.
+se quisermos manter uma linguagem ubíqua é fundamental renomearmos esse elemento.
+
+{% img align-center /images/blog/deathstar.jpg 600 317 Projetar é uma arte, desconhecida pelo Império (movieweb.com) %}
 
 Outro ponto de controvérsia em nosso esboço é que o recurso `articles/` poderia ser um _nested resource_ de `channels/{id}/`:
 
@@ -300,9 +302,9 @@ Enquanto trabalhei na [_Loadsmart_](https://loadsmart.com/ "Book a truck in seco
 um _build_ no _CI_ para publicar a documentação baseada na versão do arquivo que encontrava-se no `master`.
 
 Possuímos várias opções para esse passo. Talvez o [_ReDoc_](https://github.com/Redocly/redoc "Visite o repositório no Github")
-seja a ferramenta mais estilosa para gerar documentação a partir _OpenAPI_.
+seja a ferramenta mais estilosa para gerar documentação a partir do _OpenAPI_.
 
-Para fins didáticos vou usar as ferramentas do _Swagger_ e expor a documentação no
+Para fins didáticos vou usar a ferramenta do _Swagger_ e expor a documentação no
 [_SwaggerHub_](https://swagger.io/tools/swagger-ui/ "Teste na nuvem"): [https://app.swaggerhub.com/apis-docs/kplaube/feedly-clone/v1](https://app.swaggerhub.com/apis-docs/kplaube/feedly-clone/v1)
 
 {% img align-center-keep-size /images/blog/api-first-swagger-ui.png 740 277 Documentação publicada no Swagger UI %}
@@ -356,7 +358,7 @@ Com essa ideia de "uma _API_ para todos governar", fica mais fácil ser adepto d
 outros times da sua própria organização como usuários fica mais fácil coletar _feedbacks_ e reiniciar todo o processo
 descrito com novas demandas e possíveis correções.
 
-Para terceiros, é fundamental tratar a _API_ como parte de negócio, e ela (e sua documentação) precisa ter espaço de destaque no _website_ da sua empresa. O [_Twillio_](https://www.twilio.com/ "Communication APIs for SMS, Voice and Video") faz isso
+Para terceiros, é fundamental tratar a _API_ como parte do negócio, e ela (e sua documentação) precisa ter espaço de destaque no _website_ da sua empresa. O [_Twillio_](https://www.twilio.com/ "Communication APIs for SMS, Voice and Video") faz isso
 muito bem:
 
 {% img align-center-keep-size /images/blog/api-first-engage.png 740 198 Exemplo de exposição de documentação %}
