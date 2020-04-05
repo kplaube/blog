@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Klaus Laube - south</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 18 Oct 2016 12:43:00 -0200</lastBuildDate><item><title>As built-in migrations do Django</title><link>https://klauslaube.com.br/2016/10/18/as-built-in-migrations-do-django.html</link><description>&lt;p&gt;Quem usa o &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; há mais tempo já ouviu
+falar do &lt;a href="https://klauslaube.com.br/tag/south.html" title="Leia mais sobre South"&gt;&lt;em&gt;South&lt;/em&gt;&lt;/a&gt;. Famosa biblioteca
+responsável por trazer o comportamento de &lt;a href="https://klauslaube.com.br/tag/migrations.html" title="Leia mais sobre Migrations"&gt;&lt;em&gt;migrations&lt;/em&gt;&lt;/a&gt;
+para o &lt;em&gt;Django&lt;/em&gt;. Sem dúvida impactou inúmeros projetos e transformou o processo de
+&lt;em&gt;deploy&lt;/em&gt; de toda a comunidade envolvida com o &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Nas versões mais recentes do &lt;em&gt;Django&lt;/em&gt;, contamos …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 18 Oct 2016 12:43:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-10-18:/2016/10/18/as-built-in-migrations-do-django.html</guid><category>desenvolvimento</category><category>migrations</category><category>python</category><category>django</category><category>south</category></item><item><title>Migrations em Django com South</title><link>https://klauslaube.com.br/2011/11/20/migrations-em-django-south.html</link><description>&lt;p&gt;E quem nunca precisou adicionar ou remover alguma
+coluna, nas tabelas do seu banco de dados, depois que a aplicação já
+estava em produção? Os riscos existem (e são altos), e podem ser
+diminuidos através de processos automatizados.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Em um mundo ideal, o procedimento de &lt;em&gt;deploy&lt;/em&gt; (para entregas contínuas)
+&lt;strong&gt;deve …&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 20 Nov 2011 21:35:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-11-20:/2011/11/20/migrations-em-django-south.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>migrations</category><category>south</category></item></channel></rss>

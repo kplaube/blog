@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Klaus Laube - i18n</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 01 Jun 2011 09:41:00 -0300</lastBuildDate><item><title>Quando usar gettext e gettext_lazy?</title><link>https://klauslaube.com.br/2011/06/01/quando-usar-gettext-gettext_lazy.html</link><description>&lt;p&gt;Para vocês que desenvolvem em &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; preocupando-se
+com internacionalização, já devem ter feito a seguinte pergunta: Quando
+usar &lt;code&gt;gettext&lt;/code&gt; e &lt;code&gt;gettext_lazy&lt;/code&gt;?&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Acredito que antes de responder esta pergunta, temos que responder outra
+questão pertinente: Devo utilizar &lt;code&gt;gettext&lt;/code&gt; ou &lt;code&gt;ugettext&lt;/code&gt;?&lt;/p&gt;
+&lt;h2&gt;gettext vs ugettext&lt;/h2&gt;
+&lt;p&gt;Essas duas funções seguem o mesmo …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 01 Jun 2011 09:41:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-06-01:/2011/06/01/quando-usar-gettext-gettext_lazy.html</guid><category>desenvolvimento</category><category>python</category><category>django</category><category>i18n</category></item></channel></rss>

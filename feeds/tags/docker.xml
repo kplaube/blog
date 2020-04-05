@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Klaus Laube - docker</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 11 Aug 2017 18:00:00 -0300</lastBuildDate><item><title>Uma ode ao Docker - Parte 3</title><link>https://klauslaube.com.br/2017/08/11/uma-ode-ao-docker-parte-3.html</link><description>&lt;p&gt;Nos &lt;a href="https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html" title="Uma ode ao Docker - Parte 1"&gt;&lt;em&gt;posts&lt;/em&gt;&lt;/a&gt;
+&lt;a href="https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html" title="Uma ode ao Docker - Parte 2"&gt;anteriores&lt;/a&gt;
+arranhamos um pouco o conceito por trás do &lt;a href="https://klauslaube.com.br/tag/docker.html" title="Leia mais sobre Docker"&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;,
+bem como introduzimos o utilitário de linha de comando &lt;code&gt;docker&lt;/code&gt;. Nesse último artigo da série, vamos
+explorar como usar o &lt;em&gt;Dockerfile&lt;/em&gt; no empacotamento de uma aplicação &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Se você ainda tem dúvidas em como "encaixar" o &lt;em&gt;Docker&lt;/em&gt; no …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 11 Aug 2017 18:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-08-11:/2017/08/11/uma-ode-ao-docker-parte-3.html</guid><category>infraestrutura</category><category>virtualizacao</category><category>containerizacao</category><category>docker</category><category>nginx</category><category>python</category><category>django</category></item><item><title>Uma ode ao Docker - Parte 2</title><link>https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html" title="Uma ode ao Docker - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;
+falamos sobre o &lt;em&gt;Docker&lt;/em&gt;, e arranhamos um pouco sobre a diferença entre
+virtualização com &lt;em&gt;Hypervisor&lt;/em&gt; e &lt;em&gt;Container&lt;/em&gt;. Nesse &lt;em&gt;post&lt;/em&gt;,
+vamos explorar um pouquinho mais alguns conceitos, mostrando como funciona essa
+ferramenta que é sensação quando o assunto é &lt;em&gt;virtual machines&lt;/em&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Mas antes, vamos relembrar o que é …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 01 May 2017 22:25:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-05-01:/2017/05/01/uma-ode-ao-docker-parte-2.html</guid><category>infraestrutura</category><category>virtualizacao</category><category>containerizacao</category><category>docker</category><category>nginx</category></item><item><title>Uma ode ao Docker - Parte 1</title><link>https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html</link><description>&lt;p&gt;Virtualização é um dos assuntos que mais evoluiu nesses últimos anos de TI. Mas
+foi o termo "containerização" que teve um "boom" de popularidade recentemente. Isso graças
+ao &lt;a href="https://www.docker.com/" title="Build, ship, run"&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;, popular ferramenta que tem
+tornado a virtualização/containerização em uma &lt;em&gt;commodity&lt;/em&gt; no universo de desenvolvimento de &lt;em&gt;Software&lt;/em&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Para ser sincero, eu …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 14 Jan 2017 18:20:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-01-14:/2017/01/14/uma-ode-ao-docker-parte-1.html</guid><category>infraestrutura</category><category>virtualizacao</category><category>containerizacao</category><category>docker</category></item></channel></rss>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Klaus Laube - tdd</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 05 Jan 2018 17:05:00 -0200</lastBuildDate><item><title>Testando apps Django com Tox</title><link>https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</link><description>&lt;p&gt;O &lt;a href="https://docs.djangoproject.com/pt-br/2.0/releases/2.0/" title="Django 2.0 release notes"&gt;&lt;em&gt;Django 2.0&lt;/em&gt;&lt;/a&gt; foi lançado,
+e com ele o suporte a &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; &lt;code&gt;2.7&lt;/code&gt; deixa de existir para
+as próximas versões do &lt;em&gt;framework&lt;/em&gt;. Alegria para os usuários, preocupação para os desenvolvedores
+dos &lt;a href="http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/" title="Desmistificando O Conceito De Django Apps"&gt;&lt;em&gt;apps&lt;/em&gt;&lt;/a&gt;.
+Afinal, a versão &lt;code&gt;1.11&lt;/code&gt; é &lt;em&gt;LTS&lt;/em&gt; (Long Term Support), logo, alguns &lt;em&gt;apps&lt;/em&gt; (ainda) não podem …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 05 Jan 2018 17:05:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-01-05:/2018/01/05/testando-apps-django-com-tox.html</guid><category>desenvolvimento</category><category>testes</category><category>tdd</category><category>tox</category><category>django</category><category>python</category><category>virtualenv</category></item><item><title>Ferramentas de testes em Django - Parte 2</title><link>https://klauslaube.com.br/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html" title="Ferramentas de testes em Django - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
+conhecemos as ferramentas &lt;em&gt;default&lt;/em&gt; para construção de testes
+automatizados em &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Acontece que você pode “sair um pouco da
+caixa” e usufruir de ferramentas “third-party“, que enriquecerão o seu
+ambiente de desenvolvimento e lhe trarão maior segurança em seus &lt;a href="https://klauslaube.com.br/tag/testes.html" title="Leia mais sobre testes"&gt;testes
+de &lt;em&gt;software&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h2&gt;splinter – Testando a sua aplicação …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 23 Jul 2011 18:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-07-23:/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>bdd</category><category>tdd</category><category>testes</category></item><item><title>Ferramentas de testes em Django - Parte 1</title><link>https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</link><description>&lt;p&gt;Dando continuidade à série
+“&lt;a href="{filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md" title="Veja outros posts desta série"&gt;Montando seu ambiente de desenvolvimento &lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;“, vou
+indicar algumas ferramentas de testes para que você também possa deixar
+com que os &lt;a href="https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html" title="TDD: Desenvolvimento Orientado a Testes"&gt;testes guiem o desenvolvimento de suas aplicações&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Afinal, testar é preciso ;)&lt;/p&gt;
+&lt;h2&gt;Testar em Django é possível?&lt;/h2&gt;
+&lt;p&gt;Sem dúvida nenhuma! Mas não espere que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 18 Jul 2011 22:06:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-07-18:/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>testes</category><category>bdd</category><category>tdd</category></item><item><title>TDD: Desenvolvimento Orientado a Testes</title><link>https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html</link><description>&lt;p&gt;Esse post foi originalmente escrito para o &lt;a href="http://www.profissionaisti.com.br/" title="Tudo sobre Tecnologia! ProfissionaisTI"&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;, você
+pode conferi-lo na &lt;a href="http://www.profissionaisti.com.br/2009/11/tdd-desenvolvimento-orientado-a-testes/" title="TDD: Desenvolvimento Orientado a Testes"&gt;íntegra aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;&lt;strong&gt;O caos!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Hoje em dia o &lt;a href="https://klauslaube.com.br/tag/agile.html" title="Leia mais sobre Agile"&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt; passou de uma “técnica anarquista” para uma
+saborosa realidade, principalmente nas &lt;em&gt;startups&lt;/em&gt; de tecnologia.&lt;/p&gt;
+&lt;p&gt;Uma das características de qualquer método ou ferramenta &lt;em&gt;agile&lt;/em&gt; é que:
+&lt;strong&gt;Qualidade não é …&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 27 Jan 2011 11:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-01-27:/2011/01/27/tdd-desenvolvimento-orientado-testes.html</guid><category>desenvolvimento</category><category>testes</category><category>tdd</category><category>agile</category></item></channel></rss>

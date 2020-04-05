@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Os testes e os dublês - Parte 2 | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Vamos detalhar através de exemplos práticos os test doubles dummy, fake, stub, mock e spy."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, testes, mock, python"><meta property=og:title content="Os testes e os dublês - Parte 2"><meta property=og:description content="Vamos detalhar através de exemplos práticos os test doubles dummy, fake, stub, mock e spy."><meta property=og:url content=https://klauslaube.com.br/2015/06/29/os-testes-e-os-dubles-parte-2.html><meta property=og:image content=https://klauslaube.com.br//images/blog/testing-vader.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2015/06/29/os-testes-e-os-dubles-parte-2.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/testing-vader.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Os testes e os dublês - Parte 2 </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2015-06-29T12:30:00-03:00 itemprop=datePublished>29 Jun, 2015</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/tdd-red-green-refactor.png alt="TDD (izenbridge.com)" class=representative-image width=180 height=180> <p>No <a href=https://klauslaube.com.br/2014/08/07/os-testes-e-os-dubles-parte-1.html title="Os testes e os Dublês - Parte 1"><em>post</em> anterior</a>, vimos um dos cenários de testes utilizados por times da <a href=http://globo.com title="Absolutamente tudo sobre notícias, esportes e entretenimento"><em>Globo.com</em></a>, onde não escrevemos testes "isolados" (famigerados <em><a href="https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&album=theBasics&devLanguage=Java" title="Testing Single Responsibilities at High Speed">microtests</a></em>), e abusamos da integração entre classes e serviços.</p> <!-- PELICAN_END_SUMMARY --> <p>Mas até mesmo para nós existe um limite que não podemos ultrapassar: O caso de uma consulta a uma <em>API</em> externa, por exemplo. Nesse cenário, precisamos fingir que estamos fazendo isso, sem perder a segurança em nossas asserções.</p> <h2>Dublês ao resgate</h2> <p>Como já mencionado, os <em>test doubles</em> têm por finalidade substituir um objeto real, afim de validar algum conceito em nossos testes.</p> <p>Para auxiliar-nos nessa demanda, vamos utilizar a <strong>Python Mock</strong>, biblioteca de <em>mocking</em> padrão do <em>Python 3</em>. Com ela, poderemos fingir integrações complexas da nossa aplicação, com o objetivo de testar um determinado comportamento em "custo" e tempos atrativos.</p> <p><img class=align-center src=/images/blog/testing-vader.jpg width=500 height=400 title="I find your lack of tests disturbing (jasonpolites.github.io)" alt="I find your lack of tests disturbing (jasonpolites.github.io)"></p> <p>Se você (assim como eu) ainda está no <em>Python 2.7.X</em>, podemos instalar a <em>lib</em> através do <code>pip</code>:</p> <div class=highlight><pre><span></span>$ pip install mock
+</pre></div> <p><a href=http://www.voidspace.org.uk/python/mock/#installing title="Mock - Installing">Mais instruções para instalação da <em>Mock</em></a>.</p> <p>Uma vez instalada, podemos partir para conceituar de forma prática cada um dos tipos de dublês listados no <em>post</em> anterior.</p> <h2>Dummys</h2> <p>Um <em>Dummy Object</em> é um tipo de dublê muito simples, que é usado apenas para preencher passagens de parâmetros:</p> <div class=highlight><pre><span></span><span class=k>class</span> <span class=nc>Carro</span><span class=p>:</span>
+    <span class=n>rodas</span> <span class=o>=</span> <span class=mi>4</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>descricao</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>):</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span> <span class=o>=</span> <span class=n>descricao</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span> <span class=o>=</span> <span class=n>fabricante</span>
+
+<span class=c1># Teste</span>
+
+<span class=k>def</span> <span class=nf>test_usando_dummy</span><span class=p>():</span>
+    <span class=n>fabricante</span> <span class=o>=</span> <span class=bp>None</span>
+    <span class=n>carro</span> <span class=o>=</span> <span class=n>Carro</span><span class=p>(</span><span class=s1>&#39;Fusca&#39;</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>)</span>
+
+    <span class=k>assert</span> <span class=n>carro</span><span class=o>.</span><span class=n>rodas</span> <span class=o>==</span> <span class=mi>4</span>
+</pre></div> <p>Como observado, um <em>Dummy</em> não precisa ser necessariamente um <em>mock</em>. Um valor em branco, nulo, uma string vazia, qualquer coisa usada para substituir um objeto real em uma passagem de parâmetro, pode ser considerado um <em>Dummy</em>.</p> <h2>Fakes</h2> <p>Um <em>Fake</em> é um objeto com certa funcionalidade, muito útil para resolver alguma dependência em testes, mas que não é ideal para o ambiente de produção:</p> <div class=highlight><pre><span></span><span class=k>class</span> <span class=nc>Carro</span><span class=p>:</span>
+    <span class=n>rodas</span> <span class=o>=</span> <span class=mi>4</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>descricao</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>):</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span> <span class=o>=</span> <span class=n>descricao</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span> <span class=o>=</span> <span class=n>fabricante</span>
+
+    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=s2>&quot;{0} ({1})&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span><span class=p>,</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=p>(),</span>
+        <span class=p>)</span>
+
+<span class=c1># Teste</span>
+
+<span class=k>class</span> <span class=nc>FabricanteFake</span><span class=p>:</span>
+    <span class=n>descricao</span> <span class=o>=</span> <span class=s1>&#39;Volkswagen&#39;</span>
+
+    <span class=k>def</span> <span class=nf>get_descricao</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span>
+
+<span class=k>def</span> <span class=nf>test_usando_fake</span><span class=p>():</span>
+    <span class=n>fabricante</span> <span class=o>=</span> <span class=n>FabricanteFake</span><span class=p>()</span>
+    <span class=n>carro</span> <span class=o>=</span> <span class=n>Carro</span><span class=p>(</span><span class=s1>&#39;Fusca&#39;</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>)</span>
+
+    <span class=k>assert</span> <span class=nb>str</span><span class=p>(</span><span class=n>carro</span><span class=p>)</span> <span class=o>==</span> <span class=s1>&#39;Fusca (Volkswagen)&#39;</span>
+</pre></div> <p>No exemplo acima, (ainda) não utilizamos nenhum recurso da <strong>Mock</strong>. Dependendo do contexto, não precisamos de uma biblioteca para criarmos um <em>Fake</em>, e isso pode ser encarado de forma positiva, pois fica muito clara a nossa intenção no teste.</p> <p>É relativamente comum vermos <em>Fakes</em> sendo utilizados para "dublar" acessos a um banco de dados. Quando falamos de testes em <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre Django"><em>Django</em></a>, geralmente utilizamos uma persistência mais leve (como um banco <em>SQLite</em>, por exemplo) que substitui um banco mais complexo, tornando a nossa suíte de testes mais simples.</p> <h2>Mocks</h2> <p>Um tipo de dublê criado para um teste específico. Com ele, somos capazes de setar retornos de valores pré-definidos, bem como verificar se algum método foi chamado durante a execução do teste:</p> <div class=highlight><pre><span></span><span class=k>class</span> <span class=nc>Carro</span><span class=p>:</span>
+    <span class=n>rodas</span> <span class=o>=</span> <span class=mi>4</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>descricao</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>):</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span> <span class=o>=</span> <span class=n>descricao</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span> <span class=o>=</span> <span class=n>fabricante</span>
+
+    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=s2>&quot;{0} ({1})&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span><span class=p>,</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=p>(),</span>
+        <span class=p>)</span>
+
+<span class=c1># Teste</span>
+
+<span class=k>def</span> <span class=nf>test_usando_mock</span><span class=p>():</span>
+    <span class=n>fabricante</span> <span class=o>=</span> <span class=n>MagicMock</span><span class=p>()</span>
+    <span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=o>.</span><span class=n>return_value</span> <span class=o>=</span> <span class=s1>&#39;Volkswagen&#39;</span>
+    <span class=n>carro</span> <span class=o>=</span> <span class=n>Carro</span><span class=p>(</span><span class=s1>&#39;Fusca&#39;</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>)</span>
+
+    <span class=k>assert</span> <span class=nb>str</span><span class=p>(</span><span class=n>carro</span><span class=p>)</span> <span class=o>==</span> <span class=s1>&#39;Fusca (Volkswagen)&#39;</span>
+    <span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=o>.</span><span class=n>assert_called_once_with</span><span class=p>()</span>
+</pre></div> <p><em>Mocks</em> são fundamentais quando estamos lidando com interações das quais não podemos (ou fica muito custoso) prever o comportamento. Particularmente, gosto de usar <em>Mocks</em> para garantir que o contrato entre o meu método/classe e meu serviço/<em>API</em> esteja coerente.</p> <h2>Stubs</h2> <p>Semelhantes aos <em>Mocks</em>, com os <em>Stubs</em> temos a capacidade de retornar respostas pré-definidas durante a execução de um teste. A principal diferença entre ambos é que com <em>Stubs</em>, não costumamos checar se eles foram propriamente executados:</p> <div class=highlight><pre><span></span><span class=k>class</span> <span class=nc>Carro</span><span class=p>:</span>
+    <span class=n>rodas</span> <span class=o>=</span> <span class=mi>4</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>descricao</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>):</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span> <span class=o>=</span> <span class=n>descricao</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span> <span class=o>=</span> <span class=n>fabricante</span>
+
+    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=s2>&quot;{0} ({1})&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span><span class=p>,</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=p>(),</span>
+        <span class=p>)</span>
+
+<span class=c1># Teste</span>
+
+<span class=kn>from</span> <span class=nn>mock</span> <span class=kn>import</span> <span class=n>MagicMock</span>
+
+
+<span class=k>def</span> <span class=nf>test_usando_stub</span><span class=p>():</span>
+    <span class=n>fabricante</span> <span class=o>=</span> <span class=n>MagicMock</span><span class=p>()</span>
+    <span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=o>.</span><span class=n>return_value</span> <span class=o>=</span> <span class=s1>&#39;Volkswagen&#39;</span>
+    <span class=n>carro</span> <span class=o>=</span> <span class=n>Carro</span><span class=p>(</span><span class=s1>&#39;Fusca&#39;</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>)</span>
+
+    <span class=k>assert</span> <span class=nb>str</span><span class=p>(</span><span class=n>carro</span><span class=p>)</span> <span class=o>==</span> <span class=s1>&#39;Fusca (Volkswagen)&#39;</span>
+
+<span class=n>test_usando_stub</span><span class=p>()</span>
+</pre></div> <p><em>Stubs</em> são excelentes para fingir interações com bibliotecas <em>third-party</em>. Não precisamos compreender a sua complexidade, apenas fingimos que ela está lá e retornando valores para os nossos <em>test cases</em>. Exemplo:</p> <div class=highlight><pre><span></span><span class=kn>from</span> <span class=nn>datetime</span> <span class=kn>import</span> <span class=n>date</span>
+<span class=k>with</span> <span class=n>patch</span><span class=p>(</span><span class=s1>&#39;mymodule.date&#39;</span><span class=p>)</span> <span class=k>as</span> <span class=n>mock_date</span><span class=p>:</span>
+    <span class=n>mock_date</span><span class=o>.</span><span class=n>today</span><span class=o>.</span><span class=n>return_value</span> <span class=o>=</span> <span class=n>date</span><span class=p>(</span><span class=mi>2010</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>8</span><span class=p>)</span>
+    <span class=n>mock_date</span><span class=o>.</span><span class=n>side_effect</span> <span class=o>=</span> <span class=k>lambda</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>:</span> <span class=n>date</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kw</span><span class=p>)</span>
+
+    <span class=k>assert</span> <span class=n>mymodule</span><span class=o>.</span><span class=n>date</span><span class=o>.</span><span class=n>today</span><span class=p>()</span> <span class=o>==</span> <span class=n>date</span><span class=p>(</span><span class=mi>2010</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>8</span><span class=p>)</span>
+    <span class=k>assert</span> <span class=n>mymodule</span><span class=o>.</span><span class=n>date</span><span class=p>(</span><span class=mi>2009</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>8</span><span class=p>)</span> <span class=o>==</span> <span class=n>date</span><span class=p>(</span><span class=mi>2009</span><span class=p>,</span> <span class=mi>6</span><span class=p>,</span> <span class=mi>8</span><span class=p>)</span>
+</pre></div> <h2>Spies</h2> <p>Com <em>Spies</em>, ao invés de setarmos expectativas, armazenamos as chamadas realizadas por colaboradores:</p> <div class=highlight><pre><span></span><span class=k>class</span> <span class=nc>Carro</span><span class=p>:</span>
+    <span class=n>rodas</span> <span class=o>=</span> <span class=mi>4</span>
+
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>descricao</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>):</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span> <span class=o>=</span> <span class=n>descricao</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span> <span class=o>=</span> <span class=n>fabricante</span>
+
+    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=s2>&quot;{0} ({1})&quot;</span><span class=o>.</span><span class=n>format</span><span class=p>(</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>descricao</span><span class=p>,</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=p>(),</span>
+        <span class=p>)</span>
+
+<span class=c1># Teste</span>
+
+<span class=kn>from</span> <span class=nn>mock</span> <span class=kn>import</span> <span class=n>MagicMock</span>
+
+
+<span class=k>def</span> <span class=nf>test_usando_spy</span><span class=p>():</span>
+    <span class=n>fabricante</span> <span class=o>=</span> <span class=n>MagicMock</span><span class=p>()</span>
+    <span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=o>.</span><span class=n>return_value</span> <span class=o>=</span> <span class=s1>&#39;Volkswagen&#39;</span>
+
+    <span class=n>fusca</span> <span class=o>=</span> <span class=n>Carro</span><span class=p>(</span><span class=s1>&#39;Fusca&#39;</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>)</span>
+    <span class=n>gol</span> <span class=o>=</span> <span class=n>Carro</span><span class=p>(</span><span class=s1>&#39;Gol&#39;</span><span class=p>,</span> <span class=n>fabricante</span><span class=p>)</span>
+
+    <span class=nb>str</span><span class=p>(</span><span class=n>fusca</span><span class=p>)</span>
+    <span class=nb>str</span><span class=p>(</span><span class=n>gol</span><span class=p>)</span>
+
+    <span class=k>assert</span> <span class=n>fabricante</span><span class=o>.</span><span class=n>get_descricao</span><span class=o>.</span><span class=n>call_count</span> <span class=o>==</span> <span class=mi>2</span>
+</pre></div> <p>Costumo usar <em>Spies</em> com frequência em testes <em>front-end</em>, principalmente utilizando <a href=https://qunitjs.com/ title="Conheça a suíte de testes JS, QUnit"><em>QUnit</em></a> e <a href=http://sinonjs.org/ title="Spies, stubs and mocks for Javascript"><em>Sinon.JS</em></a>, para garantir a chamada de um determinado método dentro de eventos complexos, onde não consigo ter certeza sobre o resultado esperado.</p> <h2>Conclusão</h2> <p>Já dizia o filósofo que "mockar é uma arte". A verdade é que o uso de <em>doubles</em> nos ajuda muito quando estamos trabalhando dentro de um contexto de <em>TDD</em>, simplificando assim um relacionamento complexo entre classes/objetos, afim de agilizar o nosso desenvolvimento e facilitar os nosso testes.</p> <p>Recentemente participei de um treinamento da <a href=http://www.industriallogic.com/ title="Developing Software Doesn't Have To Be Slow, Stressful And Filled With Unpleasant Surprises"><em>Industrial Logic</em></a>, sobre <em>Refactoring</em>, e a lição que ficou foi: Use <em>mocks</em> moderadamente. Sempre dê preferência a uma alteração na arquitetura do seu <em>software</em> (como por exemplo, o uso de <a href=https://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_depend%C3%AAncia title="Leia mais no Wikipedia">Injeção de Dependência</a>).</p> <p>Se o uso de dublês for inevitável, prefira tipos mais simples (<em>Dummys</em> e <em>Fakes</em>). Dessa forma, os seus testes ficarão simples, legíveis e mais fáceis de manter.</p> <p>Até a próxima.</p> <h2>Referências</h2> <ul> <li><em><a href=https://nirajrules.wordpress.com/2011/08/27/dummy-vs-stub-vs-spy-vs-fake-vs-mock/ title="Leia o artigo completo sobre as nomenclaturas">Niraj Bhatt - Dummy vs. Stub vs. Spy vs. Fake vs. Mock</a></em></li> <li><em><a href=http://stackoverflow.com/questions/346372/whats-the-difference-between-faking-mocking-and-stubbing title="Leia mais no StackOverflow">StackOverflow - What's the difference between faking, mocking, and stubbing?</a></em></li> <li><em><a href=http://code.tutsplus.com/articles/tdd-terminology-simplified--net-30626 title="Leia mais sobre TDD no Tuts+">Tuts+ - TDD Terminology Simplified</a></em></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/testes.html title="Leia mais sobre" class=Article-tagLink>testes</a> <a href=https://klauslaube.com.br/tag/mock.html title="Leia mais sobre" class=Article-tagLink>mock</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2015/06/29/os-testes-e-os-dubles-parte-2.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

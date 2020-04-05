@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Como organizar seus projetos Django | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Pretendo compartilhar com vocês a forma que venho utilizando para organizar meus projetos Django com o uso do virtualenv."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, ambiente-de-desenvolvimento, python, django, virtualenv"><meta property=og:title content="Como organizar seus projetos Django"><meta property=og:description content="Pretendo compartilhar com vocês a forma que venho utilizando para organizar meus projetos Django com o uso do virtualenv."><meta property=og:url content=https://klauslaube.com.br/2011/04/11/como-organizar-seus-projetos-django.html><meta property=og:image content><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2011/04/11/como-organizar-seus-projetos-django.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Como organizar seus projetos Django </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2011-04-11T20:11:00-03:00 itemprop=datePublished>11 Abr, 2011</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/django-logo.png alt="Logotipo do Django" class=representative-image width=180 height=180> <p>Pretendo compartilhar com vocês a forma que venho utilizando para organizar meus projetos <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre Django"><em>Django</em></a> com o uso do <a href=https://klauslaube.com.br/tag/virtualenv.html title="Leia mais sobre virtualenv"><em>virtualenv</em></a>. Não entrarei em muitos detalhes, até porque você verá que é um procedimento muito simples, mas que poderá garantir melhor organização dos seus projetos e dos seus ambientes de desenvolvimento.</p> <!-- PELICAN_END_SUMMARY --> <p>É interessante que você leia o post <a href=https://klauslaube.com.br/2011/03/18/python-django-virtualenv.html title="Leia mais sobre a tríade Python, Django e virtualenv"><em>Python</em>, <em>Django</em> e <em>virtualenv</em></a> antes de continuar.</p> <h2>Simplesmente um projeto Django</h2> <p>Antes de conhecer (e utilizar) o <em>virtualenv</em>, utilizei algo parecido com o modelo “tradicional” de organização de pastas e códigos em um projeto <em>Django</em>. Ou seja, parecido com aquela estrutura padrão gerada pelo comando <code>django-admin.py startproject</code>.</p> <p>O modelo é bom, e funcionou para mim durante muito tempo. Mas de uns tempos para cá venho utilizando o esquema abaixo (confira um exemplo real):</p> <div class=highlight><pre><span></span>mysite/
+    apps/
+        __init__.py
+        eggs/
+            fixtures/
+                eggs_testdata.json
+            tests/
+                __init__.py
+                models.py
+                views.py
+            __init__.py
+            models.py
+            urls.py
+            views.py
+        core/
+            __init__.py
+            extras.py
+    __init__.py
+    manage.py
+    settings.py
+    urls.py
+</pre></div> <p>A diferença principal está na utilização da pasta <code>apps</code> para encapsular as aplicações do projeto, e a criação de uma pasta (ou pacote, como preferir) <code>core</code>. Nesta última, gosto de armazenar <em>snippets</em> de código que serão aproveitados pelo projeto inteiro.</p> <p>Outro ponto que vale ser notado é a criação de uma pasta chamada <code>tests</code> para cada <em>app</em>. Embora haja casos em que um arquivo <code>tests.py</code> seja o suficiente, podemos nos deparar com um arquivo gigantesco testando vários aspectos de uma <em>app</em> (o que pode dificultar a legibilidade de código). Categorizar os testes por tipo, e em arquivos separados, irá facilitar a adição de novos testes e funcionalidades.</p> <p>A abordagem dos testes também pode ser utilizada para o <code>urls.py</code>. Quando o seu arquivo de roteamento ficar muito grande, crie uma pasta <code>urls</code> e “quebre” suas rotas em arquivos diferentes. Categorize-os, sinta-se “zen” e nunca mais tenha medo de criar <em>URLs</em> novamente</p> <p>Comecei a utilizar esta estrutura após “xeretar” alguns projetos <em>Django</em> <em>open source</em>. Posso dizer por experiência própria que é uma prática interessante, e que tem me ajudado muito na organização de código.</p> <h2>O projeto Django com o virtualenv</h2> <p>Tratando-se do ambiente de desenvolvimento (construído pelo <em>virtualenv</em>), já utilizei-o de duas formas:</p> <ul> <li><strong>O <em>environment</em> em uma pasta separada do projeto:</strong> Você pode possuir uma pasta “environments” e lá ter diferentes ambientes para diferentes projetos.</li> <li><strong>O projeto <em>Django</em> ficar dentro da pasta de <em>environment</em>:</strong> Você primeiramente constrói um ambiente com o <em>virtualenv</em>, e depois cria um projeto dentro dessa mesma pasta (como demonstrado <a href=http://blog.triveos.com.br/2010/04/25/trabalhando-com-python-e-django/ title="Trabalhando com Python e Django à moda Osvaldo">neste <em>post</em> do <em>Osvaldo Santana</em></a>).</li> </ul> <p>Particularmente eu prefiro a segunda opção (nunca precisei de 2 <em>environments</em> idênticos). Além de manter todo o seu projeto agrupado, fica mais fácil para criação de <em>scripts</em> de automatização de <em>deploy</em>, por exemplo.</p> <p>No fim das contas, geralmente a estrutura de pastas dos projetos <em>Django</em> fica assim:</p> <div class=highlight><pre><span></span>MySiteProject/
+    bin/
+    include/
+    lib/
+    mysite/
+        apps/
+            __init__.py
+            eggs/
+                fixtures/
+                    eggs_testdata.json
+                tests/
+                    __init__.py
+                    models.py
+                    views.py
+                __init__.py
+                models.py
+                urls.py
+                views.py
+            core/
+                __init__.py
+                extras.py
+        __init__.py
+        manage.py
+        settings.py
+        urls.py
+</pre></div> <p>E você? De que forma organiza os seus projetos em <em>Django</em>? Conte-nos através dos comentários abaixo!</p> <p>Até a próxima…</p> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/ambiente-de-desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>ambiente-de-desenvolvimento</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre" class=Article-tagLink>django</a> <a href=https://klauslaube.com.br/tag/virtualenv.html title="Leia mais sobre" class=Article-tagLink>virtualenv</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2011/04/11/como-organizar-seus-projetos-django.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

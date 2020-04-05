@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Klaus Laube - mock</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 29 Jun 2015 12:30:00 -0300</lastBuildDate><item><title>Os testes e os dublês - Parte 2</title><link>https://klauslaube.com.br/2015/06/29/os-testes-e-os-dubles-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2014/08/07/os-testes-e-os-dubles-parte-1.html" title="Os testes e os Dublês - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, vimos um dos
+cenários de testes utilizados por times da &lt;a href="http://globo.com" title="Absolutamente tudo sobre notícias, esportes e entretenimento"&gt;&lt;em&gt;Globo.com&lt;/em&gt;&lt;/a&gt;, onde não escrevemos testes "isolados"
+(famigerados &lt;em&gt;&lt;a href="https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&amp;amp;album=theBasics&amp;amp;devLanguage=Java" title="Testing Single Responsibilities at High Speed"&gt;microtests&lt;/a&gt;&lt;/em&gt;),
+e abusamos da integração entre classes e serviços.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Mas até mesmo para nós existe um limite que não podemos ultrapassar: O caso
+de uma consulta a uma &lt;em&gt;API …&lt;/em&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 29 Jun 2015 12:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2015-06-29:/2015/06/29/os-testes-e-os-dubles-parte-2.html</guid><category>desenvolvimento</category><category>testes</category><category>mock</category><category>python</category></item><item><title>Os testes e os dublês - Parte 1</title><link>https://klauslaube.com.br/2014/08/07/os-testes-e-os-dubles-parte-1.html</link><description>&lt;p&gt;Em tempos onde &lt;a href="http://martinfowler.com/articles/is-tdd-dead/" title="Is TDD dead?"&gt;discussões envolvendo a relevância&lt;/a&gt; dos &lt;a href="https://klauslaube.com.br/tag/testes.html" title="Leia mais sobre testes"&gt;testes&lt;/a&gt; têm
+causado furor nos diferentes campos da área do desenvolvimento de &lt;em&gt;software&lt;/em&gt;,
+nada mais justo do que "chovermos no molhado", e falarmos sobre testes, &lt;em&gt;mocks&lt;/em&gt;,
+&lt;em&gt;stubs&lt;/em&gt; e todos os seus primos menos famosos.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Nessa primeira parte, vamos conceituar toda essa "sopa …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 07 Aug 2014 23:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2014-08-07:/2014/08/07/os-testes-e-os-dubles-parte-1.html</guid><category>desenvolvimento</category><category>testes</category><category>mock</category><category>python</category></item></channel></rss>

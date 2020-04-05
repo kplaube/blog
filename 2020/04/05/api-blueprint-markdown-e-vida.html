@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>API Blueprint: Markdown é vida! | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Estamos falando sobre escrever especificações de APIs há um bom tempo aqui no blog. RAML, Swagger e OpenAPI Specification já foram explorados, e com os..."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, rest, apis, api-first, api-blueprint, mson"><meta property=og:title content="API Blueprint: Markdown é vida!"><meta property=og:description content="Estamos falando sobre escrever especificações de APIs há um bom tempo aqui no blog. RAML, Swagger e OpenAPI Specification já foram explorados, e com os..."><meta property=og:url content=https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html><meta property=og:image content=https://klauslaube.com.br//images/blog/westworld-antony-hopkins.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/westworld-antony-hopkins.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> API Blueprint: Markdown é vida! </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2020-04-05T07:40:00-03:00 itemprop=datePublished>05 Abr, 2020</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/api-blueprint-logo.png alt="Logotipo do API Blueprint" class=representative-image width=180 height=180> <p>Estamos falando sobre escrever especificações de <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre APIs"><em>APIs</em></a> há um bom tempo aqui no <em>blog</em>. <a href=https://klauslaube.com.br/tag/raml.html title="Leia mais sobre RAML"><em>RAML</em></a>, <a href=https://klauslaube.com.br/tag/swagger.html title="Leia mais sobre Swagger"><em>Swagger</em></a> e <a href=https://klauslaube.com.br/tag/oai.html title="Leia mais sobre OpenAPI"><em>OpenAPI Specification</em></a> já foram explorados, e com os dois últimos encontramos um ecossistema rico com ferramentas extremamente interessantes.</p> <!-- PELICAN_END_SUMMARY --> <p>Há um outro simpático <em>player</em> no mercado, o <a href=https://apiblueprint.org/ title="Visite a página oficial do projeto"><em>API Blueprint</em></a>, e o <em>post</em> de hoje é sobre essa prática ferramenta.</p> <h2>A menor curva de aprendizado do Oeste</h2> <p>Um colega de trabalho, há muito tempo atrás, me apresentou o <em>API Blueprint</em>. Na ótica dele, um dos aspectos mais interessantes era a escrita utilizando <em>Markdown</em>.</p> <p><img class=align-center-keep-size src=/images/blog/westworld-antony-hopkins.jpg width=740 height=493 title="É um formato para máquinas? É um formato para humanos? Que diferença faz? (tvguide.com)" alt="É um formato para máquinas? É um formato para humanos? Que diferença faz? (tvguide.com)"></p> <p>Sim! É verdade! Claro que utilizando o formato/extensão específico há ganhos como <em>syntax highlighting</em>, mas ainda assim é possível escrever a especificação de uma <em>API</em> somente com <em>Markdown</em>, o que torna a leitura do documento mais amigável, e interoperável com ferramentas como o seu editor de textos, ou o próprio <em>Github</em>.</p> <p><img class=align-center-keep-size src=/images/blog/api-blueprint-github-example.png width=740 height=595 title="Como o documento é apresentado pelo Github" alt="Como o documento é apresentado pelo Github"></p> <p>Para quem já tem um <code>README.md</code> em seu repositório, ter um <code>api.md</code> não parece ser nenhum grande sacrifício. E dependendo do seu público alvo, ter a "documentação final gerada" pode ser tão simples quanto compartilhar o <em>link</em> da especificação no <em>Github</em>.</p> <h2>Mas o que é API Blueprint mesmo?</h2> <p>A documentação oficial o define da seguinte forma:</p> <blockquote> <p>(...) is simple and accessible to everybody involved in the API lifecycle. Its syntax is concise yet expressive. With API Blueprint you can quickly design and prototype APIs to be created or document and test already deployed mission-critical APIs.</p> </blockquote> <p>Assim como os já citados <em>RAML</em> e <em>Swagger</em>, o <em>API Blueprint</em> é uma linguagem de <em>design</em> utilizada para descrever <em>APIs</em>. O seu propósito é o de encorajar o diálogo e colaboração, logo, uma ferramenta mais que ideal para adoção no seu processo de <em>API-First</em>.</p> <p>Para ter os ganhos que citei anteriormente, o <em>API Blueprint</em> usa um "melhoramento" do <em>Markdown</em> chamado de <em>MSON</em> (<em>Markdown Syntax for Object Notation</em>). É com essa notação que utilizamos a síntaxe do <em>Markdown</em> para descrever estruturas de dados, heranças e recursos.</p> <p><a href=https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md title="Leia no Github">Leia a especificação do <em>MSON</em></a>.</p> <h2>Começando</h2> <p>Voltando ao bom e velho exemplo do <a href=https://klauslaube.com.br/2016/05/20/rest-parte-2.html title="REST: Parte 2"><em>mini IMDB</em></a>, vamos criar um arquivo <code>api.md</code> e pôr a mão na massa.</p> <p>Começamos por definir qual versão do <em>API Blueprint</em> utilizaremos, bem como descrevendo o nome da <em>API</em> e seu propósito:</p> <div class=highlight><pre><span></span>FORMAT: A1
+
+# Movies API
+
+This is an API Blueprint example describing a movies API.
+</pre></div> <p>O <code>#</code>, no <em>Markdown</em>, é associado a um "título de nível 1". Ou seja, o <code># Movies API</code> se convertido em <em>HTML</em> produziria um <code>&lt;h1&gt;Movies API&lt;/h1&gt;</code>. Nesse caso, o <code>#</code> produz o título da <em>API</em>. O <code>#</code> também é utilizado para agrupar recursos, mas nesse caso, ele necessita da <em>keyword</em> <code>Group</code>:</p> <div class=highlight><pre><span></span>FORMAT: A1
+
+# Movies API
+
+This is an API Blueprint example describing a movies API.
+
+# Group Movies
+
+Resources related to movies in the API.
+</pre></div> <h2>Descrevendo recursos</h2> <p>O próximo passo é descrever o recurso e seus <em>endpoints</em>. Começaremos pelo <em>endpoint</em> <code>/movies</code>. Para descrever o recurso, utilizamos o <code>##</code>, já a ação é representada através de 3 <em>hashtags</em> (<code>###</code>):</p> <div class=highlight><pre><span></span>(...)
+
+## Movie collection [/movies]
+
+### List all Movies [GET]
+
+List movies in reverse order of publication.
+
++ Response 200 (application/json)
+</pre></div> <p>Quando o recurso <code>/movies</code> receber uma requisição <code>GET</code>, ele responderá com o <em>status code</em> <code>200</code>, e com o <code>content-type</code> <code>application/json</code>. Essa última parte é descrita através da linha <code>+ Response 200 (application/json)</code>.</p> <p><img class=align-center-keep-size src=/images/blog/api-blueprint-resource-example.png width=740 height=486 title="Exemplo de representação do endpoint" alt="Exemplo de representação do endpoint"></p> <p>Podemos também descrever como será o <em>payload</em> dessa resposta.</p> <h2>Descrevendo os dados</h2> <p>É possível utilizar <a href=https://json-schema.org/ title="A vocabulary that allows you to annotate and validate JSON documents"><em>JSON Schema</em></a> para descrever o <em>payload</em> de requisições e respostas. Como ilustrado nesse exemplo tirado da documentação oficial:</p> <div class=highlight><pre><span></span>### Create a New Question [POST]
+You may create your own question using this action. It takes a JSON object
+containing a question and a collection of answers in the form of choices.
+
++ Request (application/json)
+
+    + Body
+
+            {
+              &quot;question&quot;: &quot;Favourite language?&quot;
+              &quot;choices&quot;: [
+                &quot;Swift&quot;,
+                &quot;Objective-C&quot;
+              ]
+            }
+
+    + Schema
+
+            {
+              &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,
+              &quot;type&quot;: &quot;object&quot;,
+              &quot;properties&quot;: {
+                &quot;question&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;choices&quot;: {
+                  &quot;type&quot;: &quot;array&quot;,
+                  &quot;items&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;minItems&quot;: 2
+                }
+              }
+            }
+</pre></div> <p>O <em>JSON Schema</em> é um vocabulário poderoso para anotar e validar documentos <em>JSON</em>. No entanto, ele pode "destoar" do resto do seu documento.</p> <p>Há uma alternativa utilizando o próprio <em>MSON</em>. Através da seção <code>## Data structure</code>, conseguimos algo semelhante com o ilustrado acima.</p> <div class=highlight><pre><span></span>(...)
+
+## Data structures
+
+### Movie
++ id: 810b43d0-fc0d-4199-8a79-25b471c880bf (string, required)
++ title: Avengers: Endgame (string, required)
++ description (string)
+</pre></div> <p>Descrevemos a estrutura <code>Movie</code>, informando o seu <code>id</code> (<code>string</code> e obrigatória), <code>title</code> e <code>description</code>. Note que este último, além de não ser obrigatório, não possui nenhum exemplo informado (como os dois outro campos).</p> <p>Para associar a estrutura acima com a resposta de <code>/movies</code>, utilizamos <code>Attributes</code>:</p> <div class=highlight><pre><span></span>(...)
+
+### List all Movies [GET]
+
+List movies in reverse order of publication.
+
++ Response 200 (application/json)
+
+    + Attributes (array[Movie])
+
+(...)
+</pre></div> <p>Com ajuda do tipo <code>array</code>, descrevemos o <em>payload</em> da resposta do <em>endpoint</em>.</p> <p><img class=align-center-keep-size src=/images/blog/api-blueprint-data-example.png width=740 height=981 title="Exemplo de representação do payload" alt="Exemplo de representação do payload"></p> <p>No fim das contas, um <em>JSON body</em> e <em>JSON Schema</em> é gerado através dos atributos <em>MSON</em>. Por isso do bloco <code>Schema</code>, exibido na imagem acima.</p> <p>Visite o <a href=https://apiblueprint.org/documentation/tutorial.html title="Tutorial com demais verbos">tutorial do <em>API Blueprint</em></a> e veja como aplicar a especificação para os demais verbos <em>HTTP</em>.</p> <p><a href=https://gist.github.com/kplaube/8cb39a98e0a2892412f060ad6c61704b title="Veja o exemplo completo no Gist">O exemplo completo pode ser conferido aqui</a>.</p> <p>As imagens representando a especificação foram extraídas do <em>plugin</em> <a href="https://marketplace.visualstudio.com/items?itemName=develiteio.api-blueprint-viewer"><em>API Blueprint Viewer</em></a>, para o <a href=https://klauslaube.com.br/tag/vscode.html title="LEia mais sobre VS Code"><em>VS Code</em></a>.</p> <h2>Considerações finais</h2> <p>Na página de <a href=https://apiblueprint.org/tools.html title="Visite o site oficial do API Blueprint"><em>Tools</em> do site oficial</a> é possível conhecer as diferentes ferramentas à disposição, que vão desde editores até <em>mock servers</em>.</p> <p>Nesse quesito, uma das ferramentas que me conquistou foi o <a href=https://github.com/apiaryio/dredd title="Visite o repositório no Github"><em>Dredd</em></a>, que é utilizado para validar especificação, e funciona tanto com o <em>API Blueprint</em> quanto com o <em>OpenAPI</em>. Aliás, <em>OpenAPI</em>/<em>Swagger</em> ainda são "campeões" no quesito ferramentas disponíveis.</p> <p>Pela característica do <em>Markdown</em>, e de ser relativamente mais barato de escrever, eu tive a oportunidade de utilizar o <em>API Blueprint</em> da seguinte forma:</p> <ul> <li>Propostas de adições, remoções e alterações são escritas através de <em>API Blueprint</em> e discutidas com os <em>stakeholders</em>;</li> <li>A solução é escrita e o contrato é validado através do <em>Dredd</em>;</li> <li>Mas a especificação pública é gerada através do código-fonte, com o <em>Swagger</em>;</li> <li>E a partir dessa especificação é gerada a documentação final e <em>SDKs</em>.</li> </ul> <p>A facilidade de escrita de documentos <em>API Blueprint</em> faz dele uma ótima opção e um <em>player</em> mais que interessante no cenário de <em>specs</em> <em>REST</em>. Um terreno ainda dominado pelo <em>Swagger</em>...</p> <p>Até a próxima.</p> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre" class=Article-tagLink>rest</a> <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre" class=Article-tagLink>apis</a> <a href=https://klauslaube.com.br/tag/api-first.html title="Leia mais sobre" class=Article-tagLink>api-first</a> <a href=https://klauslaube.com.br/tag/api-blueprint.html title="Leia mais sobre" class=Article-tagLink>api-blueprint</a> <a href=https://klauslaube.com.br/tag/mson.html title="Leia mais sobre" class=Article-tagLink>mson</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2020/04/05/api-blueprint-markdown-e-vida.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

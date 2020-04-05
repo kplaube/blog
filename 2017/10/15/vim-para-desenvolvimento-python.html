@@ -1,0 +1,142 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Vim para desenvolvimento em Python | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Ter o Vim configurado para desenvolvimento Python é em teoria algo simples. Nesse artigo vamos dar uma olhada nos mais variados plugins que podem te ajudar com esta tarefa."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, ambiente-de-desenvolvimento, editores-de-texto, vim, python"><meta property=og:title content="Vim para desenvolvimento em Python"><meta property=og:description content="Ter o Vim configurado para desenvolvimento Python é em teoria algo simples. Nesse artigo vamos dar uma olhada nos mais variados plugins que podem te ajudar com esta tarefa."><meta property=og:url content=https://klauslaube.com.br/2017/10/15/vim-para-desenvolvimento-python.html><meta property=og:image content=https://klauslaube.com.br//images/blog/vim-plug-install.png><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2017/10/15/vim-para-desenvolvimento-python.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/vim-plug-install.png> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Vim para desenvolvimento em Python </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2017-10-15T19:20:00-02:00 itemprop=datePublished>15 Out, 2017</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/macvim-logo.png alt="Logotipo do MacVim" class=representative-image width=180 height=180> <p>Já mencionei as motivações de utilizar <a href=https://klauslaube.com.br/tag/vim.html title="Leia mais sobre Vim"><em>Vim</em></a> no <a href=https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html title="Leia o artigo completo">"Vim: O meu editor favorito"</a>. E embora eu já tenha "caído em tentação" e utilizado <a href=https://atom.io/ title="A hackable text editor"><em>Atom</em></a> e <a href=http://spacemacs.org/ title="The best editor is neither Emacs nor Vim, it's Emacs and Vim!"><em>Spacemacs</em></a> (esse último é simplesmente fantástico), acabo sempre retornando ao <em>Vim</em>. Principalmente após o <a href=https://www.reddit.com/r/linux/comments/52e4qo/vim_8_released/ title="Vim 8 released">lançamento da versão 8</a>, onde processamento assíncrono foi adicionado ao editor.</p> <!-- PELICAN_END_SUMMARY --> <p>Ter o <em>Vim</em> configurado para trabalhar com projetos <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre Python"><em>Python</em></a> é em teoria algo simples (se você optar por usar extensões). O problema é que durante a seleção de ferramentas, alguns detalhes aparecem e interferem na construção de um <a href=https://klauslaube.com.br/tag/ambiente-de-desenvolvimento.html title="Leia mais sobre ambiente de desenvolvimento">ambiente de desenvolvimento</a> capaz de operar sem problemas.</p> <p>E como diz o poeta: O diabo está nos detalhes.</p> <h2>Packaging: vim-plug</h2> <p>Para começar é preciso selecionar um sistema de empacotamento, afim de facilitar a instalação e remoção de <em>plugins</em>. Embora o editor possua um <a href=https://shapeshed.com/vim-packages/ title="Vim: So long Pathogen, hello native package loading">mecanismo <em>built-in</em></a> em sua versão mais recente, o <a href=https://github.com/junegunn/vim-plug title="Minimalist Vim Plugin Manager"><em>vim-plug</em></a> mostra-se muito (mas muito) mais simples de usar.</p> <p>Para instalar o <em>vim-plug</em>:</p> <div class=highlight><pre><span></span>curl -fLo ~/.vim/autoload/plug.vim --create-dirs <span class=se>\</span>
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</pre></div> <p>O controle dos <em>plugins</em> é feito através do <code>.vimrc</code>:</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=k>call</span> plug#begin<span class=p>(</span><span class=s1>&#39;~/.vim/plugged&#39;</span><span class=p>)</span>
+
+<span class=c>&quot; Lista de plugins</span>
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+</pre></div> <p>Uma vez que o <em>plugin</em> desejado fora adicionado ao <code>.vimrc</code>, o comando <code>:PlugInstall</code> fará o <em>download</em> e instalação do pacote.</p> <p><img class=align-center-keep-size src=/images/blog/vim-plug-install.png width=640 height=650 title="Exemplo de utilização do vim-plug" alt="Exemplo de utilização do vim-plug"></p> <h2>Syntax highlight: vim-polyglot</h2> <p><em>Syntax highlighting</em> é um dos recursos mais básicos (e úteis) que qualquer editor de texto possa oferecer. É no mínimo curioso o quanto a disposição de cores facilita na leitura de códigos-fonte.</p> <p>O <a href=https://github.com/sheerun/vim-polyglot title="A solid language pack for Vim"><em>vim-polyglot</em></a> suporta dezenas de linguagens (incluindo <em>Python</em>, claro), e o próprio projeto alega que a sua utilização não prejudica o <em>startup time</em> do editor. Logo, uma excelente opção caso o usuário não queira perder tempo fazendo <em>setup</em> desse tipo de <em>feature</em>:</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=k>call</span> plug#begin<span class=p>(</span><span class=s1>&#39;~/.vim/plugged&#39;</span><span class=p>)</span>
+
+<span class=c>&quot; Lista de plugins</span>
+Plug <span class=s1>&#39;sheerun/vim-polyglot&#39;</span>
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+</pre></div> <p>Para uma rápida instalação, execute <code>:source $MYVIMRC</code> (para atualizar o <code>.vimrc</code> em memória) e em seguida <code>:PlugInstall</code>.</p> <h2>Lint: ALE + flake8 + isort + yapf</h2> <p>O <a href=https://github.com/w0rp/ale title="Asynchronous Lint Engine for Vim"><em>Asynchronous Lint Engine</em></a> é um desses projetos que foram feitos para tirar o máximo da nova versão do <em>Vim</em>. A sua função é na realidade servir de interface assíncrona para <em>linters</em> de diferentes linguagens, resultando em validações do código-fonte sem travar a <em>UI</em> do editor.</p> <p><img class=align-center-keep-size src=/images/blog/vim-ale-linters.png width=640 height=468 title="Lista de linters suportados pelo ALE" alt="Lista de linters suportados pelo ALE"></p> <p>Uma "traquinagem" que ajuda no uso do <em>ALE</em> é utilizar o parâmetro <code>do</code>, do <em>vim-plug</em>, tornando mais fácil a instalação dos utilitários necessários para que o <em>plugin</em> funcione:</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+
+Plug <span class=s1>&#39;w0rp/ale&#39;</span><span class=p>,</span> { <span class=s1>&#39;do&#39;</span>: <span class=s1>&#39;pip install flake8 isort yapf&#39;</span> }
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+</pre></div> <p>Importante notar que se o <em>Vim</em> for aberto dentro de um <a href=https://klauslaube.com.br/tag/virtualenv.html title="Leia mais sobre Virtualenv"><em>virtualenv</em></a>, os pacotes <em>Python</em> serão instalados no ambiente virtual ativo. Para contornar esse problema, e tornar essas ferramentas "globais", é possível utilizar o <a href=https://medium.com/@henriquebastos/the-definitive-guide-to-setup-my-python-workspace-628d68552e14 title="The definitive guide to setup my Python workspace"><em>pyenv</em></a>. Executar <code>:PlugInstall!</code> para cada <em>virtualenv</em> pode ser uma opção também.</p> <p>Caso algo não esteja funcionando, o <code>:ALEInfo</code> dará dicas de onde o problema está escondido.</p> <h3>Linter: flake8</h3> <p>O <a href=http://flake8.pycqa.org/en/latest/ title="Flake8: Your Tool For Style Guide Enforcement"><em>flake8</em></a> assegura que o código escrito esteja dentro das convenções da <a href=https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html title="Leia mais sobre PEP8"><em>PEP8</em></a>. Alguns alertas aparecerão na tela do editor quando alguma violação acontecer:</p> <p><img class=align-center-keep-size src=/images/blog/vim-ale-flake8.png width=640 height=402 title="Flake8 + ALE" alt="Flake8 + ALE"></p> <h3>Fixers: isort e yapf</h3> <p>O <em>ALE</em> possui o conceito de "fixers". Eles são executados para realizar reparos no código-fonte aberto, sem a necessidade da chamada de nenhum comando adicional. Em um arquivo <em>Python</em>, o <code>:ALEFixSuggest</code> trará sugestões de <em>fixers</em> para a linguagem:</p> <div class=highlight><pre><span></span>Try the following fixers appropriate <span class=k>for</span> the <span class=k>filetype</span>:
+
+<span class=s1>&#39;add_blank_lines_for_python_control_statements&#39;</span> <span class=p>-</span> Add blank <span class=nb>lines</span> before control statements.
+<span class=s1>&#39;autopep8&#39;</span> <span class=p>-</span> Fix PEP8 issues with autopep8.
+<span class=s1>&#39;isort&#39;</span> <span class=p>-</span> Sort Python imports with isort.
+<span class=s1>&#39;yapf&#39;</span> <span class=p>-</span> Fix Python <span class=k>files</span> with yapf.
+
+Try the following generic fixers:
+
+<span class=s1>&#39;remove_trailing_lines&#39;</span> <span class=p>-</span> Remove <span class=k>all</span> blank <span class=nb>lines</span> at the <span class=k>end</span> of <span class=k>a</span> <span class=k>file</span>.
+<span class=s1>&#39;trim_whitespace&#39;</span> <span class=p>-</span> Remove <span class=k>all</span> trailing whitespace characters at the <span class=k>end</span> of every line.
+
+See :help ale<span class=p>-</span><span class=k>fix</span><span class=p>-</span>configuration
+
+Press <span class=k>q</span> <span class=k>to</span> <span class=k>close</span> this <span class=nb>window</span>
+</pre></div> <p>O <a href=https://pypi.python.org/pypi/isort title="A Python utility / library to sort Python imports"><em>isort</em></a> é uma ferramenta muito útil que ajuda na ordenação dos <code>import</code> <em>Python</em>. Já o <a href='https://github.com/google/yapf A formatter for Python files"'><em>yapf</em></a> formatará os arquivos respeitando a <em>PEP8</em>.</p> <p>Para habilitar esses recursos, basta adicionar a seguinte configuração ao <code>~/.vimrc</code>:</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+
+<span class=k>let</span> <span class=k>g</span>:ale_fix_on_save <span class=p>=</span> <span class=m>1</span>
+<span class=k>let</span> <span class=k>g</span>:ale_fixers <span class=p>=</span> {
+\   <span class=s1>&#39;python&#39;</span>: [
+\       <span class=s1>&#39;isort&#39;</span><span class=p>,</span>
+\       <span class=s1>&#39;yapf&#39;</span><span class=p>,</span>
+\       <span class=s1>&#39;remove_trailing_lines&#39;</span><span class=p>,</span>
+\       <span class=s1>&#39;trim_whitespace&#39;</span>
+\   ]
+\}
+</pre></div> <p>Com o <code>g:ale_fix_on_save = 1</code>, ao salvar o arquivo os <em>fixers</em> serão executados automaticamente. É possível executá-los também através do comando <code>:ALEFix</code>.</p> <h2>Code Completion: completor.vim</h2> <p>Embora o <a href=https://github.com/Valloric/YouCompleteMe title="A code-completion engine for Vim"><em>YouCompleteMe</em></a> seja a opção <em>standard</em> para <em>autocomplete</em> no <em>Vim</em>, foi no <a href=https://github.com/maralla/completor.vim title="Async completion framework made ease"><em>completor</em></a> que eu encontrei um bom balanço entre complexidade e benefícios.</p> <p>Utilizando o <em>engine</em> de <em>async</em> do <em>Vim 8</em>, o <em>plugin</em> é capaz de entregar <em>code completion</em> de uma maneira muito rápida, e ainda possui uma boa abstração a <em>semantic completion</em> (que fará o <em>autocomplete</em> funcionar "de fato" no caso do <em>Python</em>).</p> <p><img class=align-center-keep-size src=/images/blog/vim-completor-example.png width=640 height=253 title="Exemplo de uso do Completor" alt="Exemplo de uso do Completor"></p> <p>O <a href=https://github.com/davidhalter/jedi title="Awesome autocompletion and static analysis library for python"><em>jedi</em></a> é o utilitário "hors concours" para essa tarefa:</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+
+Plug <span class=s1>&#39;maralla/completor.vim&#39;</span><span class=p>,</span> { <span class=s1>&#39;do&#39;</span>: <span class=s1>&#39;pip install jedi&#39;</span> }
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+</pre></div> <p>A dica de usar <em>pyenv</em> ou de instalar para cada <em>virtualenv</em> (do tópico de <em>Lint</em>), vale aqui também.</p> <h2>Navegar pelo código-fonte: jedi-vim</h2> <p>E falando de <em>jedi</em>, o <a href=https://github.com/davidhalter/jedi-vim title="Using the jedi autocompletion library for VIM"><em>jedi-vim</em></a> é outra figurinha carimbada nos <code>.vimrc</code> de muitos desenvolvedores <em>Python</em>. Assim como o <em>completor</em>, ele fornece <em>autocompletion</em> e uma excelente ferramenta de <em>static analysis</em>.</p> <p><img class=align-center-keep-size src=/images/blog/vim-jedi.jpg width=640 height=360 title="Nunca renda-se ao lado emacs da força (jovemnerd.com.br)" alt="Nunca renda-se ao lado emacs da força (jovemnerd.com.br)"></p> <p>Se você programa somente em <em>Python</em>, esqueça o <em>completor</em> e use apenas o <em>jedi-vim</em>. Caso contrário, se você programa em mais linguagens, o <em>completor</em> ainda é uma opção atraente (por ser "genérico").</p> <p>Além do <em>completion</em> o <em>jedi-vim</em> tem outras funcionalidades que são muito úteis para lidar com grandes projetos:</p> <ul> <li><em>Goto assignments</em> (<code>&lt;leader&gt;g</code>)</li> <li><em>Goto definitions</em> (<code>&lt;leader&gt;d</code>)</li> <li>Mostrar documentação (<code>K</code>)</li> <li>Renomear (<code>&lt;leader&gt;r</code>)</li> <li>Exibir uso (<code>&lt;leader&gt;n</code>)</li> </ul> <p>Portanto, é sempre útil tê-lo no seu ambiente de desenvolvimento:</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+
+Plug <span class=s1>&#39;davidhalter/jedi-vim&#39;</span><span class=p>,</span> { <span class=s1>&#39;do&#39;</span>: <span class=s1>&#39;pip install jedi&#39;</span> }
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+
+<span class=k>let</span> <span class=k>g</span>:jedi#completions_enabled <span class=p>=</span> <span class=m>0</span>
+</pre></div> <p>A última linha acima é essencial para que o <em>completion</em> do <em>jedi-vim</em> não conflite com o do <em>completor</em>.</p> <h2>Navegar pelo sistema de arquivos: NERDTree e ctrlp.vim</h2> <p>Aqui eu vou "chover no molhado" e indicar <a href=https://github.com/scrooloose/nerdtree title="A tree explorer plugin for vim"><em>NERDTree</em></a> e <a href=https://github.com/ctrlpvim/ctrlp.vim title="Fuzzy file, buffer, mru, tag, etc finder"><em>ctrlp.vim</em></a>.</p> <p>O primeiro exibe um simpático <em>file explorer</em> no lado esquerdo do editor, muito útil quando você não faz ideia do que está procurando, e tem que ter uma visão dos arquivos e diretórios do projeto:</p> <p><img class=align-center-keep-size src=/images/blog/vim-nerdtree.png width=640 height=503 title="Exemplo de uso do NERDTree" alt="Exemplo de uso do NERDTree"></p> <p>Com o uso do <a href=https://github.com/Xuyuanp/nerdtree-git-plugin title="A plugin of NERDTree showing git status"><em>nerdtree-git-plugin</em></a> ele fica ainda mais interessante, pois sinaliza os arquivos que sofreram modificações dentro de um repositório <a href=https://klauslaube.com.br/tag/git.html title="Leia mais sobre Git"><em>Git</em></a>.</p> <p>Já o <em>ctrlp.vim</em> é usado para buscas de arquivos e <em>buffers</em>. Muito útil para quando você já tem ideia do que vai procurar:</p> <p><img class=align-center-keep-size src=/images/blog/vim-ctrlp.png width=640 height=447 title="Exemplo de uso do ctrlp.vim" alt="Exemplo de uso do ctrlp.vim"></p> <p>A instalação através do <em>vim-plug</em> é simples, como sempre:</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+
+Plug <span class=s1>&#39;ctrlpvim/ctrlp.vim&#39;</span>
+Plug <span class=s1>&#39;scrooloose/nerdtree&#39;</span> <span class=p>|</span> Plug <span class=s1>&#39;Xuyuanp/nerdtree-git-plugin&#39;</span>
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+</pre></div> <p><strong>Bônus:</strong> O <a href=https://github.com/mileszs/ack.vim title="Vim plugin for the Perl module / CLI script 'ack'"><em>ack.vim</em></a> é um excelente <em>plugin</em> para buscas por conteúdo.</p> <h2>Executar testes: vim-test</h2> <p>O <a href=https://github.com/janko-m/vim-test title="Run your tests at the speed of thought"><em>vim-test</em></a> é um dos meus <em>plugins</em> favoritos! Ele é um <em>wrapper</em> que executa testes de diferentes granularidades, ou seja, executa o teste de um arquivo apenas, da suíte inteira, do mais próximo, do último testado, etc.</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+
+Plug <span class=s1>&#39;janko-m/vim-test&#39;</span>
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+
+<span class=p>(</span>...<span class=p>)</span>
+
+<span class=k>let</span> test#python#runner <span class=p>=</span> <span class=s1>&#39;pytest&#39;</span>
+</pre></div> <p>No exemplo acima, o <em>runner</em> configurado foi o <a href=https://docs.pytest.org/en/latest/ title="pytest: helps you write better programs¶"><em>pytest</em></a>, mas dentro do ecossistema <em>Python</em> ele suporta os seguintes <em>frameworks</em> de testes: <code>PyTest</code>, <code>Django</code>, <code>Nose</code>, <code>Nose2</code>, e <code>PyUnit</code>.</p> <p>É possível evocar o <em>plugin</em> para os diferentes níveis de testes através dos comandos <code>:TestNearest</code>, <code>:TestFile</code>, <code>:TestSuite</code>, <code>:TestLast</code> e <code>:TestVisit</code>.</p> <p><strong>Bônus:</strong> Utilizando o <a href=https://github.com/tpope/vim-dispatch title="dispatch.vim: asynchronous build and test dispatcher"><em>dispatch.vim</em></a> como <em>strategy</em> no <em>vim-test</em>, será possível executar os testes assincronamente.</p> <h2>Executar comandos: dispatch.vim</h2> <p>Com o <a href=https://github.com/tpope/vim-dispatch title="asynchronous build and test dispatcher"><em>dispatch.vim</em></a>, do <a href=https://github.com/tpope title="Perfil no Github"><em>Tim Pope</em></a>, é possível executar comandos (como por exemplo, <em>build</em> ou testes) de forma assíncrona. O <em>plugin</em> se responsabiliza por escolher a melhor plataforma (<em>tmux</em>, tela, <em>iTerm</em>, <em>headless</em>, etc) de acordo com o ambiente no qual o <em>Vim</em> está rodando.</p> <p><img class=align-center-keep-size src=/images/blog/vim-dispatch.png width=640 height=656 title="Exemplo de utilização do vim-dispatch" alt="Exemplo de utilização do vim-dispatch"></p> <p>O <em>plugin</em> (até o momento) não utiliza a estratégia de <em>jobs</em> do <em>Vim 8</em>. Mas <a href=https://github.com/tpope/vim-dispatch/pull/193 title="Add initial vim jobs strategy">discussões sobre o assunto</a> tem ocorrido, e é possível que uma solução seja incorporada em breve. Se utilizar o <em>async</em> do <em>Vim</em> é um desejo, o <a href=https://github.com/skywind3000/asyncrun.vim title="Run Async Shell Commands in Vim 8.0 / NeoVim and Output to Quickfix Window"><em>asyncrun.vim</em></a> pode ser uma melhor opção.</p> <h3>Bônus: tmux</h3> <p>Com o <a href=https://github.com/tmux/tmux/wiki title="tmux is a terminal multiplexer"><em>tmux</em></a>, tanto o <em>vim-test</em> quanto o <em>dispatch.vim</em> ficam ainda mais interessantes:</p> <p><img class=align-center-keep-size src=/images/blog/vim-dispatch-tmux.png width=640 height=516 title="Exemplo de utilização do vim-dispatch com tmux" alt="Exemplo de utilização do vim-dispatch com tmux"></p> <p>Interessado no <em>tmux</em>? O <em>bugsnag</em> possui um bom <a href=https://blog.bugsnag.com/tmux-and-vim/ title="Tmux and Vim - even better together">artigo sobre <em>tmux</em> + <em>Vim</em></a>.</p> <h2>Considerações finais</h2> <p>O <code>.vimrc</code> abaixo é o resultado de todos os <em>plugins</em> apresentados nesse artigo:</p> <div class=highlight><pre><span></span><span class=c>&quot; ~/.vimrc</span>
+
+<span class=k>call</span> plug#begin<span class=p>(</span><span class=s1>&#39;~/.vim/plugged&#39;</span><span class=p>)</span>
+
+<span class=c>&quot; Lista de plugins</span>
+Plug <span class=s1>&#39;sheerun/vim-polyglot&#39;</span>
+Plug <span class=s1>&#39;w0rp/ale&#39;</span><span class=p>,</span> { <span class=s1>&#39;do&#39;</span>: <span class=s1>&#39;pip install flake8 isort yapf&#39;</span> }
+Plug <span class=s1>&#39;maralla/completor.vim&#39;</span><span class=p>,</span> { <span class=s1>&#39;do&#39;</span>: <span class=s1>&#39;pip install jedi&#39;</span> }
+Plug <span class=s1>&#39;davidhalter/jedi-vim&#39;</span>
+Plug <span class=s1>&#39;ctrlpvim/ctrlp.vim&#39;</span>
+Plug <span class=s1>&#39;scrooloose/nerdtree&#39;</span> <span class=p>|</span> Plug <span class=s1>&#39;Xuyuanp/nerdtree-git-plugin&#39;</span>
+Plug <span class=s1>&#39;janko-m/vim-test&#39;</span>
+Plug <span class=s1>&#39;tpope/vim-dispatch&#39;</span>
+
+<span class=k>call</span> plug#<span class=k>end</span><span class=p>()</span>
+
+<span class=c>&quot; Ale</span>
+<span class=k>let</span> <span class=k>g</span>:ale_fix_on_save <span class=p>=</span> <span class=m>1</span>
+<span class=k>let</span> <span class=k>g</span>:ale_fixers <span class=p>=</span> {
+\   <span class=s1>&#39;python&#39;</span>: [
+\       <span class=s1>&#39;isort&#39;</span><span class=p>,</span>
+\       <span class=s1>&#39;yapf&#39;</span><span class=p>,</span>
+\       <span class=s1>&#39;remove_trailing_lines&#39;</span><span class=p>,</span>
+\       <span class=s1>&#39;trim_whitespace&#39;</span>
+\   ]
+\}
+
+<span class=c>&quot; Jedi</span>
+<span class=k>let</span> <span class=k>g</span>:jedi#completions_enabled <span class=p>=</span> <span class=m>0</span>
+
+<span class=c>&quot; vim-test</span>
+<span class=k>let</span> test#python#runner <span class=p>=</span> <span class=s1>&#39;pytest&#39;</span>
+</pre></div> <p>Embora haja uma vertente que defende o uso mínimo (ou nulo) de <em>plugins</em> no <em>Vim</em>, para mim eles são um dos pontos altos do editor e sem dúvida são os responsáveis por me ajudar a manter uma boa produtividade. Se você, assim como eu, não tem a mínima pretensão de ser um "vim-master", use sem medo. Tenho certeza que eles te ajudarão a lidar com os problemas do dia a dia.</p> <p>Até a próxima.</p> <h2>Referências</h2> <ul> <li><a href=https://justin.abrah.ms/vim/vim_and_python.html><em>Justin Abrahms - Vim &amp; Python: Making yourself at home</em></a></li> <li><a href=http://liuchengxu.org/posts/use-vim-as-a-python-ide/ ><em>Liu-Cheng Xu - Use Vim as a Python IDE</em></a></li> <li><a href=https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/ ><em>Real Python - VIM and Python: a Match Made in Heaven</em></a></li> <li><a href=https://shapeshed.com/vim-packages/ ><em>Shapeshed - Vim: So long Pathogen, hello native package loading</em></a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/ambiente-de-desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>ambiente-de-desenvolvimento</a> <a href=https://klauslaube.com.br/tag/editores-de-texto.html title="Leia mais sobre" class=Article-tagLink>editores-de-texto</a> <a href=https://klauslaube.com.br/tag/vim.html title="Leia mais sobre" class=Article-tagLink>vim</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2017/10/15/vim-para-desenvolvimento-python.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

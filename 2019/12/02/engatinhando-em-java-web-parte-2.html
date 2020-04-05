@@ -1,0 +1,288 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Engatinhando em Java para a web - Parte 2 | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="No post anterior demos uma breve pincelada sobre JDK, JRE, JSE e JEE. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do..."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, java, servlet, jsp, jstl"><meta property=og:title content="Engatinhando em Java para a web - Parte 2"><meta property=og:description content="No post anterior demos uma breve pincelada sobre JDK, JRE, JSE e JEE. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do..."><meta property=og:url content=https://klauslaube.com.br/2019/12/02/engatinhando-em-java-web-parte-2.html><meta property=og:image content=https://klauslaube.com.br//images/blog/java-saruman.jpeg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2019/12/02/engatinhando-em-java-web-parte-2.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/java-saruman.jpeg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Engatinhando em Java para a web - Parte 2 </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2019-12-02T09:15:00-03:00 itemprop=datePublished>02 Dez, 2019</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/java-logo-2.jpg alt="Logotipo da linguagem Java" class=representative-image width=180 height=180> <p>No <a href=https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html title="Engatinhando em Java para a web - Parte 1"><em>post</em> anterior</a> demos uma breve pincelada sobre <em>JDK</em>, <em>JRE</em>, <em>JSE</em> e <em>JEE</em>. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do uso de <em>Maven</em> e <em>Tomcat</em>, vamos partir para uma abordagem mais prática, e finalmente falar sobre os famosos <em>Servlets</em>.</p> <!-- PELICAN_END_SUMMARY --> <p>Mas antes de continuar, um breve <em>disclaimer</em>.</p> <h2>Disclaimer</h2> <p>Recebi alguns <em>feedbacks</em> sobre o artigo anterior, questionando sobre a abordagem em relação a <em>Servlets</em>, <em>JavaServer Pages</em> e até mesmo ao <em>Tomcat</em> e <em>Maven</em>. Existem escolhas mais "sexy" (principalmente aos três últimos citados), e que em relação ao <em>Servlets</em> a escolha mais natural seria a adoção de algum <em>framework</em> que abstraia todo esse "javanês" (como <a href=https://spring.io/projects/spring-boot title="Página oficial do Spring Boot"><em>SpringBoot</em></a> ou <a href=https://www.playframework.com/ title="Página oficial do projeto Play"><em>Play</em></a>).</p> <p><img class=align-center-keep-size src=/images/blog/java-saruman.jpeg width=740 height=435 title="Continuamos a trair a movimento assim como o Saruman fez em LOTR (sott.net)" alt="Continuamos a trair a movimento assim como o Saruman fez em LOTR (sott.net)"></p> <p>A narrativa dessa série de artigos tem justamente a intenção de ilustrar que em um primeiro momento, <a href=https://klauslaube.com.br/tag/java.html title="Leia mais sobre Java"><em>Java</em></a> para <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre web"><em>web</em></a> pode parecer obsoleto, mas que com o progredir dos <em>posts</em> novas tecnologias serão apresentadas e que por fim, é possível sim ter um ambiente deveras moderno e prático.</p> <p>Estamos "engatinhando", afinal...</p> <p>Obrigado pelos <em>feedbacks</em> :)</p> <h2>Servlets</h2> <p><em>Servlet</em> pode ser comparado ao <a href=https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html title="Entendendo o CGI"><em>Common Gateway Interface</em></a> (<em>CGI</em>), onde há um "acordo" o servidor <em>web</em> ou de aplicação, e a sua aplicação. As definições podem vir das mais variadas formas:</p> <ul> <li>É uma tecnologia usada para a criação de aplicações <em>web</em> em <em>Java</em>.</li> <li>É uma <em>API</em> que disponibiliza classes, interfaces e documentação necessárias para tal operação.</li> <li>É uma classe que estende as capacidades de servidores e reage à requisições (de qualquer tipo).</li> <li>É um componente <em>web</em> que cria páginas dinâmicas para a <em>web</em>.</li> </ul> <p>Mas talvez a melhor definição venha (novamente) da <a href=https://www.caelum.com.br/apostila-java-web/servlets/ title="Capítulo 5 - Servlets">apostila de <em>Java</em> para <em>web</em></a> da <em>Caelum</em>:</p> <blockquote> <p>Uma primeira ideia da servlet seria que cada uma delas é responsável por uma página, sendo que ela lê dados da requisição do cliente e responde com outros dados (uma página HTML, uma imagem GIF etc). Como no Java tentamos sempre que possível trabalhar orientado a objetos, nada mais natural que uma servlet seja representada como um objeto a partir de uma classe Java.</p> </blockquote> <p><em>Neha Vaidya</em> descreve de forma simples e didática o ciclo de vida de um <em>servlet</em> em uma <a href=https://www.quora.com/What-is-servlet/answer/Neha-Vaidya-24 title="What is servlet?"><em>thread</em> do <em>Quora</em></a>, no qual vou traduzir abaixo:</p> <ul> <li>Quando o servidor <em>web</em> (ex.: <em>Apache Tomcat</em>) inicia, o <em>servlet container</em> "deploia" e carrega todos os <em>Servlets</em>;</li> <li>O <em>servlet</em> é inicializado chamando o método <code>init()</code>. O método <code>Servlet.init()</code> é chamado pelo <em>servlet container</em> para indicar que essa <em>servlet instance</em> foi iniciada com sucesso e está pronta para responder;</li> <li>O <em>servlet</em> então chama o método <code>service()</code> para processar uma requisição do cliente;</li> <li>O <em>servlet</em> é terminado ao chamar o método <code>destroy()</code>;</li> <li>Então o <code>destroy()</code>, executado no fim do ciclo de vida do <em>servlet</em> sinaliza o fim da <em>servlet instance</em>.</li> </ul> <p><img class=align-center-keep-size src=/images/blog/java-servletlife.jpg width=405 height=438 title="Diagrama ilustrando o ciclo de vida de um servlet (javatpoint.com)" alt="Diagrama ilustrando o ciclo de vida de um servlet (javatpoint.com)"></p> <p><code>init</code> e <code>destroy</code> são chamados apenas uma vez. Por fim, o <em>servlet</em> é coletado pelo <em>gargabe collector</em> da <em>JVM</em>.</p> <h2>Um pouco de prática</h2> <p>Dentro do contexto da linguagem <em>Java</em>, a <code>Servlet</code> também é uma <code>Interface</code>. No nosso escopo, falando de desenvolvimento <em>web</em>, usaremos uma implementação mais especializada para trabalhar com o protocolo <em>HTTP</em>, chamada <code>HttpServlet</code>.</p> <p>Voltando ao projeto <code>ola-mundo</code>, criado no artigo anterior, vamos adicionar a <em>servlet API</em> como dependência do projeto. Antes do nó <code>&lt;build&gt;</code>, acrescente o seguinte:</p> <div class=highlight><pre><span></span><span class=nt>&lt;properties&gt;</span>
+    <span class=nt>&lt;maven.compiler.source&gt;</span>11<span class=nt>&lt;/maven.compiler.source&gt;</span>
+    <span class=nt>&lt;maven.compiler.target&gt;</span>11<span class=nt>&lt;/maven.compiler.target&gt;</span>
+<span class=nt>&lt;/properties&gt;</span>
+
+<span class=nt>&lt;dependencies&gt;</span>
+    <span class=nt>&lt;dependency&gt;</span>
+        <span class=nt>&lt;groupId&gt;</span>javax.servlet<span class=nt>&lt;/groupId&gt;</span>
+        <span class=nt>&lt;artifactId&gt;</span>javax.servlet-api<span class=nt>&lt;/artifactId&gt;</span>
+        <span class=nt>&lt;version&gt;</span>4.0.1<span class=nt>&lt;/version&gt;</span>
+        <span class=nt>&lt;scope&gt;</span>provided<span class=nt>&lt;/scope&gt;</span>
+    <span class=nt>&lt;/dependency&gt;</span>
+<span class=nt>&lt;/dependencies&gt;</span>
+</pre></div> <p>Altere o <code>maven.compiler.source</code> para a versão do <em>Java</em> que você estiver utilizando no momento.</p> <p>Na sequência, crie o pacote onde escreveremos a classe:</p> <div class=highlight><pre><span></span>$ mkdir -p src/main/java/webapp
+</pre></div> <p>Uma vez na pasta, crie o arquivo <code>OlaMundoServlet.java</code> com o seguinte conteúdo:</p> <div class=highlight><pre><span></span><span class=c1>// src/main/java/webapp/OlaMundoServlet.java</span>
+<span class=kn>package</span> <span class=nn>webapp</span><span class=o>;</span>
+
+<span class=kn>import</span> <span class=nn>java.io.IOException</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>java.io.PrintWriter</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.ServletException</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.annotation.WebServlet</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServlet</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServletRequest</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServletResponse</span><span class=o>;</span>
+
+<span class=nd>@WebServlet</span><span class=o>(</span><span class=n>urlPatterns</span> <span class=o>=</span> <span class=s>&quot;/servlet&quot;</span><span class=o>)</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>OlaMundoServlet</span> <span class=kd>extends</span> <span class=n>HttpServlet</span> <span class=o>{</span>
+
+    <span class=nd>@Override</span>
+    <span class=kd>protected</span> <span class=kt>void</span> <span class=nf>service</span><span class=o>(</span><span class=n>HttpServletRequest</span> <span class=n>req</span><span class=o>,</span> <span class=n>HttpServletResponse</span> <span class=n>resp</span><span class=o>)</span> <span class=kd>throws</span> <span class=n>ServletException</span><span class=o>,</span> <span class=n>IOException</span> <span class=o>{</span>
+        <span class=n>PrintWriter</span> <span class=n>out</span> <span class=o>=</span> <span class=n>resp</span><span class=o>.</span><span class=na>getWriter</span><span class=o>();</span>
+
+        <span class=n>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&quot;&lt;html&gt;&quot;</span><span class=o>);</span>
+        <span class=n>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&quot;&lt;body&gt;&quot;</span><span class=o>);</span>
+        <span class=n>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&quot;&lt;h2&gt;Hello World! (from servlet)&lt;/h2&gt;&quot;</span><span class=o>);</span>
+        <span class=n>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&quot;&lt;/body&gt;&quot;</span><span class=o>);</span>
+        <span class=n>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&quot;&lt;/html&gt;&quot;</span><span class=o>);</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</pre></div> <p>Execute novamente o comando <code>mvn clean tomcat7:run</code>, e acesse o endereço <code>http://localhost:8080/servlet</code>. Bingo!</p> <p><img class=align-center-keep-size src=/images/blog/java-servlet-browser-example.png width=640 height=239 title="Exemplo utilizando Servlet" alt="Exemplo utilizando Servlet"></p> <h3>Mais razão, menos magia</h3> <p>A partir da especificação <em>Servlet 3</em>, é possível utilizar <a href=https://docs.oracle.com/javase/tutorial/java/annotations/ title="Leia mais na documentação da Oracle"><em>annotations</em></a> para configurar o <em>deployment</em> do <em>servlet</em>. Com essa forma mais "programática" não é necessário alterar o arquivo <code>WEB-INF/web.xml</code>, e o resultado final fica (na minha opinião) mais prático de ser gerenciado.</p> <p><img class=align-center-keep-size src=/images/blog/gandalf.jpeg width=740 height=493 title="Vemos aqui Gandalf claramente desfrutando do seu vício em Java (greenide.com)" alt="Vemos aqui Gandalf claramente desfrutando do seu vício em Java (greenide.com)"></p> <p>Com a anotação <code>@WebServlet</code> mapeamos um nome e rota específicos (<code>/servlet</code>) ao <em>servlet</em> em questão. O <em>servlet container</em> irá reconhecê-lo e fará a ligação entre rota e classe <em>Java</em>.</p> <p>Há mais vantagens (e <em>annotations</em>) disponíveis com essa versão da especificação. Para saber mais, o "<a href=https://dzone.com/articles/an-overview-servlet-30 title="Leia mais do DZone">An Overview of Servlet 3.0</a>", do site <em>DZone</em>, traz um breve resumo.</p> <h2>JavaServer Pages</h2> <p>Você deve estar se perguntando: De onde veio aquele "Hello World!", do endereço <code>http://localhost:8080/</code>?</p> <p>Ele veio do arquivo <code>index.jsp</code>:</p> <div class=highlight><pre><span></span>$ cat src/main/webapp/index.jsp
+
+&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;Hello World!&lt;/h2&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div> <p>Segundo o <em>Wikipedia</em>:</p> <blockquote> <p>JavaServer Pages (JSP) is a collection of technologies that helps software developers create dynamically generated web pages based on HTML, XML, SOAP, or other document types. (...) JSP is similar to PHP and ASP, but it uses the Java programming language.</p> <p>To deploy and run JavaServer Pages, a compatible web server with a servlet container, such as Apache Tomcat or Jetty, is required.</p> </blockquote> <p>Na prática, <em>JSP</em> é uma abstração de <em>servlet</em>. Os arquivos <em>JSP</em> são traduzidos em <em>servlets</em> durante o <em>runtime</em>, resultando em algo similar com o que fizemos ao escrever o nosso próprio:</p> <div class=highlight><pre><span></span>$ cat target/tomcat/work/Tomcat/localhost/_/org/apache/jsp/index_jsp.java
+
+package org.apache.jsp;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.jsp.*;
+
+public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+    implements org.apache.jasper.runtime.JspSourceDependent {
+
+    (...)
+
+    public void _jspInit() {
+        (...)
+    }
+
+    public void _jspDestroy() {
+    }
+
+    public void _jspService(final javax.servlet.http.HttpServletRequest request,
+                            final javax.servlet.http.HttpServletResponse response)
+            throws java.io.IOException, javax.servlet.ServletException {
+
+        (...)
+
+        out.write(&quot;&lt;html&gt;\n&quot;);
+        out.write(&quot;&lt;body&gt;\n&quot;);
+        out.write(&quot;&lt;h2&gt;Hello World!&lt;/h2&gt;\n&quot;);
+        out.write(&quot;&lt;/body&gt;\n&quot;);
+        out.write(&quot;&lt;/html&gt;\n&quot;);
+
+        (...)
+    }
+}
+</pre></div> <p>Estamos em 2019, e já estamos cansados de saber que misturar <em>HTML</em> com sua regra de negócios não é uma boa ideia. Uma alternativa seria alterar o <em>servlet</em> que escrevemos e utilizar o <em>JSP</em> como uma espécie de "template engine". Paramos de imprimir <em>HTML</em> e deixamos a linguagem lidar com esse tipo de trabalho (~mais ou menos o que se faz usando <a href=https://reactjs.org/docs/introducing-jsx.html title="Note as aspas irônicas"><em>JSX</em></a>~):</p> <div class=highlight><pre><span></span><span class=c1>// src/main/java/webapp/OlaMundoServlet.java</span>
+<span class=kn>package</span> <span class=nn>webapp</span><span class=o>;</span>
+
+<span class=kn>import</span> <span class=nn>java.io.IOException</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.RequestDispatcher</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.ServletException</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.annotation.WebServlet</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServlet</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServletRequest</span><span class=o>;</span>
+<span class=kn>import</span> <span class=nn>javax.servlet.http.HttpServletResponse</span><span class=o>;</span>
+
+<span class=nd>@WebServlet</span><span class=o>(</span><span class=n>urlPatterns</span> <span class=o>=</span> <span class=s>&quot;/servlet&quot;</span><span class=o>)</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>OlaMundoServlet</span> <span class=kd>extends</span> <span class=n>HttpServlet</span> <span class=o>{</span>
+
+    <span class=nd>@Override</span>
+    <span class=kd>protected</span> <span class=kt>void</span> <span class=nf>service</span><span class=o>(</span><span class=n>HttpServletRequest</span> <span class=n>req</span><span class=o>,</span> <span class=n>HttpServletResponse</span> <span class=n>resp</span><span class=o>)</span> <span class=kd>throws</span> <span class=n>ServletException</span><span class=o>,</span> <span class=n>IOException</span> <span class=o>{</span>
+        <span class=n>RequestDispatcher</span> <span class=n>rd</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=na>getRequestDispatcher</span><span class=o>(</span><span class=s>&quot;/index.jsp&quot;</span><span class=o>);</span>
+        <span class=n>rd</span><span class=o>.</span><span class=na>forward</span><span class=o>(</span><span class=n>req</span><span class=o>,</span> <span class=n>resp</span><span class=o>);</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</pre></div> <p>É isso mesmo o que você está lendo: Redirecionamos a requisição do "nosso <em>servlet</em>" para o <em>JSP</em> (que também é um <em>servlet</em>). Respeitamos a especificação e conseguimos dividir as responsabilidades. Não aparenta ser bonito, mas pelo menos por hora já conseguimos separar o que é o nosso controlador do que é a nossa visualização.</p> <h3>Traçando nova rota</h3> <p>O <code>index.jsp</code> ainda está acessível através do endereço <code>/</code>. Para ocultá-lo do acesso público, mova-o para a pasta <code>WEB-INF</code>:</p> <div class=highlight><pre><span></span>$ mv src/main/webapp/index.jsp src/main/webapp/WEB-INF
+</pre></div> <p>Ao executar o <em>Tomcat</em> novamente, ambos endereços (<code>/</code> e <code>/servlet</code>) devem apresentar uma resposta <code>404</code> agora (já que o recurso público <code>index.jsp</code> não existe mais). Na <em>annotation</em> <code>@WebServlet</code>, altere o <em>path</em> para fazê-lo virar a <em>index</em> da aplicação:</p> <div class=highlight><pre><span></span><span class=nd>@WebServlet</span><span class=o>(</span><span class=n>urlPatterns</span> <span class=o>=</span> <span class=s>&quot;&quot;</span><span class=o>)</span>
+</pre></div> <p>O próximo passo agora é dizer para o <code>RequestDispatcher</code> a nova localização do <code>index.jsp</code>:</p> <div class=highlight><pre><span></span><span class=n>RequestDispatcher</span> <span class=n>rd</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=na>getRequestDispatcher</span><span class=o>(</span><span class=s>&quot;/WEB-INF/index.jsp&quot;</span><span class=o>);</span>
+</pre></div> <p>Reinicie o <em>Tomcat</em> (<code>mvn clean tomcat7:run</code>) e acesse o <code>http://localhost:8080</code>.</p> <p>Funciona!</p> <h2>Deixando um pouquinho mais dinâmico</h2> <p>Com o que temos aqui já é possível prototipar uma aplicação simples. Vamos imaginar uma lista de tarefas (<em>such a cliché</em>!), onde eu tenho um campo para adicionar uma tarefa e uma lista com as mesmas logo abaixo. Para deixar tudo simples, vamos continuar com o projeto <code>ola-mundo</code>.</p> <p>Altere o <code>index.jsp</code> para o seguinte código <em>HTML</em>:</p> <div class=highlight><pre><span></span><span class=p>&lt;</span><span class=nt>html</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>h2</span><span class=p>&gt;</span>TODO list<span class=p>&lt;/</span><span class=nt>h2</span><span class=p>&gt;</span>
+
+<span class=p>&lt;</span><span class=nt>form</span> <span class=na>action</span><span class=o>=</span><span class=s>&quot;&quot;</span> <span class=na>method</span><span class=o>=</span><span class=s>&quot;post&quot;</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>label</span><span class=p>&gt;</span>
+        Tarefa:
+        <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&quot;text&quot;</span> <span class=na>name</span><span class=o>=</span><span class=s>&quot;nome&quot;</span> <span class=na>required</span> <span class=p>/&gt;</span>
+    <span class=p>&lt;/</span><span class=nt>label</span><span class=p>&gt;</span>
+
+    <span class=p>&lt;</span><span class=nt>input</span> <span class=na>type</span><span class=o>=</span><span class=s>&quot;submit&quot;</span> <span class=na>value</span><span class=o>=</span><span class=s>&quot;Salvar&quot;</span> <span class=p>/&gt;</span>
+<span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
+<span class=p>&lt;</span><span class=nt>ul</span><span class=p>&gt;</span>
+    <span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;</span>Tarefa<span class=p>&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>ul</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>body</span><span class=p>&gt;</span>
+<span class=p>&lt;/</span><span class=nt>html</span><span class=p>&gt;</span>
+</pre></div> <p>Fica óbvio que precisaremos de um elemento que represente uma tarefa. Se formos por uma abordagem <em>MVC</em>, faria sentido categorizar esse elemento como um modelo:</p> <div class=highlight><pre><span></span>$ mkdir -p src/main/java/webapp/modelo
+$ touch src/main/java/webapp/modelo/Tarefa.java
+</pre></div> <p>A classe será muito simples:</p> <div class=highlight><pre><span></span><span class=c1>// src/main/java/webapp/modelo/Tarefa.java</span>
+<span class=kn>package</span> <span class=nn>webapp.model</span><span class=o>;</span>
+
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>Tarefa</span> <span class=o>{</span>
+    <span class=kd>protected</span> <span class=n>String</span> <span class=n>nome</span><span class=o>;</span>
+
+    <span class=kd>public</span> <span class=nf>Tarefa</span><span class=o>(</span><span class=n>String</span> <span class=n>nome</span><span class=o>)</span> <span class=o>{</span>
+        <span class=k>this</span><span class=o>.</span><span class=na>nome</span> <span class=o>=</span> <span class=n>nome</span><span class=o>;</span>
+    <span class=o>}</span>
+
+    <span class=kd>public</span> <span class=kt>void</span> <span class=nf>setNome</span><span class=o>(</span><span class=n>String</span> <span class=n>nome</span><span class=o>)</span> <span class=o>{</span>
+        <span class=k>this</span><span class=o>.</span><span class=na>nome</span> <span class=o>=</span> <span class=n>nome</span><span class=o>;</span>
+    <span class=o>}</span>
+
+    <span class=kd>public</span> <span class=n>String</span> <span class=nf>getNome</span><span class=o>()</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=n>nome</span><span class=o>;</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</pre></div> <p>E o <em>servlet</em> deverá ficar parecido com o seguinte:</p> <div class=highlight><pre><span></span><span class=c1>// src/main/java/webapp/OlaMundoServlet.java</span>
+<span class=kn>package</span> <span class=nn>webapp</span><span class=o>;</span>
+
+<span class=o>(...)</span>
+
+<span class=kn>import</span> <span class=nn>webapp.model.Tarefa</span><span class=o>;</span>
+
+<span class=nd>@WebServlet</span><span class=o>(</span><span class=n>urlPatterns</span> <span class=o>=</span> <span class=s>&quot;&quot;</span><span class=o>)</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>OlaMundoServlet</span> <span class=kd>extends</span> <span class=n>HttpServlet</span> <span class=o>{</span>
+
+    <span class=nd>@Override</span>
+    <span class=kd>protected</span> <span class=kt>void</span> <span class=nf>service</span><span class=o>(</span><span class=n>HttpServletRequest</span> <span class=n>req</span><span class=o>,</span> <span class=n>HttpServletResponse</span> <span class=n>resp</span><span class=o>)</span> <span class=kd>throws</span> <span class=n>ServletException</span><span class=o>,</span> <span class=n>IOException</span> <span class=o>{</span>
+        <span class=n>List</span><span class=o>&lt;</span><span class=n>Tarefa</span><span class=o>&gt;</span> <span class=n>tarefas</span> <span class=o>=</span> <span class=n>List</span><span class=o>.</span><span class=na>of</span><span class=o>(</span>
+                <span class=k>new</span> <span class=n>Tarefa</span><span class=o>(</span><span class=s>&quot;Tarefa A&quot;</span><span class=o>),</span>
+                <span class=k>new</span> <span class=n>Tarefa</span><span class=o>(</span><span class=s>&quot;Tarefa B&quot;</span><span class=o>),</span>
+                <span class=k>new</span> <span class=n>Tarefa</span><span class=o>(</span><span class=s>&quot;Tarefa C&quot;</span><span class=o>)</span>
+        <span class=o>);</span>
+        <span class=n>req</span><span class=o>.</span><span class=na>setAttribute</span><span class=o>(</span><span class=s>&quot;tarefas&quot;</span><span class=o>,</span> <span class=n>tarefas</span><span class=o>);</span>
+
+        <span class=n>RequestDispatcher</span> <span class=n>rd</span> <span class=o>=</span> <span class=n>req</span><span class=o>.</span><span class=na>getRequestDispatcher</span><span class=o>(</span><span class=s>&quot;/WEB-INF/index.jsp&quot;</span><span class=o>);</span>
+        <span class=n>rd</span><span class=o>.</span><span class=na>forward</span><span class=o>(</span><span class=n>req</span><span class=o>,</span> <span class=n>resp</span><span class=o>);</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</pre></div> <p>Note que estamos passando uma lista (estática) de tarefas como atributo da requisição (<code>req.setAttribute</code>) que acionará o <code>index.jsp</code>. O próximo passo é imprimir tais tarefas no <em>JSP</em>.</p> <h3>(Unified) Expression Language</h3> <p>O <em>JSP</em> possui um recurso chamado de <em>Scriptlets</em>, que permite que você escreva de forma explícita código <em>Java</em> em arquivos <em>JSP</em> através de <em>scripts</em> (mais ou menos o que podemos ver em linguagens como <em>PHP</em> e <em>ASP</em>). Se você parar para considerar que <em>JSP</em> é no fundo código <em>Java</em> imprimindo <em>HTML</em>, essa ideia não parece ser tão louca assim.</p> <p>Oras... estamos em 2019, e já estamos cansados de saber que escrever <em>HTML</em> misturado com lógica de negócios não é uma boa ideia.</p> <p><img class=align-center-keep-size src=/images/blog/java-sauron.jpeg width=740 height=555 title="Renda-se a Sauron! Digo, Java! (inews.co.uk)" alt="Renda-se a Sauron! Digo, Java! (inews.co.uk)"></p> <p>A partir da versão 2.0 da especificação do <em>JSP</em> temos uma alternativa chamada "Expression Language" (ou <em>Unified Expression Language</em>, a partir da versão 2.1).</p> <p>Segundo o <a href=https://en.wikipedia.org/wiki/Unified_Expression_Language title="Leia mais sobre EL"><em>Wikipedia</em></a>:</p> <blockquote> <p>The Java Unified Expression Language is a special purpose programming language mostly used in Java web applications for embedding expressions into web pages. The Java specification writers and expert groups of the Java web-tier technologies have worked on a unified expression language which was first included in the JSP 2.1 specification (JSR-245), and later specified by itself in JSR-341, part of Java EE 7.</p> </blockquote> <p>Com ela, ao invés de escrevermos isso (quem teve contato com <em>PHP</em> achará muito familiar):</p> <div class=highlight><pre><span></span>&lt;li&gt;&lt;%= tarefa.getNome() %&gt;&lt;/li&gt;
+</pre></div> <p>Escrevemos isso (similar a qualquer <em>engine</em> de <em>templates</em>):</p> <div class=highlight><pre><span></span>&lt;li&gt;${tarefa.nome}&lt;li&gt;
+</pre></div> <p>A <em>EL</em> não é capaz de realizar operações como um <code>for</code>, por exemplo. Para isso, se quisermos "fugir" do uso de <em>scripts</em>, temos um outro recurso à disposição.</p> <h3>Taglibs</h3> <p>Voltando a citar o <a href=https://www.caelum.com.br/apostila-java-web/usando-taglibs/ title="Usando Taglibs">material da <em>Caelum</em></a>:</p> <blockquote> <p>A Sun percebeu que os programadores estavam abusando do código Java no JSP e tentou criar algo mais "natural" (um ponto um tanto quanto questionável da maneira que foi apresentada no início), sugerindo o uso de tags para substituir trechos de código.</p> <p>O resultado final é um conjunto de tags (uma tag library, ou taglib) padrão, que possui, entre outras tags, a funcionalidade de instanciar objetos através do construtor sem argumentos.</p> </blockquote> <p>Com esse recurso, ao invés de escrevermos isso:</p> <div class=highlight><pre><span></span>&lt;ul&gt;
+&lt;% for (Tarefa tarefa : tarefas ) { %&gt;
+    &lt;li&gt;&lt;%= tarefa.getNome() %&gt;
+&lt;% } %&gt;
+&lt;/ul&gt;
+</pre></div> <p>Escreveremos isso:</p> <div class=highlight><pre><span></span>&lt;%@ taglib uri=&quot;http://java.sun.com/jsp/jstl/core&quot; prefix=&quot;c&quot; %&gt;
+
+(...)
+
+&lt;ul&gt;
+    &lt;c:forEach var=&quot;tarefa&quot; items=&quot;${tarefas}&quot;&gt;
+        &lt;li&gt;${tarefa.nome}&lt;li&gt;
+    &lt;/c:forEach&gt;
+&lt;/ul&gt;
+</pre></div> <p>E embora possa ser tentador cair na armadilha de discutir qual opção é melhor, eu diria que <strong>nenhuma delas</strong>. Considere uma terceira alternativa, como o <a href=https://www.thymeleaf.org/doc/articles/thvsjsp.html title="Spring MVC view layer: Thymeleaf vs. JSP"><em>Thymeleaf</em></a>, e não invista muito esforço nesse debate. Estamos em 2019, e discutir sobre <em>JSP x Taglibs</em> é "tão anos 2000".</p> <p>Por hora, vamos "aceitar" a combinação <em>EL</em> + <em>JSTL</em>.</p> <h3>Aplicando as alterações</h3> <p>Primeiro, precisamos alterar os atributos do nó <code>web-app</code>, do arquivo <code>web.xml</code>:</p> <div class=highlight><pre><span></span><span class=cp>&lt;!DOCTYPE web-app PUBLIC</span>
+<span class=cp>&quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span>
+<span class=cp>&quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot; &gt;</span>
+
+<span class=nt>&lt;web-app</span>
+        <span class=na>xmlns=</span><span class=s>&quot;http://java.sun.com/xml/ns/javaee&quot;</span>
+        <span class=na>xmlns:xsi=</span><span class=s>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+        <span class=na>xsi:schemaLocation=</span><span class=s>&quot;http://java.sun.com/xml/ns/javaee</span>
+<span class=s>http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&quot;</span> <span class=na>version=</span><span class=s>&quot;3.0&quot;</span><span class=nt>&gt;</span>
+
+<span class=nt>&lt;display-name&gt;</span>Archetype Created Web Application<span class=nt>&lt;/display-name&gt;</span>
+<span class=nt>&lt;/web-app&gt;</span>
+</pre></div> <p>Na sequência, precisamos instalar a interface de <em>JSTL</em>, bem como sua implementação. Altere o arquivo <code>pom.xml</code> para ficar semelhante ao seguinte:</p> <div class=highlight><pre><span></span><span class=nt>&lt;project</span> <span class=na>xmlns=</span><span class=s>&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class=na>xmlns:xsi=</span><span class=s>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
+        <span class=na>xsi:schemaLocation=</span><span class=s>&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class=nt>&gt;</span>
+    <span class=nt>&lt;modelVersion&gt;</span>4.0.0<span class=nt>&lt;/modelVersion&gt;</span>
+    <span class=nt>&lt;groupId&gt;</span>com.kplaube<span class=nt>&lt;/groupId&gt;</span>
+    <span class=nt>&lt;artifactId&gt;</span>ola-mundo<span class=nt>&lt;/artifactId&gt;</span>
+    <span class=nt>&lt;packaging&gt;</span>war<span class=nt>&lt;/packaging&gt;</span>
+    <span class=nt>&lt;version&gt;</span>1.0-SNAPSHOT<span class=nt>&lt;/version&gt;</span>
+    <span class=nt>&lt;name&gt;</span>ola-mundo Maven Webapp<span class=nt>&lt;/name&gt;</span>
+    <span class=nt>&lt;url&gt;</span>http://maven.apache.org<span class=nt>&lt;/url&gt;</span>
+
+    <span class=nt>&lt;properties&gt;</span>
+        <span class=nt>&lt;maven.compiler.source&gt;</span>11<span class=nt>&lt;/maven.compiler.source&gt;</span>
+        <span class=nt>&lt;maven.compiler.target&gt;</span>11<span class=nt>&lt;/maven.compiler.target&gt;</span>
+    <span class=nt>&lt;/properties&gt;</span>
+
+    <span class=nt>&lt;dependencies&gt;</span>
+        <span class=c>&lt;!-- Servlet --&gt;</span>
+        <span class=nt>&lt;dependency&gt;</span>
+            <span class=nt>&lt;groupId&gt;</span>javax.servlet<span class=nt>&lt;/groupId&gt;</span>
+            <span class=nt>&lt;artifactId&gt;</span>javax.servlet-api<span class=nt>&lt;/artifactId&gt;</span>
+            <span class=nt>&lt;version&gt;</span>4.0.1<span class=nt>&lt;/version&gt;</span>
+            <span class=nt>&lt;scope&gt;</span>provided<span class=nt>&lt;/scope&gt;</span>
+        <span class=nt>&lt;/dependency&gt;</span>
+
+        <span class=c>&lt;!-- JSTL --&gt;</span>
+        <span class=nt>&lt;dependency&gt;</span>
+            <span class=nt>&lt;groupId&gt;</span>javax.servlet<span class=nt>&lt;/groupId&gt;</span>
+            <span class=nt>&lt;artifactId&gt;</span>jstl<span class=nt>&lt;/artifactId&gt;</span>
+            <span class=nt>&lt;version&gt;</span>1.1.2<span class=nt>&lt;/version&gt;</span>
+        <span class=nt>&lt;/dependency&gt;</span>
+        <span class=nt>&lt;dependency&gt;</span>
+            <span class=nt>&lt;groupId&gt;</span>taglibs<span class=nt>&lt;/groupId&gt;</span>
+            <span class=nt>&lt;artifactId&gt;</span>standard<span class=nt>&lt;/artifactId&gt;</span>
+            <span class=nt>&lt;version&gt;</span>1.1.2<span class=nt>&lt;/version&gt;</span>
+        <span class=nt>&lt;/dependency&gt;</span>
+        <span class=nt>&lt;dependency&gt;</span>
+            <span class=nt>&lt;groupId&gt;</span>taglibs<span class=nt>&lt;/groupId&gt;</span>
+            <span class=nt>&lt;artifactId&gt;</span>c<span class=nt>&lt;/artifactId&gt;</span>
+            <span class=nt>&lt;version&gt;</span>1.1.2<span class=nt>&lt;/version&gt;</span>
+            <span class=nt>&lt;type&gt;</span>tld<span class=nt>&lt;/type&gt;</span>
+        <span class=nt>&lt;/dependency&gt;</span>
+    <span class=nt>&lt;/dependencies&gt;</span>
+
+    <span class=nt>&lt;build&gt;</span>
+        <span class=nt>&lt;finalName&gt;</span>ola-mundo<span class=nt>&lt;/finalName&gt;</span>
+        <span class=nt>&lt;plugins&gt;</span>
+            <span class=c>&lt;!-- Tomcat plugin --&gt;</span>
+            <span class=nt>&lt;plugin&gt;</span>
+                <span class=nt>&lt;groupId&gt;</span>org.apache.tomcat.maven<span class=nt>&lt;/groupId&gt;</span>
+                <span class=nt>&lt;artifactId&gt;</span>tomcat7-maven-plugin<span class=nt>&lt;/artifactId&gt;</span>
+                <span class=nt>&lt;version&gt;</span>2.2<span class=nt>&lt;/version&gt;</span>
+                <span class=nt>&lt;configuration&gt;</span>
+                    <span class=nt>&lt;path&gt;</span>/<span class=nt>&lt;/path&gt;</span>
+                    <span class=nt>&lt;contextReloadable&gt;</span>true<span class=nt>&lt;/contextReloadable&gt;</span>
+                <span class=nt>&lt;/configuration&gt;</span>
+            <span class=nt>&lt;/plugin&gt;</span>
+        <span class=nt>&lt;/plugins&gt;</span>
+    <span class=nt>&lt;/build&gt;</span>
+<span class=nt>&lt;/project&gt;</span>
+</pre></div> <p>Já o <em>HTML</em>, no arquivo <code>index.jsp</code>, deve ficar parecido com o seguinte:</p> <div class=highlight><pre><span></span><span class=k>&lt;%@</span> <span class=n>taglib</span> <span class=n>uri</span><span class=o>=</span><span class=s>&quot;http://java.sun.com/jsp/jstl/core&quot;</span> <span class=n>prefix</span><span class=o>=</span><span class=s>&quot;c&quot;</span> <span class=k>%&gt;</span>
+<span class=nt>&lt;html&gt;</span>
+<span class=nt>&lt;body&gt;</span>
+<span class=nt>&lt;h2&gt;</span>TODO list<span class=nt>&lt;/h2&gt;</span>
+
+    <span class=nt>&lt;form</span> <span class=na>action=</span><span class=s>&quot;&quot;</span> <span class=na>method=</span><span class=s>&quot;post&quot;</span><span class=nt>&gt;</span>
+        <span class=nt>&lt;label&gt;</span>
+            Tarefa:
+            <span class=nt>&lt;input</span> <span class=na>type=</span><span class=s>&quot;text&quot;</span> <span class=na>name=</span><span class=s>&quot;nome&quot;</span> <span class=na>required=</span><span class=s>&quot;required&quot;</span> <span class=nt>/&gt;</span>
+        <span class=nt>&lt;/label&gt;</span>
+
+        <span class=nt>&lt;input</span> <span class=na>type=</span><span class=s>&quot;submit&quot;</span> <span class=na>value=</span><span class=s>&quot;Salvar&quot;</span> <span class=nt>/&gt;</span>
+    <span class=nt>&lt;/form&gt;</span>
+    <span class=nt>&lt;ul&gt;</span>
+        <span class=nt>&lt;c:forEach</span> <span class=na>var=</span><span class=s>&quot;tarefa&quot;</span> <span class=na>items=</span><span class=s>&quot;${tarefas}&quot;</span><span class=nt>&gt;</span>
+            <span class=nt>&lt;li&gt;</span>${tarefa.nome}<span class=nt>&lt;/li&gt;</span>
+        <span class=nt>&lt;/c:forEach&gt;</span>
+    <span class=nt>&lt;/ul&gt;</span>
+<span class=nt>&lt;/body&gt;</span>
+<span class=nt>&lt;/html&gt;</span>
+</pre></div> <p>Reinicie o <em>Tomcat</em>, e ao acessar o endereço <code>http://localhost:8080</code>, você deve obter o seguinte resultado:</p> <p><img class=align-center-keep-size src=/images/blog/java-jstl-exemplo.png width=640 height=391 title="Exemplo de visualização com aplicação de Taglibs" alt="Exemplo de visualização com aplicação de Taglibs"></p> <h2>Considerações finais</h2> <p>Embora haja uma forma programática de formularmos o <em>deployment descriptor</em> da aplicação, ainda assim precisamos lidar com escrita de <em>XML</em> que em muitos casos parecem ser alterações exotéricas. Mesmo com a <em>Servlet 3.0</em>, não escapamos dessa espécie de "karma" que é lidar com a linguagem <em>Java</em>.</p> <p>No entanto, <em>frameworks</em> como o <em>Spring</em> tendem a eliminar essa necessidade, tornando tudo um pouco mais interessante, principalmente para desenvolvedores acostumados com ambientes mais "dinâmicos" como <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre Python"><em>Python</em></a>, <em>Ruby</em> ou <em>Node.js</em>. Mas infelizmente, não atacaremos essa transição no próximo <em>post</em>...</p> <p>No próximo artigo, finalizaremos a prototipação com a parte da adição da tarefa. Abordaremos brevemente filtros e <em>listeners</em>, e fecharemos essa parte da trinca <em>Servlet + Tomcat + Maven</em>.</p> <p>Até lá.</p> <h2>Referências</h2> <ul> <li><a href=https://www.caelum.com.br/apostila-java-web/javaserver-pages/ >Caelum: Apostila Java para Desenvolvimento Web - JavaServer Pages</a></li> <li><a href=https://www.caelum.com.br/apostila-java-web/servlets/ >Caelum: Apostila Java para Desenvolvimento Web - Servlets</a></li> <li><a href=https://dzone.com/articles/an-overview-servlet-30>DZone: An Overview of Servlet 3.0</a></li> <li><a href=https://www.javatpoint.com/life-cycle-of-a-servlet>JavaTPoint: Life Cycle of a Servlet (Servlet Life Cycle)</a></li> <li><a href=https://www.javatpoint.com/servlet-with-annotation>JavaTPoint: Servlet with Annotation (feature of servlet3)</a></li> <li><a href=https://www.quora.com/Should-I-learn-JSP-and-servlets-in-2019>Quora: Should I learn JSP and servlets in 2019?</a></li> <li><a href=https://www.quora.com/What-is-servlet>Quora: What is servlet?</a></li> <li><a href=https://www.thymeleaf.org/doc/articles/thvsjsp.html>Thymeleaf: Thymeleaf vs. JSP</a></li> <li><a href=https://en.wikipedia.org/wiki/JavaServer_Pages>Wikipedia: JavaServer Pages</a></li> <li><a href=https://en.wikipedia.org/wiki/Unified_Expression_Language>Wikipedia: Unified Expression Language</a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/java.html title="Leia mais sobre" class=Article-tagLink>java</a> <a href=https://klauslaube.com.br/tag/servlet.html title="Leia mais sobre" class=Article-tagLink>servlet</a> <a href=https://klauslaube.com.br/tag/jsp.html title="Leia mais sobre" class=Article-tagLink>jsp</a> <a href=https://klauslaube.com.br/tag/jstl.html title="Leia mais sobre" class=Article-tagLink>jstl</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2019/12/02/engatinhando-em-java-web-parte-2.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

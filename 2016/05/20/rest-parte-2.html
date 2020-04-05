@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>REST - Parte 2 | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Vamos falar um pouco mais sobre como interagir com APIs REST, utilizando os verbos do protocolo HTTP e a biblioteca hug, que nos ajudará a ilustrar como funciona uma API na prática."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, rest, microservices, apis"><meta property=og:title content="REST - Parte 2"><meta property=og:description content="Vamos falar um pouco mais sobre como interagir com APIs REST, utilizando os verbos do protocolo HTTP e a biblioteca hug, que nos ajudará a ilustrar como funciona uma API na prática."><meta property=og:url content=https://klauslaube.com.br/2016/05/20/rest-parte-2.html><meta property=og:image content=https://klauslaube.com.br//images/blog/social-network-movie.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2016/05/20/rest-parte-2.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/social-network-movie.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> REST - Parte 2 </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2016-05-20T12:35:00-03:00 itemprop=datePublished>20 Mai, 2016</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/rest-logo.png alt="Logotipo REST" class=representative-image width=180 height=180> <p>No <a href=https://klauslaube.com.br/2016/01/06/rest-parte-1.html title="Leia a parte 1"><em>post</em> anterior</a>, demos uma pequena introdução ao conceito de <em>REST</em> e fizemos um raso comparativo com o seu "rival", o <em>SOAP</em>. Nesse artigo falaremos mais sobre como interagir com <em>APIs</em> <em>REST</em> utilizando os verbos do protocolo <em>HTTP</em>, e a biblioteca <a href=http://www.hug.rest/ title="Embrace APIs of the future"><em>hug</em></a>, que nos ajudará a ilustrar como uma <em>API</em> funciona na prática.</p> <!-- PELICAN_END_SUMMARY --> <p>Segundo o <a href=https://www.infoq.com/br/articles/rest-introduction title="Introdução ao REST"><em>InfoQ</em></a>, o <em>REST</em> possui cinco princípios fundamentais:</p> <ul> <li>Dê a todas as coisas um identificador</li> <li>Vincule as coisas</li> <li>Utilize métodos padronizados</li> <li>Recursos com múltiplas representações</li> <li>Comunique sem estado</li> </ul> <p>Esses cinco itens nos guiarão daqui para frente.</p> <h2>O Uniform Resource Identifier</h2> <p>Você já parou para pensar que na <em>Internet</em> tudo tem um "endereço único"? Do formulário de contato do seu <em>blog</em> até um vídeo no <em>Youtube</em>?</p> <p>Todo recurso tem um nome e pode ser identificado de forma única. Esse conceito é conhecido por <em>Uniform Resource Identifier</em> (<em>URI</em>) e é composto pelo <em>Uniform Resource Locator</em> (<em>URL</em>) e <em>Uniform Resource Name</em> (<em>URN</em>).</p> <p>Logo, quando falamos do endereço <code>http://google.com/index.html</code>, podemos assumir a seguinte estrutura:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>google</span><span class=p>.</span><span class=n>com</span><span class=o>/</span><span class=k>index</span><span class=p>.</span><span class=n>html</span>
+<span class=o>|</span><span class=c1>------ URL -----|-- URN --|</span>
+<span class=o>|</span><span class=c1>----------- URI ----------|</span>
+</pre></div> <p>Como uma <em>API</em> <em>REST</em> é um recurso disponível na <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre web"><em>web</em></a>, essa regra não é diferente. Daremos identificadores únicos para cada recurso exposto.</p> <p>Utilizaremos o <code>localhost:8000</code> para os exemplos a seguir. Portanto, vamos imaginar que temos uma <em>API</em> de filmes, e gostaríamos de listar todos os filmes. Uma boa prática é utilizarmos o substantivo no plural. Exemplo:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span>
+</pre></div> <p>Vamos supor que o filme "The Matrix", dentro da nossa base de dados, tenha o <em>ID</em> <code>20</code>. Na nossa <em>API</em> poderíamos acessá-lo através da seguinte <em>URI</em>:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span><span class=mi>20</span><span class=o>/</span>
+</pre></div> <p>Consequentemente, outro filme teria um identificador diferente. Por exemplo, para acessarmos o filme "Swordfish", que no nosso exemplo possui o <em>ID</em> <code>55</code>, temos:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span><span class=mi>55</span><span class=o>/</span>
+</pre></div> <p>Outra boa prática é utilizarmos <a href=https://en.wikipedia.org/wiki/Universally_unique_identifier title="Leia mais sobre UUID"><em>UUIDs</em></a> ao invés das chaves primárias do nosso banco de dados. Isso obscurece o funcionamento da aplicação, tornando-a ligeiramente mais segura:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span><span class=n>DED621D5</span><span class=o>-</span><span class=mi>08</span><span class=n>F4</span><span class=o>-</span><span class=mi>4</span><span class=n>D32</span><span class=o>-</span><span class=n>ADFA</span><span class=o>-</span><span class=mi>84375</span><span class=n>BA415B9</span><span class=o>/</span>
+</pre></div> <p>Legal! Já tenho como acessar o filme <em>The Matrix</em>, dentro da nossa "<em>API</em> imaginária". Será que temos alguma maneira fácil de acessar, por exemplo, os atores que fazem parte desse filme?</p> <h2>Hipermídia</h2> <p>O conceito de hipermídia pode ser bastante abstrato. Segundo o <em>Wikipedia</em>:</p> <blockquote> <p>Hipermídia é a reunião de várias mídias num ambiente computacional, suportada por sistemas eletrônicos de comunicação. Hipermídia, diferentemente de multimídia, não é a mera reunião dos meios existentes, e sim a fusão desses meios a partir de elementos não-lineares.</p> </blockquote> <p>A melhor forma de entender esse conceito é se olharmos para uma forma de hipermídia muito conhecida: o hipertexto (sim, o "H" do <a href=https://klauslaube.com.br/tag/html.html title="Leia mais sobre HTML"><em>Hypertext Markup Language</em></a>). Nele, temos um "texto interativo", não necessariamente linear e composto por diferentes outras mídias (como som, vídeo, imagens, etc).</p> <p>Mas o ponto que mais ilustra o que é um hipertexto é a capacidade de um texto referenciar a outro. Esse conceito, chamado de hiperlinks (ou somente <em>links</em>, para os mais jovens) permite com que eu seja capaz de navegar entre documentos apenas seguindo as suas referências, sem conhecer previamente o destino do meu passo seguinte.</p> <p><img class=align-center src=/images/blog/social-network-movie.jpg width=610 height=310 title="Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)" alt="Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)"></p> <p>Quando esse conceito é aplicado ao contexto de <em>REST</em>, temos o que chamamos de <em>Hypermedia as the Engine of Application State</em> (<a href=https://en.wikipedia.org/wiki/HATEOAS title="Leia mais sobre HATEOAS"><em>HATEOAS</em></a>). Segundo ele, nosso cliente deve ser capaz de interagir com a nossa aplicação (e até mesmo demais aplicações vinculadas a ela) através de hipermídia. Dessa forma, eu não preciso necessariamente conhecer todos os <em>endpoints</em> de uma <em>API</em>, ela me informará dada uma determinada <em>URI</em>, para onde eu posso navegar.</p> <p>Pegando a nossa <em>API</em> de filmes, eu deveria ter dentro da resposta do filme "The Matrix" alguma informação me dizendo que para listar os atores desse filme, eu deveria acessar <code>http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/</code>. E uma vez eu estando nessa listagem, deveria haver um <em>link</em> me dizendo que para ver os detalhes da <a href=http://www.imdb.com/name/nm0005251/ title="Carrie-Anne Moss no IMDB"><em>Carrie-Anne Moss</em></a>, por exemplo, eu devo acessar a <em>URI</em> <code>http://localhost:8000/actors/A3531BF5-C089-4A44-8A92-5A5AC08261AA/</code>.</p> <p>Exemplo:</p> <div class=highlight><pre><span></span><span class=nt>&lt;movie&gt;</span>
+  <span class=nt>&lt;uuid&gt;</span>DED621D5-08F4-4D32-ADFA-84375BA415B9<span class=nt>&lt;/uuid&gt;</span>
+  <span class=nt>&lt;title&gt;</span>The Matrix<span class=nt>&lt;/title&gt;</span>
+
+  <span class=nt>&lt;link</span> <span class=na>rel=</span><span class=s>&quot;actors&quot;</span> <span class=na>href=</span><span class=s>&quot;http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/&quot;</span> <span class=nt>/&gt;</span>
+<span class=nt>&lt;/movie&gt;</span>
+</pre></div> <p>Ou em uma resposta em <em>JSON</em>, poderíamos ter algo parecido com o exemplo abaixo:</p> <div class=highlight><pre><span></span><span class=p>{</span>
+  <span class=nt>&quot;uuid&quot;</span><span class=p>:</span> <span class=s2>&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;title&quot;</span><span class=p>:</span> <span class=s2>&quot;The Matrix&quot;</span><span class=p>,</span>
+
+  <span class=nt>&quot;_links&quot;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&quot;actors&quot;</span><span class=p>:</span> <span class=s2>&quot;http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/&quot;</span>
+  <span class=p>}</span>
+<span class=p>}</span>
+</pre></div> <h2>Um pouquinho de prática</h2> <p>Antes de falarmos sobre os verbos <em>HTTP</em>, vamos utilizar o <em>hug</em> para uma abordagem um pouco mais prática. Iniciamos com a instalação da biblioteca:</p> <div class=highlight><pre><span></span>$ pip3 install hug
+</pre></div> <p>Para tornar as coisas simples, vamos simular o acesso ao banco de dados com o uso de dicionários <em>Python</em>.</p> <div class=highlight><pre><span></span><span class=c1># api.py</span>
+
+<span class=kn>import</span> <span class=nn>hug</span>
+
+<span class=n>MOVIES</span> <span class=o>=</span> <span class=p>[</span>
+  <span class=p>{</span>
+    <span class=s1>&#39;id&#39;</span><span class=p>:</span> <span class=s1>&#39;DED621D5-08F4-4D32-ADFA-84375BA415B9&#39;</span><span class=p>,</span>
+    <span class=s1>&#39;title&#39;</span><span class=p>:</span> <span class=s1>&#39;The Matrix&#39;</span><span class=p>,</span>
+    <span class=s1>&#39;description&#39;</span><span class=p>:</span> <span class=s1>&#39;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&#39;</span><span class=p>,</span>
+  <span class=p>}</span>
+<span class=p>]</span>
+</pre></div> <p>A <em>URI</em> por si só não significa nada. Precisamos de métodos para acessá-la (e manipulá-la), e o protocolo <em>HTTP</em> possui alguns verbos que podem executar essas operações para nós.</p> <h3>Listagem e detalhes</h3> <p>O <em>GET</em> é sem dúvida o mais famoso deles. É através dele que somos capazes de "pegar" os recursos da <em>web</em>, incluindo páginas na Internet como essa que você está lendo. Com esse verbo, podemos listar e visualizar mais detalhes de um determinado recurso na <em>web</em>.</p> <p>Vamos começar retornando a listagem de filmes:</p> <div class=highlight><pre><span></span><span class=c1># api.py</span>
+
+<span class=kn>import</span> <span class=nn>hug</span>
+
+<span class=o>...</span>
+
+<span class=nd>@hug.get</span><span class=p>()</span>
+<span class=k>def</span> <span class=nf>movies</span><span class=p>():</span>
+  <span class=k>return</span> <span class=p>{</span>
+    <span class=s1>&#39;objects&#39;</span><span class=p>:</span> <span class=n>MOVIES</span><span class=p>,</span>
+  <span class=p>}</span>
+</pre></div> <p>Para executar a <em>API</em> no seu ambiente local, utilize o seguinte comando:</p> <div class=highlight><pre><span></span>$ hug -f api.py
+</pre></div> <p>Agora, ao acessar a <em>URI</em> <code>http://localhost:8000/movies/</code>, obtemos a seguinte resposta:</p> <div class=highlight><pre><span></span><span class=p>{</span>
+ <span class=nt>&quot;objects&quot;</span> <span class=p>:</span> <span class=p>[</span>
+    <span class=p>{</span>
+       <span class=nt>&quot;description&quot;</span> <span class=p>:</span> <span class=s2>&quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;</span><span class=p>,</span>
+       <span class=nt>&quot;title&quot;</span> <span class=p>:</span> <span class=s2>&quot;The Matrix&quot;</span><span class=p>,</span>
+       <span class=nt>&quot;id&quot;</span> <span class=p>:</span> <span class=s2>&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;</span>
+     <span class=p>}</span>
+   <span class=p>]</span>
+<span class=p>}</span>
+</pre></div> <p>Vamos ilustrar como seria o acesso via <em>GET</em> para ver detalhes do recurso "The Matrix". Primeiro, criamos o método na aplicação que é responsável por dar detalhes de um filme:</p> <div class=highlight><pre><span></span><span class=kn>import</span> <span class=nn>hug</span>
+<span class=kn>from</span> <span class=nn>falcon</span> <span class=kn>import</span> <span class=n>HTTP_404</span>
+
+<span class=o>...</span>
+
+<span class=nd>@hug.get</span><span class=p>(</span><span class=s1>&#39;/movies/{movie_id}/&#39;</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>movie</span><span class=p>(</span><span class=n>movie_id</span><span class=p>,</span> <span class=n>response</span><span class=p>):</span>
+  <span class=n>movie_ids</span> <span class=o>=</span> <span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span><span class=p>[</span><span class=s1>&#39;id&#39;</span><span class=p>],</span> <span class=n>MOVIES</span><span class=p>)</span>
+
+  <span class=k>if</span> <span class=n>movie_id</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>movie_ids</span><span class=p>:</span>
+    <span class=n>response</span><span class=o>.</span><span class=n>status</span> <span class=o>=</span> <span class=n>HTTP_404</span>
+    <span class=k>return</span> <span class=s1>&#39;Not found&#39;</span>
+
+  <span class=n>movie</span> <span class=o>=</span> <span class=n>MOVIES</span><span class=p>[</span><span class=n>movie_ids</span><span class=o>.</span><span class=n>index</span><span class=p>(</span><span class=n>movie_id</span><span class=p>)]</span>
+</pre></div> <p>Seguindo uma boa prática, visualizar detalhes de um determinado recurso deveria ter um endereço composto pelo seu nome (no caso, <code>movies</code>), mais o seu identificador (no caso, <code>DED621D5-08F4-4D32-ADFA-84375BA415B9</code>):</p> <div class=highlight><pre><span></span>$ curl -i http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/
+
+HTTP/1.0 <span class=m>200</span> OK
+Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>00</span>:58:57 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-type: application/json
+content-length: <span class=m>221</span>
+
+<span class=o>{</span><span class=s2>&quot;description&quot;</span>: <span class=s2>&quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;</span>, <span class=s2>&quot;title&quot;</span>: <span class=s2>&quot;The Matrix&quot;</span>, <span class=s2>&quot;id&quot;</span>: <span class=s2>&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;</span><span class=o>}</span>
+</pre></div> <h3>Adicionando</h3> <p>Outro verbo bem conhecido do protocolo é o <em>POST</em>. Quem aqui nunca submeteu um formulário <em>web</em>?</p> <p>O princípio desse método é o envio de dados, do cliente para o servidor. Vamos aproveitar dessa sua natureza para adicionar o filme "Swordish" à nossa <em>API</em>. Para isso, precisamos alterar nossa função <code>movies</code>:</p> <div class=highlight><pre><span></span><span class=kn>import</span> <span class=nn>hug</span>
+<span class=kn>import</span> <span class=nn>uuid</span>
+<span class=kn>from</span> <span class=nn>falcon</span> <span class=kn>import</span> <span class=n>HTTP_201</span><span class=p>,</span> <span class=n>HTTP_404</span>
+
+<span class=o>...</span>
+
+<span class=nd>@hug.get_post</span><span class=p>()</span>
+<span class=k>def</span> <span class=nf>movies</span><span class=p>(</span><span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>):</span>
+  <span class=k>if</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;GET&#39;</span><span class=p>:</span>
+    <span class=k>return</span> <span class=p>{</span>
+      <span class=s1>&#39;objects&#39;</span><span class=p>:</span> <span class=n>MOVIES</span><span class=p>,</span>
+    <span class=p>}</span>
+  <span class=k>else</span><span class=p>:</span>  <span class=c1># We are assuming it&#39;s a POST</span>
+    <span class=n>movie</span> <span class=o>=</span> <span class=p>{</span>
+      <span class=s1>&#39;uuid&#39;</span><span class=p>:</span> <span class=nb>str</span><span class=p>(</span><span class=n>uuid</span><span class=o>.</span><span class=n>uuid4</span><span class=p>()),</span>
+      <span class=s1>&#39;title&#39;</span><span class=p>:</span> <span class=n>request</span><span class=o>.</span><span class=n>get_param</span><span class=p>(</span><span class=s1>&#39;title&#39;</span><span class=p>),</span>
+      <span class=s1>&#39;description&#39;</span><span class=p>:</span> <span class=n>request</span><span class=o>.</span><span class=n>get_param</span><span class=p>(</span><span class=s1>&#39;description&#39;</span><span class=p>),</span>
+    <span class=p>}</span>
+    <span class=n>MOVIES</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>movie</span><span class=p>)</span>
+
+    <span class=n>response</span><span class=o>.</span><span class=n>status</span> <span class=o>=</span> <span class=n>HTTP_201</span>
+    <span class=k>return</span> <span class=n>movie</span>
+
+<span class=o>...</span>
+</pre></div> <p>Como é possível reparar no código acima, pretendemos adicionar um filme e o destino da nossa requisição será o <code>/movies/</code>. Desse modo, o <em>GET</em> lista e o <em>POST</em> adiciona novos filmes:</p> <div class=highlight><pre><span></span>$ curl -i -XPOST -d <span class=s2>&quot;title=Swordfish&amp;description=Some hackish description...&quot;</span> http://localhost:8000/movies
+
+HTTP/1.0 <span class=m>201</span> Created
+Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>01</span>:51:43 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-type: application/json
+content-length: <span class=m>116</span>
+
+<span class=o>{</span><span class=s2>&quot;title&quot;</span>: <span class=s2>&quot;Swordfish&quot;</span>, <span class=s2>&quot;uuid&quot;</span>: <span class=s2>&quot;a96e7212-6a29-478a-a24e-07720a286944&quot;</span>, <span class=s2>&quot;description&quot;</span>: <span class=s2>&quot;Some hackish description...&quot;</span><span class=o>}</span>
+</pre></div> <p>Agora temos dois filmes cadastrados na nossa API:</p> <div class=highlight><pre><span></span><span class=p>{</span>
+   <span class=nt>&quot;objects&quot;</span> <span class=p>:</span> <span class=p>[</span>
+      <span class=p>{</span>
+         <span class=nt>&quot;description&quot;</span> <span class=p>:</span> <span class=s2>&quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;</span><span class=p>,</span>
+         <span class=nt>&quot;title&quot;</span> <span class=p>:</span> <span class=s2>&quot;The Matrix&quot;</span><span class=p>,</span>
+         <span class=nt>&quot;id&quot;</span> <span class=p>:</span> <span class=s2>&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;</span>
+      <span class=p>},</span>
+      <span class=p>{</span>
+        <span class=nt>&quot;description&quot;</span><span class=p>:</span> <span class=s2>&quot;Some hackish description...&quot;</span><span class=p>,</span>
+        <span class=nt>&quot;title&quot;</span> <span class=p>:</span> <span class=s2>&quot;Swordfish&quot;</span><span class=p>,</span>
+        <span class=nt>&quot;id&quot;</span><span class=p>:</span> <span class=s2>&quot;a96e7212-6a29-478a-a24e-07720a286944&quot;</span>
+      <span class=p>}</span>
+   <span class=p>]</span>
+<span class=p>}</span>
+</pre></div> <h3>Atualizando e removendo</h3> <p>Uma vez que <em>POST</em> e <em>GET</em> acontecem no <em>endpoint</em> responsável por "listar" os nossos filmes, é natural assumirmos que o <em>PUT</em> e <em>DELETE</em> acontecerão no <em>endpoint</em> responsável por "detalhar" determinado filme.</p> <p>O <em>PUT</em> é o método <em>HTTP</em> responsável por atualizar um determinado recurso. Assim como o <em>POST</em>, ele permite a passagem de parâmetros que podem ser interpretados como "campos".</p> <p>Já o <em>DELETE</em>, como o nome sugere, é o método padrão quando insinuamos a remoção de um determinado recurso à nossa <em>API</em>.</p> <p>Na prática, para suportar esses dois verbos, nossa função <code>movie</code> ficará assim:</p> <div class=highlight><pre><span></span><span class=nd>@hug.http</span><span class=p>(</span><span class=s1>&#39;/movies/{movie_id}/&#39;</span><span class=p>,</span> <span class=n>accept</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;get&#39;</span><span class=p>,</span> <span class=s1>&#39;put&#39;</span><span class=p>,</span> <span class=s1>&#39;delete&#39;</span><span class=p>))</span>
+<span class=k>def</span> <span class=nf>movie</span><span class=p>(</span><span class=n>movie_id</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>):</span>
+  <span class=n>movie_ids</span> <span class=o>=</span> <span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span><span class=p>[</span><span class=s1>&#39;id&#39;</span><span class=p>],</span> <span class=n>MOVIES</span><span class=p>)</span>
+
+  <span class=k>if</span> <span class=n>movie_id</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>movie_ids</span><span class=p>:</span>
+    <span class=n>response</span><span class=o>.</span><span class=n>status</span> <span class=o>=</span> <span class=n>HTTP_404</span>
+    <span class=k>return</span> <span class=s1>&#39;Not found&#39;</span>
+
+  <span class=n>movie</span> <span class=o>=</span> <span class=n>MOVIES</span><span class=p>[</span><span class=n>movie_ids</span><span class=o>.</span><span class=n>index</span><span class=p>(</span><span class=n>movie_id</span><span class=p>)]</span>
+
+  <span class=k>if</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;DELETE&#39;</span><span class=p>:</span>
+    <span class=n>MOVIES</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=n>movie</span><span class=p>)</span>
+    <span class=k>return</span> <span class=s1>&#39;Deleted&#39;</span>
+
+  <span class=k>if</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;PUT&#39;</span><span class=p>:</span>
+    <span class=n>movie</span><span class=p>[</span><span class=s1>&#39;title&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>request</span><span class=o>.</span><span class=n>get_param</span><span class=p>(</span><span class=s1>&#39;title&#39;</span><span class=p>)</span>
+    <span class=n>movie</span><span class=p>[</span><span class=s1>&#39;description&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>request</span><span class=o>.</span><span class=n>get_param</span><span class=p>(</span><span class=s1>&#39;description&#39;</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>movie</span>
+
+  <span class=k>return</span> <span class=n>movie</span>
+</pre></div> <p>Agora podemos atualizar o filme "Swordfish":</p> <div class=highlight><pre><span></span>curl -i -XPUT -d <span class=s2>&quot;title=A Senha&amp;description=Um filme sobre Hackers&quot;</span> http://localhost:8000/movies/a96e7212-6a29-478a-a24e-07720a286944/
+
+HTTP/1.0 <span class=m>200</span> OK
+Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>02</span>:25:42 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-type: application/json
+content-length: <span class=m>107</span>
+
+<span class=o>{</span><span class=s2>&quot;title&quot;</span>: <span class=s2>&quot;A Senha&quot;</span>, <span class=s2>&quot;id&quot;</span>: <span class=s2>&quot;a96e7212-6a29-478a-a24e-07720a286944&quot;</span>, <span class=s2>&quot;description&quot;</span>: <span class=s2>&quot;Um filme sobre Hackers&quot;</span><span class=o>}</span>
+</pre></div> <p>E até mesmo apagá-lo:</p> <div class=highlight><pre><span></span>curl -i -XDELETE http://localhost:8000/movies/a96e7212-6a29-478a-a24e-07720a286944/
+
+HTTP/1.0 <span class=m>200</span> OK
+Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>02</span>:26:52 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-type: application/json
+content-length: <span class=m>9</span>
+
+<span class=s2>&quot;Deleted&quot;</span>
+</pre></div> <p>E com isso fechamos as operações de <em>CRUD</em> através dos métodos <em>POST</em>, <em>GET</em>, <em>PUT</em> e <em>DELETE</em>.</p> <h2>Ser JSON, ou não ser...</h2> <p>Uma das premissas do <em>REST</em> é que um recurso possa ser apresentado de diferentes maneiras. Por exemplo, o nosso filme se acessado pelo navegador, poderia ser representado através de um <em>HTML</em>. Por outro lado, se ele fosse acessado por uma requisição <em>Ajax</em>, ele poderia ser representado por um <em>JSON</em>.</p> <p>Uma terceira modalidade de entrega poderia ser em <em>XML</em>, ou em qualquer formato que tanto cliente quanto fornecedor entendam. Esse "acordo" entre as partes é realizado através do cabeçalho de requisição <code>Accept</code>, e pelo cabeçalho de resposta <code>content-type</code>:</p> <div class=highlight><pre><span></span>$ curl -v -H <span class=s2>&quot;Accept: application/json&quot;</span> http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/
+
+GET /movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/ HTTP/1.1
+Host: localhost:8000
+User-Agent: curl/7.43.0
+Accept: application/json
+
+HTTP/1.0 <span class=m>200</span> OK
+Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>02</span>:41:07 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-length: <span class=m>221</span>
+content-type: application/json
+</pre></div> <p>Com isso, permitimos que tanto cliente quanto fornecedor conversem livremente, desde que em um mesmo dialeto. Embora não haja um padrão formal, é comum vermos <em>APIs</em> dando suporte a renderizações em <em>JSON</em> e <em>XML</em>.</p> <p>Isso pode parecer até um exagero, e uma complexidade questionável na sua aplicação. A boa notícia é que a maioria das bibliotecas <em>REST</em> dão suporte <em>built-in</em> a essa funcionalidade.</p> <h2>Stateless</h2> <p>Uma das premissas do <em>REST</em> é a comunicação sem estados. Isso significa que, assim como o próprio <a href=https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html title="Leia mais sobre stateless, Cookies e Sessions">protocolo <em>HTTP</em></a>, não "conserva-se informações" entre as requisições.</p> <p>Na prática, isso significa que cliente pode enviar múltiplas requisições para o servidor, no entanto, cada uma delas deve ser independente. Cada uma deve possuir toda a informação necessária para que o servidor possa interpretá-las completamente (e separadamente).</p> <p>Isso facilita o <a href=https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html title="O Cache e o HTTP"><em>caching</em></a> e escalabilidade da sua solução.</p> <p>Caso estados precisem ser armazenados, é uma responsabilidade do cliente fazê-los.</p> <h2>Considerações finais</h2> <p>Chegamos ao fim desse artigo, e uma pergunta fica: Mas o que é <em>RESTful</em>?</p> <p>Uma <em>API RESTful</em> na verdade é uma <em>API</em> que segue os princípios do <em>REST</em> de forma mais "fiel". Enquadrando-se plenamente nas seguintes regras:</p> <ul> <li>Cliente/servidor</li> <li><em>Stateless</em></li> <li>Cacheável</li> <li>Interface uniforme para comunicação entre o cliente e o servidor</li> <li>Uso de camadas (facilitando escalabilidade, confiabilidade e segurança)</li> </ul> <p>No fim das contas, sendo <em>REST</em> ou <em>RESTful</em>, utilizar os conceitos é uma boa forma de criar serviços (de baixo custo) para as suas aplicações, que podem ser aplicados, por exemplo, dentro de uma arquitetura de microserviços.</p> <p>Até a próxima.</p> <h2>Referências</h2> <ul> <li><a href=http://www.hug.rest/website/quickstart><em>Hug - Embrace APIs from the future</em></a></li> <li><a href=http://imasters.expert/rest-architecture-model-definition-constraints-benefits/ ><em>iMasters - REST Architecture Model: Definition, Constraints and Benefits</em></a></li> <li><a href=https://www.infoq.com/br/articles/rest-introduction><em>InfoQ - REST Introduction</em></a></li> <li><a href=https://en.wikipedia.org/wiki/HATEOAS><em>Wikipedia - HATEOAS</em></a></li> <li><a href=https://pt.wikipedia.org/wiki/Hiperm%C3%ADdia><em>Wikipedia</em> - Hipermídia</a></li> <li><a href=https://pt.wikipedia.org/wiki/Hipertexto><em>Wikipedia</em> - Hipertexto</a></li> <li><a href=https://pt.wikipedia.org/wiki/URI><em>Wikipedia - URI</em></a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre" class=Article-tagLink>rest</a> <a href=https://klauslaube.com.br/tag/microservices.html title="Leia mais sobre" class=Article-tagLink>microservices</a> <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre" class=Article-tagLink>apis</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2016/05/20/rest-parte-2.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

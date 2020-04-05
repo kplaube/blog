@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>As built-in migrations do Django | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="O South ficou famoso por tornar as database migrations do Django fáceis. Com as novas versões do framework, uma maneira ainda mais intuitiva está disponível."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, migrations, python, django, south"><meta property=og:title content="As built-in migrations do Django"><meta property=og:description content="O South ficou famoso por tornar as database migrations do Django fáceis. Com as novas versões do framework, uma maneira ainda mais intuitiva está disponível."><meta property=og:url content=https://klauslaube.com.br/2016/10/18/as-built-in-migrations-do-django.html><meta property=og:image content=https://klauslaube.com.br//images/blog/croods-migration.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2016/10/18/as-built-in-migrations-do-django.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/croods-migration.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> As built-in migrations do Django </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2016-10-18T12:43:00-02:00 itemprop=datePublished>18 Out, 2016</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/django-logo.png alt="Logotipo do Django" class=representative-image width=180 height=180> <p>Quem usa o <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre Django"><em>Django</em></a> há mais tempo já ouviu falar do <a href=https://klauslaube.com.br/tag/south.html title="Leia mais sobre South"><em>South</em></a>. Famosa biblioteca responsável por trazer o comportamento de <a href=https://klauslaube.com.br/tag/migrations.html title="Leia mais sobre Migrations"><em>migrations</em></a> para o <em>Django</em>. Sem dúvida impactou inúmeros projetos e transformou o processo de <em>deploy</em> de toda a comunidade envolvida com o <em>framework</em>.</p> <!-- PELICAN_END_SUMMARY --> <p>Nas versões mais recentes do <em>Django</em>, contamos com um <em>engine</em> <em>built-in</em>, muito prático, e que traz alguns conceitos que ficaram famosos com o <em>South</em>.</p> <p>Vamos nessa dar adeus ao <code>syncdb</code>, e começar a nossa aventura com o <code>migrate</code>.</p> <h2>O que são migrations?</h2> <p>Diretamente da documentação do <em>South</em>:</p> <blockquote> <p>(...) são uma forma de alterar o schema do seu banco de dados de uma versão para outra.</p> </blockquote> <p>Você mantém em seu projeto uma série de instruções que modificam o <em>database</em> de acordo com a evolução do projeto. Quando uma nova pessoa fizer parte do time, não é necessário a realização de nenhum "dump" <em>SQL</em>, apenas a execução dessas <em>migrations</em> é o suficiente para você ter o <em>db</em> pronto para uso.</p> <p>Dentro do ecossistema <em>Django</em>, as <em>built-in migrations</em> vieram como uma excelente contribuição ao projeto. A distribuição de <em>apps</em> fica mais coerente, agora que o desenvolvedor não precisa mais de uma "segunda biblioteca" para passar a usar um app que estamos distribuindo.</p> <h2>Faça migrations</h2> <p>Para exemplificar como toda essa mágica funciona, vamos criar um <em>app</em> chamado "lista_de_compras":</p> <div class=highlight><pre><span></span>$ python manage.py startapp lista_de_compras
+</pre></div> <p>Nosso <em>application</em> terá uma estrutura similar a essa:</p> <div class=highlight><pre><span></span>lista_de_compras/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py
+</pre></div> <p>Não esqueça de adicioná-lo ao <code>INSTALLED_APPS</code>.</p> <p>Vamos nos focar na pasta <code>migrations</code> e no <code>models.py</code>. Nesse último, criaremos o modelo <code>Item</code>:</p> <div class=highlight><pre><span></span><span class=c1># models.py</span>
+
+<span class=k>class</span> <span class=nc>Item</span><span class=p>(</span><span class=n>models</span><span class=o>.</span><span class=n>Model</span><span class=p>):</span>
+    <span class=n>nome</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>CharField</span><span class=p>(</span><span class=n>max_length</span><span class=o>=</span><span class=mi>255</span><span class=p>)</span>
+    <span class=n>quantidade</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>IntegerField</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+</pre></div> <p>Agora, na linha de comando, invocamos o comando de criação de <em>migrations</em>:</p> <div class=highlight><pre><span></span>$ python manage.py makemigrations
+</pre></div> <p>Se tudo ocorreu bem, na pasta <code>migrations</code> do <em>app</em>, um novo arquivo <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre Python"><em>Python</em></a> foi criado:</p> <div class=highlight><pre><span></span><span class=c1># migrations/0001_initial.py</span>
+
+<span class=kn>from</span> <span class=nn>__future__</span> <span class=kn>import</span> <span class=n>unicode_literals</span>
+<span class=kn>from</span> <span class=nn>django.db</span> <span class=kn>import</span> <span class=n>migrations</span><span class=p>,</span> <span class=n>models</span>
+
+
+<span class=k>class</span> <span class=nc>Migration</span><span class=p>(</span><span class=n>migrations</span><span class=o>.</span><span class=n>Migration</span><span class=p>):</span>
+
+    <span class=n>initial</span> <span class=o>=</span> <span class=bp>True</span>
+
+    <span class=n>dependencies</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=p>]</span>
+
+    <span class=n>operations</span> <span class=o>=</span> <span class=p>[</span>
+        <span class=n>migrations</span><span class=o>.</span><span class=n>CreateModel</span><span class=p>(</span>
+            <span class=n>name</span><span class=o>=</span><span class=s1>&#39;Item&#39;</span><span class=p>,</span>
+            <span class=n>fields</span><span class=o>=</span><span class=p>[</span>
+                <span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>,</span> <span class=n>models</span><span class=o>.</span><span class=n>AutoField</span><span class=p>(</span><span class=n>auto_created</span><span class=o>=</span><span class=bp>True</span><span class=p>,</span> <span class=n>primary_key</span><span class=o>=</span><span class=bp>True</span><span class=p>,</span> <span class=n>serialize</span><span class=o>=</span><span class=bp>False</span><span class=p>,</span> <span class=n>verbose_name</span><span class=o>=</span><span class=s1>&#39;ID&#39;</span><span class=p>)),</span>
+                <span class=p>(</span><span class=s1>&#39;nome&#39;</span><span class=p>,</span> <span class=n>models</span><span class=o>.</span><span class=n>CharField</span><span class=p>(</span><span class=n>max_length</span><span class=o>=</span><span class=mi>255</span><span class=p>)),</span>
+                <span class=p>(</span><span class=s1>&#39;quantidade&#39;</span><span class=p>,</span> <span class=n>models</span><span class=o>.</span><span class=n>IntegerField</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>1</span><span class=p>)),</span>
+            <span class=p>],</span>
+        <span class=p>),</span>
+    <span class=p>]</span>
+</pre></div> <p>Por partes:</p> <p>O <code>unicode_literals</code> é uma ferramenta que torna possível a execução de seu projeto em <em>Python</em> 2 e 3. Ela tem a função de "marcar" suas <em>strings</em> como <em>unicode</em>, como explicado na <a href=https://docs.djangoproject.com/en/1.10/topics/migrations/#supporting-python-2-and-3 title="Suportando Python 2 e 3">documentação do <em>Django</em></a>.</p> <p>É criada (automaticamente) uma classe <code>Migration</code> herdando de <code>migrations.Migration</code>. Nela, temos 3 propriedades muito importantes:</p> <ul> <li><code>initial</code>: Informamos explicitamente ao <em>Django</em> que essa é a <em>migration</em> inicial do <em>app</em>. Essa informação é importante para alguns casos, como quando é <a href=https://docs.djangoproject.com/en/1.10/topics/migrations/#django.db.migrations.Migration.initial title="Leia mais na documentação do Django">preciso executar o --fake-initial</a>.</li> <li><code>dependencies</code>: Aqui informamos as dependências da nossa <em>migration</em>. Por exemplo, se dependermos de outra <em>migration</em> ou <em>app</em>, precisamos deixar claro que há uma dependência para manter uma ordem coerente de execução.</li> <li><code>operations</code>: Por fim, as operações que precisam ser executadas. No exemplo acima, estamos criando a tabela <code>lista_de_compras_item</code>, com os campos <code>id</code>, <code>nome</code> e <code>quantidade</code>.</li> </ul> <h2>No more syncdb</h2> <p>Calma! A tabela ainda não existe no banco dados. Para que isso aconteça é necessário executar o comando <code>migrate</code>:</p> <div class=highlight><pre><span></span>$ python manage.py migrate
+</pre></div> <p><code>migrate</code> executará todas as <em>migrations</em> pendentes do seu projeto. Caso queira executar apenas de um <em>app</em>:</p> <div class=highlight><pre><span></span>$ python manage.py migrate lista_de_compras
+</pre></div> <h2>Evoluindo o Schema</h2> <p>Vamos supor que exista o requisito de criar um <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre REST"><em>API REST</em></a> para o projeto, logo, expor o campo <code>id</code> não é uma boa prática! Precisamos de um campo único e não sequencial, que trará um pouco de <em>obfuscation</em> e segurança ao nosso <em>endpoint</em>.</p> <p>Primeiro, adicionamos o campo ao modelo:</p> <div class=highlight><pre><span></span><span class=c1># models.py</span>
+
+<span class=k>class</span> <span class=nc>Item</span><span class=p>(</span><span class=n>models</span><span class=o>.</span><span class=n>Model</span><span class=p>):</span>
+    <span class=n>uuid</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>UUIDField</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=n>uuid</span><span class=o>.</span><span class=n>uuid4</span><span class=p>,</span> <span class=n>editable</span><span class=o>=</span><span class=bp>False</span><span class=p>,</span> <span class=n>unique</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>
+    <span class=n>nome</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>CharField</span><span class=p>(</span><span class=n>max_length</span><span class=o>=</span><span class=mi>255</span><span class=p>)</span>
+    <span class=n>quantidade</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>IntegerField</span><span class=p>(</span><span class=n>default</span><span class=o>=</span><span class=mi>1</span><span class=p>)</span>
+</pre></div> <p>Seguindo o procedimento, para homologar as alterações em uma <em>migration</em>, precisamos do <code>makemigrations</code>:</p> <div class=highlight><pre><span></span>$ python manage.py makemigrations lista_de_compras
+</pre></div> <p>Se você executar o <code>migrate</code> em um banco de dados vazio, provavelmente não terá nenhum problema. Mas em um banco já existente, provavelmente uma <em>exception</em> acontecerá. O fato é que o uso do campo <code>unique</code> e o campo <code>default</code>, em uma <em>migration</em>, não é tão <a href=https://code.djangoproject.com/ticket/23932 title="Document how to set a unique value for new fields using migrations">intuitivo como parece</a>.</p> <p><img class=align-center src=/images/blog/croods-migration.jpg width=640 height=360 title="Migrar é preciso (indiewire.com)" alt="Migrar é preciso (indiewire.com)"></p> <p>Para fazer esse procedimento, vamos seguir as recomendações da <a href=https://docs.djangoproject.com/en/1.10/howto/writing-migrations/#migrations-that-add-unique-fields title="Migrations that add unique fields">documentação do Django</a>.</p> <p>Primeiro, removemos os atributos <code>unique=True</code> e <code>default=uuid.uuid4</code> da <em>migration</em> recém criada, e adicionamos o parâmetro <code>null=True</code>:</p> <div class=highlight><pre><span></span><span class=c1># migrations/0002_item_uuid.py</span>
+
+<span class=k>class</span> <span class=nc>Migration</span><span class=p>(</span><span class=n>migrations</span><span class=o>.</span><span class=n>Migration</span><span class=p>):</span>
+
+    <span class=n>dependencies</span> <span class=o>=</span> <span class=p>[</span>
+        <span class=p>(</span><span class=s1>&#39;lista_de_compras&#39;</span><span class=p>,</span> <span class=s1>&#39;0001_initial&#39;</span><span class=p>),</span>
+    <span class=p>]</span>
+
+    <span class=n>operations</span> <span class=o>=</span> <span class=p>[</span>
+        <span class=n>migrations</span><span class=o>.</span><span class=n>AddField</span><span class=p>(</span>
+            <span class=n>model_name</span><span class=o>=</span><span class=s1>&#39;item&#39;</span><span class=p>,</span>
+            <span class=n>name</span><span class=o>=</span><span class=s1>&#39;uuid&#39;</span><span class=p>,</span>
+            <span class=n>field</span><span class=o>=</span><span class=n>models</span><span class=o>.</span><span class=n>UUIDField</span><span class=p>(</span><span class=n>editable</span><span class=o>=</span><span class=bp>False</span><span class=p>,</span> <span class=n>null</span><span class=o>=</span><span class=bp>True</span><span class=p>),</span>
+        <span class=p>),</span>
+    <span class=p>]</span>
+</pre></div> <p>O próximo passo é popular as linhas já existentes com <code>uuids</code>. Faremos isso através de <em>data migrations</em>.</p> <h2>Data migrations</h2> <p>Diretamente da documentação do <em>Django</em>:</p> <blockquote> <p>Migrations that alter data are usually called “data migrations”; they’re best written as separate migrations, sitting alongside your schema migrations.</p> </blockquote> <p>Em alguns casos precisamos inserir ou alterar dados, de acordo com a evolução do <em>database</em> do nosso projeto. O <em>Django</em> não possui nenhuma forma "automática" para geração de <em>data migrations</em>, por isso, o caminho ideal é utilizar o comando <code>--empty</code>:</p> <div class=highlight><pre><span></span>$ python manage.py makemigrations --empty lista_de_compras
+</pre></div> <p>Com isso, uma <em>migration</em> "em branco" será criada, pronta para customização:</p> <div class=highlight><pre><span></span><span class=c1># migrations/0003_auto_20161010_1635.py</span>
+
+<span class=k>class</span> <span class=nc>Migration</span><span class=p>(</span><span class=n>migrations</span><span class=o>.</span><span class=n>Migration</span><span class=p>):</span>
+
+    <span class=n>dependencies</span> <span class=o>=</span> <span class=p>[</span>
+        <span class=p>(</span><span class=s1>&#39;lista_de_compras&#39;</span><span class=p>,</span> <span class=s1>&#39;0002_item_uuid&#39;</span><span class=p>),</span>
+    <span class=p>]</span>
+
+    <span class=n>operations</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=p>]</span>
+</pre></div> <p>Importante notar que agora o atributo <code>dependencies</code> está preenchido com a <em>migration</em> anterior à recém criada. É sempre necessário ter atenção à sua lista de dependências, para certificar-se que o fluxo acontecerá numa ordem coerente.</p> <p>Criaremos a função responsável por inserir <em>UUIDs</em> nos registros já existentes:</p> <div class=highlight><pre><span></span><span class=c1># migrations/0003_auto_20161010_1635.py</span>
+<span class=kn>import</span> <span class=nn>uuid</span>
+
+<span class=k>def</span> <span class=nf>gen_uuid</span><span class=p>(</span><span class=n>apps</span><span class=p>,</span> <span class=n>schema_editor</span><span class=p>):</span>
+    <span class=n>Item</span> <span class=o>=</span> <span class=n>apps</span><span class=o>.</span><span class=n>get_model</span><span class=p>(</span><span class=s1>&#39;lista_de_compras&#39;</span><span class=p>,</span> <span class=s1>&#39;Item&#39;</span><span class=p>)</span>
+    <span class=n>items</span> <span class=o>=</span> <span class=n>Item</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>all</span><span class=p>()</span>
+    <span class=k>for</span> <span class=n>item</span> <span class=ow>in</span> <span class=n>items</span><span class=p>:</span>
+        <span class=n>item</span><span class=o>.</span><span class=n>uuid</span> <span class=o>=</span> <span class=n>uuid</span><span class=o>.</span><span class=n>uuid4</span><span class=p>()</span>
+        <span class=n>item</span><span class=o>.</span><span class=n>save</span><span class=p>()</span>
+</pre></div> <p>Usamos o parâmetro <code>apps</code> para "importar" o modelo. Na sequência, utilizamos o <em>ORM</em> para pegar todos os items do banco de dados, iteramos por eles preenchendo o campo <code>uuid</code>.</p> <p>Precisamos adicionar essa função ao atributo <code>operations</code>, da <em>migration</em>:</p> <div class=highlight><pre><span></span><span class=c1># migrations/0003_auto_20161010_1635.py</span>
+
+<span class=k>class</span> <span class=nc>Migration</span><span class=p>(</span><span class=n>migrations</span><span class=o>.</span><span class=n>Migration</span><span class=p>):</span>
+
+    <span class=n>dependencies</span> <span class=o>=</span> <span class=p>[</span>
+        <span class=p>(</span><span class=s1>&#39;lista_de_compras&#39;</span><span class=p>,</span> <span class=s1>&#39;0002_item_uuid&#39;</span><span class=p>),</span>
+    <span class=p>]</span>
+
+    <span class=n>operations</span> <span class=o>=</span> <span class=p>[</span>
+        <span class=n>migrations</span><span class=o>.</span><span class=n>RunPython</span><span class=p>(</span><span class=n>gen_uuid</span><span class=p>,</span> <span class=n>reverse_code</span><span class=o>=</span><span class=n>migrations</span><span class=o>.</span><span class=n>RunPython</span><span class=o>.</span><span class=n>noop</span><span class=p>),</span>
+    <span class=p>]</span>
+</pre></div> <p>Utilizamos a função <code>RunPython</code> para executar operações em nossa <em>migration</em> que dependem de processamento por parte da linguagem (ou do <em>Django</em>). Em alguns cenários, esse tipo de operação não tem um processo de <em>rollback</em>, portanto, deixamos explícito que não temos como desfazer a operação através do parâmetro <code>reverse_code</code> com valor <code>migrations.RunPython.noop</code>.</p> <p>A <em>migration</em> deve ter ficado mais ou menos assim:</p> <div class=highlight><pre><span></span><span class=c1># migrations/0003_auto_20161010_1635.py</span>
+<span class=kn>from</span> <span class=nn>__future__</span> <span class=kn>import</span> <span class=n>unicode_literals</span>
+
+<span class=kn>import</span> <span class=nn>uuid</span>
+<span class=kn>from</span> <span class=nn>django.db</span> <span class=kn>import</span> <span class=n>migrations</span><span class=p>,</span> <span class=n>transaction</span>
+
+
+<span class=k>def</span> <span class=nf>gen_uuid</span><span class=p>(</span><span class=n>apps</span><span class=p>,</span> <span class=n>schema_editor</span><span class=p>):</span>
+    <span class=n>Item</span> <span class=o>=</span> <span class=n>apps</span><span class=o>.</span><span class=n>get_model</span><span class=p>(</span><span class=s1>&#39;lista_de_compras&#39;</span><span class=p>,</span> <span class=s1>&#39;Item&#39;</span><span class=p>)</span>
+    <span class=n>items</span> <span class=o>=</span> <span class=n>Item</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>all</span><span class=p>()</span>
+    <span class=k>for</span> <span class=n>item</span> <span class=ow>in</span> <span class=n>items</span><span class=p>:</span>
+        <span class=n>item</span><span class=o>.</span><span class=n>uuid</span> <span class=o>=</span> <span class=n>uuid</span><span class=o>.</span><span class=n>uuid4</span><span class=p>()</span>
+        <span class=n>item</span><span class=o>.</span><span class=n>save</span><span class=p>()</span>
+
+
+<span class=k>class</span> <span class=nc>Migration</span><span class=p>(</span><span class=n>migrations</span><span class=o>.</span><span class=n>Migration</span><span class=p>):</span>
+
+    <span class=n>dependencies</span> <span class=o>=</span> <span class=p>[</span>
+        <span class=p>(</span><span class=s1>&#39;lista_de_compras&#39;</span><span class=p>,</span> <span class=s1>&#39;0002_item_uuid&#39;</span><span class=p>),</span>
+    <span class=p>]</span>
+
+    <span class=n>operations</span> <span class=o>=</span> <span class=p>[</span>
+        <span class=n>migrations</span><span class=o>.</span><span class=n>RunPython</span><span class=p>(</span><span class=n>gen_uuid</span><span class=p>,</span> <span class=n>reverse_code</span><span class=o>=</span><span class=n>migrations</span><span class=o>.</span><span class=n>RunPython</span><span class=o>.</span><span class=n>noop</span><span class=p>),</span>
+    <span class=p>]</span>
+</pre></div> <p>Ainda não acabou! Uma vez que todos os registros já possuam o seu <code>uuid</code> preenchido, precisamos voltar à proposta original do nosso modelo: Com um campo default, e com preenchimento obrigatório. Para tanto, basta executar novamente o <code>makemigrations</code>. Uma nova <em>migration</em> será criada, com todas as <em>constraints</em> definidas corretamente.</p> <p>Agora rode o <code>migrate</code>. Acabamos de criar um campo <code>uuid</code>, preenchemos os registros já existentes no <em>database</em>, e criamos <em>constraints</em> para os registros que virão no futuro.</p> <p>Até a próxima.</p> <h2>Referências</h2> <ul> <li><a href=https://docs.djangoproject.com/en/1.10/topics/migrations/ >Django documentation: Migrations</a></li> <li><a href=https://south.readthedocs.io/en/latest/whataremigrations.html>South documentation: What are migrations?</a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/migrations.html title="Leia mais sobre" class=Article-tagLink>migrations</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre" class=Article-tagLink>django</a> <a href=https://klauslaube.com.br/tag/south.html title="Leia mais sobre" class=Article-tagLink>south</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2016/10/18/as-built-in-migrations-do-django.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

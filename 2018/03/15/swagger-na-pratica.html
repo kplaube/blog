@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Swagger na prática | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Voltamos a falar de APIs e Swagger. Nesse artigo, vamos escrever uma especificação para uma API de filmes, e pincelar as ferramentas Swagger disponíveis no mercado."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, rest, microservices, apis, swagger, oai"><meta property=og:title content="Swagger na prática"><meta property=og:description content="Voltamos a falar de APIs e Swagger. Nesse artigo, vamos escrever uma especificação para uma API de filmes, e pincelar as ferramentas Swagger disponíveis no mercado."><meta property=og:url content=https://klauslaube.com.br/2018/03/15/swagger-na-pratica.html><meta property=og:image content=https://klauslaube.com.br//images/blog/poesia-vogon.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2018/03/15/swagger-na-pratica.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/poesia-vogon.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Swagger na prática </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2018-03-15T18:15:00-03:00 itemprop=datePublished>15 Mar, 2018</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/swaggerhub-logo.png alt="Logotipo do SwaggerHub" class=representative-image width=180 height=180> <p>Voltamos a falar de <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre APIs"><em>APIs</em></a>, e voltamos a falar sobre especificações. Para continuar o assunto sobre <a href=https://klauslaube.com.br/2017/11/25/swagger-e-o-open-api-initiative.html title="Swagger e o OAI"><em>Swagger</em></a>, hoje vamos abordar o tema de uma maneira prática. Afinal, é com ela que a gente vê as principais vantagens de utilizar <em>Swagger</em> + <em>Open API Spec</em>, em relação aos concorrentes.</p> <!-- PELICAN_END_SUMMARY --> <p>Não deixe de conferir uma abordagem prática ao <a href=https://klauslaube.com.br/tag/raml.html title="Leia mais sobre RAML"><em>RAML</em></a>, no <em>post</em> "<a href=https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html title="Leia o artigo completo">Ramilificando as suas APIs</a>".</p> <h2>Aquecendo</h2> <p>E mais uma vez vamos usar o nosso <a href=https://klauslaube.com.br/2016/05/20/rest-parte-2.html title="REST - Parte 2">mini <em>IMDB</em></a> como exemplo.</p> <p>Além disso, vamos aproveitar as ferramentas que o pessoal do <em>Swagger</em> disponibiliza gratuitamente. A começar pelo <a href=https://swagger.io/swagger-editor/ title="API Development Tools"><em>Swagger Editor</em></a>. Não é necessário fazer nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor através do <em>link</em> "Online Editor".</p> <p><img class=align-center-keep-size src=/images/blog/poesia-vogon.jpg width=600 height=344 title="Aguenta um pouco mais dessa poesia Vogon (imagilendo.wordpress.com)" alt="Aguenta um pouco mais dessa poesia Vogon (imagilendo.wordpress.com)"></p> <p>Ele trará um exemplo de especificação. Vamos limpar o editor e começar do zero.</p> <h2>Como começar?</h2> <p>Como explicado no <em>post</em> anterior, <em>Swagger</em> é um padrão de <em>API Spec</em> mas também é um conjunto de ferramentas que podem trabalhar tanto com <em>Swagger Spec</em> quanto com <a href=https://github.com/OAI/OpenAPI-Specification title="The OpenAPI Specification"><em>Open API Spec</em></a>. Vamos começar o documento deixando clara a nossa escolha:</p> <div class=highlight><pre><span></span><span class=nt>openapi</span><span class=p>:</span> <span class=s>&quot;3.0.1&quot;</span>
+</pre></div> <p><a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md title="Open API Spec Version 3.0.1">Confira a versão 3.0.1 do <em>OAI</em></a>.</p> <p>A essa altura o editor já deve ter apontado alguns erros. Por exemplo, é obrigatória a presença de um atributo <a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#infoObject title="Veja na especificação"><em>info</em></a> e <a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#pathsObject><em>path</em></a>. Vamos corrigí-los:</p> <div class=highlight><pre><span></span><span class=nt>openapi</span><span class=p>:</span> <span class=s>&quot;3.0.1&quot;</span>
+<span class=nt>info</span><span class=p>:</span>
+  <span class=nt>title</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movies API</span>
+  <span class=nt>version</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class=nt>paths</span><span class=p>:</span>
+  <span class=nt>/movies</span><span class=p>:</span>
+    <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">A set of movies</span>
+</pre></div> <p>Em <code>info</code>, descrevemos o título da nossa <em>API</em> e sobre qual versão da mesma estamos falando (nesse caso, <code>v1</code>). Em <code>paths</code>, descreveremos os <em>endpoints</em>. Com a adição dessas duas propriedades, podemos progredir com a construção da <em>API</em>:</p> <p><img class=align-center-keep-size src=/images/blog/swagger-editor-example.png width=640 height=152 title="Exemplo Swagger Editor" alt="Exemplo Swagger Editor"></p> <p><a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#openapi-object title="Leia na especificação">Conheça os atributos do <em>OpenAPI Object</em></a>.</p> <h2>Descrevendo os dados</h2> <p>Antes mesmo de adicionarmos os <em>endpoints</em> na propriedade <code>paths</code>, vamos parar e descrever o <em>schema</em> dos nossos dados. Nesse exemplo, o uso da propriedade <code>components</code> pode ser um "overhead", mas para <em>APIs</em> grandes, com vários <em>endpoints</em>, essa separação ajudará na legibilidade e reaproveitamento de código:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+    <span class=nt>/movies</span><span class=p>:</span>
+        <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">A set of movies</span>
+
+<span class=nt>components</span><span class=p>:</span>
+    <span class=nt>schemas</span><span class=p>:</span>
+        <span class=nt>Movie</span><span class=p>:</span>
+            <span class=nt>properties</span><span class=p>:</span>
+                <span class=nt>id</span><span class=p>:</span>
+                    <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+                <span class=nt>title</span><span class=p>:</span>
+                    <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+                <span class=nt>description</span><span class=p>:</span>
+                    <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+            <span class=nt>required</span><span class=p>:</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">id</span>
+                <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">title</span>
+            <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">object</span>
+</pre></div> <p><code>Movie</code> é um objeto e possui três propriedades: <code>id</code>, <code>title</code> e <code>description</code>, e as duas primeiras são obrigatórias. Você pode estar estranhando o <code>id</code> ser do tipo <code>string</code>. Nesse exemplo estamos assumindo que os identificadores são <code>uuids</code>.</p> <p><img class=align-center-keep-size src=/images/blog/swagger-editor-example-2.png width=640 height=310 title="Editor do Swagger exibindo a seção models" alt="Editor do Swagger exibindo a seção models"></p> <p><a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#schemaObject title="Veja na especificação">Saiba mais sobre <em>Schema Objects</em></a>.</p> <h2>Descrevendo os endpoints</h2> <p>Os principais <em>endpoints</em> que imaginamos para esse projeto são:</p> <ul> <li><code>GET /movies</code>: Listagem de filmes;</li> <li><code>POST /movies</code>: Adição de um filme;</li> <li><code>GET /movies/{id}</code>: Detalhes de um filme;</li> <li><code>PUT /movies/{id}</code>: Atualização de um filme;</li> <li><code>DELETE /movies/{id}</code>: Remoção de um filme.</li> </ul> <p>A listagem é um bom ponto de partida.</p> <h3>Listando filmes</h3> <p>Voltando à propriedade <code>paths</code>, vamos melhorar a definição do <code>/movies</code>:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+  <span class=nt>/movies</span><span class=p>:</span>
+    <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">A set of movies</span>
+    <span class=nt>get</span><span class=p>:</span>
+      <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Get a list of movies</span>
+      <span class=nt>responses</span><span class=p>:</span>
+        <span class=s>&#39;200&#39;</span><span class="p p-Indicator">:</span>
+          <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movie list response</span>
+          <span class=nt>content</span><span class=p>:</span>
+            <span class=nt>application/json</span><span class=p>:</span>
+              <span class=nt>schema</span><span class=p>:</span>
+                <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">array</span>
+                <span class=nt>items</span><span class=p>:</span>
+                  <span class=nt>$ref</span><span class=p>:</span> <span class=s>&#39;#/components/schemas/Movie&#39;</span>
+</pre></div> <p>Através do <code>/movies</code>, dentro de <code>paths</code>, estamos descrevendo o <em>endpoint</em>. Com o uso de <code>get:</code>, declaramos que o <em>endpoint</em> aceitará o método <code>GET</code>. Ainda abusando da indentação do <em>YAML</em>, deixamos claro que existe uma resposta <code>200</code> (sucesso), que o seu conteúdo é <code>application/json</code>, e que dentro desse conteúdo haverá uma listagem de filmes.</p> <p>Com o <code>$ref</code> somos capazes de referenciar um <a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#pathItemObject title="Leia mais na especificação"><em>Path Item Object</em></a> do próprio arquivo que estamos trabalhando (nesse caso, o <code>#/components/schemas/Movie</code> está referência ao bloco de <em>YAML</em> que criamos no capítulo anterior) ou até mesmo recursos externos. O que possibilita quebrar a <em>spec</em> em diferentes arquivos.</p> <p>Se você já conhece o <a href=http://json-schema.org/ title="a vocabulary that allows you to annotate and validate JSON documents"><em>JSON Schema</em></a>, essa notação não lhe parecerá estranha.</p> <h3>Criando filmes</h3> <p>Ainda em <code>/movies</code>, ao enviar um <code>POST</code>, somos capazes de criar um novo filme. Se você já leu sobre <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre REST"><em>REST</em></a> sabe que essa prática é recomendada. Vamos adicionar o seguinte bloco abaixo do <code>get</code>:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+    <span class=nt>/movies</span><span class=p>:</span>
+        <span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+        <span class="l l-Scalar l-Scalar-Plain">post</span><span class="p p-Indicator">:</span>
+          <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Add a new movie to the set</span>
+          <span class=nt>requestBody</span><span class=p>:</span>
+            <span class=nt>required</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class=nt>content</span><span class=p>:</span>
+              <span class=nt>application/json</span><span class=p>:</span>
+                <span class=nt>schema</span><span class=p>:</span>
+                  <span class=nt>$ref</span><span class=p>:</span> <span class=s>&#39;#/components/schemas/Movie&#39;</span>
+          <span class=nt>responses</span><span class=p>:</span>
+            <span class=s>&#39;201&#39;</span><span class="p p-Indicator">:</span>
+              <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Returns the new movie</span>
+              <span class=nt>content</span><span class=p>:</span>
+                <span class=nt>application/json</span><span class=p>:</span>
+                  <span class=nt>schema</span><span class=p>:</span>
+                    <span class=nt>$ref</span><span class=p>:</span> <span class=s>&#39;#/components/schemas/Movie&#39;</span>
+</pre></div> <p>Com o <code>post:</code>, temos a necessidade do uso de uma nova propriedade chamada <a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#requestBodyObject title="Veja mais na spec"><em>requestBody</em></a>. É com ela que descreveremos quais parâmetros o usuário precisará passar para criar um filme. Já o <code>responses</code> descreve o retorno de um <code>201</code> (created), com o recém criado filme como um <em>JSON</em> como conteúdo da resposta.</p> <p>Opa! Temos um problema aqui! Nosso tipo <code>Movie</code> tem um campo <code>id</code> que é obrigatório por padrão. Esse campo não deveria ser enviado pelo cliente. Precisamos corrigir esse comportamento:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">paths</span><span class="p p-Indicator">:</span>
+    <span class=nt>/movies</span><span class=p>:</span>
+        <span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+        <span class="l l-Scalar l-Scalar-Plain">post</span><span class="p p-Indicator">:</span>
+          <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Add a new movie to the set</span>
+          <span class=nt>requestBody</span><span class=p>:</span>
+            <span class=nt>required</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+            <span class=nt>content</span><span class=p>:</span>
+              <span class=nt>application/json</span><span class=p>:</span>
+                <span class=nt>schema</span><span class=p>:</span>
+                  <span class=nt>$ref</span><span class=p>:</span> <span class=s>&#39;#/components/schemas/NewMovie&#39;</span>
+
+<span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class=nt>components</span><span class=p>:</span>
+  <span class=nt>schemas</span><span class=p>:</span>
+    <span class=nt>Movie</span><span class=p>:</span>
+      <span class=nt>allOf</span><span class=p>:</span>
+        <span class="p p-Indicator">-</span> <span class=nt>$ref</span><span class=p>:</span> <span class=s>&#39;#/components/schemas/NewMovie&#39;</span>
+        <span class="p p-Indicator">-</span> <span class=nt>required</span><span class=p>:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">id</span>
+          <span class=nt>properties</span><span class=p>:</span>
+            <span class=nt>id</span><span class=p>:</span>
+              <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+    <span class=nt>NewMovie</span><span class=p>:</span>
+      <span class=nt>properties</span><span class=p>:</span>
+        <span class=nt>title</span><span class=p>:</span>
+          <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+        <span class=nt>description</span><span class=p>:</span>
+          <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class=nt>required</span><span class=p>:</span>
+        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">title</span>
+</pre></div> <p>Com o uso do tipo <code>NewMovie</code>, o <em>request</em> feito pelo usuário está descrito da maneira correta (sem <code>id</code>). Note que em <code>components</code> aproveitamos todas as características de <code>NewMovie</code>, e adicionamos uma nova (ter <code>id</code>) para o tipo <code>Movie</code>. Isso tudo graças ao <code>$ref</code> e ao <a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#composition-and-inheritance-polymorphism title="Leia mais na spec"><em>allOf</em></a>.</p> <p><img class=align-center-keep-size src=/images/blog/swagger-editor-example-3.png width=640 height=370 title="Editor Swagger exibindo a documentação dos endpoints" alt="Editor Swagger exibindo a documentação dos endpoints"></p> <p>A essa altura, descrever os demais métodos e <em>endpoints</em> não será nenhum mistério. Portanto, vamos dar um "fast forward".</p> <h2>Segurança</h2> <p>Segurança é importante, e tão importante quanto é deixar explícito para os desenvolvedores e usuários quais protocolos de autenticação/autorização que estão sendo praticados pela <em>API</em>. No nosso caso, vamos descrever o uso do protocolo <a href=https://klauslaube.com.br/2018/02/06/oauth20-autorizacao-simples-or-is-it.html title="Leia mais sobre OAuth 2.0"><em>OAuth 2.0</em></a>, com o <code>grant type</code> <code>password</code>:</p> <div class=highlight><pre><span></span><span class=nt>components</span><span class=p>:</span>
+  <span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">securitySchemes</span><span class="p p-Indicator">:</span>
+    <span class=nt>OAuth2</span><span class=p>:</span>
+      <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">oauth2</span>
+      <span class=nt>flows</span><span class=p>:</span>
+        <span class=nt>password</span><span class=p>:</span>
+          <span class=nt>tokenUrl</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">https://example.com/oauth/token</span>
+          <span class=nt>scopes</span><span class=p>:</span>
+            <span class=nt>read</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Grants read access</span>
+            <span class=nt>write</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Grants write access</span>
+</pre></div> <p>Falta anotar a propriedade <code>security</code> em cada <em>endpoint</em>:</p> <div class=highlight><pre><span></span><span class=nt>paths</span><span class=p>:</span>
+  <span class=nt>/movies</span><span class=p>:</span>
+    <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">A set of movies</span>
+    <span class=nt>get</span><span class=p>:</span>
+      <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Get a list of movies</span>
+      <span class=nt>responses</span><span class=p>:</span>
+        <span class="l l-Scalar l-Scalar-Plain">(...)</span>
+      <span class=nt>security</span><span class=p>:</span>
+        <span class="p p-Indicator">-</span> <span class=nt>OAuth2</span><span class=p>:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">read</span>
+    <span class=nt>post</span><span class=p>:</span>
+      <span class=nt>summary</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Add a new movie to the set</span>
+      <span class=nt>requestBody</span><span class=p>:</span>
+        <span class="l l-Scalar l-Scalar-Plain">(...)</span>
+      <span class=nt>responses</span><span class=p>:</span>
+        <span class="l l-Scalar l-Scalar-Plain">(...)</span>
+      <span class=nt>security</span><span class=p>:</span>
+        <span class="p p-Indicator">-</span> <span class=nt>OAuth2</span><span class=p>:</span>
+          <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">write</span>
+</pre></div> <p>Um ícone de cadeado deve ter aparecido no <em>preview</em> do <em>Swagger Editor</em>.</p> <h2>Outras ferramentas Swagger</h2> <p>Com a especificação acima temos o suficiente para publicar a documentação da nossa <em>API</em>, e até mesmo gerar algum código <em>client</em>. O <em>Swagger Editor</em> quebrou um grande galho, auxiliando na escrita do documento, e é altamente recomendável o seu uso.</p> <p>Um <em>disclaimer</em> especial vai para a versão do <em>OpenAPI Spec</em> que usamos nos exemplos. Infelizmente, nem toda ferramenta suporta a versão mais recente da especificação, logo, você terá que usar versões mais antigas caso queira utilizar as demais ferramentas que o <em>Swagger</em> disponibiliza.</p> <h3>Gerando código com o <em>Codegen</em></h3> <p>O <a href=https://github.com/swagger-api/swagger-codegen title="Veja o repositório no Github"><em>Swagger Code Generator</em></a> é um projeto super bacana que interpreta a especificação e gera código para diferentes linguagens. Infelizmente, a versão estável do <em>swagger-codegen</em> só suporta até a versão <code>2.0</code> do <em>OpenAPI Spec</em>, e o <em>snapshot</em> mais recente ainda não possui uma gama grande de linguagens disponíveis.</p> <p>Construir <em>SDKs</em> nunca foi tão fácil:</p> <div class=highlight><pre><span></span>java -jar ~/Downloads/swagger-codegen-cli-3.0.0-20180314.142155-42.jar generate <span class=se>\</span>
+    -i ~/Downloads/openapi.yaml <span class=se>\</span>
+    -l java -o ~/Projects/java/mini-imdb
+</pre></div> <p>Se você quer usufruir dessa ferramenta, é recomendado que utilize as versões do <em>OpenAPI Spec</em> descritas no repositório do projeto: <a href=https://github.com/swagger-api/swagger-codegen#compatibility title="Veja a grade de compatibilidade do codegen">https://github.com/swagger-api/swagger-codegen#compatibility</a>.</p> <p><a href=https://github.com/swagger-api/swagger-codegen/wiki/api-client-generator-howto title="Veja mais no Wiki do projeto">API client generator HOWTO</a>.</p> <h3>Gerando documentação com o <em>UI</em></h3> <p>Com o <a href=https://github.com/swagger-api/swagger-ui title="Veja o repositório no Gihub"><em>Swagger UI</em></a>, a partir da especificação recém criada, podemos gerar documentações elegantes e acessíveis ao nosso usuário final. O projeto é em <em>NodeJS</em>, e necessita de algum "Javascript-fu" para executá-lo.</p> <p>A maneira mais fácil de usá-lo é através da plataforma <a href=https://swaggerhub.com/ title="The Platform for Designing and Documenting APIs with Swagger"><em>SwaggerHub</em></a>. Onde você pode criar um usuário gratuitamente e ter 1 (um) projeto publicado no plano <em>free</em>.</p> <p><img class=align-center-keep-size src=/images/blog/swagger-ui-example.png width=640 height=375 title="Exemplo Swagger UI" alt="Exemplo Swagger UI"></p> <p><a href=https://app.swaggerhub.com/apis/kplaube/movies-api/v1 title="Veja no SwaggerHub">Confira o exemplo no <em>SwaggerHub</em></a>.</p> <p>Vale notar que a documentação é "viva", ou seja, ela interage com os endpoints do seu serviço. Para que esse recurso funcione corretamente, você precisa anotar a propriedade <code>servers</code> na especificação da <em>API</em>.</p> <p><a href=https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#serverObject title="Veja na documentação oficial">Leia mais sobre <em>Server Object</em></a>.</p> <h3>Testando com <em>Inspector</em></h3> <p>Se você já usou o <a href=https://insomnia.rest/ title="Debug APIs like a human, not a robot"><em>Insomnia</em></a> ou <a href=https://www.getpostman.com/ title="Postman Makes API Development Simple"><em>Postman</em></a>, vai se sentir em casa com o <a href=https://inspector.swagger.io/builder title="Veja a aplicação"><em>Swagger Inspector</em></a>.</p> <p>O <em>Inspector</em> é uma <em>GUI</em> que auxilia nos testes de <em>endpoints</em> <em>REST</em>. Com ele, fica mais fácil inspecionar <em>endpoints</em> e validar o contrato e comportamento dos mesmos.</p> <p>Confesso que acho o <em>Postman</em> muito mais eficiente nesse quesito. Mas infelizmente, o aplicativo só suporta até a versão <code>2.0</code> do <em>Swagger Spec</em>. Nada que impeça que você configure os <em>requests</em> para os <em>endpoints</em> manualmente.</p> <h2>Considerações finais</h2> <p>A <em>spec</em> final você encontra <a href=https://gist.github.com/kplaube/509c52f13dc966c915600733db60c2bb title="Veja o exemplo completo">aqui</a>.</p> <p>O ambiente em torno do <em>OpenAPI</em> é rico, e vale a pena considerar escrever suas próximas especificações de <em>APIs</em> com esse padrão. Se você, assim como eu, vem de outros formatos (como o <em>RAML</em> ou <em>JSON Schema</em>), não notará grande diferença na forma de escrita com o <em>OAI</em>.</p> <p>É claro que não é só o pessoal do <em>Swagger</em> que cria ferramentas para <em>Swagger Spec</em> e <em>OpenAPI Spec</em>. Você pode conferir as diversas ferramentas criadas pela comunidade em <a href=https://swagger.io/open-source-integrations/#community-driven-language-integrations-2 title="Veja mais em swagger.io"><em>Tools and Integrations</em></a>.</p> <p>Sem dúvida, falaremos sobre <em>Python</em> + <em>Swagger</em> nos próximos <em>posts</em>.</p> <p>Até lá.</p> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre" class=Article-tagLink>rest</a> <a href=https://klauslaube.com.br/tag/microservices.html title="Leia mais sobre" class=Article-tagLink>microservices</a> <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre" class=Article-tagLink>apis</a> <a href=https://klauslaube.com.br/tag/swagger.html title="Leia mais sobre" class=Article-tagLink>swagger</a> <a href=https://klauslaube.com.br/tag/oai.html title="Leia mais sobre" class=Article-tagLink>oai</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2018/03/15/swagger-na-pratica.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

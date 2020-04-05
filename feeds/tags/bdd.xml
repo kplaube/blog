@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Klaus Laube - bdd</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 03 Feb 2016 23:50:00 -0200</lastBuildDate><item><title>BDD com Django e Behave</title><link>https://klauslaube.com.br/2016/02/03/bdd-com-django-e-behave.html</link><description>&lt;p&gt;Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,
+é uma grande prática no que diz respeito a escrita de testes que guiem o
+seu desenvolvimento.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Deixando a polêmica do "&lt;a href="http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html" title="TDD is dead. Long live testing."&gt;TDD is dead&lt;/a&gt;"
+de lado, criar cenários que garantem um determinado fluxo, além de servir
+como um …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 03 Feb 2016 23:50:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-02-03:/2016/02/03/bdd-com-django-e-behave.html</guid><category>desenvolvimento</category><category>testes</category><category>bdd</category><category>aceitação</category><category>python</category><category>django</category><category>behave</category><category>splinter</category></item><item><title>Ferramentas de testes em Django - Parte 2</title><link>https://klauslaube.com.br/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html" title="Ferramentas de testes em Django - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
+conhecemos as ferramentas &lt;em&gt;default&lt;/em&gt; para construção de testes
+automatizados em &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Acontece que você pode “sair um pouco da
+caixa” e usufruir de ferramentas “third-party“, que enriquecerão o seu
+ambiente de desenvolvimento e lhe trarão maior segurança em seus &lt;a href="https://klauslaube.com.br/tag/testes.html" title="Leia mais sobre testes"&gt;testes
+de &lt;em&gt;software&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h2&gt;splinter – Testando a sua aplicação …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 23 Jul 2011 18:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-07-23:/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>bdd</category><category>tdd</category><category>testes</category></item><item><title>Ferramentas de testes em Django - Parte 1</title><link>https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</link><description>&lt;p&gt;Dando continuidade à série
+“&lt;a href="{filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md" title="Veja outros posts desta série"&gt;Montando seu ambiente de desenvolvimento &lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;“, vou
+indicar algumas ferramentas de testes para que você também possa deixar
+com que os &lt;a href="https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html" title="TDD: Desenvolvimento Orientado a Testes"&gt;testes guiem o desenvolvimento de suas aplicações&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Afinal, testar é preciso ;)&lt;/p&gt;
+&lt;h2&gt;Testar em Django é possível?&lt;/h2&gt;
+&lt;p&gt;Sem dúvida nenhuma! Mas não espere que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 18 Jul 2011 22:06:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-07-18:/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>testes</category><category>bdd</category><category>tdd</category></item><item><title>BDD: Desenvolvimento Orientado a Comportamento</title><link>https://klauslaube.com.br/2011/02/02/bdd-desenvolvimento-orientado-comportamento.html</link><description>&lt;p&gt;Esse post foi originalmente escrito para o &lt;a href="http://www.profissionaisti.com.br/" title="Artigos sobre Tecnologia da Informação"&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;, você
+pode conferi-lo na &lt;a href="http://www.profissionaisti.com.br/2010/01/bdd-desenvolvimento-orientado-a-comportamento/" title="BDD: Desenvolvimento Orientado a Comportamento"&gt;íntegra aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html" title="TDD: Desenvolvimento Orientado a Testes"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, introduzi o conceito de &lt;a href="https://klauslaube.com.br/tag/tdd.html"&gt;&lt;em&gt;TDD&lt;/em&gt;&lt;/a&gt;. Mas para
+relembrar, utilizando a prática “baby steps” temos os seguintes
+procedimentos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Escreva um teste que falhe;&lt;/li&gt;
+&lt;li&gt;Escreva um código (rudimentar) para o teste;&lt;/li&gt;
+&lt;li&gt;Faça o teste …&lt;/li&gt;&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 02 Feb 2011 12:48:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-02-02:/2011/02/02/bdd-desenvolvimento-orientado-comportamento.html</guid><category>desenvolvimento</category><category>testes</category><category>bdd</category><category>agile</category></item></channel></rss>

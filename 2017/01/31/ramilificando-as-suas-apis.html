@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Ramilificando as suas APIs | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="RAML é uma linguagem baseada em YAML que serve para descrever APIs REST. Nesse artigo vamos abordar de forma prática o funcionamento do RAML, e citar algumas ferramentas fantásticas."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, rest, microservices, apis, raml"><meta property=og:title content="Ramilificando as suas APIs"><meta property=og:description content="RAML é uma linguagem baseada em YAML que serve para descrever APIs REST. Nesse artigo vamos abordar de forma prática o funcionamento do RAML, e citar algumas ferramentas fantásticas."><meta property=og:url content=https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html><meta property=og:image content=https://klauslaube.com.br//images/blog/raml-vogons.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/raml-vogons.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Ramilificando as suas APIs </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2017-01-31T21:30:00-02:00 itemprop=datePublished>31 Jan, 2017</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/raml-logo.png alt="Logotipo do RAML" class=representative-image width=180 height=180> <p>Você já tem a sua <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre APIs"><em>API</em></a>! Ela é <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre REST"><em>REST</em></a>, performa muito bem, e todos os seus aplicativos estão conversando com a mesma. Vem uma oportunidade de negócio de abrí-la para consumo de parceiros. Agora não basta só a técnica perfeita, você precisa de especificação, documentações, exemplos de uso e validadores para garantir que os contratos da sua <em>API</em> não sofram alterações drásticas, deixando seu cliente na mão.</p> <!-- PELICAN_END_SUMMARY --> <p>Essa é a realidade da <a href=http://loadsmart.com title="Book a truck with Loadsmart"><em>Loadsmart</em></a> no momento da publicação desse <em>post</em>. Lá, optamos por seguir os mesmos passos do <a href=http://spotify.com title="Você já sabe o que é isso :)"><em>Spotify</em></a> e utilizar o <em>RAML</em> para descrever as nossas <em>APIs</em>.</p> <h2>RAML é quase YAML</h2> <p>O <em>RAML</em> (RESTful API Modeling Language) é uma maneira simples de descrever/projetar suas <em>APIs</em>. Através de uma linguagem concisa, baseada em YAML, você é capaz de escrever especificações que podem ser usadas como documentação, ferramenta de <em>build</em> e de testes automatizados.</p> <p>Ao invés de tentar cultivar a motivação para a utilização do <em>RAML</em>, vou descrever de forma prática os principais aspectos do padrão. Para tanto, já começo recomendando a instalação do <a href=http://apiworkbench.com/ title="IDE for designing APIs"><em>API Workbench</em></a>, um excelente <em>plugin</em> para o <em>Atom</em> que facilita (e muito) a escrita de documentos <em>RAML</em>.</p> <h2>Como começar?</h2> <p>Vamos voltar ao nosso "mini IMDB", exemplo utilizado em <a href=https://klauslaube.com.br/tag/rest.html title="Veja os posts sobre REST">alguns <em>posts</em></a> aqui do <em>blog</em>. Os principais <em>endpoints</em> que temos são:</p> <ul> <li><code>GET /movies</code>: Listagem de filmes;</li> <li><code>POST /movies</code>: Adição de um filme;</li> <li><code>GET /movies/{id}</code>: Detalhes de um filme;</li> <li><code>PUT /movies/{id}</code>: Atualização de um filme;</li> <li><code>DELETE /movies/{id}</code>: Remoção de um filme.</li> </ul> <p>Podemos começar criando um arquivo <code>api.raml</code> com o seguinte conteúdo:</p> <div class=highlight><pre><span></span><span class=c1>#%RAML 1.0</span>
+<span class=nt>title</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movies API</span>
+</pre></div> <p>No momento desse artigo, o <em>RAML</em> possui duas especificações ativas: a <code>0.8</code> e a <code>1.0</code>. Dependendo das ferramentas que você for utilizar posteriormente, talvez seja interessante optar pela especificação <code>0.8</code>. Nesse exemplo utilizaremos a <code>1.0</code>.</p> <p>Vamos continuar descrevendo a nossa <em>API</em>:</p> <div class=highlight><pre><span></span><span class=c1>#%RAML 1.0</span>
+<span class=nt>title</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movies API</span>
+<span class=nt>version</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class=nt>baseUri</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">https://api.movies.com/{version}</span>
+<span class=nt>mediaType</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
+</pre></div> <p>Setamos a versão da <em>API</em> como <code>v1</code>, atendendo pelo endereço <code>https://api.movies.com/v1</code>. Trabalharemos com objetos <em>JSON</em>. Caso a <em>API</em> necessite trabalhar com mais de um tipo (<em>XML</em>, por exemplo), é possível declará-lo no <code>mediaType</code>:</p> <div class=highlight><pre><span></span><span class=nt>mediaType</span><span class=p>:</span> <span class="p p-Indicator">[</span><span class=nv>application/json</span><span class="p p-Indicator">,</span> <span class=nv>application/xml</span><span class="p p-Indicator">]</span>
+</pre></div> <h2>Descrevendo os dados</h2> <p>Se você optar pela versão <code>0.8</code> do padrão, a palavra <code>schemas</code> aparecerá com certa frequência durante a construção do documento. Com a <code>1.0</code>, a comunidade depreciou o termo em prol da palavra-chave <code>types</code>, e é com ela que descreveremos o tipo <code>Movie</code>:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">types</span><span class="p p-Indicator">:</span>
+  <span class=nt>Movie</span><span class=p>:</span>
+    <span class=nt>properties</span><span class=p>:</span>
+      <span class=nt>id</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class=nt>title</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class="l l-Scalar l-Scalar-Plain">description?</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+</pre></div> <p><code>Movie</code> possui três propriedades do tipo <code>string</code>: <code>id</code>, <code>title</code> e <code>description</code>. O <code>?</code> em <code>description?</code> indica que essa última é uma propriedade opcional (ao contrário de <code>id</code> e <code>title</code> que são obrigatórias).</p> <p>O <em>RAML</em> suporta uma série de tipos <em>built-in</em>, para saber mais, leia sobre <a href=https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#defining-types>definição de tipos</a>.</p> <h2>Descrevendo os endpoints</h2> <p>Agora que temos um tipo definido, podemos partir para a descrição dos nossos <em>endpoints</em>. Em <em>RAML</em>, a semântica correta é chamarmos um <em>endpoint</em> de <em>Resource</em>. Vamos iniciar pelo <code>/movies</code>:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">/movies</span><span class="p p-Indicator">:</span>
+  <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">A set of movies.</span>
+
+  <span class=nt>get</span><span class=p>:</span>
+    <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Get a list of movies.</span>
+    <span class=nt>responses</span><span class=p>:</span>
+      <span class=nt>200</span><span class=p>:</span>
+        <span class=nt>body</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movie[]</span>
+  <span class=nt>post</span><span class=p>:</span>
+    <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Add a new movie to the set.</span>
+    <span class=nt>body</span><span class=p>:</span>
+      <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movie</span>
+    <span class=nt>responses</span><span class=p>:</span>
+      <span class=nt>201</span><span class=p>:</span>
+        <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Returns the new movie.</span>
+        <span class=nt>body</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movie</span>
+</pre></div> <p>Começamos ao criar um bloco <code>/movies</code>. Nele, além de adicionarmos uma descrição através da propriedade <code>description</code>, também deixamos explícito a possibilidade de enviarmos dois métodos: <code>get</code> e <code>post</code>. Em <code>get</code>, podemos ter como resposta um <em>status code</em> <code>200</code> e uma lista de <code>Movie</code> (por isso o sufixo <code>[]</code>).</p> <p>Já em <code>post</code>, além de deixar claro que retornaremos o objeto recém criado, apontamos que a resposta será um <code>201</code> com um único <code>Movie</code>. Note que nesse caso descrevemos que o <code>post</code> também possui um tipo, através da palavra-chave <code>body</code>. Isso quer dizer que, ao fazermos <code>POST /movies/</code>, precisamos passar um objeto que atenda as especificações do tipo <code>Movie</code>.</p> <p><img class=align-center-keep-size src=/images/blog/raml-vogons.jpg width=640 height=432 title="RAML pode parecer poesia Vogon, mas não entre em pânico! (fundividedattention)" alt="RAML pode parecer poesia Vogon, mas não entre em pânico! (fundividedattention)"></p> <p>Caso a sua regra de negócio vá além da criação de um elemento, é possível descrevê-la também. Por exemplo, vamos imaginar que exista a necessidade de verificar se o filme já existe no banco de dados:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+      <span class="l l-Scalar l-Scalar-Plain">201</span><span class="p p-Indicator">:</span>
+        <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Returns the new movie.</span>
+        <span class=nt>body</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movie</span>
+<span class=" -Error">      </span><span class=nt>409</span><span class=p>:</span>
+        <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">The movie already exists in our database.</span>
+        <span class=nt>body</span><span class=p>:</span>
+          <span class=nt>properties</span><span class=p>:</span>
+            <span class=nt>error</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+</pre></div> <p>Note que o padrão <em>RAML</em> é flexível. Nesse caso não criamos um tipo <code>Error</code>, apenas descrevemos o corpo da resposta através das palavras-chave <code>body</code> e <code>properties</code>.</p> <p>Vamos finalizar descrevendo os dois métodos restantes:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">/{id}</span><span class="p p-Indicator">:</span>
+    <span class=nt>uriParameters</span><span class=p>:</span>
+      <span class=nt>id</span><span class=p>:</span>
+        <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">The Movie identifier.</span>
+        <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+
+    <span class=" -Error"> </span><span class=nt>get</span><span class=p>:</span>
+       <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Gets a specific movie.</span>
+       <span class=nt>responses</span><span class=p>:</span>
+         <span class=nt>200</span><span class=p>:</span>
+           <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Returns the specific movie.</span>
+           <span class=nt>body</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movie</span>
+
+    <span class=nt>put</span><span class=p>:</span>
+      <span class=nt>body</span><span class=p>:</span>
+        <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movie</span>
+      <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Updates an already created movie.</span>
+      <span class=nt>responses</span><span class=p>:</span>
+        <span class=nt>200</span><span class=p>:</span>
+          <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Returns the updated movie.</span>
+          <span class=nt>body</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Movie</span>
+
+    <span class=nt>delete</span><span class=p>:</span>
+      <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Deletes the movie.</span>
+      <span class=nt>responses</span><span class=p>:</span>
+        <span class=nt>204</span><span class=p>:</span>
+          <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">Confirms the deletion.</span>
+</pre></div> <p>Dentro de <code>/movies</code>, criamos um novo bloco chamado <code>/{id}</code>. Através da propriedade <code>uriParameters</code> deixamos claro que <code>id</code> é na verdade uma <code>string</code> (no nosso caso, estamos usando um <code>uuid</code>). Além disso, descrevemos os métodos <code>get</code>, <code>put</code> e <code>delete</code> para <code>/movies/{id}</code>, que não diferem tanto assim dos demais explicados anteriormente.</p> <h2>Descrevendo sem se repetir</h2> <p>No nosso <a href=https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html title="Construindo APIs em Django com Restless">exemplo utilizando <em>Restless</em></a>, ao fazer um <code>POST</code> ou <code>PUT</code> com dados inválidos, retornamos um <code>BadRequest</code>. Podemos especificar esse comportamento para o recurso <code>POST movies/</code> e <code>PUT movies/{id}</code>.</p> <p>Logo após o bloco <code>types</code>, vamos adicionar um novo bloco chamado <code>traits</code>:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">mediaType</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
+
+<span class=nt>types</span><span class=p>:</span>
+<span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class=nt>traits</span><span class=p>:</span>
+  <span class=nt>dataValidation</span><span class=p>:</span>
+    <span class=nt>responses</span><span class=p>:</span>
+      <span class=nt>400</span><span class=p>:</span>
+        <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">A BadRequest happens when data validation fails.</span>
+        <span class=nt>body</span><span class=p>:</span>
+          <span class=nt>properties</span><span class=p>:</span>
+            <span class=nt>error</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+</pre></div> <p>Através de <code>traits</code> somos capazes de escrever regras de uso que podem ser reaproveitadas por dados e recursos. No exemplo acima, dizemos que recursos que utilizarem esse <em>trait</em> terão como resposta o <em>status code</em> <code>400</code>.</p> <p>Agora basta apontarmos nossos recursos ao <em>trait</em> de nome <code>dataValidation</code>:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">/movies</span><span class="p p-Indicator">:</span>
+<span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">post</span><span class="p p-Indicator">:</span>
+    <span class=nt>is</span><span class=p>:</span> <span class="p p-Indicator">[</span><span class=nv>dataValidation</span><span class="p p-Indicator">]</span>
+
+<span class=" -Error">  </span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">/{id}</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">put</span><span class="p p-Indicator">:</span>
+      <span class=nt>is</span><span class=p>:</span> <span class="p p-Indicator">[</span><span class=nv>dataValidation</span><span class="p p-Indicator">]</span>
+
+<span class="l l-Scalar l-Scalar-Plain">(...)</span>
+</pre></div> <p><em>Traits</em> são extremamente úteis para descrever comportamentos que são comuns entre recursos (por exemplo, listagens que possuem paginação). Outro conceito similar é o <em>Resource Types</em>, no qual você pode ler mais sobre na <a href=https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#declaration-resource-types-and-traits title="Resource Types and Traits">documentação oficial</a>.</p> <h2>Descrevendo a segurança</h2> <p>Para finalizar nosso exemplo. Vamos supor que o acesso à <em>API</em> é limitado, e o usuário precisa ter uma conta para acessá-la. Para não reinventar a roda, vamos supor que optamos pelo padrão <a href=https://aaronparecki.com/oauth-2-simplified/ title="OAuth 2 simplified"><em>OAuth 2</em></a> para autenticação e autorização.</p> <p>Abaixo da propriedade <code>mediaType</code> vamos criar um novo bloco chamado <code>securitySchemes</code>:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+<span class="l l-Scalar l-Scalar-Plain">securitySchemes</span><span class="p p-Indicator">:</span>
+  <span class=nt>oauth_2_0</span><span class=p>:</span>
+    <span class=nt>description</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">We support OAuth 2.0 for authenticating all API requests.</span>
+    <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">OAuth 2.0</span>
+    <span class=nt>describedBy</span><span class=p>:</span>
+      <span class=nt>headers</span><span class=p>:</span>
+        <span class=nt>Authorization</span><span class=p>:</span>
+          <span class=nt>description</span><span class=p>:</span> <span class="p p-Indicator">|</span>
+             <span class=no>Used to send a valid OAuth 2 access token. Do not use</span>
+             <span class=no>with the &quot;access_token&quot; query string parameter.</span>
+          <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class=nt>queryParameters</span><span class=p>:</span>
+        <span class=nt>access_token</span><span class=p>:</span>
+          <span class=nt>description</span><span class=p>:</span> <span class="p p-Indicator">|</span>
+             <span class=no>Used to send a valid OAuth 2 access token.</span>
+             <span class=no>Do not use with the &quot;Authorization&quot; header.</span>
+          <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+      <span class=nt>responses</span><span class=p>:</span>
+        <span class=nt>401</span><span class=p>:</span>
+          <span class=nt>description</span><span class=p>:</span> <span class="p p-Indicator">|</span>
+              <span class=no>Bad or expired token. This can happen if the</span>
+              <span class=no>user or Movie API revoked or expired an access</span>
+              <span class=no>token. To fix, re-authenticate the user.</span>
+        <span class=nt>403</span><span class=p>:</span>
+          <span class=nt>description</span><span class=p>:</span> <span class="p p-Indicator">|</span>
+              <span class=no>Bad OAuth request (wrong consumer key, bad nonce,</span>
+              <span class=no>expired timestamp...). Unfortunately,</span>
+              <span class=no>re-authenticating the user won&#39;t help here.</span>
+    <span class=nt>settings</span><span class=p>:</span>
+      <span class=nt>authorizationUri</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">https://www.movies.com/1/oauth2/authorize</span>
+      <span class=nt>accessTokenUri</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">https://api.movies.com/1/oauth2/token</span>
+      <span class=nt>authorizationGrants</span><span class=p>:</span> <span class="p p-Indicator">[</span> <span class=nv>authorization_code</span><span class="p p-Indicator">,</span> <span class=nv>implicit</span> <span class="p p-Indicator">]</span>
+</pre></div> <p>Serei sincero com você, caro leitor, o código acima é uma receita de bolo para descrever o <code>securitySchemes</code> do tipo <em>OAuth 2</em>. Nada de muito diferente do que a gente viu até aqui, com exceção do uso do <code>|</code>, que nesse caso serve para fazer textos em bloco, e da propriedade <code>type</code> com valor <code>OAuth 2.0</code>.</p> <p>No nosso cenário, apenas temos intenção de proteger a escrita de dados na <em>API</em>. Para tanto, Vamos adicionar a propriedade <code>securedBy</code> aos blocos <code>post</code> e <code>put</code>:</p> <div class=highlight><pre><span></span><span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">post</span><span class="p p-Indicator">:</span>
+    <span class=nt>is</span><span class=p>:</span> <span class="p p-Indicator">[</span><span class=nv>dataValidation</span><span class="p p-Indicator">]</span>
+    <span class=nt>securedBy</span><span class=p>:</span> <span class="p p-Indicator">[</span><span class=nv>oauth_2_0</span><span class="p p-Indicator">]</span>
+
+<span class="l l-Scalar l-Scalar-Plain">(...)</span>
+
+    <span class="l l-Scalar l-Scalar-Plain">put</span><span class="p p-Indicator">:</span>
+      <span class=nt>is</span><span class=p>:</span> <span class="p p-Indicator">[</span><span class=nv>dataValidation</span><span class="p p-Indicator">]</span>
+      <span class=nt>securedBy</span><span class=p>:</span> <span class="p p-Indicator">[</span><span class=nv>oauth_2_0</span><span class="p p-Indicator">]</span>
+
+<span class="l l-Scalar l-Scalar-Plain">(...)</span>
+</pre></div> <p>Pronto! A especificação da nossa <em>API</em> está completa! Temos uma documentação forte, que pode ser lida por humanos e máquinas. Para fins didáticos não utilizei recursos interessantes como a propriedade <code>example</code> ou a ferramenta <code>!include</code>. Mas você pode ler sobre eles na <a href=https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md>especificação do <em>RAML</em> 1.0</a>.</p> <h2>Considerações finais</h2> <p><a href=https://github.com/kplaube/post-raml/blob/8e580fa4d328a3f5f9e89e23d8b283ec04cf9637/api.raml>Veja como ficou a versão final do nosso arquivo api.raml</a>.</p> <p>Através de uma linguagem clara fomos capazes de construir uma especificação legível para a nossa <em>API</em>. Com isso, outros desenvolvedores (ou até mesmo máquinas) serão capazes de entender como funciona cada <em>endpoint</em>. Com a adição de ferramentas como o <a href=https://github.com/cybertk/abao title="REST API automated testing tool"><em>Abao</em></a> e <a href=https://github.com/raml2html/raml2html title="RAML to HTML documentation generator"><em>raml2html</em></a>, os resultados do uso do <em>RAML</em> podem ser surpreendentes, como no exemplo abaixo:</p> <p><img class=align-center-keep-size src=/images/blog/example-raml.png width=640 height=383 title="Exemplo de documentação gerada pelo raml2html" alt="Exemplo de documentação gerada pelo raml2html"></p> <p>Até a próxima.</p> <h1>Referências</h1> <ul> <li><a href=https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md>Github: RAML Version 1.0 specification</a></li> <li><a href=https://www.sitepoint.com/raml-restful-api-modeling-language/ >Sitepoint: RAML, the RESTful API modeling language</a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre" class=Article-tagLink>rest</a> <a href=https://klauslaube.com.br/tag/microservices.html title="Leia mais sobre" class=Article-tagLink>microservices</a> <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre" class=Article-tagLink>apis</a> <a href=https://klauslaube.com.br/tag/raml.html title="Leia mais sobre" class=Article-tagLink>raml</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2017/01/31/ramilificando-as-suas-apis.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

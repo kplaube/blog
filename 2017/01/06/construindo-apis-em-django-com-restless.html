@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Construindo APIs em Django com Restless | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Construir APIs REST em Django nos dias atuais é uma tarefa no máximo corriqueira. Conheça o Restless, simpática biblioteca que tem por filosofia ser simples e objetiva."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, apis, python, django, rest, restless"><meta property=og:title content="Construindo APIs em Django com Restless"><meta property=og:description content="Construir APIs REST em Django nos dias atuais é uma tarefa no máximo corriqueira. Conheça o Restless, simpática biblioteca que tem por filosofia ser simples e objetiva."><meta property=og:url content=https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html><meta property=og:image content=https://klauslaube.com.br//images/blog/deathstar.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/deathstar.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Construindo APIs em Django com Restless </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2017-01-06T10:45:00-02:00 itemprop=datePublished>06 Jan, 2017</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/rest-api-logo.png alt="API Rest" class=representative-image width=180 height=180> <p>Construir <em>APIs</em> <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre REST"><em>REST</em></a> em <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre Django"><em>Django</em></a> nos dias atuais é uma tarefa no máximo corriqueira. Com a ajuda de bibliotecas consagradas, como <a href=http://www.django-rest-framework.org/ ><em>Django REST Framework</em></a> e <a href=https://django-tastypie.readthedocs.io/en/latest/ ><em>Tastypie</em></a>, e utilizando toda a abstração que envolve os <em>Models</em> do <em>framework</em>, é possível ter <em>endpoints</em> respondendo em questão de minutos.</p> <!-- PELICAN_END_SUMMARY --> <p>Mas existem alternativas que são capazes de tornar esse processo ainda mais prático, e com uma curva de aprendizado um pouquinho menor. Nesse seleto grupo, uma biblioteca que me agrada é o <a href=https://github.com/toastdriven/restless><em>Restless</em></a>.</p> <h2>Por que Restless (e não as outras)?</h2> <p><a href=https://github.com/toastdriven><em>Daniel Lindsley</em></a> (também conhecido como <em>Toast Driven</em>), um dos criadores do <em>Tastypie</em> (famosa biblioteca <em>Django</em> para construção de <em>APIs RESTful</em>), também é criador do <em>Restless</em>. Segundo ele, o que o motivou a escrever uma alternativa ao <em>Tastypie</em> foi:</p> <blockquote> <p>Quite simply, I care about creating flexible &amp; RESTFul APIs. In building Tastypie, I tried to create something extremely complete &amp; comprehensive. The result was writing a lot of hook methods (for easy extensibility) &amp; a lot of (perceived) bloat, as I tried to accommodate for everything people might want/need in a flexible/overridable manner.</p> </blockquote> <p>Não há dúvidas que as duas bibliotecas citadas no início desse artigo são extremamente completas. Se você estiver procurando um <em>engine</em> poderoso para a criação de <em>APIs</em> em <em>Django</em>, pule logo para a <a href=http://www.django-rest-framework.org/tutorial/quickstart/ title="Comece agora com o REST Framework">documentação do <em>Django REST Framework</em></a>.</p> <p>Mas nem sempre precisamos de todo esse poderio para dar vida ao nosso projeto. E é exatamente com esse posicionamento que <em>Daniel</em> fecha o seu argumento:</p> <blockquote> <p>But in reality, all I really ever personally want are the RESTful verbs, JSON serialization &amp; the ability of override behavior.</p> </blockquote> <p>Se assim como o autor você só precisa dos verbos <em>HTTP</em>, serialização <em>JSON</em> e uma leve camada de customização, talvez o <em>Restless</em> seja tudo o que você necessita.</p> <p>Por último mas não menos importante: O <em>Restless</em>, é "framework agnostic" e funciona com <em>Django</em>, <em>Flask</em>, <em>Pyramid</em> e <em>Tornado</em>.</p> <h2>Mão na massa</h2> <p>Lembra do nosso "mini IMDB", lá do <a href=https://klauslaube.com.br/2016/05/20/rest-parte-2.html title="Leia mais sobre REST"><em>post</em> sobre <em>REST</em></a>? Vamos aproveitar a temática para exemplificar o uso de <em>Restless</em> com <em>Django</em>. Mas antes, aquele <code>pip</code> "de leve" para instalar o pacote:</p> <div class=highlight><pre><span></span>$ pip install restless
+</pre></div> <p>Não é necessária a adição da biblioteca ao <code>settings.py</code>.</p> <p>Relembrando o exemplo do <em>post</em> anterior, precisaremos construir os seguintes recursos:</p> <ul> <li><code>GET /movies</code>: Trará uma lista de filmes</li> <li><code>POST /movies</code>: Adicionará um novo filme ao banco de dados</li> <li><code>GET /movies/{id}</code>: Trará um filme específico</li> <li><code>PUT /movies/{id}</code>: Atualizará um filme específico</li> <li><code>DELETE /movies/{id}</code>: Removerá um filme específico do banco de dados</li> </ul> <p>Para tanto, teremos um <em>model</em> <em>Django</em> similar ao abaixo:</p> <div class=highlight><pre><span></span><span class=c1># movies/models.py</span>
+
+<span class=kn>import</span> <span class=nn>uuid</span>
+<span class=kn>from</span> <span class=nn>django.db</span> <span class=kn>import</span> <span class=n>models</span>
+
+
+<span class=k>class</span> <span class=nc>Movie</span><span class=p>(</span><span class=n>models</span><span class=o>.</span><span class=n>Model</span><span class=p>):</span>
+    <span class=nb>id</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>UUIDField</span><span class=p>(</span><span class=n>primary_key</span><span class=o>=</span><span class=bp>True</span><span class=p>,</span> <span class=n>default</span><span class=o>=</span><span class=n>uuid</span><span class=o>.</span><span class=n>uuid4</span><span class=p>,</span> <span class=n>editable</span><span class=o>=</span><span class=bp>False</span><span class=p>)</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>CharField</span><span class=p>(</span><span class=n>max_length</span><span class=o>=</span><span class=mi>255</span><span class=p>)</span>
+    <span class=n>description</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>TextField</span><span class=p>(</span><span class=n>blank</span><span class=o>=</span><span class=bp>True</span><span class=p>,</span> <span class=n>null</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>
+</pre></div> <p>Podemos partir agora para a criação dos <em>resources</em>.</p> <h2>Resourcers e Preparers</h2> <p><em>Resources</em> são classes que descrevem um recurso <em>REST</em>, dentro do <em>Restless</em>. É através deles que definiremos <em>endpoints</em> e todos os verbos suportados. Já os <em>Preparers</em> fazem o papel do "mapping" do objeto que você está expondo na API.</p> <p>Para começar, vamos criar um arquivo <code>api.py</code> dentro do nosso <em>app</em>:</p> <div class=highlight><pre><span></span><span class=c1># movies/api.py</span>
+
+<span class=kn>from</span> <span class=nn>restless.dj</span> <span class=kn>import</span> <span class=n>DjangoResource</span>
+<span class=kn>from</span> <span class=nn>restless.preparers</span> <span class=kn>import</span> <span class=n>FieldsPreparer</span>
+
+<span class=kn>from</span> <span class=nn>movies.models</span> <span class=kn>import</span> <span class=n>Movie</span>
+
+
+<span class=k>class</span> <span class=nc>MovieResource</span><span class=p>(</span><span class=n>DjangoResource</span><span class=p>):</span>
+    <span class=n>preparer</span> <span class=o>=</span> <span class=n>FieldsPreparer</span><span class=p>(</span><span class=n>fields</span><span class=o>=</span><span class=p>{</span>
+        <span class=s1>&#39;id&#39;</span><span class=p>:</span> <span class=s1>&#39;id&#39;</span><span class=p>,</span>
+        <span class=s1>&#39;title&#39;</span><span class=p>:</span> <span class=s1>&#39;title&#39;</span><span class=p>,</span>
+        <span class=s1>&#39;description&#39;</span><span class=p>:</span> <span class=s1>&#39;description&#39;</span><span class=p>,</span>
+    <span class=p>})</span>
+
+    <span class=k>def</span> <span class=nf>list</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>Movie</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>all</span><span class=p>()</span>
+</pre></div> <p>O <code>DjangoResource</code> é um <em>Resource</em> <em>Restless</em> com algumas "facilidades" para funcionar dentro do framework <em>Django</em>. Uma dessas facilidades é o roteamento (que veremos logo abaixo).</p> <p>Todo recurso precisa de um atributo <code>preparer</code>, é através dele que o <em>Resource</em> fará o "de-para" dos campos no seu banco dados, e os campos que serão exibidos em sua <em>API</em>. Nesse caso estamos utilizando o <code>FieldsPreparer</code>, e através de um dicionário (onde a chave é o nome do campo na <em>API</em> e o valor é o caminho para o dado) fazemos o mapeamento necessário para expor os dados do recurso.</p> <p>O método <code>list</code> será o responsável por responder uma rota <code>GET /movies/</code> em nosso projeto. Aqui já podemos ver o conceito de <em>BYOD</em> (<em>Bring Your Own Data</em>) em ação. O <em>Restless</em> não "introspecta" os seus <em>models</em> <em>Django</em> para entender o que e como ele deve expor dados. É necessário que você faça isso explicitamente... é esse princípio que torna fácil o trabalho da biblioteca com outros <em>frameworks</em> e bancos de dados.</p> <p>Falta atualizar o <code>urls.py</code> para que o <em>Django</em> possa fazer o roteamento dos endereços com as <em>views</em>:</p> <div class=highlight><pre><span></span><span class=c1># urls.py</span>
+
+<span class=kn>from</span> <span class=nn>django.conf.urls</span> <span class=kn>import</span> <span class=n>url</span><span class=p>,</span> <span class=n>include</span>
+
+<span class=kn>from</span> <span class=nn>movies.api</span> <span class=kn>import</span> <span class=n>MovieResource</span>
+
+<span class=n>urlpatterns</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=n>url</span><span class=p>(</span><span class=sa>r</span><span class=s1>&#39;movies/&#39;</span><span class=p>,</span> <span class=n>include</span><span class=p>(</span><span class=n>MovieResource</span><span class=o>.</span><span class=n>urls</span><span class=p>())),</span>
+<span class=p>]</span>
+</pre></div> <p>Aquele <code>.urls()</code> é uma das facilidades que o <code>DjangoResource</code> oferece. Caso você esteja trabalhando com algum outro <em>framework</em>, você pode estender o comportamento de <code>Resource</code> e resolver o roteamento manualmente.</p> <p>Pronto! O <em>endpoint</em> <code>movies/</code> já está respondendo:</p> <div class=highlight><pre><span></span>$ <span class=nv>curl</span> <span class=o>-</span><span class=nv>X</span> <span class=nv>GET</span> <span class=nv>http</span>:<span class=o>//</span><span class=nv>localhost</span>:<span class=mi>8000</span><span class=o>/</span><span class=nv>movies</span><span class=o>/</span> <span class=o>|</span> <span class=nv>json_pp</span>
+
+{
+   <span class=s2>&quot;</span><span class=s>objects</span><span class=s2>&quot;</span> : [
+      {
+         <span class=s2>&quot;</span><span class=s>description</span><span class=s2>&quot;</span> : <span class=s2>&quot;</span><span class=s>The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow. (133 mins.)</span><span class=s2>&quot;</span>,
+         <span class=s2>&quot;</span><span class=s>id</span><span class=s2>&quot;</span> : <span class=s2>&quot;</span><span class=s>7e383f9c-5dc4-4b0d-9864-71e05a5d271b</span><span class=s2>&quot;</span>,
+         <span class=s2>&quot;</span><span class=s>title</span><span class=s2>&quot;</span> : <span class=s2>&quot;</span><span class=s>Rogue One</span><span class=s2>&quot;</span>
+      },
+      <span class=ss>(</span>...<span class=ss>)</span>
+   ]
+}
+</pre></div> <h2>Criação e autorização</h2> <p>Para adicionar um filme, faremos um POST em <code>movies/</code>, para isso, precisamos adicionar um método <code>create</code>:</p> <div class=highlight><pre><span></span><span class=c1># movies/api.py</span>
+
+<span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+<span class=k>class</span> <span class=nc>MovieResource</span><span class=p>(</span><span class=n>DjangoResource</span><span class=p>):</span>
+    <span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>list</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>Movie</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>all</span><span class=p>()</span>
+
+    <span class=k>def</span> <span class=nf>create</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>Movie</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>create</span><span class=p>(</span>
+            <span class=n>title</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>data</span><span class=p>[</span><span class=s1>&#39;title&#39;</span><span class=p>],</span>
+            <span class=n>description</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>data</span><span class=p>[</span><span class=s1>&#39;description&#39;</span><span class=p>],</span>
+        <span class=p>)</span>
+</pre></div> <p>Mais uma vez o <em>Restless</em> não introspecta o modelo, logo, é necessário fazer a validação e criação do objeto em banco "na mão".</p> <p>Vamos testar se o comportamento é o esperado:</p> <div class=highlight><pre><span></span>$ curl -X POST -H <span class=s2>&quot;Content-Type: application/json&quot;</span> -d <span class=s1>&#39;{&quot;title&quot;: &quot;just a test&quot;, &quot;description&quot;: &quot;foo bar&quot;}&#39;</span> http://localhost:8000/movies/
+</pre></div> <p>Provavelmente retornará um <em>exception</em> dizendo que o acesso não foi autorizado. O <em>Restless</em> por padrão espera que todo o <code>POST</code>, <code>PUT</code> e <code>DELETE</code> seja realizado através de uma requisição autenticada. Para isso, antes de executar cada verbo, ele consulta o método <code>is_authenticated</code>.</p> <p><img class=align-center src=/images/blog/deathstar.jpg width=600 height=317 title="is_authenticated retornando True é pior que o problema de segurança na Estrela da Morte (movieweb.com)" alt="is_authenticated retornando True é pior que o problema de segurança na Estrela da Morte (movieweb.com)"></p> <p>Para fins educacionais, vamos informar à biblioteca que todas as requisições são aceitas:</p> <div class=highlight><pre><span></span><span class=c1># movies/api.py</span>
+
+<span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+<span class=k>class</span> <span class=nc>MovieResource</span><span class=p>(</span><span class=n>DjangoResource</span><span class=p>):</span>
+    <span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>create</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>Movie</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>create</span><span class=p>(</span>
+            <span class=n>title</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>data</span><span class=p>[</span><span class=s1>&#39;title&#39;</span><span class=p>],</span>
+            <span class=n>description</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>data</span><span class=p>[</span><span class=s1>&#39;description&#39;</span><span class=p>],</span>
+        <span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>is_authenticated</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=bp>True</span>
+</pre></div> <p>Mais uma vez executamos o <em>POST</em> via <code>curl</code>, e <em>voilà</em>:</p> <div class=highlight><pre><span></span><span class=p>{</span>
+  <span class=nt>&quot;title&quot;</span><span class=p>:</span> <span class=s2>&quot;just a test&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;id&quot;</span><span class=p>:</span> <span class=s2>&quot;bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;description&quot;</span><span class=p>:</span> <span class=s2>&quot;foo bar&quot;</span>
+<span class=p>}</span>
+</pre></div> <h2>Verbos por ID</h2> <p>Já listamos e criamos novos filmes. Como fazemos para ver os detalhes de um filme através do seu <em>ID</em>? Simples! O método <code>detail</code> resolve essa para a gente:</p> <div class=highlight><pre><span></span><span class=c1># movies/api.py</span>
+
+<span class=kn>from</span> <span class=nn>django.shortcuts</span> <span class=kn>import</span> <span class=n>get_object_or_404</span>
+
+<span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+<span class=k>class</span> <span class=nc>MovieResource</span><span class=p>(</span><span class=n>DjangoResource</span><span class=p>):</span>
+    <span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>detail</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>pk</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>get_object_or_404</span><span class=p>(</span><span class=n>Movie</span><span class=p>,</span> <span class=n>pk</span><span class=o>=</span><span class=n>pk</span><span class=p>)</span>
+</pre></div> <p>Um <code>GET</code> para <code>movies/{id}</code> retornará os detalhes do recurso:</p> <div class=highlight><pre><span></span>$ <span class=nv>curl</span> <span class=o>-</span><span class=nv>X</span> <span class=nv>GET</span> <span class=nv>http</span>:<span class=o>//</span><span class=nv>localhost</span>:<span class=mi>8000</span><span class=o>/</span><span class=nv>movies</span><span class=o>/</span><span class=mi>7</span><span class=nv>e383f9c</span><span class=o>-</span><span class=mi>5</span><span class=nv>dc4</span><span class=o>-</span><span class=mi>4</span><span class=nv>b0d</span><span class=o>-</span><span class=mi>9864</span><span class=o>-</span><span class=mi>71</span><span class=nv>e05a5d271b</span><span class=o>/</span>
+
+{
+  <span class=s2>&quot;</span><span class=s>description</span><span class=s2>&quot;</span>: <span class=s2>&quot;</span><span class=s>The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow. (133 mins.)</span><span class=s2>&quot;</span>,
+  <span class=s2>&quot;</span><span class=s>id</span><span class=s2>&quot;</span>: <span class=s2>&quot;</span><span class=s>7e383f9c-5dc4-4b0d-9864-71e05a5d271b</span><span class=s2>&quot;</span>,
+  <span class=s2>&quot;</span><span class=s>title</span><span class=s2>&quot;</span>: <span class=s2>&quot;</span><span class=s>Rogue One</span><span class=s2>&quot;</span>
+}
+</pre></div> <p>Note que o <code>DjangoResource</code> resolveu a passagem do parâmetro <code>pk</code>.</p> <p>Para finalizar, vamos criar os métodos <code>update</code> e <code>delete</code>, que serão responsáveis por atualizar e remover o recurso:</p> <div class=highlight><pre><span></span><span class=c1># movies/api.py</span>
+
+<span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>MovieResource</span><span class=p>(</span><span class=n>DjangoResource</span><span class=p>):</span>
+
+    <span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>detail</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>pk</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>get_object_or_404</span><span class=p>(</span><span class=n>Movie</span><span class=p>,</span> <span class=n>pk</span><span class=o>=</span><span class=n>pk</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>update</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>pk</span><span class=p>):</span>
+        <span class=n>movie</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>detail</span><span class=p>(</span><span class=n>pk</span><span class=p>)</span>
+
+        <span class=n>movie</span><span class=o>.</span><span class=n>title</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>data</span><span class=p>[</span><span class=s1>&#39;title&#39;</span><span class=p>]</span>
+        <span class=n>movie</span><span class=o>.</span><span class=n>description</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>data</span><span class=p>[</span><span class=s1>&#39;description&#39;</span><span class=p>]</span>
+        <span class=n>movie</span><span class=o>.</span><span class=n>save</span><span class=p>()</span>
+
+        <span class=k>return</span> <span class=n>movie</span>
+
+    <span class=k>def</span> <span class=nf>delete</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>pk</span><span class=p>):</span>
+        <span class=n>movie</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>detail</span><span class=p>(</span><span class=n>pk</span><span class=p>)</span>
+        <span class=n>movie</span><span class=o>.</span><span class=n>delete</span><span class=p>()</span>
+</pre></div> <p>Assim como o método <code>create</code>, não há nenhuma "mágica" resolvendo a operação para a gente. Precisamos explicitamente realizar a atualização e remoção do dado através do <em>ORM</em> do <em>Django</em>.</p> <p>Agora somos capazes de atualizar:</p> <div class=highlight><pre><span></span>$ curl -X PUT -H <span class=s2>&quot;Content-Type: application/json&quot;</span> -d <span class=s1>&#39;{&quot;title&quot;: &quot;Zombieland&quot;, &quot;description&quot;: &quot;So much fun&quot;}&#39;</span> http://localhost:8000/movies/bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4/
+
+<span class=o>{</span>
+  <span class=s2>&quot;title&quot;</span>: <span class=s2>&quot;Zombieland&quot;</span>,
+  <span class=s2>&quot;description&quot;</span>: <span class=s2>&quot;So much fun&quot;</span>,
+  <span class=s2>&quot;id&quot;</span>: <span class=s2>&quot;bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4&quot;</span>
+<span class=o>}</span>
+</pre></div> <p>E remover um filme através da API:</p> <div class=highlight><pre><span></span><span class=n>curl</span> <span class=o>-</span><span class=n>X</span> <span class=k>DELETE</span> <span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span><span class=n>bd02d0eb</span><span class=o>-</span><span class=mi>4</span><span class=n>b75</span><span class=o>-</span><span class=mi>4</span><span class=n>bfe</span><span class=o>-</span><span class=mi>8222</span><span class=o>-</span><span class=n>ba24f7a1cad4</span><span class=o>/</span>
+</pre></div> <h2>Considerações finais</h2> <p>Gosto bastante do <em>Restless</em> pela sua filosofia de manter-se simples. Mas nem tudo são rosas! A falta de autorização, <em>HATEOAS</em> e saídas em outros formatos (como <em>XML</em>, por exemplo) podem ser argumentos decisivos para a escolha de uma biblioteca mais completa.</p> <p>Eu costumo utilizar o <em>Restless</em> em projetos muito específicos, onde sei que a <em>API</em> será sempre <em>JSON</em>, e integrações com o <em>ORM</em> trarão mais dores de cabeça do que soluções (em um cenário onde há interação com bancos <em>NoSQL</em>, o <em>Restless</em> se mostra uma ferramenta muito útil).</p> <p><a href=https://github.com/kplaube/post-django-restless title="Veja o exemplo completo no Github">Confira o exemplo desse <em>post</em> no Github</a>.</p> <p>Até a próxima.</p> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre" class=Article-tagLink>apis</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre" class=Article-tagLink>django</a> <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre" class=Article-tagLink>rest</a> <a href=https://klauslaube.com.br/tag/restless.html title="Leia mais sobre" class=Article-tagLink>restless</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2017/01/06/construindo-apis-em-django-com-restless.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

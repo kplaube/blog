@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Construindo APIs em Django com Django REST Framework | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content='No post anterior tive a oportunidade de "destilar" a minha simpatia pelo Django REST Framework, e de salientar alguns aspectos positivos da ferramenta. A...'><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, apis, python, django, rest, drf"><meta property=og:title content="Construindo APIs em Django com Django REST Framework"><meta property=og:description content='No post anterior tive a oportunidade de "destilar" a minha simpatia pelo Django REST Framework, e de salientar alguns aspectos positivos da ferramenta. A...'><meta property=og:url content=https://klauslaube.com.br/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html><meta property=og:image content=https://klauslaube.com.br//images/blog/hyperdrive.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/hyperdrive.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Construindo APIs em Django com Django REST Framework </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2020-02-13T06:15:00-03:00 itemprop=datePublished>13 Fev, 2020</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/django-logo.png alt="Logotipo do Django" class=representative-image width=180 height=180> <p>No <a href=https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html title="Leia o meu depoimento sobre a rendição ao DRF"><em>post</em> anterior</a> tive a oportunidade de "destilar" a minha simpatia pelo <a href=https://klauslaube.com.br/tag/drf.html title="Leia mais sobre o Django REST Framework"><em>Django REST Framework</em></a>, e de salientar alguns aspectos positivos da ferramenta. A praticidade é sem dúvida um de seus pontos mais altos, e nesse <em>post</em> vamos explorá-la através de código escrito (que vale mais do que mil palavras).</p> <!-- PELICAN_END_SUMMARY --> <h2>Instalando</h2> <p>Sem mais delongas, o <em>REST Framework</em> é facilmente instalado através dos comandos <code>pip</code> ou <code>pipenv</code>:</p> <div class=highlight><pre><span></span>$ pipenv install djangorestframework
+</pre></div> <p>Não esqueça de adicionar a <em>app</em> ao seu <code>INSTALLED_APPS</code>:</p> <div class=highlight><pre><span></span><span class=c1># settings.py</span>
+
+<span class=n>INSTALLED_APPS</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=p>(</span><span class=o>...</span><span class=p>)</span>
+    <span class=s1>&#39;rest_framework&#39;</span><span class=p>,</span>
+<span class=p>]</span>
+</pre></div> <p>Estamos prontos para mergulhar nos conceitos de <em>routers</em>, serializadores e <em>views</em>.</p> <h2>Antes de ir: O problema</h2> <p>Embora o "iMDB-clone" seja o meu tipo de exemplo favorito, dessa vez vamos imaginar que estamos desenvolvendo um "Feedly-clone". O <a href=https://feedly.com/ title="Visite o Feedly"><em>Feedly</em></a> é uma espécie de leitor <a href=https://klauslaube.com.br/2010/11/12/o-que-e-rss.html title="O que é RSS?"><em>RSS</em></a> (com esteroides) muito popular.</p> <p>Vamos focar em dois tipos específicos: <code>Channel</code> e <code>Item</code>; <em>Channel</em> é de fato o <em>website</em> ou <em>blog</em> que queremos registrar em nossa plataforma. Esse é o mesmo nome utilizado pelo formato <em>RSS</em>:</p> <div class=highlight><pre><span></span><span class=cp>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span>
+<span class=nt>&lt;rss</span> <span class=na>version=</span><span class=s>&quot;2.0&quot;</span><span class=nt>&gt;</span>
+<span class=nt>&lt;channel&gt;</span>
+ <span class=nt>&lt;title&gt;</span>RSS Title<span class=nt>&lt;/title&gt;</span>
+ <span class=nt>&lt;description&gt;</span>This is an example of an RSS feed<span class=nt>&lt;/description&gt;</span>
+ <span class=nt>&lt;link&gt;</span>http://www.example.com/main.html<span class=nt>&lt;/link&gt;</span>
+ <span class=nt>&lt;lastBuildDate&gt;</span>Mon, 06 Sep 2010 00:01:00 +0000 <span class=nt>&lt;/lastBuildDate&gt;</span>
+ <span class=nt>&lt;pubDate&gt;</span>Sun, 06 Sep 2009 16:20:00 +0000<span class=nt>&lt;/pubDate&gt;</span>
+ <span class=nt>&lt;ttl&gt;</span>1800<span class=nt>&lt;/ttl&gt;</span>
+
+ <span class=nt>&lt;item&gt;</span>
+  <span class=nt>&lt;title&gt;</span>Example entry<span class=nt>&lt;/title&gt;</span>
+  <span class=nt>&lt;description&gt;</span>Here is some text containing an interesting description.<span class=nt>&lt;/description&gt;</span>
+  <span class=nt>&lt;link&gt;</span>http://www.example.com/blog/post/1<span class=nt>&lt;/link&gt;</span>
+  <span class=nt>&lt;guid</span> <span class=na>isPermaLink=</span><span class=s>&quot;false&quot;</span><span class=nt>&gt;</span>7bd204c6-1655-4c27-aeee-53f933c5395f<span class=nt>&lt;/guid&gt;</span>
+  <span class=nt>&lt;pubDate&gt;</span>Sun, 06 Sep 2009 16:20:00 +0000<span class=nt>&lt;/pubDate&gt;</span>
+ <span class=nt>&lt;/item&gt;</span>
+
+<span class=nt>&lt;/channel&gt;</span>
+<span class=nt>&lt;/rss&gt;</span>
+</pre></div> <p>Já item, como ilustrado no exemplo acima, é de fato a notícia/artigo/música/podcast que aquele canal está publicando.</p> <p>Então, partiremos do princípio que os seguintes modelos já estão estabelecidos:</p> <div class=highlight><pre><span></span><span class=c1># channels/models.py</span>
+
+<span class=kn>from</span> <span class=nn>django.db</span> <span class=kn>import</span> <span class=n>models</span>
+
+
+<span class=k>class</span> <span class=nc>Channel</span><span class=p>(</span><span class=n>models</span><span class=o>.</span><span class=n>Model</span><span class=p>):</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>CharField</span><span class=p>(</span><span class=n>max_length</span><span class=o>=</span><span class=mi>255</span><span class=p>)</span>
+    <span class=n>description</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>TextField</span><span class=p>(</span><span class=n>blank</span><span class=o>=</span><span class=bp>True</span><span class=p>,</span> <span class=n>null</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>
+    <span class=n>link</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>URLField</span><span class=p>()</span>
+
+    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>title</span>
+
+
+<span class=k>class</span> <span class=nc>Item</span><span class=p>(</span><span class=n>models</span><span class=o>.</span><span class=n>Model</span><span class=p>):</span>
+    <span class=n>channel</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>ForeignKey</span><span class=p>(</span><span class=n>Channel</span><span class=p>,</span> <span class=n>on_delete</span><span class=o>=</span><span class=n>models</span><span class=o>.</span><span class=n>CASCADE</span><span class=p>)</span>
+    <span class=n>title</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>CharField</span><span class=p>(</span><span class=n>max_length</span><span class=o>=</span><span class=mi>255</span><span class=p>)</span>
+    <span class=n>description</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>TextField</span><span class=p>(</span><span class=n>blank</span><span class=o>=</span><span class=bp>True</span><span class=p>,</span> <span class=n>null</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>
+    <span class=n>link</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>URLField</span><span class=p>()</span>
+    <span class=n>pub_date</span> <span class=o>=</span> <span class=n>models</span><span class=o>.</span><span class=n>DateTimeField</span><span class=p>()</span>
+
+    <span class=k>def</span> <span class=fm>__str__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>title</span>
+</pre></div> <p>O próximo passo será definir a <em>API</em> para que um possível cliente <em>mobile</em> (por exemplo) a consuma.</p> <h2>Os serializadores</h2> <p>Segundo a <a href=https://www.django-rest-framework.org/api-guide/serializers/ title=Serializers>documentação oficial</a>:</p> <blockquote> <p>Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.</p> </blockquote> <p>Eles funcionam como um espécie de <code>Form</code>, proporcionando ferramental para o <em>parsing</em> e validação das requisições, bem como controlando o que será mandado como <em>output</em> para o usuário. Dentro dessa analogia, o <code>ModelSerializer</code> faz mais ou menos o que o <code>ModelForm</code> faz. Logo, um bom candidato para começarmos a escrever o <em>endpoint</em>:</p> <div class=highlight><pre><span></span><span class=c1># channels/serializers.py</span>
+
+<span class=kn>from</span> <span class=nn>rest_framework</span> <span class=kn>import</span> <span class=n>serializers</span>
+
+<span class=kn>from</span> <span class=nn>channels.models</span> <span class=kn>import</span> <span class=n>Channel</span>
+
+
+<span class=k>class</span> <span class=nc>ChannelSerializer</span><span class=p>(</span><span class=n>serializers</span><span class=o>.</span><span class=n>ModelSerializer</span><span class=p>):</span>
+    <span class=k>class</span> <span class=nc>Meta</span><span class=p>:</span>
+        <span class=n>model</span> <span class=o>=</span> <span class=n>Channel</span>
+        <span class=n>fields</span> <span class=o>=</span> <span class=p>[</span>
+            <span class=s2>&quot;description&quot;</span><span class=p>,</span>
+            <span class=s2>&quot;link&quot;</span><span class=p>,</span>
+            <span class=s2>&quot;title&quot;</span><span class=p>,</span>
+        <span class=p>]</span>
+</pre></div> <p>Uma vez que estamos expondo todos os campos do modelo, é possível trocar a lista em <code>fields</code>, pela <em>string</em> <code>__all__</code>.</p> <h2>Viewsets</h2> <p>Continuando com as analogias, um <em>viewset</em> seria mais ou menos o que são as <em>class-based views</em> no <em>Django</em>. Elas abstraem uma porção de lógica repetitiva (como <em>CRUD</em>) através de uma estrutura muito familiar aos que já possuem certa vivência com o <em>framework</em>:</p> <div class=highlight><pre><span></span><span class=c1># channels/api.py</span>
+
+<span class=kn>from</span> <span class=nn>rest_framework</span> <span class=kn>import</span> <span class=n>viewsets</span>
+
+<span class=kn>from</span> <span class=nn>channels.models</span> <span class=kn>import</span> <span class=n>Channel</span>
+<span class=kn>from</span> <span class=nn>channels.serializers</span> <span class=kn>import</span> <span class=n>ChannelSerializer</span>
+
+
+<span class=k>class</span> <span class=nc>ChannelViewSet</span><span class=p>(</span><span class=n>viewsets</span><span class=o>.</span><span class=n>ModelViewSet</span><span class=p>):</span>
+    <span class=n>queryset</span> <span class=o>=</span> <span class=n>Channel</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>all</span><span class=p>()</span>
+    <span class=n>serializer_class</span> <span class=o>=</span> <span class=n>ChannelSerializer</span>
+</pre></div> <p>Note que em <code>queryset</code> apontamos para o modelo <code>Channel</code>, e em <code>serializer_class</code> para a classe serializadora criada anteriormente.</p> <h2>Fazendo o roteamento</h2> <p>Como último passo para termos algo de fato visual, vamos mapear as rotas para o novo recurso criado.</p> <p><img class=align-center src=/images/blog/hyperdrive.jpg width=740 height=312 title="Usar DRF é como entrar em hyperdrive (pinpointe.com)" alt="Usar DRF é como entrar em hyperdrive (pinpointe.com)"></p> <p>Uma das vantagens de utilizar um <em>viewset</em> é que ele também se encarrega de fazer o mapeamento das <em>URLs</em>. Por exemplo, o <code>ChannelViewSet</code> uma vez que mapeado, responderá para rotas terminando em <code>/</code> e <code>/&lt;id-do-channel&gt;</code>. Além disso compreenderá que um <code>POST</code> em <code>/</code> é relacionado à criação de um novo elemento, bem como <code>DELETE</code> em <code>/&lt;id-do-channel&gt;</code> está relação à remoção:</p> <div class=highlight><pre><span></span><span class=c1># urls.py</span>
+
+<span class=kn>from</span> <span class=nn>django.urls</span> <span class=kn>import</span> <span class=n>include</span><span class=p>,</span> <span class=n>path</span>
+
+<span class=kn>from</span> <span class=nn>rest_framework</span> <span class=kn>import</span> <span class=n>routers</span>
+<span class=kn>from</span> <span class=nn>channels.api</span> <span class=kn>import</span> <span class=n>ChannelViewSet</span>
+
+<span class=n>api_router</span> <span class=o>=</span> <span class=n>routers</span><span class=o>.</span><span class=n>DefaultRouter</span><span class=p>()</span>
+<span class=n>api_router</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=sa>r</span><span class=s2>&quot;channels&quot;</span><span class=p>,</span> <span class=n>ChannelViewSet</span><span class=p>)</span>
+
+<span class=n>urlpatterns</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=n>path</span><span class=p>(</span><span class=s2>&quot;api/&quot;</span><span class=p>,</span> <span class=n>include</span><span class=p>(</span><span class=n>api_router</span><span class=o>.</span><span class=n>urls</span><span class=p>)),</span>
+<span class=p>]</span>
+</pre></div> <p>Nesse momento já é possível presenciar um resultado mais sólido ao acessar <code>http://localhost:8000/api</code>:</p> <p><img class=align-center src=/images/blog/django-rest-framework-example.png width=740 height=405 title="Exemplo ao acessar o endereço no browser" alt="Exemplo ao acessar o endereço no browser"></p> <p>Não ligue para a porta <code>:5000</code> no exemplo acima...</p> <p>Se você não é fã do <em>browsable api</em>, e não quer ter essa visão do <code>API Root</code> (como da imagem acima), troque o <code>DefaultRouter</code> por <code>SimpleRouter</code>.</p> <h2>CRUD em ação</h2> <p>Considerando tudo o que foi dito até então, podemos esperar que temos o recurso mapeado no endereço <code>http://localhost:8000/api/channels</code>, e que a partir desse, poderemos desempenhar a listagem, adição, edição e exclusão de dados desse recurso.</p> <p>Começamos então adicionando um elemento, ao enviar o método <code>POST</code> para o endereço com final <code>channels/</code>:</p> <div class=highlight><pre><span></span>curl -XPOST http://localhost:8000/api/channels/ --data <span class=s1>&#39;{</span>
+<span class=s1>    &quot;id&quot;: 1,</span>
+<span class=s1>    &quot;title&quot;: &quot;Klaus Laube&quot;,</span>
+<span class=s1>    &quot;description&quot;: &quot;Python, Django e desenvolvimento Web&quot;,</span>
+<span class=s1>    &quot;link&quot;: &quot;https://klauslaube.com.br&quot;</span>
+<span class=s1>}&#39;</span> --header <span class=s2>&quot;Content-Type: application/json&quot;</span>
+
+<span class=o>{</span><span class=s2>&quot;id&quot;</span>:1,<span class=s2>&quot;title&quot;</span>:<span class=s2>&quot;Klaus Laube&quot;</span>,<span class=s2>&quot;description&quot;</span>:<span class=s2>&quot;Python, Django e desenvolvimento Web&quot;</span>,<span class=s2>&quot;link&quot;</span>:<span class=s2>&quot;https://klauslaube.com.br&quot;</span><span class=o>}</span>
+</pre></div> <p>Como o serializador espelha as propriedades do modelo <code>Channel</code>, caso um campo obrigatório não seja enviado no <em>payload</em>, o próprio serializador se encarregará de fazer essa validação e de retornar detalhes do erro ao usuário:</p> <div class=highlight><pre><span></span>curl -i -XPOST http://localhost:8000/api/channels/ --data &#39;{
+    &quot;title&quot;: &quot;Klaus Laube&quot;,
+    &quot;description&quot;: &quot;Python, Django, APIs, e desenvolvimento Web&quot;
+}&#39; --header &quot;Content-Type: application/json&quot;
+
+HTTP/1.1 400 Bad Request
+Date: Tue, 11 Feb 2020 18:00:44 GMT
+Server: WSGIServer/0.2 CPython/3.7.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 36
+X-Content-Type-Options: nosniff
+
+{&quot;link&quot;:[&quot;This field is required.&quot;]}
+</pre></div> <p>Como estamos falando de uma <em>API</em> <em>REST</em>, é normal esperarmos que um <code>GET</code> no mesmo endereço traga uma lista de <em>channels</em>:</p> <div class=highlight><pre><span></span>curl http://localhost:8000/api/channels/
+
+<span class=o>[{</span><span class=s2>&quot;id&quot;</span>:1,<span class=s2>&quot;title&quot;</span>:<span class=s2>&quot;Klaus Laube&quot;</span>,<span class=s2>&quot;description&quot;</span>:<span class=s2>&quot;Python, Django e desenvolvimento Web&quot;</span>,<span class=s2>&quot;link&quot;</span>:<span class=s2>&quot;https://klauslaube.com.br&quot;</span><span class=o>}]</span>
+</pre></div> <p>E normalmente, um <code>GET</code> em <code>channels/1</code> deve trazer detalhes daquele recurso:</p> <div class=highlight><pre><span></span>curl http://localhost:8000/api/channels/1/
+
+<span class=o>{</span><span class=s2>&quot;id&quot;</span>:1,<span class=s2>&quot;title&quot;</span>:<span class=s2>&quot;Klaus Laube&quot;</span>,<span class=s2>&quot;description&quot;</span>:<span class=s2>&quot;Python, Django e desenvolvimento Web&quot;</span>,<span class=s2>&quot;link&quot;</span>:<span class=s2>&quot;https://klauslaube.com.br&quot;</span><span class=o>}</span>
+</pre></div> <p>Para atualizar o registro, enviamos o método <code>PUT</code>:</p> <div class=highlight><pre><span></span>curl -XPUT http://localhost:8000/api/channels/1/ --data <span class=s1>&#39;{</span>
+<span class=s1>    &quot;title&quot;: &quot;Klaus Laube&quot;,</span>
+<span class=s1>    &quot;description&quot;: &quot;Python, Django, APIs, e desenvolvimento Web&quot;,</span>
+<span class=s1>    &quot;link&quot;: &quot;https://klauslaube.com.br&quot;</span>
+<span class=s1>}&#39;</span> --header <span class=s2>&quot;Content-Type: application/json&quot;</span>
+
+<span class=o>{</span><span class=s2>&quot;id&quot;</span>:1,<span class=s2>&quot;title&quot;</span>:<span class=s2>&quot;Klaus Laube&quot;</span>,<span class=s2>&quot;description&quot;</span>:<span class=s2>&quot;Python, Django, APIs, e desenvolvimento Web&quot;</span>,<span class=s2>&quot;link&quot;</span>:<span class=s2>&quot;https://klauslaube.com.br&quot;</span><span class=o>}</span>
+</pre></div> <p>E para finalizar, com <code>DELETE</code> é possível remover o recurso:</p> <div class=highlight><pre><span></span>curl -XDELETE http://localhost:8000/api/channels/2/
+</pre></div> <p>Mágico, não?!</p> <h2>Serializando relacionamentos</h2> <p>Passaremos a abordar agora a construção do <em>endpoint</em> para o recurso <code>Item</code>.</p> <p><img class=align-center src=/images/blog/vim-jedi.jpg width=640 height=360 title="Nem o DRF consegue serializar o relacionamento entre Rey e Kylo (jovemnerd.com.br)" alt="Nem o DRF consegue serializar o relacionamento entre Rey e Kylo (jovemnerd.com.br)"></p> <p>Começamos pelo <em>serializer</em>, que não é muito diferente do construído anteriormente para o modelo <code>Channel</code>:</p> <div class=highlight><pre><span></span><span class=c1># channels/serializers.py</span>
+
+<span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+<span class=k>class</span> <span class=nc>ItemSerializer</span><span class=p>(</span><span class=n>serializers</span><span class=o>.</span><span class=n>ModelSerializer</span><span class=p>):</span>
+    <span class=k>class</span> <span class=nc>Meta</span><span class=p>:</span>
+        <span class=n>model</span> <span class=o>=</span> <span class=n>Item</span>
+        <span class=n>fields</span> <span class=o>=</span> <span class=s2>&quot;__all__&quot;</span>
+</pre></div> <p>O <code>ModelSerializer</code> "automagicamente" fará o <em>parsing</em> do relacionamento entre <code>Item</code> e <code>Channel</code>. O resultado da serialização de uma instância de <code>Item</code> terá uma propriedade <code>channel</code>, com a chave primária do elemento relacionado como valor:</p> <div class=highlight><pre><span></span><span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+<span class=o>&gt;&gt;&gt;</span> <span class=n>item</span> <span class=o>=</span> <span class=n>Item</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>first</span><span class=p>()</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>serializer</span> <span class=o>=</span> <span class=n>ItemSerializer</span><span class=p>(</span><span class=n>item</span><span class=p>)</span>
+<span class=o>&gt;&gt;&gt;</span> <span class=n>data</span> <span class=o>=</span> <span class=n>serializer</span><span class=o>.</span><span class=n>data</span>
+
+<span class=o>&gt;&gt;&gt;</span> <span class=k>print</span><span class=p>(</span><span class=n>data</span><span class=p>[</span><span class=s2>&quot;channel&quot;</span><span class=p>])</span>
+<span class=mi>1</span>
+</pre></div> <p>Antes de passarmos para o <em>viewset</em>, vamos discutir como ficará a <em>URL</em> desse recurso. Se seguirmos a mesma receita utilizada para <code>Channel</code>, teremos um endereço semelhante com o abaixo:</p> <div class=highlight><pre><span></span>http://localhost:8000/api/items/&lt;id&gt;
+</pre></div> <p>Mas que tal se <code>channels</code> fosse parte da <em>URL</em> de <code>items</code>? É possível atingir tal resultado com o conceito de recurso aninhado.</p> <h2>Nested resources</h2> <p>O que queremos, na prática, é o seguinte:</p> <div class=highlight><pre><span></span>http://localhost:8000/api/channels/&lt;id-do-channel&gt;/items/&lt;id-do-item&gt;
+</pre></div> <p>Com isso, ao acessar <code>channels/1/items</code> (por exemplo), teremos uma listagem de todos os itens relacionados com o canal <code>1</code>.</p> <p>Infelizmente o <em>DRF</em> não possui nenhuma "classe mágica" que faça isso acontecer com poucas linhas de código. Estratégias para atingir o mesmo resultado podem variar. Existe uma biblioteca que integra-se com o <em>DRF</em> e produz um resultado similar ao que queremos. Estou falando da <a href=https://github.com/alanjds/drf-nested-routers title="Veja o repositório do projeto"><em>drf-nested-routers</em></a>:</p> <div class=highlight><pre><span></span>$ pipenv install drf-nested-routers
+</pre></div> <p><strong>Fica o <em>disclaimer</em>:</strong> Como o próprio autor da biblioteca salienta na documentação, essa é uma ferramenta em estado experimental, portanto, cogite alternativas quando estiver fazendo o <em>deploy</em> do código para produção. Para provar o conceito apresentado nesse <em>post</em>, ela serve perfeitamente.</p> <p>Agora sim podemos continuar com o desenvolvimento do recurso <code>Item</code>:</p> <div class=highlight><pre><span></span><span class=c1># channels/api.py</span>
+
+<span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+
+<span class=k>class</span> <span class=nc>ItemViewSet</span><span class=p>(</span><span class=n>viewsets</span><span class=o>.</span><span class=n>ModelViewSet</span><span class=p>):</span>
+    <span class=n>serializer_class</span> <span class=o>=</span> <span class=n>ItemSerializer</span>
+
+    <span class=k>def</span> <span class=nf>get_queryset</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=k>return</span> <span class=n>Item</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>filter</span><span class=p>(</span>
+            <span class=n>channel</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>kwargs</span><span class=p>[</span><span class=s2>&quot;channel_pk&quot;</span><span class=p>])</span>
+</pre></div> <p>Note a sobrescrita do método <code>get_queryset</code>. O parâmetro <code>channel_pk</code> será passado para o <code>ItemViewSet</code> no momento em que registrarmos a classe no <code>Router</code>. Com isso, de forma "lazy", estamos dizendo que os items pesquisados devem ser relacionados com o <code>channel</code> mencionado no <em>path</em> do endereço acessado.</p> <p>De volta ao <code>urls.py</code>, atualizaremos o roteamento para ficar semelhante com o exemplo abaixo:</p> <div class=highlight><pre><span></span><span class=c1># urls.py</span>
+
+<span class=kn>from</span> <span class=nn>django.urls</span> <span class=kn>import</span> <span class=n>include</span><span class=p>,</span> <span class=n>path</span>
+<span class=kn>from</span> <span class=nn>rest_framework_nested</span> <span class=kn>import</span> <span class=n>routers</span>
+
+<span class=kn>from</span> <span class=nn>channels.api</span> <span class=kn>import</span> <span class=n>ChannelViewSet</span><span class=p>,</span> <span class=n>ItemViewSet</span>
+
+<span class=n>api_router</span> <span class=o>=</span> <span class=n>routers</span><span class=o>.</span><span class=n>DefaultRouter</span><span class=p>()</span>
+<span class=n>api_router</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=sa>r</span><span class=s2>&quot;channels&quot;</span><span class=p>,</span> <span class=n>ChannelViewSet</span><span class=p>)</span>
+
+<span class=n>channels_router</span> <span class=o>=</span> <span class=n>routers</span><span class=o>.</span><span class=n>NestedDefaultRouter</span><span class=p>(</span>
+    <span class=n>api_router</span><span class=p>,</span> <span class=sa>r</span><span class=s2>&quot;channels&quot;</span><span class=p>,</span> <span class=n>lookup</span><span class=o>=</span><span class=s2>&quot;channel&quot;</span><span class=p>)</span>
+<span class=n>channels_router</span><span class=o>.</span><span class=n>register</span><span class=p>(</span><span class=sa>r</span><span class=s2>&quot;items&quot;</span><span class=p>,</span> <span class=n>ItemViewSet</span><span class=p>,</span>
+    <span class=n>basename</span><span class=o>=</span><span class=s2>&quot;channel-items&quot;</span><span class=p>)</span>
+
+<span class=n>urlpatterns</span> <span class=o>=</span> <span class=p>[</span>
+    <span class=n>path</span><span class=p>(</span><span class=s2>&quot;api/&quot;</span><span class=p>,</span> <span class=n>include</span><span class=p>(</span><span class=n>api_router</span><span class=o>.</span><span class=n>urls</span><span class=p>)),</span>
+    <span class=n>path</span><span class=p>(</span><span class=s2>&quot;api/&quot;</span><span class=p>,</span> <span class=n>include</span><span class=p>(</span><span class=n>channels_router</span><span class=o>.</span><span class=n>urls</span><span class=p>)),</span>
+<span class=p>]</span>
+</pre></div> <p>Vamos aos pontos de atenção:</p> <ul> <li>Importamos <code>routers</code> de <code>rest_framework_nested</code>, e não mais de <code>rest_framework</code>;</li> <li>Agora lidamos com duas instâncias de <code>Router</code>, a primeiro vindo de <code>api_router = routers.DefaultRouter()</code>, e a segunda vindo de <code>channels_router = routers.NestedDefaultRouter(api_router, r"channels", lookup="channel")</code>;</li> <li><code>DefaultRouter</code> continua com o mesmo comportamento do exemplo anterior;</li> <li>Precisamos adicionar ao <code>urlpatterns</code> a instância de <code>DefaultRouter</code> e as instâncias de <code>NestedDefaultRouter</code>.</li> </ul> <p><code>NestedDefaultRouter</code> espera três parâmetros:</p> <ul> <li><code>parent_router</code>: O <code>Router</code> "pai", podendo ser um <code>DefaultRouter</code> ou até mesmo outro <code>NestedDefaultRouter</code>;</li> <li><code>parent_prefix</code>: O prefixo de <em>URL</em> no qual os recursos registrados passarão a ser articulados como sub recursos;</li> <li><code>lookup</code>: É a partir dessa informação que a chave <code>channel_pk</code> é criada e passada para o <em>viewset</em>.</li> </ul> <p>Aqui também, se você não quiser ter a visão de <em>browsable api</em> habilitada, troque para o <code>SimpleRouter</code>.</p> <p>Pronto! O recurso <code>Item</code> está disponível para as operações exibidas anteriormente:</p> <div class=highlight><pre><span></span>curl http://localhost:8000/api/channels/1/items/
+
+<span class=o>[{</span><span class=s2>&quot;id&quot;</span>:1,<span class=s2>&quot;title&quot;</span>:<span class=s2>&quot;Eu me rendo: Django REST Framework&quot;</span>,<span class=s2>&quot;description&quot;</span>:<span class=s2>&quot;Confesso que nunca fui muito simpático ao Django REST Framework...&quot;</span>,<span class=s2>&quot;link&quot;</span>:<span class=s2>&quot;https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html&quot;</span>,<span class=s2>&quot;pub_date&quot;</span>:<span class=s2>&quot;2020-02-06T09:40:00Z&quot;</span>,<span class=s2>&quot;channel&quot;</span>:1<span class=o>}]</span>
+</pre></div> <p>O <em>payload</em> retorna uma chave <code>channel</code> para cada item. Uma vez que estamos falando de um <em>nested resource</em>, não faz muito sentido retornarmos essa informação. A maneira mais prática de corrigirmos isso é alterando a classe serializadora:</p> <div class=highlight><pre><span></span><span class=c1># channels/serializers.py</span>
+
+<span class=p>(</span><span class=o>...</span><span class=p>)</span>
+
+<span class=k>class</span> <span class=nc>ItemSerializer</span><span class=p>(</span><span class=n>serializers</span><span class=o>.</span><span class=n>ModelSerializer</span><span class=p>):</span>
+    <span class=k>class</span> <span class=nc>Meta</span><span class=p>:</span>
+        <span class=n>model</span> <span class=o>=</span> <span class=n>Item</span>
+        <span class=n>exclude</span> <span class=o>=</span> <span class=p>[</span><span class=s2>&quot;channel&quot;</span><span class=p>]</span>
+</pre></div> <p>Como queremos tudo, menos o <code>channel</code>, utilizamos a propriedade <code>exclude</code> ao invés de <code>fields</code>, e determinamos o que queremos excluir da resposta.</p> <h2>Considerações finais</h2> <p>Há muito o que ser discutido ainda, como customização, autenticação, segurança, <em>HATEOAS</em>, etc. Assuntos esses que pretendo abordar em <em>posts</em> vindouros.</p> <p>Com o mínimo coberto no <em>getting started</em> da documentação do <em>DRF</em>, já é possível termos algo <em>up &amp; running</em>. Provar conceitos e discutir contratos passou a ser muito menos custoso graças à biblioteca.</p> <p>Essa "proximidade" de conceitos como serializadores e <em>viewsets</em>, com conceitos bem estabelecidos do <em>Django</em> (como <em>forms</em> e <em>class-based views</em>) faz com que o atrito seja menor, e a curva de aprendizagem mais baixa. É quase natural compreender tais artefatos à primeira vista.</p> <p>Se o seu projeto é feito em <em>Django</em>, e você necessita escrever <em>APIs</em> <em>REST</em>, não perca tempo e caia de cabeça no <em>REST Framework</em>.</p> <p>Até a próxima.</p> <h2>Referências</h2> <ul> <li><a href=https://www.django-rest-framework.org/tutorial/quickstart/ >Django REST Framework - Quickstart</a></li> <li><a href=https://en.wikipedia.org/wiki/RSS>Wikipedia - RSS</a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre" class=Article-tagLink>apis</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre" class=Article-tagLink>django</a> <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre" class=Article-tagLink>rest</a> <a href=https://klauslaube.com.br/tag/drf.html title="Leia mais sobre" class=Article-tagLink>drf</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
+        var disqus_shortname = "klauslaube";
+        var disqus_identifier = "2020/02/13/construindo-apis-em-django-com-django-rest-framework.html";
+
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-19657400-1');ga('send','pageview');
+    </script> </body> </html>

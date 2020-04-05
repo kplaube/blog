@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Klaus Laube - informativos</title><link href="https://klauslaube.com.br/" rel="alternate"></link><link href="https://klauslaube.com.br/feeds/informativos.atom.xml" rel="self"></link><id>https://klauslaube.com.br/</id><updated>2010-11-12T20:15:00-02:00</updated><subtitle>Python, Django e desenvolvimento Web</subtitle><entry><title>O que é RSS?</title><link href="https://klauslaube.com.br/2010/11/12/o-que-e-rss.html" rel="alternate"></link><published>2010-11-12T20:15:00-02:00</published><updated>2010-11-12T20:15:00-02:00</updated><author><name>Klaus Peter Laube</name></author><id>tag:klauslaube.com.br,2010-11-12:/2010/11/12/o-que-e-rss.html</id><summary type="html">&lt;p&gt;Conheço pessoas “bem instruídas” em &lt;em&gt;TI&lt;/em&gt; que simplesmente não sabem o que é &lt;em&gt;RSS&lt;/em&gt;.
+Esta é a minha motivação para escrever este “primeiro post oficial” e lhe explicar,
+caso você não saiba, como você pode ler o conteúdo deste &lt;em&gt;blog&lt;/em&gt; sem visitar este endereço.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h2&gt;In a nutshell…&lt;/h2&gt;
+&lt;p&gt;Primeiramente quero deixar …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Conheço pessoas “bem instruídas” em &lt;em&gt;TI&lt;/em&gt; que simplesmente não sabem o que é &lt;em&gt;RSS&lt;/em&gt;.
+Esta é a minha motivação para escrever este “primeiro post oficial” e lhe explicar,
+caso você não saiba, como você pode ler o conteúdo deste &lt;em&gt;blog&lt;/em&gt; sem visitar este endereço.&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h2&gt;In a nutshell…&lt;/h2&gt;
+&lt;p&gt;Primeiramente quero deixar claro que gosto muito de &lt;em&gt;pageviews&lt;/em&gt;. Fique a vontade
+para visitar este &lt;em&gt;blog&lt;/em&gt; quando e quantas vezes quiser :)&lt;/p&gt;
+&lt;p&gt;Segundo a &lt;a href="http://pt.wikipedia.org/" title="Visite a Wikipedia"&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;RSS (Really Simple Syndication) é um subconjunto de “dialetos” XML que servem para agregar conteúdo ou “Web syndication“, podendo ser acessado mediante programas ou sites agregadores. É usado principalmente em sites de notícias e blogs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bom… este é um &lt;em&gt;blog&lt;/em&gt;! E este é nosso &lt;a href="http://www.klauslaube.com.br/feed/rss.xml" title="Confira o nosso feed RSS"&gt;&lt;em&gt;link RSS&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Logo, você é capaz de receber os artigos que publico aqui em seu leitor &lt;em&gt;RSS&lt;/em&gt;
+favorito. Não viu vantagem nenhuma nisto?&lt;/p&gt;
+&lt;h2&gt;RSS na prática&lt;/h2&gt;
+&lt;p&gt;Você é um cara antenado, toda a manhã você visita os mais variados &lt;em&gt;blogs&lt;/em&gt; e
+&lt;em&gt;sites&lt;/em&gt; de notícias para manter-se atualizado. Nem todos os sites possuem
+atualizações, e lá se foi tempo precioso da sua vida visitando o dito cujo.&lt;/p&gt;
+&lt;p&gt;Certo dia, você visita um &lt;a href="http://klauslaube.com.br" title="O blog pode até ser simpático, mas o autor não =]"&gt;&lt;em&gt;blog&lt;/em&gt; simpático&lt;/a&gt;
+e o autor lhe fala sobre &lt;em&gt;RSS&lt;/em&gt;. Ele promete que você não precisa ficar
+saltitando de &lt;em&gt;blog&lt;/em&gt; em &lt;em&gt;blog&lt;/em&gt; procurando por novos artigos. O autor lhe
+promete que existem programas que visitam uma determinada &lt;em&gt;URL&lt;/em&gt; destes sites
+procurando por novidades, este programa lhe traz o resumo (as vezes até mesmo
+a notícia completa) de todos os sites que você usualmente visita. Você leva
+muito menos tempo para atualizar-se sobre as coisas que estão acontecendo no mundo.&lt;/p&gt;
+&lt;p&gt;Esta “determinada URL” que o tal programa visita é chamada de &lt;em&gt;Feed RSS&lt;/em&gt;.
+Este programa que você utiliza para visitar esta &lt;em&gt;URL&lt;/em&gt; chama-se “cliente RSS“,
+“agregador” ou “leitor RSS“. E o tal do &lt;em&gt;RSS&lt;/em&gt; na verdade é um padrão que
+sistemas como o que alimenta este &lt;em&gt;blog&lt;/em&gt; e os leitores &lt;em&gt;RSS&lt;/em&gt;
+usam para se comunicar.&lt;/p&gt;
+&lt;p&gt;Vulgarmente falando, é um formato para divulgação de artigos.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Está em dúvida sobre qual cliente &lt;em&gt;RSS&lt;/em&gt; escolher?
+&lt;a href="http://pt.wikipedia.org/wiki/Anexo:Lista_de_agregadores_de_feed" title="Escolha o agregador RSS do seu agrado"&gt;Esta lista pode te ajudar&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Agora que você tem ideia do que é &lt;em&gt;RSS&lt;/em&gt;, não deixe de
+&lt;a href="http://www.klauslaube.com.br/feed/rss.xml" title="Adicione este blog ao seu leitor RSS"&gt;adicionar este &lt;em&gt;blog&lt;/em&gt; no seu leitor&lt;/a&gt;.&lt;/p&gt;</content><category term="informativos"></category><category term="rss"></category><category term="web"></category></entry><entry><title>Hello World!</title><link href="https://klauslaube.com.br/2010/11/12/hello-world.html" rel="alternate"></link><published>2010-11-12T20:10:00-02:00</published><updated>2010-11-12T20:10:00-02:00</updated><author><name>Klaus Peter Laube</name></author><id>tag:klauslaube.com.br,2010-11-12:/2010/11/12/hello-world.html</id><summary type="html">&lt;p&gt;Por dois longos anos esperei por este momento (talvez tenha esperado até demais),
+mas enfim… posso dizer que tenho um &lt;em&gt;blog&lt;/em&gt;!&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Devo confidenciar. Já trabalhei com &lt;em&gt;WordPress&lt;/em&gt; antes, mas sempre como o cara
+que estava desenvolvendo um &lt;em&gt;Blog/CMS&lt;/em&gt; para alguém. Desta vez eu posso me
+considerar “do outro lado …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Por dois longos anos esperei por este momento (talvez tenha esperado até demais),
+mas enfim… posso dizer que tenho um &lt;em&gt;blog&lt;/em&gt;!&lt;/p&gt;
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;Devo confidenciar. Já trabalhei com &lt;em&gt;WordPress&lt;/em&gt; antes, mas sempre como o cara
+que estava desenvolvendo um &lt;em&gt;Blog/CMS&lt;/em&gt; para alguém. Desta vez eu posso me
+considerar “do outro lado”, e é difícil hein?! Pretendo contribuir com vocês,
+caros leitores, com todo o conhecimento que possuo (e seguindo a regra da
+reciprocidade, absorver conhecimento de vocês também).&lt;/p&gt;
+&lt;h2&gt;O que você pode esperar deste Blog&lt;/h2&gt;
+&lt;p&gt;Eu acredito que já trilhei um longo caminho com o &lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;,
+passando pelo &lt;a href="http://www.joomla.org/" title="Visite o site oficial do CMS Joomla!"&gt;&lt;em&gt;Joomla!&lt;/em&gt;&lt;/a&gt;,
+&lt;a href="http://www.wordpress.org/" title="Visite o site oficial da engine de blogs Wordpress"&gt;&lt;em&gt;WordPress&lt;/em&gt;&lt;/a&gt;,
+&lt;em&gt;Spaghetti&lt;/em&gt;, &lt;a href="http://codeigniter.com/" title="Visite o site oficial da framework CodeIgniter"&gt;&lt;em&gt;CodeIgniter&lt;/em&gt;&lt;/a&gt;
+e mais recentemente pela &lt;a href="http://cakephp.org/" title="Visite o site da framework para desenvolvimento rápido, CakePHP"&gt;&lt;em&gt;CakePHP&lt;/em&gt;&lt;/a&gt;.
+Pretendo sim falar sobre &lt;em&gt;PHP&lt;/em&gt;, mas de uma forma bem “light“, pois na verdade
+o objetivo principal deste &lt;em&gt;blog&lt;/em&gt; é transmitir meus conhecimentos sobre
+&lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
+&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;,
+padrões &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;,
+&lt;em&gt;Software&lt;/em&gt; Livre e &lt;a href="https://klauslaube.com.br/tag/linux.html" title="Leia mais sobre Linux"&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Não que eu seja um “guru” nas tecnologias mencionadas, mas aprendi contribuindo
+com o &lt;a href="http://profissionaisti.com.br" title="Leia sobre tecnologia, telecomunicações, desenvolvimento, entre outros"&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;
+que escrever &lt;em&gt;posts&lt;/em&gt; é uma excelente maneira de aprender. Então podem apostar
+que eu vou estar aprendendo junto com vocês.&lt;/p&gt;
+&lt;h2&gt;Casa de ferreiro…&lt;/h2&gt;
+&lt;p&gt;Eu sei. Vocês devem estar pensando “como raios um desenvolvedor &lt;em&gt;Web&lt;/em&gt; tem um
+&lt;em&gt;blog&lt;/em&gt; com um template free?“. Sou programador, meus dons artísticos não são
+nada admiráveis. Portanto resolvi: O &lt;em&gt;Blog&lt;/em&gt; será um meio de ensino e aprendizagem.
+Um &lt;em&gt;hobby&lt;/em&gt;. Não irei me preocupar tanto com a sua composição.&lt;/p&gt;
+&lt;p&gt;Não que eu não vá aplicar minhas (poucas) habilidades em &lt;em&gt;WordPress&lt;/em&gt; neste blog.
+Só pretendo fazer deste uma espécie de “jardim Zen“, ou seja, quando achar que
+vai ser maneiro escrever um tema todo em &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt;
+com altos efeitos em &lt;a href="https://klauslaube.com.br/tag/css3.html" title="Leia mais sobre CSS3"&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;
+(se eu tiver tempo para isso), com certeza farei… e com certeza mostrarei como fiz,
+e podem ter certeza que este tema será &lt;em&gt;open source&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Are you ready?&lt;/h2&gt;
+&lt;p&gt;Gostaria de agradecer ao &lt;a href="http://www.twitter.com/jcaset/" title="Visite o perfil do Jackson no Twitter"&gt;&lt;em&gt;Jackson Caset&lt;/em&gt;&lt;/a&gt;
+do &lt;a href="http://profissionaisti.com.br" title="Leia sobre tecnologia, telecomunicações, desenvolvimento, entre outros"&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;,
+&lt;a href="http://twitter.com/marinhobrandao/" title="O que será que o Marinho está twitando agora?"&gt;&lt;em&gt;Marinho Brandão&lt;/em&gt;&lt;/a&gt;,
+&lt;a href="http://www.henriquebastos.net/" title="Aspirante a Pythonista? Visite o blog do Henrique Bastos"&gt;&lt;em&gt;Henrique Bastos&lt;/em&gt;&lt;/a&gt;,
+&lt;a href="http://www.franciscosouza.com.br/" title="O blog do Franscisco é uma excelente fonte para informações sobre desenvolvimento"&gt;&lt;em&gt;Franscisco Souza&lt;/em&gt;&lt;/a&gt;,
+ao &lt;a href="http://akitaonrails.com/" title="Você não conhece o Akita?!"&gt;&lt;em&gt;Akita&lt;/em&gt;&lt;/a&gt;,
+pessoal do &lt;a href="http://www.tableless.com.br/" title="[IMO] A melhor referência sobre padrões Web no Brasil"&gt;&lt;em&gt;Tableless&lt;/em&gt;&lt;/a&gt;
+e ao &lt;em&gt;Pedro&lt;/em&gt; do &lt;a href="http://www.pinceladasdaweb.com.br/blog/" title="Outra excelente fonte para desenvolvedores Web"&gt;&lt;em&gt;Pinceladas da Web&lt;/em&gt;&lt;/a&gt;.
+Eles podem até não saber, mas foram influências para a criação deste &lt;em&gt;blog&lt;/em&gt; …
+sem dúvida, se não fossem por estes caras, eu estaria jogando &lt;em&gt;Winning Eleven&lt;/em&gt; numa hora dessas :)&lt;/p&gt;
+&lt;p&gt;Boa leitura…&lt;/p&gt;</content><category term="informativos"></category></entry></feed>
