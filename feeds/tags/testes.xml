@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - testes]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Testando apps Django com Tox]]></title><description><![CDATA[O Django 2.0 foi lançado,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - testes]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Testando apps Django com Tox]]></title><description><![CDATA[O Django 2.0 foi lançado,
 e com ele o suporte a Python  deixa de existir para
 as próximas versões do framework. Alegria para os usuários, preocupação para os desenvolvedores
 dos apps.
@@ -775,7 +775,7 @@ de &lt;em&gt;software&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/testing/#module-django.test.client&quot; title=&quot;Testando aplicações web com test client em Django&quot;&gt;&lt;em&gt;TestClient&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://lxml.de/&quot; title=&quot;Faça parser XML e HTML com lxml&quot;&gt;&lt;em&gt;lxml&lt;/em&gt;&lt;/a&gt;. Mas vamos ser sinceros, é deveras
 trabalhoso “parsear” os resultados das suas &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Com a &lt;a href=&quot;http://splinter.cobrateam.info/&quot; title=&quot;Visite a documentação oficial da Splinter&quot;&gt;&lt;em&gt;Splinter&lt;/em&gt;&lt;/a&gt;, uma ferramenta para testes de aplicações
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, você pode automatizar ações executadas por navegadores, como
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, você pode automatizar ações executadas por navegadores, como
 visitar uma página, preencher um formulário ou clicar em um &lt;em&gt;link&lt;/em&gt;; tudo
 isso sem preocupar-se com &lt;em&gt;parsing&lt;/em&gt;, nós, &lt;em&gt;DOM&lt;/em&gt;, nem nada do tipo:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; splinter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser
@@ -974,7 +974,7 @@ de testes tenta facilitar ao máximo a sua vida… execute a seguinte
 instrução e confira se a sua aplicação está &lt;em&gt;ok&lt;/em&gt; ou não:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py test&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Peraí que não acabou! Apresentando a TestCase&lt;/h3&gt;
-&lt;p&gt;Testar aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt; com a &lt;em&gt;unittest&lt;/em&gt; pode ser dureza. Pensando
+&lt;p&gt;Testar aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt; com a &lt;em&gt;unittest&lt;/em&gt; pode ser dureza. Pensando
 nisso o &lt;em&gt;Django&lt;/em&gt; disponibiliza a &lt;code class=&quot;language-text&quot;&gt;TestCase&lt;/code&gt;, que estende a &lt;em&gt;unittest&lt;/em&gt;
 adicionando funcionalidades como carregamento de &lt;em&gt;fixtures&lt;/em&gt;, roteamento
 de &lt;em&gt;urls&lt;/em&gt; e um &lt;em&gt;client&lt;/em&gt; para fazer requisições &lt;em&gt;Web&lt;/em&gt; e testar as suas
@@ -1113,7 +1113,7 @@ momento do processo de integração).&lt;/p&gt;
 &lt;h2&gt;Staging&lt;/h2&gt;
 &lt;p&gt;O papel do ambiente de &lt;em&gt;staging&lt;/em&gt; é ser o mais próximo da realidade, ou
 seja, ele deve ser uma réplica perfeita do ambiente de produção.
-Tratando-se de desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, deve-se utilizar o mesmo
+Tratando-se de desenvolvimento &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, deve-se utilizar o mesmo
 serviço &lt;em&gt;web&lt;/em&gt;, o mesmo banco de dados, os mesmos módulos e &lt;em&gt;plugins&lt;/em&gt;.
 Isso garantirá um &lt;em&gt;deploy&lt;/em&gt; muito mais “suave” para o ambiente de
 produção.&lt;/p&gt;

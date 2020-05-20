@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - containerizacao]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - containerizacao]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
 anteriores
 arranhamos um pouco o conceito por trás do Docker,
 bem como introduzimos o utilitário de linha de comando . Nesse último artigo da série, vamos
@@ -449,7 +449,7 @@ bem como instalar e configurar a própria aplicação:&lt;/p&gt;
 &lt;p&gt;Além do custo altíssimo para replicar a arquitetura acima, o tempo para solicitar uma
 nova máquina e realizar uma possível migração eram absurdamente altos. Além disso,
 há um incrível desperdício de recursos, já que não é necessário um &lt;em&gt;hardware&lt;/em&gt;
-exclusivo para servir uma aplicação &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; simples.&lt;/p&gt;
+exclusivo para servir uma aplicação &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; simples.&lt;/p&gt;
 &lt;h3&gt;Hypervisor&lt;/h3&gt;
 &lt;p&gt;O conceito de &lt;a href=&quot;/tag/virtualizacao.html&quot; title=&quot;Leia mais sobre virtualização&quot;&gt;máquina virtual&lt;/a&gt; vem bem a calhar para sanar o problema acima: Através de uma
 configuração de &lt;em&gt;hardware&lt;/em&gt;, ser possível servir de forma isolada diferentes aplicações.&lt;/p&gt;

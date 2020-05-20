@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - cookies]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Entendendo os Cookies e Sessões]]></title><description><![CDATA[Por muito tempo eu abstrai o conceito de
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - cookies]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Entendendo os Cookies e Sessões]]></title><description><![CDATA[Por muito tempo eu abstrai o conceito de
 cookies e sessões, e nunca cheguei a prestar muita atenção no seu
 funcionamento. Recentemente, trabalhando com uma infra mais preocupada
 com a segurança, disponibilidade e performance, tive a oportunidade de
@@ -14,7 +14,7 @@ no lado do usuário, e sessões são persistências dependentes de
 &lt;h2&gt;Para que servem Cookies e Sessões?&lt;/h2&gt;
 &lt;p&gt;O &lt;a href=&quot;http://wagnerelias.com/2009/02/06/http-essentials/&quot; title=&quot;Conheça mais sobre o protocolo HTTP&quot;&gt;protocolo &lt;em&gt;HTTP&lt;/em&gt;&lt;/a&gt; é &lt;em&gt;stateless&lt;/em&gt;, ou seja, ele não mantém um
 estado/conexão. Toda a interação que o seu cliente fizer com um servidor
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; acarretará em uma nova requisição e resposta.&lt;/p&gt;
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; acarretará em uma nova requisição e resposta.&lt;/p&gt;
 &lt;p&gt;As requisições são independentes e possuem um tempo de vida (conexão,
 envio de mensagem, resposta, encerramento da conexão). O servidor &lt;em&gt;web&lt;/em&gt;
 não é capaz de identificar se duas requisições vieram de um mesmo

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - sass]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - sass]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
 e ES6. Se você quisesse utilizar o Heroku,
 com uma aplicação Python executando operações de build
 em Node.js, seria uma tarefa um tanto árdua,
@@ -274,7 +274,7 @@ em &lt;em&gt;Sass&lt;/em&gt;, terão como &lt;code class=&quot;language-text&quo
 &lt;p&gt;A partir de agora, no momento de execução do &lt;em&gt;Compressor&lt;/em&gt;, além de minificar e concatenar
 as folhas de estilo, também interpretará arquivos &lt;em&gt;Sass&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;Considerações finais&lt;/h2&gt;
-&lt;p&gt;E com isso, mais uma vez, mostramos que é possível ter um projeto &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
+&lt;p&gt;E com isso, mais uma vez, mostramos que é possível ter um projeto &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
 utilizando ferramentas bacanas (como o &lt;em&gt;Sass&lt;/em&gt;), sem necessariamente
 adicionar uma linguagem diferente à sua &lt;em&gt;stack&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;O ideal é que o processo de &lt;em&gt;build&lt;/em&gt; seja executado durante o procedimento

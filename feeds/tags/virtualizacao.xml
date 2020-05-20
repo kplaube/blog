@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - virtualizacao]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - virtualizacao]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
 anteriores
 arranhamos um pouco o conceito por trás do Docker,
 bem como introduzimos o utilitário de linha de comando . Nesse último artigo da série, vamos
@@ -449,7 +449,7 @@ bem como instalar e configurar a própria aplicação:&lt;/p&gt;
 &lt;p&gt;Além do custo altíssimo para replicar a arquitetura acima, o tempo para solicitar uma
 nova máquina e realizar uma possível migração eram absurdamente altos. Além disso,
 há um incrível desperdício de recursos, já que não é necessário um &lt;em&gt;hardware&lt;/em&gt;
-exclusivo para servir uma aplicação &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; simples.&lt;/p&gt;
+exclusivo para servir uma aplicação &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; simples.&lt;/p&gt;
 &lt;h3&gt;Hypervisor&lt;/h3&gt;
 &lt;p&gt;O conceito de &lt;a href=&quot;/tag/virtualizacao.html&quot; title=&quot;Leia mais sobre virtualização&quot;&gt;máquina virtual&lt;/a&gt; vem bem a calhar para sanar o problema acima: Através de uma
 configuração de &lt;em&gt;hardware&lt;/em&gt;, ser possível servir de forma isolada diferentes aplicações.&lt;/p&gt;
@@ -600,7 +600,7 @@ sobre a ferramenta (e menos sobre o conceito) de uma forma bem prática.&lt;/p&g
 web. Sim! Se você já conhece a ferramenta,
 provavelmente não terá nada de novo para você nesse artigo. Já falamos um pouco sobre ambientes virtuais,
 e as vantagens são numerosas. A "atomicidade" de poder construir e destruir…]]></description><link>https://klauslaube.com.br/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html</link><guid isPermaLink="false">https://klauslaube.com.br/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 03 Oct 2015 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sim! Esse é mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Vagrant&lt;/em&gt;, entre tantos outros espalhados pela
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Sim! Se você já conhece a ferramenta,
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Sim! Se você já conhece a ferramenta,
 provavelmente não terá nada de novo para você nesse artigo.&lt;/p&gt;
 &lt;p&gt;Já falamos um pouco sobre &lt;a href=&quot;/tag/virtualizacao.html&quot; title=&quot;Leia mais sobre Virtualização&quot;&gt;ambientes virtuais&lt;/a&gt;,
 e as vantagens são numerosas. A &quot;atomicidade&quot; de poder construir e destruir um
@@ -708,7 +708,7 @@ particionamento do seu HD? Ou quando você precisar propor uma máquina
 individual para serviços web, mas não tem hardware sobrando para
 isto? Ou quando você precisa ficar movendo um ambiente completo…]]></description><link>https://klauslaube.com.br/2010/12/01/virtualbox-varios-sos-numa-maquina-so.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/12/01/virtualbox-varios-sos-numa-maquina-so.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 01 Dec 2010 20:14:00 GMT</pubDate><content:encoded>&lt;p&gt;Sabe quando você quer testar uma distribuição (ou &lt;em&gt;SO&lt;/em&gt;) diferente mas não quer mexer diretamente no
 particionamento do seu &lt;em&gt;HD&lt;/em&gt;? Ou quando você precisar propor uma máquina
-individual para serviços &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, mas não tem &lt;em&gt;hardware&lt;/em&gt; sobrando para
+individual para serviços &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, mas não tem &lt;em&gt;hardware&lt;/em&gt; sobrando para
 isto? Ou quando você precisa ficar movendo um ambiente completo entre
 máquinas ou locais?&lt;/p&gt;
 &lt;p&gt;Virtualização pode ser a resposta para os seus problemas!&lt;/p&gt;

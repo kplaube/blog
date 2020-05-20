@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oauth]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[OAuth2.0: Autorização simples (or is it?)]]></title><description><![CDATA[É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oauth]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[OAuth2.0: Autorização simples (or is it?)]]></title><description><![CDATA[É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
 de APIs, desde
 bibliotecas
 até a construção de especificações.
@@ -7,7 +7,7 @@ entender como podemos resolver esse problema através do protocolo OAuth 2.0. O 
 de &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre API&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, desde
 &lt;a href=&quot;/2017/01/06/construindo-apis-em-django-com-restless.html&quot; title=&quot;Construindo APIs em Django com Restless&quot;&gt;bibliotecas&lt;/a&gt;
 até a construção de &lt;a href=&quot;/2017/01/31/ramilificando-as-suas-apis.html&quot; title=&quot;Ramilificando as suas APIs&quot;&gt;especificações&lt;/a&gt;.
-Nesse &lt;em&gt;post&lt;/em&gt; vamos introduzir a camada de &lt;em&gt;auth&lt;/em&gt; de uma &lt;em&gt;API&lt;/em&gt; &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e
+Nesse &lt;em&gt;post&lt;/em&gt; vamos introduzir a camada de &lt;em&gt;auth&lt;/em&gt; de uma &lt;em&gt;API&lt;/em&gt; &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e
 entender como podemos resolver esse problema através do protocolo &lt;em&gt;OAuth 2.0&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;O que é OAuth 2.0?&lt;/h2&gt;
 &lt;p&gt;Diretamente do &lt;a href=&quot;https://oauth.net/2/&quot; title=&quot;Leia mais sobre OAuth&quot;&gt;oauth2.net&lt;/a&gt;:&lt;/p&gt;

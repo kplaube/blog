@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - django]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Construindo APIs em Django com Django REST Framework]]></title><description><![CDATA[No post anterior
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - django]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Construindo APIs em Django com Django REST Framework]]></title><description><![CDATA[No post anterior
 tive a oportunidade de "destilar" a minha simpatia pelo Django REST Framework,
 e de salientar alguns aspectos positivos da ferramenta. A praticidade
 é sem dúvida um de seus pontos mais altos, e nesse post vamos explorá-la através
@@ -1962,7 +1962,7 @@ em &lt;em&gt;Sass&lt;/em&gt;, terão como &lt;code class=&quot;language-text&quo
 &lt;p&gt;A partir de agora, no momento de execução do &lt;em&gt;Compressor&lt;/em&gt;, além de minificar e concatenar
 as folhas de estilo, também interpretará arquivos &lt;em&gt;Sass&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;Considerações finais&lt;/h2&gt;
-&lt;p&gt;E com isso, mais uma vez, mostramos que é possível ter um projeto &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
+&lt;p&gt;E com isso, mais uma vez, mostramos que é possível ter um projeto &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
 utilizando ferramentas bacanas (como o &lt;em&gt;Sass&lt;/em&gt;), sem necessariamente
 adicionar uma linguagem diferente à sua &lt;em&gt;stack&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;O ideal é que o processo de &lt;em&gt;build&lt;/em&gt; seja executado durante o procedimento
@@ -2440,7 +2440,7 @@ essa modalidade de cache deve ser encarada como um acréscimo à
 experiência de uso, e não necessariamente como uma “arma” contra
 problemas de performance. Os usuários poderão abdicar desta
 funcionalidade, e aí a sua aplicação não…]]></description><link>https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 17 Jun 2012 15:52:22 GMT</pubDate><content:encoded>&lt;p&gt;Embora o &lt;a href=&quot;/2012/05/14/o-cache-e-o-http.html&quot; title=&quot;O cache e o HTTP&quot;&gt;&lt;em&gt;caching HTTP&lt;/em&gt;&lt;/a&gt; seja essencial
-para qualquer aplicação &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, &lt;strong&gt;(IMO)&lt;/strong&gt;
+para qualquer aplicação &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, &lt;strong&gt;(IMO)&lt;/strong&gt;
 essa modalidade de &lt;a href=&quot;/tag/cache.html&quot; title=&quot;Leia mais sobre Cache&quot;&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/a&gt; deve ser encarada como um acréscimo à
 experiência de uso, e não necessariamente como uma “arma” contra
 problemas de performance. Os usuários poderão abdicar desta
@@ -2543,7 +2543,7 @@ situação. Quando estamos desenvolvendo nossas aplicações web, temos que
 bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
 a raça humana, do que o homem deixar de tirar proveito de alguma
 situação.&lt;/p&gt;
-&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
+&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
 “pensar” como um usuário mal-intencionado. Não somente para garantir o
 bom funcionamento da mesma, mas também para garantir a segurança e
 bem-estar dos “usuários civis” que consomem os nossos serviços.&lt;/p&gt;
@@ -3161,7 +3161,7 @@ de &lt;em&gt;software&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/testing/#module-django.test.client&quot; title=&quot;Testando aplicações web com test client em Django&quot;&gt;&lt;em&gt;TestClient&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://lxml.de/&quot; title=&quot;Faça parser XML e HTML com lxml&quot;&gt;&lt;em&gt;lxml&lt;/em&gt;&lt;/a&gt;. Mas vamos ser sinceros, é deveras
 trabalhoso “parsear” os resultados das suas &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Com a &lt;a href=&quot;http://splinter.cobrateam.info/&quot; title=&quot;Visite a documentação oficial da Splinter&quot;&gt;&lt;em&gt;Splinter&lt;/em&gt;&lt;/a&gt;, uma ferramenta para testes de aplicações
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, você pode automatizar ações executadas por navegadores, como
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, você pode automatizar ações executadas por navegadores, como
 visitar uma página, preencher um formulário ou clicar em um &lt;em&gt;link&lt;/em&gt;; tudo
 isso sem preocupar-se com &lt;em&gt;parsing&lt;/em&gt;, nós, &lt;em&gt;DOM&lt;/em&gt;, nem nada do tipo:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; splinter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser
@@ -3360,7 +3360,7 @@ de testes tenta facilitar ao máximo a sua vida… execute a seguinte
 instrução e confira se a sua aplicação está &lt;em&gt;ok&lt;/em&gt; ou não:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py test&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Peraí que não acabou! Apresentando a TestCase&lt;/h3&gt;
-&lt;p&gt;Testar aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt; com a &lt;em&gt;unittest&lt;/em&gt; pode ser dureza. Pensando
+&lt;p&gt;Testar aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt; com a &lt;em&gt;unittest&lt;/em&gt; pode ser dureza. Pensando
 nisso o &lt;em&gt;Django&lt;/em&gt; disponibiliza a &lt;code class=&quot;language-text&quot;&gt;TestCase&lt;/code&gt;, que estende a &lt;em&gt;unittest&lt;/em&gt;
 adicionando funcionalidades como carregamento de &lt;em&gt;fixtures&lt;/em&gt;, roteamento
 de &lt;em&gt;urls&lt;/em&gt; e um &lt;em&gt;client&lt;/em&gt; para fazer requisições &lt;em&gt;Web&lt;/em&gt; e testar as suas
@@ -4021,7 +4021,7 @@ desenvolver de forma produtiva e com qualidade.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Requisitos&lt;/h2&gt;
 &lt;p&gt;Existem centenas (senão milhares) de tutoriais deste tipo espalhados
-pela &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, portanto, para variar um pouquinho vamos usar um
+pela &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, portanto, para variar um pouquinho vamos usar um
 ambiente de desenvolvimento diferente:&lt;/p&gt;
 &lt;h3&gt;Sistemas Operacionais: Debian e Slackware&lt;/h3&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - csrf]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Problemas comuns de segurança em aplicações Web]]></title><description><![CDATA[Seria perfeito se o mundo fosse feito apenas de pessoas
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - csrf]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Problemas comuns de segurança em aplicações Web]]></title><description><![CDATA[Seria perfeito se o mundo fosse feito apenas de pessoas
 bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
 a raça humana, do que o homem deixar de tirar proveito de alguma
 situação. Quando estamos desenvolvendo nossas aplicações web, temos que
@@ -6,7 +6,7 @@ situação. Quando estamos desenvolvendo nossas aplicações web, temos que
 bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
 a raça humana, do que o homem deixar de tirar proveito de alguma
 situação.&lt;/p&gt;
-&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
+&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
 “pensar” como um usuário mal-intencionado. Não somente para garantir o
 bom funcionamento da mesma, mas também para garantir a segurança e
 bem-estar dos “usuários civis” que consomem os nossos serviços.&lt;/p&gt;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - api-first]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API Blueprint: Markdown é vida!]]></title><description><![CDATA[Estamos falando sobre escrever especificações de APIs
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - api-first]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API Blueprint: Markdown é vida!]]></title><description><![CDATA[Estamos falando sobre escrever especificações de APIs
 há um bom tempo aqui no blog. RAML,
 Swagger e
 OpenAPI Specification já foram explorados, e
@@ -298,7 +298,7 @@ O exercício é interessante, uma vez que é possível focar no conceito,
 ao invés de ferramentas e processos. Mas o objetivo
 desse artigo é cairmos de cabeça em como exercitar a ideia de forma prática.&lt;/p&gt;
 &lt;p&gt;O problema a ser solucionado será explicado mais abaixo, mas antes de cairmos na tentação
-de pensar no &lt;em&gt;framework &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;web&lt;/a&gt;&lt;/em&gt;, na modelagem de dados,
+de pensar no &lt;em&gt;framework &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;web&lt;/a&gt;&lt;/em&gt;, na modelagem de dados,
 em qual servidor de aplicação usar, ou em virtualizar com &lt;a href=&quot;/tag/docker.html&quot; title=&quot;Leia mais sobre Docker&quot;&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;
 e &lt;em&gt;Kubernetes&lt;/em&gt;, vamos focar primeiro na especificação.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
@@ -916,7 +916,7 @@ resolver essa questão.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Hypermedia&lt;/em&gt; parece outra excelente ideia, uma vez que serve como documentação e oferece meios para
 humanos e máquinas compreenderem melhor a sua funcionalidade.&lt;/p&gt;
 &lt;h2&gt;Camadas: API-First Development x API-First Design&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;API-First&lt;/em&gt; é sobre fazer a &lt;em&gt;API&lt;/em&gt; antes da interface &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;mobile&lt;/em&gt;? Ou
+&lt;p&gt;&lt;em&gt;API-First&lt;/em&gt; é sobre fazer a &lt;em&gt;API&lt;/em&gt; antes da interface &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;mobile&lt;/em&gt;? Ou
 seria sobre primeiro fazer o &lt;em&gt;design&lt;/em&gt; da &lt;em&gt;API&lt;/em&gt; e a partir daí passar para a implementação?&lt;/p&gt;
 &lt;p&gt;Uma ótica interessante sobre esse debate pode ser lida no &lt;a href=&quot;https://apievangelist.com/2014/08/11/what-is-an-api-first-strategy-adding-some-dimensions-to-this-new-question/&quot; title=&quot;Leia mais no API Evangelist&quot;&gt;&quot;What Is An API First Strategy? Adding Some Dimensions To This New Question&quot;&lt;/a&gt;, do &lt;em&gt;apievangelist.com&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Durante a pesquisa para a escrita desse &lt;em&gt;post&lt;/em&gt;, fui exposto a diferentes perspectivas, e é muito provável que eu

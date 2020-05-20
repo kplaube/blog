@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - decorators]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Decorators em Python]]></title><description><![CDATA[E na mesma linha dos closures, eu passei a
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - decorators]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:49:33 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Decorators em Python]]></title><description><![CDATA[E na mesma linha dos closures, eu passei a
 saber realmente o que são decorators depois de utilizar o framework
 Django. Se você está trabalhando com Orientação a Objetos e
 até agora não se deparou com este recurso, te garanto que um dia você
@@ -92,7 +92,7 @@ seja, é o mesmo que ler &lt;code class=&quot;language-text&quot;&gt;“wrapper(
 posteriormente retornará o resultado de &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;, que nada mais é
 que a impressão de &lt;code class=&quot;language-text&quot;&gt;“Eu sou um alvo!”&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Bacana não? Aqui vai mais um para deixar as coisas um pouco mais claras…
-vamos simular o esquema de roteamento de um &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/web.html&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+vamos simular o esquema de roteamento de um &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/desenvolvimento-web.html&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;rotas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 
 &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rota&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;endereco&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;

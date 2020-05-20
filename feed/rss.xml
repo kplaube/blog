@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><item><title><![CDATA[Engatinhando em Java para a web: Spring Boot]]></title><description><![CDATA[No post anterior, finalizamos a introdução
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 20 May 2020 08:49:32 GMT</lastBuildDate><item><title><![CDATA[Engatinhando em Java para a web: Spring Boot]]></title><description><![CDATA[No post anterior, finalizamos a introdução
 a alguns aspectos utilizados pelo Java EE para construção de aplicações web. Se você acompanhou…]]></description><link>https://klauslaube.com.br/2020/05/20/engatinhando-em-java-web-spring-boot.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/05/20/engatinhando-em-java-web-spring-boot.html</guid><pubDate>Wed, 20 May 2020 05:25:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2019/12/10/engatinhando-em-java-web-parte-3.html&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, finalizamos a introdução
 a alguns aspectos utilizados pelo &lt;em&gt;Java EE&lt;/em&gt; para construção de aplicações &lt;em&gt;web&lt;/em&gt;. Se você acompanhou
 os artigos até aqui, e achou tudo muito doloroso, você não está sozinho.&lt;/p&gt;
@@ -635,7 +635,7 @@ O exercício é interessante, uma vez que é possível focar no conceito,
 ao invés de ferramentas e processos. Mas o objetivo
 desse artigo é cairmos de cabeça em como exercitar a ideia de forma prática.&lt;/p&gt;
 &lt;p&gt;O problema a ser solucionado será explicado mais abaixo, mas antes de cairmos na tentação
-de pensar no &lt;em&gt;framework &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;web&lt;/a&gt;&lt;/em&gt;, na modelagem de dados,
+de pensar no &lt;em&gt;framework &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;web&lt;/a&gt;&lt;/em&gt;, na modelagem de dados,
 em qual servidor de aplicação usar, ou em virtualizar com &lt;a href=&quot;/tag/docker.html&quot; title=&quot;Leia mais sobre Docker&quot;&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;
 e &lt;em&gt;Kubernetes&lt;/em&gt;, vamos focar primeiro na especificação.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
@@ -1252,7 +1252,7 @@ resolver essa questão.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Hypermedia&lt;/em&gt; parece outra excelente ideia, uma vez que serve como documentação e oferece meios para
 humanos e máquinas compreenderem melhor a sua funcionalidade.&lt;/p&gt;
 &lt;h2&gt;Camadas: API-First Development x API-First Design&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;API-First&lt;/em&gt; é sobre fazer a &lt;em&gt;API&lt;/em&gt; antes da interface &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;mobile&lt;/em&gt;? Ou
+&lt;p&gt;&lt;em&gt;API-First&lt;/em&gt; é sobre fazer a &lt;em&gt;API&lt;/em&gt; antes da interface &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;mobile&lt;/em&gt;? Ou
 seria sobre primeiro fazer o &lt;em&gt;design&lt;/em&gt; da &lt;em&gt;API&lt;/em&gt; e a partir daí passar para a implementação?&lt;/p&gt;
 &lt;p&gt;Uma ótica interessante sobre esse debate pode ser lida no &lt;a href=&quot;https://apievangelist.com/2014/08/11/what-is-an-api-first-strategy-adding-some-dimensions-to-this-new-question/&quot; title=&quot;Leia mais no API Evangelist&quot;&gt;&quot;What Is An API First Strategy? Adding Some Dimensions To This New Question&quot;&lt;/a&gt;, do &lt;em&gt;apievangelist.com&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Durante a pesquisa para a escrita desse &lt;em&gt;post&lt;/em&gt;, fui exposto a diferentes perspectivas, e é muito provável que eu
@@ -2732,7 +2732,7 @@ specifications from the EE umbrella.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Inclusive, em um mundo cada vez mais &quot;microservices-driven&quot;, seguir completamente essas especificações torna-se questionável,
 como ilustra &lt;em&gt;Rod Johnson&lt;/em&gt; em sua palestra &lt;a href=&quot;https://www.infoq.com/presentations/principles-successful-frameworks/&quot; title=&quot;Assista no InfoQ&quot;&gt;&lt;em&gt;Eighteen Years of Spring&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;E é com o &lt;em&gt;Spring&lt;/em&gt; que no próximo artigo experimentaremos esse lado &quot;rebelde&quot; e, sem dúvida, mais divertido, do desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; com &lt;em&gt;Java&lt;/em&gt;.
+&lt;p&gt;E é com o &lt;em&gt;Spring&lt;/em&gt; que no próximo artigo experimentaremos esse lado &quot;rebelde&quot; e, sem dúvida, mais divertido, do desenvolvimento &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; com &lt;em&gt;Java&lt;/em&gt;.
 Mas se você quiser continuar em um ambiente mais &lt;em&gt;enterprise&lt;/em&gt;: &lt;a href=&quot;https://en.wikipedia.org/wiki/GlassFish&quot; title=&quot;Open-source application server&quot;&gt;&lt;em&gt;Glassfish&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://en.wikipedia.org/wiki/WildFly&quot; title=&quot;Antigo JBoss&quot;&gt;&lt;em&gt;WildFly&lt;/em&gt;&lt;/a&gt;
 e &lt;a href=&quot;https://en.wikipedia.org/wiki/Apache_Geronimo&quot; title=&quot;Application server fornecido pela Apache Foundation&quot;&gt;&lt;em&gt;Geronimo&lt;/em&gt;&lt;/a&gt;; podem ser os próximos passos.&lt;/p&gt;
 &lt;h2&gt;Considerações finais&lt;/h2&gt;
@@ -2793,7 +2793,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
     &lt;/span&gt;
     &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Continuamos a trair o movimento assim como o Saruman fez em LOTR (sott.net)&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;A narrativa dessa série de artigos tem justamente a intenção de ilustrar que em um primeiro momento, &lt;a href=&quot;/tag/java.html&quot; title=&quot;Leia mais sobre Java&quot;&gt;&lt;em&gt;Java&lt;/em&gt;&lt;/a&gt; para &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; pode parecer obsoleto, mas que com o progredir dos &lt;em&gt;posts&lt;/em&gt; novas tecnologias serão apresentadas e que por fim, é possível sim ter um ambiente deveras moderno e prático.&lt;/p&gt;
+&lt;p&gt;A narrativa dessa série de artigos tem justamente a intenção de ilustrar que em um primeiro momento, &lt;a href=&quot;/tag/java.html&quot; title=&quot;Leia mais sobre Java&quot;&gt;&lt;em&gt;Java&lt;/em&gt;&lt;/a&gt; para &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; pode parecer obsoleto, mas que com o progredir dos &lt;em&gt;posts&lt;/em&gt; novas tecnologias serão apresentadas e que por fim, é possível sim ter um ambiente deveras moderno e prático.&lt;/p&gt;
 &lt;p&gt;Estamos &quot;engatinhando&quot;, afinal...&lt;/p&gt;
 &lt;p&gt;Obrigado pelos &lt;em&gt;feedbacks&lt;/em&gt; :)&lt;/p&gt;
 &lt;h2&gt;Servlets&lt;/h2&gt;
@@ -3364,7 +3364,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
     &lt;/span&gt;
     &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Come join the dark side (craigblower.wordpress.com)&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Após essa longa argumentação exibindo a motivação por trás desse &lt;em&gt;post&lt;/em&gt;, vamos ao que interessa: &lt;em&gt;Java&lt;/em&gt; para a &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; pode ser divertido...&lt;/p&gt;
+&lt;p&gt;Após essa longa argumentação exibindo a motivação por trás desse &lt;em&gt;post&lt;/em&gt;, vamos ao que interessa: &lt;em&gt;Java&lt;/em&gt; para a &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; pode ser divertido...&lt;/p&gt;
 &lt;p&gt;... só precisa ter um pouquinho de paciência.&lt;/p&gt;
 &lt;h2&gt;Linguagem x Ambiente&lt;/h2&gt;
 &lt;p&gt;Parece chover no molhado, mas quando falamos em &lt;em&gt;Java&lt;/em&gt; temos que levar sempre em consideração que estamos referenciando duas coisas: A linguagem de programação e a plataforma.&lt;/p&gt;
@@ -3641,7 +3641,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Apache_Tomcat&quot;&gt;Wikipedia: Tomcat&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[SEO ainda é relevante?]]></title><description><![CDATA[Se há uma constante em desenvolvimento de software é o hype. Hoje vivemos o buzz
 ao redor de microservices, machine learning e blockchain…]]></description><link>https://klauslaube.com.br/2019/08/20/seo-ainda-e-relevante.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/08/20/seo-ainda-e-relevante.html</guid><pubDate>Tue, 20 Aug 2019 16:05:00 GMT</pubDate><content:encoded>&lt;p&gt;Se há uma constante em desenvolvimento de &lt;em&gt;software&lt;/em&gt; é o &lt;a href=&quot;https://www.significados.com.br/hype/&quot; title=&quot;Significado de hype&quot;&gt;&lt;em&gt;hype&lt;/em&gt;&lt;/a&gt;. Hoje vivemos o &lt;em&gt;buzz&lt;/em&gt;
-ao redor de &lt;em&gt;microservices&lt;/em&gt;, &lt;em&gt;machine learning&lt;/em&gt; e &lt;em&gt;blockchain&lt;/em&gt;. Mas há algum tempo um dos &lt;em&gt;hypes&lt;/em&gt; que varreu o mundo do desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; foi o &lt;em&gt;SEO&lt;/em&gt; (ou &lt;em&gt;Search Engine Optimization&lt;/em&gt;).&lt;/p&gt;
+ao redor de &lt;em&gt;microservices&lt;/em&gt;, &lt;em&gt;machine learning&lt;/em&gt; e &lt;em&gt;blockchain&lt;/em&gt;. Mas há algum tempo um dos &lt;em&gt;hypes&lt;/em&gt; que varreu o mundo do desenvolvimento &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; foi o &lt;em&gt;SEO&lt;/em&gt; (ou &lt;em&gt;Search Engine Optimization&lt;/em&gt;).&lt;/p&gt;
 &lt;p&gt;Quem aqui nunca fez um freela de &quot;otimização para mecanismos de buscas&quot; que atire a primeira pedra.&lt;/p&gt;
 &lt;h2&gt;Eu (ainda) preciso me importar com SEO?&lt;/h2&gt;
 &lt;p&gt;Essa pergunta tem rondado a minha cabeça nos últimos meses...&lt;/p&gt;
@@ -5105,7 +5105,7 @@ mesmas tecnologias é possível estendê-lo de maneira impressionante. Aliás, o
 processo de customização é muito bem documentado, no
 &lt;a href=&quot;https://flight-manual.atom.io/&quot; title=&quot;Leia mais na página oficial&quot;&gt;&lt;em&gt;Atom Flight Manual&lt;/em&gt;&lt;/a&gt;,
 e escrever seus próprios &lt;em&gt;plugins&lt;/em&gt; tem uma curva de aprendizado mínima se você
-já trabalhar com desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+já trabalhar com desenvolvimento &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Por padrão o &lt;em&gt;Atom&lt;/em&gt; oferece &lt;em&gt;syntax highlighting&lt;/em&gt; para uma grande gama de linguagens,
 além de outros utilitários, como &lt;em&gt;fuzzy finder&lt;/em&gt;, &lt;em&gt;tree view&lt;/em&gt;, corretor ortográfico,
 e um simples &lt;em&gt;auto-complete&lt;/em&gt;.&lt;/p&gt;
@@ -5861,7 +5861,7 @@ me julgar, me chamar de "poser" ou de "vendido…]]></description><link>https://
 além do &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre o melhor editor do universo&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;. Pode
 me julgar, me chamar de &quot;poser&quot; ou de &quot;vendido&quot;, mas acontece que tenho descoberto no
 &lt;a href=&quot;https://code.visualstudio.com/&quot; title=&quot;Conheça o VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, da &lt;em&gt;Microsoft&lt;/em&gt;,
-uma excelente ferramenta para desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+uma excelente ferramenta para desenvolvimento &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Piadas à parte, ainda acho o &lt;em&gt;Vim&lt;/em&gt; uma ferramenta fantástica. Mas também
 reconheço que há uma curva de aprendizagem, e que montar um set de &lt;em&gt;plugins&lt;/em&gt; para
 um determinado ambiente de desenvolvimento pode ser uma tarefa maçante (sim,
@@ -6354,7 +6354,7 @@ até a construção de…]]></description><link>https://klauslaube.com.br/2018/0
 de &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre API&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, desde
 &lt;a href=&quot;/2017/01/06/construindo-apis-em-django-com-restless.html&quot; title=&quot;Construindo APIs em Django com Restless&quot;&gt;bibliotecas&lt;/a&gt;
 até a construção de &lt;a href=&quot;/2017/01/31/ramilificando-as-suas-apis.html&quot; title=&quot;Ramilificando as suas APIs&quot;&gt;especificações&lt;/a&gt;.
-Nesse &lt;em&gt;post&lt;/em&gt; vamos introduzir a camada de &lt;em&gt;auth&lt;/em&gt; de uma &lt;em&gt;API&lt;/em&gt; &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e
+Nesse &lt;em&gt;post&lt;/em&gt; vamos introduzir a camada de &lt;em&gt;auth&lt;/em&gt; de uma &lt;em&gt;API&lt;/em&gt; &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e
 entender como podemos resolver esse problema através do protocolo &lt;em&gt;OAuth 2.0&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;O que é OAuth 2.0?&lt;/h2&gt;
 &lt;p&gt;Diretamente do &lt;a href=&quot;https://oauth.net/2/&quot; title=&quot;Leia mais sobre OAuth&quot;&gt;oauth2.net&lt;/a&gt;:&lt;/p&gt;
@@ -8024,7 +8024,7 @@ portanto saliento uma vez mais: &lt;a href=&quot;https://pt.coursera.org/learn/a
 &lt;li&gt;&lt;a href=&quot;http://noticias.universia.pt/ciencia-tecnologia/especial/2014/01/14/1074898/1/portugues-recebe-2-milhes-euros-investigar-mecanismos-memoria/consiste-chunking.html&quot;&gt;Universia - Em que é que consiste o Chunking?&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Pomodoro FTW!]]></title><description><![CDATA[Sim, meus amigos! O título poderia ser "esse é mais um post sobre Pomodoro Technique",
 e embora haja toneladas de artigos na web sobre o…]]></description><link>https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html</guid><pubDate>Thu, 29 Jun 2017 18:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Sim, meus amigos! O título poderia ser &quot;esse é mais um post sobre Pomodoro Technique&quot;,
-e embora haja toneladas de artigos na &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sobre o assunto, me sinto na obrigação
+e embora haja toneladas de artigos na &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sobre o assunto, me sinto na obrigação
 de falar um pouquinho sobre ele aqui também. Afinal, além de ser uma prática simples e que
 apresenta resultados, é ela que tem salvo a produtividade das minhas tardes de &lt;em&gt;home office&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Então prepare o seu &lt;em&gt;timer&lt;/em&gt; e vamos entender como essa técnica funciona.&lt;/p&gt;
@@ -8945,7 +8945,7 @@ bem como instalar e configurar a própria aplicação:&lt;/p&gt;
 &lt;p&gt;Além do custo altíssimo para replicar a arquitetura acima, o tempo para solicitar uma
 nova máquina e realizar uma possível migração eram absurdamente altos. Além disso,
 há um incrível desperdício de recursos, já que não é necessário um &lt;em&gt;hardware&lt;/em&gt;
-exclusivo para servir uma aplicação &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; simples.&lt;/p&gt;
+exclusivo para servir uma aplicação &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; simples.&lt;/p&gt;
 &lt;h3&gt;Hypervisor&lt;/h3&gt;
 &lt;p&gt;O conceito de &lt;a href=&quot;/tag/virtualizacao.html&quot; title=&quot;Leia mais sobre virtualização&quot;&gt;máquina virtual&lt;/a&gt; vem bem a calhar para sanar o problema acima: Através de uma
 configuração de &lt;em&gt;hardware&lt;/em&gt;, ser possível servir de forma isolada diferentes aplicações.&lt;/p&gt;
@@ -10039,7 +10039,7 @@ em &lt;em&gt;Sass&lt;/em&gt;, terão como &lt;code class=&quot;language-text&quo
 &lt;p&gt;A partir de agora, no momento de execução do &lt;em&gt;Compressor&lt;/em&gt;, além de minificar e concatenar
 as folhas de estilo, também interpretará arquivos &lt;em&gt;Sass&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;Considerações finais&lt;/h2&gt;
-&lt;p&gt;E com isso, mais uma vez, mostramos que é possível ter um projeto &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
+&lt;p&gt;E com isso, mais uma vez, mostramos que é possível ter um projeto &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
 utilizando ferramentas bacanas (como o &lt;em&gt;Sass&lt;/em&gt;), sem necessariamente
 adicionar uma linguagem diferente à sua &lt;em&gt;stack&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;O ideal é que o processo de &lt;em&gt;build&lt;/em&gt; seja executado durante o procedimento
@@ -10080,7 +10080,7 @@ estrutura:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://google.com/index.html
 |------ URL -----|-- URN --|
 |----------- URI ----------|&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Como uma &lt;em&gt;API&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt; é um recurso disponível na &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
+&lt;p&gt;Como uma &lt;em&gt;API&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt; é um recurso disponível na &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
 essa regra não é diferente. Daremos identificadores únicos para cada recurso exposto.&lt;/p&gt;
 &lt;p&gt;Utilizaremos o &lt;code class=&quot;language-text&quot;&gt;localhost:8000&lt;/code&gt; para os exemplos a seguir. Portanto, vamos imaginar que
 temos uma &lt;em&gt;API&lt;/em&gt; de filmes, e gostaríamos de listar todos os filmes. Uma boa prática
@@ -11076,7 +11076,7 @@ ao casamento entre &lt;em&gt;Behave&lt;/em&gt; e &lt;em&gt;Django&lt;/em&gt;.&lt
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[REST - Parte 1]]></title><description><![CDATA[Em tempos onde os microservices ganham cada vez mais força, e aplicações de sucesso liberam a sua API para desenvolvedores construírem um…]]></description><link>https://klauslaube.com.br/2016/01/06/rest-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/01/06/rest-parte-1.html</guid><pubDate>Wed, 06 Jan 2016 13:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Em tempos onde os &lt;a href=&quot;http://www.infoq.com/br/news/2015/04/microservices-current-state&quot; title=&quot;O estado da arte em micro serviços&quot;&gt;microservices&lt;/a&gt; ganham cada vez mais força, e &lt;a href=&quot;https://dev.twitter.com/rest/public&quot; title=&quot;Conheça a API do Twitter&quot;&gt;aplicações de sucesso&lt;/a&gt; liberam a sua &lt;em&gt;API&lt;/em&gt; para desenvolvedores construírem um ecossistema ao redor delas, não considerar seguir boas práticas na construção de um serviço pode ser uma tomada de decisão arriscada, tanto no quesito do negócio, quanto no quesito técnico.&lt;/p&gt;
 &lt;p&gt;A &lt;em&gt;Internet&lt;/em&gt; já passou por muita coisa quando o assunto é &lt;em&gt;API&lt;/em&gt;, desde a total falta de padrões até a criação de protocolos exageradamente complexos. O &lt;em&gt;REST&lt;/em&gt; vem como uma solução elegante que está longe de ser &quot;anárquica&quot;, porém mais longe ainda de ser complicada.&lt;/p&gt;
 &lt;h2&gt;Serviços web podem ser burocráticos&lt;/h2&gt;
-&lt;p&gt;Antes de mais nada é preciso dizer que a &quot;&lt;em&gt;internet&lt;/em&gt; é maior que a &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;&quot;. Ou seja, quando digo que você deveria utilizar &lt;em&gt;REST&lt;/em&gt;, estou sendo específico para um determinado tipo de solução na camada &lt;em&gt;HTTP&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Antes de mais nada é preciso dizer que a &quot;&lt;em&gt;internet&lt;/em&gt; é maior que a &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;&quot;. Ou seja, quando digo que você deveria utilizar &lt;em&gt;REST&lt;/em&gt;, estou sendo específico para um determinado tipo de solução na camada &lt;em&gt;HTTP&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Quando falo sobre serviços na &lt;em&gt;web&lt;/em&gt;, automaticamente sou remetido a &lt;a href=&quot;https://en.wikipedia.org/wiki/Service-oriented_architecture&quot; title=&quot;Leia mais sobre SOA&quot;&gt;&lt;em&gt;SOA&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;https://pt.wikipedia.org/wiki/SOAP&quot; title=&quot;Leia mais sobre SOAP&quot;&gt;&lt;em&gt;SOAP&lt;/em&gt;&lt;/a&gt;. Até então, nunca consegui pensar nesses dois termos de forma dissociada, mas não é bem assim que as coisas funcionam...&lt;/p&gt;
 &lt;p&gt;A Arquitetura Orientada a Serviço (SOA) é um padrão onde aplicações provém serviços para demais componentes através de protocolos de comunicação. Uma arquitetura &lt;em&gt;SOA&lt;/em&gt; vai além de definir uma &lt;a href=&quot;https://en.wikipedia.org/wiki/Application_programming_interface&quot; title=&quot;Leia mais sobre API&quot;&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;, ela define a interface em termos de protocolo e funcionalidade, provendo assim uma maior interoperabilidade do seu serviço.&lt;/p&gt;
 &lt;p&gt;Mas o que necessariamente significa o termo &quot;serviço&quot;? Segundo o &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Open_Group&quot; title=&quot;Leia mais sobre o Open Group&quot;&gt;&lt;em&gt;Open Group&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
@@ -11237,7 +11237,7 @@ assegurar que a &lt;em&gt;AngularJS&lt;/em&gt; não seria o &lt;em&gt;framework&
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Esse é mais um post sobre Vagrant]]></title><description><![CDATA[Sim! Esse é mais um post sobre Vagrant, entre tantos outros espalhados pela
 web. Sim! Se você já conhece a ferramenta,
 provavelmente não…]]></description><link>https://klauslaube.com.br/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html</link><guid isPermaLink="false">https://klauslaube.com.br/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html</guid><pubDate>Sat, 03 Oct 2015 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sim! Esse é mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Vagrant&lt;/em&gt;, entre tantos outros espalhados pela
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Sim! Se você já conhece a ferramenta,
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Sim! Se você já conhece a ferramenta,
 provavelmente não terá nada de novo para você nesse artigo.&lt;/p&gt;
 &lt;p&gt;Já falamos um pouco sobre &lt;a href=&quot;/tag/virtualizacao.html&quot; title=&quot;Leia mais sobre Virtualização&quot;&gt;ambientes virtuais&lt;/a&gt;,
 e as vantagens são numerosas. A &quot;atomicidade&quot; de poder construir e destruir um
@@ -12127,7 +12127,7 @@ sozinho: &lt;a href=&quot;http://papodehomem.com.br/o-que-ninguem-conta-sobre-mo
 extensível, com uma série de "baterias inclusas" que tornam o desenvolvimento
 de…]]></description><link>https://klauslaube.com.br/2014/03/26/pelican-e-os-static-site-generators.html</link><guid isPermaLink="false">https://klauslaube.com.br/2014/03/26/pelican-e-os-static-site-generators.html</guid><pubDate>Wed, 26 Mar 2014 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; é de longe o meu &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; favorito. Fácil,
 extensível, com uma série de &quot;baterias inclusas&quot; que tornam o desenvolvimento
-de aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; muito mais fácil e divertido.&lt;/p&gt;
+de aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; muito mais fácil e divertido.&lt;/p&gt;
 &lt;p&gt;Mas verdade seja dita, para algumas soluções, é como se utilizássemos um
 canhão para matar um mosquito. Existe toda uma preocupação no que diz respeito
 a persistência, &lt;a href=&quot;/tag/cache.html&quot; title=&quot;Leia mais sobre Cache&quot;&gt;&lt;em&gt;caching&lt;/em&gt;&lt;/a&gt;, serviço de aplicação e serviço &lt;em&gt;Web&lt;/em&gt;, que em
@@ -12210,7 +12210,7 @@ entre as palestras, deixando o público &quot;aceso&quot; e acredito que quebran
 pouco do &quot;gelo&quot; entre público e palestrante.&lt;/p&gt;
 &lt;p&gt;Na minha opinião a palestra matadora foi a do &lt;a href=&quot;https://twitter.com/sergio_caelum&quot; title=&quot;Siga o Sérgio no Twitter&quot;&gt;&lt;em&gt;@sergio_caelum&lt;/em&gt;&lt;/a&gt;, com o título
 &quot;Repensando o front-end para telas de alta resolução&quot;. É o tipo de discussão
-que cabe em qualquer evento sobre desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;.
+que cabe em qualquer evento sobre desenvolvimento &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;.
 Muito boa a &quot;performance&quot; do palestrante, fora que o conteúdo apresentado foi
 excepcional.&lt;/p&gt;
 &lt;p&gt;Um ponto que vale observar: Estamos preocupados, tanto no &lt;em&gt;back-end&lt;/em&gt; quanto
@@ -12591,7 +12591,7 @@ nunca precisei me preocupar com o que acontecia entre esses dois. Para
 mim, era tudo uma…]]></description><link>https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html</guid><pubDate>Fri, 02 Nov 2012 15:09:19 GMT</pubDate><content:encoded>&lt;p&gt;Pelos vários anos que programei com o &lt;a href=&quot;/tag/php.html&quot; title=&quot;Conheça mais sobre o Hypertext PreProcessor&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;Apache&lt;/em&gt;,
 nunca precisei me preocupar com o que acontecia entre esses dois. Para
 mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; de forma dinâmica. Era uma troca justa: Eles não me traziam
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; de forma dinâmica. Era uma troca justa: Eles não me traziam
 preocupação, logo, eu não me preocupava.&lt;/p&gt;
 &lt;p&gt;Com o passar do tempo, o uso do &lt;a href=&quot;/2011/12/19/nginx-poderoso-rapido-facil.html&quot; title=&quot;Conheça o Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; e a necessidade de aprender
 &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, comecei a me deparar com o famoso &lt;code class=&quot;language-text&quot;&gt;cgi-bin&lt;/code&gt;, e
@@ -13256,7 +13256,7 @@ você tem tempos de resposta absurdamente altos, talvez seja a hora de
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Django e Cache: Uma dupla de alta performance - Parte 1]]></title><description><![CDATA[Embora o caching HTTP seja essencial
 para qualquer aplicação web, (IMO)
 essa modalidade de cache deve ser encarada como um acréscimo à…]]></description><link>https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</guid><pubDate>Sun, 17 Jun 2012 15:52:22 GMT</pubDate><content:encoded>&lt;p&gt;Embora o &lt;a href=&quot;/2012/05/14/o-cache-e-o-http.html&quot; title=&quot;O cache e o HTTP&quot;&gt;&lt;em&gt;caching HTTP&lt;/em&gt;&lt;/a&gt; seja essencial
-para qualquer aplicação &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, &lt;strong&gt;(IMO)&lt;/strong&gt;
+para qualquer aplicação &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, &lt;strong&gt;(IMO)&lt;/strong&gt;
 essa modalidade de &lt;a href=&quot;/tag/cache.html&quot; title=&quot;Leia mais sobre Cache&quot;&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/a&gt; deve ser encarada como um acréscimo à
 experiência de uso, e não necessariamente como uma “arma” contra
 problemas de performance. Os usuários poderão abdicar desta
@@ -13366,7 +13366,7 @@ exemplo, o &lt;a href=&quot;http://moodle.org/&quot; title=&quot;O Moodle é uma
 &lt;em&gt;TreinaTom&lt;/em&gt; se sobressai.&lt;/p&gt;
 &lt;h2&gt;Expectativas&lt;/h2&gt;
 &lt;p&gt;Devo ser sincero: eu não sou um dos maiores fãs do &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Como desenvolvedor &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, sempre tive contato com a linguagem, e
+&lt;p&gt;Como desenvolvedor &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, sempre tive contato com a linguagem, e
 sempre me virei na medida do possível. Mas de uns tempos para cá ficou
 evidente a importância do &lt;em&gt;Javascript&lt;/em&gt;, tanto que ele já ultrapassou a
 “barreira” do &lt;em&gt;front-end&lt;/em&gt; e já possui representantes em outras áreas do
@@ -13401,7 +13401,7 @@ Django&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;Resumindo: eu ví e gostei.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[O cache e o HTTP]]></title><description><![CDATA[Em tempos de alta demanda, o cache pode tornar-se o melhor amigo das
 aplicações web.
 Através dele temos uma opção prática, acessível e…]]></description><link>https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html</guid><pubDate>Mon, 14 May 2012 23:14:46 GMT</pubDate><content:encoded>&lt;p&gt;Em tempos de alta demanda, o &lt;strong&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/strong&gt; pode tornar-se o melhor amigo das
-aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.
+aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.
 Através dele temos uma opção prática, acessível e barata para melhorar
 performance, diminuir consumo de recursos e tempos de resposta. Qualquer
 milissegundo economizado é um ponto a mais com o seu usuário, com os
@@ -13607,7 +13607,7 @@ a raça…]]></description><link>https://klauslaube.com.br/2012/04/15/problemas-
 bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
 a raça humana, do que o homem deixar de tirar proveito de alguma
 situação.&lt;/p&gt;
-&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
+&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
 “pensar” como um usuário mal-intencionado. Não somente para garantir o
 bom funcionamento da mesma, mas também para garantir a segurança e
 bem-estar dos “usuários civis” que consomem os nossos serviços.&lt;/p&gt;
@@ -14028,7 +14028,7 @@ no lado do usuário, e sessões são persistências dependentes de
 &lt;h2&gt;Para que servem Cookies e Sessões?&lt;/h2&gt;
 &lt;p&gt;O &lt;a href=&quot;http://wagnerelias.com/2009/02/06/http-essentials/&quot; title=&quot;Conheça mais sobre o protocolo HTTP&quot;&gt;protocolo &lt;em&gt;HTTP&lt;/em&gt;&lt;/a&gt; é &lt;em&gt;stateless&lt;/em&gt;, ou seja, ele não mantém um
 estado/conexão. Toda a interação que o seu cliente fizer com um servidor
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; acarretará em uma nova requisição e resposta.&lt;/p&gt;
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; acarretará em uma nova requisição e resposta.&lt;/p&gt;
 &lt;p&gt;As requisições são independentes e possuem um tempo de vida (conexão,
 envio de mensagem, resposta, encerramento da conexão). O servidor &lt;em&gt;web&lt;/em&gt;
 não é capaz de identificar se duas requisições vieram de um mesmo
@@ -14209,7 +14209,7 @@ aplicado bastante tempo no estudo do &lt;a href=&quot;http://codeigniter.com/&qu
 redescobrir a diversão em programar nessa linguagem um tanto controversa.&lt;/p&gt;
 &lt;p&gt;Logo de cara, quero recomendar o &lt;em&gt;screencast&lt;/em&gt; da &lt;a href=&quot;http://net.tutsplus.com/&quot; title=&quot;Web development tutorials, from beginner to advanced&quot;&gt;&lt;em&gt;Nettus+&lt;/em&gt;&lt;/a&gt; chamado
 &lt;a href=&quot;http://net.tutsplus.com/sessions/codeigniter-from-scratch/&quot; title=&quot;Confira a série de screencasts sobre desenvolvimento com PHP e CodeIgniter&quot;&gt;&lt;em&gt;CodeIgniter From Scratch&lt;/em&gt;&lt;/a&gt;. Um excelente material para aprender (e
-se aperfeiçoar) a desenvolver aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; com &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+se aperfeiçoar) a desenvolver aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; com &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;PHP e MVC&lt;/h2&gt;
 &lt;p&gt;Não há mistérios na forma como o &lt;em&gt;CodeIgniter&lt;/em&gt; trabalha com o &lt;a href=&quot;http://pt.wikipedia.org/wiki/MVC&quot; title=&quot;Leia mais sobre Model-View-Controller&quot;&gt;&lt;em&gt;MVC&lt;/em&gt;&lt;/a&gt;,
 utilizando o “&lt;em&gt;MVC&lt;/em&gt; clássico”, com as rotas baseadas nos nomes do
@@ -14390,7 +14390,7 @@ pontos”&lt;/strong&gt;, sou capaz de dizer que as melhores experiências profi
 da minha vida estão de alguma forma relacionadas com o &lt;strong&gt;ambiente
 acadêmico&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Graças ao &lt;strong&gt;curso técnico&lt;/strong&gt;, tive a oportunidade de trabalhar com
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; desde o início da minha carreira. Já na &lt;strong&gt;graduação&lt;/strong&gt;, pude
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; desde o início da minha carreira. Já na &lt;strong&gt;graduação&lt;/strong&gt;, pude
 conviver com pessoas muito mais inteligentes e interessantes que eu.
 Pessoas com um conhecimento e &lt;em&gt;feeling&lt;/em&gt; sobre o mercado de Tecnologia da
 Informação, que fizeram toda a diferença na minha vida.&lt;/p&gt;
@@ -14441,7 +14441,7 @@ através de um comando? Ou de garantir que serviços “down” sejam
 reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder
 reiniciá-los com um simples comando de terminal?&lt;/p&gt;
 &lt;p&gt;O &lt;strong&gt;&lt;em&gt;Supervisor&lt;/em&gt;&lt;/strong&gt; aparece para facilitar muito a vida de quem precisa
-administrar servidores &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e não tem muito tempo a perder com
+administrar servidores &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e não tem muito tempo a perder com
 criação de rotinas, ou mesmo com trabalho manual.&lt;/p&gt;
 &lt;h2&gt;Afinal, o que é o Supervisor?&lt;/h2&gt;
 &lt;p&gt;A proposta do &lt;a href=&quot;http://supervisord.org/&quot; title=&quot;Conheça o projeto Supervisor&quot;&gt;&lt;em&gt;Supervisor&lt;/em&gt;&lt;/a&gt; é simples: permitir que usuários possam
@@ -14507,7 +14507,7 @@ você possa dormir mais tranquilo.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;http://senko.net/en/django-nginx-gunicorn/&quot; title=&quot;Um ótimo exemplo de uso do Nginx, Django e Supervisor&quot;&gt;&lt;em&gt;Senko’s Blog – A Django setup using Nginx and Gunicorn&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Nginx: Poderoso, rápido e fácil]]></title><description><![CDATA[Para quem (assim como eu) começou com o PHP, uma das opções mais viáveis
 para servir projetos na web sempre foi o Apache. Open source,…]]></description><link>https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</guid><pubDate>Mon, 19 Dec 2011 20:41:00 GMT</pubDate><content:encoded>&lt;p&gt;Para quem (assim como eu) começou com o &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, uma das opções mais viáveis
-para servir projetos na &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sempre foi o &lt;a href=&quot;http://httpd.apache.org/&quot; title=&quot;Página oficial do projeto Apache&quot;&gt;&lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;. &lt;em&gt;Open source&lt;/em&gt;,
+para servir projetos na &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sempre foi o &lt;a href=&quot;http://httpd.apache.org/&quot; title=&quot;Página oficial do projeto Apache&quot;&gt;&lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;. &lt;em&gt;Open source&lt;/em&gt;,
 prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
 padrão em quase toda distro &lt;a href=&quot;/tag/linux.html&quot; title=&quot;Leia mais sobre Linux&quot;&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;), há anos que ele faz a famosa
 tríade &quot;AMP&quot; (&lt;em&gt;Apache&lt;/em&gt;, &lt;a href=&quot;http://www.mysql.com/&quot; title=&quot;Conheça o banco de dados open source mais popular do mundo&quot;&gt;&lt;em&gt;MySQL&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;PHP&lt;/em&gt;).&lt;/p&gt;
@@ -15096,7 +15096,7 @@ pesquisas sobre a &lt;em&gt;SDK&lt;/em&gt; da plataforma com muito mais facilida
 &lt;p&gt;Este &lt;em&gt;add-on&lt;/em&gt; exibe as principais tecnologias utilizadas por um website,
 podendo dar informações mais básicas, como se o website utiliza o
 &lt;em&gt;Google Analytics&lt;/em&gt;, até informações mais “obscuras”, como a linguagem de
-programação e o servidor &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; utilizado pelo &lt;em&gt;host&lt;/em&gt;.&lt;/p&gt;
+programação e o servidor &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; utilizado pelo &lt;em&gt;host&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Confira: &lt;a href=&quot;https://chrome.google.com/webstore/detail/dapjbgnjinbpoindlpdmhochffioedbn&quot; title=&quot;BuiltWith Technology Profiler&quot;&gt;&lt;em&gt;BuiltWith Technology Profiler&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Chrome Sniffer&lt;/h2&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
@@ -15534,7 +15534,7 @@ seja, é o mesmo que ler &lt;code class=&quot;language-text&quot;&gt;“wrapper(
 posteriormente retornará o resultado de &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;, que nada mais é
 que a impressão de &lt;code class=&quot;language-text&quot;&gt;“Eu sou um alvo!”&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Bacana não? Aqui vai mais um para deixar as coisas um pouco mais claras…
-vamos simular o esquema de roteamento de um &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/web.html&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+vamos simular o esquema de roteamento de um &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/desenvolvimento-web.html&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;rotas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
 
 &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rota&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;endereco&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
@@ -15578,7 +15578,7 @@ de &lt;em&gt;software&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/testing/#module-django.test.client&quot; title=&quot;Testando aplicações web com test client em Django&quot;&gt;&lt;em&gt;TestClient&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://lxml.de/&quot; title=&quot;Faça parser XML e HTML com lxml&quot;&gt;&lt;em&gt;lxml&lt;/em&gt;&lt;/a&gt;. Mas vamos ser sinceros, é deveras
 trabalhoso “parsear” os resultados das suas &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Com a &lt;a href=&quot;http://splinter.cobrateam.info/&quot; title=&quot;Visite a documentação oficial da Splinter&quot;&gt;&lt;em&gt;Splinter&lt;/em&gt;&lt;/a&gt;, uma ferramenta para testes de aplicações
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, você pode automatizar ações executadas por navegadores, como
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, você pode automatizar ações executadas por navegadores, como
 visitar uma página, preencher um formulário ou clicar em um &lt;em&gt;link&lt;/em&gt;; tudo
 isso sem preocupar-se com &lt;em&gt;parsing&lt;/em&gt;, nós, &lt;em&gt;DOM&lt;/em&gt;, nem nada do tipo:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; splinter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser
@@ -15776,7 +15776,7 @@ de testes tenta facilitar ao máximo a sua vida… execute a seguinte
 instrução e confira se a sua aplicação está &lt;em&gt;ok&lt;/em&gt; ou não:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py test&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;Peraí que não acabou! Apresentando a TestCase&lt;/h3&gt;
-&lt;p&gt;Testar aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt; com a &lt;em&gt;unittest&lt;/em&gt; pode ser dureza. Pensando
+&lt;p&gt;Testar aplicações &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt; com a &lt;em&gt;unittest&lt;/em&gt; pode ser dureza. Pensando
 nisso o &lt;em&gt;Django&lt;/em&gt; disponibiliza a &lt;code class=&quot;language-text&quot;&gt;TestCase&lt;/code&gt;, que estende a &lt;em&gt;unittest&lt;/em&gt;
 adicionando funcionalidades como carregamento de &lt;em&gt;fixtures&lt;/em&gt;, roteamento
 de &lt;em&gt;urls&lt;/em&gt; e um &lt;em&gt;client&lt;/em&gt; para fazer requisições &lt;em&gt;Web&lt;/em&gt; e testar as suas
@@ -15945,7 +15945,7 @@ seletores e nos fez pensar sobre performance.&lt;/p&gt;
 &lt;a href=&quot;http://twitter.com/#!/andrewsmedina&quot; title=&quot;Twitter do Andrews Medina&quot;&gt;&lt;em&gt;@andrewsmedina&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Andrews&lt;/em&gt; apresentou alguns argumentos para deixarmos de pensar somente
 em &lt;em&gt;canvas&lt;/em&gt; quando o assunto é desenvolvimento de jogos para a
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;, e considerarmos o uso de “elementos comuns” (como &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;) e
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;, e considerarmos o uso de “elementos comuns” (como &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;) e
 das propriedades de animação e transformação da &lt;em&gt;CSS3&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Ele desenvolveu um &lt;em&gt;pacman&lt;/em&gt; simples, que ilustrou muito bem o objetivo
 da palestra. O projeto, inclusive, está no &lt;a href=&quot;https://github.com/andrewsmedina/pacman&quot; title=&quot;Projeto do web-game Pacman de Andrews Medina&quot;&gt;&lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -16801,7 +16801,7 @@ momento do processo de integração).&lt;/p&gt;
 &lt;h2&gt;Staging&lt;/h2&gt;
 &lt;p&gt;O papel do ambiente de &lt;em&gt;staging&lt;/em&gt; é ser o mais próximo da realidade, ou
 seja, ele deve ser uma réplica perfeita do ambiente de produção.
-Tratando-se de desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, deve-se utilizar o mesmo
+Tratando-se de desenvolvimento &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, deve-se utilizar o mesmo
 serviço &lt;em&gt;web&lt;/em&gt;, o mesmo banco de dados, os mesmos módulos e &lt;em&gt;plugins&lt;/em&gt;.
 Isso garantirá um &lt;em&gt;deploy&lt;/em&gt; muito mais “suave” para o ambiente de
 produção.&lt;/p&gt;
@@ -16859,7 +16859,7 @@ desenvolver de forma produtiva e com qualidade.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;h2&gt;Requisitos&lt;/h2&gt;
 &lt;p&gt;Existem centenas (senão milhares) de tutoriais deste tipo espalhados
-pela &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, portanto, para variar um pouquinho vamos usar um
+pela &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, portanto, para variar um pouquinho vamos usar um
 ambiente de desenvolvimento diferente:&lt;/p&gt;
 &lt;h3&gt;Sistemas Operacionais: Debian e Slackware&lt;/h3&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
@@ -16929,7 +16929,7 @@ feliz. Assim como…]]></description><link>https://klauslaube.com.br/2011/02/16/
 Separar marcação, estilos e comportamento tornam a sua vida muito mais
 feliz.&lt;/p&gt;
 &lt;p&gt;Assim como tratando-se de &lt;a href=&quot;/tag/acessibilidade.html&quot; title=&quot;Leia mais sobre Acessibilidade&quot;&gt;acessibilidade&lt;/a&gt;, quando falamos em “camadas
-de desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
+de desenvolvimento &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
 semântica. E nisso, o &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; vem nos presenteando com &lt;em&gt;tags&lt;/em&gt;
 supimpas como a &lt;code class=&quot;language-text&quot;&gt;section&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;article&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Vamos conhecer um pouco mais sobre desenvolvimento e padrões &lt;em&gt;web&lt;/em&gt;?&lt;/p&gt;
@@ -17387,7 +17387,7 @@ por fazer parte do meu cotidiano quando abri minha própria empresa de
 desenvolvimento.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Startups&lt;/em&gt; geralmente são compostas por equipes pequenas, e estas
 devem ser &lt;strong&gt;multidisciplinares&lt;/strong&gt;. Acredito que o “desenvolvedor
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;” atualmente é mais do que aquele “feijão com arroz” do início
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;” atualmente é mais do que aquele “feijão com arroz” do início
 dos anos 2000. Hoje temos a obrigação de saber o mínimo possível de cada
 área de conhecimento que envolve o desenvolvimento de &lt;em&gt;software&lt;/em&gt;: desde
 &lt;em&gt;design&lt;/em&gt; de interfaces à modelagem de entidades e relacionamentos em um
@@ -17537,7 +17537,7 @@ já perdeu muito do seu prestígio, e hoje quase virou sinônimo de
 projetos &lt;em&gt;freelancer&lt;/em&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só]]></title><description><![CDATA[Sabe quando você quer testar uma distribuição (ou SO) diferente mas não quer mexer diretamente no
 particionamento do seu HD? Ou quando você…]]></description><link>https://klauslaube.com.br/2010/12/01/virtualbox-varios-sos-numa-maquina-so.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/12/01/virtualbox-varios-sos-numa-maquina-so.html</guid><pubDate>Wed, 01 Dec 2010 20:14:00 GMT</pubDate><content:encoded>&lt;p&gt;Sabe quando você quer testar uma distribuição (ou &lt;em&gt;SO&lt;/em&gt;) diferente mas não quer mexer diretamente no
 particionamento do seu &lt;em&gt;HD&lt;/em&gt;? Ou quando você precisar propor uma máquina
-individual para serviços &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, mas não tem &lt;em&gt;hardware&lt;/em&gt; sobrando para
+individual para serviços &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, mas não tem &lt;em&gt;hardware&lt;/em&gt; sobrando para
 isto? Ou quando você precisa ficar movendo um ambiente completo entre
 máquinas ou locais?&lt;/p&gt;
 &lt;p&gt;Virtualização pode ser a resposta para os seus problemas!&lt;/p&gt;
@@ -17625,7 +17625,7 @@ vou “reinventar a roda”… vou apenas indicar alguns tutoriais:&lt;/p&gt;
 PHP que vem “colocando comida na mesa”. É inegável a importância
 desta linguagem…]]></description><link>https://klauslaube.com.br/2010/11/27/agilidade-em-php-conhecendo-algumas-frameworks.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/11/27/agilidade-em-php-conhecendo-algumas-frameworks.html</guid><pubDate>Sat, 27 Nov 2010 12:21:00 GMT</pubDate><content:encoded>&lt;p&gt;Embora eu me considere um admirador do &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, é o
 &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; que vem “colocando comida na mesa”. É inegável a importância
-desta linguagem para o meio &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Basta reparar que a grande parte
+desta linguagem para o meio &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Basta reparar que a grande parte
 dos cursos focados nesta área têm o &lt;em&gt;PHP&lt;/em&gt; em sua grade.&lt;/p&gt;
 &lt;p&gt;Isto pode ser uma “faca de dois gumes”, pois com a oferta de cursos em
 &lt;em&gt;PHP&lt;/em&gt; em alta é normal que apareçam novos bons profissionais, e maus
@@ -17846,7 +17846,7 @@ acaba desmistificando e apaixonando-se por este &lt;em&gt;framework&lt;/em&gt;.&
 &lt;p&gt;Como você pode ver, este papo de que o ambiente de desenvolvimento &lt;em&gt;PHP&lt;/em&gt;
 é “pobre” é lenda.&lt;/p&gt;
 &lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Garantindo acessibilidade com Javascript não obstrusivo]]></title><description><![CDATA[Em épocas onde RIA está cada vez mais comum, e as interfaces web resolveram
-parecer-se cada vez mais com ambientes desktops, tenho reparado…]]></description><link>https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</guid><pubDate>Thu, 18 Nov 2010 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Em épocas onde &lt;em&gt;RIA&lt;/em&gt; está cada vez mais comum, e as interfaces &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; resolveram
+parecer-se cada vez mais com ambientes desktops, tenho reparado…]]></description><link>https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</guid><pubDate>Thu, 18 Nov 2010 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Em épocas onde &lt;em&gt;RIA&lt;/em&gt; está cada vez mais comum, e as interfaces &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; resolveram
 parecer-se cada vez mais com ambientes &lt;em&gt;desktops&lt;/em&gt;, tenho reparado um
 grande movimento a favor da acessibilidade, afinal, como bons
 profissionais que somos temos que garantir que a informação que estamos
@@ -17916,7 +17916,7 @@ e acima de tudo, com a &lt;strong&gt;semântica&lt;/strong&gt;.&lt;/p&gt;
 HTML5 e CSS3. Os sites com experimentos não param de aparecer na
 web…]]></description><link>https://klauslaube.com.br/2010/11/13/usando-html5-sem-medo.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/11/13/usando-html5-sem-medo.html</guid><pubDate>Sat, 13 Nov 2010 10:30:00 GMT</pubDate><content:encoded>&lt;p&gt;É notável como gradativamente a gente vem ouvindo cada vez mais sobre
 &lt;em&gt;HTML5&lt;/em&gt; e &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS3&quot;&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;. Os sites com experimentos não param de aparecer na
-&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, muitas referências boas com excelentes dicas sobre escrita e
+&lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, muitas referências boas com excelentes dicas sobre escrita e
 semântica, e até mesmo &lt;em&gt;websites&lt;/em&gt; profissionais (desenvolvidos por
 empresas da área do desenvolvimento &lt;em&gt;web&lt;/em&gt;), começam a tornar-se cada vez
 mais comuns.&lt;/p&gt;
@@ -18065,7 +18065,7 @@ Pretendo sim falar sobre &lt;em&gt;PHP&lt;/em&gt;, mas de uma forma bem “light
 o objetivo principal deste &lt;em&gt;blog&lt;/em&gt; é transmitir meus conhecimentos sobre
 &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
 &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;,
-padrões &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;,
+padrões &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;,
 &lt;em&gt;Software&lt;/em&gt; Livre e &lt;a href=&quot;/tag/linux.html&quot; title=&quot;Leia mais sobre Linux&quot;&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Não que eu seja um “guru” nas tecnologias mencionadas, mas aprendi contribuindo
 com o &lt;a href=&quot;http://profissionaisti.com.br&quot; title=&quot;Leia sobre tecnologia, telecomunicações, desenvolvimento, entre outros&quot;&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;
