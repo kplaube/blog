@@ -1,24 +1,366 @@
-<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Entendendo o CGI, FastCGI e WSGI | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Neste artigo, exploramos as diferenças entre CGI, FastCGI e WSGI e apresentamos exemplo, soluções e ferramentas para servir a sua aplicação Python na Web."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, infraestrutura, web, python, cgi, fastcgi, wsgi, gunicorn"><meta property=og:title content="Entendendo o CGI, FastCGI e WSGI"><meta property=og:description content="Neste artigo, exploramos as diferenças entre CGI, FastCGI e WSGI e apresentamos exemplo, soluções e ferramentas para servir a sua aplicação Python na Web."><meta property=og:url content=https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html><meta property=og:image content><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Entendendo o CGI, FastCGI e WSGI </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2012-11-02T15:09:19-02:00 itemprop=datePublished>02 Nov, 2012</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/apache-fcgi-logo.png alt="Fast CGI" class=representative-image width=180 height=180> <p>Pelos vários anos que programei com o <a href=https://klauslaube.com.br/tag/php.html title="Conheça mais sobre o Hypertext PreProcessor"><em>PHP</em></a> e <em>Apache</em>, nunca precisei me preocupar com o que acontecia entre esses dois. Para mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre Web"><em>web</em></a> de forma dinâmica. Era uma troca justa: Eles não me traziam preocupação, logo, eu não me preocupava.</p> <!-- PELICAN_END_SUMMARY --> <p>Com o passar do tempo, o uso do <a href=https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html title="Conheça o Nginx"><em>Nginx</em></a> e a necessidade de aprender <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre Python"><em>Python</em></a>, comecei a me deparar com o famoso <code>cgi-bin</code>, e entender que os truques que o <a href=http://stackoverflow.com/questions/2712825/what-is-mod-php title="Não conhece o módulo do PHP para o Apache?"><strong>mod_php</strong></a> ocultava iam muito além do que eu imaginava.</p> <h2>O Common Gateway Interface</h2> <p>De um modo bem simples, podemos dizer que o <em>Common Gateway Interface</em> é um “acordo” entre os servidores <a href=https://klauslaube.com.br/tag/http.html title="Leia mais sobre HTTP"><em>HTTP</em></a> e as aplicações <em>web</em>. Por baixo dos panos, o servidor <em>web</em> vai informar uma série de parâmetros para o seu programa, e é dever do seu programa entregar uma resposta “bem formada” para o servidor <em>web</em>.</p> <p>Isso quer dizer que, para o <em>CGI</em>, não importa qual linguagem ou banco de dados o seu programa está usando. Para ele, importa a passagem dos parâmetros e a resposta. Logo, é perfeitamente possível desenvolvermos nossas páginas até mesmo com a linguagem <em>C</em>:</p> <script src="https://gist.github.com/3734844.js?file=main.c"></script> <noscript> [Veja o exemplo][]. </noscript> <p>Basta compilar o código acima, jogar no <code>cgi-bin</code> do seu <em>Apache</em>, e você verá a flexibilidade do protocolo em ação. Neste exemplo, acessando nosso programa através da <em>URL</em> <code>http://localhost/cgi-bin/exemplo?red</code> (por exemplo), veremos apenas uma página com o fundo vermelho. Mas é importante reparar que, o parâmetro passado na URL (<code>?red</code>) está acessível através do <code>argv</code>, ou seja, o protocolo está passando para o nosso programa os parâmetros através da <code>STDIN</code>.</p> <p>Através da <code>STDOUT</code>, estamos respondendo ao <em>Apache</em> utilizando de artifícios do protocolo. A nossa mensagem é composta por um cabeçalho informando o tipo da mensagem e o conteúdo. Neste exemplo, trata-se de um <em>HTML</em> extremamente simples, <em>James Marshall</em> <a href=http://www.jmarshall.com/easy/cgi/portuguese/getcgi.c.txt title="Veja outro exemplo de C com CGI">escreveu um bom exemplo um pouco mais complexo utilizando a linguagem <em>C</em></a>.</p> <p>Outro comportamento fundamental do <em>CGI</em> é a criação de variáveis de ambiente. Variáveis que você já deve ter usado, como <code>REMOTE_HOST</code>, <code>REMOTE_ADDR</code>, <code>REQUEST_METHOD</code> e <code>QUERY_STRING</code>, são preenchidas pelo servidor <em>Web</em> e passadas ao seu programa através do protocolo:</p> <script src="https://gist.github.com/3734844.js?file=vars.c"></script> <noscript> [Veja o exemplo][1]. </noscript> <h2>O FastCGI</h2> <p>O <em>FastCGI</em> segue o mesmo princípio do <em>CGI</em>, mas possui uma série de particularidades (e vantagens) em relação ao seu “primogênito”. Para compreender a diferença entre eles, vamos analisar o ciclo de vida de uma requisição utilizando o <em>CGI</em>:</p> <ul> <li>A cada requisição, o servidor <em>web</em> <strong>cria um novo processo</strong>;</li> <li>Através deste processo, o servidor <em>web</em> passa informações para o “programa <em>CGI</em>“ utilizando <strong>variáveis de ambiente</strong>;</li> <li>O servidor <em>web</em> também passa qualquer <em>input</em> de dados do usuário através da <strong><em>STDIN</em></strong>;</li> <li>O programa retorna uma saída ao servidor <em>web</em> através do protocolo <em>CGI</em> (utilizando a <strong><em>STDOUT</em></strong>);</li> <li>Quando o <strong>programa acabar</strong>, a requisição é finalizada.</li> </ul> <p>Em um cenário com poucas requisições, este fluxo atende perfeitamente. Os problemas começam a aparecer quando temos que lidar com <strong>alto consumo</strong> (algo comum hoje em dia, mas nem tão comum quando conceberam o protocolo <em>CGI</em>). Dentre os principais problemas, temos:</p> <ul> <li>Criar e destruir um processo a cada requisição aumenta o <em>load</em> do seu servidor, o que fatalmente degrada performance;</li> <li>Não há reúso de recursos, como conexões com banco de dados e <em>caches</em> em memória (já que a cada nova requisição é iniciado um novo processo);</li> <li>Não é trivial separar a sua aplicação do seu servidor <em>Web</em>.</li> </ul> <p>Foi pensando em performance e escalabilidade que o <em>FastCGI</em> foi criado. Ao contrário do <em>CGI</em>, ele utiliza “processos persistentes”, onde o servidor <em>web</em> é capaz de iniciar um processo que responde a uma série de requisições. Além disso, ele usa <a href=http://pt.wikipedia.org/wiki/Multiplexador title="Leia mais sobre Multiplexadores na Wikipedia">multiplexação</a> para transmitir e receber informações dentro de uma única conexão, que pode ser um <em>socket</em> ou uma conexão <em>TCP</em>. Desse modo, você pode ter o seu servidor <em>web</em> e o seu processo <em>FastCGI</em> em máquinas diferentes.</p> <p>O ciclo de vida de uma requisição <em>FastCGI</em>, é basicamente composto por:</p> <ul> <li>O servidor <em>web</em> <strong>cria um processo <em>FastCGI</em></strong> para receber requisições;</li> <li>A sua aplicação é inicializada, e <strong>aguarda por uma nova conexão</strong> vinda do servidor <em>web</em>;</li> <li>Quando o cliente envia uma requisição, o servidor <em>web</em> abre uma <strong>conexão com o processo <em>FastCGI</em></strong>. O servidor envia as variáveis de ambiente e entradas de dados através desta conexão;</li> <li>O processo <em>FastCGI</em> retorna a <strong>saída através desta mesma conexão</strong>;</li> <li>O processo <em>FastCGI</em> fecha a conexão, e a <strong>requisição é concluída</strong>, porém, o <strong>processo fica “vivo”</strong>, esperando por outra requisição do servidor <em>web</em>.</li> </ul> <p>É claro que para atingir este resultado, aplicações <em>FastCGI</em> possuem uma arquitetura mais “rebuscada” que aplicações <em>CGI</em>. Por exemplo, para suportar a <a href=http://www.nongnu.org/fastcgi/#multiplexing title="The wonders of multiplexing">multiplexação</a>, o servidor <em>web</em> e o processo <em>FastCGI</em> se comunicam através de mensagens. Nestas mensagens (<code>BEGIN_REQUEST</code>, <code>ABORT_REQUEST</code>, <code>END_REQUEST</code>, <code>PARAMS</code>, <code>STDIN</code> e <code>STDOUT</code>) possuímos um cabeçalho chamado <code>Request ID</code>, que é responsável por identificar a qual requisição o pacote pertence.</p> <p>Essa mudança de arquitetura acaba influenciando na escrita das aplicações <em>web</em>, trazendo alterações marcantes em comparação aos programas escritos para o bom e velho <em>CGI</em>. Por exemplo, você terá que <a href=http://redmine.lighttpd.net/projects/1/wiki/Docs_ModFastCGI#FastCGI-and-Programming-Languages title="Lighttp - the FastCGI Interface">recompilar o seu <em>PHP</em></a> com a <em>flag</em> <code>—enable-fast-cgi</code>.</p> <p>O site oficial do <em>FastCGI</em> possui um bom exemplo de implementação de uma <a href=http://www.fastcgi.com/devkit/doc/fastcgi-prog-guide/ch2c.htm title="Developing FastCGI Applications in C">aplicação em <em>C</em> com <em>FastCGI</em></a>.</p> <h2>O Web Server Gateway Interface</h2> <p>No universo <em>Python</em> começaram a aparecer diferentes formas de comunicação entre servidor e aplicação, seja com <em>CGI</em>, <em>FastCGI</em>, <a href=http://www.modpython.org/ title="Leia mais sobre o mod_python"><em>mod python</em></a> ou até mesmo com <em>APIs</em> próprias e não padronizadas. Isso acarretou no seguinte cenário: A escolha de um <em>framework</em> influenciava diretamente na escolha do servidor <em>web</em>, e geralmente o <em>framework</em> escolhido era “incompatível” com os demais disponíveis para uso.</p> <p>O <em>WSGI</em> é uma <a href=http://www.python.org/dev/peps/pep-0333/ title="Leia a PEP 333, especificação do WSGI">especificação</a> que tem por objetivo garantir que o desenvolvedor da aplicação não se preocupe com qual servidor <em>web</em> será escolhido, bem como o profissional responsável pelo servidor <em>web</em> não se preocupe com a arquitetura escolhida pela aplicação. Uma forma “universal” de proporcionar interoperabilidade entre servidores e aplicações escritas em <em>Python</em>.</p> <p>Veja um exemplo de <em>script Python</em> utilizando o protocolo <em>CGI</em>:</p> <script src="https://gist.github.com/3734844.js?file=main.py"></script> <noscript> [Veja o exemplo][3]. </noscript> <p>Seguindo a especificação do <em>WSGI</em>, devemos servir nossa aplicação da seguinte maneira:</p> <script src="https://gist.github.com/3734844.js?file=wsgi.py"></script> <noscript> [Veja o exemplo][4]. </noscript> <p>Encapsulamos a nossa entrega em uma função chamada <code>application</code>, e nela possuímos dois parâmetros: <code>environ</code> e <code>start_response</code>. O primeiro é responsável por informar quais as variáveis ambientais que temos à nossa disposição. O segundo, nomeado como <code>start_response</code>, é na verdade uma função de <em>callback</em> onde informamos o <em>status code</em> e demais cabeçalhos para resposta.</p> <p>Por fim, retornamos ao servidor <em>web</em> o nosso <a href=https://klauslaube.com.br/tag/html.html title="Leia mais sobre HTML"><em>HTML</em></a>. O servidor <em>web</em> pode “iterar” sobre a aplicação, retornando conteúdo ao usuário conforme a aplicação for retornando conteúdo para ele. Neste caso, utilizamos na resposta um tipo <a href=http://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange title="Leia sobre tipos sequenciais no Python">sequencial</a>.</p> <p>Agora somos capazes de servir a aplicação através de <em>CGI</em>:</p> <div class=highlight><pre><span></span><span class=kn>from</span> <span class=nn>wsgiref.handlers</span> <span class=kn>import</span> <span class=n>CGIHandler</span>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.493e6315ef3a09bc2f74.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.12"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style data-styled="" data-styled-version="5.1.0">.dQgIel{display:inline-block;vertical-align:middle;overflow:hidden;}/*!sc*/
+data-styled.g1[id="sc-AxjAm"]{content:"dQgIel,"}/*!sc*/
+.dLmtYS{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g2[id="article-share__FacebookStyled-sc-1s9obkn-0"]{content:"dLmtYS,"}/*!sc*/
+.cXEKcd{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g3[id="article-share__LinkedinStyled-sc-1s9obkn-1"]{content:"cXEKcd,"}/*!sc*/
+.kBgYvV{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g4[id="article-share__TwitterStyled-sc-1s9obkn-2"]{content:"kBgYvV,"}/*!sc*/
+.jVnceN{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g5[id="article-share__WhatsappStyled-sc-1s9obkn-3"]{content:"jVnceN,"}/*!sc*/
+.hUktyW{display:inline-block;margin-right:8px;}/*!sc*/
+data-styled.g6[id="article-share__SocialLink-sc-1s9obkn-4"]{content:"hUktyW,"}/*!sc*/
+.hKQQPE{clear:both;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.hKQQPE{clear:none;float:right;line-height:48px;}}/*!sc*/
+data-styled.g7[id="article-share__SocialWrapper-sc-1s9obkn-5"]{content:"hKQQPE,"}/*!sc*/
+.gKRNvs{margin-bottom:24px;}/*!sc*/
+data-styled.g8[id="article-tags__Tags-lfitfk-0"]{content:"gKRNvs,"}/*!sc*/
+.kdcwKK{background-color:#f4f4f4;color:rgba(0,0,0,0.54);display:inline-block;font-size:14px;margin:0 8px 8px 0;padding:8px 16px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g9[id="article-tags__Tag-lfitfk-1"]{content:"kdcwKK,"}/*!sc*/
+.gfJCPa{color:rgba(0,0,0,0.84);margin-bottom:4px;}/*!sc*/
+data-styled.g14[id="article__AuthorName-sc-1bof3w4-0"]{content:"gfJCPa,"}/*!sc*/
+.cZgAvk{clear:both;font-family:Georgia,"Times New Roman",Times,serif;font-size:18px;font-weight:300;-webkit-letter-spacing:-0.054px;-moz-letter-spacing:-0.054px;-ms-letter-spacing:-0.054px;letter-spacing:-0.054px;line-height:28px;margin-bottom:48px;}/*!sc*/
+@media (min-width:768px){.cZgAvk{font-size:20px;}}/*!sc*/
+.cZgAvk *{margin:0;margin-block-end:0;margin-block-start:0;padding:0;}/*!sc*/
+.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{font-family:"Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;-webkit-letter-spacing:-0.66px;-moz-letter-spacing:-0.66px;-ms-letter-spacing:-0.66px;letter-spacing:-0.66px;margin-top:8px;margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{margin-bottom:16px;}}/*!sc*/
+.cZgAvk figure,.cZgAvk .gatsby-highlight{left:-24px;position:relative;width:100vw;}/*!sc*/
+@media (min-width:768px){.cZgAvk figure,.cZgAvk .gatsby-highlight{left:0;width:auto;}}/*!sc*/
+.cZgAvk a{color:#c4170c;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cZgAvk a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cZgAvk blockquote{color:rgba(0,0,0,0.54);font-style:italic;}/*!sc*/
+.cZgAvk code{font-size:16px;}/*!sc*/
+.cZgAvk figcaption{color:rgba(0,0,0,0.54);font-size:16px;line-height:20px;padding:16px 24px 0;text-align:center;}/*!sc*/
+.cZgAvk h2{font-size:26px;font-weight:600;line-height:32px;margin-bottom:28px;}/*!sc*/
+.cZgAvk h3{color:#333;font-size:22px;font-weight:300;line-height:28px;}/*!sc*/
+.cZgAvk h4{color:rgba(0,0,0,0.54);font-size:16;font-weight:300;line-height:24px;}/*!sc*/
+.cZgAvk iframe{display:block;margin:0 auto 28px auto;}/*!sc*/
+@media (min-width:768px){.cZgAvk iframe{margin-bottom:42px;}}/*!sc*/
+.cZgAvk img{display:block;margin:0 auto;}/*!sc*/
+.cZgAvk p{margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk p{margin-bottom:42px;}}/*!sc*/
+.cZgAvk pre{font-size:16px;margin-bottom:28px;padding:24px 16px;}/*!sc*/
+@media (min-width:768px){.cZgAvk pre{margin-bottom:42px;}}/*!sc*/
+.cZgAvk ol,.cZgAvk ul{margin-left:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk ol,.cZgAvk ul{margin-bottom:42px;}}/*!sc*/
+.cZgAvk li{margin-bottom:8px;}/*!sc*/
+@media (min-width:768px){.cZgAvk li{margin-bottom:16px;}}/*!sc*/
+data-styled.g15[id="article__Content-sc-1bof3w4-1"]{content:"cZgAvk,"}/*!sc*/
+.lhlkLZ{border-top:1px solid #f4f4f4;margin-bottom:24px;padding-top:24px;}/*!sc*/
+data-styled.g16[id="article__DiscussionWrapper-sc-1bof3w4-2"]{content:"lhlkLZ,"}/*!sc*/
+.hnJNBS{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(0,0,0,0.54);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;float:left;font-size:14px;margin-bottom:32px;}/*!sc*/
+data-styled.g17[id="article__Meta-sc-1bof3w4-3"]{content:"hnJNBS,"}/*!sc*/
+.cTbbvU{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g18[id="article__MetaText-sc-1bof3w4-4"]{content:"cTbbvU,"}/*!sc*/
+.lhqEXT{border-radius:60px;margin-right:16px;}/*!sc*/
+data-styled.g19[id="article__StyledAvatar-sc-1bof3w4-5"]{content:"lhqEXT,"}/*!sc*/
+.dtcUmd{color:rgba(0,0,0,0.84);font-weight:600;-webkit-letter-spacing:-0.93px;-moz-letter-spacing:-0.93px;-ms-letter-spacing:-0.93px;letter-spacing:-0.93px;margin:0 0 4px 0;font-size:30px;font-weight:400;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.dtcUmd{font-size:40px;}}/*!sc*/
+data-styled.g20[id="article__StyledTitle-sc-1bof3w4-6"]{content:"dtcUmd,"}/*!sc*/
+.bfwjqj{margin:0 auto;max-width:640px;padding:0 24px;}/*!sc*/
+data-styled.g21[id="container-sc-1o2is99-0"]{content:"bfwjqj,"}/*!sc*/
+.iyjQQp{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#c4170c;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-family:Arial,Helvetica,sans-serif;height:36px;width:36px;}/*!sc*/
+data-styled.g22[id="page-header-brand__Brand-ofbkek-0"]{content:"iyjQQp,"}/*!sc*/
+.hPHtvI{display:none;}/*!sc*/
+@media (min-width:768px){.hPHtvI{display:block;}}/*!sc*/
+data-styled.g23[id="page-header-brand__BrandFragment-ofbkek-1"]{content:"hPHtvI,"}/*!sc*/
+.exgtKg{color:#333;display:inline-block;margin-left:4px;}/*!sc*/
+.exgtKg:first-child{margin-left:0;margin-right:4px;}/*!sc*/
+data-styled.g24[id="page-header-brand__Bracket-ofbkek-2"]{content:"exgtKg,"}/*!sc*/
+.fUa-dQJ{color:#333;width:22px;}/*!sc*/
+data-styled.g25[id="page-header__GreyMail-sc-1ef23a-0"]{content:"fUa-dQJ,"}/*!sc*/
+.GBaPr{box-shadow:0 -8px 16px 0 rgba(0,0,0,0.54);font-size:1.1rem;margin-bottom:24px;}/*!sc*/
+@media (min-width:768px){.GBaPr{margin-bottom:64px;}}/*!sc*/
+data-styled.g26[id="page-header__Header-sc-1ef23a-1"]{content:"GBaPr,"}/*!sc*/
+.ktLFvT{margin:0 auto;max-width:640px;padding:0 24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:56px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:974px;}/*!sc*/
+data-styled.g27[id="page-header__HeaderContainer-sc-1ef23a-2"]{content:"ktLFvT,"}/*!sc*/
+.gbnbN{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g28[id="page-header__StyledLink-sc-1ef23a-3"]{content:"gbnbN,"}/*!sc*/
+.hJnaIf{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g29[id="page-header__StyledA-sc-1ef23a-4"]{content:"hJnaIf,"}/*!sc*/
+.eZHcyp{border-top:1px solid #f4f4f4;color:rgba(0,0,0,0.54);font-size:14px;padding:24px 0;text-align:center;}/*!sc*/
+@media (min-width:768px){.eZHcyp{text-align:right;}}/*!sc*/
+data-styled.g30[id="page-footer__Footer-sc-1jesc4c-0"]{content:"eZHcyp,"}/*!sc*/
+.hCZhVV{color:rgba(0,0,0,0.84);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hCZhVV:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g31[id="page-footer__Link-sc-1jesc4c-1"]{content:"hCZhVV,"}/*!sc*/
+body{color:rgba(0,0,0,0.84);font-family:Arial,Helvetica,sans-serif;margin:0;}/*!sc*/
+data-styled.g51[id="sc-global-eLbNMD1"]{content:"sc-global-eLbNMD1,"}/*!sc*/
+</style><title data-react-helmet="true">Entendendo o CGI, FastCGI e WSGI | Klaus Laube</title><meta data-react-helmet="true" name="description" content="Pelos vários anos que programei com o PHP e Apache,
+nunca precisei me preocupar com o que acontecia entre esses dois. Para
+mim, era tudo uma…"/><meta data-react-helmet="true" property="og:title" content="Entendendo o CGI, FastCGI e WSGI"/><meta data-react-helmet="true" property="og:description" content="Pelos vários anos que programei com o PHP e Apache,
+nunca precisei me preocupar com o que acontecia entre esses dois. Para
+mim, era tudo uma…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Klaus Peter Laube"/><meta data-react-helmet="true" name="twitter:title" content="Entendendo o CGI, FastCGI e WSGI"/><meta data-react-helmet="true" name="twitter:description" content="Pelos vários anos que programei com o PHP e Apache,
+nunca precisei me preocupar com o que acontecia entre esses dois. Para
+mim, era tudo uma…"/><meta data-react-helmet="true" name="keywords" content="desenvolvimento-web,infraestrutura,python,cgi,fastcgi,wsgi,gunicorn"/><meta data-react-helmet="true" property="og:image" content="https://klauslaube.com.br/static/f798fc4168c6d5790e187d07b0ac21ef/apache-fcgi-logo.png"/><link rel="icon" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="alternate" type="application/rss+xml" title="Klaus Laube" href="/feed/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-74a6d0a7c3b7aca6f059.js"/><link as="script" rel="preload" href="/framework-15c64f04ece7e16d9319.js"/><link as="script" rel="preload" href="/styles-72b9aca6a03bf971c27e.js"/><link as="script" rel="preload" href="/app-e7e259d06d29a943bae9.js"/><link as="script" rel="preload" href="/commons-d19a5247b9c341fd9cf4.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"/><link as="fetch" rel="preload" href="/page-data/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="page-header__Header-sc-1ef23a-1 GBaPr"><div class="container-sc-1o2is99-0 page-header__HeaderContainer-sc-1ef23a-2 ktLFvT"><a class="page-header__StyledLink-sc-1ef23a-3 gbnbN" href="/"><div class="page-header-brand__Brand-ofbkek-0 iyjQQp"><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">{</span>k<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">laus</span>l<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">aube</span><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">}</span></div></a><div><a href="https://about.me/klauslaube" title="Contato" class="page-header__StyledA-sc-1ef23a-4 hJnaIf"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="sc-AxjAm dQgIel page-header__GreyMail-sc-1ef23a-0 fUa-dQJ"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></div></div></div><div><div class="container-sc-1o2is99-0 bfwjqj"><h1 class="typograph__Title-sc-4kf6ch-1 article__StyledTitle-sc-1bof3w4-6 dtcUmd">Entendendo o CGI, FastCGI e WSGI</h1><div class="article__Meta-sc-1bof3w4-3 hnJNBS"><img src="https://en.gravatar.com/userimage/12163112/d3ae0c6239980b01ff1f1730b65c2ebe.jpg" width="48" height="48" alt="Avatar" class="avatar-sc-46srdf-0 article__StyledAvatar-sc-1bof3w4-5 lhqEXT"/><div class="article__MetaText-sc-1bof3w4-4 cTbbvU"><div class="article__AuthorName-sc-1bof3w4-0 gfJCPa">Klaus Peter Laube</div>2 de Novembro de 2012<!-- --> - <!-- -->12 minutos<!-- --> de leitura</div></div><div class="article-share__SocialWrapper-sc-1s9obkn-5 hKQQPE"><a href="https://twitter.com/intent/tweet?url=https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html&amp;text=Entendendo o CGI, FastCGI e WSGI" target="_blank" rel="noreferrer" title="Compartilhe no Twitter" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__TwitterStyled-sc-1s9obkn-2 kBgYvV"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22 8.073 8.073 0 002.319-.624 8.645 8.645 0 01-2.019 2.083z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html" target="_blank" rel="noreferrer" title="Compartilhe no Facebook" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__FacebookStyled-sc-1s9obkn-0 dLmtYS"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325 1.42-3.592 3.5-3.592.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.725h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"></path></svg></a><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html&amp;title=Entendendo o CGI, FastCGI e WSGI" target="_blank" rel="noreferrer" title="Compartilhe no Linkedin" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__LinkedinStyled-sc-1s9obkn-1 cXEKcd"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg></a><a href="https://api.whatsapp.com/send?text=https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html" target="_blank" rel="noreferrer" title="Compartilhe no Whatsapp" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__WhatsappStyled-sc-1s9obkn-3 jVnceN"><path fill-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 004.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 00-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 01-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 01-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 015.275 2.188 7.42 7.42 0 012.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 00-.429-.008.826.826 0 00-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263" clip-rule="evenodd"></path></svg></a></div><div class="article__Content-sc-1bof3w4-1 cZgAvk"><p>Pelos vários anos que programei com o <a href="/tag/php.html" title="Conheça mais sobre o Hypertext PreProcessor"><em>PHP</em></a> e <em>Apache</em>,
+nunca precisei me preocupar com o que acontecia entre esses dois. Para
+mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas
+<a href="/tag/web.html" title="Leia mais sobre Web"><em>web</em></a> de forma dinâmica. Era uma troca justa: Eles não me traziam
+preocupação, logo, eu não me preocupava.</p>
+<p>Com o passar do tempo, o uso do <a href="/2011/12/19/nginx-poderoso-rapido-facil.html" title="Conheça o Nginx"><em>Nginx</em></a> e a necessidade de aprender
+<a href="/tag/python.html" title="Leia mais sobre Python"><em>Python</em></a>, comecei a me deparar com o famoso <code class="language-text">cgi-bin</code>, e
+entender que os truques que o <a href="http://stackoverflow.com/questions/2712825/what-is-mod-php" title="Não conhece o módulo do PHP para o Apache?"><strong>mod_php</strong></a> ocultava iam muito além
+do que eu imaginava.</p>
+<h2>O Common Gateway Interface</h2>
+<p>De um modo bem simples, podemos dizer que o <em>Common Gateway Interface</em> é
+um “acordo” entre os servidores <a href="/tag/http.html" title="Leia mais sobre HTTP"><em>HTTP</em></a> e as aplicações <em>web</em>. Por
+baixo dos panos, o servidor <em>web</em> vai informar uma série de parâmetros
+para o seu programa, e é dever do seu programa entregar uma resposta
+“bem formada” para o servidor <em>web</em>.</p>
+<p>Isso quer dizer que, para o <em>CGI</em>, não importa qual linguagem ou banco
+de dados o seu programa está usando. Para ele, importa a passagem dos
+parâmetros e a resposta. Logo, é perfeitamente possível desenvolvermos
+nossas páginas até mesmo com a linguagem <em>C</em>:</p>
+<div class="gatsby-highlight" data-language="c"><pre class="language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
 
-<span class=n>CGIHandler</span><span class=p>()</span><span class=o>.</span><span class=n>run</span><span class=p>(</span><span class=n>application</span><span class=p>)</span>
-</pre></div> <p>E até mesmo <em>FastCGI</em>:</p> <div class=highlight><pre><span></span><span class=kn>from</span> <span class=nn>flup.server.fcgi</span> <span class=kn>import</span> <span class=n>WSGIServer</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Content-type:text/html\n\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"&lt;html>\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"&lt;body bgcolor=\"%s\">\n"</span><span class="token punctuation">,</span> argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"&lt;/body>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"&lt;/html>"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class=n>WSGIServer</span><span class=p>(</span><span class=n>application</span><span class=p>)</span><span class=o>.</span><span class=n>run</span><span class=p>()</span>
-</pre></div> <p>A biblioteca <a href=http://docs.python.org/2/library/wsgiref.html title="Saiba mais direto da documentação do Python"><em>wsgiref</em></a> implementa as especificações do <em>WSGI</em> e provê ferramentas para a comunicação entre servidores e aplicações. No segundo exemplo utilizamos a <a href=http://trac.saddi.com/flup title="Saiba mais sobre"><em>flup</em></a>, uma biblioteca com algumas soluções <em>WSGI</em>, incluindo a possibilidade de servir aplicações <em>FastCGI</em>.</p> <p>Com esse “código de cola”, basta <a href=http://docs.python.org/2/howto/webservers.html title="HOWTO Use Python in the web">configurar o seu servidor <em>Web</em></a> favorito para servir a sua aplicação.</p> <h3>mod_wsgi</h3> <p>Uma vez construída a interface para a sua aplicação através do padrão <em>WSGI</em>, você pode serví-la em um servidor <em>Apache</em> através do <a href=http://code.google.com/p/modwsgi/ title="Página do módulo no Google Code">mod_wsgi</a>. Existem soluções equivalentes para outros servidores, como por exemplo, no <a href=http://klauslaube.com.br/tags/nginx/ title="Leia mais sobre Nginx"><em>Nginx</em></a> temos o <a href=http://wiki.nginx.org/NgxWSGIModule title="Veja mais na documentação do Nginx"><em>NgxWSGIModule</em></a>.</p> <p>Com o <em>mod_wsgi</em>, você não precisa de nenhum “código de cola” (como apresentado nos exemplos de <em>CGI</em> e <em>FastCGI</em>), basta <a href=http://code.google.com/p/modwsgi/wiki/QuickConfigurationGuide title="Veja instruções para configurar o Apache com mod_wsgi">configurar o seu <em>Apache</em></a> e apontar o seu script <em>WSGI</em> através da instrução <code>WSGIScriptAlias</code>:</p> <script src="https://gist.github.com/3734844.js?file=http_mod_wsgi.conf"></script> <noscript> [Veja o exemplo][6]. </noscript> <p>Uma particularidade do mod_wsgi é a escolha de execução no modo <code>daemon</code>, que opera de uma forma <a href=http://code.google.com/p/modwsgi/#Server_Performance title="Leia mais sobre performance com mod_wsgi">similar ao esquema utilizado pelo <em>FastCGI</em></a>.</p> <h3>Servidores WSGI</h3> <p>Você pode utilizar servidores especialmente escritos para servir as suas aplicações <em>WSGI</em>, como por exemplo o <a href=http://gunicorn.org/ title="Veja mais sobre este servidor WSGI"><em>Gunicorn</em></a>, o <a href=http://projects.unbit.it/uwsgi/ title="Um rápido servidor WSGI escrito em C"><em>uWSGI</em></a> ou até mesmo o <a href=http://www.tornadoweb.org/documentation/wsgi.html title="Saiba mais sobre o suporte do Tornado ao WSGI"><em>Tornado</em></a>. Além da versatilidade e performance, a facilidade é outra característica marcante em muitas dessas ferramentas:</p> <div class=highlight><pre><span></span>$ gunicorn -w <span class=m>4</span> -b <span class=m>127</span>.0.0.1:5000 wsgi:application
-</pre></div> <p>No exemplo acima, levantamos o <em>Gunicorn</em> na <code>porta 5000</code>, e reservamos <code>4 workers</code> para servir a nossa aplicação.</p> <p>Além de diminuirmos a carga do servidor <em>web</em>, e ganharmos um controle mais apurado de memória e processos, ganhamos também o uso de <em>workers</em>. Por exemplo, o <em>Gunicorn</em> trabalha com <em>pre-fork</em> de <em>workers</em>, onde um processo “master” gerencia um conjunto de processos que são de fato os responsáveis por servir a sua aplicação. Ganhamos mais uma ferramenta de baixo custo para lidar com concorrência.</p> <p>Servidores <em>WSGI</em> conseguem servir as aplicações sem o auxílio de um <em>Apache</em> ou <em>Nginx</em>, mas uma prática muito comum hoje em dia é, “na frente” de um <em>Gunicorn</em> (por exemplo), termos um <em>Nginx</em> servindo estáticos, fazendo <em>caching</em> e “aguentando porrada”, enquanto que o servidor <em>WSGI</em> está totalmente focado em servir o conteúdo dinâmico. O servidor <em>web</em> acaba fazendo uma espécie de <a href=http://pt.wikipedia.org/wiki/Proxy_reverso title="Leia mais sobre Proxy Reverso na Wikipedia"><em>proxy</em> reverso</a> e até mesmo servindo como <a href=http://wiki.nginx.org/LoadBalanceExample title="Veja exemplo de uso do Nginx como balanceador">balanceador</a>.</p> <p>A comunicação entre servidores pode ser feita via <em>TCP</em> ou <em>socket</em>. Isso nos dá uma série de vantagens, que vão desde a facilidade em <a href=http://docs.gunicorn.org/en/latest/design.html#how-many-workers title="Veja como utilizar workers com Gunicorn">escalar</a> e distribuir, até o <em>restart</em> individual de serviços (por exemplo, se a sua aplicação travar, você pode reiniciar apenas o servidor <em>WSGI</em> e não perder o <em>caching</em> do servidor <em>web</em>).</p> <p>Um exemplo muito interessante de uso de servidores <em>WSGI</em> é fazendo <a href=https://devcenter.heroku.com/articles/python#using-a-different-wsgi-server title="Using a different WSGI server - Heroku"><em>deploy</em> de aplicações <em>Python</em> para o <em>Heroku</em></a>. Configurar um servidor <a href=http://mirobetm.blogspot.com.br/2012/03/ive-been-lighttpd-fastcgi-django-user.html title="Gunicorn + Nginx - a much better way to deploy your Django website"><em>Nginx</em> para se comunicar com servidores <em>WSGI</em></a> também é relativamente simples.</p> <h2>Considerações finais</h2> <p>Um assunto muito interessante e que pretendo explorar mais aqui no <em>blog</em>, principalmente em relação a processos e <em>workers</em>.</p> <p>Servir aplicações <em>Python</em> para a <em>web</em> é algo relativamente simples, limpo e elegante. Através do <em>WSGI</em>, escalar aplicações passou a ser algo quase trivial, que demanda pouco esforço. Combiná-los com o <em>Nginx</em> dão mais fôlego a sua aplicação (principalmente se estivermos falando do <em>uWSGI</em> ou <a href=http://www.gevent.org/gevent.wsgi.html title="Servindo aplicações WSGI com gevent"><em>gevent</em></a>), e com um <a href=http://puppetlabs.com/ title="IT Automation Software for System Administrators">sistema de provisionamento automático</a> podem facilitar e muito o seu trabalho de infraestrutura quando o consumo se tornar um problema.</p> <h2>Referências</h2> <ul> <li><a href=https://docs.djangoproject.com/en/dev/howto/deployment/fastcgi/ title="Exemplo de uso do Django com FastCGI"><em>Django Documentation – How to use Django with FastCGI, SCGI, or AJP</em></a></li> <li><a href=http://www.nongnu.org/fastcgi/ title="Material muito interessante sobre o protocolo FastCGI e seu uso com C++"><em>FastCGI – The Forgotten Treasure</em></a></li> <li><a href="http://www.fastcgi.com/drupal/node/6?q=node/15" title="Um documento bem objetivo, detalhando os diferenciais em usar o FastCGI"><em>FastCGI – A High-Performance Web Server Interface</em></a></li> <li><a href=http://gunicorn.org/ title="Conheça o Gunicorn e descubra as vatangens de possuir um servidor WSGI"><em>Gunicorn – Python WSGI HTTP Server for Unix</em></a></li> <li><a href=http://www.irt.org/articles/js172/ title="Artigo de 1999 detalhando algumas características do CGI e do FastCGI"><em>irt.org – Speed Thrills: CGI Please... and Fast!</em></a></li> <li><a href=http://www.jmarshall.com/easy/cgi/portuguese/ title="Bom artigo, resumindo muito bem o funcionamento do CGI"><em>James Marshal</em> – <em>CGI</em> realmente fácil</a></li> <li><a href=http://code.google.com/p/modwsgi/ title="Veja a página oficial do projeto"><em>modwsgi – Python WSGI adapter module for Apache</em></a></li> <li><a href=http://www.python.org/dev/peps/pep-0333/ title="Leia a especificação direto do portal da linguagem Python"><em>PEP 333 – Python Web Server Gateway Interface</em></a></li> <li><a href=http://docs.python.org/howto/webservers.html title="Compreenda a diferença do uso do Python com CGI, FastCGI, mod_python, mod_wsgi e servidores WSGI"><em>Python Documentation – HOWTO Use Python in the web</em></a></li> <li><a href=http://www.w3.org/CGI/ title="Leia mais sobre a especificação do CGI"><em>W3C – Common Gateway Interface</em></a></li> <li><a href=http://en.wikipedia.org/wiki/Common_Gateway_Interface title="Leia mais no artigo da Wikipedia"><em>Wikipedia – Common Gateway Interface</em></a></li> <li><a href=http://en.wikipedia.org/wiki/FastCGI title="Leia mais no artigo da Wikipedia"><em>Wikipedia – FastCGI</em></a></li> <li><a href=http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface title="Leia mais no artigo da Wikipedia"><em>Wikipedia – Web Server Gateway Interface</em></a></li> <li><a href=http://www.xml.com/pub/a/2006/09/27/introducing-wsgi-pythons-secret-web-weapon.html title="Artigo de 2006 explicando os principais benefícios do uso do WSGI"><em>XML.com – Introducing WSGI: Python’s Secret Web Weapon</em></a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/infraestrutura.html title="Leia mais sobre" class=Article-tagLink>infraestrutura</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> <a href=https://klauslaube.com.br/tag/cgi.html title="Leia mais sobre" class=Article-tagLink>cgi</a> <a href=https://klauslaube.com.br/tag/fastcgi.html title="Leia mais sobre" class=Article-tagLink>fastcgi</a> <a href=https://klauslaube.com.br/tag/wsgi.html title="Leia mais sobre" class=Article-tagLink>wsgi</a> <a href=https://klauslaube.com.br/tag/gunicorn.html title="Leia mais sobre" class=Article-tagLink>gunicorn</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
-        var disqus_shortname = "klauslaube";
-        var disqus_identifier = "2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html";
+	<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Basta compilar o código acima, jogar no <code class="language-text">cgi-bin</code> do seu <em>Apache</em>, e
+você verá a flexibilidade do protocolo em ação. Neste exemplo, acessando
+nosso programa através da <em>URL</em> <code class="language-text">http://localhost/cgi-bin/exemplo?red</code>
+(por exemplo), veremos apenas uma página com o fundo vermelho. Mas é
+importante reparar que, o parâmetro passado na URL (<code class="language-text">?red</code>) está acessível através do
+<code class="language-text">argv</code>, ou seja, o protocolo está passando para o nosso programa os
+parâmetros através da <code class="language-text">STDIN</code>.</p>
+<p>Através da <code class="language-text">STDOUT</code>, estamos respondendo ao <em>Apache</em> utilizando de
+artifícios do protocolo. A nossa mensagem é composta por um cabeçalho
+informando o tipo da mensagem e o conteúdo. Neste exemplo, trata-se de
+um <em>HTML</em> extremamente simples, <em>James Marshall</em> <a href="http://www.jmarshall.com/easy/cgi/portuguese/getcgi.c.txt" title="Veja outro exemplo de C com CGI">escreveu um bom exemplo um pouco mais complexo utilizando a linguagem <em>C</em></a>.</p>
+<p>Outro comportamento fundamental do <em>CGI</em> é a criação de variáveis de
+ambiente. Variáveis que você já deve ter usado, como <code class="language-text">REMOTE_HOST</code>,
+<code class="language-text">REMOTE_ADDR</code>, <code class="language-text">REQUEST_METHOD</code> e <code class="language-text">QUERY_STRING</code>, são
+preenchidas pelo servidor <em>Web</em> e passadas ao seu programa através do
+protocolo:</p>
+<div class="gatsby-highlight" data-language="c"><pre class="language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdlib.h></span></span>
 
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-19657400-1');ga('send','pageview');
-    </script> </body> </html>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token keyword">int</span> argc<span class="token punctuation">,</span> <span class="token keyword">char</span> <span class="token operator">*</span>argv<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">char</span> <span class="token operator">*</span>addr<span class="token punctuation">,</span> <span class="token operator">*</span>method<span class="token punctuation">,</span> <span class="token operator">*</span>query_string<span class="token punctuation">;</span>
+
+    addr <span class="token operator">=</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"REMOTE_ADDR"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    method <span class="token operator">=</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"REQUEST_METHOD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    query_string <span class="token operator">=</span> <span class="token function">getenv</span><span class="token punctuation">(</span><span class="token string">"QUERY_STRING"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Content-type:text/html\n\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Remote address: %s&lt;br/>"</span><span class="token punctuation">,</span> addr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Method: %s&lt;br/>"</span><span class="token punctuation">,</span> method<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"Query string: %s&lt;br/>"</span><span class="token punctuation">,</span> query_string<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h2>O FastCGI</h2>
+<p>O <em>FastCGI</em> segue o mesmo princípio do <em>CGI</em>, mas possui uma série de
+particularidades (e vantagens) em relação ao seu “primogênito”. Para
+compreender a diferença entre eles, vamos analisar o ciclo de vida de
+uma requisição utilizando o <em>CGI</em>:</p>
+<ul>
+<li>A cada requisição, o servidor <em>web</em> <strong>cria um novo processo</strong>;</li>
+<li>Através deste processo, o servidor <em>web</em> passa informações para o
+“programa <em>CGI</em>“ utilizando <strong>variáveis de ambiente</strong>;</li>
+<li>O servidor <em>web</em> também passa qualquer <em>input</em> de dados do usuário
+através da <strong><em>STDIN</em></strong>;</li>
+<li>O programa retorna uma saída ao servidor <em>web</em> através do protocolo
+<em>CGI</em> (utilizando a <strong><em>STDOUT</em></strong>);</li>
+<li>Quando o <strong>programa acabar</strong>, a requisição é finalizada.</li>
+</ul>
+<p>Em um cenário com poucas requisições, este fluxo atende perfeitamente.
+Os problemas começam a aparecer quando temos que lidar com <strong>alto
+consumo</strong> (algo comum hoje em dia, mas nem tão comum quando conceberam o
+protocolo <em>CGI</em>). Dentre os principais problemas, temos:</p>
+<ul>
+<li>Criar e destruir um processo a cada requisição aumenta o <em>load</em> do
+seu servidor, o que fatalmente degrada performance;</li>
+<li>Não há reúso de recursos, como conexões com banco de dados e
+<em>caches</em> em memória (já que a cada nova requisição é iniciado um
+novo processo);</li>
+<li>Não é trivial separar a sua aplicação do seu servidor <em>Web</em>.</li>
+</ul>
+<p>Foi pensando em performance e escalabilidade que o <em>FastCGI</em> foi criado.
+Ao contrário do <em>CGI</em>, ele utiliza “processos persistentes”, onde o
+servidor <em>web</em> é capaz de iniciar um processo que responde a uma série
+de requisições. Além disso, ele usa <a href="http://pt.wikipedia.org/wiki/Multiplexador" title="Leia mais sobre Multiplexadores na Wikipedia">multiplexação</a> para transmitir e
+receber informações dentro de uma única conexão, que pode ser um
+<em>socket</em> ou uma conexão <em>TCP</em>. Desse modo, você pode ter o seu servidor
+<em>web</em> e o seu processo <em>FastCGI</em> em máquinas diferentes.</p>
+<p>O ciclo de vida de uma requisição <em>FastCGI</em>, é basicamente composto por:</p>
+<ul>
+<li>O servidor <em>web</em> <strong>cria um processo <em>FastCGI</em></strong> para receber
+requisições;</li>
+<li>A sua aplicação é inicializada, e <strong>aguarda por uma nova conexão</strong>
+vinda do servidor <em>web</em>;</li>
+<li>Quando o cliente envia uma requisição, o servidor <em>web</em> abre uma
+<strong>conexão com o processo <em>FastCGI</em></strong>. O servidor envia as variáveis
+de ambiente e entradas de dados através desta conexão;</li>
+<li>O processo <em>FastCGI</em> retorna a <strong>saída através desta mesma
+conexão</strong>;</li>
+<li>O processo <em>FastCGI</em> fecha a conexão, e a <strong>requisição é
+concluída</strong>, porém, o <strong>processo fica “vivo”</strong>, esperando por outra
+requisição do servidor <em>web</em>.</li>
+</ul>
+<p>É claro que para atingir este resultado, aplicações <em>FastCGI</em> possuem
+uma arquitetura mais “rebuscada” que aplicações <em>CGI</em>. Por exemplo, para
+suportar a <a href="http://www.nongnu.org/fastcgi/#multiplexing" title="The wonders of multiplexing">multiplexação</a>, o servidor <em>web</em> e o processo <em>FastCGI</em>
+se comunicam através de mensagens. Nestas mensagens (<code class="language-text">BEGIN_REQUEST</code>,
+<code class="language-text">ABORT_REQUEST</code>, <code class="language-text">END_REQUEST</code>, <code class="language-text">PARAMS</code>, <code class="language-text">STDIN</code> e
+<code class="language-text">STDOUT</code>) possuímos um cabeçalho chamado <code class="language-text">Request ID</code>, que é
+responsável por identificar a qual requisição o pacote pertence.</p>
+<p>Essa mudança de arquitetura acaba influenciando na escrita das
+aplicações <em>web</em>, trazendo alterações marcantes em comparação aos
+programas escritos para o bom e velho <em>CGI</em>. Por exemplo, você terá que
+<a href="http://redmine.lighttpd.net/projects/1/wiki/Docs_ModFastCGI#FastCGI-and-Programming-Languages" title="Lighttp - the FastCGI Interface">recompilar o seu <em>PHP</em></a> com a <em>flag</em> <code class="language-text">—enable-fast-cgi</code>.</p>
+<p>O site oficial do <em>FastCGI</em> possui um bom exemplo de implementação de
+uma <a href="http://www.fastcgi.com/devkit/doc/fastcgi-prog-guide/ch2c.htm" title="Developing FastCGI Applications in C">aplicação em <em>C</em> com <em>FastCGI</em></a>.</p>
+<h2>O Web Server Gateway Interface</h2>
+<p>No universo <em>Python</em> começaram a aparecer diferentes formas de
+comunicação entre servidor e aplicação, seja com <em>CGI</em>, <em>FastCGI</em>, <a href="http://www.modpython.org/" title="Leia mais sobre o mod_python"><em>mod
+python</em></a> ou até mesmo com <em>APIs</em> próprias e não padronizadas. Isso
+acarretou no seguinte cenário: A escolha de um <em>framework</em> influenciava
+diretamente na escolha do servidor <em>web</em>, e geralmente o <em>framework</em>
+escolhido era “incompatível” com os demais disponíveis para uso.</p>
+<p>O <em>WSGI</em> é uma <a href="http://www.python.org/dev/peps/pep-0333/" title="Leia a PEP 333, especificação do WSGI">especificação</a> que tem por objetivo garantir que o
+desenvolvedor da aplicação não se preocupe com qual servidor <em>web</em> será
+escolhido, bem como o profissional responsável pelo servidor <em>web</em> não
+se preocupe com a arquitetura escolhida pela aplicação. Uma forma
+“universal” de proporcionar interoperabilidade entre servidores e
+aplicações escritas em <em>Python</em>.</p>
+<p>Veja um exemplo de <em>script Python</em> utilizando o protocolo <em>CGI</em>:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+
+<span class="token keyword">from</span> os <span class="token keyword">import</span> environ
+
+
+<span class="token keyword">print</span> <span class="token string">"Content-Type: text/html\n\n"</span>
+<span class="token keyword">print</span> <span class="token string">"&lt;html>&lt;body>Hello %s!&lt;/body>&lt;/html>"</span> <span class="token operator">%</span> environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'REMOTE_ADDR'</span><span class="token punctuation">)</span></code></pre></div>
+<p>Seguindo a especificação do <em>WSGI</em>, devemos servir nossa aplicação da
+seguinte maneira:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment">#!/usr/bin/python</span>
+
+
+<span class="token keyword">def</span> <span class="token function">application</span><span class="token punctuation">(</span>environ<span class="token punctuation">,</span> start_response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    start_response<span class="token punctuation">(</span><span class="token string">'200 OK'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">(</span><span class="token string">'Content-Type'</span><span class="token punctuation">,</span> <span class="token string">'text/html'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token string">'&lt;html>&lt;body>Hello %s&lt;/body>&lt;/html>'</span> <span class="token operator">%</span> environ<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'REMOTE_ADDR'</span><span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre></div>
+<p>Encapsulamos a nossa entrega em uma função chamada <code class="language-text">application</code>, e
+nela possuímos dois parâmetros: <code class="language-text">environ</code> e <code class="language-text">start_response</code>. O
+primeiro é responsável por informar quais as variáveis ambientais que
+temos à nossa disposição. O segundo, nomeado como <code class="language-text">start_response</code>, é
+na verdade uma função de <em>callback</em> onde informamos o <em>status code</em> e
+demais cabeçalhos para resposta.</p>
+<p>Por fim, retornamos ao servidor <em>web</em> o nosso <a href="/tag/html.html" title="Leia mais sobre HTML"><em>HTML</em></a>. O servidor
+<em>web</em> pode “iterar” sobre a aplicação, retornando conteúdo ao usuário
+conforme a aplicação for retornando conteúdo para ele. Neste caso,
+utilizamos na resposta um tipo <a href="http://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange" title="Leia sobre tipos sequenciais no Python">sequencial</a>.</p>
+<p>Agora somos capazes de servir a aplicação através de <em>CGI</em>:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> wsgiref<span class="token punctuation">.</span>handlers <span class="token keyword">import</span> CGIHandler
+
+CGIHandler<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>run<span class="token punctuation">(</span>application<span class="token punctuation">)</span></code></pre></div>
+<p>E até mesmo <em>FastCGI</em>:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">from</span> flup<span class="token punctuation">.</span>server<span class="token punctuation">.</span>fcgi <span class="token keyword">import</span> WSGIServer
+
+WSGIServer<span class="token punctuation">(</span>application<span class="token punctuation">)</span><span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
+<p>A biblioteca <a href="http://docs.python.org/2/library/wsgiref.html" title="Saiba mais direto da documentação do Python"><em>wsgiref</em></a> implementa as especificações do <em>WSGI</em> e
+provê ferramentas para a comunicação entre servidores e aplicações. No
+segundo exemplo utilizamos a <a href="http://trac.saddi.com/flup" title="Saiba mais sobre"><em>flup</em></a>, uma biblioteca com algumas
+soluções <em>WSGI</em>, incluindo a possibilidade de servir aplicações
+<em>FastCGI</em>.</p>
+<p>Com esse “código de cola”, basta <a href="http://docs.python.org/2/howto/webservers.html" title="HOWTO Use Python in the web">configurar o seu servidor <em>Web</em></a>
+favorito para servir a sua aplicação.</p>
+<h3>mod_wsgi</h3>
+<p>Uma vez construída a interface para a sua aplicação através do padrão
+<em>WSGI</em>, você pode serví-la em um servidor <em>Apache</em> através do
+<a href="http://code.google.com/p/modwsgi/" title="Página do módulo no Google Code">mod_wsgi</a>. Existem soluções equivalentes para outros servidores,
+como por exemplo, no <a href="http://klauslaube.com.br/tags/nginx/" title="Leia mais sobre Nginx"><em>Nginx</em></a> temos o <a href="http://wiki.nginx.org/NgxWSGIModule" title="Veja mais na documentação do Nginx"><em>NgxWSGIModule</em></a>.</p>
+<p>Com o <em>mod</em>wsgi<em>, você não precisa de nenhum “código de cola” (como
+apresentado nos exemplos de _CGI</em> e <em>FastCGI</em>), basta <a href="http://code.google.com/p/modwsgi/wiki/QuickConfigurationGuide" title="Veja instruções para configurar o Apache com mod_wsgi">configurar o seu <em>Apache</em></a>
+e apontar o seu script <em>WSGI</em> através da instrução <code class="language-text">WSGIScriptAlias</code>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&lt;VirtualHost *:80&gt;
+
+    ServerName www.example.com
+    ServerAlias example.com
+    ServerAdmin webmaster@example.com
+
+    DocumentRoot /usr/local/www/documents
+
+    Alias /robots.txt /usr/local/www/documents/robots.txt
+    Alias /favicon.ico /usr/local/www/documents/favicon.ico
+
+    Alias /media/ /usr/local/www/documents/media/
+
+    &lt;Directory /usr/local/www/documents&gt;
+    Order allow,deny
+    Allow from all
+    &lt;/Directory&gt;
+
+    WSGIScriptAlias / /usr/local/www/wsgi-scripts/wsgi.py
+
+    &lt;Directory /usr/local/www/wsgi-scripts&gt;
+    Order allow,deny
+    Allow from all
+    &lt;/Directory&gt;
+
+&lt;/VirtualHost&gt;</code></pre></div>
+<p>Uma particularidade do mod_wsgi é a escolha de execução no modo
+<code class="language-text">daemon</code>, que opera de uma forma <a href="http://code.google.com/p/modwsgi/#Server_Performance" title="Leia mais sobre performance com mod_wsgi">similar ao esquema utilizado pelo
+<em>FastCGI</em></a>.</p>
+<h3>Servidores WSGI</h3>
+<p>Você pode utilizar servidores especialmente escritos para servir as suas
+aplicações <em>WSGI</em>, como por exemplo o <a href="http://gunicorn.org/" title="Veja mais sobre este servidor WSGI"><em>Gunicorn</em></a>, o <a href="http://projects.unbit.it/uwsgi/" title="Um rápido servidor WSGI escrito em C"><em>uWSGI</em></a> ou
+até mesmo o <a href="http://www.tornadoweb.org/documentation/wsgi.html" title="Saiba mais sobre o suporte do Tornado ao WSGI"><em>Tornado</em></a>. Além da versatilidade e performance, a
+facilidade é outra característica marcante em muitas dessas ferramentas:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ gunicorn -w 4 -b 127.0.0.1:5000 wsgi:application</code></pre></div>
+<p>No exemplo acima, levantamos o <em>Gunicorn</em> na <code class="language-text">porta 5000</code>, e
+reservamos <code class="language-text">4 workers</code> para servir a nossa aplicação.</p>
+<p>Além de diminuirmos a carga do servidor <em>web</em>, e ganharmos um controle
+mais apurado de memória e processos, ganhamos também o uso de <em>workers</em>.
+Por exemplo, o <em>Gunicorn</em> trabalha com <em>pre-fork</em> de <em>workers</em>, onde um
+processo “master” gerencia um conjunto de processos que são de fato os
+responsáveis por servir a sua aplicação. Ganhamos mais uma ferramenta de
+baixo custo para lidar com concorrência.</p>
+<p>Servidores <em>WSGI</em> conseguem servir as aplicações sem o auxílio de um
+<em>Apache</em> ou <em>Nginx</em>, mas uma prática muito comum hoje em dia é, “na
+frente” de um <em>Gunicorn</em> (por exemplo), termos um <em>Nginx</em> servindo
+estáticos, fazendo <em>caching</em> e “aguentando porrada”, enquanto que o
+servidor <em>WSGI</em> está totalmente focado em servir o conteúdo dinâmico. O
+servidor <em>web</em> acaba fazendo uma espécie de <a href="http://pt.wikipedia.org/wiki/Proxy_reverso" title="Leia mais sobre Proxy Reverso na Wikipedia"><em>proxy</em> reverso</a> e até
+mesmo servindo como <a href="http://wiki.nginx.org/LoadBalanceExample" title="Veja exemplo de uso do Nginx como balanceador">balanceador</a>.</p>
+<p>A comunicação entre servidores pode ser feita via <em>TCP</em> ou <em>socket</em>.
+Isso nos dá uma série de vantagens, que vão desde a facilidade em
+<a href="http://docs.gunicorn.org/en/latest/design.html#how-many-workers" title="Veja como utilizar workers com Gunicorn">escalar</a> e distribuir, até o <em>restart</em> individual de serviços (por
+exemplo, se a sua aplicação travar, você pode reiniciar apenas o
+servidor <em>WSGI</em> e não perder o <em>caching</em> do servidor <em>web</em>).</p>
+<p>Um exemplo muito interessante de uso de servidores <em>WSGI</em> é fazendo
+<a href="https://devcenter.heroku.com/articles/python#using-a-different-wsgi-server" title="Using a different WSGI server - Heroku"><em>deploy</em> de aplicações <em>Python</em> para o <em>Heroku</em></a>. Configurar um
+servidor <a href="http://mirobetm.blogspot.com.br/2012/03/ive-been-lighttpd-fastcgi-django-user.html" title="Gunicorn + Nginx - a much better way to deploy your Django website"><em>Nginx</em> para se comunicar com servidores <em>WSGI</em></a> também é
+relativamente simples.</p>
+<h2>Considerações finais</h2>
+<p>Um assunto muito interessante e que pretendo explorar mais aqui no
+<em>blog</em>, principalmente em relação a processos e <em>workers</em>.</p>
+<p>Servir aplicações <em>Python</em> para a <em>web</em> é algo relativamente simples,
+limpo e elegante. Através do <em>WSGI</em>, escalar aplicações passou a ser
+algo quase trivial, que demanda pouco esforço. Combiná-los com o <em>Nginx</em>
+dão mais fôlego a sua aplicação (principalmente se estivermos falando do
+<em>uWSGI</em> ou <a href="http://www.gevent.org/gevent.wsgi.html" title="Servindo aplicações WSGI com gevent"><em>gevent</em></a>), e com um <a href="http://puppetlabs.com/" title="IT Automation Software for System Administrators">sistema de provisionamento automático</a>
+podem facilitar e muito o seu trabalho de infraestrutura quando o consumo se tornar um problema.</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="https://docs.djangoproject.com/en/dev/howto/deployment/fastcgi/" title="Exemplo de uso do Django com FastCGI"><em>Django Documentation – How to use Django with FastCGI, SCGI, or AJP</em></a></li>
+<li><a href="http://www.nongnu.org/fastcgi/" title="Material muito interessante sobre o protocolo FastCGI e seu uso com C++"><em>FastCGI – The Forgotten Treasure</em></a></li>
+<li><a href="http://www.fastcgi.com/drupal/node/6?q=node/15" title="Um documento bem objetivo, detalhando os diferenciais em usar o FastCGI"><em>FastCGI – A High-Performance Web Server Interface</em></a></li>
+<li><a href="http://gunicorn.org/" title="Conheça o Gunicorn e descubra as vatangens de possuir um servidor WSGI"><em>Gunicorn – Python WSGI HTTP Server for Unix</em></a></li>
+<li><a href="http://www.irt.org/articles/js172/" title="Artigo de 1999 detalhando algumas características do CGI e do FastCGI"><em>irt.org – Speed Thrills: CGI Please... and Fast!</em></a></li>
+<li><a href="http://www.jmarshall.com/easy/cgi/portuguese/" title="Bom artigo, resumindo muito bem o funcionamento do CGI"><em>James Marshal</em> – <em>CGI</em> realmente fácil</a></li>
+<li><a href="http://code.google.com/p/modwsgi/" title="Veja a página oficial do projeto"><em>modwsgi – Python WSGI adapter module for Apache</em></a></li>
+<li><a href="http://www.python.org/dev/peps/pep-0333/" title="Leia a especificação direto do portal da linguagem Python"><em>PEP 333 – Python Web Server Gateway Interface</em></a></li>
+<li><a href="http://docs.python.org/howto/webservers.html" title="Compreenda a diferença do uso do Python com CGI, FastCGI, mod_python, mod_wsgi e servidores WSGI"><em>Python Documentation – HOWTO Use Python in the web</em></a></li>
+<li><a href="http://www.w3.org/CGI/" title="Leia mais sobre a especificação do CGI"><em>W3C – Common Gateway Interface</em></a></li>
+<li><a href="http://en.wikipedia.org/wiki/Common_Gateway_Interface" title="Leia mais no artigo da Wikipedia"><em>Wikipedia – Common Gateway Interface</em></a></li>
+<li><a href="http://en.wikipedia.org/wiki/FastCGI" title="Leia mais no artigo da Wikipedia"><em>Wikipedia – FastCGI</em></a></li>
+<li><a href="http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface" title="Leia mais no artigo da Wikipedia"><em>Wikipedia – Web Server Gateway Interface</em></a></li>
+<li><a href="http://www.xml.com/pub/a/2006/09/27/introducing-wsgi-pythons-secret-web-weapon.html" title="Artigo de 2006 explicando os principais benefícios do uso do WSGI"><em>XML.com – Introducing WSGI: Python’s Secret Web Weapon</em></a></li>
+</ul></div><div class="article-tags__Tags-lfitfk-0 gKRNvs"><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/desenvolvimento-web.html">desenvolvimento-web</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/infraestrutura.html">infraestrutura</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/python.html">python</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/cgi.html">cgi</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/fastcgi.html">fastcgi</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/wsgi.html">wsgi</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/gunicorn.html">gunicorn</a></div><div class="article__DiscussionWrapper-sc-1bof3w4-2 lhlkLZ"><div shortname="klauslaube" config="[object Object]" id="disqus_thread"></div></div></div></div><footer class="page-footer__Footer-sc-1jesc4c-0 eZHcyp"><div class="container-sc-1o2is99-0 bfwjqj"><p>O conteúdo desse blog está sob a licença<!-- --> <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Creative Commons Attribution</a>.</p><p><a href="https://github.com/kplaube/blog" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Fork me on Github</a>.</p></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e7e259d06d29a943bae9.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-0712dae6686d19cfe871.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-37944ec4ec91a7d47898.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bf5e10cca5c03eb48f60.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js" async=""></script><script src="/commons-d19a5247b9c341fd9cf4.js" async=""></script><script src="/app-e7e259d06d29a943bae9.js" async=""></script><script src="/styles-72b9aca6a03bf971c27e.js" async=""></script><script src="/framework-15c64f04ece7e16d9319.js" async=""></script><script src="/webpack-runtime-74a6d0a7c3b7aca6f059.js" async=""></script></body></html>

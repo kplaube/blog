@@ -1,12 +1,461 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - raml</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 16 Sep 2017 00:15:00 -0300</lastBuildDate><item><title>Documentando a sua API com raml2html</title><link>https://klauslaube.com.br/2017/09/16/documentando-sua-api-com-raml2html.html</link><description>&lt;p&gt;Uma das coisas mais legais em relação ao &lt;a href="https://klauslaube.com.br/tag/raml.html" title="Leia mais sobre RAML"&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - raml]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Documentando a sua API com raml2html]]></title><description><![CDATA[Uma das coisas mais legais em relação ao RAML
 (e afins) é a diversidade de ferramentas que existem em seu ecossistema.
 Embora a especificação por si cumpra o seu papel, são elas que trazem
-"mais cores" aos resultados práticos de ter uma &lt;em&gt;spec&lt;/em&gt; para a sua &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre API"&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;No universo do …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 16 Sep 2017 00:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-09-16:/2017/09/16/documentando-sua-api-com-raml2html.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>apis</category><category>raml</category><category>nodejs</category></item><item><title>Ramilificando as suas APIs</title><link>https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html</link><description>&lt;p&gt;Você já tem a sua &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre APIs"&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;! Ela é &lt;a href="https://klauslaube.com.br/tag/rest.html" title="Leia mais sobre REST"&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;,
+"mais cores" aos resultados práticos de ter uma spec para a sua API. No universo do RAML, existe algumas boas…]]></description><link>https://klauslaube.com.br/2017/09/16/documentando-sua-api-com-raml2html.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/09/16/documentando-sua-api-com-raml2html.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 16 Sep 2017 00:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Uma das coisas mais legais em relação ao &lt;a href=&quot;/tag/raml.html&quot; title=&quot;Leia mais sobre RAML&quot;&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;
+(e afins) é a diversidade de ferramentas que existem em seu ecossistema.
+Embora a especificação por si cumpra o seu papel, são elas que trazem
+&quot;mais cores&quot; aos resultados práticos de ter uma &lt;em&gt;spec&lt;/em&gt; para a sua &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre API&quot;&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No universo do &lt;em&gt;RAML&lt;/em&gt;, existe algumas boas ferramentas que geram documentação a partir da especificação.
+Soluções que vão do &lt;a href=&quot;https://github.com/spotify/ramlfications&quot; title=&quot;Conheça o Ramlfications&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/jhitchcock/raml2wiki&quot; title=&quot;Conheça o raml2wiki&quot;&gt;&lt;em&gt;Wikis&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/QuickenLoans/RAMLsharp&quot; title=&quot;Leia mais sobre o RAMLsharp&quot;&gt;&lt;em&gt;ASP.net&lt;/em&gt;&lt;/a&gt; e até ao
+&lt;a href=&quot;https://github.com/isaacloud/sdk-gen&quot; title=&quot;Gere SDKs usando RAML&quot;&gt;&lt;em&gt;Java&lt;/em&gt;&lt;/a&gt;. Mas acredito
+que a ferramenta mais atual seja o
+&lt;a href=&quot;https://github.com/raml2html/raml2html&quot; title=&quot; RAML to HTML documentation generator&quot;&gt;&lt;em&gt;raml2html&lt;/em&gt;&lt;/a&gt;,
+feito em &lt;a href=&quot;/tag/nodejs.html&quot; title=&quot;Leia mais sobre Node.js&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Simples, como as melhores coisas da vida&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://github.com/raml2html/raml2html&quot; title=&quot;RAML to HTML documentation generator&quot;&gt;&lt;em&gt;raml2html&lt;/em&gt;&lt;/a&gt;
+é uma biblioteca que transforma &lt;em&gt;specs&lt;/em&gt; &lt;em&gt;RAML&lt;/em&gt; em &lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt;.
+E o mais legal é que a sua versão 4 suporta a versão 1.0 da linguagem.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQBBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHnpqJqZpP/xAAaEAADAQADAAAAAAAAAAAAAAABAgMAEiIy/9oACAEBAAEFAo0ZdU8bMxYg9n1PX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAMAAwEAAAAAAAAAAAAAAAABERASQYH/2gAIAQEABj8C1i9KlCsvc//EABsQAQACAwEBAAAAAAAAAAAAAAEAESFBUTGR/9oACAEBAAE/IUPkExipyOfRiNq5XcWV27m/oT//2gAMAwEAAgADAAAAEHsf/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEx/9oACAEDAQE/ENR//8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxDHS0//xAAbEAEBAAIDAQAAAAAAAAAAAAABEQAhMUFRcf/aAAgBAQABPxB+kZru06xBUEkzfK/d4hS8i5Sk6Xu+3EBrBqa8Yls7Qvus/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Aguenta mais um pouco dessa poesia Vogon (imagilendo.wordpress.com)&amp;quot;&quot;
+        title=&quot;Aguenta mais um pouco dessa poesia Vogon (imagilendo.wordpress.com)&quot;
+        src=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg&quot;
+        srcset=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/7809d/poesia-vogon.jpg 192w,
+/static/38bde1abbcaf123f1744a17ab3a04572/4ecad/poesia-vogon.jpg 384w,
+/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Aguenta mais um pouco dessa poesia Vogon (imagilendo.wordpress.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Vamos aproveitar o &quot;mini IMDB&quot; construído no
+&lt;a href=&quot;/2017/01/31/ramilificando-as-suas-apis.html&quot; title=&quot;Ramilificando as suas APIs&quot;&gt;&lt;em&gt;post&lt;/em&gt; de &lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;, para
+ilustrar como essa ferramenta funciona. Mas antes, aquele &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt; clássico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm i -g raml2html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora é só chamar o utilitário de linha de comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ raml2html api.raml &amp;gt; index.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Basta abrir o arquivo no seu navegador favorito:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3d450d7316eac432c912aacbbdbe36b9/6af66/raml2html-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAABaklEQVQoz5WS21KDMBCGeXNfw3fQF/DCG2e807EzrT0oVMqhLeeQQAI5gEugWHG04zdc7O7kz27+xXAc56BxXXe323me55+wLCsIAsYYpbRpmlajdHB9b17dLgzbttfrtWmaW8sKowghFIZhHMdpmsKNkFZVBfpR3JOQOsgrA6pFUZRlCUfaf2LkeZ4kCee8rmv2J7T/KIWTg5hgcgzCHGMt7+C/oCRXQkguhRCDGKolyVo15PAKpcCUb0BVSDVzq2d/v0xWteSDWEo5dwozAFtoQUg/UvMDqVRSyrgsc4YgHsTQ59F/f/K3KMvA5CzLGKsm8olPY6XrjEiESAy3QCw0o0xvtQmwWBzoQ4o3rkc3K8nPxvaOZB8SITrHIJ2MDVlaCCtiM1y6YVjbH3I0DB5w4+A7D6MkPo3NzptfGHs+e3lbvsZxEkURxhj+mYltqltB51m3CL2LL8NalDV5zmFuWKZ2srlEL/4E5M3vVnQUf6wAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de documentação RAML&amp;quot;&quot;
+        title=&quot;Exemplo de documentação RAML&quot;
+        src=&quot;/static/3d450d7316eac432c912aacbbdbe36b9/6af66/raml2html-example.png&quot;
+        srcset=&quot;/static/3d450d7316eac432c912aacbbdbe36b9/8514f/raml2html-example.png 192w,
+/static/3d450d7316eac432c912aacbbdbe36b9/804b2/raml2html-example.png 384w,
+/static/3d450d7316eac432c912aacbbdbe36b9/6af66/raml2html-example.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de documentação RAML&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Simples, não? Calma que ainda não acabou! Existe a possibilidade de utilizar temas juntamente com o &lt;code class=&quot;language-text&quot;&gt;raml2html&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm i -g raml2html-markdown-theme&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora basta passar o tema na hora de gerar a documentação:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ raml2html --theme raml2html-markdown-theme api.raml &amp;gt; index.md&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sem dúvida, um dos templates mais legais que temos disponível é o &lt;code class=&quot;language-text&quot;&gt;raml2html-slate-theme&lt;/code&gt;.
+Completo, e baseado no próprio
+&lt;a href=&quot;https://github.com/lord/slate&quot; title=&quot;Beautiful static documentation for your API&quot;&gt;&lt;em&gt;Slate&lt;/em&gt;&lt;/a&gt;,
+famosa ferramenta para criação de documentação de &lt;em&gt;APIs&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fa67e81f6682a91ec52b768cbcd65d95/6af66/raml2html-example-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABXElEQVQoz21S/06CUBjlRaq1ZmJwub9IRG2aW60eopaIGOupq39KcAkKZAj0AbMY49yzO+7G4ZzvXITXt3dgEIRxHP8csNvtsiwz5gtVG0xu79XeQCYcUbVGwd9sNtttkiRZBUmawm5adltSuvqQqFqzOIq+AaVVTWzMLYnwq/GEd3sSoYiykgrL9wuFCkvHdVx36Tie7/+LiyCP09lJS0SUI6IojGBGFIYxJ4QTRHBbQkIYhvDqfh9Xk5fPhrk4bYkKUyXMJcwqhCOHQYS0SAhIK9gXYst+EWUCbbGu3sg89sfnMgjD6szlF82FrWr9yc1dbzhqLmydw/M8PwyjWmEzy4ZW9KsxmKBG8TYAwOARrL8RDuJnmfLB6Jpe6h1EZcJqBGcPjL/W62rysrCH6eyoJaqapvXBm2KoOm+7ICN523BP7moFPwrcdk38ZJjHZ+eYqZgxhdIOwjX+AtYmbk4Lol1rAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de documentação RAML&amp;quot;&quot;
+        title=&quot;Exemplo de documentação RAML&quot;
+        src=&quot;/static/fa67e81f6682a91ec52b768cbcd65d95/6af66/raml2html-example-2.png&quot;
+        srcset=&quot;/static/fa67e81f6682a91ec52b768cbcd65d95/8514f/raml2html-example-2.png 192w,
+/static/fa67e81f6682a91ec52b768cbcd65d95/804b2/raml2html-example-2.png 384w,
+/static/fa67e81f6682a91ec52b768cbcd65d95/6af66/raml2html-example-2.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de documentação RAML&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Você pode criar o seu próprio template! Eles são escritos utilizando o
+&lt;a href=&quot;https://mozilla.github.io/nunjucks/&quot; title=&quot; A rich and powerful templating language for JavaScript.&quot;&gt;&lt;em&gt;Nunjucks&lt;/em&gt;&lt;/a&gt;,
+linguagem de templates &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; da &lt;em&gt;Mozilla&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;post&lt;/em&gt; de hoje foi uma dica rápida e rasteira.&lt;/p&gt;
+&lt;p&gt;A partir do momento que você pratica o
+&lt;a href=&quot;https://swaggerhub.com/blog/api-design/design-first-or-code-first-api-development/&quot; title=&quot;Design First or Code First: What’s the Best Approach to API Development?&quot;&gt;&lt;em&gt;design first&lt;/em&gt;&lt;/a&gt;,
+ter uma especificação &lt;em&gt;RAML&lt;/em&gt; como &quot;single source of truth&quot; é um caminho no mínimo razoável.
+Com isso, gerar documentações através de ferramentas como a apresentada nesse artigo torna-se
+algo rápido e prático.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Ramilificando as suas APIs]]></title><description><![CDATA[Você já tem a sua API! Ela é REST,
 performa muito bem, e todos os seus aplicativos estão
 conversando com a mesma. Vem uma oportunidade de negócio de abrí-la para consumo
 de parceiros. Agora não basta só a técnica perfeita, você precisa de especificação, documentações,
-exemplos de uso e validadores …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 31 Jan 2017 21:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-01-31:/2017/01/31/ramilificando-as-suas-apis.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>microservices</category><category>apis</category><category>raml</category></item></channel></rss>
+exemplos de uso e validadores…]]></description><link>https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 31 Jan 2017 21:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Você já tem a sua &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;! Ela é &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;,
+performa muito bem, e todos os seus aplicativos estão
+conversando com a mesma. Vem uma oportunidade de negócio de abrí-la para consumo
+de parceiros. Agora não basta só a técnica perfeita, você precisa de especificação, documentações,
+exemplos de uso e validadores para garantir que os contratos da sua &lt;em&gt;API&lt;/em&gt; não sofram alterações drásticas,
+deixando seu cliente na mão.&lt;/p&gt;
+&lt;p&gt;Essa é a realidade da &lt;a href=&quot;http://loadsmart.com&quot; title=&quot;Book a truck with Loadsmart&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt; no momento da
+publicação desse &lt;em&gt;post&lt;/em&gt;. Lá, optamos por seguir os mesmos passos do &lt;a href=&quot;http://spotify.com&quot; title=&quot;Você já sabe o que é isso :)&quot;&gt;&lt;em&gt;Spotify&lt;/em&gt;&lt;/a&gt;
+e utilizar o &lt;em&gt;RAML&lt;/em&gt; para descrever as nossas &lt;em&gt;APIs&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;RAML é quase YAML&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;RAML&lt;/em&gt; (RESTful API Modeling Language) é uma maneira simples
+de descrever/projetar suas &lt;em&gt;APIs&lt;/em&gt;. Através de uma linguagem concisa, baseada
+em YAML, você é capaz de escrever especificações que podem ser usadas como
+documentação, ferramenta de &lt;em&gt;build&lt;/em&gt; e de testes automatizados.&lt;/p&gt;
+&lt;p&gt;Ao invés de tentar cultivar a motivação para a utilização do &lt;em&gt;RAML&lt;/em&gt;, vou descrever
+de forma prática os principais aspectos do padrão. Para tanto, já começo
+recomendando a instalação do &lt;a href=&quot;http://apiworkbench.com/&quot; title=&quot;IDE for designing APIs&quot;&gt;&lt;em&gt;API Workbench&lt;/em&gt;&lt;/a&gt;,
+um excelente &lt;em&gt;plugin&lt;/em&gt; para o &lt;em&gt;Atom&lt;/em&gt; que facilita (e muito) a escrita de documentos &lt;em&gt;RAML&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Como começar?&lt;/h2&gt;
+&lt;p&gt;Vamos voltar ao nosso &quot;mini IMDB&quot;, exemplo utilizado em &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Veja os posts sobre REST&quot;&gt;alguns &lt;em&gt;posts&lt;/em&gt;&lt;/a&gt; aqui do &lt;em&gt;blog&lt;/em&gt;.
+Os principais &lt;em&gt;endpoints&lt;/em&gt; que temos são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /movies&lt;/code&gt;: Listagem de filmes;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;POST /movies&lt;/code&gt;: Adição de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /movies/{id}&lt;/code&gt;: Detalhes de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;PUT /movies/{id}&lt;/code&gt;: Atualização de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;DELETE /movies/{id}&lt;/code&gt;: Remoção de um filme.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Podemos começar criando um arquivo &lt;code class=&quot;language-text&quot;&gt;api.raml&lt;/code&gt; com o seguinte conteúdo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#%RAML 1.0&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movies API&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No momento desse artigo, o &lt;em&gt;RAML&lt;/em&gt; possui duas especificações ativas: a &lt;code class=&quot;language-text&quot;&gt;0.8&lt;/code&gt; e a &lt;code class=&quot;language-text&quot;&gt;1.0&lt;/code&gt;. Dependendo
+das ferramentas que você for utilizar posteriormente, talvez seja interessante optar pela especificação &lt;code class=&quot;language-text&quot;&gt;0.8&lt;/code&gt;.
+Nesse exemplo utilizaremos a &lt;code class=&quot;language-text&quot;&gt;1.0&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos continuar descrevendo a nossa &lt;em&gt;API&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#%RAML 1.0&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movies API
+&lt;span class=&quot;token key atrule&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; v1
+&lt;span class=&quot;token key atrule&quot;&gt;baseUri&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//api.movies.com/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;version&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;mediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; application/json&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Setamos a versão da &lt;em&gt;API&lt;/em&gt; como &lt;code class=&quot;language-text&quot;&gt;v1&lt;/code&gt;, atendendo pelo endereço &lt;code class=&quot;language-text&quot;&gt;https://api.movies.com/v1&lt;/code&gt;. Trabalharemos
+com objetos &lt;em&gt;JSON&lt;/em&gt;. Caso a &lt;em&gt;API&lt;/em&gt; necessite trabalhar com mais de um tipo (&lt;em&gt;XML&lt;/em&gt;, por exemplo),
+é possível declará-lo no &lt;code class=&quot;language-text&quot;&gt;mediaType&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;mediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;application/json&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; application/xml&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Descrevendo os dados&lt;/h2&gt;
+&lt;p&gt;Se você optar pela versão &lt;code class=&quot;language-text&quot;&gt;0.8&lt;/code&gt; do padrão, a palavra &lt;code class=&quot;language-text&quot;&gt;schemas&lt;/code&gt; aparecerá com certa frequência durante
+a construção do documento. Com a &lt;code class=&quot;language-text&quot;&gt;1.0&lt;/code&gt;, a comunidade depreciou o termo em prol da palavra-chave &lt;code class=&quot;language-text&quot;&gt;types&lt;/code&gt;, e é com
+ela que descreveremos o tipo &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;description?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt; possui três propriedades do tipo &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt;: &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;description&lt;/code&gt;. O &lt;code class=&quot;language-text&quot;&gt;?&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;description?&lt;/code&gt;
+indica que essa última é uma propriedade opcional (ao contrário de &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; que são obrigatórias).&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;RAML&lt;/em&gt; suporta uma série de tipos &lt;em&gt;built-in&lt;/em&gt;, para saber mais, leia sobre &lt;a href=&quot;https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#defining-types&quot;&gt;definição de tipos&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Descrevendo os endpoints&lt;/h2&gt;
+&lt;p&gt;Agora que temos um tipo definido, podemos partir para a descrição dos nossos &lt;em&gt;endpoints&lt;/em&gt;. Em &lt;em&gt;RAML&lt;/em&gt;,
+a semântica correta é chamarmos um &lt;em&gt;endpoint&lt;/em&gt; de &lt;em&gt;Resource&lt;/em&gt;. Vamos iniciar pelo &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; A set of movies.
+
+  &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Get a list of movies.
+    &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Add a new movie to the set.
+    &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+    &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;201&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the new movie.
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Começamos ao criar um bloco &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;. Nele, além de adicionarmos uma descrição através da propriedade
+&lt;code class=&quot;language-text&quot;&gt;description&lt;/code&gt;, também deixamos explícito a possibilidade de enviarmos dois métodos: &lt;code class=&quot;language-text&quot;&gt;get&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;post&lt;/code&gt;.
+Em &lt;code class=&quot;language-text&quot;&gt;get&lt;/code&gt;, podemos ter como resposta um &lt;em&gt;status code&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;200&lt;/code&gt; e uma lista de &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt; (por isso o sufixo &lt;code class=&quot;language-text&quot;&gt;[]&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Já em &lt;code class=&quot;language-text&quot;&gt;post&lt;/code&gt;, além de deixar claro que retornaremos o objeto recém criado, apontamos que a resposta
+será um &lt;code class=&quot;language-text&quot;&gt;201&lt;/code&gt; com um único &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;. Note que nesse caso descrevemos que o &lt;code class=&quot;language-text&quot;&gt;post&lt;/code&gt; também possui um tipo,
+através da palavra-chave &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;. Isso quer dizer que, ao fazermos &lt;code class=&quot;language-text&quot;&gt;POST /movies/&lt;/code&gt;, precisamos
+passar um objeto que atenda as especificações do tipo &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e838b044ee5537cedc7d18d8a7c0d732/c08c5/raml-vogons.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.70833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGJ0FEZEB//xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIDERITIv/aAAgBAQABBQKOZ6j22UpGvWyjM//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAICAwAAAAAAAAAAAAAAAAABAhEQITH/2gAIAQEABj8Cim9WXA6IpY//xAAZEAADAQEBAAAAAAAAAAAAAAABESEAQWH/2gAIAQEAAT8hKeLgaQQsXMXUcuUxIUSrEjS3v//aAAwDAQACAAMAAAAQ/wD/AP/EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/EKf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQIBAT8QrX//xAAcEAEAAwACAwAAAAAAAAAAAAABABEhMUGBofH/2gAIAQEAAT8Qw/A1Aq9sOfMV0rgYntPWRq0GYWQgNrJU4cKg7VfZRokavc//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;RAML pode parecer poesia Vogon, mas não entre em pânico! (fundividedattention)&amp;quot;&quot;
+        title=&quot;RAML pode parecer poesia Vogon, mas não entre em pânico! (fundividedattention)&quot;
+        src=&quot;/static/e838b044ee5537cedc7d18d8a7c0d732/c08c5/raml-vogons.jpg&quot;
+        srcset=&quot;/static/e838b044ee5537cedc7d18d8a7c0d732/7809d/raml-vogons.jpg 192w,
+/static/e838b044ee5537cedc7d18d8a7c0d732/4ecad/raml-vogons.jpg 384w,
+/static/e838b044ee5537cedc7d18d8a7c0d732/c08c5/raml-vogons.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;RAML pode parecer poesia Vogon, mas não entre em pânico! (fundividedattention)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Caso a sua regra de negócio vá além da criação de um elemento, é possível descrevê-la
+também. Por exemplo, vamos imaginar que exista a necessidade de verificar se o filme já existe no
+banco de dados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+      &lt;span class=&quot;token key atrule&quot;&gt;201&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the new movie.
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+      &lt;span class=&quot;token key atrule&quot;&gt;409&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; The movie already exists in our database.
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note que o padrão &lt;em&gt;RAML&lt;/em&gt; é flexível. Nesse caso não criamos um tipo &lt;code class=&quot;language-text&quot;&gt;Error&lt;/code&gt;, apenas descrevemos o corpo
+da resposta através das palavras-chave &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;properties&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos finalizar descrevendo os dois métodos restantes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  /&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;uriParameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; The Movie identifier.
+        &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+
+     &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+       &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Gets a specific movie.
+       &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+         &lt;span class=&quot;token key atrule&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+           &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the specific movie.
+           &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+
+    &lt;span class=&quot;token key atrule&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+      &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Updates an already created movie.
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the updated movie.
+          &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+
+    &lt;span class=&quot;token key atrule&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deletes the movie.
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;204&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Confirms the deletion.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dentro de &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;, criamos um novo bloco chamado &lt;code class=&quot;language-text&quot;&gt;/{id}&lt;/code&gt;. Através da propriedade &lt;code class=&quot;language-text&quot;&gt;uriParameters&lt;/code&gt; deixamos
+claro que &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; é na verdade uma &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt; (no nosso caso, estamos usando um &lt;code class=&quot;language-text&quot;&gt;uuid&lt;/code&gt;). Além disso, descrevemos
+os métodos &lt;code class=&quot;language-text&quot;&gt;get&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;put&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;delete&lt;/code&gt; para &lt;code class=&quot;language-text&quot;&gt;/movies/{id}&lt;/code&gt;, que não diferem tanto assim dos demais explicados
+anteriormente.&lt;/p&gt;
+&lt;h2&gt;Descrevendo sem se repetir&lt;/h2&gt;
+&lt;p&gt;No nosso &lt;a href=&quot;/2017/01/06/construindo-apis-em-django-com-restless.html&quot; title=&quot;Construindo APIs em Django com Restless&quot;&gt;exemplo utilizando &lt;em&gt;Restless&lt;/em&gt;&lt;/a&gt;,
+ao fazer um &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt; com dados inválidos, retornamos um &lt;code class=&quot;language-text&quot;&gt;BadRequest&lt;/code&gt;. Podemos especificar esse
+comportamento para o recurso &lt;code class=&quot;language-text&quot;&gt;POST movies/&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;PUT movies/{id}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Logo após o bloco &lt;code class=&quot;language-text&quot;&gt;types&lt;/code&gt;, vamos adicionar um novo bloco chamado &lt;code class=&quot;language-text&quot;&gt;traits&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;mediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; application/json
+
+&lt;span class=&quot;token key atrule&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;traits&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;dataValidation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; A BadRequest happens when data validation fails.
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Através de &lt;code class=&quot;language-text&quot;&gt;traits&lt;/code&gt; somos capazes de escrever regras de uso que podem ser reaproveitadas por dados e recursos.
+No exemplo acima, dizemos que recursos que utilizarem esse &lt;em&gt;trait&lt;/em&gt; terão como resposta o &lt;em&gt;status code&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;400&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Agora basta apontarmos nossos recursos ao &lt;em&gt;trait&lt;/em&gt; de nome &lt;code class=&quot;language-text&quot;&gt;dataValidation&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataValidation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+  (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  /&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+    &lt;span class=&quot;token key atrule&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataValidation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Traits&lt;/em&gt; são extremamente úteis para descrever comportamentos que são comuns entre recursos (por exemplo, listagens
+que possuem paginação). Outro conceito similar é o &lt;em&gt;Resource Types&lt;/em&gt;, no qual você pode ler mais sobre na &lt;a href=&quot;https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#declaration-resource-types-and-traits&quot; title=&quot;Resource Types and Traits&quot;&gt;documentação oficial&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Descrevendo a segurança&lt;/h2&gt;
+&lt;p&gt;Para finalizar nosso exemplo. Vamos supor que o acesso à &lt;em&gt;API&lt;/em&gt; é limitado, e o usuário precisa ter uma
+conta para acessá-la. Para não reinventar a roda, vamos supor que optamos pelo padrão &lt;a href=&quot;https://aaronparecki.com/oauth-2-simplified/&quot; title=&quot;OAuth 2 simplified&quot;&gt;&lt;em&gt;OAuth 2&lt;/em&gt;&lt;/a&gt;
+para autenticação e autorização.&lt;/p&gt;
+&lt;p&gt;Abaixo da propriedade &lt;code class=&quot;language-text&quot;&gt;mediaType&lt;/code&gt; vamos criar um novo bloco chamado &lt;code class=&quot;language-text&quot;&gt;securitySchemes&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;securitySchemes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;oauth_2_0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; We support OAuth 2.0 for authenticating all API requests.
+    &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; OAuth 2.0
+    &lt;span class=&quot;token key atrule&quot;&gt;describedBy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;Authorization&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+             Used to send a valid OAuth 2 access token. Do not use
+             with the &quot;access_token&quot; query string parameter.&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;queryParameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;access_token&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+             Used to send a valid OAuth 2 access token.
+             Do not use with the &quot;Authorization&quot; header.&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;401&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+              Bad or expired token. This can happen if the
+              user or Movie API revoked or expired an access
+              token. To fix, re-authenticate the user.&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;403&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+              Bad OAuth request (wrong consumer key, bad nonce,
+              expired timestamp...). Unfortunately,
+              re-authenticating the user won&apos;t help here.&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;authorizationUri&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//www.movies.com/1/oauth2/authorize
+      &lt;span class=&quot;token key atrule&quot;&gt;accessTokenUri&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//api.movies.com/1/oauth2/token
+      &lt;span class=&quot;token key atrule&quot;&gt;authorizationGrants&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; authorization_code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; implicit &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Serei sincero com você, caro leitor, o código acima é uma receita de bolo para descrever
+o &lt;code class=&quot;language-text&quot;&gt;securitySchemes&lt;/code&gt; do tipo &lt;em&gt;OAuth 2&lt;/em&gt;. Nada de muito diferente do que a gente viu até aqui,
+com exceção do uso do &lt;code class=&quot;language-text&quot;&gt;|&lt;/code&gt;, que nesse caso serve para fazer textos em bloco, e da
+propriedade &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt; com valor &lt;code class=&quot;language-text&quot;&gt;OAuth 2.0&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;No nosso cenário, apenas temos intenção de proteger a escrita de dados na &lt;em&gt;API&lt;/em&gt;. Para tanto,
+Vamos adicionar a propriedade &lt;code class=&quot;language-text&quot;&gt;securedBy&lt;/code&gt; aos blocos &lt;code class=&quot;language-text&quot;&gt;post&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;put&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataValidation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;securedBy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;oauth_2_0&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+    &lt;span class=&quot;token key atrule&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataValidation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;securedBy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;oauth_2_0&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! A especificação da nossa &lt;em&gt;API&lt;/em&gt; está completa! Temos uma documentação forte, que pode ser lida
+por humanos e máquinas. Para fins didáticos não utilizei recursos
+interessantes como a propriedade &lt;code class=&quot;language-text&quot;&gt;example&lt;/code&gt; ou a ferramenta &lt;code class=&quot;language-text&quot;&gt;!include&lt;/code&gt;. Mas você pode ler sobre
+eles na &lt;a href=&quot;https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md&quot;&gt;especificação do &lt;em&gt;RAML&lt;/em&gt; 1.0&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/kplaube/post-raml/blob/8e580fa4d328a3f5f9e89e23d8b283ec04cf9637/api.raml&quot;&gt;Veja como ficou a versão final do nosso arquivo api.raml&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Através de uma linguagem clara fomos capazes de construir uma especificação legível para a nossa &lt;em&gt;API&lt;/em&gt;.
+Com isso, outros desenvolvedores (ou até mesmo máquinas) serão capazes de entender como funciona cada &lt;em&gt;endpoint&lt;/em&gt;.
+Com a adição de ferramentas como o &lt;a href=&quot;https://github.com/cybertk/abao&quot; title=&quot;REST API automated testing tool&quot;&gt;&lt;em&gt;Abao&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://github.com/raml2html/raml2html&quot; title=&quot;RAML to HTML documentation generator&quot;&gt;&lt;em&gt;raml2html&lt;/em&gt;&lt;/a&gt;, os resultados
+do uso do &lt;em&gt;RAML&lt;/em&gt; podem ser surpreendentes, como no exemplo abaixo:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7ff9fbba0eafbab830fbc156798eb2bd/6af66/example-raml.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAABp0lEQVQoz4WSTVOCUBiF+actayYBv0AQP9Df0qZFOxct2pTi2KTZrhpScXIYBRoDgUAEOkgLi6bO3GHgcp/3PefeSxSLxXK5zLJsqVTCO0Xmzs4vLu/km9v7+9GdLMsvGWFyNpsNh0OCoqhcLkeSJE3T+Xyepsira+nVjXV76/l+FP+iKEqmdV0nWq0Wz/Mcx/EcL4pivV6/liTFCh7U9wfVfDLc57ePHwOT8nvwOFeJWq0GstFoAGs2mxxX6Un9jbfTzY293blBmB3OdreNY3WlESALhQKeqAKeYRhJkuDsw3XiKIyi8C/bAIS90Ba2EQGwbduaphuGrq2dIExWHyoMk4qaphFgGJYVhLq4VwobhuE4ju/7ruumS7OdE7gliiel6hFZqWDP+CRCr9dbLpeKoqiqalnWP/BphT5mTqtVXqgKOOput2uaJv55npea3H1XEASAV6tVYhuBcUmw4e12G7b7/b692YyGo/F4PJlOkR+1rAPhE6EWi0UCQyAROD3zwWCQulqv1yDDjND8y7Z4IMBw0el0UFXZC9dwmtFkMpnP5/D1CVzWOmRB+U3BAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de documentação gerada pelo raml2html&amp;quot;&quot;
+        title=&quot;Exemplo de documentação gerada pelo raml2html&quot;
+        src=&quot;/static/7ff9fbba0eafbab830fbc156798eb2bd/6af66/example-raml.png&quot;
+        srcset=&quot;/static/7ff9fbba0eafbab830fbc156798eb2bd/8514f/example-raml.png 192w,
+/static/7ff9fbba0eafbab830fbc156798eb2bd/804b2/example-raml.png 384w,
+/static/7ff9fbba0eafbab830fbc156798eb2bd/6af66/example-raml.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de documentação gerada pelo raml2html&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md&quot;&gt;Github: RAML Version 1.0 specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sitepoint.com/raml-restful-api-modeling-language/&quot;&gt;Sitepoint: RAML, the RESTful API modeling language&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

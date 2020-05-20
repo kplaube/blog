@@ -1,19 +1,273 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - linux</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 23 Jan 2012 21:28:00 -0200</lastBuildDate><item><title>Supervisor: Aumentando a disponibilidade das suas aplicações Web</title><link>https://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</link><description>&lt;p&gt;E se você pudesse controlar uma série de processos
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - linux]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Supervisor: Aumentando a disponibilidade das suas aplicações Web]]></title><description><![CDATA[E se você pudesse controlar uma série de processos
+através de um comando? Ou de garantir que serviços “down” sejam
+reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder
+reiniciá-los com um simples comando de terminal? O Supervisor aparece para facilitar muito a vida de quem precisa…]]></description><link>https://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 23 Jan 2012 21:28:00 GMT</pubDate><content:encoded>&lt;p&gt;E se você pudesse controlar uma série de processos
 através de um comando? Ou de garantir que serviços “down” sejam
 reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder
 reiniciá-los com um simples comando de terminal?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;O &lt;strong&gt;&lt;em&gt;Supervisor&lt;/em&gt;&lt;/strong&gt; aparece para facilitar muito a vida de quem precisa
-administrar servidores &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web …&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 23 Jan 2012 21:28:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-01-23:/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</guid><category>infraestrutura</category><category>ambiente-de-desenvolvimento</category><category>web</category><category>supervisor</category><category>linux</category></item><item><title>Nginx: Poderoso, rápido e fácil</title><link>https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</link><description>&lt;p&gt;Para quem (assim como eu) começou com o &lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, uma das opções mais viáveis
-para servir projetos na &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sempre foi o &lt;a href="http://httpd.apache.org/" title="Página oficial do projeto Apache"&gt;&lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;. &lt;em&gt;Open source&lt;/em&gt;,
-prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
-padrão em quase toda distro &lt;a href="https://klauslaube.com.br/tag/linux.html" title="Leia mais sobre Linux"&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;), há anos que ele faz a …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 19 Dec 2011 20:41:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-12-19:/2011/12/19/nginx-poderoso-rapido-facil.html</guid><category>infraestrutura</category><category>ambiente-de-desenvolvimento</category><category>nginx</category><category>linux</category><category>slackware</category></item><item><title>Montando seu ambiente de desenvolvimento Django no Linux</title><link>https://klauslaube.com.br/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html</link><description>&lt;p&gt;Vou iniciar uma série de publicações mostrando na prática como montar o
-seu ambiente de desenvolvimento para trabalhar com &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+administrar servidores &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e não tem muito tempo a perder com
+criação de rotinas, ou mesmo com trabalho manual.&lt;/p&gt;
+&lt;h2&gt;Afinal, o que é o Supervisor?&lt;/h2&gt;
+&lt;p&gt;A proposta do &lt;a href=&quot;http://supervisord.org/&quot; title=&quot;Conheça o projeto Supervisor&quot;&gt;&lt;em&gt;Supervisor&lt;/em&gt;&lt;/a&gt; é simples: permitir que usuários possam
+controlar e monitorar processos (e grupos de processos) em um sistema
+&lt;em&gt;Unix-like&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Em suma, o &lt;em&gt;Supervisor&lt;/em&gt; é um programa escrito em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, capaz de
+iniciar, reiniciar e parar outros programas. Mas, o que me chamou mais a
+atenção, é que ele é capaz de reiniciar programas “crashados”
+automaticamente.&lt;/p&gt;
+&lt;p&gt;Isso é possível pois, por baixo dos panos, o &lt;em&gt;Supervisor&lt;/em&gt; é um serviço
+que inicia todos os demais como subprocessos. Desse modo, é capaz de
+monitorar o estado dos mesmos, e numa eventual “queda”, reiniciar um
+determinado processo/serviço imediatamente.&lt;/p&gt;
+&lt;p&gt;Ou seja, funciona como uma ferramenta centralizadora e de monitoramento.
+E que ainda serve uma &lt;em&gt;API&lt;/em&gt; para gerenciamento remoto, &lt;a href=&quot;http://supervisord.org/api.html&quot; title=&quot;Leia mais sobre a API do Supervisor&quot;&gt;através de &lt;em&gt;XML-RPC&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalar para administrar&lt;/h2&gt;
+&lt;p&gt;Para instalar, basta utilizar o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install supervisor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos gerar um arquivo de configuração básico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ echo_supervisord_conf &amp;gt; /etc/supervisord.conf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos aproveitar que &lt;a href=&quot;/2011/12/19/nginx-poderoso-rapido-facil.html&quot; title=&quot;Nginx: Poderoso, rápido e fácil&quot;&gt;falamos recentemente sobre a instalação do &lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt;,
+para demonstrar o princípio do &lt;em&gt;Supervisor&lt;/em&gt;. Adicione as
+seguintes linhas ao arquivo &lt;code class=&quot;language-text&quot;&gt;/etc/supervisord.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;config&quot;&gt;&lt;pre class=&quot;language-config&quot;&gt;&lt;code class=&quot;language-config&quot;&gt;[program:nginx]
+command=/usr/local/nginx/sbin/nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora iniciamos o serviço do &lt;em&gt;Supervisor&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ supervisord&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E através do &lt;code class=&quot;language-text&quot;&gt;supervisorctl&lt;/code&gt;, vamos iniciar e parar o &lt;em&gt;Nginx&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ supervisorctl start all
+nginx: started
 
+$ ps aux | grep nginx
+root      1863  0.0  0.1 (...) /usr/local/nginx/sbin/nginx
+
+$ supervisorctl stop nginx
+nginx: stopped&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E agora, o “pulo do gato”. Com o &lt;em&gt;Nginx&lt;/em&gt; iniciado via &lt;em&gt;Supervisor&lt;/em&gt;,
+vamos fechá-lo através de um comando &lt;code class=&quot;language-text&quot;&gt;kill&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ supervisorctl start nginx
+nginx: started
+
+$ killall nginx
+
+$ ps aux | grep nginx
+root      1917  0.0  0.1 (...) /usr/local/nginx/sbin/nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Magia? Que nada! É a ferramenta garantindo que os nossos processos não
+fiquem “down”. &lt;a href=&quot;http://brandonkonkle.com/blog/2010/sep/14/django-uwsgi-and-nginx/&quot; title=&quot;Django on uWSGI and Nginx&quot;&gt;&lt;em&gt;Brandon Konkle&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://senko.net/en/django-nginx-gunicorn/&quot; title=&quot;A Django setup using Nginx and Gunicorn&quot;&gt;&lt;em&gt;Senko Rasic&lt;/em&gt;&lt;/a&gt; possuem exemplos
+utilizando um cenário real com &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/nginx.html&quot; title=&quot;Leia mais sobre Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Embora o &lt;em&gt;Supervisor&lt;/em&gt; seja uma ferramenta espetacular, acredito que
+muitos profissionais já possuam intimidade com os seus servidores, bem
+como já tenham construído &lt;em&gt;sets&lt;/em&gt; de &lt;em&gt;scripts&lt;/em&gt;, e atalhos em geral. Isso,
+de fato, faz a gente questionar a utilidade dela.&lt;/p&gt;
+&lt;p&gt;A possibilidade de monitorar e garantir a disponibilidade dos processos
+foi o que mais me agradou. Se você tem “poderes administrativos” na sua
+hospedagem, talvez o &lt;em&gt;Supervisor&lt;/em&gt; seja a ferramenta que faltava para
+você possa dormir mais tranquilo.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://supervisord.org/&quot; title=&quot;Supervisor - A process control system&quot;&gt;&lt;em&gt;Supervisor&lt;/em&gt; – Documentação oficial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://brandonkonkle.com/blog/2010/sep/14/django-uwsgi-and-nginx/&quot; title=&quot;Saiba como montar um servidor Nginx com Django, uWSGI e Supervisor&quot;&gt;&lt;em&gt;Brandon Konkle – Django on uWSGI and Nginx&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.plope.com/static/misc/supervisor-pycon2008.pdf&quot; title=&quot;Apresentação para a PyCon 2008, sobre Supervisor&quot;&gt;&lt;em&gt;Mike Naberezny – Supervisor as a Platform&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://senko.net/en/django-nginx-gunicorn/&quot; title=&quot;Um ótimo exemplo de uso do Nginx, Django e Supervisor&quot;&gt;&lt;em&gt;Senko’s Blog – A Django setup using Nginx and Gunicorn&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Nginx: Poderoso, rápido e fácil]]></title><description><![CDATA[Para quem (assim como eu) começou com o PHP, uma das opções mais viáveis
+para servir projetos na web sempre foi o Apache. Open source,
+prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
+padrão em quase toda distro Linux), há anos que ele faz a famosa
+tríade "AMP" (Apache…]]></description><link>https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 19 Dec 2011 20:41:00 GMT</pubDate><content:encoded>&lt;p&gt;Para quem (assim como eu) começou com o &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, uma das opções mais viáveis
+para servir projetos na &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sempre foi o &lt;a href=&quot;http://httpd.apache.org/&quot; title=&quot;Página oficial do projeto Apache&quot;&gt;&lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;. &lt;em&gt;Open source&lt;/em&gt;,
+prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
+padrão em quase toda distro &lt;a href=&quot;/tag/linux.html&quot; title=&quot;Leia mais sobre Linux&quot;&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;), há anos que ele faz a famosa
+tríade &quot;AMP&quot; (&lt;em&gt;Apache&lt;/em&gt;, &lt;a href=&quot;http://www.mysql.com/&quot; title=&quot;Conheça o banco de dados open source mais popular do mundo&quot;&gt;&lt;em&gt;MySQL&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;PHP&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Acontece que com as demandas recentes que a &lt;em&gt;internet&lt;/em&gt; tem exigido de
+algumas aplicações &lt;em&gt;web&lt;/em&gt; (como &lt;em&gt;Twitter&lt;/em&gt; e &lt;em&gt;Facebook&lt;/em&gt;), a necessidade
+por performance começou a ser uma grande premissa em determinados tipos
+de projetos. E é apoiado nesse cenário que o &lt;em&gt;Nginx&lt;/em&gt; vem ganhando
+cada vez mais força no mercado. Afinal, não é a toa que ele é conhecido
+por “aguentar porrada”.&lt;/p&gt;
+&lt;h2&gt;A verdade sobre o Nginx (ou não)&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;http://nginx.org/&quot; title=&quot;Conheça o Nginx!&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; é um &lt;a href=&quot;http://pt.wikipedia.org/wiki/Servidor_web&quot; title=&quot;Entenda o que é um servidor Web&quot;&gt;&lt;strong&gt;servidor Web&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&quot;http://pt.wikipedia.org/wiki/Proxy_reverso&quot; title=&quot;Entenda o que é um Proxy Reverso&quot;&gt;&lt;strong&gt;proxy reverso&lt;/strong&gt;&lt;/a&gt;,
+&lt;strong&gt;proxy balanceador de carga&lt;/strong&gt;, e faz praticamente tudo que o &lt;em&gt;Apache&lt;/em&gt;
+faz, só que muito mais rápido!&lt;/p&gt;
+&lt;p&gt;Técnicamente, o &lt;em&gt;Nginx&lt;/em&gt; consome menos memória que o &lt;em&gt;Apache&lt;/em&gt;, pois lida
+com requisições &lt;em&gt;web&lt;/em&gt; através do conceito de “event-based web server“,
+já o &lt;em&gt;Apache&lt;/em&gt; é baseado no conceito “process-based server“. &lt;em&gt;David E.
+Chen&lt;/em&gt; faz uma excelente analogia entre os dois conceitos em seu artigo
+“&lt;a href=&quot;http://daverecycles.com/post/3104767110/explain-event-driven-web-servers-to-your-grandma&quot; title=&quot;Leia esta boa analogia entre os conceitos&quot;&gt;Explain “Event-Driven” Web Servers to Your Grandma&lt;/a&gt;“.&lt;/p&gt;
+&lt;p&gt;Eles não são necessariamente “concorrentes”, &lt;em&gt;Apache&lt;/em&gt; e &lt;em&gt;Nginx&lt;/em&gt; podem
+trabalhar juntos! &lt;em&gt;Paulo Higa&lt;/em&gt;, através do seu artigo
+&lt;a href=&quot;http://paulohiga.com/posts/nginx-proxy-reverso-php-apache.php&quot; title=&quot;Aprenda como fazer o Nginx tornar-se um proxy reverso&quot;&gt;“Usando Nginx como proxy reverso e diminuindo o consumo do servidor&lt;/a&gt;“, nos mostra
+como ele diminuiu o consumo de memória do &lt;em&gt;Apache&lt;/em&gt; fazendo com que as
+requisições &lt;em&gt;web&lt;/em&gt; passassem primeiro pelo &lt;em&gt;Nginx&lt;/em&gt;. Desse modo, o
+&lt;em&gt;Apache&lt;/em&gt; não precisou servir arquivos estáticos, e pode depender do bom
+controle de &lt;em&gt;cache&lt;/em&gt; feito pelo &lt;em&gt;Nginx&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Bom, a intenção não é denegrir a imagem do &lt;em&gt;Apache&lt;/em&gt; (até parece que um
+simples mortal como eu conseguiria tal feito), então vamos adiante.&lt;/p&gt;
+&lt;h2&gt;Fácil?! Instalando e sendo bem recebido&lt;/h2&gt;
+&lt;p&gt;Estou utilizando o &lt;a href=&quot;http://www.slackware.com/&quot; title=&quot;Conheça e delicie-se com o Slackware Linux&quot;&gt;&lt;em&gt;Slackware 13.37&lt;/em&gt;&lt;/a&gt; para realizar os procedimentos
+abaixo, mas acredito que eles possam ser executados em qualquer
+distribuição &lt;em&gt;Linux&lt;/em&gt;, sem maiores problemas.&lt;/p&gt;
+&lt;p&gt;Vamos começar fazendo o &lt;em&gt;download&lt;/em&gt; da versão mais recente (até então),
+direto do site oficial do &lt;em&gt;Nginx&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ wget http://nginx.org/download/nginx-1.0.11.tar.gz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O procedimento de instalação não difere em nada do método tradicional
+que estamos acostumados no &lt;em&gt;Linux&lt;/em&gt;. Apenas lembre-se de executar o
+&lt;code class=&quot;language-text&quot;&gt;make install&lt;/code&gt; como &lt;code class=&quot;language-text&quot;&gt;root&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ tar -zxvf nginx-1.0.11.tar.gz; cd nginx-1.0.11
+$ ./configure
+$ make
+$ make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Nginx&lt;/em&gt; será instalado em &lt;code class=&quot;language-text&quot;&gt;/usr/local/nginx/&lt;/code&gt;. Você pode iniciar o
+serviço através do comando (como &lt;code class=&quot;language-text&quot;&gt;root&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ /usr/local/nginx/sbin/nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acessando o seu &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;, o serviço estará pronto e dando boas
+vindas!&lt;/p&gt;
+&lt;h2&gt;Configurando um servidor simples&lt;/h2&gt;
+&lt;p&gt;Para homenagear o nosso amigo &lt;em&gt;Apache&lt;/em&gt;, vamos fazer o &lt;em&gt;Nginx&lt;/em&gt; servir um
+&lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt; com a clássica mensagem “It works“, em outra porta e &lt;em&gt;path&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Abra (como &lt;code class=&quot;language-text&quot;&gt;root&lt;/code&gt;) o arquivo &lt;code class=&quot;language-text&quot;&gt;/usr/local/nginx/conf/nginx.conf&lt;/code&gt;, no
+final do arquivo, adicione a seguinte expressão antes do fechamento das
+chaves:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;config&quot;&gt;&lt;pre class=&quot;language-config&quot;&gt;&lt;code class=&quot;language-config&quot;&gt;include example;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esta expressão importará o arquivo &lt;code class=&quot;language-text&quot;&gt;/usr/local/nginx/conf/example&lt;/code&gt;,
+que criaremos a seguir:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;config&quot;&gt;&lt;pre class=&quot;language-config&quot;&gt;&lt;code class=&quot;language-config&quot;&gt;server {
+    listen        127.0.0.1:8080;
+    server_name   example;
+    access_log    /usr/local/nginx/logs/example.access.log;
+    error_log     /usr/local/nginx/logs/example.error.log;
+    location / {
+        root  /var/www/example;
+        index index.html index.htm;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Intuitivo não?! Vamos criar o &lt;em&gt;path&lt;/em&gt; onde armazenaremos o &lt;em&gt;HTML&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;mkdir /var/www/example
+echo &amp;quot;It works! &amp;quot; &amp;gt; /var/www/example/index.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Basta acessar o endereço &lt;code class=&quot;language-text&quot;&gt;localhost:8080&lt;/code&gt;, e pronto!&lt;/p&gt;
+&lt;p&gt;Como é possível perceber, os arquivos de configuração do &lt;em&gt;Nginx&lt;/em&gt; são
+simples e intuitivos. Existem várias referências na &lt;em&gt;web&lt;/em&gt; ensinando a
+montar &lt;em&gt;proxy&lt;/em&gt; reverso, servir páginas dinâmicas com &lt;em&gt;FastCGI&lt;/em&gt; ou
+&lt;em&gt;WSGI&lt;/em&gt;, utilizar &lt;em&gt;SSL&lt;/em&gt;, etc. Nada que o bom amigo &lt;em&gt;Google&lt;/em&gt; não possa
+resolver.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Quer dizer que agora eu tenho que largar tudo e correr para utilizar o
+&lt;em&gt;Nginx&lt;/em&gt;? A resposta é &lt;strong&gt;não&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Gosto dos ensinamentos do pessoal da &lt;a href=&quot;http://37signals.com/&quot; title=&quot;Você não sabe o que é a 37Signals?&quot;&gt;&lt;em&gt;37Signals&lt;/em&gt;&lt;/a&gt;, e um deles é para
+deixarmos a preocupação com performance para quando isto for realmente
+um problema (caso contrário, ninguém começaria projetos em &lt;em&gt;Ruby&lt;/em&gt; ou
+&lt;em&gt;Python&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Portanto, se você tem um &lt;em&gt;blog&lt;/em&gt; em &lt;em&gt;WordPress&lt;/em&gt; servido através de um
+&lt;em&gt;Apache&lt;/em&gt;... deixe estar. Garanto que o &lt;em&gt;Apache&lt;/em&gt; é a melhor solução para
+você neste momento. E caso você venha a ter problemas com performance,
+garanto que instalar e configurar um &lt;em&gt;Nginx&lt;/em&gt; dentro da sua
+infraestrutura será o menor dos seus problemas.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://nginx.org/&quot; title=&quot;Conheça, instale e use agora o Nginx!&quot;&gt;Site oficial do projeto &lt;em&gt;Nginx&lt;/em&gt; (em Inglês)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://daverecycles.com/post/3104767110/explain-event-driven-web-servers-to-your-grandma&quot; title=&quot;Entenda a diferença entre o webserver baseado em eventos, e outro baseado em processos&quot;&gt;&lt;em&gt;Daverecycles.com – Explain “Event-Driven” Web Servers to Your Grandma&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.linuxjournal.com/article/10108&quot; title=&quot;Excelente artigo sobre o Nginx&quot;&gt;&lt;em&gt;Linux Journal – Nginx: the High-Performance Web Server and Reverse Proxy&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://paulohiga.com/posts/nginx-proxy-reverso-php-apache.php&quot; title=&quot;Artigo de Paulo Higa sobre Nginx e proxy reverso, com Apache&quot;&gt;&lt;em&gt;Paulo Higa&lt;/em&gt; – Usando o &lt;em&gt;nginx&lt;/em&gt; como &lt;em&gt;proxy&lt;/em&gt; reverso e diminuindo o consumo do servidor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Proxy_reverso&quot; title=&quot;Leia mais na Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; – &lt;em&gt;Proxy&lt;/em&gt; reverso&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Servidor_web&quot; title=&quot;Leia mais na Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; – Servidor &lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.wikivs.com/wiki/Apache_vs_nginx&quot; title=&quot;Entenda um pouco mais a diferença entre Apache e Nginx&quot;&gt;&lt;em&gt;WikiVS – Apache vs Nginx&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Montando seu ambiente de desenvolvimento Django no Linux]]></title><description><![CDATA[Vou iniciar uma série de publicações mostrando na prática como montar o
+seu ambiente de desenvolvimento para trabalhar com Python e
+Django. O objetivo é ilustrar como você pode facilmente ingressar no Django e
+ter um conjunto de ferramentas simples e eficientes que lhe ajudarão a
+desenvolver de…]]></description><link>https://klauslaube.com.br/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 03 Mar 2011 20:16:00 GMT</pubDate><content:encoded>&lt;p&gt;Vou iniciar uma série de publicações mostrando na prática como montar o
+seu ambiente de desenvolvimento para trabalhar com &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;O objetivo é ilustrar como você pode facilmente ingressar no &lt;em&gt;Django&lt;/em&gt; e
 ter um conjunto de ferramentas simples e eficientes que lhe ajudarão a
-desenvolver de forma produtiva …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 03 Mar 2011 21:16:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-03-03:/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>ambiente-de-desenvolvimento</category><category>linux</category></item></channel></rss>
+desenvolver de forma produtiva e com qualidade.&lt;/p&gt;
+&lt;p&gt;Os tópicos serão os seguintes (sujeito a alteração):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django/&quot; title=&quot;Montando seu ambiente de desenvolvimento Django no Linux&quot;&gt;Motivação (este &lt;em&gt;post&lt;/em&gt;)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/03/07/diferentes-ambientes/&quot; title=&quot;Descubra a diferença entre os ambientes de desenvolvimento&quot;&gt;Diferentes ambientes: &lt;em&gt;Development&lt;/em&gt;, &lt;em&gt;Testing&lt;/em&gt;, &lt;em&gt;Staging&lt;/em&gt; e &lt;em&gt;Production&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/03/18/python-django-virtualenv/&quot; title=&quot;Python, Django e virtualenv&quot;&gt;&lt;em&gt;Python&lt;/em&gt;, &lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/04/11/como-organizar-seus-projetos-django/&quot; title=&quot;Conheça uma forma bacana para você organizar seus projetos Django&quot;&gt;Como organizar seus projetos &lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte/&quot; title=&quot;Leia uma introdução ao Mercurial e saiba a razão de não falar sobre Git&quot;&gt;Como versionar projetos &lt;em&gt;Django&lt;/em&gt; com o &lt;em&gt;Mercurial&lt;/em&gt; – Parte 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/05/22/como-versionar-projetos-django-mercurial-parte-2/&quot; title=&quot;Continuação do post sobre Mercurial e Django&quot;&gt;Como versionar projetos &lt;em&gt;Django&lt;/em&gt; com o &lt;em&gt;Mercurial&lt;/em&gt; – Parte 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/06/04/como-versionar-projetos-django-mercurial-parte-3/&quot; title=&quot;Parte final do tutorial sobre Mercurial e Django&quot;&gt;Como versionar projetos &lt;em&gt;Django&lt;/em&gt; com o &lt;em&gt;Mercurial&lt;/em&gt; – Parte 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1/&quot; title=&quot;Descubra que é possível sim escrever testes em Django&quot;&gt;Ferramentas de testes em &lt;em&gt;Django&lt;/em&gt; – Parte 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/07/23/ferramentas-de-testes-em-django-parte-2/&quot; title=&quot;A continuação do post sobre testes em Django com algumas ferramentas eficientes&quot;&gt;Ferramentas de testes em &lt;em&gt;Django&lt;/em&gt; – Parte 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep/&quot; title=&quot;Conheça o pep8, e deixe o seu código dentro das convenções do Python&quot;&gt;Assegure a qualidade do seu código &lt;em&gt;Python&lt;/em&gt; – &lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint/&quot; title=&quot;Assegure a qualidade do seu código utilizando o Pylint&quot;&gt;Assegure a qualidade do seu código &lt;em&gt;Python&lt;/em&gt; – &lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes/&quot; title=&quot;Conheça o Pyflakes, e garanta a qualidade do seu código Python&quot;&gt;Assegure a qualidade do seu código &lt;em&gt;Python&lt;/em&gt; – &lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger/&quot; title=&quot;Aprenda a prevenir código duplicado com o Clone Digger&quot;&gt;Assegure a qualidade do seu código &lt;em&gt;Python&lt;/em&gt; – &lt;em&gt;Clone Digger&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/11/20/migrations-em-django-south/&quot; title=&quot;Aprenda a fazer atualização da estrutura do seu banco de dados, de forma automatizada&quot;&gt;Migrations em &lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil/&quot; title=&quot;Conheça o Nginx! Uma alternativa mais poderosa ao Apache&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;: poderoso, rápido e fácil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web/&quot; title=&quot;Conheça o Supervisor, e tenha os processos do seu servidor, sob controle&quot;&gt;&lt;em&gt;Supervisor&lt;/em&gt;: Aumentando a disponibilidade das suas aplicações &lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2012/02/26/automatize-o-deploy-dos-seus-projetos-com-fabric/&quot; title=&quot;Veja um exemplo prático de automatização de deploy com Fabric&quot;&gt;Automatize o &lt;em&gt;deploy&lt;/em&gt; dos seus projetos com &lt;em&gt;Fabric&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1/&quot; title=&quot;Conheça o framework de cache do Django e como usá-lo com o Memcached&quot;&gt;&lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Cache&lt;/em&gt;: Uma dupla de alta performance – Parte 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2/&quot; title=&quot;Conheça um pouco mais do framework de cache do Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Cache&lt;/em&gt;: Uma dupla de alta performance – Parte 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Criando um servidor para projetos &lt;em&gt;Django&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Requisitos&lt;/h2&gt;
+&lt;p&gt;Existem centenas (senão milhares) de tutoriais deste tipo espalhados
+pela &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, portanto, para variar um pouquinho vamos usar um
+ambiente de desenvolvimento diferente:&lt;/p&gt;
+&lt;h3&gt;Sistemas Operacionais: Debian e Slackware&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 120px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0b0df49865bd786ad46a2849f2e5ca02/070ae/tux.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAEc0lEQVQ4y31Ue0ybVRS/ffA2ECA8EgqoYKaAhRgHhMxs/0BkIWGDAAb4axAlMUoMBBwkkGFQt0y2P3yMOVYH6AjDUZh7/cEoQ0pRaMEWioWOjQ9aBgxKHymlfPd471daS1y8ycl3vnPO79xz7nkg9JKTnJzMffl8PiosLEQlJSW88vJyXm5urscmNDSU0//viY2NRTqdjuPT09P5APAfhFwuF0RERHB8U1MTCgwMfLkzb0VFRYXASxXE4/FeI18RIY88IyODu6ympgYR/WFnNPTq6mqOr6urc0f1emtr61WpVMrIZDL78PCwbWBgQN3Y2FhHdL7UICsri7ONjIw8nL77p6ysjIsgPj7+/a6urh2WZcHhcMDGxgasr6+DyWQCg8EAbW1tCmIWRW0TEhL43j484ZJ3cV+RVl9f79jaegF2u91hNKyyd+4M4vFxOTaZtvetVqtDq9VCaWmpnNgKKSAgIODf6KKiuIsQKYD7/7FEIgGd7u+9tbU16Oq+hVPFqfiTTz/Dy4wRjAYDnpubczQ0NFDA5xQTExMjIAeJRCKPI3d0J6Kjo6Gh4Sx79949rFJO4ekJCR4dkoBqtBsmRwfwyKgcJJLrbFVVFfj5+emJI081yVO4mJSUFN8D2Rf+/v6QnZ3trKr6CCsUU3hcdhEcK8eBmfgQ1MoJ+OVmDz596hTOzMzENDFacAoUi8Vc+oi8FxcdSfPdtLS0DWpEisIqFAqg5/mGDWTSMzD5+ArscxLAHR0dWCgU7lPbvLy8R0TGBVRQUODKlJT9ZHFxMSQlJdEbnS0tLRzQZrOB07kHW9t7YLE6wbFrh91dB2CMIScnh7Ml2UB+fv4MdeMpTEhISImPj08jYSfJtIBer2dJhbHZbMYWixlsNgtYrRawWCyws2PC9PT397tT/jE4OLgyPDz8Lc5ZbW2td49/TCMljpyk9/Dm5iYl8CYqJ/2I5+fnITEx0Ukwr7rBcXFxLiYsLEx4IDvS3Nxsp43MMMt4ZYUhtEIJDojKwGg0OBmGgcrKilEKko2MCMnouhr6fCEPDUm/R9olE/egnZ03rj1bZuDJkyXnwqIeFhd0hBYOSAdEhpeWnmKlSgVX2ttPcwX96WdB3/MitHzBa6allwvcsxMweLtXPTerhr9UU+zM7CJWa+ZYtWaWndEsYs20cl8zo4Te7usSN3ZCccbVO/TsfstDqz8Ec64NX6P3zIMne7aUV59tqW/C5p/fOfX3z4JWPQXzmml4er8atv847zRpbuzbNO3L5gcFY2uXUBHFmvpEvPVLxI3qHI9Mi8vhWgfqh9V4gO2jAC/EAMYksA4gdlDSrO25dkG13YuswFD9GwA7yQArIljv5A+5RjcV6S7y6ZbwZO2b/Y7gRN9XqH1Sih6pHqCxoQ70sOYD4ZdEV0qopPC4sP7Xb9Ctsdu8h7/3ot+6zqHLx97mH6WjC5B4eCdmvsm5DiIL5BWE/MnG8I1HyIcQSiQbSezrwxfTLiDYWLJnY4gunPBBdNkUHRN4qvEPfSN4oqDCFWYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Tux, o mascote do Linux&amp;quot;&quot;
+        title=&quot;Tux, o mascote do Linux&quot;
+        src=&quot;/static/0b0df49865bd786ad46a2849f2e5ca02/070ae/tux.png&quot;
+        srcset=&quot;/static/0b0df49865bd786ad46a2849f2e5ca02/070ae/tux.png 120w&quot;
+        sizes=&quot;(max-width: 120px) 100vw, 120px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Tux, o mascote do Linux&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Embora eu vá utilizar o &lt;a href=&quot;http://www.debian.org/&quot; title=&quot;Debian, uma das mais famosas e estáveis distros Linux&quot;&gt;&lt;em&gt;Debian 6&lt;/em&gt;&lt;/a&gt; no
+ambiente de desenvolvimento, isolarei o ambiente de &lt;em&gt;staging&lt;/em&gt; em uma
+máquina virtual. Nela, terei o &lt;a href=&quot;http://www.slackware.com/&quot; title=&quot;Slackware, uma das distros Linux mais &quot;&gt;&lt;em&gt;Slackware 13.1&lt;/em&gt;&lt;/a&gt; “básico”, e a partir
+daí instalaremos banco de dados e servidor &lt;em&gt;Web&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Não iremos abordar a instalação das distribuições… existem tutoriais
+suficientes na Web sobre isto.&lt;/p&gt;
+&lt;h3&gt;Banco de Dados: SQLite e PostgreSQL&lt;/h3&gt;
+&lt;p&gt;Para o seu ambiente de desenvolvimento, o &lt;a href=&quot;http://www.sqlite.org/&quot; title=&quot;Baixe um dos bancos de dados mais simpáticos da atualidade&quot;&gt;&lt;em&gt;SQLite&lt;/em&gt;&lt;/a&gt; quebra um galho.
+Pequeno, leve e suficientemente bom para quando você está desenvolvendo
+suas aplicações com &lt;em&gt;Django&lt;/em&gt;. Porém, para ambientes de produção (onde a
+demanda pode ser grande), o &lt;em&gt;SQLite&lt;/em&gt; é pouco recomendado… então podemos
+escolher (tratando-se de bancos relacionais) entre o &lt;a href=&quot;http://www.mysql.com/&quot; title=&quot;MySQL, o banco de dados mais popular do mundo&quot;&gt;&lt;em&gt;MySQL&lt;/em&gt;&lt;/a&gt; e o
+&lt;a href=&quot;http://www.postgresql.org/&quot; title=&quot;PostgreSQL, o banco de dados open source mais avançado do mundo&quot;&gt;&lt;em&gt;PostgreSQL&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Embora eu seja um usuário “fervoroso” do &lt;em&gt;MySQL&lt;/em&gt;, a aquisição dele pela
+&lt;em&gt;Oracle&lt;/em&gt; me deixou com a pulga atrás da orelha. Então, vou aproveitar
+para aprender um pouco mais sobre &lt;em&gt;PostgreSQL&lt;/em&gt; enquanto escrevo este
+tutorial&lt;/p&gt;
+&lt;h3&gt;Servidor Web: Nginx&lt;/h3&gt;
+&lt;p&gt;Aposto que você achou que iríamos utilizar &lt;em&gt;Apache&lt;/em&gt; :D&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;http://nginx.org/&quot; title=&quot;Um dos servidores Web mais &quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; é considerado por alguns desenvolvedores o servidor &lt;em&gt;web&lt;/em&gt;
+mais robusto da atualidade. &lt;a href=&quot;http://pt.wikipedia.org/wiki/Nginx&quot; title=&quot;Leia mais sobre Nginx na Wikipedia&quot;&gt;Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;, é o quarto
+servidor &lt;em&gt;web&lt;/em&gt; mais utilizado no mundo.&lt;/p&gt;
+&lt;p&gt;Ótima oportunidade para usá-lo!&lt;/p&gt;
+&lt;h3&gt;Python 2.x e Django 1.x.x&lt;/h3&gt;
+&lt;p&gt;Até a data desta publicação, o &lt;em&gt;Python (2.x)&lt;/em&gt; estava em sua versão
+&lt;a href=&quot;http://www.python.org/getit/&quot; title=&quot;Baixe o Python gratuitamente&quot;&gt;&lt;em&gt;2.7.1 (stable)&lt;/em&gt;&lt;/a&gt; e o &lt;a href=&quot;http://www.djangoproject.com/download/&quot; title=&quot;Baixe o Django gratuitamente&quot;&gt;&lt;em&gt;Django&lt;/em&gt; na 1.2.5 &lt;em&gt;(stable)&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Utilizarei a versão 2.6 do &lt;em&gt;Python&lt;/em&gt; por ser mais facilmente encontrada
+nas hospedagens &lt;em&gt;web&lt;/em&gt;. Fique livre para escolher o que for melhor para
+você.&lt;/p&gt;
+&lt;p&gt;Se você quiser acompanhar a produção destes artigos, &lt;a href=&quot;https://klauslaube.com.br/feed/rss.xml&quot; title=&quot;Leia os posts deste Blog no seu leitor RSS favorito&quot;&gt;assine o &lt;em&gt;RSS&lt;/em&gt;&lt;/a&gt;
+ou &lt;a href=&quot;http://www.twitter.com/kplaube&quot; title=&quot;Acompanhe o desenvolvimento deste e de outros posts&quot;&gt;siga-me no &lt;em&gt;Twitter&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até mais…&lt;/p&gt;</content:encoded></item></channel></rss>

@@ -1,21 +1,491 @@
-<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Software Design x Software Architecture | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Uma das características que eu mais gosto no agile é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores generalistas, falo..."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, analise, arquitetura-de-software, design-de-software, agile, safe"><meta property=og:title content="Software Design x Software Architecture"><meta property=og:description content="Uma das características que eu mais gosto no agile é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores generalistas, falo..."><meta property=og:url content=https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html><meta property=og:image content=https://klauslaube.com.br//images/blog/matrix-filosofia.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/matrix-filosofia.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Software Design x Software Architecture </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2020-01-07T16:00:00-03:00 itemprop=datePublished>07 Jan, 2020</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/postits.jpg alt=Post-its class=representative-image width=180 height=180> <p>Uma das características que eu mais gosto no <a href=https://klauslaube.com.br/tag/agile.html title="Leia mais sobre ágil"><em>agile</em></a> é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores generalistas, falo também das responsabilidades que em um modelo mais parecido com o <em>waterfall</em> seriam atribuídas a um indivíduo apenas, mas que no ágil são diluídas na equipe.</p> <!-- PELICAN_END_SUMMARY --> <p>Como o time geralmente trabalha em um escopo focado, com quem fica a responsabilidade da arquitetura de toda uma solução? Quem pensa no longo prazo? Na comunicação entre serviços e componentes?</p> <p>Até onde vai a responsabilidade de <em>design</em> e começa a de arquitetura?</p> <h2>Definição</h2> <p>Fundamentalmente, há distinção entre as disciplinas de <em>software design</em> e <em>software architecture</em>:</p> <ul> <li><strong>Software design</strong>: Foca nos aspectos mais "baixo nível" do sistema;</li> <li><strong>Software architecture</strong>: Olha para aspectos mais "alto nível" do sistema.</li> </ul> <p><img class=align-center-keep-size src=/images/blog/matrix-filosofia.jpg width=733 height=417 title="Calma! Não vamos misturar filosofia e programação. Mas piadas com o The Matrix estão liberadas (rottenmelon.tripod.com)" alt="Calma! Não vamos misturar filosofia e programação. Mas piadas com o The Matrix estão liberadas (rottenmelon.tripod.com)"></p> <p>Mesmo assim, não é raro misturarmos as duas responsabilidades e atribuí-las a um papel só. O que não é necessariamente um problema, já que as disciplinas podem ser encaradas como o mesmo problema em escalas diferentes.</p> <h2>Software Architecture</h2> <p>Definir arquitetura de <em>software</em> é um desafio. O <a href=https://pt.wikipedia.org/wiki/Arquitetura_de_software title="Arquitetura de Software no Wikipedia"><em>Wikipedia</em></a> define o termo da seguinte forma:</p> <blockquote> <p>(...) consiste na definição dos componentes de software, suas propriedades externas, e seus relacionamentos com outros softwares. O termo também se refere à documentação da arquitetura de software do sistema. A documentação da arquitetura do software facilita: a comunicação entre os stakeholders, registra as decisões iniciais acerca do projeto de alto-nível, e permite o reúso do projeto dos componentes e padrões entre projetos.</p> </blockquote> <p>Eu me dou conta que estou nos "domínios" da arquitetura de <em>software</em> quando estou debatendo as "ilities" de um projeto. Portanto, a definição do <a href=https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830 title="Software Architecture - The Difference Between Architecture and Design"><em>Codeburst</em></a> casa melhor com a minha compreensão sobre o assunto:</p> <blockquote> <p>In simple words, software architecture is the process of converting software characteristics such as flexibility, scalability, feasibility, reusability, and security into a structured solution that meets the technical and the business expectations. This definition leads us to ask about the characteristics of a software that can affect a software architecture design. There is a long list of characteristics which mainly represent the business or the operational requirements, in addition to the technical requirements.</p> </blockquote> <p>Portanto, quando há um requisito de produto que demanda rápida adaptação do modelo de negócios, pois a empresa ainda está procurando o seu <em>market fit</em>, a solução poderia ser <strong>extensível</strong>, <strong>modular</strong> e de <strong>fácil alteração</strong>. Essas qualidades possivelmente não se encaixarão em um projeto de perfil mais conservador, como um sistema bancário, por exemplo, que teria como uma provável <em>ility</em> a <strong>segurança</strong>.</p> <p><img class=align-center-keep-size src=/images/blog/the-matrix-the-keymaker.jpg width=734 height=487 title="Quem tem que lidar com certificados no cotidiano reza para ter um Keymaker na empresa (reddit.com)" alt="Quem tem que lidar com certificados no cotidiano reza para ter um Keymaker na empresa (reddit.com)"></p> <p><a href=https://en.wikipedia.org/wiki/List_of_system_quality_attributes title="Veja a lista no Wikipedia">Confira uma lista completa de <em>system quality attributes</em></a>.</p> <p>Esses aspectos são de responsabilidade do arquiteto de <em>software</em> de levantar, debater, e de setar como <em>boundaries</em> do projeto em questão. Sem dúvida elas passam a influenciar o <em>design</em> dos componentes que serão construídos durante o tempo de projeto.</p> <h3>O arquiteto</h3> <p><em>Kostadis Roussos</em>, no breve (mas excelente) <a href=https://medium.com/@kostadisroussos/21-architecturalist-papers-always-be-right-right-now-1552af8dc330 title="Leia na íntegra no Medium">"21 architecturalist papers: always be right, right now."</a> define o papel do arquiteto salientando o seguinte atributo:</p> <blockquote> <p>An architect has visions of the future, and those visions are often years away from delivery, and worse, even more years away from solving any of the immediate problems engineering management has.</p> </blockquote> <p>Segundo <em>Kostadis</em>, o arquiteto precisa guiar o projeto para a direção correta. Dentro do contexto ágil, sabemos que essa direção pode mudar, mas ainda assim o arquiteto deve ser capaz de se adaptar a essa mudança, mudar o curso, e continuar fazendo com que o projeto siga o caminho certo.</p> <p><img class=align-center-keep-size src=/images/blog/the-architect.png width=559 height=357 title="Não é desse arquiteto que estamos falando (quora.com)" alt="Não é desse arquiteto que estamos falando (quora.com)"></p> <p>Além de ser "high-level o suficiente" para ter a visão do todo, o arquiteto ainda é responsável por gerenciar expectativas de gerentes, diretores, <em>product owners</em>, e até mesmo dos próprios engenheiros. E em relação à engenharia a balança pode ser ainda mais frágil, uma vez que ele deve ser "distante o suficiente" para que um <em>gap</em> criativo seja formado, e que engenharia tenha a oportunidade de inovar.</p> <p>Então chegamos ao melhor parágrafo do texto de <em>Roussos</em>:</p> <blockquote> <p>In short, you need to be right, and high-level enough that you can’t be wrong, but if that’s where you end, you fail.</p> </blockquote> <p><em>Chris Richardson</em>, no livro <a href="https://www.goodreads.com/book/show/34372564-microservice-patterns?ac=1&from_search=true&qid=cFhoy0HIPb&rank=1" title="Veja no Goodreads"><em>Microservices Patterns</em></a>, estressa um pouco mais sobre a importância desse papel:</p> <blockquote> <p>Architecture is important because it enables an application to satisfy the second category of requirements: its quality of service requirements. These are also known as quality attributes and are the so-called -ilities. The quality of service requirements define the runtime qualities such as scalability and reliability. They also define development time qualities including maintainability, testability, and deployability. The architecture you choose for your application determines how well it meets these quality requirements.</p> </blockquote> <h3>Padrões e ferramentas</h3> <p>Encontramos alguns estilos já estabelecidos e bem conhecidos de arquiteturas que resolvem combinações de qualidades, como o caso do <a href=https://microservices.io/patterns/monolithic.html title="Leia mais no microservices.io"><em>Monolithic Architecture</em></a>, <a href=https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven title="Leia mais na documentação do Azure"><em>Event-Driven (Implicit Invocation) Architecture</em></a>, e talvez o mais "hypado", <a href=https://www.infoq.com/br/news/2014/07/introducing-microservices/ title="Leia a introdução no InfoQ"><em>Microservices Architecture</em></a>.</p> <p>Eles podem fazer uso de um ou mais padrões de arquitetura, como por exemplo, a arquitetura monolítica pode ser composta pelos padrões <a href=https://en.wikipedia.org/wiki/Multitier_architecture title="Leia na íntegra no Wikipedia"><em>n-tier</em></a> e <a href=https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller title="LEia na íntegra no Wikipedia"><em>model-view-controller</em></a>.</p> <p><img class=align-center-keep-size src=/images/blog/the-matrix-architect-neo.jpg width=740 height=416 title="Não é só de terno vis-a-vis que vive um arquiteto (lascimmiapensa.com)" alt="Não é só de terno vis-a-vis que vive um arquiteto (lascimmiapensa.com)"></p> <p><a href=https://en.wikipedia.org/wiki/List_of_software_architecture_styles_and_patterns title="List of software architecture styles and patterns">Lista de estilos e padrões de arquitetura de <em>software</em></a>.</p> <p>Algumas ferramentas estão disponíveis para auxiliar o arquiteto na tarefa de modelar a solução, bem como de expor determinados detalhes para diferentes tipos de <em>stakeholders</em>. Talvez a <em>top of mind</em> seja a própria <a href=https://www.visual-paradigm.com/guide/uml-unified-modeling-language/modeling-software-architecture-with-package/ title="UML: Modeling Software Architecture with Packages"><em>UML</em></a>. Outra opção é o <em>4 + 1 architectural view model</em>, que é uma espécie de <em>framework</em> que auxilia na separação de diferentes aspectos do sistema em diferentes visões (que podem inclusive utilizar artefatos da <em>UML</em> para os seus propósitos).</p> <p>As visões são:</p> <ul> <li><strong>Logical view:</strong> Preocupa-se com a funcionalidade que o sistema provê para o usuário final. Utiliza <a href=https://en.wikipedia.org/wiki/Class_diagram title="Class diagram">diagramas de classe</a> e de <a href=https://en.wikipedia.org/wiki/State_diagram title="State diagram">estado</a> da <em>UML</em>, e é relevante para desenvolvedores;</li> <li><strong>Process view:</strong> Descreve processos concorrentes dentro de um sistema. Pode englobar requisitos não funcionais, como performance e disponibilidade, e é representado através do <a href=https://www.tutorialspoint.com/uml/uml_activity_diagram.htm title="Activity diagram">diagrama de atividade</a> da <em>UML</em>;</li> <li><strong>Development view:</strong> Foca na ótica do programador, e descreve componentes do sistema. Utiliza o diagrama de <a href=https://en.wikipedia.org/wiki/Component_diagram title="Component diagram">componente</a> e de <a href=https://en.wikipedia.org/wiki/Package_diagram title="Package diagram">pacote</a>.</li> <li><strong>Physical view:</strong> Descreve a topologia do sistema de uma perspectiva física. Por exemplo, quantos nós são utilizados, o que é "deployado" em cada nó, como escala, etc. Utiliza o <a href=https://en.wikipedia.org/wiki/Deployment_diagram title="Deployment diagram">diagrama de <em>deploy</em></a> da <em>UML</em>;</li> <li><strong>Use case view:</strong> Descreve a funcionalidade do sistema da perspectiva do mundo exterior, ou seja, ilustra o que o sistema deveria fazer através de cenários, que são determinantes para identificar elementos da arquitetura e validar <em>design</em>. Utiliza casos de uso da <em>UML</em>, e todas as outras visões utilizam dessa (e de seus cenários) para guiá-las.</li> </ul> <p><a href=https://www.coursera.org/lecture/software-architecture/3-1-2-kruchtens-4-1-model-view-z65ZO title="Kruchten's 4 + 1 Model View">Assista à introdução ao <em>4 + 1</em> no Coursera</a>.</p> <p>Para finalizar, outra prática bem interessante é a escrita de <a href=https://etutorials.org/Programming/Software+architecture+in+practice,+second+edition/Part+Two+Creating+an+Architecture/Chapter+4.+Understanding+Quality+Attributes/4.3+System+Quality+Attributes/ title="Leia o artigo na íntegra"><em>Quality Attribute Scenarios</em></a>, que são requisitos não funcionais, específicos para mensurar a qualidade da sua solução para problemas específicos.</p> <p><img class=align-center-keep-size src=/images/blog/example-quality-attributes.png width=740 height=284 title="Exemplo de Quality Attributes revisados" alt="Exemplo de Quality Attributes revisados"></p> <p><a href=https://www.coursera.org/lecture/software-architecture/3-3-1-quality-attributes-xAwkW title="Quality Attributes">Veja mais na excelente aula do <em>Coursera</em> sobre <em>Quality Attributes</em></a>.</p> <h2>Software Design</h2> <p>O <a href=https://www.coursera.org/learn/object-oriented-design/ title="Object-Oriented Design no Coursera">curso <em>Object-Oriented Design</em></a>, da Universidade de Alberta, define <em>software design</em> da seguinte forma:</p> <blockquote> <p>The process of planning a software solution, taking the requirements and constraints into account. Divided into higher-level conceptual design and more specific technical design.</p> </blockquote> <p>O foco está em pensar na solução para um problema específico, projetando detalhes de um determinado componente e suas responsabilidades, e utilizando de artefatos que ajudem no debate com a camada mais próxima de negócios (<em>high-level</em>, mais conceitual) e mais próxima de implementação (<em>low-level</em>, técnica).</p> <p><img class=align-center-keep-size src=/images/blog/the-matrix-mouser.jpg width=740 height=386 title="Um vivo para o designer da Mulher de Vermelho (ballardwachowskiproject.wordpress.com)" alt="Um vivo para o designer da Mulher de Vermelho (ballardwachowskiproject.wordpress.com)"></p> <p>Esse passo tem presença constante no início das iterações no modelo iterativo/incremental, e pode ser desempenhado por diferentes papéis dentro de um time (naturalmente, com envolvimento dos desenvolvedores).</p> <h3>Design conceitual</h3> <p>Partimos do princípio que tudo origina-se de um requisito:</p> <div class=highlight><pre><span></span>Quero ver a minha lista de músicas favoritas.
-</pre></div> <p>Requisitos podem ser "funcionais" (como o exemplo acima), ou "não funcionais" (como o exemplo de "ilities" da seção anterior). Quando falamos de <em>design</em> conceitual, geralmente nos referimos ao primeiro tipo, e através de discussões mais próximas do problema exploramos soluções.</p> <p>Nessa etapa é comum lidar com ferramentas, preferencialmente de baixo custo e fácil alteração, que consigam "traduzir" a solução sendo discutida em artefatos visuais, como por exemplo:</p> <ul> <li><strong>Diagramas de alto nível:</strong> Para exemplificar relacionamentos entre o usuário, interface e demais componentes (não técnico);</li> <li><strong>Wireframes:</strong> Para discutir elementos em uma interface de usuário;</li> <li><strong>Protótipos:</strong> Para demonstrar comportamentos;</li> <li><strong>Mockups:</strong> Para refletir decisões de <em>design</em> como cores, <em>layouts</em>, tipografia, interações, etc.</li> </ul> <p>Uma outra forma de debatermos requisitos sob uma ótica conceitual é através da construção de <em>user stories</em>. Com elas, podemos tomar algumas liberdades para sermos mais específicos sobre as necessidades e expectativas que precisam ser atendidas:</p> <div class=highlight><pre><span></span>Eu como um usuário autenticado,
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.493e6315ef3a09bc2f74.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.12"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style data-styled="" data-styled-version="5.1.0">.dQgIel{display:inline-block;vertical-align:middle;overflow:hidden;}/*!sc*/
+data-styled.g1[id="sc-AxjAm"]{content:"dQgIel,"}/*!sc*/
+.dLmtYS{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g2[id="article-share__FacebookStyled-sc-1s9obkn-0"]{content:"dLmtYS,"}/*!sc*/
+.cXEKcd{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g3[id="article-share__LinkedinStyled-sc-1s9obkn-1"]{content:"cXEKcd,"}/*!sc*/
+.kBgYvV{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g4[id="article-share__TwitterStyled-sc-1s9obkn-2"]{content:"kBgYvV,"}/*!sc*/
+.jVnceN{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g5[id="article-share__WhatsappStyled-sc-1s9obkn-3"]{content:"jVnceN,"}/*!sc*/
+.hUktyW{display:inline-block;margin-right:8px;}/*!sc*/
+data-styled.g6[id="article-share__SocialLink-sc-1s9obkn-4"]{content:"hUktyW,"}/*!sc*/
+.hKQQPE{clear:both;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.hKQQPE{clear:none;float:right;line-height:48px;}}/*!sc*/
+data-styled.g7[id="article-share__SocialWrapper-sc-1s9obkn-5"]{content:"hKQQPE,"}/*!sc*/
+.gKRNvs{margin-bottom:24px;}/*!sc*/
+data-styled.g8[id="article-tags__Tags-lfitfk-0"]{content:"gKRNvs,"}/*!sc*/
+.kdcwKK{background-color:#f4f4f4;color:rgba(0,0,0,0.54);display:inline-block;font-size:14px;margin:0 8px 8px 0;padding:8px 16px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g9[id="article-tags__Tag-lfitfk-1"]{content:"kdcwKK,"}/*!sc*/
+.gfJCPa{color:rgba(0,0,0,0.84);margin-bottom:4px;}/*!sc*/
+data-styled.g14[id="article__AuthorName-sc-1bof3w4-0"]{content:"gfJCPa,"}/*!sc*/
+.cZgAvk{clear:both;font-family:Georgia,"Times New Roman",Times,serif;font-size:18px;font-weight:300;-webkit-letter-spacing:-0.054px;-moz-letter-spacing:-0.054px;-ms-letter-spacing:-0.054px;letter-spacing:-0.054px;line-height:28px;margin-bottom:48px;}/*!sc*/
+@media (min-width:768px){.cZgAvk{font-size:20px;}}/*!sc*/
+.cZgAvk *{margin:0;margin-block-end:0;margin-block-start:0;padding:0;}/*!sc*/
+.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{font-family:"Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;-webkit-letter-spacing:-0.66px;-moz-letter-spacing:-0.66px;-ms-letter-spacing:-0.66px;letter-spacing:-0.66px;margin-top:8px;margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{margin-bottom:16px;}}/*!sc*/
+.cZgAvk figure,.cZgAvk .gatsby-highlight{left:-24px;position:relative;width:100vw;}/*!sc*/
+@media (min-width:768px){.cZgAvk figure,.cZgAvk .gatsby-highlight{left:0;width:auto;}}/*!sc*/
+.cZgAvk a{color:#c4170c;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cZgAvk a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cZgAvk blockquote{color:rgba(0,0,0,0.54);font-style:italic;}/*!sc*/
+.cZgAvk code{font-size:16px;}/*!sc*/
+.cZgAvk figcaption{color:rgba(0,0,0,0.54);font-size:16px;line-height:20px;padding:16px 24px 0;text-align:center;}/*!sc*/
+.cZgAvk h2{font-size:26px;font-weight:600;line-height:32px;margin-bottom:28px;}/*!sc*/
+.cZgAvk h3{color:#333;font-size:22px;font-weight:300;line-height:28px;}/*!sc*/
+.cZgAvk h4{color:rgba(0,0,0,0.54);font-size:16;font-weight:300;line-height:24px;}/*!sc*/
+.cZgAvk iframe{display:block;margin:0 auto 28px auto;}/*!sc*/
+@media (min-width:768px){.cZgAvk iframe{margin-bottom:42px;}}/*!sc*/
+.cZgAvk img{display:block;margin:0 auto;}/*!sc*/
+.cZgAvk p{margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk p{margin-bottom:42px;}}/*!sc*/
+.cZgAvk pre{font-size:16px;margin-bottom:28px;padding:24px 16px;}/*!sc*/
+@media (min-width:768px){.cZgAvk pre{margin-bottom:42px;}}/*!sc*/
+.cZgAvk ol,.cZgAvk ul{margin-left:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk ol,.cZgAvk ul{margin-bottom:42px;}}/*!sc*/
+.cZgAvk li{margin-bottom:8px;}/*!sc*/
+@media (min-width:768px){.cZgAvk li{margin-bottom:16px;}}/*!sc*/
+data-styled.g15[id="article__Content-sc-1bof3w4-1"]{content:"cZgAvk,"}/*!sc*/
+.lhlkLZ{border-top:1px solid #f4f4f4;margin-bottom:24px;padding-top:24px;}/*!sc*/
+data-styled.g16[id="article__DiscussionWrapper-sc-1bof3w4-2"]{content:"lhlkLZ,"}/*!sc*/
+.hnJNBS{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(0,0,0,0.54);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;float:left;font-size:14px;margin-bottom:32px;}/*!sc*/
+data-styled.g17[id="article__Meta-sc-1bof3w4-3"]{content:"hnJNBS,"}/*!sc*/
+.cTbbvU{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g18[id="article__MetaText-sc-1bof3w4-4"]{content:"cTbbvU,"}/*!sc*/
+.lhqEXT{border-radius:60px;margin-right:16px;}/*!sc*/
+data-styled.g19[id="article__StyledAvatar-sc-1bof3w4-5"]{content:"lhqEXT,"}/*!sc*/
+.dtcUmd{color:rgba(0,0,0,0.84);font-weight:600;-webkit-letter-spacing:-0.93px;-moz-letter-spacing:-0.93px;-ms-letter-spacing:-0.93px;letter-spacing:-0.93px;margin:0 0 4px 0;font-size:30px;font-weight:400;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.dtcUmd{font-size:40px;}}/*!sc*/
+data-styled.g20[id="article__StyledTitle-sc-1bof3w4-6"]{content:"dtcUmd,"}/*!sc*/
+.bfwjqj{margin:0 auto;max-width:640px;padding:0 24px;}/*!sc*/
+data-styled.g21[id="container-sc-1o2is99-0"]{content:"bfwjqj,"}/*!sc*/
+.iyjQQp{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#c4170c;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-family:Arial,Helvetica,sans-serif;height:36px;width:36px;}/*!sc*/
+data-styled.g22[id="page-header-brand__Brand-ofbkek-0"]{content:"iyjQQp,"}/*!sc*/
+.hPHtvI{display:none;}/*!sc*/
+@media (min-width:768px){.hPHtvI{display:block;}}/*!sc*/
+data-styled.g23[id="page-header-brand__BrandFragment-ofbkek-1"]{content:"hPHtvI,"}/*!sc*/
+.exgtKg{color:#333;display:inline-block;margin-left:4px;}/*!sc*/
+.exgtKg:first-child{margin-left:0;margin-right:4px;}/*!sc*/
+data-styled.g24[id="page-header-brand__Bracket-ofbkek-2"]{content:"exgtKg,"}/*!sc*/
+.fUa-dQJ{color:#333;width:22px;}/*!sc*/
+data-styled.g25[id="page-header__GreyMail-sc-1ef23a-0"]{content:"fUa-dQJ,"}/*!sc*/
+.GBaPr{box-shadow:0 -8px 16px 0 rgba(0,0,0,0.54);font-size:1.1rem;margin-bottom:24px;}/*!sc*/
+@media (min-width:768px){.GBaPr{margin-bottom:64px;}}/*!sc*/
+data-styled.g26[id="page-header__Header-sc-1ef23a-1"]{content:"GBaPr,"}/*!sc*/
+.ktLFvT{margin:0 auto;max-width:640px;padding:0 24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:56px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:974px;}/*!sc*/
+data-styled.g27[id="page-header__HeaderContainer-sc-1ef23a-2"]{content:"ktLFvT,"}/*!sc*/
+.gbnbN{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g28[id="page-header__StyledLink-sc-1ef23a-3"]{content:"gbnbN,"}/*!sc*/
+.hJnaIf{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g29[id="page-header__StyledA-sc-1ef23a-4"]{content:"hJnaIf,"}/*!sc*/
+.eZHcyp{border-top:1px solid #f4f4f4;color:rgba(0,0,0,0.54);font-size:14px;padding:24px 0;text-align:center;}/*!sc*/
+@media (min-width:768px){.eZHcyp{text-align:right;}}/*!sc*/
+data-styled.g30[id="page-footer__Footer-sc-1jesc4c-0"]{content:"eZHcyp,"}/*!sc*/
+.hCZhVV{color:rgba(0,0,0,0.84);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hCZhVV:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g31[id="page-footer__Link-sc-1jesc4c-1"]{content:"hCZhVV,"}/*!sc*/
+body{color:rgba(0,0,0,0.84);font-family:Arial,Helvetica,sans-serif;margin:0;}/*!sc*/
+data-styled.g51[id="sc-global-eLbNMD1"]{content:"sc-global-eLbNMD1,"}/*!sc*/
+</style><title data-react-helmet="true">Software Design x Software Architecture | Klaus Laube</title><meta data-react-helmet="true" name="description" content="Uma das características que eu mais gosto no agile
+é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores…"/><meta data-react-helmet="true" property="og:title" content="Software Design x Software Architecture"/><meta data-react-helmet="true" property="og:description" content="Uma das características que eu mais gosto no agile
+é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Klaus Peter Laube"/><meta data-react-helmet="true" name="twitter:title" content="Software Design x Software Architecture"/><meta data-react-helmet="true" name="twitter:description" content="Uma das características que eu mais gosto no agile
+é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores…"/><meta data-react-helmet="true" name="keywords" content="arquitetura-de-software,design-de-software,agile,safe"/><meta data-react-helmet="true" property="og:image" content="https://klauslaube.com.br/static/e70dc3fc159d5867484c7ac295722941/postits.jpg"/><link rel="icon" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="alternate" type="application/rss+xml" title="Klaus Laube" href="/feed/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-74a6d0a7c3b7aca6f059.js"/><link as="script" rel="preload" href="/framework-15c64f04ece7e16d9319.js"/><link as="script" rel="preload" href="/styles-72b9aca6a03bf971c27e.js"/><link as="script" rel="preload" href="/app-e7e259d06d29a943bae9.js"/><link as="script" rel="preload" href="/commons-d19a5247b9c341fd9cf4.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"/><link as="fetch" rel="preload" href="/page-data/2020/01/07/software-design-software-architecture.html/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="page-header__Header-sc-1ef23a-1 GBaPr"><div class="container-sc-1o2is99-0 page-header__HeaderContainer-sc-1ef23a-2 ktLFvT"><a class="page-header__StyledLink-sc-1ef23a-3 gbnbN" href="/"><div class="page-header-brand__Brand-ofbkek-0 iyjQQp"><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">{</span>k<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">laus</span>l<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">aube</span><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">}</span></div></a><div><a href="https://about.me/klauslaube" title="Contato" class="page-header__StyledA-sc-1ef23a-4 hJnaIf"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="sc-AxjAm dQgIel page-header__GreyMail-sc-1ef23a-0 fUa-dQJ"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></div></div></div><div><div class="container-sc-1o2is99-0 bfwjqj"><h1 class="typograph__Title-sc-4kf6ch-1 article__StyledTitle-sc-1bof3w4-6 dtcUmd">Software Design x Software Architecture</h1><div class="article__Meta-sc-1bof3w4-3 hnJNBS"><img src="https://en.gravatar.com/userimage/12163112/d3ae0c6239980b01ff1f1730b65c2ebe.jpg" width="48" height="48" alt="Avatar" class="avatar-sc-46srdf-0 article__StyledAvatar-sc-1bof3w4-5 lhqEXT"/><div class="article__MetaText-sc-1bof3w4-4 cTbbvU"><div class="article__AuthorName-sc-1bof3w4-0 gfJCPa">Klaus Peter Laube</div>7 de Janeiro de 2020<!-- --> - <!-- -->13 minutos<!-- --> de leitura</div></div><div class="article-share__SocialWrapper-sc-1s9obkn-5 hKQQPE"><a href="https://twitter.com/intent/tweet?url=https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html&amp;text=Software Design x Software Architecture" target="_blank" rel="noreferrer" title="Compartilhe no Twitter" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__TwitterStyled-sc-1s9obkn-2 kBgYvV"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22 8.073 8.073 0 002.319-.624 8.645 8.645 0 01-2.019 2.083z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html" target="_blank" rel="noreferrer" title="Compartilhe no Facebook" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__FacebookStyled-sc-1s9obkn-0 dLmtYS"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325 1.42-3.592 3.5-3.592.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.725h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"></path></svg></a><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html&amp;title=Software Design x Software Architecture" target="_blank" rel="noreferrer" title="Compartilhe no Linkedin" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__LinkedinStyled-sc-1s9obkn-1 cXEKcd"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg></a><a href="https://api.whatsapp.com/send?text=https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html" target="_blank" rel="noreferrer" title="Compartilhe no Whatsapp" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__WhatsappStyled-sc-1s9obkn-3 jVnceN"><path fill-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 004.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 00-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 01-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 01-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 015.275 2.188 7.42 7.42 0 012.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 00-.429-.008.826.826 0 00-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263" clip-rule="evenodd"></path></svg></a></div><div class="article__Content-sc-1bof3w4-1 cZgAvk"><p>Uma das características que eu mais gosto no <a href="/tag/agile.html" title="Leia mais sobre ágil"><em>agile</em></a>
+é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores generalistas,
+falo também das responsabilidades que em um modelo mais parecido com o
+<em>waterfall</em> seriam atribuídas a um indivíduo apenas, mas que no ágil são diluídas na equipe.</p>
+<p>Como o time geralmente trabalha em um escopo focado,
+com quem fica a responsabilidade da arquitetura de toda uma solução?
+Quem pensa no longo prazo? Na comunicação entre serviços e componentes?</p>
+<p>Até onde vai a responsabilidade de <em>design</em> e começa a de arquitetura?</p>
+<h2>Definição</h2>
+<p>Fundamentalmente, há distinção entre as disciplinas de <em>software design</em> e
+<em>software architecture</em>:</p>
+<ul>
+<li><strong>Software design</strong>: Foca nos aspectos mais "baixo nível" do sistema;</li>
+<li><strong>Software architecture</strong>: Olha para aspectos mais "alto nível" do sistema.</li>
+</ul>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 733px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/40c89cf82db1e91aeb3b2649da0e9dcf/b8220/matrix-filosofia.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.77083333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGZlUVhYuh//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAECAxIhI0H/2gAIAQEAAQUCyo9sZWSIrcf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAAEAECMSH/2gAIAQEABj8C6sMgqv/EABsQAQACAwEBAAAAAAAAAAAAAAEAESExUWGR/9oACAEBAAE/IVQCrnAT1fJQDBfIWrRiWz//2gAMAwEAAgADAAAAEIQf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QR//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPxCMf//EAB4QAAEEAQUAAAAAAAAAAAAAAAEAESExQWFxkaHx/9oACAEBAAE/EG2CA8QBIviaL2mb7CKNicNUTAihDZW1wF//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Oráculo e Neo em The Matrix"
+        title="Calma! Não vamos misturar filosofia e programação. Mas piadas com o The Matrix estão liberadas (rottenmelon.tripod.com)"
+        src="/static/40c89cf82db1e91aeb3b2649da0e9dcf/b8220/matrix-filosofia.jpg"
+        srcset="/static/40c89cf82db1e91aeb3b2649da0e9dcf/7809d/matrix-filosofia.jpg 192w,
+/static/40c89cf82db1e91aeb3b2649da0e9dcf/4ecad/matrix-filosofia.jpg 384w,
+/static/40c89cf82db1e91aeb3b2649da0e9dcf/b8220/matrix-filosofia.jpg 733w"
+        sizes="(max-width: 733px) 100vw, 733px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Calma! Não vamos misturar filosofia e programação. Mas piadas com o The Matrix estão liberadas (rottenmelon.tripod.com)</figcaption>
+  </figure></p>
+<p>Mesmo assim, não é raro misturarmos as duas responsabilidades e atribuí-las a um papel só. O que não é
+necessariamente um problema, já que as disciplinas podem ser encaradas como o mesmo problema
+em escalas diferentes.</p>
+<h2>Software Architecture</h2>
+<p>Definir arquitetura de <em>software</em> é um desafio. O <a href="https://pt.wikipedia.org/wiki/Arquitetura_de_software" title="Arquitetura de Software no Wikipedia"><em>Wikipedia</em></a> define o termo da seguinte forma:</p>
+<blockquote>
+<p>(...) consiste na definição dos componentes de software, suas propriedades externas, e seus relacionamentos com outros softwares. O termo também se refere à documentação da arquitetura de software do sistema. A documentação da arquitetura do software facilita: a comunicação entre os stakeholders, registra as decisões iniciais acerca do projeto de alto-nível, e permite o reúso do projeto dos componentes e padrões entre projetos.</p>
+</blockquote>
+<p>Eu me dou conta que estou nos "domínios" da arquitetura de <em>software</em> quando estou debatendo as "ilities" de um projeto. Portanto, a definição do <a href="https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830" title="Software Architecture - The Difference Between Architecture and Design"><em>Codeburst</em></a> casa melhor com a minha compreensão sobre o assunto:</p>
+<blockquote>
+<p>In simple words, software architecture is the process of converting software characteristics such as flexibility, scalability, feasibility, reusability, and security into a structured solution that meets the technical and the business expectations. This definition leads us to ask about the characteristics of a software that can affect a software architecture design. There is a long list of characteristics which mainly represent the business or the operational requirements, in addition to the technical requirements.</p>
+</blockquote>
+<p>Portanto, quando há um requisito de produto que demanda rápida adaptação do modelo de negócios, pois a empresa ainda está procurando o seu <em>market fit</em>, a solução poderia ser <strong>extensível</strong>, <strong>modular</strong> e de <strong>fácil alteração</strong>. Essas qualidades possivelmente não se encaixarão em um projeto de perfil mais conservador, como um sistema bancário, por exemplo, que teria como uma provável <em>ility</em> a <strong>segurança</strong>.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 734px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a22b4a33ec2154486727e674c8461260/7043a/the-matrix-the-keymaker.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 66.14583333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIBAwQF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB5Trfm8ZJR//EABkQAAIDAQAAAAAAAAAAAAAAAAECABIhA//aAAgBAQABBQJRH5kLkTBe0JIb/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQElFx/9oACAEBAAY/AhPVFjgz/8QAGxABAQEAAgMAAAAAAAAAAAAAAREAITFBUaH/2gAIAQEAAT8hKOEPVNRwmPtNkcMA/WIL53//2gAMAwEAAgADAAAAEH/v/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EFxn/8QAGxABAQACAwEAAAAAAAAAAAAAAREAUSExgbH/2gAIAQEAAT8QgEOqzBPSDS2MZ9yYBQ73l+wDIJ6OFewgTbWvMNNRczvP/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="O Keymaker em The Matrix"
+        title="Quem tem que lidar com certificados no cotidiano reza para ter um Keymaker na empresa (reddit.com)"
+        src="/static/a22b4a33ec2154486727e674c8461260/7043a/the-matrix-the-keymaker.jpg"
+        srcset="/static/a22b4a33ec2154486727e674c8461260/7809d/the-matrix-the-keymaker.jpg 192w,
+/static/a22b4a33ec2154486727e674c8461260/4ecad/the-matrix-the-keymaker.jpg 384w,
+/static/a22b4a33ec2154486727e674c8461260/7043a/the-matrix-the-keymaker.jpg 734w"
+        sizes="(max-width: 734px) 100vw, 734px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Quem tem que lidar com certificados no cotidiano reza para ter um Keymaker na empresa (reddit.com)</figcaption>
+  </figure></p>
+<p><a href="https://en.wikipedia.org/wiki/List_of_system_quality_attributes" title="Veja a lista no Wikipedia">Confira uma lista completa de <em>system quality attributes</em></a>.</p>
+<p>Esses aspectos são de responsabilidade do arquiteto de <em>software</em> de levantar, debater, e de setar como <em>boundaries</em> do projeto em questão. Sem dúvida elas passam a influenciar o <em>design</em> dos componentes que serão construídos durante o tempo de projeto.</p>
+<h3>O arquiteto</h3>
+<p><em>Kostadis Roussos</em>, no breve (mas excelente) <a href="https://medium.com/@kostadisroussos/21-architecturalist-papers-always-be-right-right-now-1552af8dc330" title="Leia na íntegra no Medium">"21 architecturalist papers: always be right, right now."</a> define o papel do arquiteto salientando o seguinte atributo:</p>
+<blockquote>
+<p>An architect has visions of the future, and those visions are often years away from delivery, and worse, even more years away from solving any of the immediate problems engineering management has.</p>
+</blockquote>
+<p>Segundo <em>Kostadis</em>, o arquiteto precisa guiar o projeto para a direção correta. Dentro do contexto ágil, sabemos que essa direção pode mudar, mas ainda assim o arquiteto deve ser capaz de se adaptar a essa mudança, mudar o curso, e continuar fazendo com que o projeto siga o caminho certo.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 559px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/10180e9ff7784e48836fe0a7ef59f3c7/a65ce/the-architect.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAADHklEQVQozw2S7U8aBwCHL0sWV1l1Nd0al7KqvBx33nGewAl6JyDj5Ricgt4pOakileEocgKHaO2sGvDA3vnSERydkTkNTbXbsm6fljRpsi/rX1X+gF/y/J48AGIahHEENRth3EC5rQRlgoYNrsAYzVA96i8DDP3h7Zv/ri9pv6fjC1X3vbvd93owAiKdBEHhADRk4KJBh5v8euA+5RkfsdvuD6hH7CPDpLnjzucJnvtHeXoQCzHjI5/eutV5W9XZfdtoMTp9dhA1AFanaTkxNcW6+qD++Vgg/iikMWr4pclcPtrV2xNlvOfrcYmnOWp4wNDfq+5V9XRPsq518eGYywJAGAwaIb3RoIG1QwQG47AO0VooHDFBn6g67JTtbDuzk2ARWNsG+ayrU3Wnq30Qs6CYBQFMY3jyhwjNONX6Pi7KMDM+te6BL+xhF8J2ryv/pChLu0J6ObOe42PzpIO62/sV6R6NPAzjVhwYnTD7v6OcXpseA6fnPCzn0WP6eJr//e/Wu//fv/7rOlvM7Uh7F62L6z9vWjevZiIz/ikqneIcPhsAYzBG4FoE/Eb3YNCEgkODbXOPxdTVzW+NZr328kWz9et+pZwVhdrL+p60F08sQZhBg4CQEQLo6W9FMRaa9aEEKhRiyytzZrtVOqqeXTQazdPKYeX8spleS8knz+UXslBYTSTj0TibzS9N+O2AkyaHCdRM4kYr6nRbLaNokAsqtcOjutIeH9WUxvnP8k/y6S/17fL247VkYTM3w/lDYYcrQAK4DXd4ne1I+sCBca+dmQ3lirnCZl6pydUjqXoo1c/qklIpH5TErfyjlVg6kwiFA0bLEIiAALc4VRQXwxGvL+i+bDVe/fH6+Ylc2MyeNE7EjXz1sHJ8erxdfvZkdyu7ISyvLJYqu82ri51ynp0PAp6gQw9rLKN47an45ri8MM9Os5OpteS+UuLmQrvS3o70LCUkBXG1zRzhw1Wp9O/V6VYhwczS7cKsDtpBkMRBgs/MBjW6fu2gbkX4nhy3urxOSdkvHZQy+dWFJT5XFKa5gLKRfSv/yDMTesTwETw6CZE8kmlTAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="O arquiteto em The Matrix"
+        title="Não é desse arquiteto que estamos falando (quora.com)"
+        src="/static/10180e9ff7784e48836fe0a7ef59f3c7/a65ce/the-architect.png"
+        srcset="/static/10180e9ff7784e48836fe0a7ef59f3c7/8514f/the-architect.png 192w,
+/static/10180e9ff7784e48836fe0a7ef59f3c7/804b2/the-architect.png 384w,
+/static/10180e9ff7784e48836fe0a7ef59f3c7/a65ce/the-architect.png 559w"
+        sizes="(max-width: 559px) 100vw, 559px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Não é desse arquiteto que estamos falando (quora.com)</figcaption>
+  </figure></p>
+<p>Além de ser "high-level o suficiente" para ter a visão do todo, o arquiteto ainda é responsável por gerenciar expectativas de gerentes, diretores, <em>product owners</em>, e até mesmo dos próprios engenheiros. E em relação à engenharia a balança pode ser ainda mais frágil, uma vez que ele deve ser "distante o suficiente" para que um <em>gap</em> criativo seja formado, e que engenharia tenha a oportunidade de inovar.</p>
+<p>Então chegamos ao melhor parágrafo do texto de <em>Roussos</em>:</p>
+<blockquote>
+<p>In short, you need to be right, and high-level enough that you can’t be wrong, but if that’s where you end, you fail.</p>
+</blockquote>
+<p><em>Chris Richardson</em>, no livro <a href="https://www.goodreads.com/book/show/34372564-microservice-patterns?ac=1&#x26;from_search=true&#x26;qid=cFhoy0HIPb&#x26;rank=1" title="Veja no Goodreads"><em>Microservices Patterns</em></a>, estressa um pouco mais sobre a importância desse papel:</p>
+<blockquote>
+<p>Architecture is important because it enables an application to satisfy the second category of requirements: its quality of service requirements. These are also known as quality attributes and are the so-called -ilities. The quality of service requirements define the runtime qualities such as scalability and reliability. They also define development time qualities including maintainability, testability, and deployability. The architecture you choose for your application determines how well it meets these quality requirements.</p>
+</blockquote>
+<h3>Padrões e ferramentas</h3>
+<p>Encontramos alguns estilos já estabelecidos e bem conhecidos de arquiteturas que resolvem combinações de qualidades, como o caso do <a href="https://microservices.io/patterns/monolithic.html" title="Leia mais no microservices.io"><em>Monolithic Architecture</em></a>, <a href="https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven" title="Leia mais na documentação do Azure"><em>Event-Driven (Implicit Invocation) Architecture</em></a>, e talvez o mais "hypado", <a href="https://www.infoq.com/br/news/2014/07/introducing-microservices/" title="Leia a introdução no InfoQ"><em>Microservices Architecture</em></a>.</p>
+<p>Eles podem fazer uso de um ou mais padrões de arquitetura, como por exemplo, a arquitetura monolítica pode ser composta pelos padrões <a href="https://en.wikipedia.org/wiki/Multitier_architecture" title="Leia na íntegra no Wikipedia"><em>n-tier</em></a> e <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller" title="LEia na íntegra no Wikipedia"><em>model-view-controller</em></a>.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/216ac6208b49cedeac31cbbc2c74f14f/07f3a/the-matrix-architect-neo.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHE9V5IxWD/xAAaEAACAgMAAAAAAAAAAAAAAAAAAQIRAxAS/9oACAEBAAEFAuWyWOii9M//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAXEAADAQAAAAAAAAAAAAAAAAAAATEg/9oACAEBAAY/AoQjx//EABkQAQEBAQEBAAAAAAAAAAAAAAERACExcf/aAAgBAQABPyEp74o8uRQfh2azlPmFq5N3/9oADAMBAAIAAwAAABD4/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxCq/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EABwQAQACAwADAAAAAAAAAAAAAAEAESExUUFh8P/aAAgBAQABPxBR2qC1m4DXFvamZqiGkUfXc7Y9vEFi1P/Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Neo e Arquiteto em The Matrix"
+        title="Não é só de terno e vis-a-vis que vive um arquiteto (lascimmiapensa.com)"
+        src="/static/216ac6208b49cedeac31cbbc2c74f14f/07f3a/the-matrix-architect-neo.jpg"
+        srcset="/static/216ac6208b49cedeac31cbbc2c74f14f/7809d/the-matrix-architect-neo.jpg 192w,
+/static/216ac6208b49cedeac31cbbc2c74f14f/4ecad/the-matrix-architect-neo.jpg 384w,
+/static/216ac6208b49cedeac31cbbc2c74f14f/07f3a/the-matrix-architect-neo.jpg 740w"
+        sizes="(max-width: 740px) 100vw, 740px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Não é só de terno e vis-a-vis que vive um arquiteto (lascimmiapensa.com)</figcaption>
+  </figure></p>
+<p><a href="https://en.wikipedia.org/wiki/List_of_software_architecture_styles_and_patterns" title="List of software architecture styles and patterns">Lista de estilos e padrões de arquitetura de <em>software</em></a>.</p>
+<p>Algumas ferramentas estão disponíveis para auxiliar o arquiteto na tarefa de modelar a solução, bem como de expor determinados detalhes para diferentes tipos de <em>stakeholders</em>. Talvez a <em>top of mind</em> seja a própria <a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/modeling-software-architecture-with-package/" title="UML: Modeling Software Architecture with Packages"><em>UML</em></a>. Outra opção é o <em>4 + 1 architectural view model</em>, que é uma espécie de <em>framework</em> que auxilia na separação de diferentes aspectos do sistema em diferentes visões (que podem inclusive utilizar artefatos da <em>UML</em> para os seus propósitos).</p>
+<p>As visões são:</p>
+<ul>
+<li><strong>Logical view:</strong> Preocupa-se com a funcionalidade que o sistema provê para o usuário final. Utiliza <a href="https://en.wikipedia.org/wiki/Class_diagram" title="Class diagram">diagramas de classe</a> e de <a href="https://en.wikipedia.org/wiki/State_diagram" title="State diagram">estado</a> da <em>UML</em>, e é relevante para desenvolvedores;</li>
+<li><strong>Process view:</strong> Descreve processos concorrentes dentro de um sistema. Pode englobar requisitos não funcionais, como performance e disponibilidade, e é representado através do <a href="https://www.tutorialspoint.com/uml/uml_activity_diagram.htm" title="Activity diagram">diagrama de atividade</a> da <em>UML</em>;</li>
+<li><strong>Development view:</strong> Foca na ótica do programador, e descreve componentes do sistema. Utiliza o diagrama de <a href="https://en.wikipedia.org/wiki/Component_diagram" title="Component diagram">componente</a> e de <a href="https://en.wikipedia.org/wiki/Package_diagram" title="Package diagram">pacote</a>.</li>
+<li><strong>Physical view:</strong> Descreve a topologia do sistema de uma perspectiva física. Por exemplo, quantos nós são utilizados, o que é "deployado" em cada nó, como escala, etc. Utiliza o <a href="https://en.wikipedia.org/wiki/Deployment_diagram" title="Deployment diagram">diagrama de <em>deploy</em></a> da <em>UML</em>;</li>
+<li><strong>Use case view:</strong> Descreve a funcionalidade do sistema da perspectiva do mundo exterior, ou seja, ilustra o que o sistema deveria fazer através de cenários, que são determinantes para identificar elementos da arquitetura e validar <em>design</em>. Utiliza casos de uso da <em>UML</em>, e todas as outras visões utilizam dessa (e de seus cenários) para guiá-las.</li>
+</ul>
+<p><a href="https://www.coursera.org/lecture/software-architecture/3-1-2-kruchtens-4-1-model-view-z65ZO" title="Kruchten&#x27;s 4 + 1 Model View">Assista à introdução ao <em>4 + 1</em> no Coursera</a>.</p>
+<p>Para finalizar, outra prática bem interessante é a escrita de <a href="https://etutorials.org/Programming/Software+architecture+in+practice,+second+edition/Part+Two+Creating+an+Architecture/Chapter+4.+Understanding+Quality+Attributes/4.3+System+Quality+Attributes/" title="Leia o artigo na íntegra"><em>Quality Attribute Scenarios</em></a>, que são requisitos não funcionais, específicos para mensurar a qualidade da sua solução para problemas específicos.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/779789a21aa47e2172f859163d9ba782/50383/example-quality-attributes.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 38.541666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA5UlEQVQY051QSY6EMAzk/6/jC8AgBKOQjTg7nupE6kXq0/jglO2qSuKBv8XdQkpZSun4K224rgsHSCGEnDNAbgGgtU4p9U7P3vtay0s8TROOGCNc3i+ptVproXm+BR2tjffpQwx7DJB7KwRP5EupEEBMRLGNUDacfcBlTayUAgPi2BvM1jrCvLGRnXPkbC+B8fyUOXTxuq74LbpwwZeQCVzH2sA+SXmivNyt9J1iUUoSBUyV4VJ5GMcRAiHEPM8Ay7KcpxCKt/2xCCwcvqfi/ZdjKsdxGGO3g6cfzpmHfccOAv8r/gA6tdMljHwOFQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Exemplo de Quality Attributes revisados"
+        title="Exemplo de Quality Attributes revisados"
+        src="/static/779789a21aa47e2172f859163d9ba782/50383/example-quality-attributes.png"
+        srcset="/static/779789a21aa47e2172f859163d9ba782/8514f/example-quality-attributes.png 192w,
+/static/779789a21aa47e2172f859163d9ba782/804b2/example-quality-attributes.png 384w,
+/static/779789a21aa47e2172f859163d9ba782/50383/example-quality-attributes.png 740w"
+        sizes="(max-width: 740px) 100vw, 740px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Exemplo de Quality Attributes revisados</figcaption>
+  </figure></p>
+<p><a href="https://www.coursera.org/lecture/software-architecture/3-3-1-quality-attributes-xAwkW" title="Quality Attributes">Veja mais na excelente aula do <em>Coursera</em> sobre <em>Quality Attributes</em></a>.</p>
+<h2>Software Design</h2>
+<p>O <a href="https://www.coursera.org/learn/object-oriented-design/" title="Object-Oriented Design no Coursera">curso <em>Object-Oriented Design</em></a>,
+da Universidade de Alberta, define <em>software design</em> da seguinte forma:</p>
+<blockquote>
+<p>The process of planning a software solution, taking the requirements and constraints into account.
+Divided into higher-level conceptual design and more specific technical design.</p>
+</blockquote>
+<p>O foco está em pensar na solução para um problema específico, projetando detalhes de um determinado
+componente e suas responsabilidades, e utilizando de artefatos que ajudem no debate
+com a camada mais próxima de negócios (<em>high-level</em>, mais conceitual) e mais próxima de implementação
+(<em>low-level</em>, técnica).</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0fadc627531272819d6f78dc90f06355/07f3a/the-matrix-mouser.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABwNwjYWGv/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAIDAUFD/9oACAEBAAEFAlXCiZN9lM8qHP/EABYRAQEBAAAAAAAAAAAAAAAAAAARQf/aAAgBAwEBPwHEf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAEDBQAAAAAAAAAAAAAAAAEAAhAhMUFygf/aAAgBAQAGPwJpuCqZh/E3UR//xAAdEAACAgEFAAAAAAAAAAAAAAAAARExIRBRcaGx/9oACAEBAAE/IZzosTQpqidDzwmkLM2/rSFTg//aAAwDAQACAAMAAAAQDA//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8Q2EP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8QjX//xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFRYYGx/9oACAEBAAE/EKA3IeC7D3M97HAmt5h1qmAzuaqb6ajUurVHjJkDCnyf/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Mouser em The Matrix"
+        title="Um viva para o designer da Mulher de Vermelho (ballardwachowskiproject.wordpress.com)"
+        src="/static/0fadc627531272819d6f78dc90f06355/07f3a/the-matrix-mouser.jpg"
+        srcset="/static/0fadc627531272819d6f78dc90f06355/7809d/the-matrix-mouser.jpg 192w,
+/static/0fadc627531272819d6f78dc90f06355/4ecad/the-matrix-mouser.jpg 384w,
+/static/0fadc627531272819d6f78dc90f06355/07f3a/the-matrix-mouser.jpg 740w"
+        sizes="(max-width: 740px) 100vw, 740px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Um viva para o designer da Mulher de Vermelho (ballardwachowskiproject.wordpress.com)</figcaption>
+  </figure></p>
+<p>Esse passo tem presença constante no início das iterações no modelo iterativo/incremental, e pode ser desempenhado
+por diferentes papéis dentro de um time (naturalmente, com envolvimento dos desenvolvedores).</p>
+<h3>Design conceitual</h3>
+<p>Partimos do princípio que tudo origina-se de um requisito:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">Quero ver a minha lista de músicas favoritas.</code></pre></div>
+<p>Requisitos podem ser "funcionais" (como o exemplo acima), ou "não funcionais" (como o exemplo de "ilities" da seção anterior).
+Quando falamos de <em>design</em> conceitual, geralmente nos referimos ao primeiro tipo, e através de discussões mais próximas do problema exploramos soluções.</p>
+<p>Nessa etapa é comum lidar com ferramentas, preferencialmente de baixo custo e fácil alteração, que consigam
+"traduzir" a solução sendo discutida em artefatos visuais, como por exemplo:</p>
+<ul>
+<li><strong>Diagramas de alto nível:</strong> Para exemplificar relacionamentos entre o usuário, interface e demais componentes (não técnico);</li>
+<li><strong>Wireframes:</strong> Para discutir elementos em uma interface de usuário;</li>
+<li><strong>Protótipos:</strong> Para demonstrar comportamentos;</li>
+<li><strong>Mockups:</strong> Para refletir decisões de <em>design</em> como cores, <em>layouts</em>, tipografia, interações, etc.</li>
+</ul>
+<p>Uma outra forma de debatermos requisitos sob uma ótica conceitual é através da construção de <em>user stories</em>. Com elas,
+podemos tomar algumas liberdades para sermos mais específicos sobre as necessidades e expectativas que precisam ser atendidas:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">Eu como um usuário autenticado,
 Quero poder visualizar as minhas músicas favoritas,
-Para que eu consiga ouví-las com facilidade e maior frequência.
-</pre></div> <h3>Design técnico</h3> <p>Com o <em>design</em> técnico, estamos enfim discutindo aspectos voltados à "solução prática". Mas nem por isso deixamos de ser expostos a abstrações, como por exemplo, se você estiver utilizando <a href=https://klauslaube.com.br/tag/oop.html title="Leia mais sobre Orientação a Objetos"><em>OOP</em></a>:</p> <ul> <li><a href=https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento title="O que é um diagrama de entidade e relacionamento?">Diagrama de Entidade e Relacionamento (ER)</a>: Caso você esteja partindo da ótica do seu banco de dados;</li> <li><a href=https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/ title="What is Unified Modeling Language?"><em>UML</em></a>: Caso você queira esquematizar relacionamentos e ciclo de vida dos seus componentes;</li> <li><a href=https://atomicobject.com/resources/oo-programming/crc-cards title="CRC Cards">Cartões <em>CRC</em></a>: Uma alternativa mais "barata" ao <em>UML</em>, útil para descrever relacionamentos entre entidades.</li> </ul> <p>Ainda utilizando o contexto de orientação a objetos, outro tópico que pode aparecer nesse momento são os <a href=https://klauslaube.com.br/tag/design-patterns.html title="Leia mais sobre Design Patterns"><em>Design Patterns</em></a>. No caso da construção de <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre APIs"><em>APIs</em></a>, uma possibilidade é a construção do contrato via <a href=https://klauslaube.com.br/2017/11/25/swagger-e-o-open-api-initiative.html title="Swagger e o Open API Initiative"><em>Swagger file</em></a>. Enfim, estamos mais próximos de ideias e artefatos que representem de fato o sistema.</p> <p><img class=align-center-keep-size src=/images/blog/the-matrix-tank.gif width=580 height=357 title="Existem ferramentas que te permitem abstrair todo aquele caractere verde escorrendo pelo seu monitor (reddit.com)" alt="Existem ferramentas que te permitem abstrair todo aquele caractere verde escorrendo pelo seu monitor (reddit.com)"></p> <p>Independente de qual estilo de programação você esteja usando, ou de qual região da aplicação você esteja desenvolvendo, é nesse momento que acontecem discussões sobre os <em>trade-offs</em> entre as qualidades (<em>code quality</em>, <em>security</em>, <em>usability</em>, <em>performance</em>, <em>time to market</em>, etc) definidas pelo contexto do seu projeto, bem como outros requisitos não funcionais, e como isso impactará o <em>design</em> (e se o mesmo precisa ser alterado para encontrar o balanço ideal).</p> <h2>Onde cada um se encaixa?</h2> <p>Não é difícil imaginar o papel de <em>design</em> sendo exercido no início de cada iteração, ou em <em>plannings</em> e <em>groomings</em>. Além disso, ter essa responsabilidade diluída no time é natural em um contexto multidisciplinar.</p> <p>Ele pode acontecer também "ahead of time". Por exemplo, participei de projetos dos quais os "UXizes" estavam alguns <em>sprints</em> na frente, em relação aos desenvolvedores. Algumas decisões de <em>design</em> são tomadas com antecedência, e os resultados são apresentados ao longo do tempo de vida do projeto.</p> <p>Já a arquitetura pode exigir um pouco mais de organização e criatividade. Já tive diferentes experiências com esse dilema "agile x software architecture":</p> <ul> <li><strong>Todo mundo é arquiteto:</strong> É o mesmo princípio do marco de <em>design</em> ilustrado acima. Comum em <em>startups</em> e empresas relativamente pequenas;</li> <li><strong>A gerência é o arquiteto:</strong> Pode acontecer de gerentes técnicos, <em>team leads</em>, ou <em>CTOs</em> "herdarem" essa responsabilidade. Outro cenário comum em <em>startups</em>;</li> <li><strong>Um arquiteto por time:</strong> O papel é atribuído a um grupo de pessoas que compartilha uma visão em comum, e essas transitam entre os times afim de manter a visão coesa. "Casa" com a proposta de <a href=https://medium.com/productmanagement101/spotify-squad-framework-part-i-8f74bcfcd761 title="Spotify Squad framework — Part I"><em>squads</em>, <em>chapters</em> e <em>tribes</em> do <em>Spotify</em></a>;</li> <li><strong>Um time de arquitetos:</strong> O mesmo fenômeno que pode acontecer com <em>UI</em>/<em>UX</em>. Nesse caso temos um time específico para arquitetura, com seu próprio processo e <em>backlog</em>, e ele acaba colaborando com os demais times.</li> </ul> <p>E <strong>quando</strong> ela deve ser exercida pode ser outro desafio. <em>Miguel Arlandy</em> sugere o seguinte processo no <a href=https://medium.com/quick-code/software-architecture-and-agile-are-they-both-really-compatible-c1eef0afcbb1>"Software Architecture and Agile. Are they both really compatible?"</a>:</p> <blockquote> <p>(...) As a rule, it would be recommended to do some upfront design at the beginning of the project (Sprint Zero?) and before the first iteration. Besides, we should include an “Architecture review” as part of the Definition of Done (DoD) in each user story. Of course within the Sprint Planning, this fact has to be taken into account. It would be worthwhile if at least one of the team members (if not all of them) will be accountable to ensure both product development and Architecture are aligned.</p> </blockquote> <p>Uma das possíveis respostas para as perguntas do início desse <em>post</em> é o conceito de <a href=https://www.scaledagileframework.com/agile-architecture/ title="Agile Architecture in SAFe"><em>Agile Architecture</em></a>, usado pelo <a href=https://www.scaledagileframework.com/ title="Scaling Agile"><em>SAFe Framework</em></a>:</p> <blockquote> <p>(...) is a set of values, practices, and collaborations that support the active, evolutionary design and architecture of a system. This approach embraces the DevOps mindset, allowing the architecture of a system to evolve continuously over time, while simultaneously supporting the needs of current users. It avoids the overhead and delays associated with the start-stop-start nature and large-scale redesign inherent with phase-gate processes and Big Up Front Design (BUFD).</p> </blockquote> <p>Onde, resumidamente, inicia-se com um pouco de <em>upfront design</em> que é retroalimentado pelos <em>feedbacks</em>, <em>design</em> e decisões futuras dos times autônomos.</p> <p><img class=align-center-keep-size src=/images/blog/safe-design-architecture.png width=694 height=280 title="Exemplo de regulação entre arquitetura e design (medium.com)" alt="Exemplo de regulação entre arquitetura e design (medium.com)"></p> <p>Desse modo, teoricamente, é possível ter uma referência sólida de arquitetura, e ainda assim abrir espaço para inovação e alterações nessa referência. Outro aspecto interessante desse modelo é que é possível imaginá-lo com a proposta de <em>squads</em> do <em>Spotify</em>.</p> <h2>Considerações finais</h2> <p>Acredito que o <em>agile</em> e sua comunidade amadureceram o suficiente para compreender que alguns papéis mais "tradicionais" do desenvolvimento de <em>software</em> precisam ser integrados à sua dinâmica. Quando em uma <em>startup</em>, em que ainda é possível se ter a "visão do todo", é completamente natural que engenheiros/desenvolvedores assumam responsabilidades de <em>design</em> e arquitetura. Mas em um contexto mais "enterprise", além de difícil, consome-se muito tempo "tentando tirar a cabeça da areia" e olhar em volta, principalmente se o processo esteja montado em torno de times autônomos.</p> <p>Independente de quem desempenhe tais papéis, essa característica "iterativa/incremental" que conceitos como o <em>Agile Architecture</em> trazem são bem interessantes, e combinam completamente com os valores que desenvolvedores de <em>software</em> mais se identificam quando adotando ferramentas ágeis.</p> <p>Até a próxima.</p> <h2>Referências</h2> <ul> <li><a href=https://atomicobject.com/resources/oo-programming/crc-cards>Atomic Object - CRC Cards</a></li> <li><a href=https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830>Codeburst.io - Software Architecture: The Difference Between Architecture And Design</a></li> <li><a href=https://www.coursera.org/learn/object-oriented-design/home/welcome>Coursera - Object-Oriented Design</a></li> <li><a href=https://dzone.com/articles/%E2%80%9C41%E2%80%9D-view-model-software>DZone - The “4+1” View Model of Software Architecture</a></li> <li><a href=https://www.experienceux.co.uk/faqs/what-is-wireframing/ >Experience UX - What is wireframing?</a></li> <li><a href=https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento>Lucidchart - O que é um diagrama entidade relacionamento?</a></li> <li><a href=https://medium.com/@kostadisroussos/21-architecturalist-papers-always-be-right-right-now-1552af8dc330>Medium - 21 architecturalist papers: always be right, right now.</a></li> <li><a href=https://medium.com/@designveloper.com/what-is-software-development-862fdcccd3b>Medium - What is Software Development?</a></li> <li><a href=https://medium.com/quick-code/software-architecture-and-agile-are-they-both-really-compatible-c1eef0afcbb1>Quick Code - Software Architecture and Agile. Are they both really compatible?</a></li> <li><a href=https://www.scaledagileframework.com/agile-architecture/ >Scaled Agile Framework - Agile Architecture in SAFe</a></li> <li><a href=https://www.uxpin.com/studio/blog/what-is-a-mockup-the-final-layer-of-ui-design/ >UXPin - What is a Mockup: The Final Layer of UI Design</a></li> <li><a href=https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/ >Visual Paradigm: What is Unified Modeling Language (UML)?</a></li> <li><a href=https://www.visual-paradigm.com/guide/uml-unified-modeling-language/modeling-software-architecture-with-package/ >Visual Paradigm: Modeling Software Architecture with Packages</a></li> <li><a href=https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional>Wikipedia - Requisito não funcional</a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/analise.html title="Leia mais sobre" class=Article-tagLink>análise</a> <a href=https://klauslaube.com.br/tag/arquitetura-de-software.html title="Leia mais sobre" class=Article-tagLink>arquitetura-de-software</a> <a href=https://klauslaube.com.br/tag/design-de-software.html title="Leia mais sobre" class=Article-tagLink>design-de-software</a> <a href=https://klauslaube.com.br/tag/agile.html title="Leia mais sobre" class=Article-tagLink>agile</a> <a href=https://klauslaube.com.br/tag/safe.html title="Leia mais sobre" class=Article-tagLink>safe</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
-        var disqus_shortname = "klauslaube";
-        var disqus_identifier = "2020/01/07/software-design-software-architecture.html";
-
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-19657400-1');ga('send','pageview');
-    </script> </body> </html>
+Para que eu consiga ouví-las com facilidade e maior frequência.</code></pre></div>
+<h3>Design técnico</h3>
+<p>Com o <em>design</em> técnico, estamos enfim discutindo aspectos voltados à "solução prática". Mas nem por isso deixamos de ser expostos a abstrações, como por exemplo, se você estiver utilizando <a href="/tag/oop.html" title="Leia mais sobre Orientação a Objetos"><em>OOP</em></a>:</p>
+<ul>
+<li><a href="https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento" title="O que é um diagrama de entidade e relacionamento?">Diagrama de Entidade e Relacionamento (ER)</a>: Caso você esteja partindo da ótica do seu banco de dados;</li>
+<li><a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/" title="What is Unified Modeling Language?"><em>UML</em></a>: Caso você queira esquematizar relacionamentos e ciclo de vida dos seus componentes;</li>
+<li><a href="https://atomicobject.com/resources/oo-programming/crc-cards" title="CRC Cards">Cartões <em>CRC</em></a>: Uma alternativa mais "barata" ao <em>UML</em>, útil para descrever relacionamentos entre entidades.</li>
+</ul>
+<p>Ainda utilizando o contexto de orientação a objetos, outro tópico que pode aparecer nesse momento são os <a href="/tag/design-patterns.html" title="Leia mais sobre Design Patterns"><em>Design Patterns</em></a>. No caso da construção de <a href="/tag/api.html" title="Leia mais sobre APIs"><em>APIs</em></a>, uma possibilidade é a construção do contrato via <a href="/2017/11/25/swagger-e-o-open-api-initiative.html" title="Swagger e o Open API Initiative"><em>Swagger file</em></a>. Enfim, estamos mais próximos de ideias e artefatos que representem de fato o sistema.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 580px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fbe78afa37ef4a8565412eea8f336018/78d0c/the-matrix-tank.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.45833333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAeRNZhI//8QAGRAAAgMBAAAAAAAAAAAAAAAAADEBAhEi/9oACAEBAAEFAmS2bwWf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFRABAQAAAAAAAAAAAAAAAAAAICH/2gAIAQEABj8Ci//EABsQAAIDAAMAAAAAAAAAAAAAAAERACExEEGh/9oACAEBAAE/ISCAQ5AGIcM+xlL7Ubs3fH//2gAMAwEAAgADAAAAEGvP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPxBG1W5CaUUGvWXsAorQMrtPh5WMunQDs6z/2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Tank em The Matrix"
+        title="Existem ferramentas que te permitem abstrair todo aquele caractere verde escorrendo pelo seu monitor (reddit.com)"
+        src="/static/fbe78afa37ef4a8565412eea8f336018/78d0c/the-matrix-tank.jpg"
+        srcset="/static/fbe78afa37ef4a8565412eea8f336018/7809d/the-matrix-tank.jpg 192w,
+/static/fbe78afa37ef4a8565412eea8f336018/4ecad/the-matrix-tank.jpg 384w,
+/static/fbe78afa37ef4a8565412eea8f336018/78d0c/the-matrix-tank.jpg 580w"
+        sizes="(max-width: 580px) 100vw, 580px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Existem ferramentas que te permitem abstrair todo aquele caractere verde escorrendo pelo seu monitor (reddit.com)</figcaption>
+  </figure></p>
+<p>Independente de qual estilo de programação você esteja usando, ou de qual região da aplicação você esteja desenvolvendo, é nesse momento que acontecem discussões sobre os <em>trade-offs</em> entre as qualidades (<em>code quality</em>, <em>security</em>, <em>usability</em>, <em>performance</em>, <em>time to market</em>, etc) definidas pelo contexto do seu projeto, bem como outros requisitos não funcionais, e como isso impactará o <em>design</em> (e se o mesmo precisa ser alterado para encontrar o balanço ideal).</p>
+<h2>Onde cada um se encaixa?</h2>
+<p>Não é difícil imaginar o papel de <em>design</em> sendo exercido no início de cada iteração, ou em <em>plannings</em> e <em>groomings</em>. Além disso,
+ter essa responsabilidade diluída no time é natural em um contexto multidisciplinar.</p>
+<p>Ele pode acontecer também "ahead of time". Por exemplo, participei de projetos dos quais os "UXizes" estavam alguns <em>sprints</em> na frente, em
+relação aos desenvolvedores. Algumas decisões de <em>design</em> são tomadas com antecedência, e os resultados são apresentados ao longo do tempo de vida do projeto.</p>
+<p>Já a arquitetura pode exigir um pouco mais de organização e criatividade. Já tive diferentes experiências com esse dilema "agile x software architecture":</p>
+<ul>
+<li><strong>Todo mundo é arquiteto:</strong> É o mesmo princípio do marco de <em>design</em> ilustrado acima. Comum em <em>startups</em> e empresas relativamente pequenas;</li>
+<li><strong>A gerência é o arquiteto:</strong> Pode acontecer de gerentes técnicos, <em>team leads</em>, ou <em>CTOs</em> "herdarem" essa responsabilidade. Outro cenário comum em <em>startups</em>;</li>
+<li><strong>Um arquiteto por time:</strong> O papel é atribuído a um grupo de pessoas que compartilha uma visão em comum, e essas transitam entre os times afim de manter a visão coesa. "Casa" com a proposta de <a href="https://medium.com/productmanagement101/spotify-squad-framework-part-i-8f74bcfcd761" title="Spotify Squad framework — Part I"><em>squads</em>, <em>chapters</em> e <em>tribes</em> do <em>Spotify</em></a>;</li>
+<li><strong>Um time de arquitetos:</strong> O mesmo fenômeno que pode acontecer com <em>UI</em>/<em>UX</em>. Nesse caso temos um time específico para arquitetura, com seu próprio processo e <em>backlog</em>, e ele acaba colaborando com os demais times.</li>
+</ul>
+<p>E <strong>quando</strong> ela deve ser exercida pode ser outro desafio. <em>Miguel Arlandy</em> sugere o seguinte processo no <a href="https://medium.com/quick-code/software-architecture-and-agile-are-they-both-really-compatible-c1eef0afcbb1">"Software Architecture and Agile. Are they both really compatible?"</a>:</p>
+<blockquote>
+<p>(...) As a rule, it would be recommended to do some upfront design at the beginning of the project (Sprint Zero?) and before the first iteration. Besides, we should include an “Architecture review” as part of the Definition of Done (DoD) in each user story. Of course within the Sprint Planning, this fact has to be taken into account. It would be worthwhile if at least one of the team members (if not all of them) will be accountable to ensure both product development and Architecture are aligned.</p>
+</blockquote>
+<p>Uma das possíveis respostas para as perguntas do início desse <em>post</em> é o conceito de <a href="https://www.scaledagileframework.com/agile-architecture/" title="Agile Architecture in SAFe"><em>Agile Architecture</em></a>, usado pelo <a href="https://www.scaledagileframework.com/" title="Scaling Agile"><em>SAFe Framework</em></a>:</p>
+<blockquote>
+<p>(...) is a set of values, practices, and collaborations that support the active, evolutionary design and architecture of a system. This approach embraces the DevOps mindset, allowing the architecture of a system to evolve continuously over time, while simultaneously supporting the needs of current users. It avoids the overhead and delays associated with the start-stop-start nature and large-scale redesign inherent with phase-gate processes and Big Up Front Design (BUFD).</p>
+</blockquote>
+<p>Onde, resumidamente, inicia-se com um pouco de <em>upfront design</em> que é retroalimentado pelos <em>feedbacks</em>, <em>design</em> e decisões futuras dos times autônomos.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 694px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/739c897b4e9dd67be089a75b216bfd65/31198/safe-design-architecture.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 40.10416666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABF0lEQVQY04WQW2uDMBTH/f5fZux1bLDtYYXB2OWhVKoVV7WJxltuJvEkLur6UOjYj0M4Obf8cwJjRsbldMZaixFy1q7XEuM0TZXS0zUC0IxXUVl3AOMaMuPoFryPMI7iiHF+0WTn1ORcQMkRyOfN4ysTwkdgGGhdGyFAKUmIW9ucs8Y4PxRgPlcDCA77neyObx9fBCHVtOiQVEmCt9s+yxRjehigp8C4FcKbM+ZCdp7ns1SjfSntelI3ymiMSx/0Pl/k+BV4ob92ZpZ9+o5rFN7ePx+Lgitoqex6SghpmjbPC6O18A8u/7+yMNkVTbp52LxnRWHcxJTt2VxNKfXpnScMpz8I3CjbKrl7etlH8bJqKwe1CPyfHzuWzHl1k7e7AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Nível de abstração entre Arquiteto e Time"
+        title="Exemplo de regulação entre arquitetura e design (medium.com)"
+        src="/static/739c897b4e9dd67be089a75b216bfd65/31198/safe-design-architecture.png"
+        srcset="/static/739c897b4e9dd67be089a75b216bfd65/8514f/safe-design-architecture.png 192w,
+/static/739c897b4e9dd67be089a75b216bfd65/804b2/safe-design-architecture.png 384w,
+/static/739c897b4e9dd67be089a75b216bfd65/31198/safe-design-architecture.png 694w"
+        sizes="(max-width: 694px) 100vw, 694px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Exemplo de regulação entre arquitetura e design (medium.com)</figcaption>
+  </figure></p>
+<p>Desse modo, teoricamente, é possível ter uma referência sólida de arquitetura, e ainda assim abrir espaço para inovação e alterações nessa referência. Outro aspecto interessante desse modelo é que é possível imaginá-lo com a proposta de <em>squads</em> do <em>Spotify</em>.</p>
+<h2>Considerações finais</h2>
+<p>Acredito que o <em>agile</em> e sua comunidade amadureceram o suficiente para compreender que alguns papéis mais "tradicionais" do desenvolvimento de <em>software</em> precisam ser integrados à sua dinâmica. Quando em uma <em>startup</em>, em que ainda é possível se ter a "visão do todo", é completamente natural que engenheiros/desenvolvedores assumam responsabilidades de <em>design</em> e arquitetura. Mas em um contexto mais "enterprise", além de difícil, consome-se muito tempo "tentando tirar a cabeça da areia" e olhar em volta, principalmente se o processo esteja montado em torno de times autônomos.</p>
+<p>Independente de quem desempenhe tais papéis, essa característica "iterativa/incremental" que conceitos como o <em>Agile Architecture</em> trazem são bem interessantes, e combinam completamente com os valores que desenvolvedores de <em>software</em> mais se identificam quando adotando ferramentas ágeis.</p>
+<p>Até a próxima.</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="https://atomicobject.com/resources/oo-programming/crc-cards">Atomic Object - CRC Cards</a></li>
+<li><a href="https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830">Codeburst.io - Software Architecture: The Difference Between Architecture And Design</a></li>
+<li><a href="https://www.coursera.org/learn/object-oriented-design/home/welcome">Coursera - Object-Oriented Design</a></li>
+<li><a href="https://dzone.com/articles/%E2%80%9C41%E2%80%9D-view-model-software">DZone - The “4+1” View Model of Software Architecture</a></li>
+<li><a href="https://www.experienceux.co.uk/faqs/what-is-wireframing/">Experience UX - What is wireframing?</a></li>
+<li><a href="https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento">Lucidchart - O que é um diagrama entidade relacionamento?</a></li>
+<li><a href="https://medium.com/@kostadisroussos/21-architecturalist-papers-always-be-right-right-now-1552af8dc330">Medium - 21 architecturalist papers: always be right, right now.</a></li>
+<li><a href="https://medium.com/@designveloper.com/what-is-software-development-862fdcccd3b">Medium - What is Software Development?</a></li>
+<li><a href="https://medium.com/quick-code/software-architecture-and-agile-are-they-both-really-compatible-c1eef0afcbb1">Quick Code - Software Architecture and Agile. Are they both really compatible?</a></li>
+<li><a href="https://www.scaledagileframework.com/agile-architecture/">Scaled Agile Framework - Agile Architecture in SAFe</a></li>
+<li><a href="https://www.uxpin.com/studio/blog/what-is-a-mockup-the-final-layer-of-ui-design/">UXPin - What is a Mockup: The Final Layer of UI Design</a></li>
+<li><a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/">Visual Paradigm: What is Unified Modeling Language (UML)?</a></li>
+<li><a href="https://www.visual-paradigm.com/guide/uml-unified-modeling-language/modeling-software-architecture-with-package/">Visual Paradigm: Modeling Software Architecture with Packages</a></li>
+<li><a href="https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional">Wikipedia - Requisito não funcional</a></li>
+</ul></div><div class="article-tags__Tags-lfitfk-0 gKRNvs"><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/arquitetura-de-software.html">arquitetura-de-software</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/design-de-software.html">design-de-software</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/agile.html">agile</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/safe.html">safe</a></div><div class="article__DiscussionWrapper-sc-1bof3w4-2 lhlkLZ"><div shortname="klauslaube" config="[object Object]" id="disqus_thread"></div></div></div></div><footer class="page-footer__Footer-sc-1jesc4c-0 eZHcyp"><div class="container-sc-1o2is99-0 bfwjqj"><p>O conteúdo desse blog está sob a licença<!-- --> <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Creative Commons Attribution</a>.</p><p><a href="https://github.com/kplaube/blog" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Fork me on Github</a>.</p></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2020/01/07/software-design-software-architecture.html";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e7e259d06d29a943bae9.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-0712dae6686d19cfe871.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-37944ec4ec91a7d47898.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bf5e10cca5c03eb48f60.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js" async=""></script><script src="/commons-d19a5247b9c341fd9cf4.js" async=""></script><script src="/app-e7e259d06d29a943bae9.js" async=""></script><script src="/styles-72b9aca6a03bf971c27e.js" async=""></script><script src="/framework-15c64f04ece7e16d9319.js" async=""></script><script src="/webpack-runtime-74a6d0a7c3b7aca6f059.js" async=""></script></body></html>

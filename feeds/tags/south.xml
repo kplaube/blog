@@ -1,16 +1,355 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - south</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 18 Oct 2016 12:43:00 -0200</lastBuildDate><item><title>As built-in migrations do Django</title><link>https://klauslaube.com.br/2016/10/18/as-built-in-migrations-do-django.html</link><description>&lt;p&gt;Quem usa o &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; há mais tempo já ouviu
-falar do &lt;a href="https://klauslaube.com.br/tag/south.html" title="Leia mais sobre South"&gt;&lt;em&gt;South&lt;/em&gt;&lt;/a&gt;. Famosa biblioteca
-responsável por trazer o comportamento de &lt;a href="https://klauslaube.com.br/tag/migrations.html" title="Leia mais sobre Migrations"&gt;&lt;em&gt;migrations&lt;/em&gt;&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - south]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[As built-in migrations do Django]]></title><description><![CDATA[Quem usa o Django há mais tempo já ouviu
+falar do South. Famosa biblioteca
+responsável por trazer o comportamento de migrations
+para o Django. Sem dúvida impactou inúmeros projetos e transformou o processo de
+deploy de toda a comunidade envolvida com o framework. Nas versões mais recentes do Django…]]></description><link>https://klauslaube.com.br/2016/10/18/as-built-in-migrations-do-django.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/10/18/as-built-in-migrations-do-django.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 18 Oct 2016 12:43:00 GMT</pubDate><content:encoded>&lt;p&gt;Quem usa o &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; há mais tempo já ouviu
+falar do &lt;a href=&quot;/tag/south.html&quot; title=&quot;Leia mais sobre South&quot;&gt;&lt;em&gt;South&lt;/em&gt;&lt;/a&gt;. Famosa biblioteca
+responsável por trazer o comportamento de &lt;a href=&quot;/tag/migrations.html&quot; title=&quot;Leia mais sobre Migrations&quot;&gt;&lt;em&gt;migrations&lt;/em&gt;&lt;/a&gt;
 para o &lt;em&gt;Django&lt;/em&gt;. Sem dúvida impactou inúmeros projetos e transformou o processo de
 &lt;em&gt;deploy&lt;/em&gt; de toda a comunidade envolvida com o &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Nas versões mais recentes do &lt;em&gt;Django&lt;/em&gt;, contamos com um &lt;em&gt;engine&lt;/em&gt; &lt;em&gt;built-in&lt;/em&gt;,
+muito prático, e que traz alguns conceitos que ficaram famosos com o &lt;em&gt;South&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos nessa dar adeus ao &lt;code class=&quot;language-text&quot;&gt;syncdb&lt;/code&gt;, e começar a nossa aventura com o &lt;code class=&quot;language-text&quot;&gt;migrate&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;O que são migrations?&lt;/h2&gt;
+&lt;p&gt;Diretamente da documentação do &lt;em&gt;South&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) são uma forma de alterar o schema do seu banco de dados de uma versão para outra.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Você mantém em seu projeto uma série de instruções que modificam o &lt;em&gt;database&lt;/em&gt;
+de acordo com a evolução do projeto. Quando uma nova pessoa fizer parte do time,
+não é necessário a realização de nenhum &quot;dump&quot; &lt;em&gt;SQL&lt;/em&gt;, apenas a execução dessas &lt;em&gt;migrations&lt;/em&gt;
+é o suficiente para você ter o &lt;em&gt;db&lt;/em&gt; pronto para uso.&lt;/p&gt;
+&lt;p&gt;Dentro do ecossistema &lt;em&gt;Django&lt;/em&gt;, as &lt;em&gt;built-in migrations&lt;/em&gt; vieram como uma excelente
+contribuição ao projeto. A distribuição de &lt;em&gt;apps&lt;/em&gt; fica mais coerente, agora que o
+desenvolvedor não precisa mais de uma &quot;segunda biblioteca&quot; para passar a usar
+um app que estamos distribuindo.&lt;/p&gt;
+&lt;h2&gt;Faça migrations&lt;/h2&gt;
+&lt;p&gt;Para exemplificar como toda essa mágica funciona, vamos criar um &lt;em&gt;app&lt;/em&gt; chamado &quot;lista&lt;em&gt;de&lt;/em&gt;compras&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py startapp lista_de_compras&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nosso &lt;em&gt;application&lt;/em&gt; terá uma estrutura similar a essa:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;lista_de_compras/
+    __init__.py
+    admin.py
+    apps.py
+    migrations/
+        __init__.py
+    models.py
+    tests.py
+    views.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não esqueça de adicioná-lo ao &lt;code class=&quot;language-text&quot;&gt;INSTALLED_APPS&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos nos focar na pasta &lt;code class=&quot;language-text&quot;&gt;migrations&lt;/code&gt; e no &lt;code class=&quot;language-text&quot;&gt;models.py&lt;/code&gt;. Nesse último, criaremos o modelo &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# models.py&lt;/span&gt;
 
-&lt;p&gt;Nas versões mais recentes do &lt;em&gt;Django&lt;/em&gt;, contamos …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 18 Oct 2016 12:43:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-10-18:/2016/10/18/as-built-in-migrations-do-django.html</guid><category>desenvolvimento</category><category>migrations</category><category>python</category><category>django</category><category>south</category></item><item><title>Migrations em Django com South</title><link>https://klauslaube.com.br/2011/11/20/migrations-em-django-south.html</link><description>&lt;p&gt;E quem nunca precisou adicionar ou remover alguma
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    quantidade &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IntegerField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora, na linha de comando, invocamos o comando de criação de &lt;em&gt;migrations&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py makemigrations&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se tudo ocorreu bem, na pasta &lt;code class=&quot;language-text&quot;&gt;migrations&lt;/code&gt; do &lt;em&gt;app&lt;/em&gt;, um novo arquivo
+&lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; foi criado:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# migrations/0001_initial.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; __future__ &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; unicode_literals
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;db &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; migrations&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; models
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Migration&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    initial &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;
+
+    dependencies &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    operations &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CreateModel&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Item&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            fields&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;AutoField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;auto_created&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; primary_key&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; serialize&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; verbose_name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;ID&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;nome&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;quantidade&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IntegerField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por partes:&lt;/p&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;unicode_literals&lt;/code&gt; é uma ferramenta que torna possível a execução de seu projeto em &lt;em&gt;Python&lt;/em&gt; 2 e 3.
+Ela tem a função de &quot;marcar&quot; suas &lt;em&gt;strings&lt;/em&gt; como &lt;em&gt;unicode&lt;/em&gt;, como explicado na &lt;a href=&quot;https://docs.djangoproject.com/en/1.10/topics/migrations/#supporting-python-2-and-3&quot; title=&quot;Suportando Python 2 e 3&quot;&gt;documentação do &lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É criada (automaticamente) uma classe &lt;code class=&quot;language-text&quot;&gt;Migration&lt;/code&gt; herdando de &lt;code class=&quot;language-text&quot;&gt;migrations.Migration&lt;/code&gt;. Nela, temos
+3 propriedades muito importantes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;initial&lt;/code&gt;: Informamos explicitamente ao &lt;em&gt;Django&lt;/em&gt; que essa é a &lt;em&gt;migration&lt;/em&gt; inicial do &lt;em&gt;app&lt;/em&gt;. Essa
+informação é importante para alguns casos, como quando é &lt;a href=&quot;https://docs.djangoproject.com/en/1.10/topics/migrations/#django.db.migrations.Migration.initial&quot; title=&quot;Leia mais na documentação do Django&quot;&gt;preciso executar o --fake-initial&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt;: Aqui informamos as dependências da nossa &lt;em&gt;migration&lt;/em&gt;. Por exemplo, se dependermos
+de outra &lt;em&gt;migration&lt;/em&gt; ou &lt;em&gt;app&lt;/em&gt;, precisamos deixar claro que há uma dependência para manter uma ordem
+coerente de execução.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;operations&lt;/code&gt;: Por fim, as operações que precisam ser executadas. No exemplo acima, estamos criando
+a tabela &lt;code class=&quot;language-text&quot;&gt;lista_de_compras_item&lt;/code&gt;, com os campos &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;nome&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;quantidade&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;No more syncdb&lt;/h2&gt;
+&lt;p&gt;Calma! A tabela ainda não existe no banco dados. Para que isso aconteça é necessário executar o comando
+&lt;code class=&quot;language-text&quot;&gt;migrate&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py migrate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;migrate&lt;/code&gt; executará todas as &lt;em&gt;migrations&lt;/em&gt; pendentes do seu projeto. Caso queira executar
+apenas de um &lt;em&gt;app&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py migrate lista_de_compras&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Evoluindo o Schema&lt;/h2&gt;
+&lt;p&gt;Vamos supor que exista o requisito de criar um &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;API REST&lt;/em&gt;&lt;/a&gt; para o projeto,
+logo, expor o campo &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; não é uma boa prática! Precisamos de um campo único e não
+sequencial, que trará um pouco de &lt;em&gt;obfuscation&lt;/em&gt; e segurança ao nosso &lt;em&gt;endpoint&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Primeiro, adicionamos o campo ao modelo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# models.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    uuid &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;UUIDField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;uuid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid4&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; editable&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; unique&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    quantidade &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;IntegerField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;default&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Seguindo o procedimento, para homologar as alterações em uma &lt;em&gt;migration&lt;/em&gt;, precisamos do &lt;code class=&quot;language-text&quot;&gt;makemigrations&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py makemigrations lista_de_compras&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se você executar o &lt;code class=&quot;language-text&quot;&gt;migrate&lt;/code&gt; em um banco de dados vazio, provavelmente não terá nenhum problema. Mas
+em um banco já existente, provavelmente uma &lt;em&gt;exception&lt;/em&gt; acontecerá. O fato é que o uso do campo &lt;code class=&quot;language-text&quot;&gt;unique&lt;/code&gt;
+e o campo &lt;code class=&quot;language-text&quot;&gt;default&lt;/code&gt;, em uma &lt;em&gt;migration&lt;/em&gt;, não é tão &lt;a href=&quot;https://code.djangoproject.com/ticket/23932&quot; title=&quot;Document how to set a unique value for new fields using migrations&quot;&gt;intuitivo como parece&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/886cfa7973442256a4caa2fc8bba883f/c08c5/croods-migration.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQD/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAcsYlIWJB//EABcQAQEBAQAAAAAAAAAAAAAAAAEAERL/2gAIAQEAAQUCULobC1XW6b//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARIT/9oACAEDAQE/Ac1Jf//EABURAQEAAAAAAAAAAAAAAAAAAAAS/9oACAECAQE/AaU//8QAGBAAAgMAAAAAAAAAAAAAAAAAARAAITH/2gAIAQEABj8C2WGF/8QAGxAAAgIDAQAAAAAAAAAAAAAAAAFBUREhMWH/2gAIAQEAAT8h5uitGrkTdHsZhtwXJGiT/9oADAMBAAIAAwAAABCwP//EABcRAQEBAQAAAAAAAAAAAAAAAAEAMWH/2gAIAQMBAT8QCbdL/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERUf/aAAgBAgEBPxCcqv/EABoQAQADAQEBAAAAAAAAAAAAAAEAESExUYH/2gAIAQEAAT8QtanSsKiI8FRnZZ4i4a4+QwXoxKIGAT//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Migrar é preciso (indiewire.com)&amp;quot;&quot;
+        title=&quot;Migrar é preciso (indiewire.com)&quot;
+        src=&quot;/static/886cfa7973442256a4caa2fc8bba883f/c08c5/croods-migration.jpg&quot;
+        srcset=&quot;/static/886cfa7973442256a4caa2fc8bba883f/7809d/croods-migration.jpg 192w,
+/static/886cfa7973442256a4caa2fc8bba883f/4ecad/croods-migration.jpg 384w,
+/static/886cfa7973442256a4caa2fc8bba883f/c08c5/croods-migration.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Migrar é preciso (indiewire.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Para fazer esse procedimento, vamos seguir as recomendações da &lt;a href=&quot;https://docs.djangoproject.com/en/1.10/howto/writing-migrations/#migrations-that-add-unique-fields&quot; title=&quot;Migrations that add unique fields&quot;&gt;documentação do Django&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Primeiro, removemos os atributos &lt;code class=&quot;language-text&quot;&gt;unique=True&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;default=uuid.uuid4&lt;/code&gt; da &lt;em&gt;migration&lt;/em&gt; recém criada, e adicionamos
+o parâmetro &lt;code class=&quot;language-text&quot;&gt;null=True&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# migrations/0002_item_uuid.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Migration&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    dependencies &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lista_de_compras&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0001_initial&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    operations &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;AddField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            model_name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;item&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;uuid&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            field&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;UUIDField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;editable&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; null&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O próximo passo é popular as linhas já existentes com &lt;code class=&quot;language-text&quot;&gt;uuids&lt;/code&gt;. Faremos isso através de &lt;em&gt;data migrations&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Data migrations&lt;/h2&gt;
+&lt;p&gt;Diretamente da documentação do &lt;em&gt;Django&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Migrations that alter data are usually called “data migrations”;
+they’re best written as separate migrations, sitting alongside your schema migrations.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em alguns casos precisamos inserir ou alterar dados, de acordo com a evolução do &lt;em&gt;database&lt;/em&gt;
+do nosso projeto. O &lt;em&gt;Django&lt;/em&gt; não possui nenhuma forma &quot;automática&quot; para geração de
+&lt;em&gt;data migrations&lt;/em&gt;, por isso, o caminho ideal é utilizar o comando &lt;code class=&quot;language-text&quot;&gt;--empty&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py makemigrations --empty lista_de_compras&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com isso, uma &lt;em&gt;migration&lt;/em&gt; &quot;em branco&quot; será criada, pronta para customização:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# migrations/0003_auto_20161010_1635.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Migration&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    dependencies &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lista_de_compras&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0002_item_uuid&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    operations &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Importante notar que agora o atributo &lt;code class=&quot;language-text&quot;&gt;dependencies&lt;/code&gt; está preenchido com a &lt;em&gt;migration&lt;/em&gt;
+anterior à recém criada. É sempre necessário ter atenção à sua lista de dependências,
+para certificar-se que o fluxo acontecerá numa ordem coerente.&lt;/p&gt;
+&lt;p&gt;Criaremos a função responsável por inserir &lt;em&gt;UUIDs&lt;/em&gt; nos registros já existentes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# migrations/0003_auto_20161010_1635.py&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; uuid
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;gen_uuid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;apps&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; schema_editor&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    Item &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; apps&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_model&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lista_de_compras&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Item&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    items &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; item &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; items&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; uuid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid4&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;save&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Usamos o parâmetro &lt;code class=&quot;language-text&quot;&gt;apps&lt;/code&gt; para &quot;importar&quot; o modelo. Na sequência, utilizamos o &lt;em&gt;ORM&lt;/em&gt;
+para pegar todos os items do banco de dados, iteramos por eles preenchendo o campo
+&lt;code class=&quot;language-text&quot;&gt;uuid&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Precisamos adicionar essa função ao atributo &lt;code class=&quot;language-text&quot;&gt;operations&lt;/code&gt;, da &lt;em&gt;migration&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# migrations/0003_auto_20161010_1635.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Migration&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    dependencies &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lista_de_compras&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0002_item_uuid&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    operations &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RunPython&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gen_uuid&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reverse_code&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RunPython&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;noop&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Utilizamos a função &lt;code class=&quot;language-text&quot;&gt;RunPython&lt;/code&gt; para executar operações em nossa &lt;em&gt;migration&lt;/em&gt;
+que dependem de processamento por parte da linguagem (ou do &lt;em&gt;Django&lt;/em&gt;). Em alguns
+cenários, esse tipo de operação não tem um processo de &lt;em&gt;rollback&lt;/em&gt;, portanto,
+deixamos explícito que não temos como desfazer a operação através do parâmetro
+&lt;code class=&quot;language-text&quot;&gt;reverse_code&lt;/code&gt; com valor &lt;code class=&quot;language-text&quot;&gt;migrations.RunPython.noop&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;migration&lt;/em&gt; deve ter ficado mais ou menos assim:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# migrations/0003_auto_20161010_1635.py&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; __future__ &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; unicode_literals
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; uuid
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;db &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; migrations&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; transaction
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;gen_uuid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;apps&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; schema_editor&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    Item &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; apps&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_model&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lista_de_compras&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Item&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    items &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; item &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; items&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; uuid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid4&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;save&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Migration&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    dependencies &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;lista_de_compras&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;0002_item_uuid&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    operations &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RunPython&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gen_uuid&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reverse_code&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;migrations&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;RunPython&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;noop&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainda não acabou! Uma vez que todos os registros já possuam o seu &lt;code class=&quot;language-text&quot;&gt;uuid&lt;/code&gt;
+preenchido, precisamos voltar à proposta original do nosso modelo: Com
+um campo default, e com preenchimento obrigatório. Para tanto, basta
+executar novamente o &lt;code class=&quot;language-text&quot;&gt;makemigrations&lt;/code&gt;. Uma nova &lt;em&gt;migration&lt;/em&gt; será criada,
+com todas as &lt;em&gt;constraints&lt;/em&gt; definidas corretamente.&lt;/p&gt;
+&lt;p&gt;Agora rode o &lt;code class=&quot;language-text&quot;&gt;migrate&lt;/code&gt;. Acabamos de criar um campo &lt;code class=&quot;language-text&quot;&gt;uuid&lt;/code&gt;,
+preenchemos os registros já existentes no &lt;em&gt;database&lt;/em&gt;, e criamos
+&lt;em&gt;constraints&lt;/em&gt; para os registros que virão no futuro.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.10/topics/migrations/&quot;&gt;Django documentation: Migrations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://south.readthedocs.io/en/latest/whataremigrations.html&quot;&gt;South documentation: What are migrations?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Migrations em Django com South]]></title><description><![CDATA[E quem nunca precisou adicionar ou remover alguma
+coluna, nas tabelas do seu banco de dados, depois que a aplicação já
+estava em produção? Os riscos existem (e são altos), e podem ser
+diminuidos através de processos automatizados. Em um mundo ideal, o procedimento de deploy (para entregas contínuas…]]></description><link>https://klauslaube.com.br/2011/11/20/migrations-em-django-south.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/11/20/migrations-em-django-south.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 20 Nov 2011 21:35:00 GMT</pubDate><content:encoded>&lt;p&gt;E quem nunca precisou adicionar ou remover alguma
 coluna, nas tabelas do seu banco de dados, depois que a aplicação já
 estava em produção? Os riscos existem (e são altos), e podem ser
 diminuidos através de processos automatizados.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Em um mundo ideal, o procedimento de &lt;em&gt;deploy&lt;/em&gt; (para entregas contínuas)
-&lt;strong&gt;deve …&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 20 Nov 2011 21:35:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-11-20:/2011/11/20/migrations-em-django-south.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>migrations</category><category>south</category></item></channel></rss>
+&lt;strong&gt;deve ser automatizado&lt;/strong&gt;. Com o &lt;em&gt;South&lt;/em&gt;, “migrar” a estrutura e os
+dados da sua base de dados para a versão presente em seu novo deploy, é
+simples, prático e 100% integrado ao &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalando o South&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;http://south.aeracode.org/&quot; title=&quot;Página oficial do projeto South&quot;&gt;&lt;em&gt;South&lt;/em&gt;&lt;/a&gt; é muito, mas muito simples de instalar. Utilizando o
+&lt;em&gt;pip&lt;/em&gt;, basta o seguinte comando para termos os &lt;em&gt;eggs&lt;/em&gt; em nosso
+&lt;code class=&quot;language-text&quot;&gt;PYTHONPATH&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install south&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos esquecer de adicioná-lo ao &lt;code class=&quot;language-text&quot;&gt;INSTALLED_APPS&lt;/code&gt; do
+&lt;code class=&quot;language-text&quot;&gt;settings.py&lt;/code&gt; (afinal, trata-se de uma &lt;em&gt;app Django&lt;/em&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;INSTALLED_APPS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;south&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Você acabou de ganhar alguns comandos para construir as suas
+&lt;em&gt;migrations&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Direto para a prática&lt;/h2&gt;
+&lt;p&gt;Sem perder tempo, vamos construir uma &lt;em&gt;app Django&lt;/em&gt; para que possamos
+demonstrar o uso do &lt;em&gt;South&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py startapp blog&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Lembrando de adicioná-la ao &lt;code class=&quot;language-text&quot;&gt;settings.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+INSTALLED_APPS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.auth&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;south&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;blog&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos criar um modelo bem básico, com alguns campos (posteriormente,
+incrementaremos esta estrutura):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# blog/models.py&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;db &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; models
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    titulo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Titulo&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    texto &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TextField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Texto&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Através do comando &lt;code class=&quot;language-text&quot;&gt;schemamigration&lt;/code&gt;, com parâmetro &lt;code class=&quot;language-text&quot;&gt;–-initial&lt;/code&gt;,
+criaremos a nossa primeira migration:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py schemamigration blog --initial&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vale notar que o comando acima não cria nenhuma tabela no banco de
+dados. O que ele faz é criar um conjunto de instruções que representa
+este modelo. Na medida que são feitas alterações no modelo, é necessário
+gerar novas &lt;em&gt;migrations&lt;/em&gt;, que serão sempre baseados nas estruturas já
+criadas.&lt;/p&gt;
+&lt;p&gt;Por exemplo, vamos de fato criar a tabela &lt;em&gt;blog&lt;/em&gt; no banco de dados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py migrate blog
+
+Running migrations for blog:
+- blog:0001_initial
+- Loading initial data for blog.
+No fixtures found.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se houvesse alguma &lt;em&gt;fixture&lt;/em&gt;, o &lt;em&gt;South&lt;/em&gt; faria o &lt;em&gt;insert&lt;/em&gt; das informações
+para você.&lt;/p&gt;
+&lt;p&gt;A primeira &lt;em&gt;migration&lt;/em&gt; foi criada. Como mencionado antes, a partir de
+agora toda migration criada será baseada na &lt;em&gt;migration&lt;/em&gt; “anterior”
+(podemos deduzir a ordem das &lt;em&gt;migrations&lt;/em&gt; através do prefixo numérico,
+no caso acima, o &lt;code class=&quot;language-text&quot;&gt;0001&lt;/code&gt; indica que esta é a primeira).&lt;/p&gt;
+&lt;p&gt;Vamos adicionar um campo no modelo (que equivale a uma coluna no banco
+de dados), para ilustrar a criação de novas &lt;em&gt;migrations&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# blog/models.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Blog&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    titulo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Titulo&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    resumo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TextField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Resumo&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; blank&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; null&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    texto &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TextField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Texto&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não é mais necessário o uso do parâmetro &lt;code class=&quot;language-text&quot;&gt;-–initial&lt;/code&gt;, de agora em
+diante precisaremos do parâmetro &lt;code class=&quot;language-text&quot;&gt;–-auto&lt;/code&gt; (que construirá a
+&lt;em&gt;migration&lt;/em&gt; automaticamente, de acordo com a primeira já existente):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py schemamigration blog --auto
+
++ Added field resumo on blog.Blog
+Created 0002_auto__add_field_blog_resumo.py. You can now apply this migration
+with: ./manage.py migrate blog&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Uma nova &lt;em&gt;migration&lt;/em&gt; foi criada… e com um nome bem intuitivo
+(repare no prefixo numérico). Basta darmos a ordem de replicar estas
+instruções no banco de dados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py migrate blog
+
+Running migrations for blog:
+- Migrating forwards to 0002_auto__add_field_blog_resumo.
+- blog:0002_auto__add_field_blog_resumo
+- Loading initial data for blog.
+No fixtures found.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A nova coluna foi inserida na tabela &lt;em&gt;blog&lt;/em&gt;, sem necessitar de nenhuma
+intervenção manual. Se você ficou curioso para saber como essa “mágica”
+acontece, basta abrir as &lt;em&gt;migrations&lt;/em&gt; e ver que são instruções escritas
+em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, que interagem com o banco de dados “por trás” do &lt;em&gt;ORM&lt;/em&gt;
+do &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;South&lt;/em&gt; possui mais alguns recursos interessantes (como &lt;em&gt;data
+migrations&lt;/em&gt;), que você pode conferir &lt;a href=&quot;http://south.aeracode.org/docs/tutorial/index.html&quot; title=&quot;Aprenda mais sobre o South&quot;&gt;neste tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://south.aeracode.org/&quot; title=&quot;Visite a página oficial do projeto South&quot;&gt;&lt;em&gt;South – Intelligent schema and data migrations for Django&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

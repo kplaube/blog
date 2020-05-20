@@ -1,7 +1,300 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - lsp</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 24 May 2019 10:53:00 -0300</lastBuildDate><item><title>LSP e o PyLS</title><link>https://klauslaube.com.br/2019/05/24/lsp-e-o-pyls.html</link><description>&lt;p&gt;Uma das virtudes do &lt;a href="https://klauslaube.com.br/tag/vscode.html" title="Leia mais sobre o editor"&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt; é como ele integra-se facilmente com diferentes linguagens.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - lsp]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[LSP e o PyLS]]></title><description><![CDATA[Uma das virtudes do VS Code é como ele integra-se facilmente com diferentes linguagens.
+O esforço é pequeno, geralmente resumindo-se à instalação de um único plugin. Essa característica o torna uma ferramenta extremamente
+produtiva, e que vem conquistando o coração dos desenvolvedores ao redor do…]]></description><link>https://klauslaube.com.br/2019/05/24/lsp-e-o-pyls.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/05/24/lsp-e-o-pyls.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 24 May 2019 10:53:00 GMT</pubDate><content:encoded>&lt;p&gt;Uma das virtudes do &lt;a href=&quot;/tag/vscode.html&quot; title=&quot;Leia mais sobre o editor&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt; é como ele integra-se facilmente com diferentes linguagens.
 O esforço é pequeno, geralmente resumindo-se à instalação de um único &lt;em&gt;plugin&lt;/em&gt;. Essa característica o torna uma ferramenta extremamente
 produtiva, e que vem conquistando o coração dos desenvolvedores ao redor do mundo.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;O curioso é que o &lt;em&gt;VS Code&lt;/em&gt; utiliza um protocolo aberto para ter esse &quot;jeitão&quot; de &lt;em&gt;IDE&lt;/em&gt;, chamado &lt;em&gt;Language Server Protocol&lt;/em&gt;,
+que entre outras funcionalidades traz ao editor a possibilidade de &lt;em&gt;autocomplete&lt;/em&gt;, &lt;em&gt;go to definition&lt;/em&gt;, &lt;em&gt;diagnosis&lt;/em&gt; e &lt;em&gt;documentation&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;É... &lt;em&gt;Microsoft&lt;/em&gt; popularizando protocolos abertos. Tempos interessantes esses que vivemos, não?&lt;/p&gt;
+&lt;h2&gt;LSP - Language Server Protocol&lt;/h2&gt;
+&lt;p&gt;Durante o desenvolvimento do &lt;em&gt;VS Code&lt;/em&gt;, a &lt;em&gt;Microsoft&lt;/em&gt; introduziu o &lt;a href=&quot;https://microsoft.github.io/language-server-protocol/&quot; title=&quot;Leia na página oficial do projeto&quot;&gt;&lt;em&gt;Language Server Protocol&lt;/em&gt;&lt;/a&gt;.
+O &lt;a href=&quot;https://langserver.org/&quot; title=&quot;A community-driven source of knowledge for Language Server Protocol implementations&quot;&gt;langserver.org&lt;/a&gt; o define da seguinte forma:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Language Server protocol is used between a tool (the client) and a language smartness provider (the server) to integrate
+features like auto complete, go to definition, find all references and alike into the tool.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em outras palavras, é um &lt;a href=&quot;https://microsoft.github.io/language-server-protocol/specification&quot; title=&quot;Leia a especificação completa&quot;&gt;protocolo&lt;/a&gt; que descreve
+a comunicação entre um cliente (um editor de textos, por exemplo) e um servidor (ligado à uma determinada linguagem), com a motivação de proporcionar e enriquecer
+ferramentas de desenvolvimento.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/df33db8630f02f86d5ccbf4b680a3164/6aca1/vim-lsp.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHdYyskH//EABYQAQEBAAAAAAAAAAAAAAAAABACMf/aAAgBAQABBQInH//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAAMAAAAAAAAAAAAAAAAAABAgIf/aAAgBAQAGPwIVP//EABsQAAICAwEAAAAAAAAAAAAAAAERADEgIVHw/9oACAEBAAE/IfVGXWuwySY3h//aAAwDAQACAAMAAAAQEw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAbEAEAAgIDAAAAAAAAAAAAAAABACEQQRExkf/aAAgBAQABPxDRBT9k5ACMuoaj1j//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Ilustração de como funciona a comunicação entre cliente e servidor (kieranbamforth.me)&quot;
+        title=&quot;Ilustração de como funciona a comunicação entre cliente e servidor (kieranbamforth.me)&quot;
+        src=&quot;/static/df33db8630f02f86d5ccbf4b680a3164/6aca1/vim-lsp.jpg&quot;
+        srcset=&quot;/static/df33db8630f02f86d5ccbf4b680a3164/7809d/vim-lsp.jpg 192w,
+/static/df33db8630f02f86d5ccbf4b680a3164/4ecad/vim-lsp.jpg 384w,
+/static/df33db8630f02f86d5ccbf4b680a3164/6aca1/vim-lsp.jpg 650w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ilustração de como funciona a comunicação entre cliente e servidor (kieranbamforth.me)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ou seja, podemos ter uma solução única para &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, que traga as mesmas funcionalidades para diferentes
+editores ou &lt;em&gt;IDEs&lt;/em&gt;. Em contrapartida, podemos ter um único editor que suporte diferentes linguagens e tais funcionalidades avançadas.
+O &lt;em&gt;langserver.org&lt;/em&gt; chama esse problema de &quot;The Matrix Problem&quot;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1c782901e02af07ed2b0824bf19b1e38/50383/lsp-the-matrix-problem.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAlklEQVQI1zWOyxKDIAxF+f8P7KrdNLURKQwtLyOI3up4FpmTwA2odGCMISJmnqYpxojJfBFCcM4SvZhHMAyDtRYXcsqq1ioiOWfvPUZaa/h6gXBrbW2r8Zo9YRFCaG00/COFDI5777iKil2QbdvgqPhFKQXyCePze4fLImjfnh7ups53+sUZOwUsB39pMtdSD9BKm8uSdtDi5nL/2oTNAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Com LSP, temos Go funcionando para diferentes editores, seguindo os mesmos princípios (langserver.org)&quot;
+        title=&quot;Com LSP, temos Go funcionando para diferentes editores, seguindo os mesmos princípios (langserver.org)&quot;
+        src=&quot;/static/1c782901e02af07ed2b0824bf19b1e38/50383/lsp-the-matrix-problem.png&quot;
+        srcset=&quot;/static/1c782901e02af07ed2b0824bf19b1e38/8514f/lsp-the-matrix-problem.png 192w,
+/static/1c782901e02af07ed2b0824bf19b1e38/804b2/lsp-the-matrix-problem.png 384w,
+/static/1c782901e02af07ed2b0824bf19b1e38/50383/lsp-the-matrix-problem.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Com LSP, temos Go funcionando para diferentes editores, seguindo os mesmos princípios (langserver.org)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Como afirma o site oficial do projeto:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;LSP is a win for both language providers and tooling vendors!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Como funciona?&lt;/h2&gt;
+&lt;p&gt;Na prática, o que acontece é uma comunicação inter-processos entre o &lt;em&gt;language server&lt;/em&gt; e a ferramenta de desenvolvimento. O protocolo utilizado para tal operação é o &lt;em&gt;JSON-RPC&lt;/em&gt;,
+um protocolo simples, e com um formato de dados extremamente popular.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c9ad9f156d904ad0aa69f1e894ffcf4b/50383/language-server-sequence.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAABT0lEQVQY001QTU/DMAzt/90VfgE/hUmIcUPcuYHQLtwGSCBttPlo6jRJ0yRN0havAzTrHWwnz+/ZRR6neZ7vtmy13q3Wb487wBJbWuvD4VCWZdM0KWVsfoO7uH2/3Hxc3X+mPGKnWLjz9kutn8j1M9tV3TzmIaYQAiEE+dZ2MaZpzNLGzZbdvNCH1/okWSilAKTVLf7uQlTG7CtWMoGoeEOFJDVgguj6gILGp/kvCmtti6GU9bFqOsIFq4HWDUUCrSsmeCOxZAJKwkG71uWc0jAMOefif0xII9iI5IoLWgNBMoozcWQu4oQJ4yKarznf7/eU0sJ7j7tJCUOeuPJSWyraijWLbRxxxGIb8Mn4LPtf29M0Fc45ADBa+Zi1z2GIXAA7qqFzQRjH8tQ5XjFN2p3t3C+BJ+1cMH5UxoLqWmNbbeWSKNMjMO/D4ON4Tv4BWji+Cv6Dyq4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de como funciona a comunicação entre cliente e servidor (microsoft.github.io)&quot;
+        title=&quot;Exemplo de como funciona a comunicação entre cliente e servidor (microsoft.github.io)&quot;
+        src=&quot;/static/c9ad9f156d904ad0aa69f1e894ffcf4b/50383/language-server-sequence.png&quot;
+        srcset=&quot;/static/c9ad9f156d904ad0aa69f1e894ffcf4b/8514f/language-server-sequence.png 192w,
+/static/c9ad9f156d904ad0aa69f1e894ffcf4b/804b2/language-server-sequence.png 384w,
+/static/c9ad9f156d904ad0aa69f1e894ffcf4b/50383/language-server-sequence.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de como funciona a comunicação entre cliente e servidor (microsoft.github.io)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Nem toda linguagem pode suportar todas as funcionalidade definidas pelo protocolo (o mesmo vale para as ferramentas de desenvolvimento), mas isso não impede a sua adoção.
+O protocolo permite que tanto cliente como servidor &quot;anunciem&quot; suas capacidades, portanto, as duas pontas podem ter um comportamento preventivo quando determinada capacidade
+(como &lt;em&gt;go to definition&lt;/em&gt;) não é suportada.&lt;/p&gt;
+&lt;h2&gt;PyLS - Python Language Server&lt;/h2&gt;
+&lt;p&gt;Para &lt;em&gt;Python&lt;/em&gt;, além do &lt;em&gt;language server&lt;/em&gt; implementado pela própria &lt;em&gt;Microsoft&lt;/em&gt; e &lt;a href=&quot;https://github.com/microsoft/python-language-server&quot; title=&quot;Repositório do Microsoft Python Language Server&quot;&gt;usado no &lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;,
+temos o &lt;a href=&quot;https://github.com/palantir/python-language-server&quot; title=&quot;Repositório do projeto&quot;&gt;&lt;em&gt;Python Language Server&lt;/em&gt;&lt;/a&gt;. Ele conta com as seguintes funcionalidades:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Auto completion&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Code linting&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Signature help&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Go to definition&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Hover&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Find references&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Document symbols&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Document formatting&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O que acho mais interessante em relação ao projeto é que ele não reinventa a roda. Por exemplo, ele não implementa uma nova ferramenta de &lt;em&gt;linting&lt;/em&gt;, pelo contrário, ele utiliza ferramentas
+que já são bem conhecidas pela comunidade:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Auto completion&lt;/em&gt;, &lt;em&gt;definitions&lt;/em&gt;, &lt;em&gt;hover&lt;/em&gt;, &lt;em&gt;references&lt;/em&gt;, &lt;em&gt;signature help&lt;/em&gt; e &lt;em&gt;symbols&lt;/em&gt; são resolvidos via &lt;a href=&quot;https://github.com/davidhalter/jedi&quot; title=&quot;Awesome completion and static analysis for Python&quot;&gt;&lt;em&gt;Jedi&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Auto completion&lt;/em&gt; e &lt;em&gt;renaming&lt;/em&gt; é resolvido via &lt;a href=&quot;https://github.com/python-rope/rope&quot; title=&quot;Python refactoring library&quot;&gt;&lt;em&gt;Rope&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Linting&lt;/em&gt; é resolvido via &lt;a href=&quot;https://github.com/PyCQA/mccabe&quot; title=&quot;McCabe complexity checker&quot;&gt;&lt;em&gt;McCabe&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/PyCQA/pyflakes&quot; title=&quot;Checks Python source files for errors&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://github.com/pycqa/pycodestyle&quot; title=&quot;Python style checker&quot;&gt;&lt;em&gt;pycodestyle&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://github.com/PyCQA/pydocstyle&quot; title=&quot;Docstring style checker&quot;&gt;&lt;em&gt;pydocstyle&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Formatting&lt;/em&gt; é resolvido via &lt;a href=&quot;https://github.com/hhatto/autopep8&quot; title=&quot;Formats Python code to PEP 8&quot;&gt;&lt;em&gt;autopep8&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://github.com/google/yapf&quot; title=&quot;A formatter for Python files&quot;&gt;&lt;em&gt;YAPF&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Há um certo grau de customização, como por exemplo usar o &lt;a href=&quot;/2019/02/07/deixe-darem-pitaco-no-seu-codigo-com-black.html&quot; title=&quot;Leia mais sobre Black&quot;&gt;&lt;em&gt;Black&lt;/em&gt;&lt;/a&gt; ao invés de &lt;em&gt;YAPF&lt;/em&gt;. Discutiremos
+mais sobre esse tópico a seguir.&lt;/p&gt;
+&lt;h2&gt;Clientes LSP&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;em&gt;langserver.org&lt;/em&gt;, os principais &lt;em&gt;IDEs&lt;/em&gt; e editores já possuem alguma forma de cliente implementado. Seja através de extensões (como &lt;em&gt;JetBrains IDE&lt;/em&gt;, &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;,
+&lt;em&gt;Sublime&lt;/em&gt;, &lt;em&gt;Atom&lt;/em&gt; e &lt;em&gt;Emacs&lt;/em&gt;), ou através de suporte &lt;em&gt;built-in&lt;/em&gt; (como &lt;em&gt;VS Code&lt;/em&gt; e &lt;em&gt;Oni&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAGF8adEKA//xAAaEAACAwEBAAAAAAAAAAAAAAAAAQIRIgMT/9oACAEBAAEFAueJaZ5DRF07s//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8BpX//xAAZEAACAwEAAAAAAAAAAAAAAAAAESAhMWH/2gAIAQEABj8C0VrhsP/EABsQAQEBAAIDAAAAAAAAAAAAAAEAETFBUWGR/9oACAEBAAE/IeQZfdmgHCPMh3Ry+1dqX//aAAwDAQACAAMAAAAQgA//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8QhMf/xAAXEQADAQAAAAAAAAAAAAAAAAAAARFR/9oACAECAQE/EMGVn//EABwQAQADAAMBAQAAAAAAAAAAAAEAESFBUZEx8P/aAAgBAQABPxA1iQRrZv7JV3haMd847lvUdIXNSJzJwt0MKB8I/KW9T//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;O Um Anel&quot;
+        title=&quot;Sauron faz um anel para juntar a todos. Sem querer comparar Microsoft com Sauron, mas espero que isso não acabe em uma guerra (lego-lord-of-the-rings.wikia.com)&quot;
+        src=&quot;/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg&quot;
+        srcset=&quot;/static/86cf2a69117e22c87b361033b5154429/7809d/lsp-one-ring.jpg 192w,
+/static/86cf2a69117e22c87b361033b5154429/4ecad/lsp-one-ring.jpg 384w,
+/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Sauron faz um anel para juntar a todos. Sem querer comparar Microsoft com Sauron, mas espero que isso não acabe em uma guerra (lego-lord-of-the-rings.wikia.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Para &lt;em&gt;Vim&lt;/em&gt;, uma opção que tenho usado com sucesso é o &lt;a href=&quot;https://github.com/autozimu/LanguageClient-neovim&quot; title=&quot;Repositório oficial do projeto&quot;&gt;&lt;em&gt;LanguageClient-neovim&lt;/em&gt;&lt;/a&gt;, que embora possa parecer
+exclusivo para o &lt;em&gt;Neovim&lt;/em&gt;, possui suporte para &lt;em&gt;Vim 8.x&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;h3&gt;Configurando o servidor&lt;/h3&gt;
+&lt;p&gt;Vamos para um exemplo prático de como usar &lt;em&gt;LSP&lt;/em&gt; e &lt;em&gt;Vim&lt;/em&gt; com &lt;em&gt;Python&lt;/em&gt;. Mas antes, deixa eu definir algumas &lt;em&gt;constraints&lt;/em&gt; do meu ambiente de desenvolvimento:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quero utilizar &lt;em&gt;flake8&lt;/em&gt; ao invés de &lt;em&gt;pycodestyle&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Quero utilizar &lt;em&gt;Black&lt;/em&gt; ao invés de &lt;em&gt;YAPF&lt;/em&gt; ou &lt;em&gt;autopep8&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Quero utilizar &lt;em&gt;isort&lt;/em&gt; como uma das opções de formatação.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para começar, vamos instalar o &lt;em&gt;language server&lt;/em&gt;. Eu prefiro tê-lo dentro do &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;ambiente virtual&lt;/a&gt; do projeto em que estou trabalhando. É trabalhoso
+e repetitivo se você estiver trabalhando em diferentes projetos e &lt;em&gt;virtualenvs&lt;/em&gt;!
+Uma alternativa mais prática é tê-lo instalado em uma instância global do &lt;a href=&quot;/2016/04/26/o-simples-e-poderoso-pyenv.html&quot; title=&quot;O simples e poderoso Pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Fica a seu critério o destino
+da instalação:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install python-language-server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O próprio servidor identificará quais ferramentas você tem instaladas e habilitará determinada capacidade proporcionada por tal ferramenta (por exemplo, se o &lt;em&gt;Rope&lt;/em&gt; estiver instalado,
+será capaz de fazer &lt;em&gt;renaming&lt;/em&gt;). Mas dentre elas o &lt;em&gt;Jedi&lt;/em&gt; é fundamental, e por isso é instalada automaticamente como dependência do &lt;em&gt;PyLS&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nesse momento temos grande parte das funcionalidades cobertas pelo &lt;em&gt;LSP&lt;/em&gt; habilitadas pelo servidor. Uma muito útil, que ainda está faltando, é o &lt;em&gt;renaming&lt;/em&gt;. Segundo a lista acima, conseguimos
+tal capacidade ao instalar o &lt;em&gt;Rope&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install &amp;#39;python-language-server[rope]&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se você está interessado em utilizar a configuração padrão do &lt;em&gt;python-language-server&lt;/em&gt;, uma opção mais prática é instalar todos os &lt;em&gt;providers&lt;/em&gt; de uma só vez:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install &amp;#39;python-language-server[all]&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para fins didáticos estamos resolvendo as dependências manualmente. Há uma outra forma de gerenciar quais &lt;em&gt;providers&lt;/em&gt; serão utilizados, que discutiremos a seguir.&lt;/p&gt;
+&lt;p&gt;Para termos o &lt;em&gt;isort&lt;/em&gt; e o &lt;em&gt;Black&lt;/em&gt; habilitados como ferramentas de formatação, precisaremos recorrer à &lt;em&gt;plugins&lt;/em&gt; de terceiros:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install pyls-isort pyls-black&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Infelizmente, o &lt;code class=&quot;language-text&quot;&gt;pyls-black&lt;/code&gt; exige que você não tenha o &lt;code class=&quot;language-text&quot;&gt;autopep8&lt;/code&gt; instalado para funcionar. Como não há um controle manual para decidir qual será usado,
+a melhor forma é garantindo que apenas uma das duas extensões esteja instalada.&lt;/p&gt;
+&lt;p&gt;Temos tudo o que é necessário para o lado do servidor.&lt;/p&gt;
+&lt;h3&gt;Configurando o cliente&lt;/h3&gt;
+&lt;p&gt;A melhor forma de instalarmos o &lt;em&gt;LanguageClient-neovim&lt;/em&gt; é através do utilitário &lt;code class=&quot;language-text&quot;&gt;Plug&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
 
-&lt;p&gt;O curioso é que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 24 May 2019 10:53:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-05-24:/2019/05/24/lsp-e-o-pyls.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>vscode</category><category>vim</category><category>python</category><category>pyls</category><category>lsp</category></item></channel></rss>
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;autozimu/LanguageClient-neovim&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    \ &lt;span class=&quot;token string&quot;&gt;&apos;branch&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;next&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    \ &lt;span class=&quot;token string&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;bash install.sh&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    \ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;junegunn/fzf&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ele funciona muito bem com o &lt;a href=&quot;https://github.com/junegunn/fzf.vim&quot; title=&quot;Veja o repositório oficial do projeto&quot;&gt;&lt;em&gt;fzf&lt;/em&gt;&lt;/a&gt;, portanto, é uma boa pedida termos os dois disponíveis.&lt;/p&gt;
+&lt;p&gt;O próximo passo é informar ao cliente como encontrar o servidor da linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;LanguageClient_serverCommands &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    \ &lt;span class=&quot;token string&quot;&gt;&apos;python&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;pyls&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    \ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainda precisamos dizer ao &lt;em&gt;LSP&lt;/em&gt; sobre as nossas preferências. O arquivo abaixo está situado na raíz do projeto que estou trabalhando,
+mais especificamente em &lt;code class=&quot;language-text&quot;&gt;./.vim/settings.json&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;pyls&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;configurationSources&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;flake8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;plugins&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;yapf&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;enabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para fins didáticos adicionei o &lt;code class=&quot;language-text&quot;&gt;yapf&lt;/code&gt; à configuração. Alguns &lt;em&gt;plugins&lt;/em&gt; possuem a flexibilidade de mesmo que instalados, poderem ser desabilitados.&lt;/p&gt;
+&lt;p&gt;Pronto! O cliente está configurado, e com os seguintes comandos você pode explorar todas as funcionalidades do &lt;em&gt;LSP&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Ctrl+x Ctrl+o&lt;/code&gt;: &lt;em&gt;Auto completion&lt;/em&gt; via &lt;em&gt;Omni completion&lt;/em&gt; (o &lt;a href=&quot;https://github.com/Shougo/deoplete.nvim&quot; title=&quot;Dark powered asynchronous completion framework for neovim/Vim8&quot;&gt;&lt;em&gt;Deoplete&lt;/em&gt;&lt;/a&gt; é uma boa pedida)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_definition()&lt;/code&gt;: &lt;em&gt;Go to definition&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_hover()&lt;/code&gt;: &lt;em&gt;Hover&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_references()&lt;/code&gt;: &lt;em&gt;References&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_documentSymbol()&lt;/code&gt;: Lista de &lt;em&gt;Symbols&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_rename()&lt;/code&gt;: &lt;em&gt;Renaming&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_formatting()&lt;/code&gt;: &lt;em&gt;Formatting&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call :call LanguageClient_contextMenu()&lt;/code&gt;: Menu de contexto mostrando todas as opções disponíveis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b71dd9238b6c9316981247af00919559/6af66/vim-lsp-autocomplete.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.8125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABe0lEQVQoz42QW0+DQBCF+SlVkF6AdoHusruz3KFAKRRp1BiNTz74akx887+7xXubmCZfJpPdnDlzRrm7fVg32yipkrQSfgwQAIQDPw2HcOC7+UQRTgY4NRZc1d1zDZ2pi9GZNRqZ6gVSdVu+qBe2ptuyHqMk3rrOLou8892MgSTn8UbkHeWZswyFXyDH1yd4OvOmxiFKnDZV3ZdVn6dttdmVRXf5+Hz98hbEdRDJICUmIQXfWvDxFE9m5DcKg0IEBfESLlbGnGm6O97jzExqWExW6WBYe58D5V7s8VW/uzUtqmpIn7iUp8acmnMmfQbIseZHDF7etrsF8vQxQjbv+xvKQtnInPL7a8Sw8NEgxbHDbbMry5ZD6rhi0/RpVuNlyGAljzfELrAXEwqY+AfLK5Stoq5ZskjTnfF06eLIsOhHVMnM/L4tOY6tOCjE2Oc846LwWOAS+D/nHzFyk/rpNW7vCRYQJNL2ROVebFoQrK+ivBOQiSCTe54ufgf+GZSHvNEFDwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo do LSP funcionando com o Vim&quot;
+        title=&quot;Exemplo do LSP funcionando com o Vim&quot;
+        src=&quot;/static/b71dd9238b6c9316981247af00919559/6af66/vim-lsp-autocomplete.png&quot;
+        srcset=&quot;/static/b71dd9238b6c9316981247af00919559/8514f/vim-lsp-autocomplete.png 192w,
+/static/b71dd9238b6c9316981247af00919559/804b2/vim-lsp-autocomplete.png 384w,
+/static/b71dd9238b6c9316981247af00919559/6af66/vim-lsp-autocomplete.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo do LSP funcionando com o Vim&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Agora é só configurar os &lt;em&gt;key bindings&lt;/em&gt; e correr para o abraço :)&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kieranbamforth.me/blog/vim-lsp.html&quot;&gt;kieranbamforth.me - Vim + Language Server Protocol—in 2019&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://langserver.org/&quot;&gt;Langserver.org - A community-driven source of knowledge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://microsoft.github.io/language-server-protocol/&quot;&gt;Language Server Protocol official page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.thisisvini.com/vim-better-go-to-definition-completion/&quot;&gt;This is Vini - Vim: Better &quot;Go to definition&quot; and completion using ALE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/JSON-RPC&quot;&gt;Wikipedia - JSON-RPC&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

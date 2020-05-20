@@ -1,8 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - rss</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 12 Nov 2010 20:15:00 -0200</lastBuildDate><item><title>O que é RSS?</title><link>https://klauslaube.com.br/2010/11/12/o-que-e-rss.html</link><description>&lt;p&gt;Conheço pessoas “bem instruídas” em &lt;em&gt;TI&lt;/em&gt; que simplesmente não sabem o que é &lt;em&gt;RSS&lt;/em&gt;.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - rss]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O que é RSS?]]></title><description><![CDATA[Conheço pessoas “bem instruídas” em TI que simplesmente não sabem o que é RSS.
+Esta é a minha motivação para escrever este “primeiro post oficial” e lhe explicar,
+caso você não saiba, como você pode ler o conteúdo deste blog sem visitar este endereço. In a nutshell… Primeiramente quero deixar claro…]]></description><link>https://klauslaube.com.br/2010/11/12/o-que-e-rss.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/11/12/o-que-e-rss.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 12 Nov 2010 19:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Conheço pessoas “bem instruídas” em &lt;em&gt;TI&lt;/em&gt; que simplesmente não sabem o que é &lt;em&gt;RSS&lt;/em&gt;.
 Esta é a minha motivação para escrever este “primeiro post oficial” e lhe explicar,
 caso você não saiba, como você pode ler o conteúdo deste &lt;em&gt;blog&lt;/em&gt; sem visitar este endereço.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;h2&gt;In a nutshell…&lt;/h2&gt;
-&lt;p&gt;Primeiramente quero deixar …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 12 Nov 2010 20:15:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-11-12:/2010/11/12/o-que-e-rss.html</guid><category>informativos</category><category>rss</category><category>web</category></item></channel></rss>
+&lt;p&gt;Primeiramente quero deixar claro que gosto muito de &lt;em&gt;pageviews&lt;/em&gt;. Fique a vontade
+para visitar este &lt;em&gt;blog&lt;/em&gt; quando e quantas vezes quiser :)&lt;/p&gt;
+&lt;p&gt;Segundo a &lt;a href=&quot;http://pt.wikipedia.org/&quot; title=&quot;Visite a Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;RSS (Really Simple Syndication) é um subconjunto de “dialetos” XML que servem para agregar conteúdo ou “Web syndication“, podendo ser acessado mediante programas ou sites agregadores. É usado principalmente em sites de notícias e blogs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bom… este é um &lt;em&gt;blog&lt;/em&gt;! E este é nosso &lt;a href=&quot;http://www.klauslaube.com.br/feed/rss.xml&quot; title=&quot;Confira o nosso feed RSS&quot;&gt;&lt;em&gt;link RSS&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Logo, você é capaz de receber os artigos que publico aqui em seu leitor &lt;em&gt;RSS&lt;/em&gt;
+favorito. Não viu vantagem nenhuma nisto?&lt;/p&gt;
+&lt;h2&gt;RSS na prática&lt;/h2&gt;
+&lt;p&gt;Você é um cara antenado, toda a manhã você visita os mais variados &lt;em&gt;blogs&lt;/em&gt; e
+&lt;em&gt;sites&lt;/em&gt; de notícias para manter-se atualizado. Nem todos os sites possuem
+atualizações, e lá se foi tempo precioso da sua vida visitando o dito cujo.&lt;/p&gt;
+&lt;p&gt;Certo dia, você visita um &lt;a href=&quot;http://klauslaube.com.br&quot; title=&quot;O blog pode até ser simpático, mas o autor não =]&quot;&gt;&lt;em&gt;blog&lt;/em&gt; simpático&lt;/a&gt;
+e o autor lhe fala sobre &lt;em&gt;RSS&lt;/em&gt;. Ele promete que você não precisa ficar
+saltitando de &lt;em&gt;blog&lt;/em&gt; em &lt;em&gt;blog&lt;/em&gt; procurando por novos artigos. O autor lhe
+promete que existem programas que visitam uma determinada &lt;em&gt;URL&lt;/em&gt; destes sites
+procurando por novidades, este programa lhe traz o resumo (as vezes até mesmo
+a notícia completa) de todos os sites que você usualmente visita. Você leva
+muito menos tempo para atualizar-se sobre as coisas que estão acontecendo no mundo.&lt;/p&gt;
+&lt;p&gt;Esta “determinada URL” que o tal programa visita é chamada de &lt;em&gt;Feed RSS&lt;/em&gt;.
+Este programa que você utiliza para visitar esta &lt;em&gt;URL&lt;/em&gt; chama-se “cliente RSS“,
+“agregador” ou “leitor RSS“. E o tal do &lt;em&gt;RSS&lt;/em&gt; na verdade é um padrão que
+sistemas como o que alimenta este &lt;em&gt;blog&lt;/em&gt; e os leitores &lt;em&gt;RSS&lt;/em&gt;
+usam para se comunicar.&lt;/p&gt;
+&lt;p&gt;Vulgarmente falando, é um formato para divulgação de artigos.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Está em dúvida sobre qual cliente &lt;em&gt;RSS&lt;/em&gt; escolher?
+&lt;a href=&quot;http://pt.wikipedia.org/wiki/Anexo:Lista_de_agregadores_de_feed&quot; title=&quot;Escolha o agregador RSS do seu agrado&quot;&gt;Esta lista pode te ajudar&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Agora que você tem ideia do que é &lt;em&gt;RSS&lt;/em&gt;, não deixe de
+&lt;a href=&quot;http://www.klauslaube.com.br/feed/rss.xml&quot; title=&quot;Adicione este blog ao seu leitor RSS&quot;&gt;adicionar este &lt;em&gt;blog&lt;/em&gt; no seu leitor&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>

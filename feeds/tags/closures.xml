@@ -1,9 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - closures</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 29 May 2011 13:52:00 -0300</lastBuildDate><item><title>Afinal, o que são Closures?</title><link>https://klauslaube.com.br/2011/05/29/afinal-o-que-sao-closures.html</link><description>&lt;p&gt;Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - closures]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Afinal, o que são Closures?]]></title><description><![CDATA[Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com
+um nome “pomposo” para a parada (que você nunca ouviu falar)? Isso
+aconteceu comigo com closures. What (the hell) are closures? Entendi o conceito de closures enquanto estudava Ruby. Na verdade,
+fica a dica… se você quer aprender…]]></description><link>https://klauslaube.com.br/2011/05/29/afinal-o-que-sao-closures.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/05/29/afinal-o-que-sao-closures.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 29 May 2011 13:52:00 GMT</pubDate><content:encoded>&lt;p&gt;Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com
 um nome “pomposo” para a parada (que você nunca ouviu falar)? Isso
 aconteceu comigo com &lt;em&gt;closures&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;h2&gt;What (the hell) are closures?&lt;/h2&gt;
 &lt;p&gt;Entendi o conceito de &lt;em&gt;closures&lt;/em&gt; enquanto estudava &lt;em&gt;Ruby&lt;/em&gt;. Na verdade,
-fica a dica… se você quer aprender …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 29 May 2011 13:52:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-05-29:/2011/05/29/afinal-o-que-sao-closures.html</guid><category>desenvolvimento</category><category>closures</category><category>oop</category><category>javascript</category></item></channel></rss>
+fica a dica… se você quer aprender &lt;a href=&quot;/tag/oop.html&quot; title=&quot;Leia mais sobre Orientação a Objetos&quot;&gt;Orientação a Objetos&lt;/a&gt;, aprenda
+linguagens dinâmicas como &lt;em&gt;Ruby&lt;/em&gt;, &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e até mesmo &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;.
+Depois parta para linguagens mais “hardcore” como &lt;em&gt;Java&lt;/em&gt; e &lt;em&gt;C++&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos deixar a &lt;a href=&quot;http://pt.wikipedia.org/wiki/Closure&quot; title=&quot;Leia sobre closure no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt; nos explicar o que é uma &lt;em&gt;closure&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Uma closure ocorre normalmente quando uma função é declarada dentro do
+corpo de outra, e a função interior referencia variáveis locais da
+função exterior. Em tempo de execução, quando a função exterior é
+executada, então uma closure é formada, que consiste do código da
+função interior e referências para quaisquer variáveis no escopo da
+função exterior que a closure necessita.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ok… sou a favor das pessoas que dizem que é difícil compreender alguns
+conceitos apenas por parágrafos formados por palavras bem escritas.
+Vamos ao exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;digaSeuNome&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; msg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Olá &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; nome &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;. Seja bem-vindo!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;exibeMensagem&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;msg&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;exibeMensagem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;digaSeuNome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;João&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Olá João. Seja bem-vindo!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Temos uma função definida dentro de outra função. A função interna
+utiliza de parâmetros e variáveis da função externa… basicamente, este é
+o conceito de &lt;em&gt;closure&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Não achou muito útil? Dê uma olhada no exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;FabricaDeUsuarios&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;criaUsuario&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    id&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; criaUsuario&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; novoUsuario &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;FabricaDeUsuarios&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; joao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;novoUsuario&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;João&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; jose &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;novoUsuario&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;José&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;joao&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jose&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Utilizamos o conceito de &lt;em&gt;closure&lt;/em&gt; no exemplo acima. Abusamos do
+contexto da linguagem, onde, mesmo que estejamos “chamando” a função
+fora do escopo de &lt;code class=&quot;language-text&quot;&gt;FabricaDeUsuarios&lt;/code&gt;, na verdade &lt;code class=&quot;language-text&quot;&gt;novoUsuario&lt;/code&gt;
+trata-se de uma referência a função &lt;code class=&quot;language-text&quot;&gt;criaUsuario&lt;/code&gt;. Logo, ainda
+estaremos utilizando os recursos do contexto de &lt;code class=&quot;language-text&quot;&gt;FabricaDeUsuarios&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.javascriptkit.com/javatutors/closures.shtml&quot; title=&quot;Alguns exemplos de closures com Javascript&quot;&gt;&lt;em&gt;Javascript Closures – They’re not magic&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.morrisjohns.com/javascript_closures_for_dummies&quot; title=&quot;Leia sobre Closures em Javascript&quot;&gt;&lt;em&gt;Morris Johns – Javascript Closures for Dummies&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en/JavaScript/Guide/Closures&quot; title=&quot;Leia sobre Closures no guia Javascript da Mozilla&quot;&gt;&lt;em&gt;Mozilla Developer Network – Closures&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://devlog.waltercruz.com/closures&quot; title=&quot;Closures em Ruby&quot;&gt;&lt;em&gt;Walter Cruz – Closures&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E você… tem algum exemplo bacana sobre &lt;em&gt;closures&lt;/em&gt;? Não deixe de
+comentar.&lt;/p&gt;</content:encoded></item></channel></rss>

@@ -1,8 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - prettier</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 12 Jan 2019 10:55:00 -0200</lastBuildDate><item><title>Deixe darem pitaco no seu código com Prettier</title><link>https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</link><description>&lt;p&gt;&lt;em&gt;Code formatters&lt;/em&gt; são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
-mas depois de alguns "Hello world" em &lt;a href="https://golang.org/" title="Leia mais sobre Golang"&gt;&lt;em&gt;Go&lt;/em&gt;&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - prettier]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+mas depois de alguns "Hello world" em Go
+admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
+programador para isso, é uma ideia excelente. Em Go temos o , que
+poupa um tempo absurdo tornando o…]]></description><link>https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 12 Jan 2019 10:55:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Code formatters&lt;/em&gt; são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+mas depois de alguns &quot;Hello world&quot; em &lt;a href=&quot;https://golang.org/&quot; title=&quot;Leia mais sobre Golang&quot;&gt;&lt;em&gt;Go&lt;/em&gt;&lt;/a&gt;
 admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
 programador para isso, é uma ideia excelente.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Em &lt;em&gt;Go&lt;/em&gt; temos o &lt;code class=&quot;language-text&quot;&gt;go fmt&lt;/code&gt;, que
+poupa um tempo absurdo tornando o seu código &quot;go-like&quot; com pouco esforço.
+Já para &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, temos o &lt;a href=&quot;https://prettier.io/&quot; title=&quot;Opiniated Code Formatter&quot;&gt;&lt;em&gt;Prettier&lt;/em&gt;&lt;/a&gt;.
+E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
+&lt;h2&gt;Mais bonito&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Prettier&lt;/em&gt; é um &lt;em&gt;code formatter&lt;/em&gt; livre (&lt;a href=&quot;https://github.com/prettier/prettier/blob/master/LICENSE&quot; title=&quot;Leia o documento completo&quot;&gt;&lt;em&gt;MIT&lt;/em&gt;&lt;/a&gt;) e de código aberto, que tem por finalidade &quot;forçar&quot; um padrão de código. Ele realiza isso analisando o seu código e alterando-o de acordo com regras pré-definidas.&lt;/p&gt;
+&lt;p&gt;Todos nós temos algum vício na forma como escrevemos nosso código. A ideia de ferramentas como o &lt;em&gt;Prettier&lt;/em&gt; é fazer com que todos os integrantes de um projeto tenham um estilo comum de escrita. Tornando a leitura do código consistente, não importando o seu autor (ou editor).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAHnzfONFxgP/8QAGxAAAQQDAAAAAAAAAAAAAAAAAAECAxExMjP/2gAIAQEAAQUCk3fRSjui4P/EABcRAQADAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8BnVP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFX/8QAGRAAAwADAAAAAAAAAAAAAAAAABARAiGB/9oACAEBAAY/AjGaXCr/xAAaEAADAAMBAAAAAAAAAAAAAAAAASERQXFR/9oACAEBAAE/IUjgueOkLQWE+ht9P//aAAwDAQACAAMAAAAQ1+//xAAWEQADAAAAAAAAAAAAAAAAAAABECH/2gAIAQMBAT8Qkl//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QET//xAAbEAEAAwEAAwAAAAAAAAAAAAABABFBIWFxkf/aAAgBAQABPxCrywxypqj1XYexbCAIc4+wFIxV5Kr2J//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Imagem do Sr. Bennet, personagem de The Ranch&amp;quot;&quot;
+        title=&quot;Prettier é como trabalhar para o Sr. Bennett, de The Ranch. Na dúvida, você está errado (heighline)&quot;
+        src=&quot;/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg&quot;
+        srcset=&quot;/static/2f948d5b80c9977df2afe786c68ddade/7809d/sam-elliot-prettier.jpg 192w,
+/static/2f948d5b80c9977df2afe786c68ddade/4ecad/sam-elliot-prettier.jpg 384w,
+/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Prettier é como trabalhar para o Sr. Bennett, de The Ranch. Na dúvida, você está errado (heighline)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Com &quot;estilo comum de escrita&quot; não estamos falando necessariamente de qualidade de código. Por exemplo, o &lt;em&gt;Prettier&lt;/em&gt; não está preocupado com variáveis sendo usadas antes de serem declaradas. Para isso existe os &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade de código&quot;&gt;&lt;em&gt;linters&lt;/em&gt;&lt;/a&gt;, e no caso do &lt;em&gt;Javascript&lt;/em&gt; o &lt;a href=&quot;https://eslint.org/&quot; title=&quot;The pluggable linting utility for JavaScript and JSX&quot;&gt;&lt;em&gt;ESLint&lt;/em&gt;&lt;/a&gt; é (provavelmente) a opção mais famosa. Por outro lado, ele estará preocupado com a quantidade de espaços em branco, quantidade de caracteres por linha, uso de vírgulas, etc. Tópicos que geralmente demandam energia durante um &lt;em&gt;code review&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E talvez esse seja o ponto marcante por trás do &lt;em&gt;Prettier&lt;/em&gt;. Diretamente da &lt;a href=&quot;https://prettier.io/docs/en/option-philosophy.html&quot; title=&quot;Option Philosophy&quot;&gt;página que fala sobre a filosofia da ferramenta&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;By far the biggest reason for adopting Prettier is to stop all the on-going debates over styles.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;A ferramenta é escrita em &lt;em&gt;Node.js&lt;/em&gt;, portanto, um &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt; é o suficiente para tê-la em seu ambiente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm install --global prettier&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A documentação da ferramenta sugere &quot;pinnar&quot; a versão exata no &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; do seu projeto, uma vez que diferentes versões podem ter diferentes sugestões de escrita.&lt;/p&gt;
+&lt;p&gt;Com o utilitário de linha de comando, basta executarmos passando o arquivo &lt;em&gt;JS&lt;/em&gt; desejado como parâmetro:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prettier file.js
 
-&lt;p&gt;Em &lt;em&gt;Go&lt;/em&gt; temos o &lt;code&gt;go fmt …&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 12 Jan 2019 10:55:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-01-12:/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</guid><category>desenvolvimento</category><category>web</category><category>formatters</category><category>editores</category><category>prettier</category><category>javascript</category><category>html</category><category>css</category></item></channel></rss>
+function HelloWorld({
+    greeting = &amp;quot;hello&amp;quot;,
+    greeted = &amp;#39;&amp;quot;World&amp;quot;&amp;#39;,
+    silent = false,
+onMouseOver
+}) {
+    if (!greeting) {
+        return null;
+    }
+
+    // TODO: Don&amp;#39;t use random in render
+    let num = Math.floor(Math.random() * 1e7)
+        .toString()
+        .replace(/\.\d+/gi, &amp;quot;&amp;quot;);
+
+    return (
+        &amp;lt;div
+        className=&amp;quot;HelloWorld&amp;quot;
+        title={`You are visitor number ${num}`}
+        onMouseOver={onMouseOver}
+        &amp;gt;
+        &amp;lt;strong&amp;gt;
+            {greeting.slice(0, 1).toUpperCase() + greeting.slice(1).toLowerCase()}
+        &amp;lt;/strong&amp;gt;
+        {greeting.endsWith(&amp;quot;,&amp;quot;) ? (
+            &amp;quot; &amp;quot;
+        ) : (
+            &amp;lt;span style={{ color: &amp;quot;grey&amp;quot; }}&amp;gt;&amp;quot;, &amp;quot;&amp;lt;/span&amp;gt;
+        )}
+        &amp;lt;em&amp;gt;{greeted}&amp;lt;/em&amp;gt;
+        {silent ? &amp;quot;.&amp;quot; : &amp;quot;!&amp;quot;}
+        &amp;lt;/div&amp;gt;
+    );
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;output&lt;/em&gt; é o conteúdo do seu arquivo já formatado. Se quiser a alteração &quot;in-place&quot;, temos a opção &lt;code class=&quot;language-text&quot;&gt;--write&lt;/code&gt; disponível.&lt;/p&gt;
+&lt;p&gt;É possível customizar a ferramenta de acordo com as suas escolhas &lt;a href=&quot;https://prettier.io/docs/en/options.html&quot; title=&quot;Options&quot;&gt;passando argumentos durante sua chamada&lt;/a&gt;. No exemplo abaixo, queremos formatar o arquivo &lt;code class=&quot;language-text&quot;&gt;file.js&lt;/code&gt; sem &lt;em&gt;semicolons&lt;/em&gt; no final das linhas, e com &lt;em&gt;single quotes&lt;/em&gt; ao invés de &lt;em&gt;double quotes&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prettier --no-semi --single-quote file.js&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O mais recomendado é a criação de um &lt;a href=&quot;https://prettier.io/docs/en/configuration.html&quot; title=&quot;Configuration file&quot;&gt;arquivo de configuração&lt;/a&gt; (geralmente chamado de &lt;code class=&quot;language-text&quot;&gt;.prettierrc&lt;/code&gt;), com todas a regras explícitas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;trailingComma&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;es5&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;tabWidth&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;semi&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;singleQuote&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Na prática (de verdade)&lt;/h2&gt;
+&lt;p&gt;É inviável ir na linha de comando e executar a ferramenta toda a vez que você alterar o seu código. Uma opção mais eficiente é deixar com que o seu editor ou &lt;em&gt;IDE&lt;/em&gt; tome conta desse processo.&lt;/p&gt;
+&lt;p&gt;Os principais editores do mercado possuem suporte ao &lt;em&gt;Prettier&lt;/em&gt;, como pode ser visto em &lt;a href=&quot;https://prettier.io/docs/en/editors.html&quot; title=&quot;Leia na documentação da ferramenta&quot;&gt;Editor Integration&lt;/a&gt;. Para o &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;, recomendo o uso com o &lt;em&gt;plugin&lt;/em&gt; &lt;a href=&quot;https://github.com/w0rp/ale&quot; title=&quot;Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration&quot;&gt;&lt;em&gt;Ale&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É esperado que nem todo membro do seu projeto configurará o editor apropriadamente na primeira interação. Portanto, uma &quot;salvaguarda&quot; pode ser habilitar um &lt;em&gt;pre-commit hook&lt;/em&gt;. Com isso, ao executar &lt;code class=&quot;language-text&quot;&gt;git add&lt;/code&gt;, o &lt;em&gt;Prettier&lt;/em&gt; será executado automaticamente nos arquivos alterados pelo desenvolvedor. O capítulo &lt;a href=&quot;https://prettier.io/docs/en/precommit.html&quot; title=&quot;Leia na documentação oficial&quot;&gt;Pre-commit Hook&lt;/a&gt; da documentação oficial dá várias sugestões de uso. Para esse caso, simpatizo bastante com o &lt;a href=&quot;https://pre-commit.com/&quot; title=&quot;A framework for managing and maintaining multi-language pre-commit hooks&quot;&gt;pre-commit&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;ESLint vs Prettier? ESLint + Prettier!&lt;/h2&gt;
+&lt;p&gt;Sabe o que é melhor que usar o &lt;em&gt;Prettier&lt;/em&gt;? É usar o &lt;em&gt;Prettier&lt;/em&gt; integrado com as regras que você já conhece do &lt;em&gt;ESlint&lt;/em&gt;. Obviamente que executar os dois em paralelo pode resultar em comportamentos inesperados. Existe inúmeros tutoriais na internet recomendando como fazer essas duas ferramentas funcionarem em conjunto.&lt;/p&gt;
+&lt;p&gt;Recomendo o &lt;a href=&quot;https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a&quot; title=&quot;Leia o artigo original&quot;&gt;Integrating Prettier + ESLint + Airbnb Style Guide in VSCode&lt;/a&gt;, do &lt;em&gt;Echobind&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Não perca tempo tentando controlar &quot;na conversa&quot; o estilo de código do seu time ou projeto. Já passei por isso e não compensa o estresse e tempo investido. Adote uma ferramenta como o &lt;em&gt;Prettier&lt;/em&gt;, e reserve tempo e energia para coisas mais importantes, relacionados ao seu negócio ou produto.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a&quot;&gt;Echobind - Integrating Prettier + ESLint + Airbnb Style Guide in VSCode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.futurehosting.com/blog/prettier-vs-eslint-whats-the-difference/&quot;&gt;Future Hosting - Prettier vs Eslint: What&apos;s the difference?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@joshuacrass/javascript-linting-and-formatting-with-eslint-prettier-and-airbnb-30eb746db862&quot;&gt;Joshua Crass - Javascript Linting and Formatting with ESLint, Prettier, and Airbnb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

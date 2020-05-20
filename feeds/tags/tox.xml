@@ -1,6 +1,189 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - tox</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 05 Jan 2018 17:05:00 -0200</lastBuildDate><item><title>Testando apps Django com Tox</title><link>https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</link><description>&lt;p&gt;O &lt;a href="https://docs.djangoproject.com/pt-br/2.0/releases/2.0/" title="Django 2.0 release notes"&gt;&lt;em&gt;Django 2.0&lt;/em&gt;&lt;/a&gt; foi lançado,
-e com ele o suporte a &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; &lt;code&gt;2.7&lt;/code&gt; deixa de existir para
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - tox]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Testando apps Django com Tox]]></title><description><![CDATA[O Django 2.0 foi lançado,
+e com ele o suporte a Python  deixa de existir para
+as próximas versões do framework. Alegria para os usuários, preocupação para os desenvolvedores
+dos apps.
+Afinal, a versão  é LTS (Long Term Support), logo, alguns apps (ainda) não podem abraçar
+incondicionalmente a versão…]]></description><link>https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 05 Jan 2018 17:05:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;https://docs.djangoproject.com/pt-br/2.0/releases/2.0/&quot; title=&quot;Django 2.0 release notes&quot;&gt;&lt;em&gt;Django 2.0&lt;/em&gt;&lt;/a&gt; foi lançado,
+e com ele o suporte a &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt; deixa de existir para
 as próximas versões do &lt;em&gt;framework&lt;/em&gt;. Alegria para os usuários, preocupação para os desenvolvedores
-dos &lt;a href="http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/" title="Desmistificando O Conceito De Django Apps"&gt;&lt;em&gt;apps&lt;/em&gt;&lt;/a&gt;.
-Afinal, a versão &lt;code&gt;1.11&lt;/code&gt; é &lt;em&gt;LTS&lt;/em&gt; (Long Term Support), logo, alguns &lt;em&gt;apps&lt;/em&gt; (ainda) não podem …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 05 Jan 2018 17:05:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-01-05:/2018/01/05/testando-apps-django-com-tox.html</guid><category>desenvolvimento</category><category>testes</category><category>tdd</category><category>tox</category><category>django</category><category>python</category><category>virtualenv</category></item></channel></rss>
+dos &lt;a href=&quot;http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/&quot; title=&quot;Desmistificando O Conceito De Django Apps&quot;&gt;&lt;em&gt;apps&lt;/em&gt;&lt;/a&gt;.
+Afinal, a versão &lt;code class=&quot;language-text&quot;&gt;1.11&lt;/code&gt; é &lt;em&gt;LTS&lt;/em&gt; (Long Term Support), logo, alguns &lt;em&gt;apps&lt;/em&gt; (ainda) não podem abraçar
+incondicionalmente a versão &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt; da linguagem.&lt;/p&gt;
+&lt;p&gt;É nesse cenário que bibliotecas como o &lt;a href=&quot;http://six.readthedocs.io/&quot; title=&quot;Python 2 and 3 Compatibility Library&quot;&gt;&lt;em&gt;six&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://tox.readthedocs.io/en/latest/&quot; title=&quot;Standardize testing in Python&quot;&gt;&lt;em&gt;tox&lt;/em&gt;&lt;/a&gt; mostram o seu valor. Nesse artigo,
+vamos falar um pouquinho mais sobre a última.&lt;/p&gt;
+&lt;h2&gt;Antes de começar: Vida longa ao Python 3!&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Python 2&lt;/em&gt; estará aí por mais um tempo (até 2020). Portanto, qual a motivação para mudar para o &lt;em&gt;Python 3&lt;/em&gt; agora?&lt;/p&gt;
+&lt;p&gt;Na &lt;a href=&quot;https://loadsmart.com/&quot; title=&quot;Book a truck in seconds&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;, o nosso principal projeto é em &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt;.
+Mas estamos experimentando &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt; há um bom tempo em projetos paralelos. O fato é que a nova versão da linguagem está mais eficiente,
+possui suporte a assincronicidade, melhor controle de exceções e o fogo ardente do &quot;unicode hell&quot; foi controlado.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGRkZK01hP/xAAaEAEBAAIDAAAAAAAAAAAAAAABAgMiABES/9oACAEBAAEFAve0wHKwIybORKx9TH//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAACAwEBAAAAAAAAAAAAAAAAARESMUEh/9oACAEBAAY/Aq4RbZOMTPOCUH//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUEQUf/aAAgBAQABPyEKGUcLuWBFnCr5MAQgbm/JlOc/Z//aAAwDAQACAAMAAAAQx/8A/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAwEBPxCqaRH/xAAWEQADAAAAAAAAAAAAAAAAAAAQIUH/2gAIAQIBAT8QqH//xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFxkaHR/9oACAEBAAE/ED/px4O0NoWC4DUJDgGzIAjZAW3XPyDUAWAvpue4734VdL4n/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Indiana Jones encarando uma cobra&amp;quot;&quot;
+        title=&quot;Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy...&quot;
+        src=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg&quot;
+        srcset=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/7809d/python-snakes.jpg 192w,
+/static/e8828b6f6e53d7cc049d0cbca6862b42/4ecad/python-snakes.jpg 384w,
+/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy...&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;É verdade que há quebra de compatibilidade entre as versões, mas se considerarmos que a &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt; só tem mais 2 anos de &quot;vida&quot;,
+a urgência de migração fica mais latente.&lt;/p&gt;
+&lt;h2&gt;tox é uma sacada das boas!&lt;/h2&gt;
+&lt;p&gt;O site oficial da biblioteca a define como:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a generic virtualenv management and test command line tool (...)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Com &lt;em&gt;tox&lt;/em&gt; é possível:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Validar o seu pacote contra diferentes versões do &lt;em&gt;Python&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Rodar os seus testes em diferentes &lt;em&gt;environments&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Não é só por usar &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;&lt;em&gt;ambientes virtuais&lt;/em&gt;&lt;/a&gt; que o &lt;em&gt;tox&lt;/em&gt; é
+uma boa ideia. Ele vem sendo uma mão na roda para os desenvolvedores de pacotes &lt;em&gt;Python&lt;/em&gt;
+que precisam dar suporte às versões &lt;code class=&quot;language-text&quot;&gt;2.x&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt;, e que utilizam testes automatizados como
+&lt;em&gt;design&lt;/em&gt; das soluções.&lt;/p&gt;
+&lt;p&gt;Com o &lt;em&gt;Django&lt;/em&gt; a &quot;granularidade&quot; pode ser ainda maior, rodando testes em ambientes
+que são combinações entre diferentes versões da linguagem e do &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Antes de continuar: Travis e Build Matrix&lt;/h2&gt;
+&lt;p&gt;Se você estiver utilizando o &lt;a href=&quot;&quot;&gt;&lt;em&gt;Travis CI&lt;/em&gt;&lt;/a&gt;, poderoso serviço de Continuous Integration, consegue reproduzir o comportamento que apresentaremos
+a seguir através do uso de &lt;a href=&quot;https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix&quot; title=&quot;Customizing the build&quot;&gt;&lt;em&gt;Build Matrix&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A diferença é que com o &lt;em&gt;tox&lt;/em&gt;, podemos obter o mesmo comportamento em tempo de desenvolvimento. Agilizando um pouco mais o processo.&lt;/p&gt;
+&lt;p&gt;Veja mais em &lt;a href=&quot;https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/&quot; title=&quot;Setting up Travis CI for github repo in Python&quot;&gt;&quot;Travis CI for Python project&quot;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vou aproveitar o tema e usar o &lt;em&gt;tox&lt;/em&gt; para me ajudar em um &lt;em&gt;refactoring&lt;/em&gt; de um &lt;em&gt;app&lt;/em&gt; de
+código aberto, que há muito não dou suporte: O &lt;a href=&quot;https://github.com/kplaube/django-simple-contact&quot; title=&quot;Veja no Github&quot;&gt;django-simple-contact&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Se você quiser acompanhar o passo-a-passo, clone o projeto e dê um &lt;code class=&quot;language-text&quot;&gt;git checkout&lt;/code&gt; da &lt;em&gt;revisão&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;80145ae&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git clone git@github.com:kplaube/django-simple-contact.git
+$ cd django-simple-contact/
+$ git checkout 80145ae&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Na estrutura atual, é possível executar os testes através do &lt;code class=&quot;language-text&quot;&gt;setup.py&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;python runtests.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python setup.py test
+(...)
+-----------------------------------------------
+Ran 6 tests in 0.230s
+
+OK
+Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É possível fazer a troca da versão do &lt;em&gt;Python/Django&lt;/em&gt; de forma manual (através do &lt;a href=&quot;/tag/pyenv.html&quot; title=&quot;Leia mais sobre pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;, por exemplo).
+Obviamente que o &lt;em&gt;tox&lt;/em&gt; deixa tudo mais interessante (e automatizado).&lt;/p&gt;
+&lt;h3&gt;Instalando o tox&lt;/h3&gt;
+&lt;p&gt;Finalmente, vamos adicionar a ferramenta ao projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install tox&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso esteja usando &lt;em&gt;pyenv&lt;/em&gt;, a instalação do &lt;code class=&quot;language-text&quot;&gt;tox-pyenv&lt;/code&gt; é sugerida.
+&lt;a href=&quot;https://pypi.python.org/pypi/tox-pyenv&quot; title=&quot;tox plugin that makes tox use &amp;#x60;pyenv which&amp;#x60; to find python executables&quot;&gt;Leia mais sobre a biblioteca&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para deixar tudo mais organizado, vamos nos inspirar na estrutura do projeto
+&lt;a href=&quot;https://github.com/vandersonmota/model_mommy&quot; title=&quot;Object factory for django&quot;&gt;&lt;em&gt;modelmommy&lt;/em&gt;&lt;/a&gt;. Criaremos um arquivo &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; com o seguinte conteúdo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+bleach
+django&amp;gt;=1.8.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A versão &lt;code class=&quot;language-text&quot;&gt;1.8.0&lt;/code&gt; (até o momento) é a &lt;em&gt;LTS&lt;/em&gt; mais antiga, portanto, garantiremos suporte dessa versão em diante.
+O &lt;a href=&quot;https://pypi.python.org/pypi/bleach&quot; title=&quot;An easy safelist-based HTML-sanitizing tool&quot;&gt;&lt;em&gt;bleach&lt;/em&gt;&lt;/a&gt; é uma dependência do projeto, não
+relevante ao exemplo desse artigo.&lt;/p&gt;
+&lt;p&gt;É interessante deixarmos explícito a instalação do &lt;em&gt;tox&lt;/em&gt;... um &lt;code class=&quot;language-text&quot;&gt;requirements-dev.txt&lt;/code&gt; pode ser uma solução:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements-dev.txt
+
+tox&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora, quando um &lt;em&gt;dev&lt;/em&gt; juntar-se ao projeto, ele poderá executar o comando &lt;code class=&quot;language-text&quot;&gt;pip install -r requirements-dev.txt&lt;/code&gt;, e ter
+as dependências necessárias para contribuir com o &lt;em&gt;app&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Configurando&lt;/h3&gt;
+&lt;p&gt;Antes de executar a ferramenta é necessário criar um arquivo &lt;code class=&quot;language-text&quot;&gt;tox.ini&lt;/code&gt;, que será responsável por configurar os ambientes
+e disparar os testes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tox.ini&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[tox]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;envlist&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; py27-django{18,111}, py36-django{18,111,20}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[testenv]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;commands&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; python runtests.py&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;setenv&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;    DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;simple_contact.tests.test_settings&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;    PYTHONPATH&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;{toxinidir}&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;basepython&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+    py27: python2.7
+    py36: python3.6
+&lt;span class=&quot;token constant&quot;&gt;deps&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+    bleach
+    django18: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;1.8&lt;/span&gt;
+    django111: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;1.11&lt;/span&gt;
+    django20: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;2.0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por partes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;[tox]&lt;/code&gt;: Aqui colocamos as configurações globais. &lt;code class=&quot;language-text&quot;&gt;envlist&lt;/code&gt; conterá a lista de ambientes nos quais executaremos os testes.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[testenv]&lt;/code&gt;: Configurações por ambiente de teste. Poderíamos ter configurações específicas ao utilizar &lt;code class=&quot;language-text&quot;&gt;[testenv:py36-django20]&lt;/code&gt;, por exemplo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;commands&lt;/code&gt;: O comando a ser executado.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;setenv&lt;/code&gt;: Variáveis de ambiente setadas para a execução dos testes.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;basepython&lt;/code&gt;: Nome do interpretador &lt;em&gt;Python&lt;/em&gt; utilizado para a criação do ambiente virtual. Repare no &quot;match&quot; com &lt;code class=&quot;language-text&quot;&gt;py27-&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;py36-&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;envlist&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;deps&lt;/code&gt;: Dependências para determinado ambiente de teste. Repare no &quot;match&quot; com &lt;code class=&quot;language-text&quot;&gt;django{18,111,20}&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Com o uso dos &lt;em&gt;brackets&lt;/em&gt;, ao invés de criarmos um &lt;code class=&quot;language-text&quot;&gt;testenv&lt;/code&gt; para cada combinação (exemplo: &lt;code class=&quot;language-text&quot;&gt;py27-django18&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;py27-django111&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;py36-django18&lt;/code&gt;, etc),
+o &lt;em&gt;tox&lt;/em&gt; fica responsável por fazer a &quot;matriz de combinações&quot;.&lt;/p&gt;
+&lt;p&gt;Agora sim, podemos executar a ferramenta de linha de comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ tox
+(...)
+ERROR:   py27-django18: commands failed
+ERROR:   py27-django111: commands failed
+ERROR:   py36-django18: commands failed
+ERROR:   py36-django111: commands failed
+py36-django20: commands succeeded&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No meu ambiente local, como esperado, apenas os testes do ambiente &lt;code class=&quot;language-text&quot;&gt;py36-django20&lt;/code&gt; passaram. Para ter acesso a versão corrigida,
+dê um &lt;em&gt;checkout&lt;/em&gt; da revisão &lt;code class=&quot;language-text&quot;&gt;a37ebd1608&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git checkout a37ebd1608
+$ tox
+(...)
+py27-django18: commands succeeded
+py27-django111: commands succeeded
+py36-django18: commands succeeded
+py36-django111: commands succeeded
+py36-django20: commands succeeded&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Perfeito!&lt;/p&gt;
+&lt;p&gt;Ainda é possível executar apenas os testes de um ambiente específico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ tox -e py36-django20
+(...)
+-----------------------------------------------
+Ran 6 tests in 0.055s
+
+OK
+Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O resultado final está disponível na &lt;em&gt;tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;0.3.0&lt;/code&gt; do projeto.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Que esse movimento da comunidade &lt;em&gt;Django&lt;/em&gt; consiga influenciar ainda mais a adoção do &lt;em&gt;Python 3&lt;/em&gt;. Admito que sem essa
+&quot;motivação extra&quot;, dificilmente cogitaria o &lt;em&gt;upgrade&lt;/em&gt; da linguagem em meus projetos nesse momento.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;tox&lt;/em&gt; é sem dúvida uma ferramenta que pode auxiliar nessa fase de transição, portanto, não hesite em adicioná-la ao seu &lt;em&gt;toolbelt&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para uma integração &lt;em&gt;seamless&lt;/em&gt; com o &lt;em&gt;Travis CI&lt;/em&gt;, o &lt;a href=&quot;https://github.com/tox-dev/tox-travis&quot; title=&quot;Seamless integration of Tox into Travis CI&quot;&gt;&lt;em&gt;tox-travis&lt;/em&gt;&lt;/a&gt;
+é recomendado.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.activestate.com/blog/2017/01/python-3-vs-python-2-its-different-time&quot;&gt;ActiveState - Python 3 vs Python 2: It&apos;s different this time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/&quot;&gt;Henrique Bastos - Desmistificando O Conceito De Django Apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jsatt.com/blog/using-tox-with-travis-ci-to-test-django-apps/&quot;&gt;Jeremy Satterfield - Using Tox with Travis CI to Test Django Apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/&quot;&gt;vevurka-dev - Travis CI for Python project&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

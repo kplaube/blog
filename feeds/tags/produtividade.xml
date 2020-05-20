@@ -1,13 +1,261 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - produtividade</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Thu, 27 Jul 2017 20:30:00 -0300</lastBuildDate><item><title>Aprendendo a Aprender</title><link>https://klauslaube.com.br/2017/07/27/aprendendo-a-aprender.html</link><description>&lt;p&gt;Já mencionei o "&lt;a href="https://www.coursera.org/learn/aprender" title="Veja o curso em pt-BR"&gt;Aprendendo a Aprender&lt;/a&gt;"
-no &lt;em&gt;post&lt;/em&gt; sobre &lt;a href="https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html" title="Leia mais sobre Pomodoro"&gt;&lt;em&gt;Pomodoro&lt;/em&gt;&lt;/a&gt;, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - produtividade]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Aprendendo a Aprender]]></title><description><![CDATA[Já mencionei o "Aprendendo a Aprender"
+no post sobre Pomodoro, e
 faço questão de citá-lo sempre que possível. O curso, ministrado por
-&lt;a href="https://en.wikipedia.org/wiki/Barbara_Oakley" title="Conheça Barbara"&gt;&lt;em&gt;Barbara Oakley&lt;/em&gt;&lt;/a&gt;,
+Barbara Oakley,
+além de inspirador apresenta uma série de ferramentas que irão te ajudar a aprender
+o mais maçante dos conteúdos (e farão bem à sua memória). O ABBC…]]></description><link>https://klauslaube.com.br/2017/07/27/aprendendo-a-aprender.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/07/27/aprendendo-a-aprender.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 27 Jul 2017 20:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Já mencionei o &quot;&lt;a href=&quot;https://www.coursera.org/learn/aprender&quot; title=&quot;Veja o curso em pt-BR&quot;&gt;Aprendendo a Aprender&lt;/a&gt;&quot;
+no &lt;em&gt;post&lt;/em&gt; sobre &lt;a href=&quot;/2017/06/29/pomodoro-ftw.html&quot; title=&quot;Leia mais sobre Pomodoro&quot;&gt;&lt;em&gt;Pomodoro&lt;/em&gt;&lt;/a&gt;, e
+faço questão de citá-lo sempre que possível. O curso, ministrado por
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Barbara_Oakley&quot; title=&quot;Conheça Barbara&quot;&gt;&lt;em&gt;Barbara Oakley&lt;/em&gt;&lt;/a&gt;,
 além de inspirador apresenta uma série de ferramentas que irão te ajudar a aprender
 o mais maçante dos conteúdos (e farão bem à sua memória).&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;O …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 27 Jul 2017 20:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-07-27:/2017/07/27/aprendendo-a-aprender.html</guid><category>produtividade</category><category>estudos</category><category>carreira</category><category>cursos</category></item><item><title>Pomodoro FTW!</title><link>https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html</link><description>&lt;p&gt;Sim, meus amigos! O título poderia ser "esse é mais um post sobre Pomodoro Technique",
-e embora haja toneladas de artigos na &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sobre o assunto, me sinto na obrigação
+&lt;p&gt;O &lt;a href=&quot;http://www.abbc.org.br/cursos/artigo.asp?id=7&quot; title=&quot;Aprendendo a aprender - 10 regras para estudar bem&quot;&gt;&lt;em&gt;ABBC&lt;/em&gt;&lt;/a&gt;
+bem que tentou descrever a tutora:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;É difícil definir uma profissão para Barbara Oakley. Ela se formou em Literatura
+e Línguas Eslavas, trabalhou como tradutora no exército americano, até que decidiu
+estudar engenharia! Hoje, ela tem um currículo invejável, que passa por disciplinas
+tão distantes quanto Letras, Engenharia e Biologia. É PhD, professora de Engenharia
+na Universidade de Oakland, em Rochester, Michigan. Sua pesquisa atualmente
+se concentra na complexa relação entre neurociência e comportamento social.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É com esse gabarito todo que &lt;em&gt;Barbara&lt;/em&gt;, acompanhada de
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Terry_Sejnowski&quot; title=&quot;Conheça Terry&quot;&gt;&lt;em&gt;Terrence Sejnowski&lt;/em&gt;&lt;/a&gt;,
+dá o curso através da plataforma &lt;em&gt;Coursera&lt;/em&gt;, &lt;strong&gt;totalmente grátis&lt;/strong&gt;.
+Mesmo que você (assim como eu) não tenha a pretensão de virar um estudioso, eu super recomendo!&lt;/p&gt;
+&lt;p&gt;Abaixo, com ajuda de algumas referências espalhadas pela &lt;em&gt;web&lt;/em&gt;, eu relembro alguns
+conceitos que aprendi durante as 4 semanas de curso.&lt;/p&gt;
+&lt;h2&gt;Combata a procrastinação&lt;/h2&gt;
+&lt;p&gt;Sair de inércia é um desafio imenso (pelo menos pra mim). Não importa o quão
+recompensador ou empolgante for a tarefa, meu cérebro entende que ir pro
+&lt;em&gt;Netflix&lt;/em&gt; sempre trará resultados maiores.&lt;/p&gt;
+&lt;p&gt;É um comportamento comum: Focamos no resultado final, e o resultado final não é
+fácil de atingir imediatamente. Ao contrário da satisfação instantânea de assistir a um seriado.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Foque no processo. Ao invés de &quot;preciso aprender XYZ&quot;, prefira
+&quot;vou dedicar 1 hora aprendendo XYZ, começando por Y&quot;. O (supracitado)
+&lt;em&gt;Pomodoro Technique&lt;/em&gt; pode te ajudar com isso.&lt;/p&gt;
+&lt;p&gt;E Lembre-se: &quot;Um pouco&quot; é melhor que nada.&lt;/p&gt;
+&lt;h2&gt;Aprenda de forma ativa&lt;/h2&gt;
+&lt;p&gt;Procure relembrar! Nem só ler, ou copiar, ou ainda usar &quot;caneta marca texto&quot;.
+Quantos livros você já leu e tava tão focado em acabá-lo que semanas depois não
+era mais capaz de lembrar dos detalhes da trama?&lt;/p&gt;
+&lt;p&gt;Absorver o conteúdo de forma passiva é outra &quot;traquinagem&quot; do nosso cérebro.
+A sensação de progresso é reconfortante, mas outra vez estamos cometendo o pecado
+de focar no resultado final e não no processo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Relembre. Explique o que você acabou de aprender para você mesmo ou
+algum amigo. Relembre as principais ideias em um lugar diferente daquele no qual você costuma aprender.&lt;/p&gt;
+&lt;p&gt;E por mais clichê que possa parecer, teste os seus conhecimentos. Isso será
+crucial para que você seja capaz de revisitar pontos dos quais ainda possui dúvidas.&lt;/p&gt;
+&lt;h2&gt;&quot;Indexe&quot; o conteúdo que você está aprendendo&lt;/h2&gt;
+&lt;p&gt;Para aprender a tocar uma música, é mais fácil separá-la em partes (intro, verso, refrão, etc)
+e praticar parte por parte, até que você seja capaz de &quot;amarrá-las&quot; e tocá-la por inteiro.&lt;/p&gt;
+&lt;p&gt;Podemos usar a mesma analogia (e fazer analogias é uma boa ferramenta para entender conteúdos)
+para o processo de aprendizado como um todo: É mais eficaz quebrarmos um
+determinado tema em conteúdos menores e iterativamente aprendê-los.&lt;/p&gt;
+&lt;p&gt;Voltando ao exemplo da música. Quando estamos aprendendo a tocar o refrão
+nossa memória de curto prazo (que tem pouco poder de armazenamento) é completamente
+preenchida pelos acordes que o compõe. Através da repetição, conseguimos
+&quot;dar significado&quot; àquele bloco até chegar o momento em que não pensamos
+mais nos acordes em si, e sim no &quot;bloco como um todo&quot;.&lt;/p&gt;
+&lt;p&gt;Trazendo pro lado da &lt;em&gt;TI&lt;/em&gt;, é quase como &quot;zipar&quot; o conhecimento e indexá-lo em
+um banco de dados (que seria a nossa memória de longo prazo) através de uma
+chave que faça muito sentido para nós.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Use analogias para dar maior significado a um determinado assunto.
+Separe o conteúdo em pequenos grupos e aplique o processo de aprendizagem para cada um.&lt;/p&gt;
+&lt;p&gt;E não envergonhe-se de técnicas como &quot;bem/mal, bom/mau&quot;.&lt;/p&gt;
+&lt;h2&gt;Aprenda de forma espaçada&lt;/h2&gt;
+&lt;p&gt;Por mais surpreendente que possa parecer, estudar 10 horas num dia não vai te
+deixar mais preparado para uma prova que ocorrerá no dia seguinte, do que
+estudar 1 hora em 10 dias. Isso segundo &lt;a href=&quot;https://www.theguardian.com/education/2009/feb/13/gcses-teaching&quot; title=&quot;A sixth of a GCSE in 60 minutes?&quot;&gt;&lt;em&gt;Douglas Fields&lt;/em&gt;&lt;/a&gt;,
+que propõe que através de aprendizagem espaçada a informação entra de maneira
+mais fácil na &lt;a href=&quot;https://drauziovarella.com.br/corpo-humano/memoria/&quot; title=&quot;Memória&quot;&gt;memória de longo prazo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Além disso, seu cérebro precisa de descanso. Estudar horas a fio ou negligenciar
+noites de sono pode trazer malefícios à saúde e principalmente ao seu
+processo de aprendizagem. É através do sono, por exemplo, que o seu cérebro passa
+por um &quot;período de manutenção&quot;, eliminando toxinas, fortalecendo memórias importantes
+e descartando as menos importantes.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAGTWkMlMmJN/wD/xAAcEAABAwUAAAAAAAAAAAAAAAAAAQMyAgQSMUP/2gAIAQEAAQUCmMPUYyOdsLv/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwEn/8QAFREBAQAAAAAAAAAAAAAAAAAAAhD/2gAIAQIBAT8BU//EABkQAAMAAwAAAAAAAAAAAAAAAAABERIgUf/aAAgBAQAGPwLJnIV6f//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExcUFh/9oACAEBAAE/Idk+0URLHM4N3Fso2zx8IMvGJFTP/9oADAMBAAIAAwAAABDE3//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPxC2yn//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QAFl//8QAHBABAQADAAMBAAAAAAAAAAAAAREAITFBYXGR/9oACAEBAAE/ENwEvB8AMflgT2+saqC95gV3yT9wGgbphMkt23P/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Cursos de algorítmos do Coursera te farão querer afundar a cara nos livros (blogossus.com)&amp;quot;&quot;
+        title=&quot;Cursos de algorítmos do Coursera te farão querer afundar a cara nos livros (blogossus.com)&quot;
+        src=&quot;/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg&quot;
+        srcset=&quot;/static/fc9d05e0486545742dfa74774d00ba18/7809d/social-network-algorithm.jpg 192w,
+/static/fc9d05e0486545742dfa74774d00ba18/4ecad/social-network-algorithm.jpg 384w,
+/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Cursos de algorítmos do Coursera te farão querer afundar a cara nos livros (blogossus.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E quando você faz uma pausa, o cérebro entra no famigerado
+&lt;a href=&quot;https://pt.coursera.org/learn/aprender/lecture/IeefW/introducao-aos-modos-difuso-e-focado&quot; title=&quot;Introdução aos Modos Difuso e Focado&quot;&gt;&quot;modo difuso&quot;&lt;/a&gt;.
+Que pode ser (vulgarmente) explicado como ele trabalhando em segundo plano para
+construir novos padrões neurais, ajudando-o a resolver problemas complexos, ter
+novas ideias ou entender algo melhor.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Ao invés de estudar 5 horas nas quartas-feiras, estude 1 hora 5x na semana.
+Descanse, faça pausas durante os estudos (olha o &lt;em&gt;Pomodoro&lt;/em&gt; aí de novo),
+pratique exercícios, caminhe e quebre a rotina.&lt;/p&gt;
+&lt;p&gt;E não subestime os &quot;eurekas&quot; durante o banho.&lt;/p&gt;
+&lt;h2&gt;Tenha a sensação de progresso&lt;/h2&gt;
+&lt;p&gt;Você não sobe numa esteira sem saber quantos quilômetros ou minutos
+vai ficar correndo nela, certo? (Certo?)&lt;/p&gt;
+&lt;p&gt;Seu cérebro sente-se premiado com a sensação reconfortante do progresso.
+E embora exista o risco de cair nas armadilhas dos dois primeiros tópicos,
+entender onde você quer chegar e saber o quanto você já caminhou é fundamental
+para se manter motivado.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Pense de onde você veio e aonde quer chegar estudando determinado
+assunto. &quot;Trackeie&quot; o seu progresso. Faça as coisas mais difíceis primeiro, a realização
+delas te dará motivação para seguir em frente.&lt;/p&gt;
+&lt;p&gt;Ter a sensação de progresso é um fator motivante. Não o subestime.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Eu recorri ao curso após falhar duas vezes seguidas nos testes de uma determinada
+especialização do &lt;em&gt;Coursera&lt;/em&gt;. É bem verdade que algumas das técnicas acima
+são bem conhecidas, mas eu nunca tive a noção do quanto elas (através de uma
+forma pragmática) podem auxiliar no processo de aprendizagem de diferentes assuntos.&lt;/p&gt;
+&lt;p&gt;Inclusive, esse artigo faz parte do meu processo de &lt;a href=&quot;http://noticias.universia.pt/ciencia-tecnologia/especial/2014/01/14/1074898/1/portugues-recebe-2-milhes-euros-investigar-mecanismos-memoria/consiste-chunking.html&quot; title=&quot;Em que é que consiste o Chunking?&quot;&gt;chunking&lt;/a&gt;
+apresentado pelo próprio &quot;Aprendendo a Aprender&quot;. É algo que costumo fazer com
+frequência: Ao aprender um conteúdo novo, eu escrevo sobre e compartilho. Isso
+me motiva a fazer uma pesquisa maior e me faz relembrar conceitos, &quot;fixando&quot; melhor o assunto.&lt;/p&gt;
+&lt;p&gt;Vários pontos importantes não foram abordados nesse &lt;em&gt;post&lt;/em&gt; (como construção de
+redes neurais, diferença de memória de curto e longo prazo, como fazer &lt;em&gt;chunking&lt;/em&gt;,
+aspectos visuais da memória e como tirar proveito disso, palácio das memórias, etc),
+portanto saliento uma vez mais: &lt;a href=&quot;https://pt.coursera.org/learn/aprender&quot; title=&quot;Aprendendo a Aprender&quot;&gt;Não deixe de conferir o curso no &lt;em&gt;Cousera&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Aproveite também para conferir o &lt;a href=&quot;https://medium.com/@princessmiwi/um-resumo-do-curso-aprendendo-a-aprender-de-barbara-oakley-8d7253f51d21&quot; title=&quot;Um Resumo do Curso “Aprendendo a Aprender”, de Barbara Oakley&quot;&gt;bom artigo&lt;/a&gt; da &lt;em&gt;Cindy Dalfovo&lt;/em&gt; no &lt;em&gt;Medium&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Obs.: Não li o livro (de mesmo nome e autor), mas está bem avaliado na &lt;a href=&quot;https://www.amazon.com.br/Aprendendo-Aprender-Matem%C3%A1tica-Ci%C3%AAncias-Qualquer/dp/8586622451&quot; title=&quot;Aprendendo a Aprender. Como Ter Sucesso em Matemática, Ciências e Qualquer Outra Matéria&quot;&gt;&lt;em&gt;Amazon&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;#ficadica&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.abbc.org.br/cursos/artigo.asp?id=7&quot;&gt;ABBC Educacional - Aprender a aprender: 10 regras para estudar bem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@eu.alexandre/aprendizagem-espa%C3%A7ada-o-m%C3%A9todo-que-tem-causado-muita-pol%C3%AAmica-a93bcea8c8f0&quot;&gt;Alexandre Afonso - Aprendizagem Espaçada… O Método Que Tem Causado Muita Polêmica&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.coursera.org/learn/aprender&quot;&gt;Coursera - Aprendendo a Aprender&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lifehacker.com/5946606/improve-your-memory-with-the-chunking-technique&quot;&gt;Lifehacker - Improve Your Memory with The Chunking Technique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://mel-meow.com/uma-longa-noite-aprendendo/&quot;&gt;mel-meow - Uma longa noite aprendendo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@princessmiwi/um-resumo-do-curso-aprendendo-a-aprender-de-barbara-oakley-8d7253f51d21&quot;&gt;pricessmiwi - Um Resumo do Curso “Aprendendo a Aprender”, de Barbara Oakley&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://noticias.universia.pt/ciencia-tecnologia/especial/2014/01/14/1074898/1/portugues-recebe-2-milhes-euros-investigar-mecanismos-memoria/consiste-chunking.html&quot;&gt;Universia - Em que é que consiste o Chunking?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Pomodoro FTW!]]></title><description><![CDATA[Sim, meus amigos! O título poderia ser "esse é mais um post sobre Pomodoro Technique",
+e embora haja toneladas de artigos na web sobre o assunto, me sinto na obrigação
 de falar um pouquinho sobre ele aqui também. Afinal, além de ser uma prática simples e que
-apresenta resultados, é …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 29 Jun 2017 18:20:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-06-29:/2017/06/29/pomodoro-ftw.html</guid><category>produtividade</category><category>foco</category><category>home-office</category><category>pomodoro</category></item></channel></rss>
+apresenta resultados, é ela que tem salvo…]]></description><link>https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 29 Jun 2017 18:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Sim, meus amigos! O título poderia ser &quot;esse é mais um post sobre Pomodoro Technique&quot;,
+e embora haja toneladas de artigos na &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sobre o assunto, me sinto na obrigação
+de falar um pouquinho sobre ele aqui também. Afinal, além de ser uma prática simples e que
+apresenta resultados, é ela que tem salvo a produtividade das minhas tardes de &lt;em&gt;home office&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Então prepare o seu &lt;em&gt;timer&lt;/em&gt; e vamos entender como essa técnica funciona.&lt;/p&gt;
+&lt;h2&gt;25 minutos focados, 5 minutos de descanso&lt;/h2&gt;
+&lt;p&gt;E vamos lá no oráculo da produtividade para entender o que é o &lt;em&gt;Pomodoro Technique&lt;/em&gt;.
+Segundo o &lt;a href=&quot;http://lifehacker.com/&quot; title=&quot;Tips, tricks and downloads to get things done&quot;&gt;&lt;em&gt;Lifehacker&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) is a cyclical system. You work in short sprints , which makes
+sure you&apos;re consistently productive. You also get to take regular breaks
+that bolster your motivation and keep you creative.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É possível resumir a técnica inteira nos seguintes passos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Escolha &lt;strong&gt;uma tarefa&lt;/strong&gt; que você queira concluir&lt;/li&gt;
+&lt;li&gt;Configure o seu &lt;em&gt;timer&lt;/em&gt; para &lt;strong&gt;25 minutos&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Trabalhe nessa tarefa até o &lt;em&gt;timer&lt;/em&gt; despertar&lt;/li&gt;
+&lt;li&gt;Faça uma pausa de &lt;strong&gt;5 minutos&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Repita do início&lt;/li&gt;
+&lt;li&gt;A cada 4 &quot;sprints&quot; de 25 minutos, faça uma &lt;strong&gt;pausa de 15 minutos&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esse é basicamente o &lt;em&gt;framework&lt;/em&gt; da técnica, sendo que existem algumas premissas fundamentais:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O ato de &quot;trabalhar focado durante 25 minutos&quot; é chamado de &lt;em&gt;Pomodoro&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;O ideal é que uma tarefa seja grande o suficiente para caber dentro de um &lt;em&gt;Pomodoro&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Embora não seja de senso comum, os tempos de trabalho focado e repouso podem ser adaptados. Por exemplo, eu costumo fazer pausas longas de 30 minutos ao invés de 15.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Durante cada &lt;em&gt;Pomodoro&lt;/em&gt;, feche o seu &lt;em&gt;Facebook&lt;/em&gt;, ignore o seu celular e foque completamente
+no que precisa ser feito. Nos minutos de folga, usufrua de sua recompensa (redes sociais, &lt;em&gt;Youtube&lt;/em&gt;, uma passadinha no &lt;em&gt;9gag&lt;/em&gt; ou até mesmo aquele cafézinho).&lt;/p&gt;
+&lt;h2&gt;Adestramento?&lt;/h2&gt;
+&lt;p&gt;A técnica criada por &lt;a href=&quot;https://cirillocompany.de/&quot; title=&quot;Work smarter, not harder&quot;&gt;&lt;em&gt;Francesco Cirillo&lt;/em&gt;&lt;/a&gt; tem por objetivo te ajudar a melhorar
+a concentração, evitar distrações e combater a procrastinação. E embora ela seja
+amplamente recomendada, &lt;a href=&quot;https://productivityist.com/the-problem-with-the-pomodoro-technique/&quot; title=&quot;The Problem with The Pomodoro Technique&quot;&gt;não é vista com bons olhos por todo o mundo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4c1f0dd16eeb8f517488735f7ed4a17c/6af66/killer-tomatoes.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsSAAALEgHS3X78AAAC+0lEQVQozx2SW28bRRiGZ48zOzve83rX3l0fdu1d79qO4/gQN04a44Qmhro4pA0CQqhJOVQCqRVUAiE3VL1oVEC0lSokuOGu/6S/i0lHz9WMnnnfT/oAy3IMwwLAAAAEETXT+qAT6WqO3nCcwLJXcKxIkSGs23LTk9sebvs48yTAsjwAbNrM7+/Fw/X06GDzo0mclp0cIQBw3DuZ50WOExGEoYUbDmoVpZZHQYDGshxfibQo0but6nQnG48ae5POYtJh6c/vwhnA0Vo8I7Q8tR/qDQc2C1LDlahMHxhVVb9u1/7oOZcHyZOt0tPd6qqTH6q0mMAy0C3ZpUjdiLV53+1WzdRBGZUdCFiG1gZnHy7ePvj1Ta/w1yQ698njJHfsyH2CFI4XBNQfFfZn/m4vX1Hp2DQWNV0pc9GVLGLhfHjtz373nsmPDfmGozzf9B8G+EBDnomyhNQCjAkiCMaWlBaodkVCZXpUTR2o8lTkbmrSsUtOfTIxcU0SLEG0LMkvYixCSYRWDoeWHFqkbMq+hm1FAgQrjcjdzuxBrGz1HIsXVVb0RbEto9Qx2hWnH9mbidOrOeuhvVaxssAM80qgE08jYLs3HK8Vro+87oZ9bcuuOzjIoXpeUhB2dK1X0/qRErl64htlR019I/X00FbKphIYKtgbba6FXr9R6oT6qKGPamTazg0jXDFgnghxQYK8CAAvsAIRRZqmIIgEmFdJrWiAw1EncVRD4DPPWIvLvap2e1xaTFvfHA0O1wtBTshBWDTIoG4f71Qf3GpPM1vDyNRIEpjg8Pp+5GhVC9+a3Vkczr497l78MH/26Oi/3++9fvLp/Tujok4QwxQVKfHMIK/ZGsEIMXRneQhuz7/oNtudRnh29+fPF7NP3o9+Op++enz2cnX35cXyn8uvLh+d3Jz24oon0CWlIzAChecFWcJgb/vG7tbOj8v58uODpw9P/v7t9LMPNlb3Z68vvnyxWv777LtXF8sXq9Pnv5x8v3xvPo5dAkuGTKmY5H+fM3aDJqdwOAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Não é o Ataque dos Tomates Assassinos, mas vai te ajudar a matar a procrastinação (killertomatoes.com)&amp;quot;&quot;
+        title=&quot;Não é o Ataque dos Tomates Assassinos, mas vai te ajudar a matar a procrastinação (killertomatoes.com)&quot;
+        src=&quot;/static/4c1f0dd16eeb8f517488735f7ed4a17c/6af66/killer-tomatoes.png&quot;
+        srcset=&quot;/static/4c1f0dd16eeb8f517488735f7ed4a17c/8514f/killer-tomatoes.png 192w,
+/static/4c1f0dd16eeb8f517488735f7ed4a17c/804b2/killer-tomatoes.png 384w,
+/static/4c1f0dd16eeb8f517488735f7ed4a17c/6af66/killer-tomatoes.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não é o Ataque dos Tomates Assassinos, mas vai te ajudar a matar a procrastinação (killertomatoes.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Eu mesmo não sigo à risca os passos acima. Geralmente recorro ao &lt;em&gt;Pomodoro&lt;/em&gt; quando
+estou com dificuldades de concentração, ou quando preciso encarar uma tarefa que é
+muito penosa de se executar. Segundo o &quot;&lt;a href=&quot;https://pt.coursera.org/learn/aprender&quot; title=&quot;Ferramentas mentais poderosas para ajudá-lo a dominar assuntos difíceis&quot;&gt;Aprendendo a Aprender&lt;/a&gt;&quot;,
+com auxílio da técnica você faz com que o seu cérebro foque na execução do processo ao invés de focar no resultado
+da atividade (atingir os 25 minutos é muito mais palpável que finalizar aquele livro técnico
+que você está levando meses para terminar e só está na página 13). Com isso, diminuímos aquela resistência natural de
+&quot;hoje não, vou deixar para amanhã&quot; e driblamos a procrastinação.&lt;/p&gt;
+&lt;p&gt;Outra coisa que eu não consigo fazer é quebrar as tarefas em tamanhos ideais para caberem
+em um &lt;em&gt;Pomodoro&lt;/em&gt;. O que tem funcionado é gastar quantos &lt;em&gt;Pomodoros&lt;/em&gt; forem necessários
+para mover uma &lt;em&gt;task&lt;/em&gt; de &lt;em&gt;DOING&lt;/em&gt; para &lt;em&gt;DONE&lt;/em&gt;. Além disso, se percebo que estou embalado no
+raciocínio, negligencio algumas pausas e emendo os &lt;em&gt;sprints&lt;/em&gt; focados.&lt;/p&gt;
+&lt;p&gt;Existe abertura para adaptação da técnica. Mas mesmo assim, ouço relatos de amigos e conhecidos
+que tentaram usá-la e a acharam muito restritiva. Em alguns momentos ela chega a atrapalhar, é verdade,
+mas na grande maioria das vezes foi a salvadora dos meus dias de &lt;em&gt;home office&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Ferramentas&lt;/h2&gt;
+&lt;p&gt;O nome &lt;em&gt;Pomodoro&lt;/em&gt; vem do cronômetro gastronômico na forma de um tomate que
+&lt;em&gt;Cirillo&lt;/em&gt; usava em suas sessões. E embora seja muito maneiro ter um &lt;em&gt;gadget&lt;/em&gt; desses
+à disposição, qualquer cronômetro é o suficiente para praticar a técnica.&lt;/p&gt;
+&lt;p&gt;Algumas fontes sugerem que &quot;quanto menos tecnologia, melhor&quot;. Mas eu prefiro confiar no
+&lt;a href=&quot;https://itunes.apple.com/us/app/tomato-one-free-focus-timer/id907364780?mt=12&quot; title=&quot;Veja na App Store&quot;&gt;&lt;em&gt;Tomato One&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;http://www.moosti.com/&quot; title=&quot;Dê uma olhada na extensão para o Chrome&quot;&gt;&lt;em&gt;Moosti&lt;/em&gt;&lt;/a&gt; ou no &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.AT.PomodoroTimer&amp;#x26;hl=pt_BR&quot; title=&quot;Timer para o Android&quot;&gt;&lt;em&gt;Brain Focus&lt;/em&gt;&lt;/a&gt;.
+Ter uma noção de quantos &lt;em&gt;Pomodoros&lt;/em&gt; você está realizando te dará uma percepção melhor de progresso,
+sendo possível averiguar se a técnica está funcionando ou não.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Sempre tive certo carinho por essa prática, principalmente após começar a trabalhar remoto. Ao contrário
+do que muitos artigos vendem, ela não é uma técnica &quot;bala de prata&quot; e é provável que haja uma
+grande resistência no início de sua adoção.&lt;/p&gt;
+&lt;p&gt;Existem diferentes formas de &quot;getting things done&quot; e de dar &lt;em&gt;boost&lt;/em&gt; em sua concentração (você conhece o &lt;a href=&quot;https://www.noisli.com/&quot; title=&quot;Improve focus and boost productivity&quot;&gt;&lt;em&gt;Noisli&lt;/em&gt;&lt;/a&gt;?),
+mas desconheço uma forma tão simples e pragmática quanto a Técnica &lt;em&gt;Pomodoro&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;(IMO) Vale a pena tê-la no seu &lt;em&gt;tool belt&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.coursera.org/learn/aprender&quot;&gt;Coursera - Aprendendo a Aprender&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lifehacker.com/productivity-101-a-primer-to-the-pomodoro-technique-1598992730&quot;&gt;Lifehacker - Productivity 101: A Primer to The Pomodoro Technique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://productivityist.com/the-problem-with-the-pomodoro-technique/&quot;&gt;Productivityist - The Problem with The Pomodoro Technique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ramonkayo.com/ideias-e-opinioes/os-3-problemas-da-tecnica-pomodoro&quot;&gt;ramonkayo.com - Os 3 maiores problemas da Técnica Pomodoro e como contorná-los&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/T%C3%A9cnica_pomodoro&quot;&gt;Wikipedia - Técnica Pomodoro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

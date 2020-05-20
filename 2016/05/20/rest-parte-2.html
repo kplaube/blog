@@ -1,191 +1,449 @@
-<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>REST - Parte 2 | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Vamos falar um pouco mais sobre como interagir com APIs REST, utilizando os verbos do protocolo HTTP e a biblioteca hug, que nos ajudará a ilustrar como funciona uma API na prática."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, rest, microservices, apis"><meta property=og:title content="REST - Parte 2"><meta property=og:description content="Vamos falar um pouco mais sobre como interagir com APIs REST, utilizando os verbos do protocolo HTTP e a biblioteca hug, que nos ajudará a ilustrar como funciona uma API na prática."><meta property=og:url content=https://klauslaube.com.br/2016/05/20/rest-parte-2.html><meta property=og:image content=https://klauslaube.com.br//images/blog/social-network-movie.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2016/05/20/rest-parte-2.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/social-network-movie.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> REST - Parte 2 </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2016-05-20T12:35:00-03:00 itemprop=datePublished>20 Mai, 2016</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/rest-logo.png alt="Logotipo REST" class=representative-image width=180 height=180> <p>No <a href=https://klauslaube.com.br/2016/01/06/rest-parte-1.html title="Leia a parte 1"><em>post</em> anterior</a>, demos uma pequena introdução ao conceito de <em>REST</em> e fizemos um raso comparativo com o seu "rival", o <em>SOAP</em>. Nesse artigo falaremos mais sobre como interagir com <em>APIs</em> <em>REST</em> utilizando os verbos do protocolo <em>HTTP</em>, e a biblioteca <a href=http://www.hug.rest/ title="Embrace APIs of the future"><em>hug</em></a>, que nos ajudará a ilustrar como uma <em>API</em> funciona na prática.</p> <!-- PELICAN_END_SUMMARY --> <p>Segundo o <a href=https://www.infoq.com/br/articles/rest-introduction title="Introdução ao REST"><em>InfoQ</em></a>, o <em>REST</em> possui cinco princípios fundamentais:</p> <ul> <li>Dê a todas as coisas um identificador</li> <li>Vincule as coisas</li> <li>Utilize métodos padronizados</li> <li>Recursos com múltiplas representações</li> <li>Comunique sem estado</li> </ul> <p>Esses cinco itens nos guiarão daqui para frente.</p> <h2>O Uniform Resource Identifier</h2> <p>Você já parou para pensar que na <em>Internet</em> tudo tem um "endereço único"? Do formulário de contato do seu <em>blog</em> até um vídeo no <em>Youtube</em>?</p> <p>Todo recurso tem um nome e pode ser identificado de forma única. Esse conceito é conhecido por <em>Uniform Resource Identifier</em> (<em>URI</em>) e é composto pelo <em>Uniform Resource Locator</em> (<em>URL</em>) e <em>Uniform Resource Name</em> (<em>URN</em>).</p> <p>Logo, quando falamos do endereço <code>http://google.com/index.html</code>, podemos assumir a seguinte estrutura:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>google</span><span class=p>.</span><span class=n>com</span><span class=o>/</span><span class=k>index</span><span class=p>.</span><span class=n>html</span>
-<span class=o>|</span><span class=c1>------ URL -----|-- URN --|</span>
-<span class=o>|</span><span class=c1>----------- URI ----------|</span>
-</pre></div> <p>Como uma <em>API</em> <em>REST</em> é um recurso disponível na <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre web"><em>web</em></a>, essa regra não é diferente. Daremos identificadores únicos para cada recurso exposto.</p> <p>Utilizaremos o <code>localhost:8000</code> para os exemplos a seguir. Portanto, vamos imaginar que temos uma <em>API</em> de filmes, e gostaríamos de listar todos os filmes. Uma boa prática é utilizarmos o substantivo no plural. Exemplo:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span>
-</pre></div> <p>Vamos supor que o filme "The Matrix", dentro da nossa base de dados, tenha o <em>ID</em> <code>20</code>. Na nossa <em>API</em> poderíamos acessá-lo através da seguinte <em>URI</em>:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span><span class=mi>20</span><span class=o>/</span>
-</pre></div> <p>Consequentemente, outro filme teria um identificador diferente. Por exemplo, para acessarmos o filme "Swordfish", que no nosso exemplo possui o <em>ID</em> <code>55</code>, temos:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span><span class=mi>55</span><span class=o>/</span>
-</pre></div> <p>Outra boa prática é utilizarmos <a href=https://en.wikipedia.org/wiki/Universally_unique_identifier title="Leia mais sobre UUID"><em>UUIDs</em></a> ao invés das chaves primárias do nosso banco de dados. Isso obscurece o funcionamento da aplicação, tornando-a ligeiramente mais segura:</p> <div class=highlight><pre><span></span><span class=n>http</span><span class=p>:</span><span class=o>//</span><span class=n>localhost</span><span class=p>:</span><span class=mi>8000</span><span class=o>/</span><span class=n>movies</span><span class=o>/</span><span class=n>DED621D5</span><span class=o>-</span><span class=mi>08</span><span class=n>F4</span><span class=o>-</span><span class=mi>4</span><span class=n>D32</span><span class=o>-</span><span class=n>ADFA</span><span class=o>-</span><span class=mi>84375</span><span class=n>BA415B9</span><span class=o>/</span>
-</pre></div> <p>Legal! Já tenho como acessar o filme <em>The Matrix</em>, dentro da nossa "<em>API</em> imaginária". Será que temos alguma maneira fácil de acessar, por exemplo, os atores que fazem parte desse filme?</p> <h2>Hipermídia</h2> <p>O conceito de hipermídia pode ser bastante abstrato. Segundo o <em>Wikipedia</em>:</p> <blockquote> <p>Hipermídia é a reunião de várias mídias num ambiente computacional, suportada por sistemas eletrônicos de comunicação. Hipermídia, diferentemente de multimídia, não é a mera reunião dos meios existentes, e sim a fusão desses meios a partir de elementos não-lineares.</p> </blockquote> <p>A melhor forma de entender esse conceito é se olharmos para uma forma de hipermídia muito conhecida: o hipertexto (sim, o "H" do <a href=https://klauslaube.com.br/tag/html.html title="Leia mais sobre HTML"><em>Hypertext Markup Language</em></a>). Nele, temos um "texto interativo", não necessariamente linear e composto por diferentes outras mídias (como som, vídeo, imagens, etc).</p> <p>Mas o ponto que mais ilustra o que é um hipertexto é a capacidade de um texto referenciar a outro. Esse conceito, chamado de hiperlinks (ou somente <em>links</em>, para os mais jovens) permite com que eu seja capaz de navegar entre documentos apenas seguindo as suas referências, sem conhecer previamente o destino do meu passo seguinte.</p> <p><img class=align-center src=/images/blog/social-network-movie.jpg width=610 height=310 title="Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)" alt="Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)"></p> <p>Quando esse conceito é aplicado ao contexto de <em>REST</em>, temos o que chamamos de <em>Hypermedia as the Engine of Application State</em> (<a href=https://en.wikipedia.org/wiki/HATEOAS title="Leia mais sobre HATEOAS"><em>HATEOAS</em></a>). Segundo ele, nosso cliente deve ser capaz de interagir com a nossa aplicação (e até mesmo demais aplicações vinculadas a ela) através de hipermídia. Dessa forma, eu não preciso necessariamente conhecer todos os <em>endpoints</em> de uma <em>API</em>, ela me informará dada uma determinada <em>URI</em>, para onde eu posso navegar.</p> <p>Pegando a nossa <em>API</em> de filmes, eu deveria ter dentro da resposta do filme "The Matrix" alguma informação me dizendo que para listar os atores desse filme, eu deveria acessar <code>http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/</code>. E uma vez eu estando nessa listagem, deveria haver um <em>link</em> me dizendo que para ver os detalhes da <a href=http://www.imdb.com/name/nm0005251/ title="Carrie-Anne Moss no IMDB"><em>Carrie-Anne Moss</em></a>, por exemplo, eu devo acessar a <em>URI</em> <code>http://localhost:8000/actors/A3531BF5-C089-4A44-8A92-5A5AC08261AA/</code>.</p> <p>Exemplo:</p> <div class=highlight><pre><span></span><span class=nt>&lt;movie&gt;</span>
-  <span class=nt>&lt;uuid&gt;</span>DED621D5-08F4-4D32-ADFA-84375BA415B9<span class=nt>&lt;/uuid&gt;</span>
-  <span class=nt>&lt;title&gt;</span>The Matrix<span class=nt>&lt;/title&gt;</span>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.493e6315ef3a09bc2f74.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.12"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style data-styled="" data-styled-version="5.1.0">.dQgIel{display:inline-block;vertical-align:middle;overflow:hidden;}/*!sc*/
+data-styled.g1[id="sc-AxjAm"]{content:"dQgIel,"}/*!sc*/
+.dLmtYS{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g2[id="article-share__FacebookStyled-sc-1s9obkn-0"]{content:"dLmtYS,"}/*!sc*/
+.cXEKcd{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g3[id="article-share__LinkedinStyled-sc-1s9obkn-1"]{content:"cXEKcd,"}/*!sc*/
+.kBgYvV{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g4[id="article-share__TwitterStyled-sc-1s9obkn-2"]{content:"kBgYvV,"}/*!sc*/
+.jVnceN{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g5[id="article-share__WhatsappStyled-sc-1s9obkn-3"]{content:"jVnceN,"}/*!sc*/
+.hUktyW{display:inline-block;margin-right:8px;}/*!sc*/
+data-styled.g6[id="article-share__SocialLink-sc-1s9obkn-4"]{content:"hUktyW,"}/*!sc*/
+.hKQQPE{clear:both;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.hKQQPE{clear:none;float:right;line-height:48px;}}/*!sc*/
+data-styled.g7[id="article-share__SocialWrapper-sc-1s9obkn-5"]{content:"hKQQPE,"}/*!sc*/
+.gKRNvs{margin-bottom:24px;}/*!sc*/
+data-styled.g8[id="article-tags__Tags-lfitfk-0"]{content:"gKRNvs,"}/*!sc*/
+.kdcwKK{background-color:#f4f4f4;color:rgba(0,0,0,0.54);display:inline-block;font-size:14px;margin:0 8px 8px 0;padding:8px 16px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g9[id="article-tags__Tag-lfitfk-1"]{content:"kdcwKK,"}/*!sc*/
+.gfJCPa{color:rgba(0,0,0,0.84);margin-bottom:4px;}/*!sc*/
+data-styled.g14[id="article__AuthorName-sc-1bof3w4-0"]{content:"gfJCPa,"}/*!sc*/
+.cZgAvk{clear:both;font-family:Georgia,"Times New Roman",Times,serif;font-size:18px;font-weight:300;-webkit-letter-spacing:-0.054px;-moz-letter-spacing:-0.054px;-ms-letter-spacing:-0.054px;letter-spacing:-0.054px;line-height:28px;margin-bottom:48px;}/*!sc*/
+@media (min-width:768px){.cZgAvk{font-size:20px;}}/*!sc*/
+.cZgAvk *{margin:0;margin-block-end:0;margin-block-start:0;padding:0;}/*!sc*/
+.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{font-family:"Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;-webkit-letter-spacing:-0.66px;-moz-letter-spacing:-0.66px;-ms-letter-spacing:-0.66px;letter-spacing:-0.66px;margin-top:8px;margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{margin-bottom:16px;}}/*!sc*/
+.cZgAvk figure,.cZgAvk .gatsby-highlight{left:-24px;position:relative;width:100vw;}/*!sc*/
+@media (min-width:768px){.cZgAvk figure,.cZgAvk .gatsby-highlight{left:0;width:auto;}}/*!sc*/
+.cZgAvk a{color:#c4170c;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cZgAvk a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cZgAvk blockquote{color:rgba(0,0,0,0.54);font-style:italic;}/*!sc*/
+.cZgAvk code{font-size:16px;}/*!sc*/
+.cZgAvk figcaption{color:rgba(0,0,0,0.54);font-size:16px;line-height:20px;padding:16px 24px 0;text-align:center;}/*!sc*/
+.cZgAvk h2{font-size:26px;font-weight:600;line-height:32px;margin-bottom:28px;}/*!sc*/
+.cZgAvk h3{color:#333;font-size:22px;font-weight:300;line-height:28px;}/*!sc*/
+.cZgAvk h4{color:rgba(0,0,0,0.54);font-size:16;font-weight:300;line-height:24px;}/*!sc*/
+.cZgAvk iframe{display:block;margin:0 auto 28px auto;}/*!sc*/
+@media (min-width:768px){.cZgAvk iframe{margin-bottom:42px;}}/*!sc*/
+.cZgAvk img{display:block;margin:0 auto;}/*!sc*/
+.cZgAvk p{margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk p{margin-bottom:42px;}}/*!sc*/
+.cZgAvk pre{font-size:16px;margin-bottom:28px;padding:24px 16px;}/*!sc*/
+@media (min-width:768px){.cZgAvk pre{margin-bottom:42px;}}/*!sc*/
+.cZgAvk ol,.cZgAvk ul{margin-left:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk ol,.cZgAvk ul{margin-bottom:42px;}}/*!sc*/
+.cZgAvk li{margin-bottom:8px;}/*!sc*/
+@media (min-width:768px){.cZgAvk li{margin-bottom:16px;}}/*!sc*/
+data-styled.g15[id="article__Content-sc-1bof3w4-1"]{content:"cZgAvk,"}/*!sc*/
+.lhlkLZ{border-top:1px solid #f4f4f4;margin-bottom:24px;padding-top:24px;}/*!sc*/
+data-styled.g16[id="article__DiscussionWrapper-sc-1bof3w4-2"]{content:"lhlkLZ,"}/*!sc*/
+.hnJNBS{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(0,0,0,0.54);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;float:left;font-size:14px;margin-bottom:32px;}/*!sc*/
+data-styled.g17[id="article__Meta-sc-1bof3w4-3"]{content:"hnJNBS,"}/*!sc*/
+.cTbbvU{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g18[id="article__MetaText-sc-1bof3w4-4"]{content:"cTbbvU,"}/*!sc*/
+.lhqEXT{border-radius:60px;margin-right:16px;}/*!sc*/
+data-styled.g19[id="article__StyledAvatar-sc-1bof3w4-5"]{content:"lhqEXT,"}/*!sc*/
+.dtcUmd{color:rgba(0,0,0,0.84);font-weight:600;-webkit-letter-spacing:-0.93px;-moz-letter-spacing:-0.93px;-ms-letter-spacing:-0.93px;letter-spacing:-0.93px;margin:0 0 4px 0;font-size:30px;font-weight:400;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.dtcUmd{font-size:40px;}}/*!sc*/
+data-styled.g20[id="article__StyledTitle-sc-1bof3w4-6"]{content:"dtcUmd,"}/*!sc*/
+.bfwjqj{margin:0 auto;max-width:640px;padding:0 24px;}/*!sc*/
+data-styled.g21[id="container-sc-1o2is99-0"]{content:"bfwjqj,"}/*!sc*/
+.iyjQQp{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#c4170c;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-family:Arial,Helvetica,sans-serif;height:36px;width:36px;}/*!sc*/
+data-styled.g22[id="page-header-brand__Brand-ofbkek-0"]{content:"iyjQQp,"}/*!sc*/
+.hPHtvI{display:none;}/*!sc*/
+@media (min-width:768px){.hPHtvI{display:block;}}/*!sc*/
+data-styled.g23[id="page-header-brand__BrandFragment-ofbkek-1"]{content:"hPHtvI,"}/*!sc*/
+.exgtKg{color:#333;display:inline-block;margin-left:4px;}/*!sc*/
+.exgtKg:first-child{margin-left:0;margin-right:4px;}/*!sc*/
+data-styled.g24[id="page-header-brand__Bracket-ofbkek-2"]{content:"exgtKg,"}/*!sc*/
+.fUa-dQJ{color:#333;width:22px;}/*!sc*/
+data-styled.g25[id="page-header__GreyMail-sc-1ef23a-0"]{content:"fUa-dQJ,"}/*!sc*/
+.GBaPr{box-shadow:0 -8px 16px 0 rgba(0,0,0,0.54);font-size:1.1rem;margin-bottom:24px;}/*!sc*/
+@media (min-width:768px){.GBaPr{margin-bottom:64px;}}/*!sc*/
+data-styled.g26[id="page-header__Header-sc-1ef23a-1"]{content:"GBaPr,"}/*!sc*/
+.ktLFvT{margin:0 auto;max-width:640px;padding:0 24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:56px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:974px;}/*!sc*/
+data-styled.g27[id="page-header__HeaderContainer-sc-1ef23a-2"]{content:"ktLFvT,"}/*!sc*/
+.gbnbN{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g28[id="page-header__StyledLink-sc-1ef23a-3"]{content:"gbnbN,"}/*!sc*/
+.hJnaIf{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g29[id="page-header__StyledA-sc-1ef23a-4"]{content:"hJnaIf,"}/*!sc*/
+.eZHcyp{border-top:1px solid #f4f4f4;color:rgba(0,0,0,0.54);font-size:14px;padding:24px 0;text-align:center;}/*!sc*/
+@media (min-width:768px){.eZHcyp{text-align:right;}}/*!sc*/
+data-styled.g30[id="page-footer__Footer-sc-1jesc4c-0"]{content:"eZHcyp,"}/*!sc*/
+.hCZhVV{color:rgba(0,0,0,0.84);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hCZhVV:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g31[id="page-footer__Link-sc-1jesc4c-1"]{content:"hCZhVV,"}/*!sc*/
+body{color:rgba(0,0,0,0.84);font-family:Arial,Helvetica,sans-serif;margin:0;}/*!sc*/
+data-styled.g51[id="sc-global-eLbNMD1"]{content:"sc-global-eLbNMD1,"}/*!sc*/
+</style><title data-react-helmet="true">REST - Parte 2 | Klaus Laube</title><meta data-react-helmet="true" name="description" content="No post anterior, demos uma pequena introdução
+ao conceito de REST e fizemos um raso comparativo com o seu &quot;rival&quot;, o SOAP.
+Nesse artigo…"/><meta data-react-helmet="true" property="og:title" content="REST - Parte 2"/><meta data-react-helmet="true" property="og:description" content="No post anterior, demos uma pequena introdução
+ao conceito de REST e fizemos um raso comparativo com o seu &quot;rival&quot;, o SOAP.
+Nesse artigo…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Klaus Peter Laube"/><meta data-react-helmet="true" name="twitter:title" content="REST - Parte 2"/><meta data-react-helmet="true" name="twitter:description" content="No post anterior, demos uma pequena introdução
+ao conceito de REST e fizemos um raso comparativo com o seu &quot;rival&quot;, o SOAP.
+Nesse artigo…"/><meta data-react-helmet="true" name="keywords" content="desenvolvimento-web,rest,microservices,api"/><meta data-react-helmet="true" property="og:image" content="https://klauslaube.com.br/static/e2c923a2910d4262b7b9beabf394f4c6/rest-logo.png"/><link rel="icon" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="alternate" type="application/rss+xml" title="Klaus Laube" href="/feed/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-74a6d0a7c3b7aca6f059.js"/><link as="script" rel="preload" href="/framework-15c64f04ece7e16d9319.js"/><link as="script" rel="preload" href="/styles-72b9aca6a03bf971c27e.js"/><link as="script" rel="preload" href="/app-e7e259d06d29a943bae9.js"/><link as="script" rel="preload" href="/commons-d19a5247b9c341fd9cf4.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"/><link as="fetch" rel="preload" href="/page-data/2016/05/20/rest-parte-2.html/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="page-header__Header-sc-1ef23a-1 GBaPr"><div class="container-sc-1o2is99-0 page-header__HeaderContainer-sc-1ef23a-2 ktLFvT"><a class="page-header__StyledLink-sc-1ef23a-3 gbnbN" href="/"><div class="page-header-brand__Brand-ofbkek-0 iyjQQp"><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">{</span>k<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">laus</span>l<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">aube</span><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">}</span></div></a><div><a href="https://about.me/klauslaube" title="Contato" class="page-header__StyledA-sc-1ef23a-4 hJnaIf"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="sc-AxjAm dQgIel page-header__GreyMail-sc-1ef23a-0 fUa-dQJ"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></div></div></div><div><div class="container-sc-1o2is99-0 bfwjqj"><h1 class="typograph__Title-sc-4kf6ch-1 article__StyledTitle-sc-1bof3w4-6 dtcUmd">REST - Parte 2</h1><div class="article__Meta-sc-1bof3w4-3 hnJNBS"><img src="https://en.gravatar.com/userimage/12163112/d3ae0c6239980b01ff1f1730b65c2ebe.jpg" width="48" height="48" alt="Avatar" class="avatar-sc-46srdf-0 article__StyledAvatar-sc-1bof3w4-5 lhqEXT"/><div class="article__MetaText-sc-1bof3w4-4 cTbbvU"><div class="article__AuthorName-sc-1bof3w4-0 gfJCPa">Klaus Peter Laube</div>20 de Maio de 2016<!-- --> - <!-- -->10 minutos<!-- --> de leitura</div></div><div class="article-share__SocialWrapper-sc-1s9obkn-5 hKQQPE"><a href="https://twitter.com/intent/tweet?url=https://klauslaube.com.br/2016/05/20/rest-parte-2.html&amp;text=REST - Parte 2" target="_blank" rel="noreferrer" title="Compartilhe no Twitter" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__TwitterStyled-sc-1s9obkn-2 kBgYvV"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22 8.073 8.073 0 002.319-.624 8.645 8.645 0 01-2.019 2.083z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://klauslaube.com.br/2016/05/20/rest-parte-2.html" target="_blank" rel="noreferrer" title="Compartilhe no Facebook" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__FacebookStyled-sc-1s9obkn-0 dLmtYS"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325 1.42-3.592 3.5-3.592.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.725h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"></path></svg></a><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://klauslaube.com.br/2016/05/20/rest-parte-2.html&amp;title=REST - Parte 2" target="_blank" rel="noreferrer" title="Compartilhe no Linkedin" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__LinkedinStyled-sc-1s9obkn-1 cXEKcd"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg></a><a href="https://api.whatsapp.com/send?text=https://klauslaube.com.br/2016/05/20/rest-parte-2.html" target="_blank" rel="noreferrer" title="Compartilhe no Whatsapp" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__WhatsappStyled-sc-1s9obkn-3 jVnceN"><path fill-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 004.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 00-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 01-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 01-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 015.275 2.188 7.42 7.42 0 012.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 00-.429-.008.826.826 0 00-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263" clip-rule="evenodd"></path></svg></a></div><div class="article__Content-sc-1bof3w4-1 cZgAvk"><p>No <a href="/2016/01/06/rest-parte-1.html" title="Leia a parte 1"><em>post</em> anterior</a>, demos uma pequena introdução
+ao conceito de <em>REST</em> e fizemos um raso comparativo com o seu "rival", o <em>SOAP</em>.
+Nesse artigo falaremos mais sobre como interagir com <em>APIs</em> <em>REST</em> utilizando
+os verbos do protocolo <em>HTTP</em>, e a biblioteca <a href="http://www.hug.rest/" title="Embrace APIs of the future"><em>hug</em></a>,
+que nos ajudará a ilustrar como uma <em>API</em> funciona na prática.</p>
+<p>Segundo o <a href="https://www.infoq.com/br/articles/rest-introduction" title="Introdução ao REST"><em>InfoQ</em></a>,
+o <em>REST</em> possui cinco princípios fundamentais:</p>
+<ul>
+<li>Dê a todas as coisas um identificador</li>
+<li>Vincule as coisas</li>
+<li>Utilize métodos padronizados</li>
+<li>Recursos com múltiplas representações</li>
+<li>Comunique sem estado</li>
+</ul>
+<p>Esses cinco itens nos guiarão daqui para frente.</p>
+<h2>O Uniform Resource Identifier</h2>
+<p>Você já parou para pensar que na <em>Internet</em> tudo tem um "endereço único"?
+Do formulário de contato do seu <em>blog</em> até um vídeo no <em>Youtube</em>?</p>
+<p>Todo recurso tem um nome e pode ser identificado de forma única.
+Esse conceito é conhecido por <em>Uniform Resource Identifier</em> (<em>URI</em>) e é
+composto pelo <em>Uniform Resource Locator</em> (<em>URL</em>) e <em>Uniform Resource Name</em> (<em>URN</em>).</p>
+<p>Logo, quando falamos do endereço <code class="language-text">http://google.com/index.html</code>, podemos assumir a seguinte
+estrutura:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">http://google.com/index.html
+|------ URL -----|-- URN --|
+|----------- URI ----------|</code></pre></div>
+<p>Como uma <em>API</em> <em>REST</em> é um recurso disponível na <a href="/tag/web.html" title="Leia mais sobre web"><em>web</em></a>,
+essa regra não é diferente. Daremos identificadores únicos para cada recurso exposto.</p>
+<p>Utilizaremos o <code class="language-text">localhost:8000</code> para os exemplos a seguir. Portanto, vamos imaginar que
+temos uma <em>API</em> de filmes, e gostaríamos de listar todos os filmes. Uma boa prática
+é utilizarmos o substantivo no plural. Exemplo:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">http://localhost:8000/movies/</code></pre></div>
+<p>Vamos supor que o filme "The Matrix", dentro da nossa base de dados, tenha o <em>ID</em> <code class="language-text">20</code>.
+Na nossa <em>API</em> poderíamos acessá-lo através da seguinte <em>URI</em>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">http://localhost:8000/movies/20/</code></pre></div>
+<p>Consequentemente, outro filme teria um identificador diferente. Por exemplo, para acessarmos
+o filme "Swordfish", que no nosso exemplo possui o <em>ID</em> <code class="language-text">55</code>, temos:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">http://localhost:8000/movies/55/</code></pre></div>
+<p>Outra boa prática é utilizarmos <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier" title="Leia mais sobre UUID"><em>UUIDs</em></a>
+ao invés das chaves primárias do nosso banco de dados. Isso obscurece o funcionamento da
+aplicação, tornando-a ligeiramente mais segura:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/</code></pre></div>
+<p>Legal! Já tenho como acessar o filme <em>The Matrix</em>, dentro da nossa "<em>API</em> imaginária". Será
+que temos alguma maneira fácil de acessar, por exemplo, os atores que fazem parte desse
+filme?</p>
+<h2>Hipermídia</h2>
+<p>O conceito de hipermídia pode ser bastante abstrato. Segundo o <em>Wikipedia</em>:</p>
+<blockquote>
+<p>Hipermídia é a reunião de várias mídias num ambiente computacional, suportada por sistemas eletrônicos
+de comunicação. Hipermídia, diferentemente de multimídia, não é a mera reunião dos meios existentes, e
+sim a fusão desses meios a partir de elementos não-lineares.</p>
+</blockquote>
+<p>A melhor forma de entender esse conceito é se olharmos para uma forma de hipermídia muito conhecida: o hipertexto (sim,
+o "H" do <a href="/tag/html.html" title="Leia mais sobre HTML"><em>Hypertext Markup Language</em></a>). Nele, temos um "texto interativo",
+não necessariamente linear e composto por diferentes outras mídias (como som, vídeo, imagens, etc).</p>
+<p>Mas o ponto que mais ilustra o que é um hipertexto é a capacidade de um texto referenciar a outro. Esse
+conceito, chamado de hiperlinks (ou somente <em>links</em>, para os mais jovens) permite com que eu seja capaz de navegar
+entre documentos apenas seguindo as suas referências, sem conhecer previamente o destino do meu passo seguinte.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 619px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3c33d9c73b53a52b480dad1527ce9c9d/a530b/social-network-movie.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAc8aRwgoK//EABsQAAEEAwAAAAAAAAAAAAAAAAABAxESAhAh/9oACAEBAAEFAqmaJFZHhzmv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAABABAhEx/9oACAEBAAY/AjanVC//xAAbEAEAAgIDAAAAAAAAAAAAAAABACERMUFhgf/aAAgBAQABPyHAzlJyoLUNgPZXVUTRKOots//aAAwDAQACAAMAAAAQH8//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8Qq4//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QCxv/xAAaEAEBAAMBAQAAAAAAAAAAAAABEQAhMVFB/9oACAEBAAE/ECUtEiOkwC8HlddLksD4gjcM+gM1TCINHZoO8bs9c//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="&quot;Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)&quot;"
+        title="Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)"
+        src="/static/3c33d9c73b53a52b480dad1527ce9c9d/a530b/social-network-movie.jpg"
+        srcset="/static/3c33d9c73b53a52b480dad1527ce9c9d/7809d/social-network-movie.jpg 192w,
+/static/3c33d9c73b53a52b480dad1527ce9c9d/4ecad/social-network-movie.jpg 384w,
+/static/3c33d9c73b53a52b480dad1527ce9c9d/a530b/social-network-movie.jpg 619w"
+        sizes="(max-width: 619px) 100vw, 619px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)</figcaption>
+  </figure></p>
+<p>Quando esse conceito é aplicado ao contexto de <em>REST</em>, temos o que chamamos de <em>Hypermedia as the Engine
+of Application State</em> (<a href="https://en.wikipedia.org/wiki/HATEOAS" title="Leia mais sobre HATEOAS"><em>HATEOAS</em></a>).
+Segundo ele, nosso cliente deve ser capaz de interagir com a nossa aplicação
+(e até mesmo demais aplicações vinculadas a ela) através de hipermídia. Dessa forma, eu não preciso necessariamente
+conhecer todos os <em>endpoints</em> de uma <em>API</em>, ela me informará dada uma determinada <em>URI</em>, para onde eu posso navegar.</p>
+<p>Pegando a nossa <em>API</em> de filmes, eu deveria ter dentro da resposta do filme "The Matrix" alguma informação me dizendo
+que para listar os atores desse filme, eu deveria acessar <code class="language-text">http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/</code>.
+E uma vez eu estando nessa listagem, deveria haver um <em>link</em> me dizendo que para ver os detalhes da
+<a href="http://www.imdb.com/name/nm0005251/" title="Carrie-Anne Moss no IMDB"><em>Carrie-Anne Moss</em></a>, por exemplo,
+eu devo acessar a <em>URI</em> <code class="language-text">http://localhost:8000/actors/A3531BF5-C089-4A44-8A92-5A5AC08261AA/</code>.</p>
+<p>Exemplo:</p>
+<div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>movie</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>uuid</span><span class="token punctuation">></span></span>DED621D5-08F4-4D32-ADFA-84375BA415B9<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>uuid</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>The Matrix<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
 
-  <span class=nt>&lt;link</span> <span class=na>rel=</span><span class=s>&quot;actors&quot;</span> <span class=na>href=</span><span class=s>&quot;http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/&quot;</span> <span class=nt>/&gt;</span>
-<span class=nt>&lt;/movie&gt;</span>
-</pre></div> <p>Ou em uma resposta em <em>JSON</em>, poderíamos ter algo parecido com o exemplo abaixo:</p> <div class=highlight><pre><span></span><span class=p>{</span>
-  <span class=nt>&quot;uuid&quot;</span><span class=p>:</span> <span class=s2>&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;</span><span class=p>,</span>
-  <span class=nt>&quot;title&quot;</span><span class=p>:</span> <span class=s2>&quot;The Matrix&quot;</span><span class=p>,</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>actors<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>movie</span><span class="token punctuation">></span></span></code></pre></div>
+<p>Ou em uma resposta em <em>JSON</em>, poderíamos ter algo parecido com o exemplo abaixo:</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"uuid"</span><span class="token operator">:</span> <span class="token string">"DED621D5-08F4-4D32-ADFA-84375BA415B9"</span><span class="token punctuation">,</span>
+  <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"The Matrix"</span><span class="token punctuation">,</span>
 
-  <span class=nt>&quot;_links&quot;</span><span class=p>:</span> <span class=p>{</span>
-    <span class=nt>&quot;actors&quot;</span><span class=p>:</span> <span class=s2>&quot;http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/&quot;</span>
-  <span class=p>}</span>
-<span class=p>}</span>
-</pre></div> <h2>Um pouquinho de prática</h2> <p>Antes de falarmos sobre os verbos <em>HTTP</em>, vamos utilizar o <em>hug</em> para uma abordagem um pouco mais prática. Iniciamos com a instalação da biblioteca:</p> <div class=highlight><pre><span></span>$ pip3 install hug
-</pre></div> <p>Para tornar as coisas simples, vamos simular o acesso ao banco de dados com o uso de dicionários <em>Python</em>.</p> <div class=highlight><pre><span></span><span class=c1># api.py</span>
+  <span class="token property">"_links"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"actors"</span><span class="token operator">:</span> <span class="token string">"http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h2>Um pouquinho de prática</h2>
+<p>Antes de falarmos sobre os verbos <em>HTTP</em>, vamos utilizar o <em>hug</em> para uma abordagem um
+pouco mais prática. Iniciamos com a instalação da biblioteca:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ pip3 install hug</code></pre></div>
+<p>Para tornar as coisas simples, vamos simular o acesso ao banco de dados com o uso de dicionários <em>Python</em>.</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># api.py</span>
 
-<span class=kn>import</span> <span class=nn>hug</span>
+<span class="token keyword">import</span> hug
 
-<span class=n>MOVIES</span> <span class=o>=</span> <span class=p>[</span>
-  <span class=p>{</span>
-    <span class=s1>&#39;id&#39;</span><span class=p>:</span> <span class=s1>&#39;DED621D5-08F4-4D32-ADFA-84375BA415B9&#39;</span><span class=p>,</span>
-    <span class=s1>&#39;title&#39;</span><span class=p>:</span> <span class=s1>&#39;The Matrix&#39;</span><span class=p>,</span>
-    <span class=s1>&#39;description&#39;</span><span class=p>:</span> <span class=s1>&#39;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&#39;</span><span class=p>,</span>
-  <span class=p>}</span>
-<span class=p>]</span>
-</pre></div> <p>A <em>URI</em> por si só não significa nada. Precisamos de métodos para acessá-la (e manipulá-la), e o protocolo <em>HTTP</em> possui alguns verbos que podem executar essas operações para nós.</p> <h3>Listagem e detalhes</h3> <p>O <em>GET</em> é sem dúvida o mais famoso deles. É através dele que somos capazes de "pegar" os recursos da <em>web</em>, incluindo páginas na Internet como essa que você está lendo. Com esse verbo, podemos listar e visualizar mais detalhes de um determinado recurso na <em>web</em>.</p> <p>Vamos começar retornando a listagem de filmes:</p> <div class=highlight><pre><span></span><span class=c1># api.py</span>
+MOVIES <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    <span class="token string">'id'</span><span class="token punctuation">:</span> <span class="token string">'DED621D5-08F4-4D32-ADFA-84375BA415B9'</span><span class="token punctuation">,</span>
+    <span class="token string">'title'</span><span class="token punctuation">:</span> <span class="token string">'The Matrix'</span><span class="token punctuation">,</span>
+    <span class="token string">'description'</span><span class="token punctuation">:</span> <span class="token string">'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span></code></pre></div>
+<p>A <em>URI</em> por si só não significa nada. Precisamos de métodos para acessá-la (e manipulá-la), e o protocolo <em>HTTP</em>
+possui alguns verbos que podem executar essas operações para nós.</p>
+<h3>Listagem e detalhes</h3>
+<p>O <em>GET</em> é sem dúvida o mais famoso deles. É através dele que somos capazes de "pegar" os recursos da <em>web</em>, incluindo
+páginas na Internet como essa que você está lendo. Com esse verbo, podemos listar e visualizar mais detalhes de um
+determinado recurso na <em>web</em>.</p>
+<p>Vamos começar retornando a listagem de filmes:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token comment"># api.py</span>
 
-<span class=kn>import</span> <span class=nn>hug</span>
+<span class="token keyword">import</span> hug
 
-<span class=o>...</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
-<span class=nd>@hug.get</span><span class=p>()</span>
-<span class=k>def</span> <span class=nf>movies</span><span class=p>():</span>
-  <span class=k>return</span> <span class=p>{</span>
-    <span class=s1>&#39;objects&#39;</span><span class=p>:</span> <span class=n>MOVIES</span><span class=p>,</span>
-  <span class=p>}</span>
-</pre></div> <p>Para executar a <em>API</em> no seu ambiente local, utilize o seguinte comando:</p> <div class=highlight><pre><span></span>$ hug -f api.py
-</pre></div> <p>Agora, ao acessar a <em>URI</em> <code>http://localhost:8000/movies/</code>, obtemos a seguinte resposta:</p> <div class=highlight><pre><span></span><span class=p>{</span>
- <span class=nt>&quot;objects&quot;</span> <span class=p>:</span> <span class=p>[</span>
-    <span class=p>{</span>
-       <span class=nt>&quot;description&quot;</span> <span class=p>:</span> <span class=s2>&quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;</span><span class=p>,</span>
-       <span class=nt>&quot;title&quot;</span> <span class=p>:</span> <span class=s2>&quot;The Matrix&quot;</span><span class=p>,</span>
-       <span class=nt>&quot;id&quot;</span> <span class=p>:</span> <span class=s2>&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;</span>
-     <span class=p>}</span>
-   <span class=p>]</span>
-<span class=p>}</span>
-</pre></div> <p>Vamos ilustrar como seria o acesso via <em>GET</em> para ver detalhes do recurso "The Matrix". Primeiro, criamos o método na aplicação que é responsável por dar detalhes de um filme:</p> <div class=highlight><pre><span></span><span class=kn>import</span> <span class=nn>hug</span>
-<span class=kn>from</span> <span class=nn>falcon</span> <span class=kn>import</span> <span class=n>HTTP_404</span>
+<span class="token decorator annotation punctuation">@hug<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">movies</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token string">'objects'</span><span class="token punctuation">:</span> MOVIES<span class="token punctuation">,</span>
+  <span class="token punctuation">}</span></code></pre></div>
+<p>Para executar a <em>API</em> no seu ambiente local, utilize o seguinte comando:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ hug -f api.py</code></pre></div>
+<p>Agora, ao acessar a <em>URI</em> <code class="language-text">http://localhost:8000/movies/</code>, obtemos a seguinte resposta:</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"objects"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."</span><span class="token punctuation">,</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"The Matrix"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"DED621D5-08F4-4D32-ADFA-84375BA415B9"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>Vamos ilustrar como seria o acesso via <em>GET</em> para ver detalhes do recurso "The Matrix". Primeiro,
+criamos o método na aplicação que é responsável por dar detalhes de um filme:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">import</span> hug
+<span class="token keyword">from</span> falcon <span class="token keyword">import</span> HTTP_404
 
-<span class=o>...</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
-<span class=nd>@hug.get</span><span class=p>(</span><span class=s1>&#39;/movies/{movie_id}/&#39;</span><span class=p>)</span>
-<span class=k>def</span> <span class=nf>movie</span><span class=p>(</span><span class=n>movie_id</span><span class=p>,</span> <span class=n>response</span><span class=p>):</span>
-  <span class=n>movie_ids</span> <span class=o>=</span> <span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span><span class=p>[</span><span class=s1>&#39;id&#39;</span><span class=p>],</span> <span class=n>MOVIES</span><span class=p>)</span>
+<span class="token decorator annotation punctuation">@hug<span class="token punctuation">.</span>get</span><span class="token punctuation">(</span><span class="token string">'/movies/{movie_id}/'</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">movie</span><span class="token punctuation">(</span>movie_id<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  movie_ids <span class="token operator">=</span> <span class="token builtin">map</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> MOVIES<span class="token punctuation">)</span>
 
-  <span class=k>if</span> <span class=n>movie_id</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>movie_ids</span><span class=p>:</span>
-    <span class=n>response</span><span class=o>.</span><span class=n>status</span> <span class=o>=</span> <span class=n>HTTP_404</span>
-    <span class=k>return</span> <span class=s1>&#39;Not found&#39;</span>
+  <span class="token keyword">if</span> movie_id <span class="token keyword">not</span> <span class="token keyword">in</span> movie_ids<span class="token punctuation">:</span>
+    response<span class="token punctuation">.</span>status <span class="token operator">=</span> HTTP_404
+    <span class="token keyword">return</span> <span class="token string">'Not found'</span>
 
-  <span class=n>movie</span> <span class=o>=</span> <span class=n>MOVIES</span><span class=p>[</span><span class=n>movie_ids</span><span class=o>.</span><span class=n>index</span><span class=p>(</span><span class=n>movie_id</span><span class=p>)]</span>
-</pre></div> <p>Seguindo uma boa prática, visualizar detalhes de um determinado recurso deveria ter um endereço composto pelo seu nome (no caso, <code>movies</code>), mais o seu identificador (no caso, <code>DED621D5-08F4-4D32-ADFA-84375BA415B9</code>):</p> <div class=highlight><pre><span></span>$ curl -i http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/
+  movie <span class="token operator">=</span> MOVIES<span class="token punctuation">[</span>movie_ids<span class="token punctuation">.</span>index<span class="token punctuation">(</span>movie_id<span class="token punctuation">)</span><span class="token punctuation">]</span></code></pre></div>
+<p>Seguindo uma boa prática, visualizar detalhes de um determinado recurso deveria ter um endereço
+composto pelo seu nome (no caso, <code class="language-text">movies</code>), mais o seu identificador (no caso, <code class="language-text">DED621D5-08F4-4D32-ADFA-84375BA415B9</code>):</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ curl -i http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/
 
-HTTP/1.0 <span class=m>200</span> OK
-Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>00</span>:58:57 GMT
+HTTP/1.0 200 OK
+Date: Fri, 13 May 2016 00:58:57 GMT
 Server: WSGIServer/0.2 CPython/3.4.4
 content-type: application/json
-content-length: <span class=m>221</span>
+content-length: 221
 
-<span class=o>{</span><span class=s2>&quot;description&quot;</span>: <span class=s2>&quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;</span>, <span class=s2>&quot;title&quot;</span>: <span class=s2>&quot;The Matrix&quot;</span>, <span class=s2>&quot;id&quot;</span>: <span class=s2>&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;</span><span class=o>}</span>
-</pre></div> <h3>Adicionando</h3> <p>Outro verbo bem conhecido do protocolo é o <em>POST</em>. Quem aqui nunca submeteu um formulário <em>web</em>?</p> <p>O princípio desse método é o envio de dados, do cliente para o servidor. Vamos aproveitar dessa sua natureza para adicionar o filme "Swordish" à nossa <em>API</em>. Para isso, precisamos alterar nossa função <code>movies</code>:</p> <div class=highlight><pre><span></span><span class=kn>import</span> <span class=nn>hug</span>
-<span class=kn>import</span> <span class=nn>uuid</span>
-<span class=kn>from</span> <span class=nn>falcon</span> <span class=kn>import</span> <span class=n>HTTP_201</span><span class=p>,</span> <span class=n>HTTP_404</span>
+{&quot;description&quot;: &quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;, &quot;title&quot;: &quot;The Matrix&quot;, &quot;id&quot;: &quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;}</code></pre></div>
+<h3>Adicionando</h3>
+<p>Outro verbo bem conhecido do protocolo é o <em>POST</em>. Quem aqui nunca submeteu um formulário <em>web</em>?</p>
+<p>O princípio desse método é o envio de dados, do cliente para o servidor. Vamos aproveitar dessa sua
+natureza para adicionar o filme "Swordish" à nossa <em>API</em>. Para isso, precisamos alterar nossa função <code class="language-text">movies</code>:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">import</span> hug
+<span class="token keyword">import</span> uuid
+<span class="token keyword">from</span> falcon <span class="token keyword">import</span> HTTP_201<span class="token punctuation">,</span> HTTP_404
 
-<span class=o>...</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
 
-<span class=nd>@hug.get_post</span><span class=p>()</span>
-<span class=k>def</span> <span class=nf>movies</span><span class=p>(</span><span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>):</span>
-  <span class=k>if</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;GET&#39;</span><span class=p>:</span>
-    <span class=k>return</span> <span class=p>{</span>
-      <span class=s1>&#39;objects&#39;</span><span class=p>:</span> <span class=n>MOVIES</span><span class=p>,</span>
-    <span class=p>}</span>
-  <span class=k>else</span><span class=p>:</span>  <span class=c1># We are assuming it&#39;s a POST</span>
-    <span class=n>movie</span> <span class=o>=</span> <span class=p>{</span>
-      <span class=s1>&#39;uuid&#39;</span><span class=p>:</span> <span class=nb>str</span><span class=p>(</span><span class=n>uuid</span><span class=o>.</span><span class=n>uuid4</span><span class=p>()),</span>
-      <span class=s1>&#39;title&#39;</span><span class=p>:</span> <span class=n>request</span><span class=o>.</span><span class=n>get_param</span><span class=p>(</span><span class=s1>&#39;title&#39;</span><span class=p>),</span>
-      <span class=s1>&#39;description&#39;</span><span class=p>:</span> <span class=n>request</span><span class=o>.</span><span class=n>get_param</span><span class=p>(</span><span class=s1>&#39;description&#39;</span><span class=p>),</span>
-    <span class=p>}</span>
-    <span class=n>MOVIES</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>movie</span><span class=p>)</span>
+<span class="token decorator annotation punctuation">@hug<span class="token punctuation">.</span>get_post</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">movies</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">if</span> request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'GET'</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token string">'objects'</span><span class="token punctuation">:</span> MOVIES<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token keyword">else</span><span class="token punctuation">:</span>  <span class="token comment"># We are assuming it's a POST</span>
+    movie <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token string">'uuid'</span><span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token string">'title'</span><span class="token punctuation">:</span> request<span class="token punctuation">.</span>get_param<span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token string">'description'</span><span class="token punctuation">:</span> request<span class="token punctuation">.</span>get_param<span class="token punctuation">(</span><span class="token string">'description'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+    MOVIES<span class="token punctuation">.</span>append<span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
 
-    <span class=n>response</span><span class=o>.</span><span class=n>status</span> <span class=o>=</span> <span class=n>HTTP_201</span>
-    <span class=k>return</span> <span class=n>movie</span>
+    response<span class="token punctuation">.</span>status <span class="token operator">=</span> HTTP_201
+    <span class="token keyword">return</span> movie
 
-<span class=o>...</span>
-</pre></div> <p>Como é possível reparar no código acima, pretendemos adicionar um filme e o destino da nossa requisição será o <code>/movies/</code>. Desse modo, o <em>GET</em> lista e o <em>POST</em> adiciona novos filmes:</p> <div class=highlight><pre><span></span>$ curl -i -XPOST -d <span class=s2>&quot;title=Swordfish&amp;description=Some hackish description...&quot;</span> http://localhost:8000/movies
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
+<p>Como é possível reparar no código acima, pretendemos adicionar um filme e o destino da nossa requisição
+será o <code class="language-text">/movies/</code>. Desse modo, o <em>GET</em> lista e o <em>POST</em> adiciona novos filmes:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ curl -i -XPOST -d &quot;title=Swordfish&amp;description=Some hackish description...&quot; http://localhost:8000/movies
 
-HTTP/1.0 <span class=m>201</span> Created
-Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>01</span>:51:43 GMT
+HTTP/1.0 201 Created
+Date: Fri, 13 May 2016 01:51:43 GMT
 Server: WSGIServer/0.2 CPython/3.4.4
 content-type: application/json
-content-length: <span class=m>116</span>
+content-length: 116
 
-<span class=o>{</span><span class=s2>&quot;title&quot;</span>: <span class=s2>&quot;Swordfish&quot;</span>, <span class=s2>&quot;uuid&quot;</span>: <span class=s2>&quot;a96e7212-6a29-478a-a24e-07720a286944&quot;</span>, <span class=s2>&quot;description&quot;</span>: <span class=s2>&quot;Some hackish description...&quot;</span><span class=o>}</span>
-</pre></div> <p>Agora temos dois filmes cadastrados na nossa API:</p> <div class=highlight><pre><span></span><span class=p>{</span>
-   <span class=nt>&quot;objects&quot;</span> <span class=p>:</span> <span class=p>[</span>
-      <span class=p>{</span>
-         <span class=nt>&quot;description&quot;</span> <span class=p>:</span> <span class=s2>&quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;</span><span class=p>,</span>
-         <span class=nt>&quot;title&quot;</span> <span class=p>:</span> <span class=s2>&quot;The Matrix&quot;</span><span class=p>,</span>
-         <span class=nt>&quot;id&quot;</span> <span class=p>:</span> <span class=s2>&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;</span>
-      <span class=p>},</span>
-      <span class=p>{</span>
-        <span class=nt>&quot;description&quot;</span><span class=p>:</span> <span class=s2>&quot;Some hackish description...&quot;</span><span class=p>,</span>
-        <span class=nt>&quot;title&quot;</span> <span class=p>:</span> <span class=s2>&quot;Swordfish&quot;</span><span class=p>,</span>
-        <span class=nt>&quot;id&quot;</span><span class=p>:</span> <span class=s2>&quot;a96e7212-6a29-478a-a24e-07720a286944&quot;</span>
-      <span class=p>}</span>
-   <span class=p>]</span>
-<span class=p>}</span>
-</pre></div> <h3>Atualizando e removendo</h3> <p>Uma vez que <em>POST</em> e <em>GET</em> acontecem no <em>endpoint</em> responsável por "listar" os nossos filmes, é natural assumirmos que o <em>PUT</em> e <em>DELETE</em> acontecerão no <em>endpoint</em> responsável por "detalhar" determinado filme.</p> <p>O <em>PUT</em> é o método <em>HTTP</em> responsável por atualizar um determinado recurso. Assim como o <em>POST</em>, ele permite a passagem de parâmetros que podem ser interpretados como "campos".</p> <p>Já o <em>DELETE</em>, como o nome sugere, é o método padrão quando insinuamos a remoção de um determinado recurso à nossa <em>API</em>.</p> <p>Na prática, para suportar esses dois verbos, nossa função <code>movie</code> ficará assim:</p> <div class=highlight><pre><span></span><span class=nd>@hug.http</span><span class=p>(</span><span class=s1>&#39;/movies/{movie_id}/&#39;</span><span class=p>,</span> <span class=n>accept</span><span class=o>=</span><span class=p>(</span><span class=s1>&#39;get&#39;</span><span class=p>,</span> <span class=s1>&#39;put&#39;</span><span class=p>,</span> <span class=s1>&#39;delete&#39;</span><span class=p>))</span>
-<span class=k>def</span> <span class=nf>movie</span><span class=p>(</span><span class=n>movie_id</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=n>response</span><span class=p>):</span>
-  <span class=n>movie_ids</span> <span class=o>=</span> <span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span><span class=p>[</span><span class=s1>&#39;id&#39;</span><span class=p>],</span> <span class=n>MOVIES</span><span class=p>)</span>
+{&quot;title&quot;: &quot;Swordfish&quot;, &quot;uuid&quot;: &quot;a96e7212-6a29-478a-a24e-07720a286944&quot;, &quot;description&quot;: &quot;Some hackish description...&quot;}</code></pre></div>
+<p>Agora temos dois filmes cadastrados na nossa API:</p>
+<div class="gatsby-highlight" data-language="json"><pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"objects"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers."</span><span class="token punctuation">,</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"The Matrix"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"DED621D5-08F4-4D32-ADFA-84375BA415B9"</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Some hackish description..."</span><span class="token punctuation">,</span>
+      <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"Swordfish"</span><span class="token punctuation">,</span>
+      <span class="token property">"id"</span><span class="token operator">:</span> <span class="token string">"a96e7212-6a29-478a-a24e-07720a286944"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span></code></pre></div>
+<h3>Atualizando e removendo</h3>
+<p>Uma vez que <em>POST</em> e <em>GET</em> acontecem no <em>endpoint</em> responsável por "listar" os nossos filmes,
+é natural assumirmos que o <em>PUT</em> e <em>DELETE</em> acontecerão no <em>endpoint</em> responsável por
+"detalhar" determinado filme.</p>
+<p>O <em>PUT</em> é o método <em>HTTP</em> responsável por atualizar um determinado recurso. Assim como o <em>POST</em>,
+ele permite a passagem de parâmetros que podem ser interpretados como "campos".</p>
+<p>Já o <em>DELETE</em>, como o nome sugere, é o método padrão quando insinuamos a remoção de um determinado
+recurso à nossa <em>API</em>.</p>
+<p>Na prática, para suportar esses dois verbos, nossa função <code class="language-text">movie</code> ficará assim:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token decorator annotation punctuation">@hug<span class="token punctuation">.</span>http</span><span class="token punctuation">(</span><span class="token string">'/movies/{movie_id}/'</span><span class="token punctuation">,</span> accept<span class="token operator">=</span><span class="token punctuation">(</span><span class="token string">'get'</span><span class="token punctuation">,</span> <span class="token string">'put'</span><span class="token punctuation">,</span> <span class="token string">'delete'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">movie</span><span class="token punctuation">(</span>movie_id<span class="token punctuation">,</span> request<span class="token punctuation">,</span> response<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  movie_ids <span class="token operator">=</span> <span class="token builtin">map</span><span class="token punctuation">(</span><span class="token keyword">lambda</span> x<span class="token punctuation">:</span> x<span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">]</span><span class="token punctuation">,</span> MOVIES<span class="token punctuation">)</span>
 
-  <span class=k>if</span> <span class=n>movie_id</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>movie_ids</span><span class=p>:</span>
-    <span class=n>response</span><span class=o>.</span><span class=n>status</span> <span class=o>=</span> <span class=n>HTTP_404</span>
-    <span class=k>return</span> <span class=s1>&#39;Not found&#39;</span>
+  <span class="token keyword">if</span> movie_id <span class="token keyword">not</span> <span class="token keyword">in</span> movie_ids<span class="token punctuation">:</span>
+    response<span class="token punctuation">.</span>status <span class="token operator">=</span> HTTP_404
+    <span class="token keyword">return</span> <span class="token string">'Not found'</span>
 
-  <span class=n>movie</span> <span class=o>=</span> <span class=n>MOVIES</span><span class=p>[</span><span class=n>movie_ids</span><span class=o>.</span><span class=n>index</span><span class=p>(</span><span class=n>movie_id</span><span class=p>)]</span>
+  movie <span class="token operator">=</span> MOVIES<span class="token punctuation">[</span>movie_ids<span class="token punctuation">.</span>index<span class="token punctuation">(</span>movie_id<span class="token punctuation">)</span><span class="token punctuation">]</span>
 
-  <span class=k>if</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;DELETE&#39;</span><span class=p>:</span>
-    <span class=n>MOVIES</span><span class=o>.</span><span class=n>remove</span><span class=p>(</span><span class=n>movie</span><span class=p>)</span>
-    <span class=k>return</span> <span class=s1>&#39;Deleted&#39;</span>
+  <span class="token keyword">if</span> request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'DELETE'</span><span class="token punctuation">:</span>
+    MOVIES<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>movie<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">'Deleted'</span>
 
-  <span class=k>if</span> <span class=n>request</span><span class=o>.</span><span class=n>method</span> <span class=o>==</span> <span class=s1>&#39;PUT&#39;</span><span class=p>:</span>
-    <span class=n>movie</span><span class=p>[</span><span class=s1>&#39;title&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>request</span><span class=o>.</span><span class=n>get_param</span><span class=p>(</span><span class=s1>&#39;title&#39;</span><span class=p>)</span>
-    <span class=n>movie</span><span class=p>[</span><span class=s1>&#39;description&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=n>request</span><span class=o>.</span><span class=n>get_param</span><span class=p>(</span><span class=s1>&#39;description&#39;</span><span class=p>)</span>
-    <span class=k>return</span> <span class=n>movie</span>
+  <span class="token keyword">if</span> request<span class="token punctuation">.</span>method <span class="token operator">==</span> <span class="token string">'PUT'</span><span class="token punctuation">:</span>
+    movie<span class="token punctuation">[</span><span class="token string">'title'</span><span class="token punctuation">]</span> <span class="token operator">=</span> request<span class="token punctuation">.</span>get_param<span class="token punctuation">(</span><span class="token string">'title'</span><span class="token punctuation">)</span>
+    movie<span class="token punctuation">[</span><span class="token string">'description'</span><span class="token punctuation">]</span> <span class="token operator">=</span> request<span class="token punctuation">.</span>get_param<span class="token punctuation">(</span><span class="token string">'description'</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> movie
 
-  <span class=k>return</span> <span class=n>movie</span>
-</pre></div> <p>Agora podemos atualizar o filme "Swordfish":</p> <div class=highlight><pre><span></span>curl -i -XPUT -d <span class=s2>&quot;title=A Senha&amp;description=Um filme sobre Hackers&quot;</span> http://localhost:8000/movies/a96e7212-6a29-478a-a24e-07720a286944/
+  <span class="token keyword">return</span> movie</code></pre></div>
+<p>Agora podemos atualizar o filme "Swordfish":</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">curl -i -XPUT -d &quot;title=A Senha&amp;description=Um filme sobre Hackers&quot; http://localhost:8000/movies/a96e7212-6a29-478a-a24e-07720a286944/
 
-HTTP/1.0 <span class=m>200</span> OK
-Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>02</span>:25:42 GMT
+HTTP/1.0 200 OK
+Date: Fri, 13 May 2016 02:25:42 GMT
 Server: WSGIServer/0.2 CPython/3.4.4
 content-type: application/json
-content-length: <span class=m>107</span>
+content-length: 107
 
-<span class=o>{</span><span class=s2>&quot;title&quot;</span>: <span class=s2>&quot;A Senha&quot;</span>, <span class=s2>&quot;id&quot;</span>: <span class=s2>&quot;a96e7212-6a29-478a-a24e-07720a286944&quot;</span>, <span class=s2>&quot;description&quot;</span>: <span class=s2>&quot;Um filme sobre Hackers&quot;</span><span class=o>}</span>
-</pre></div> <p>E até mesmo apagá-lo:</p> <div class=highlight><pre><span></span>curl -i -XDELETE http://localhost:8000/movies/a96e7212-6a29-478a-a24e-07720a286944/
+{&quot;title&quot;: &quot;A Senha&quot;, &quot;id&quot;: &quot;a96e7212-6a29-478a-a24e-07720a286944&quot;, &quot;description&quot;: &quot;Um filme sobre Hackers&quot;}</code></pre></div>
+<p>E até mesmo apagá-lo:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">curl -i -XDELETE http://localhost:8000/movies/a96e7212-6a29-478a-a24e-07720a286944/
 
-HTTP/1.0 <span class=m>200</span> OK
-Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>02</span>:26:52 GMT
+HTTP/1.0 200 OK
+Date: Fri, 13 May 2016 02:26:52 GMT
 Server: WSGIServer/0.2 CPython/3.4.4
 content-type: application/json
-content-length: <span class=m>9</span>
+content-length: 9
 
-<span class=s2>&quot;Deleted&quot;</span>
-</pre></div> <p>E com isso fechamos as operações de <em>CRUD</em> através dos métodos <em>POST</em>, <em>GET</em>, <em>PUT</em> e <em>DELETE</em>.</p> <h2>Ser JSON, ou não ser...</h2> <p>Uma das premissas do <em>REST</em> é que um recurso possa ser apresentado de diferentes maneiras. Por exemplo, o nosso filme se acessado pelo navegador, poderia ser representado através de um <em>HTML</em>. Por outro lado, se ele fosse acessado por uma requisição <em>Ajax</em>, ele poderia ser representado por um <em>JSON</em>.</p> <p>Uma terceira modalidade de entrega poderia ser em <em>XML</em>, ou em qualquer formato que tanto cliente quanto fornecedor entendam. Esse "acordo" entre as partes é realizado através do cabeçalho de requisição <code>Accept</code>, e pelo cabeçalho de resposta <code>content-type</code>:</p> <div class=highlight><pre><span></span>$ curl -v -H <span class=s2>&quot;Accept: application/json&quot;</span> http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/
+&quot;Deleted&quot;</code></pre></div>
+<p>E com isso fechamos as operações de <em>CRUD</em> através dos métodos <em>POST</em>, <em>GET</em>, <em>PUT</em> e <em>DELETE</em>.</p>
+<h2>Ser JSON, ou não ser...</h2>
+<p>Uma das premissas do <em>REST</em> é que um recurso possa ser apresentado de diferentes maneiras.
+Por exemplo, o nosso filme se acessado pelo navegador, poderia ser representado através de
+um <em>HTML</em>. Por outro lado, se ele fosse acessado por uma requisição <em>Ajax</em>, ele poderia
+ser representado por um <em>JSON</em>.</p>
+<p>Uma terceira modalidade de entrega poderia ser em <em>XML</em>, ou em qualquer formato
+que tanto cliente quanto fornecedor entendam. Esse "acordo" entre as partes é realizado
+através do cabeçalho de requisição <code class="language-text">Accept</code>, e pelo cabeçalho de resposta <code class="language-text">content-type</code>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ curl -v -H &quot;Accept: application/json&quot; http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/
 
 GET /movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/ HTTP/1.1
 Host: localhost:8000
 User-Agent: curl/7.43.0
 Accept: application/json
 
-HTTP/1.0 <span class=m>200</span> OK
-Date: Fri, <span class=m>13</span> May <span class=m>2016</span> <span class=m>02</span>:41:07 GMT
+HTTP/1.0 200 OK
+Date: Fri, 13 May 2016 02:41:07 GMT
 Server: WSGIServer/0.2 CPython/3.4.4
-content-length: <span class=m>221</span>
-content-type: application/json
-</pre></div> <p>Com isso, permitimos que tanto cliente quanto fornecedor conversem livremente, desde que em um mesmo dialeto. Embora não haja um padrão formal, é comum vermos <em>APIs</em> dando suporte a renderizações em <em>JSON</em> e <em>XML</em>.</p> <p>Isso pode parecer até um exagero, e uma complexidade questionável na sua aplicação. A boa notícia é que a maioria das bibliotecas <em>REST</em> dão suporte <em>built-in</em> a essa funcionalidade.</p> <h2>Stateless</h2> <p>Uma das premissas do <em>REST</em> é a comunicação sem estados. Isso significa que, assim como o próprio <a href=https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html title="Leia mais sobre stateless, Cookies e Sessions">protocolo <em>HTTP</em></a>, não "conserva-se informações" entre as requisições.</p> <p>Na prática, isso significa que cliente pode enviar múltiplas requisições para o servidor, no entanto, cada uma delas deve ser independente. Cada uma deve possuir toda a informação necessária para que o servidor possa interpretá-las completamente (e separadamente).</p> <p>Isso facilita o <a href=https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html title="O Cache e o HTTP"><em>caching</em></a> e escalabilidade da sua solução.</p> <p>Caso estados precisem ser armazenados, é uma responsabilidade do cliente fazê-los.</p> <h2>Considerações finais</h2> <p>Chegamos ao fim desse artigo, e uma pergunta fica: Mas o que é <em>RESTful</em>?</p> <p>Uma <em>API RESTful</em> na verdade é uma <em>API</em> que segue os princípios do <em>REST</em> de forma mais "fiel". Enquadrando-se plenamente nas seguintes regras:</p> <ul> <li>Cliente/servidor</li> <li><em>Stateless</em></li> <li>Cacheável</li> <li>Interface uniforme para comunicação entre o cliente e o servidor</li> <li>Uso de camadas (facilitando escalabilidade, confiabilidade e segurança)</li> </ul> <p>No fim das contas, sendo <em>REST</em> ou <em>RESTful</em>, utilizar os conceitos é uma boa forma de criar serviços (de baixo custo) para as suas aplicações, que podem ser aplicados, por exemplo, dentro de uma arquitetura de microserviços.</p> <p>Até a próxima.</p> <h2>Referências</h2> <ul> <li><a href=http://www.hug.rest/website/quickstart><em>Hug - Embrace APIs from the future</em></a></li> <li><a href=http://imasters.expert/rest-architecture-model-definition-constraints-benefits/ ><em>iMasters - REST Architecture Model: Definition, Constraints and Benefits</em></a></li> <li><a href=https://www.infoq.com/br/articles/rest-introduction><em>InfoQ - REST Introduction</em></a></li> <li><a href=https://en.wikipedia.org/wiki/HATEOAS><em>Wikipedia - HATEOAS</em></a></li> <li><a href=https://pt.wikipedia.org/wiki/Hiperm%C3%ADdia><em>Wikipedia</em> - Hipermídia</a></li> <li><a href=https://pt.wikipedia.org/wiki/Hipertexto><em>Wikipedia</em> - Hipertexto</a></li> <li><a href=https://pt.wikipedia.org/wiki/URI><em>Wikipedia - URI</em></a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/rest.html title="Leia mais sobre" class=Article-tagLink>rest</a> <a href=https://klauslaube.com.br/tag/microservices.html title="Leia mais sobre" class=Article-tagLink>microservices</a> <a href=https://klauslaube.com.br/tag/apis.html title="Leia mais sobre" class=Article-tagLink>apis</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
-        var disqus_shortname = "klauslaube";
-        var disqus_identifier = "2016/05/20/rest-parte-2.html";
-
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-19657400-1');ga('send','pageview');
-    </script> </body> </html>
+content-length: 221
+content-type: application/json</code></pre></div>
+<p>Com isso, permitimos que tanto cliente quanto fornecedor conversem livremente,
+desde que em um mesmo dialeto. Embora não haja um padrão formal, é comum vermos
+<em>APIs</em> dando suporte a renderizações em <em>JSON</em> e <em>XML</em>.</p>
+<p>Isso pode parecer até um exagero, e uma complexidade questionável na sua aplicação.
+A boa notícia é que a maioria das bibliotecas <em>REST</em> dão suporte <em>built-in</em> a essa
+funcionalidade.</p>
+<h2>Stateless</h2>
+<p>Uma das premissas do <em>REST</em> é a comunicação sem estados. Isso significa que,
+assim como o próprio <a href="/2012/04/05/entendendo-os-cookies-e-sessoes.html" title="Leia mais sobre stateless, Cookies e Sessions">protocolo <em>HTTP</em></a>,
+não "conserva-se informações" entre as requisições.</p>
+<p>Na prática, isso significa que cliente pode enviar múltiplas requisições
+para o servidor, no entanto, cada uma delas deve ser independente. Cada uma
+deve possuir toda a informação necessária para que o servidor possa interpretá-las
+completamente (e separadamente).</p>
+<p>Isso facilita o <a href="/2012/05/14/o-cache-e-o-http.html" title="O Cache e o HTTP"><em>caching</em></a> e
+escalabilidade da sua solução.</p>
+<p>Caso estados precisem ser armazenados, é uma responsabilidade do cliente fazê-los.</p>
+<h2>Considerações finais</h2>
+<p>Chegamos ao fim desse artigo, e uma pergunta fica: Mas o que é <em>RESTful</em>?</p>
+<p>Uma <em>API RESTful</em> na verdade é uma <em>API</em> que segue os princípios do <em>REST</em> de
+forma mais "fiel". Enquadrando-se plenamente nas seguintes regras:</p>
+<ul>
+<li>Cliente/servidor</li>
+<li><em>Stateless</em></li>
+<li>Cacheável</li>
+<li>Interface uniforme para comunicação entre o cliente e o servidor</li>
+<li>Uso de camadas (facilitando escalabilidade, confiabilidade e segurança)</li>
+</ul>
+<p>No fim das contas, sendo <em>REST</em> ou <em>RESTful</em>, utilizar os conceitos
+é uma boa forma de criar serviços (de baixo custo) para as suas aplicações,
+que podem ser aplicados, por exemplo, dentro de uma arquitetura de microserviços.</p>
+<p>Até a próxima.</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="http://www.hug.rest/website/quickstart"><em>Hug - Embrace APIs from the future</em></a></li>
+<li><a href="http://imasters.expert/rest-architecture-model-definition-constraints-benefits/"><em>iMasters - REST Architecture Model: Definition, Constraints and Benefits</em></a></li>
+<li><a href="https://www.infoq.com/br/articles/rest-introduction"><em>InfoQ - REST Introduction</em></a></li>
+<li><a href="https://en.wikipedia.org/wiki/HATEOAS"><em>Wikipedia - HATEOAS</em></a></li>
+<li><a href="https://pt.wikipedia.org/wiki/Hiperm%C3%ADdia"><em>Wikipedia</em> - Hipermídia</a></li>
+<li><a href="https://pt.wikipedia.org/wiki/Hipertexto"><em>Wikipedia</em> - Hipertexto</a></li>
+<li><a href="https://pt.wikipedia.org/wiki/URI"><em>Wikipedia - URI</em></a></li>
+</ul></div><div class="article-tags__Tags-lfitfk-0 gKRNvs"><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/desenvolvimento-web.html">desenvolvimento-web</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/rest.html">rest</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/microservices.html">microservices</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/api.html">api</a></div><div class="article__DiscussionWrapper-sc-1bof3w4-2 lhlkLZ"><div shortname="klauslaube" config="[object Object]" id="disqus_thread"></div></div></div></div><footer class="page-footer__Footer-sc-1jesc4c-0 eZHcyp"><div class="container-sc-1o2is99-0 bfwjqj"><p>O conteúdo desse blog está sob a licença<!-- --> <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Creative Commons Attribution</a>.</p><p><a href="https://github.com/kplaube/blog" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Fork me on Github</a>.</p></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2016/05/20/rest-parte-2.html";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e7e259d06d29a943bae9.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-0712dae6686d19cfe871.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-37944ec4ec91a7d47898.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bf5e10cca5c03eb48f60.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js" async=""></script><script src="/commons-d19a5247b9c341fd9cf4.js" async=""></script><script src="/app-e7e259d06d29a943bae9.js" async=""></script><script src="/styles-72b9aca6a03bf971c27e.js" async=""></script><script src="/framework-15c64f04ece7e16d9319.js" async=""></script><script src="/webpack-runtime-74a6d0a7c3b7aca6f059.js" async=""></script></body></html>

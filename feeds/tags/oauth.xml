@@ -1,10 +1,224 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - oauth</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 06 Feb 2018 11:45:00 -0200</lastBuildDate><item><title>OAuth2.0: Autorização simples (or is it?)</title><link>https://klauslaube.com.br/2018/02/06/oauth20-autorizacao-simples-or-is-it.html</link><description>&lt;p&gt;É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
-de &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre API"&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, desde
-&lt;a href="https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html" title="Construindo APIs em Django com Restless"&gt;bibliotecas&lt;/a&gt;
-até a construção de &lt;a href="https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html" title="Ramilificando as suas APIs"&gt;especificações&lt;/a&gt;.
-Nesse &lt;em&gt;post&lt;/em&gt; vamos introduzir a camada de &lt;em&gt;auth&lt;/em&gt; de uma &lt;em&gt;API&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oauth]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[OAuth2.0: Autorização simples (or is it?)]]></title><description><![CDATA[É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
+de APIs, desde
+bibliotecas
+até a construção de especificações.
+Nesse post vamos introduzir a camada de auth de uma API web, e
+entender como podemos resolver esse problema através do protocolo OAuth 2.0. O que…]]></description><link>https://klauslaube.com.br/2018/02/06/oauth20-autorizacao-simples-or-is-it.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/02/06/oauth20-autorizacao-simples-or-is-it.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 06 Feb 2018 11:45:00 GMT</pubDate><content:encoded>&lt;p&gt;É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
+de &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre API&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, desde
+&lt;a href=&quot;/2017/01/06/construindo-apis-em-django-com-restless.html&quot; title=&quot;Construindo APIs em Django com Restless&quot;&gt;bibliotecas&lt;/a&gt;
+até a construção de &lt;a href=&quot;/2017/01/31/ramilificando-as-suas-apis.html&quot; title=&quot;Ramilificando as suas APIs&quot;&gt;especificações&lt;/a&gt;.
+Nesse &lt;em&gt;post&lt;/em&gt; vamos introduzir a camada de &lt;em&gt;auth&lt;/em&gt; de uma &lt;em&gt;API&lt;/em&gt; &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e
 entender como podemos resolver esse problema através do protocolo &lt;em&gt;OAuth 2.0&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;O que …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 06 Feb 2018 11:45:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-02-06:/2018/02/06/oauth20-autorizacao-simples-or-is-it.html</guid><category>desenvolvimento</category><category>web</category><category>oauth</category><category>oauth2</category><category>auth</category><category>apis</category></item></channel></rss>
+&lt;h2&gt;O que é OAuth 2.0?&lt;/h2&gt;
+&lt;p&gt;Diretamente do &lt;a href=&quot;https://oauth.net/2/&quot; title=&quot;Leia mais sobre OAuth&quot;&gt;oauth2.net&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;OAuth 2.0 is the industry-standard protocol for authorization. OAuth 2.0 supersedes
+the work done on the original OAuth protocol created in 2006. OAuth 2.0 focuses on client
+developer simplicity while providing specific authorization flows for web applications,
+desktop applications, mobile phones, and living room devices.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em outras palavras, é um &lt;em&gt;framework&lt;/em&gt; de autorização que possibilita aplicações a obterem acesso limitado
+a contas de usuários em um serviço &lt;a href=&quot;/tag/http.html&quot; title=&quot;Leia mais sobre HTTP&quot;&gt;&lt;em&gt;HTTP&lt;/em&gt;&lt;/a&gt;, como &lt;em&gt;Facebook&lt;/em&gt;, &lt;em&gt;GitHub&lt;/em&gt;
+ou &lt;em&gt;Twitter&lt;/em&gt;. Ele funciona delegando a autenticação do usuário ao serviço que &quot;hosteia&quot; a sua conta,
+e autoriza aplicações &lt;em&gt;third-party&lt;/em&gt; a acessarem a mesma.&lt;/p&gt;
+&lt;p&gt;Imagine que você criou um serviço &lt;em&gt;web&lt;/em&gt;. É razoável assumir que você aplique alguma forma proprietária para
+resolver a questão de autenticação de usuários. Um formulário com &lt;em&gt;username&lt;/em&gt; e &lt;em&gt;password&lt;/em&gt; seria o suficiente
+para realizar a tarefa. Imagine que o seu serviço comece a ganhar notoriedade, e com isso potenciais parceiros
+desejam se integrar com a sua solução. Construir uma &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;API REST&lt;/em&gt;&lt;/a&gt; é um
+caminho confortável, uma vez que o padrão é aberto, bem explorado, e não há nenhuma restrição de patente ou direitos
+para que o seu parceiro o adote.&lt;/p&gt;
+&lt;p&gt;O mesmo acontece com o &lt;em&gt;OAuth&lt;/em&gt;. Agora você precisa autorizar o acesso a sua &lt;em&gt;API&lt;/em&gt;, afinal não é todo parceiro que terá
+acesso a parte &lt;em&gt;premium&lt;/em&gt; da sua solução. Ao invés de bolar um fluxo proprietário, no qual o seu parceiro terá que
+desenvolver uma biblioteca apenas para conectar-se ao seu serviço, você adota o &lt;em&gt;OAuth 2.0&lt;/em&gt;. Como é um padrão aberto,
+o interessado provavelmente já o conhece e já possui as ferramentas necessárias.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c11b7194b9a8a82321a0bc7e7c3ad0e9/c08c5/oauth-let-me-in.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEA//EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAGGVZFUCKf/xAAZEAEBAAMBAAAAAAAAAAAAAAABAAIREjH/2gAIAQEAAQUC9swFLvRLf//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/AVn/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPwEJ/8QAFxAAAwEAAAAAAAAAAAAAAAAAABARIf/aAAgBAQAGPwKmKP8A/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERMXH/2gAIAQEAAT8hbwJJqoTZWB0bt4Mp/9oADAMBAAIAAwAAABCTL//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/EASf/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qgf/EABsQAQADAQEBAQAAAAAAAAAAAAEAESExQVFx/9oACAEBAAE/EEKDZi/Mjk2jG/SUJXhOKDdvT8iJMO7n/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Imagem do filme Deixe-me Entrar&amp;quot;&quot;
+        title=&quot;O OAuth 2.0 é comprovadamente seguro. Mas nem tanto contra vampiros... (amazon.com)&quot;
+        src=&quot;/static/c11b7194b9a8a82321a0bc7e7c3ad0e9/c08c5/oauth-let-me-in.jpg&quot;
+        srcset=&quot;/static/c11b7194b9a8a82321a0bc7e7c3ad0e9/7809d/oauth-let-me-in.jpg 192w,
+/static/c11b7194b9a8a82321a0bc7e7c3ad0e9/4ecad/oauth-let-me-in.jpg 384w,
+/static/c11b7194b9a8a82321a0bc7e7c3ad0e9/c08c5/oauth-let-me-in.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;O OAuth 2.0 é comprovadamente seguro. Mas nem tanto contra vampiros... (amazon.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Embora pareça complicado, é possível resumir o fluxo do &lt;em&gt;OAuth 2.0&lt;/em&gt; com o diagrama abaixo:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/319b5c55911a20838a958ea5826541b2/6af66/oauth-overview.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACLklEQVQoz3WR2WsTQRzH9x8TwRcRH+KDNPXBI+JRD3z3QfBBFNSKacSkLaZqK4RaW2ps0m6uappaKiVp0hybrN1su5tsks3eZ/cYJ4aCCn75Mgw/5sP3OzMIx3H932JZVlEUAIBuOpxk9kUdmhN0QTEdAFyjr2d9etqrp8+b615+5bTcWELax6JpWhB4AByFybcKEWr3E7W7cJifZ/YWLVNx1Jae8WpJj756SomdjD4dXX7/BmGOBXlREIAlOzTqNqZAM+ISH1xizsHDrka7eldNelT0rJHyMJ/PRP2+xdADpNPp9Hq9brc7gEUR/FcOMLvAYIDRdvSezW4Y/RxCkgeVShXDMJIkJUmCp1zHti0L2hnatuBMs8y5+ma4+m2mlp3FNmawzTLfQQiCKJX24EpR1DBZkmW8uV/D69hPvIY3SPoQpnZU4Qrqh76aCIzEnp34eH++nh3cGTYf1uYFQbPN6P6Ph1uRQOGLPx99sbP8eHuhrXI9TRxLh26nJ+9kJm+mgueiT5bwrb8fTBRt1xFNldUl6UgXTQ0a7uGQM+QbqdcX115eRieuJV+NxJ6vEDv/wrC2bR6JLNemaGiGbmnS4PPZQXIQYrfSwUvohDf2KN7c/hNuCYIgW0aCLIQK8Xel1NtiMlxMTBfRtsJ1NBEWvrc+fTczdT0ZDK3N5vLfB181FORhsgNcSmFLLFnj6SpPVTmq3D8wbYszFF8icGF1fDQ+PpYKJnJfy5XKL6ouJ2+QUAY4AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama exibindo a dança realizada para autorizar um usuário&amp;quot;&quot;
+        title=&quot;Diagrama exibindo a dança realizada para autorizar um usuário (api.slack.com)&quot;
+        src=&quot;/static/319b5c55911a20838a958ea5826541b2/6af66/oauth-overview.png&quot;
+        srcset=&quot;/static/319b5c55911a20838a958ea5826541b2/8514f/oauth-overview.png 192w,
+/static/319b5c55911a20838a958ea5826541b2/804b2/oauth-overview.png 384w,
+/static/319b5c55911a20838a958ea5826541b2/6af66/oauth-overview.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Diagrama exibindo a dança realizada para autorizar um usuário (api.slack.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Entender melhor os papéis envolvidos nesse processo pode dar mais cor ao entendimento do diagrama acima.&lt;/p&gt;
+&lt;h2&gt;Papéis&lt;/h2&gt;
+&lt;p&gt;O protocolo &lt;em&gt;OAuth&lt;/em&gt; faz uso de 4 papéis:&lt;/p&gt;
+&lt;h3&gt;Resource owner (user)&lt;/h3&gt;
+&lt;p&gt;O &lt;em&gt;resource owner&lt;/em&gt; é o usuário que autoriza a aplicação a acessar a sua conta.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Você.&lt;/p&gt;
+&lt;h3&gt;Client (application)&lt;/h3&gt;
+&lt;p&gt;A aplicação que está tentando acessar a conta do usuário. O usuário precisa autorizá-la a fazê-lo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Um aplicativo de galeria de imagens que conecta-se ao seu &lt;em&gt;Dropbox&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Authorization server&lt;/h3&gt;
+&lt;p&gt;Esse é o servidor que apresenta a interface onde o usuário pode aprovar ou negar o acesso daquele aplicativo
+à sua conta.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; Servidor de autorização do &lt;em&gt;Dropbox&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Resource server (API)&lt;/h3&gt;
+&lt;p&gt;É o serviço/&lt;em&gt;API&lt;/em&gt; no qual estamos tentando acessar. O &lt;em&gt;resource server&lt;/em&gt; lida com requisições autenticadas
+após o aplicativo ter obtido um &lt;em&gt;token&lt;/em&gt; de acesso.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exemplo:&lt;/strong&gt; &lt;em&gt;API&lt;/em&gt; de arquivos do &lt;em&gt;Dropbox&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;No cenário descrito acima, ter o &lt;em&gt;authorization server&lt;/em&gt; e o &lt;em&gt;resource server&lt;/em&gt; no mesmo serviço é aceitável.
+Mas podemos ter a necessidade de apenas autenticar o usuário (utilizando o &lt;em&gt;Facebook&lt;/em&gt; como &lt;em&gt;authorization server&lt;/em&gt;,
+por exemplo) e prover funcionalidades da nossa própria &lt;em&gt;API&lt;/em&gt; (agindo como &lt;em&gt;resource server&lt;/em&gt;).&lt;/p&gt;
+&lt;h2&gt;Fluxos&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9fe31559513df4d43025a8672d8d84a8/6af66/oauth2-diagram-dropbox.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 97.39583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACeElEQVQ4y41U2bKbMAzl//+rD31rZzq37W2zEJaAsdnXAFF1BCYk02mvZhyILaSjoyM7XT9QrFLSJqdxmsjaMNwoig0F14TCSFOic3lif2/4f+V9kxZ0v9/JGW4jZXlJRVFTVTVU1a0czPMsT2tdN7BftfixT8m+8IFNDGRa/R0cAAmyX/xYkE7T4ogPgR6JEp1RyGh/H306nkPZtwH35jRtR1lWkuFAgrSsN0cgUkkqiVAWEuMJGrwgZr87jeMkfgAmCLFx8DW511Sg70tFmXgHP9hHwhtTBL/bOIpP3XSSwA+V+Dh123NAQ8cglYwwGxAlp4weqPBh1/UbHdZAh+tF5HIVghBR67qhlkvHhl2whoPYRoCKlgO++qDLivmFjwRcDmlzAspt7T5+7M+y0FVLkVS1VubsM75mByo/UNxdvSnhumoz5maBioqre+oy/cNq5lAlmYgajcE7AkNaKBUc51wq+IVaJCDQxKYinS8c9f2N10A9fwD+gAqaQyAELFfx16u40TR7Ll2uOPoPN6H3i+YSG8kOERtTkKdi+nz4Rp++f6U377gR/1oFdOp63GXm2AGxeVHJAZBB5EAmqygpyTJShss22SbePc+QUsQIt1nGj8ziNNNHbOv6bt7tUwL+1XmVQpoVdHRD7rKigCcB4wm5YLosQkwMkNdN+xB2oAqK0+opsJVNrAx5cS7jGemCuzuQe4mkCbZkNA5rGT1uyk9uyi9PS/Z9QPDohZreToq+vAfkRakkOJwCXv5yV64XxdnbjR6Q1Os9+BywplNg6BxoOvkJmaySC0LGkb+BZCAlLTdV9eBwL4XnoOB0pnU2/9Oo5f0PPc+/pxlfiU0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama de autorização de usuário no Dropbox&amp;quot;&quot;
+        title=&quot;Diagrama de autorização de usuário no Dropbox (dropbox.com)&quot;
+        src=&quot;/static/9fe31559513df4d43025a8672d8d84a8/6af66/oauth2-diagram-dropbox.png&quot;
+        srcset=&quot;/static/9fe31559513df4d43025a8672d8d84a8/8514f/oauth2-diagram-dropbox.png 192w,
+/static/9fe31559513df4d43025a8672d8d84a8/804b2/oauth2-diagram-dropbox.png 384w,
+/static/9fe31559513df4d43025a8672d8d84a8/6af66/oauth2-diagram-dropbox.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Diagrama de autorização de usuário no Dropbox (dropbox.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Você provavelmente já passou pelo fluxo ilustrado acima ao fazer &lt;em&gt;login&lt;/em&gt; no &lt;em&gt;Spotify&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;app&lt;/em&gt; do &lt;em&gt;Spotify&lt;/em&gt; pede autorização ao &lt;em&gt;Facebook&lt;/em&gt; para acessar os dados da sua conta.
+O &lt;em&gt;Facebook&lt;/em&gt; por sua vez exibe uma tela, solicitando que você autorize o acesso clicando em um botão.
+Com isso, &lt;em&gt;Facebook&lt;/em&gt; autoriza acesso do &lt;em&gt;Spotify&lt;/em&gt; e a partir daí ele é capaz de ver o seu endereço
+de e-mail e consequentemente ter certeza de que &quot;você é você&quot;.&lt;/p&gt;
+&lt;p&gt;No caso do exemplo da galeria de fotos, os seguintes passos são executados:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A aplicação requisita autorização para acessar os recursos do usuário;&lt;/li&gt;
+&lt;li&gt;Se o usuário autorizá-la, a aplicação recebe um &lt;em&gt;authorization grant&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;A aplicação requisita um &lt;em&gt;access token&lt;/em&gt; do &lt;em&gt;authorization server&lt;/em&gt;, apresentando as suas próprias credenciais e o &lt;em&gt;authorization grant&lt;/em&gt; cedido pelo usuário;&lt;/li&gt;
+&lt;li&gt;Se as credenciais e o &lt;em&gt;authorization grant&lt;/em&gt; forem válidos, o &lt;em&gt;authorization server&lt;/em&gt; emite um &lt;em&gt;access token&lt;/em&gt; para a aplicação. O processo de autorização está completo;&lt;/li&gt;
+&lt;li&gt;A aplicação requisita o recurso protegido do &lt;em&gt;resource server&lt;/em&gt;, apresentando o &lt;em&gt;access token&lt;/em&gt; para autenticação;&lt;/li&gt;
+&lt;li&gt;Se o &lt;em&gt;access token&lt;/em&gt; for válido, o &lt;em&gt;resource server&lt;/em&gt; retorna o recurso para a aplicação.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Caso você esteja construindo o aplicativo de galeria de fotos, é necessário criar um &quot;app&quot; na área de &lt;em&gt;Developers&lt;/em&gt; do &lt;em&gt;Dropbox&lt;/em&gt;, como mostrado abaixo:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7a27e171d8d47d4a1a318d588a7c342a/6af66/dropbox-app-creation.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.77083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAABv0lEQVQ4y6VU7Y7bIBD0+79gf1RqpbTXxIkTDOYb4+ksTlLndJbuVKTRsqwYlp2FLueMECJiTERErRXLstxtffoyxL7HPfD0OyFTaoTWBt6Hl43b8d7frm8jXaqALwtMmDGFApcXcMo1wDJ4NZ6x0jblXBBTajaljFJKI6l1gXURZa7obkzqMDj8OBzx823A8WrR3yyuU8R5dPj2/VcjlQTVTeHP2xHn/oxTP2C4KpYrYLIBh989Eg/qbAaGKZHI4KQLelMwMj0Ta7P96DFxXslorYNhaabJwrgM7WdmObc6u5DWDGemO/P0WVIXu0Vd10qzOzVcNXlog847Bz1SlFFhVIoZ6HY1Y0wTS07fU/gjdD7NMH6FdoXCrFdYan2SfWV0LAV0qCQsTWlR1CUiFshhYh8QP7IWe8hEU/k4Zlyo6EBlL9qjV67hPMrc4vzwGTOJLZZwt6+QlmOGFcolnNgqFx0aZKOQCdFg4joXtTN2yZ6E5GO6aNcJdBwdy+s9sPUDH0DcgcSSXFlUlt6y7C3ps/8dXeJTciRd4f99Dh/gU20jP8w0TdDsO+m92tpluduvYN3Tvfway+cbeA9/AZto5qwfPYV+AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Área de criação de app&amp;quot;&quot;
+        title=&quot;Área de criação de app&quot;
+        src=&quot;/static/7a27e171d8d47d4a1a318d588a7c342a/6af66/dropbox-app-creation.png&quot;
+        srcset=&quot;/static/7a27e171d8d47d4a1a318d588a7c342a/8514f/dropbox-app-creation.png 192w,
+/static/7a27e171d8d47d4a1a318d588a7c342a/804b2/dropbox-app-creation.png 384w,
+/static/7a27e171d8d47d4a1a318d588a7c342a/6af66/dropbox-app-creation.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Área de criação de app&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ao finalizar o cadastro, o &lt;em&gt;app&lt;/em&gt; receberá um &lt;code class=&quot;language-text&quot;&gt;app key&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;app secret&lt;/code&gt;. Essas são as credenciais do aplicativo, que
+devem ser apresentadas ao &lt;em&gt;authorization server&lt;/em&gt; juntamente com o &lt;code class=&quot;language-text&quot;&gt;authorization grant&lt;/code&gt;, para que o processo execute com sucesso.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.dropbox.com/developers/reference/oauth-guide&quot;&gt;Leia o OAuth guide, do Dropbox&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Diferenças para o OAuth 1.0&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;OAuth 1.0&lt;/em&gt; foi baseado em protocolos proprietários, e com o passar do tempo pode-se dizer que ele &quot;não envelheceu bem&quot;.
+O &lt;em&gt;OAuth 2.0&lt;/em&gt; surgiu das lições aprendidas com o primeiro, e tem como principais melhorias:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilizar &lt;em&gt;HTTPS&lt;/em&gt; para todas as comunicações entre navegadores, clientes e &lt;em&gt;API&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Melhor experiência de autorização para aplicativos nativos e suporte para extensões;&lt;/li&gt;
+&lt;li&gt;A separação em papéis permite uma melhor escala de operação, uma vez que é possível tratar o &lt;em&gt;user authorization&lt;/em&gt; e
+as &lt;em&gt;API calls&lt;/em&gt; em contextos (serviços e até mesmo máquinas) diferentes.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Se até então o protocolo não ficou muito claro, não se preocupe! É na prática que o &lt;em&gt;OAuth 2.0&lt;/em&gt; começa a fazer mais sentido,
+e é isso que abordaremos no próximo &lt;em&gt;post&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Entender como esse protocolo funciona é fundamental para compreender outras variações como &lt;a href=&quot;https://oauth.net/2/native-apps/&quot;&gt;Native Apps auth&lt;/a&gt;,
+&lt;a href=&quot;http://tools.ietf.org/html/rfc7522&quot;&gt;SAML&lt;/a&gt; ou &lt;a href=&quot;https://tools.ietf.org/html/rfc7519&quot;&gt;JWT&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://aaronparecki.com/oauth-2-simplified/&quot;&gt;Aaron Parecki - OAuth 2 Simplified&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2&quot;&gt;DigitalOcean - An Introduction to OAuth 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/developers/reference/oauth-guide&quot;&gt;Dropbox - OAuth guide&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://oauth.net/2/&quot;&gt;Oauth.net - OAuth 2.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://api.slack.com/docs/oauth&quot;&gt;Slack API - Using OAuth 2.0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

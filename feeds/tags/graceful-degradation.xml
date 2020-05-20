@@ -1,8 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - graceful-degradation</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 27 Dec 2010 13:00:00 -0200</lastBuildDate><item><title>CSS3: Cantos arredondados, sombras e degradês até no IE</title><link>https://klauslaube.com.br/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</link><description>&lt;p&gt;Enquanto o &lt;a href="https://klauslaube.com.br/2010/11/13/usando-html5-sem-medo.html" title="Usando o HTML5 sem medo"&gt;movimento em prol do HTML5 ganha cada vez mais força&lt;/a&gt;, o
-que podemos falar do &lt;a href="https://klauslaube.com.br/tag/css3.html" title="Leia mais sobre CSS3"&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - graceful-degradation]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[CSS3: Cantos arredondados, sombras e degradês até no IE]]></title><description><![CDATA[Enquanto o movimento em prol do HTML5 ganha cada vez mais força, o
+que podemos falar do CSS3? Para a nossa felicidade, Opera, Safari, Google Chrome, Firefox e
+(o polêmico) IE9 já apresentam (ou apresentarão, no caso do IE) bom
+suporte às principais propriedades do CSS3. Mas vale ressaltar que,
+assim…]]></description><link>https://klauslaube.com.br/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 27 Dec 2010 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Enquanto o &lt;a href=&quot;/2010/11/13/usando-html5-sem-medo.html&quot; title=&quot;Usando o HTML5 sem medo&quot;&gt;movimento em prol do HTML5 ganha cada vez mais força&lt;/a&gt;, o
+que podemos falar do &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS3&quot;&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;?&lt;/p&gt;
 &lt;p&gt;Para a nossa felicidade, &lt;em&gt;Opera&lt;/em&gt;, &lt;em&gt;Safari&lt;/em&gt;, &lt;em&gt;Google Chrome&lt;/em&gt;, &lt;em&gt;Firefox&lt;/em&gt; e
 (o polêmico) &lt;em&gt;IE9&lt;/em&gt; já apresentam (ou apresentarão, no caso do &lt;em&gt;IE&lt;/em&gt;) bom
-suporte às principais propriedades do &lt;em&gt;CSS3&lt;/em&gt;. Mas vale ressaltar que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 27 Dec 2010 13:00:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-12-27:/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</guid><category>desenvolvimento</category><category>web</category><category>padroes-web</category><category>css3</category><category>graceful-degradation</category><category>html5</category></item></channel></rss>
+suporte às principais propriedades do &lt;em&gt;CSS3&lt;/em&gt;. Mas vale ressaltar que,
+assim como o &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; o &lt;em&gt;CSS3&lt;/em&gt; é apenas um “draft“… os navegadores
+suportam algumas características através de expressões proprietárias
+(então a cautela neste caso também é necessária).&lt;/p&gt;
+&lt;p&gt;Isto pode (e deve) ser encarado de uma forma muito negativa. Mas temos
+que entender que estas expressões proprietárias estão calcadas em
+especificações do &lt;em&gt;W3C&lt;/em&gt;, ou seja, é bem provável que o &lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt;
+do &lt;em&gt;Firefox&lt;/em&gt; (realizado através da expressão &lt;code class=&quot;language-text&quot;&gt;-moz-border-radius&lt;/code&gt;) irá
+reproduzir um efeito similar ao &lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt; do &lt;em&gt;Chrome&lt;/em&gt; (que já
+segue a especificação do &lt;em&gt;W3C&lt;/em&gt;). A dica que eu dou é a seguinte: Utilize
+&lt;a href=&quot;http://www.tableless.com.br/graceful-degradation-e-tudo-sobre-acessibilidade&quot; title=&quot;Graceful degradation é tudo sobre Acessibilidade&quot;&gt;&lt;em&gt;Graceful Degradation&lt;/em&gt;&lt;/a&gt;, ou seja, &lt;strong&gt;escreva seus estilos com
+&lt;em&gt;CSS3&lt;/em&gt;&lt;/strong&gt;, e vá &lt;strong&gt;adicionando exceções para suportar os demais
+navegadores&lt;/strong&gt; que não suportam certas propriedades.&lt;/p&gt;
+&lt;p&gt;Vamos ao que interessa?!&lt;/p&gt;
+&lt;h2&gt;CSS3 Please!&lt;/h2&gt;
+&lt;p&gt;O site &lt;a href=&quot;http://css3please.com/&quot; title=&quot;Saiba como fazer CSS3 Cross-Browser&quot;&gt;&lt;em&gt;CSS3 Please! The Cross-Browser CSS3 Rule Generator&lt;/em&gt;&lt;/a&gt; nos
+ensina como fazer &lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;box-shadow&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;,
+&lt;code class=&quot;language-text&quot;&gt;transition&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;text-shadow&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;font-face&lt;/code&gt;; de forma muito simples
+e prática, e que funcione no &lt;em&gt;Safari&lt;/em&gt;, &lt;em&gt;Chrome&lt;/em&gt;, &lt;em&gt;Opera&lt;/em&gt; e &lt;em&gt;Firefox&lt;/em&gt; (e
+algumas propriedades até no &lt;em&gt;IE&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;É uma referência muito interessante que deve estar sempre disponível
+para quando bater aquela dúvida. Podemos reparar que são (na maioria dos
+casos) expressões proprietárias, mas que atingem a experiência obtida
+utilizando uma expressão &lt;em&gt;standard&lt;/em&gt; (como no caso do &lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt;).&lt;/p&gt;
+&lt;h2&gt;CSS3 PIE&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;CSS3 Please!&lt;/em&gt; já quebra um bom galho na utilização de alguns recursos
+do &lt;em&gt;CSS3&lt;/em&gt;. Mas no caso do &lt;em&gt;IE&lt;/em&gt;, algumas propriedades como
+&lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;box-shadow&lt;/code&gt; (que no meu caso são as propriedades
+mais “salva-vidas” da linguagem) não possuem alternativas.&lt;/p&gt;
+&lt;p&gt;O site &lt;a href=&quot;http://css3pie.com/&quot; title=&quot;CSS3 decorations for IE&quot;&gt;&lt;em&gt;CSS3 PIE&lt;/em&gt;&lt;/a&gt; apresenta uma forma de utilizar estas propriedades
+sem precisar utilizar &lt;em&gt;PNGs&lt;/em&gt; com transparência. Através de um arquivo
+&lt;strong&gt;.htc&lt;/strong&gt; importado na folha de estilo, podemos fazer com que o &lt;em&gt;IE&lt;/em&gt; (do
+6 ao 8 ) possa compreender as seguintes propriedades:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;border-radius&lt;/li&gt;
+&lt;li&gt;box-shadow&lt;/li&gt;
+&lt;li&gt;border-image&lt;/li&gt;
+&lt;li&gt;Múltiplas imagens de fundo (background images)&lt;/li&gt;
+&lt;li&gt;Gradiente como fundo (linear-gradient as background image)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Já é uma boa economia de trabalho, não?&lt;/p&gt;
+&lt;h2&gt;jQuery e Graceful Degradation&lt;/h2&gt;
+&lt;p&gt;Recentemente o &lt;em&gt;Tableless&lt;/em&gt; fez um &lt;a href=&quot;http://www.tableless.com.br/jquery-para-layouts&quot; title=&quot;jQuery para produção de layouts&quot;&gt;excelente &lt;em&gt;post&lt;/em&gt;&lt;/a&gt; sobre como usar a
+&lt;a href=&quot;/tag/jquery.html&quot;&gt;&lt;em&gt;jQuery&lt;/em&gt;&lt;/a&gt; como meio de fazer alguns navegadores lidarem da melhor
+forma possível com novos recursos do &lt;em&gt;CSS3&lt;/em&gt; e &lt;em&gt;HTML5&lt;/em&gt;. Sempre fui muito
+a favor da visão deles e dessa vez não será diferente.&lt;/p&gt;
+&lt;p&gt;Nivelar por baixo pode ser uma excelente forma de garantir
+acessibilidade. Mas não é pecado “vendermos” um pouco de “boa
+experiência” para nossos usuários.&lt;/p&gt;
+&lt;p&gt;Enriquecer a experiência do usuário não é crime… esquecer da
+acessibilidade sim.&lt;/p&gt;</content:encoded></item></channel></rss>

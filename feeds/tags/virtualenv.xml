@@ -1,40 +1,890 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - virtualenv</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 11 Jun 2018 16:40:00 -0300</lastBuildDate><item><title>Tchau, requirements. Olá, Pipfile!</title><link>https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</link><description>&lt;p&gt;Admito que no começo fui cético em relação ao &lt;a href="https://github.com/pypa/pipfile" title="The replacement for requirements.txt"&gt;&lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt;. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o &lt;a href="https://klauslaube.com.br/tag/pip.html" title="Leia mais sobre pip"&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt;, o &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e até mesmo o &lt;a href="https://klauslaube.com.br/tag/.html" title="Leia mais sobre Pyenv"&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Hoje, após ler alguns artigos e debater com alguns colegas, fico até …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 11 Jun 2018 16:40:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-06-11:/2018/06/11/tchau-requirements-ola-pipfile.html</guid><category>desenvolvimento</category><category>python</category><category>pip</category><category>virtualenv</category><category>pipfile</category><category>pipenv</category></item><item><title>Testando apps Django com Tox</title><link>https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</link><description>&lt;p&gt;O &lt;a href="https://docs.djangoproject.com/pt-br/2.0/releases/2.0/" title="Django 2.0 release notes"&gt;&lt;em&gt;Django 2.0&lt;/em&gt;&lt;/a&gt; foi lançado,
-e com ele o suporte a &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; &lt;code&gt;2.7&lt;/code&gt; deixa de existir para
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - virtualenv]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Tchau, requirements. Olá, Pipfile!]]></title><description><![CDATA[Admito que no começo fui cético em relação ao Pipfile. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o pip, o virtualenv e até mesmo o pyenv. Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o…]]></description><link>https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 11 Jun 2018 16:40:00 GMT</pubDate><content:encoded>&lt;p&gt;Admito que no começo fui cético em relação ao &lt;a href=&quot;https://github.com/pypa/pipfile&quot; title=&quot;The replacement for requirements.txt&quot;&gt;&lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt;. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o &lt;a href=&quot;/tag/pip.html&quot; title=&quot;Leia mais sobre pip&quot;&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt;, o &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e até mesmo o &lt;a href=&quot;%7Btag%7D&quot; title=&quot;Leia mais sobre Pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o potencial da ferramenta no seu primeiro momento.&lt;/p&gt;
+&lt;p&gt;Se você está na dúvida, assim como eu estive, vem comigo que te mostro as principais vantagens do &lt;em&gt;Pipfile&lt;/em&gt; (e do &lt;em&gt;Pipenv&lt;/em&gt;).&lt;/p&gt;
+&lt;h2&gt;O que há de errado com o requirements.txt?&lt;/h2&gt;
+&lt;p&gt;Esse foi o meu &quot;turning point&quot; em relação ao &lt;em&gt;Pipfile&lt;/em&gt;. E foi o &lt;a href=&quot;https://twitter.com/rcmachado&quot; title=&quot;Perfil no Twitter&quot;&gt;&lt;em&gt;@rcmachado&lt;/em&gt;&lt;/a&gt; quem respondeu essa pergunta:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;O build não é determinístico.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Vamos supor que estamos desenvolvendo um projeto em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Instalamos via &lt;code class=&quot;language-text&quot;&gt;pip install Django&lt;/code&gt;, e jogamos a dependência no &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como você garante que a mesma versão do &lt;em&gt;Django&lt;/em&gt; está instalada nos diferentes ambientes do projeto (dev, qa, staging, production, etc)? Da forma acima, você não garante. O &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; instalará a última versão do pacote disponível no &lt;a href=&quot;https://pypi.org/&quot; title=&quot;The Python Package Index&quot;&gt;&lt;em&gt;PyPI&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para minimizar esse problema, podemos &quot;pinar&quot; a versão do &lt;em&gt;Django&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django==2.0.6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora garantimos a versão do &lt;em&gt;framework&lt;/em&gt; em todos os ambientes do projeto. Sabemos que o &lt;em&gt;Django&lt;/em&gt; tem uma dependência, o &lt;a href=&quot;http://pytz.sourceforge.net/&quot; title=&quot;World Timezone Definitions for Python&quot;&gt;&lt;em&gt;pytz&lt;/em&gt;&lt;/a&gt;, o que acontece com ela?&lt;/p&gt;
+&lt;p&gt;Bem... se o &lt;em&gt;framework&lt;/em&gt; estabelecer exatamente qual versão da dependência ele utiliza, não será um problema. Mas &lt;a href=&quot;https://github.com/django/django/blob/master/setup.py#L86&quot;&gt;nem sempre isso acontece&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# django/setup.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+setup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    install_requires&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;pytz&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para garantir que a mesma versão do &lt;em&gt;pytz&lt;/em&gt; está sendo instalada nos diferentes ambientes do projeto, podemos &quot;pinar&quot; a sua versão no &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django==2.0.6
+pytz==2018.4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E por fim, adicionar um &lt;code class=&quot;language-text&quot;&gt;--no-deps&lt;/code&gt; ao comando &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;, assim ele se manterá fiel às dependências descritas no &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install -r requirements.txt --no-deps&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note que você virou responsável por uma função que deveria ser desempenhada pelo &lt;em&gt;package manager&lt;/em&gt;. Com o passar do tempo, esse tipo de gestão passa a ser árdua e suscetível a erros.&lt;/p&gt;
+&lt;h2&gt;Pipfile to the rescue&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://github.com/pypa/pipfile&quot; title=&quot;the replacement for requirements.txt&quot;&gt;repositório oficial&lt;/a&gt;, o &lt;em&gt;Pipfile&lt;/em&gt; é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a replacement for the existing standard pip&apos;s requirements.txt file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Como esperado, o padrão traz melhorias em relação ao &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;. O já citado &quot;ambientes determinísticos&quot; é alcançado através do &lt;code class=&quot;language-text&quot;&gt;Pipfile.lock&lt;/code&gt;, um conceito usado em gerenciadores de pacotes de outras linguagens, como &lt;a href=&quot;http://bundler.io/&quot; title=&quot;Package manager do Ruby&quot;&gt;&lt;em&gt;Bundler&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://crates.io/&quot; title=&quot;Package manager do Rust&quot;&gt;&lt;em&gt;Cargo&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;https://yarnpkg.com/en/&quot; title=&quot;Package manager do Node&quot;&gt;&lt;em&gt;Yarn&lt;/em&gt;&lt;/a&gt;, onde as versões das dependências são &quot;congeladas&quot;, garantindo que você obtenha o mesmo resultado em qualquer ambiente, e executando quantas vezes quiser.&lt;/p&gt;
+&lt;p&gt;Outra vantagem é o uso de um único arquivo para diferentes ambientes. Com o uso de &lt;em&gt;requirements&lt;/em&gt;, geralmente acabamos com um arquivo de texto específico para cada ambiente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mais um para dependências exclusivas do ambiente de desenvolvimento:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements-dev.txt
+
+-r requirements.txt
+
+django-debug-toolbar
+pytest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;em&gt;Pipfile&lt;/em&gt;, é possível utilizar o mesmo arquivo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Pipfile&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[[source]&lt;/span&gt;]
+&lt;span class=&quot;token constant&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;https://pypi.org/simple&quot;&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;verify_ssl&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; true&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;pypi&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[dev-packages]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;pytest&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;*&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[packages]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;Django&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;*&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[requires]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;python_version&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;3.6&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Pipfile != Pipenv&lt;/h2&gt;
+&lt;p&gt;Grande parte dos artigos que lí sobre &lt;em&gt;Pipfile&lt;/em&gt; começavam com algum comando como o abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv install django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma coisa que tem que ficar clara é: O &lt;em&gt;Pipenv&lt;/em&gt; está para o &lt;em&gt;pip&lt;/em&gt;, assim como o &lt;em&gt;Pipfile&lt;/em&gt; está para o &lt;em&gt;requirements&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ecdabcffb739710e8a9a1ab2a1eae89a/c08c5/rambo-knife.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAwQG/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAAV984JdEKBP/xAAaEAACAgMAAAAAAAAAAAAAAAABAgMQISND/9oACAEBAAEFAshlYhYjr4LX/8QAFREBAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQMBAT8Bh//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AVf/xAAZEAEAAgMAAAAAAAAAAAAAAAABABAhQYH/2gAIAQEABj8CHcV7DNFf/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERMVFBcYH/2gAIAQEAAT8h7YGCXimX0lCylnY99FcR/9oADAMBAAIAAwAAABBkH//EABYRAQEBAAAAAAAAAAAAAAAAAAEQMf/aAAgBAwEBPxANz//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/ECP/xAAcEAEAAwEAAwEAAAAAAAAAAAABABExIVFhgaH/2gAIAQEAAT8QDZLi6V+ROOmstptPXfyLWqYFgrJLPG5GRVR7F3YgAtV5n//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Rambo segurando sua faca&amp;quot;&quot;
+        title=&quot;Pipenv é tipo a faca do Rambo. Resolve qualquer parada (mann.tv)&quot;
+        src=&quot;/static/ecdabcffb739710e8a9a1ab2a1eae89a/c08c5/rambo-knife.jpg&quot;
+        srcset=&quot;/static/ecdabcffb739710e8a9a1ab2a1eae89a/7809d/rambo-knife.jpg 192w,
+/static/ecdabcffb739710e8a9a1ab2a1eae89a/4ecad/rambo-knife.jpg 384w,
+/static/ecdabcffb739710e8a9a1ab2a1eae89a/c08c5/rambo-knife.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Pipenv é tipo a faca do Rambo. Resolve qualquer parada (mann.tv)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Até o momento da publicação desse artigo, o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; não suporta o formato do &lt;em&gt;Pipfile&lt;/em&gt; (ou pelo menos a versão que tenho instalada aqui). Portanto, a maneira mais conveniente de utilizar o &lt;em&gt;Pipfile&lt;/em&gt; hoje é através do utilitário de linha de comando &lt;code class=&quot;language-text&quot;&gt;pipenv&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://github.com/pypa/pipenv&quot; title=&quot;Python Development Workflow for Humans&quot;&gt;repositório oficial&lt;/a&gt;, o &lt;em&gt;Pipenv&lt;/em&gt; é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a tool that aims to bring the best of all packaging worlds (bundler, composer, npm, cargo, yarn, etc.) to the Python world. Windows is a first–class citizen, in our world.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Através do &lt;em&gt;parsing&lt;/em&gt; do &lt;em&gt;Pipfile&lt;/em&gt;, a ferramenta resolve dependências do projeto (através dos parâmetros &lt;code class=&quot;language-text&quot;&gt;install&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;uninstall&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;update&lt;/code&gt;), exibe a árvore de dependências (através do parâmetro &lt;code class=&quot;language-text&quot;&gt;graph&lt;/code&gt;) e analisa as mesmas (através do &lt;code class=&quot;language-text&quot;&gt;check&lt;/code&gt;). Mas além de atuar como um gerenciador de pacotes, o &lt;em&gt;Pipenv&lt;/em&gt; tem uma funcionalidade fantástica: Cria e gerencia &lt;em&gt;virtualenvs&lt;/em&gt; de forma automática.&lt;/p&gt;
+&lt;h2&gt;Virtualização out of the box&lt;/h2&gt;
+&lt;p&gt;Já escrevi sobre virtualização com &lt;a href=&quot;/2015/07/23/virtualenvwrapper-o-basico-para-um-bom-ambiente-de-desenvolvimento-python.html&quot; title=&quot;Artigo sobre Virtualenvwrapper&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/2016/04/26/o-simples-e-poderoso-pyenv.html&quot; title=&quot;Artigo sobre pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Com o &lt;em&gt;Pipenv&lt;/em&gt;, a coisa fica significativamente mais simples.&lt;/p&gt;
+&lt;p&gt;Ao executar o comando &lt;code class=&quot;language-text&quot;&gt;pipenv install&lt;/code&gt;, por exemplo, a ferramenta automaticamente criará um &lt;em&gt;virtualenv&lt;/em&gt; (caso não exista) para o projeto no qual você está trabalhando. Por exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mkdir -p ~/workspace/test-pipenv
+$ cd ~/workspace/test-pipenv/
+$ pipenv install django
+
+Creating a virtualenv for this project…
+Using /home/klaus/.pyenv/versions/2.7.14/bin/python2.7 (2.7.14) to create virtualenv…&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você esteja curioso para saber aonde o seu &lt;em&gt;virtualenv&lt;/em&gt; foi parar, o comando abaixo pode ajudar:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv --venv
+
+/home/klaus/.local/share/virtualenvs/test-pipenv-BzNa0eOE&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas você não precisa se preocupar em saber onde o &lt;code class=&quot;language-text&quot;&gt;activate.sh&lt;/code&gt; está. Para ativar o &lt;em&gt;virtualenv&lt;/em&gt; criado, o parâmetro &lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt; é a melhor saída:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv shell
+
+Spawning environment shell (/bin/zsh). Use &amp;#39;exit&amp;#39; to leave.
+. /home/klaus/.local/share/virtualenvs/test-pipenv-BzNa0eOE/bin/activate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Frustrado com o &lt;em&gt;Python 2.7&lt;/em&gt;? Sem problemas! Vamos transformar o projeto em &lt;em&gt;Python 3&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv install --three&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O comando criará um novo &lt;em&gt;virtualenv&lt;/em&gt;, dessa vez com a versão mais recente da linguagem. Não esqueça de atualizar o &lt;code class=&quot;language-text&quot;&gt;python_version&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;Pipfile&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Com o &lt;a href=&quot;https://devcenter.heroku.com/articles/python-support&quot; title=&quot;Python Support - Heroku&quot;&gt;&lt;em&gt;Heroku&lt;/em&gt; adotando &lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt;, me senti mais motivado a migrar alguns projetos para o padrão.&lt;/p&gt;
+&lt;p&gt;Como resultado, tenho simplificado a &lt;em&gt;stack&lt;/em&gt; dos mesmos. Antes, eu gerenciava os ambientes virtuais com um &lt;em&gt;mix&lt;/em&gt; de &lt;em&gt;virtualenvwrapper&lt;/em&gt; e &lt;em&gt;pyenv&lt;/em&gt;. Hoje, com apenas um utilitário de linha de comando, sou capaz de gerenciar dependências e virtualização. Além disso, acredito que o &lt;em&gt;setup&lt;/em&gt; de um projeto &lt;em&gt;Python&lt;/em&gt; fique mais homogêneo, uma vez que não há necessidade de um combo &lt;code class=&quot;language-text&quot;&gt;pip + {virtualenv,virtualenvwrapper,pyenv}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mattlayman.com/2017/using-pipfile-for-fun-and-profit.html&quot;&gt;mattlayman - Using Pipfile for fun and profit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/grupy-rn/gerenciando-suas-depend%C3%AAncias-e-ambientes-python-com-pipenv-9e5413513fa6&quot;&gt;Medium - Gerenciando suas dependências e ambientes python com pipenv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.pipenv.org&quot;&gt;Pipenv - Python Dev Workflow for Humans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://realpython.com/pipenv-guide/&quot;&gt;Real Python - Pipenv: A Guide to the New Python Packaging Tool&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Testando apps Django com Tox]]></title><description><![CDATA[O Django 2.0 foi lançado,
+e com ele o suporte a Python  deixa de existir para
+as próximas versões do framework. Alegria para os usuários, preocupação para os desenvolvedores
+dos apps.
+Afinal, a versão  é LTS (Long Term Support), logo, alguns apps (ainda) não podem abraçar
+incondicionalmente a versão…]]></description><link>https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 05 Jan 2018 17:05:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;https://docs.djangoproject.com/pt-br/2.0/releases/2.0/&quot; title=&quot;Django 2.0 release notes&quot;&gt;&lt;em&gt;Django 2.0&lt;/em&gt;&lt;/a&gt; foi lançado,
+e com ele o suporte a &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt; deixa de existir para
 as próximas versões do &lt;em&gt;framework&lt;/em&gt;. Alegria para os usuários, preocupação para os desenvolvedores
-dos &lt;a href="http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/" title="Desmistificando O Conceito De Django Apps"&gt;&lt;em&gt;apps&lt;/em&gt;&lt;/a&gt;.
-Afinal, a versão &lt;code&gt;1.11&lt;/code&gt; é &lt;em&gt;LTS&lt;/em&gt; (Long Term Support), logo, alguns &lt;em&gt;apps&lt;/em&gt; (ainda) não podem …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 05 Jan 2018 17:05:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-01-05:/2018/01/05/testando-apps-django-com-tox.html</guid><category>desenvolvimento</category><category>testes</category><category>tdd</category><category>tox</category><category>django</category><category>python</category><category>virtualenv</category></item><item><title>O simples e poderoso Pyenv</title><link>https://klauslaube.com.br/2016/04/26/o-simples-e-poderoso-pyenv.html</link><description>&lt;p&gt;Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
+dos &lt;a href=&quot;http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/&quot; title=&quot;Desmistificando O Conceito De Django Apps&quot;&gt;&lt;em&gt;apps&lt;/em&gt;&lt;/a&gt;.
+Afinal, a versão &lt;code class=&quot;language-text&quot;&gt;1.11&lt;/code&gt; é &lt;em&gt;LTS&lt;/em&gt; (Long Term Support), logo, alguns &lt;em&gt;apps&lt;/em&gt; (ainda) não podem abraçar
+incondicionalmente a versão &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt; da linguagem.&lt;/p&gt;
+&lt;p&gt;É nesse cenário que bibliotecas como o &lt;a href=&quot;http://six.readthedocs.io/&quot; title=&quot;Python 2 and 3 Compatibility Library&quot;&gt;&lt;em&gt;six&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://tox.readthedocs.io/en/latest/&quot; title=&quot;Standardize testing in Python&quot;&gt;&lt;em&gt;tox&lt;/em&gt;&lt;/a&gt; mostram o seu valor. Nesse artigo,
+vamos falar um pouquinho mais sobre a última.&lt;/p&gt;
+&lt;h2&gt;Antes de começar: Vida longa ao Python 3!&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Python 2&lt;/em&gt; estará aí por mais um tempo (até 2020). Portanto, qual a motivação para mudar para o &lt;em&gt;Python 3&lt;/em&gt; agora?&lt;/p&gt;
+&lt;p&gt;Na &lt;a href=&quot;https://loadsmart.com/&quot; title=&quot;Book a truck in seconds&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;, o nosso principal projeto é em &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt;.
+Mas estamos experimentando &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt; há um bom tempo em projetos paralelos. O fato é que a nova versão da linguagem está mais eficiente,
+possui suporte a assincronicidade, melhor controle de exceções e o fogo ardente do &quot;unicode hell&quot; foi controlado.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGRkZK01hP/xAAaEAEBAAIDAAAAAAAAAAAAAAABAgMiABES/9oACAEBAAEFAve0wHKwIybORKx9TH//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAACAwEBAAAAAAAAAAAAAAAAARESMUEh/9oACAEBAAY/Aq4RbZOMTPOCUH//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUEQUf/aAAgBAQABPyEKGUcLuWBFnCr5MAQgbm/JlOc/Z//aAAwDAQACAAMAAAAQx/8A/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAwEBPxCqaRH/xAAWEQADAAAAAAAAAAAAAAAAAAAQIUH/2gAIAQIBAT8QqH//xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFxkaHR/9oACAEBAAE/ED/px4O0NoWC4DUJDgGzIAjZAW3XPyDUAWAvpue4734VdL4n/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Indiana Jones encarando uma cobra&amp;quot;&quot;
+        title=&quot;Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy...&quot;
+        src=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg&quot;
+        srcset=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/7809d/python-snakes.jpg 192w,
+/static/e8828b6f6e53d7cc049d0cbca6862b42/4ecad/python-snakes.jpg 384w,
+/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy...&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;É verdade que há quebra de compatibilidade entre as versões, mas se considerarmos que a &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt; só tem mais 2 anos de &quot;vida&quot;,
+a urgência de migração fica mais latente.&lt;/p&gt;
+&lt;h2&gt;tox é uma sacada das boas!&lt;/h2&gt;
+&lt;p&gt;O site oficial da biblioteca a define como:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a generic virtualenv management and test command line tool (...)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Com &lt;em&gt;tox&lt;/em&gt; é possível:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Validar o seu pacote contra diferentes versões do &lt;em&gt;Python&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Rodar os seus testes em diferentes &lt;em&gt;environments&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Não é só por usar &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;&lt;em&gt;ambientes virtuais&lt;/em&gt;&lt;/a&gt; que o &lt;em&gt;tox&lt;/em&gt; é
+uma boa ideia. Ele vem sendo uma mão na roda para os desenvolvedores de pacotes &lt;em&gt;Python&lt;/em&gt;
+que precisam dar suporte às versões &lt;code class=&quot;language-text&quot;&gt;2.x&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt;, e que utilizam testes automatizados como
+&lt;em&gt;design&lt;/em&gt; das soluções.&lt;/p&gt;
+&lt;p&gt;Com o &lt;em&gt;Django&lt;/em&gt; a &quot;granularidade&quot; pode ser ainda maior, rodando testes em ambientes
+que são combinações entre diferentes versões da linguagem e do &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Antes de continuar: Travis e Build Matrix&lt;/h2&gt;
+&lt;p&gt;Se você estiver utilizando o &lt;a href=&quot;&quot;&gt;&lt;em&gt;Travis CI&lt;/em&gt;&lt;/a&gt;, poderoso serviço de Continuous Integration, consegue reproduzir o comportamento que apresentaremos
+a seguir através do uso de &lt;a href=&quot;https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix&quot; title=&quot;Customizing the build&quot;&gt;&lt;em&gt;Build Matrix&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A diferença é que com o &lt;em&gt;tox&lt;/em&gt;, podemos obter o mesmo comportamento em tempo de desenvolvimento. Agilizando um pouco mais o processo.&lt;/p&gt;
+&lt;p&gt;Veja mais em &lt;a href=&quot;https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/&quot; title=&quot;Setting up Travis CI for github repo in Python&quot;&gt;&quot;Travis CI for Python project&quot;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vou aproveitar o tema e usar o &lt;em&gt;tox&lt;/em&gt; para me ajudar em um &lt;em&gt;refactoring&lt;/em&gt; de um &lt;em&gt;app&lt;/em&gt; de
+código aberto, que há muito não dou suporte: O &lt;a href=&quot;https://github.com/kplaube/django-simple-contact&quot; title=&quot;Veja no Github&quot;&gt;django-simple-contact&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Se você quiser acompanhar o passo-a-passo, clone o projeto e dê um &lt;code class=&quot;language-text&quot;&gt;git checkout&lt;/code&gt; da &lt;em&gt;revisão&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;80145ae&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git clone git@github.com:kplaube/django-simple-contact.git
+$ cd django-simple-contact/
+$ git checkout 80145ae&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Na estrutura atual, é possível executar os testes através do &lt;code class=&quot;language-text&quot;&gt;setup.py&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;python runtests.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python setup.py test
+(...)
+-----------------------------------------------
+Ran 6 tests in 0.230s
+
+OK
+Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É possível fazer a troca da versão do &lt;em&gt;Python/Django&lt;/em&gt; de forma manual (através do &lt;a href=&quot;/tag/pyenv.html&quot; title=&quot;Leia mais sobre pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;, por exemplo).
+Obviamente que o &lt;em&gt;tox&lt;/em&gt; deixa tudo mais interessante (e automatizado).&lt;/p&gt;
+&lt;h3&gt;Instalando o tox&lt;/h3&gt;
+&lt;p&gt;Finalmente, vamos adicionar a ferramenta ao projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install tox&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso esteja usando &lt;em&gt;pyenv&lt;/em&gt;, a instalação do &lt;code class=&quot;language-text&quot;&gt;tox-pyenv&lt;/code&gt; é sugerida.
+&lt;a href=&quot;https://pypi.python.org/pypi/tox-pyenv&quot; title=&quot;tox plugin that makes tox use &amp;#x60;pyenv which&amp;#x60; to find python executables&quot;&gt;Leia mais sobre a biblioteca&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para deixar tudo mais organizado, vamos nos inspirar na estrutura do projeto
+&lt;a href=&quot;https://github.com/vandersonmota/model_mommy&quot; title=&quot;Object factory for django&quot;&gt;&lt;em&gt;modelmommy&lt;/em&gt;&lt;/a&gt;. Criaremos um arquivo &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; com o seguinte conteúdo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+bleach
+django&amp;gt;=1.8.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A versão &lt;code class=&quot;language-text&quot;&gt;1.8.0&lt;/code&gt; (até o momento) é a &lt;em&gt;LTS&lt;/em&gt; mais antiga, portanto, garantiremos suporte dessa versão em diante.
+O &lt;a href=&quot;https://pypi.python.org/pypi/bleach&quot; title=&quot;An easy safelist-based HTML-sanitizing tool&quot;&gt;&lt;em&gt;bleach&lt;/em&gt;&lt;/a&gt; é uma dependência do projeto, não
+relevante ao exemplo desse artigo.&lt;/p&gt;
+&lt;p&gt;É interessante deixarmos explícito a instalação do &lt;em&gt;tox&lt;/em&gt;... um &lt;code class=&quot;language-text&quot;&gt;requirements-dev.txt&lt;/code&gt; pode ser uma solução:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements-dev.txt
+
+tox&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora, quando um &lt;em&gt;dev&lt;/em&gt; juntar-se ao projeto, ele poderá executar o comando &lt;code class=&quot;language-text&quot;&gt;pip install -r requirements-dev.txt&lt;/code&gt;, e ter
+as dependências necessárias para contribuir com o &lt;em&gt;app&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Configurando&lt;/h3&gt;
+&lt;p&gt;Antes de executar a ferramenta é necessário criar um arquivo &lt;code class=&quot;language-text&quot;&gt;tox.ini&lt;/code&gt;, que será responsável por configurar os ambientes
+e disparar os testes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tox.ini&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[tox]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;envlist&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; py27-django{18,111}, py36-django{18,111,20}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[testenv]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;commands&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; python runtests.py&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;setenv&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;    DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;simple_contact.tests.test_settings&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;    PYTHONPATH&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;{toxinidir}&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;basepython&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+    py27: python2.7
+    py36: python3.6
+&lt;span class=&quot;token constant&quot;&gt;deps&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+    bleach
+    django18: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;1.8&lt;/span&gt;
+    django111: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;1.11&lt;/span&gt;
+    django20: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;2.0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por partes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;[tox]&lt;/code&gt;: Aqui colocamos as configurações globais. &lt;code class=&quot;language-text&quot;&gt;envlist&lt;/code&gt; conterá a lista de ambientes nos quais executaremos os testes.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[testenv]&lt;/code&gt;: Configurações por ambiente de teste. Poderíamos ter configurações específicas ao utilizar &lt;code class=&quot;language-text&quot;&gt;[testenv:py36-django20]&lt;/code&gt;, por exemplo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;commands&lt;/code&gt;: O comando a ser executado.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;setenv&lt;/code&gt;: Variáveis de ambiente setadas para a execução dos testes.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;basepython&lt;/code&gt;: Nome do interpretador &lt;em&gt;Python&lt;/em&gt; utilizado para a criação do ambiente virtual. Repare no &quot;match&quot; com &lt;code class=&quot;language-text&quot;&gt;py27-&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;py36-&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;envlist&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;deps&lt;/code&gt;: Dependências para determinado ambiente de teste. Repare no &quot;match&quot; com &lt;code class=&quot;language-text&quot;&gt;django{18,111,20}&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Com o uso dos &lt;em&gt;brackets&lt;/em&gt;, ao invés de criarmos um &lt;code class=&quot;language-text&quot;&gt;testenv&lt;/code&gt; para cada combinação (exemplo: &lt;code class=&quot;language-text&quot;&gt;py27-django18&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;py27-django111&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;py36-django18&lt;/code&gt;, etc),
+o &lt;em&gt;tox&lt;/em&gt; fica responsável por fazer a &quot;matriz de combinações&quot;.&lt;/p&gt;
+&lt;p&gt;Agora sim, podemos executar a ferramenta de linha de comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ tox
+(...)
+ERROR:   py27-django18: commands failed
+ERROR:   py27-django111: commands failed
+ERROR:   py36-django18: commands failed
+ERROR:   py36-django111: commands failed
+py36-django20: commands succeeded&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No meu ambiente local, como esperado, apenas os testes do ambiente &lt;code class=&quot;language-text&quot;&gt;py36-django20&lt;/code&gt; passaram. Para ter acesso a versão corrigida,
+dê um &lt;em&gt;checkout&lt;/em&gt; da revisão &lt;code class=&quot;language-text&quot;&gt;a37ebd1608&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git checkout a37ebd1608
+$ tox
+(...)
+py27-django18: commands succeeded
+py27-django111: commands succeeded
+py36-django18: commands succeeded
+py36-django111: commands succeeded
+py36-django20: commands succeeded&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Perfeito!&lt;/p&gt;
+&lt;p&gt;Ainda é possível executar apenas os testes de um ambiente específico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ tox -e py36-django20
+(...)
+-----------------------------------------------
+Ran 6 tests in 0.055s
+
+OK
+Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O resultado final está disponível na &lt;em&gt;tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;0.3.0&lt;/code&gt; do projeto.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Que esse movimento da comunidade &lt;em&gt;Django&lt;/em&gt; consiga influenciar ainda mais a adoção do &lt;em&gt;Python 3&lt;/em&gt;. Admito que sem essa
+&quot;motivação extra&quot;, dificilmente cogitaria o &lt;em&gt;upgrade&lt;/em&gt; da linguagem em meus projetos nesse momento.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;tox&lt;/em&gt; é sem dúvida uma ferramenta que pode auxiliar nessa fase de transição, portanto, não hesite em adicioná-la ao seu &lt;em&gt;toolbelt&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para uma integração &lt;em&gt;seamless&lt;/em&gt; com o &lt;em&gt;Travis CI&lt;/em&gt;, o &lt;a href=&quot;https://github.com/tox-dev/tox-travis&quot; title=&quot;Seamless integration of Tox into Travis CI&quot;&gt;&lt;em&gt;tox-travis&lt;/em&gt;&lt;/a&gt;
+é recomendado.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.activestate.com/blog/2017/01/python-3-vs-python-2-its-different-time&quot;&gt;ActiveState - Python 3 vs Python 2: It&apos;s different this time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/&quot;&gt;Henrique Bastos - Desmistificando O Conceito De Django Apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jsatt.com/blog/using-tox-with-travis-ci-to-test-django-apps/&quot;&gt;Jeremy Satterfield - Using Tox with Travis CI to Test Django Apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/&quot;&gt;vevurka-dev - Travis CI for Python project&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[O simples e poderoso Pyenv]]></title><description><![CDATA[Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
+a versão do Mac OS X para o El Capitan. Na cara e coragem,
+e dotado de uma ingenuidade ímpar, simplesmente apertei o botão
+Update e deixei com que os deuses resolvessem qual seria o
+destino do meu workspace após essa fatídica operação…]]></description><link>https://klauslaube.com.br/2016/04/26/o-simples-e-poderoso-pyenv.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/04/26/o-simples-e-poderoso-pyenv.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 26 Apr 2016 09:53:00 GMT</pubDate><content:encoded>&lt;p&gt;Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
 a versão do &lt;em&gt;Mac OS X&lt;/em&gt; para o &lt;em&gt;El Capitan&lt;/em&gt;. Na cara e coragem,
 e dotado de uma ingenuidade ímpar, simplesmente apertei o botão
 &lt;em&gt;Update&lt;/em&gt; e deixei com que os deuses resolvessem qual seria o
-destino do meu …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 26 Apr 2016 09:53:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-04-26:/2016/04/26/o-simples-e-poderoso-pyenv.html</guid><category>desenvolvimento</category><category>python</category><category>pyenv</category><category>virtualenv</category><category>virtualenvwrapper</category><category>macosx</category></item><item><title>Virtualenvwrapper: O básico para um bom ambiente de desenvolvimento Python</title><link>https://klauslaube.com.br/2015/07/23/virtualenvwrapper-o-basico-para-um-bom-ambiente-de-desenvolvimento-python.html</link><description>&lt;p&gt;Já falamos sobre o &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre Virtualenv"&gt;virtualenv&lt;/a&gt; há muito tempo atrás, aqui no &lt;em&gt;blog&lt;/em&gt;. Tirando alguns
+destino do meu &lt;em&gt;workspace&lt;/em&gt; após essa fatídica operação.&lt;/p&gt;
+&lt;p&gt;Obviamente, &lt;a href=&quot;https://ohthehugemanatee.org/blog/2015/10/01/how-i-got-el-capitain-working-with-my-developer-tools/&quot; title=&quot;Veja o que fazer com se o update do El Capitan quebrar o seu ambiente de desenvolvimento&quot;&gt;algumas ferramentas deixaram de funcionar&lt;/a&gt;,
+incluindo a minha instalação &quot;system wide&quot; do &lt;a href=&quot;/tag/pip.html&quot; title=&quot;Leia mais sobre pip&quot;&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt;
+e o meu &lt;a href=&quot;/tag/virtualenvwrapper.html%7D&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;&lt;em&gt;virtualenvwrapper&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Após algum tempo &quot;googlando&quot; eu encontrei o &lt;a href=&quot;https://github.com/yyuu/pyenv&quot; title=&quot;Conheça o Pyenv&quot;&gt;&lt;em&gt;Pyenv&lt;/em&gt;&lt;/a&gt;,
+e vou compartilhar com você a razão pela qual ele é uma excelente ideia.&lt;/p&gt;
+&lt;h2&gt;Múltiplas versões de Python, sem dor de cabeça&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Pyenv&lt;/em&gt; é uma ferramenta que te permite selecionar qual a versão
+do &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; você está utilizando,
+de maneira muito fácil e prática.&lt;/p&gt;
+&lt;p&gt;Antes de conhecer o &lt;em&gt;Pyenv&lt;/em&gt;, eu geralmente baixava o código fonte e
+compilava as versões &quot;adicionais&quot; do &lt;em&gt;Python&lt;/em&gt; (2.6, 3.3, 3.4, etc)
+no &lt;code class=&quot;language-text&quot;&gt;/opt/&lt;/code&gt; da minha máquina, utilizando a versão do sistema (2.7.x)
+para a maioria dos projetos que desenvolvia. Aí no momento de criação
+do meu &lt;code class=&quot;language-text&quot;&gt;virtualenv&lt;/code&gt;, apontava o executável da linguagem para a versão
+específica.&lt;/p&gt;
+&lt;p&gt;Com essa ferramenta eu deixo uma versão do sistema intacta, e utilizo
+de forma completamente isolada a determinada versão do &lt;em&gt;Python&lt;/em&gt; do
+qual necessito, com alguns atalhos que me auxiliam na transição de
+uma versão para a outra.&lt;/p&gt;
+&lt;h2&gt;Instalando&lt;/h2&gt;
+&lt;p&gt;Instalar o &lt;em&gt;Pyenv&lt;/em&gt; é tão trivial quanto dar um &lt;code class=&quot;language-text&quot;&gt;pip install&lt;/code&gt;. Por ele não
+depender do &lt;em&gt;Python&lt;/em&gt; (e ser em &lt;em&gt;shell&lt;/em&gt; puro) podemos utilizar o seu
+&lt;a href=&quot;https://github.com/yyuu/pyenv-installer&quot; title=&quot;Veja no Github&quot;&gt;instalador de linha de comando&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+$ pyenv update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o comando &lt;code class=&quot;language-text&quot;&gt;pyenv install -l&lt;/code&gt; somos apresentados a uma lista de possíveis versões
+a serem instaladas através do utilitário (indo de &lt;em&gt;Python 2.1&lt;/em&gt; até &lt;em&gt;PyPy&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Suponha que você queira instalar a versão 3.5.1 da linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv install 3.5.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Genial, não?&lt;/p&gt;
+&lt;h2&gt;Transitando entre versões&lt;/h2&gt;
+&lt;p&gt;Para utilizar a versão instalada no terminal que está aberto, usamos o parâmetro &lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv shell 3.5.1
+$ python -V
+Python 3.5.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Talvez seja necessário executar o comando &lt;code class=&quot;language-text&quot;&gt;pyenv rehash&lt;/code&gt;, caso você não esteja
+obtendo o resultado esperado.&lt;/p&gt;
+&lt;p&gt;Com o comando &lt;code class=&quot;language-text&quot;&gt;versions&lt;/code&gt; obtemos as versões disponíveis no computador:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv versions
+system
+* 3.5.1 (set by PYENV_VERSION environment variable)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O asterisco indica a versão em uso atualmente.&lt;/p&gt;
+&lt;p&gt;Com o comando &lt;code class=&quot;language-text&quot;&gt;local&lt;/code&gt;, setamos uma determinada versão do &lt;em&gt;Python&lt;/em&gt; para um
+determinado &lt;em&gt;path&lt;/em&gt;. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Workspace/blog
+$ pyenv local 3.5.1
+$ pyenv version
+3.5.1 (set by /Users/klaus/Workspace/blog/.python-version)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Pyenv&lt;/em&gt; criará um arquivo &lt;code class=&quot;language-text&quot;&gt;.python-version&lt;/code&gt; no diretório, e
+todo o momento que você acessá-lo trocará a versão corrente do
+interpretador, automaticamente.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bb8b2bc62fb619c6c39a441e15387da6/073a0/sparrow.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.91666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQAEBv/EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAE9bm3zdEVIf//EAB0QAAEDBQEAAAAAAAAAAAAAAAMCBBIAAQUjMTT/2gAIAQEAAQUCQrY3PMRDNZWrH9f+r//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABURAQEAAAAAAAAAAAAAAAAAABAx/9oACAECAQE/AYf/xAAeEAEAAQIHAAAAAAAAAAAAAAABAAIRECEiMWFxof/aAAgBAQAGPwJustU7Pk1ZvGD0Rn//xAAcEAACAgIDAAAAAAAAAAAAAAABEQAhMUEQUbH/2gAIAQEAAT8hG/IsuABtZJ1Brp3AZhxKiaoeT//aAAwDAQACAAMAAAAQo9//xAAXEQEBAQEAAAAAAAAAAAAAAAABEQBR/9oACAEDAQE/EFpNTm//xAAVEQEBAAAAAAAAAAAAAAAAAAAREP/aAAgBAgEBPxATP//EAB0QAQACAgIDAAAAAAAAAAAAAAEAIRExQYFhceH/2gAIAQEAAT8Q5KBEebvdwxSDggGxe8HcdpiW0PZuAyrhgCs+jGlWGs9J/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Minha cara após o update do El Capitan (thewrap.com)&amp;quot;&quot;
+        title=&quot;Minha cara após o update do El Capitan (thewrap.com)&quot;
+        src=&quot;/static/bb8b2bc62fb619c6c39a441e15387da6/073a0/sparrow.jpg&quot;
+        srcset=&quot;/static/bb8b2bc62fb619c6c39a441e15387da6/7809d/sparrow.jpg 192w,
+/static/bb8b2bc62fb619c6c39a441e15387da6/4ecad/sparrow.jpg 384w,
+/static/bb8b2bc62fb619c6c39a441e15387da6/073a0/sparrow.jpg 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Minha cara após o update do El Capitan (thewrap.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Um &lt;em&gt;workaround&lt;/em&gt; para fazer o meu ambiente de trabalho funcionar,
+no &lt;em&gt;El Capitan&lt;/em&gt;, foi baixar uma versão 2.7.x do &lt;em&gt;Python&lt;/em&gt; e torná-la
+&lt;code class=&quot;language-text&quot;&gt;global&lt;/code&gt;. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv install 2.7.10
+$ pyenv rehash
+$ pyenv global 2.7.10
+system
+* 2.7.10 (set by /usr/local/opt/pyenv/version)
+3.5.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com isso, o comando &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; voltou a funcionar &quot;system wide&quot;, bem como
+as minhas integrações do &lt;code class=&quot;language-text&quot;&gt;zsh&lt;/code&gt; com o &lt;code class=&quot;language-text&quot;&gt;virtualenvwrapper&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Bônus: virtualenvwrapper&lt;/h2&gt;
+&lt;p&gt;E assim a minha vida continuou pacata e serena... até o momento que eu
+tiver que criar um &lt;code class=&quot;language-text&quot;&gt;virtualenv&lt;/code&gt; para uma versão diferente da minha
+versão &lt;code class=&quot;language-text&quot;&gt;global&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Pyenv&lt;/em&gt; com &lt;em&gt;virtualenvwrapper&lt;/em&gt; não se entendem muito bem.
+Para facilitar a nossa vida, temos o &lt;a href=&quot;https://github.com/yyuu/pyenv-virtualenvwrapper&quot; title=&quot;Veja o repositório no GitHub&quot;&gt;&lt;em&gt;pyenv-virtualenvwrapper&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install virtualenvwrapper
+$ brew install pyenv-virtualenvwrapper&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É necessário ativá-lo em seu &lt;em&gt;shell&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv virtualenvwrapper&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E agora sim, criar o seu ambiente virtual:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv shell 3.5.1
+$ mkvirtualenv test
+Using base prefix &amp;#39;/usr/local/opt/pyenv/versions/3.5.1&amp;#39;
+New python executable in /Users/klaus/.virtualenvs/test/bin/python3.5
+Also creating executable in /Users/klaus/.virtualenvs/test/bin/python
+Installing setuptools, pip, wheel...done.
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/predeactivate
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/preactivate
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/postactivate
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/get_env_details&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E &quot;esquecer&quot; do comando &lt;code class=&quot;language-text&quot;&gt;pyenv&lt;/code&gt; a partir do momento que você tem os seus &lt;em&gt;virtualenvs&lt;/em&gt; criados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ workon meu_projeto_em_py_27
+$ python -V
+Python 2.7.10
+
+$ workon test
+$ python -V
+Python 3.5.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Pyenv&lt;/em&gt; é, assim como o &lt;em&gt;virtualenv&lt;/em&gt;, aquele tipo de ferramenta que te mantém são e salvo
+quando a sua necessidade é trabalhar com versões completamente diferentes do &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Infelizmente, o seu uso com o &lt;em&gt;virtualenvwrapper&lt;/em&gt; não é lá tão &lt;em&gt;smooth&lt;/em&gt; (mas está longe de
+ser complicado). Para facilitar a vida, talvez adicionar o comando &lt;code class=&quot;language-text&quot;&gt;pyenv virtualenvwrapper&lt;/code&gt;
+ao seu &lt;code class=&quot;language-text&quot;&gt;.bash_profile&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;.zshrc&lt;/code&gt; seja uma dica interessante.&lt;/p&gt;
+&lt;p&gt;Ou ainda, você pode utilizar o &lt;em&gt;virtualenvwrapper&lt;/em&gt; para os
+projetos &lt;em&gt;Python&lt;/em&gt; 2.7.x, e o &lt;a href=&quot;https://docs.python.org/3/library/venv.html&quot; title=&quot;Creation of virtual environments in Python 3&quot;&gt;&lt;em&gt;pyvenv&lt;/em&gt;&lt;/a&gt;
+para projetos &gt; 3.2.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/yyuu/pyenv&quot;&gt;&lt;em&gt;Pyenv - Simple Python version management&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/yyuu/pyenv-virtualenvwrapper&quot;&gt;&lt;em&gt;Pyenv-virtualenvwrapper - An alternative approach to manage virtualenvs from pyenv&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.shichao.io/2014/10/01/setup_virtualenvwrapper_with_pyenv_using_pyenv_virtualenvwrapper.html&quot;&gt;&lt;em&gt;Schichao&apos;s Blog - Setting up virtualenvwrapper with pyenv using pyenv-virtualenvwrapper&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://taoofmac.com/space/blog/2015/10/03/1245&quot;&gt;&lt;em&gt;The Tao of Mac - Using Pyenv with El Capitan&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Virtualenvwrapper: O básico para um bom ambiente de desenvolvimento Python]]></title><description><![CDATA[Já falamos sobre o virtualenv há muito tempo atrás, aqui no blog. Tirando alguns
+detalhes técnicos, a bem da verdade é que de lá para cá, pouca coisa
+mudou. Apesar do seu uso ser completamente trivial, ter virtualenvs
+espalhados pelo seu disco rígido pode ser chato de gerenciar. Que
+tal uma forma…]]></description><link>https://klauslaube.com.br/2015/07/23/virtualenvwrapper-o-basico-para-um-bom-ambiente-de-desenvolvimento-python.html</link><guid isPermaLink="false">https://klauslaube.com.br/2015/07/23/virtualenvwrapper-o-basico-para-um-bom-ambiente-de-desenvolvimento-python.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 23 Jul 2015 12:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Já falamos sobre o &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;virtualenv&lt;/a&gt; há muito tempo atrás, aqui no &lt;em&gt;blog&lt;/em&gt;. Tirando alguns
 detalhes técnicos, a bem da verdade é que de lá para cá, pouca coisa
 mudou.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Apesar do seu uso ser completamente trivial, ter &lt;em&gt;virtualenvs&lt;/em&gt;
 espalhados pelo seu disco rígido pode ser chato de gerenciar. Que
-tal …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 23 Jul 2015 12:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2015-07-23:/2015/07/23/virtualenvwrapper-o-basico-para-um-bom-ambiente-de-desenvolvimento-python.html</guid><category>desenvolvimento</category><category>virtualenv</category><category>virtualenvwrapper</category><category>python</category></item><item><title>Como versionar projetos Django com o Mercurial - Parte 3</title><link>https://klauslaube.com.br/2011/06/04/como-versionar-projetos-django-mercurial-parte-3.html</link><description>&lt;p&gt;Dando continuidade a micro-série &lt;em&gt;Como versionar projetos _Django&lt;/em&gt; com o
-&lt;em&gt;Mercurial&lt;/em&gt; (confira a &lt;a href="https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html"&gt;parte 1&lt;/a&gt; e a &lt;a href="https://klauslaube.com.br/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html" title="Como versionar projetos Django com o Mercurial - Parte 2"&gt;parte 2&lt;/a&gt;), vamos finalizar com
-um exemplo prático de um projeto &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; usando o &lt;a href="https://klauslaube.com.br/tag/mercurial.html" title="Leia mais sobre Mercurial"&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+tal uma forma simples e centralizada de manipular os seus ambientes &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;?&lt;/p&gt;
+&lt;p&gt;É aí que entra a
+&lt;a href=&quot;https://virtualenvwrapper.readthedocs.org/en/latest/&quot; title=&quot;Conheça a virtualenvwrapper&quot;&gt;&lt;em&gt;virtualenvwrapper&lt;/em&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;h2&gt;virtualenv + virtualenvwrapper == Win&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;virtualenvwrapper&lt;/em&gt;, como o seu nome sugere, é um &lt;em&gt;wrapper&lt;/em&gt; para o &lt;em&gt;virtualenv&lt;/em&gt;, adicionando algumas funcionalidades para facilitar a vida dos Pythonistas.&lt;/p&gt;
+&lt;p&gt;Uma ferramenta simples, porém maravilhosa, que engloba as seguintes &lt;em&gt;features&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Organiza todos os seus ambientes virtuais em um único lugar.&lt;/li&gt;
+&lt;li&gt;Adiciona funções de &lt;em&gt;create&lt;/em&gt;, &lt;em&gt;delete&lt;/em&gt; e &lt;em&gt;copy&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Troca de ambiente com um único comando.&lt;/li&gt;
+&lt;li&gt;Permite a criação de &lt;em&gt;hooks&lt;/em&gt; para todas as suas operações.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Além disso, é uma ferramenta bem documentada! As instruções a seguir
+são todas retiradas da própria &lt;a href=&quot;https://virtualenvwrapper.readthedocs.org/en/latest/&quot;&gt;documentação&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1163f3b60ffe996119f9ad3d133755d2/b4294/virtual-reality.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.70833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHPObWRGD//xAAbEAACAgMBAAAAAAAAAAAAAAABAgADBBESMf/aAAgBAQABBQJyeggsnkDbXFs5jHZ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECEQMQIjFBUf/aAAgBAQAGPwJSffNjWPc0USvwnp//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhQTFh/9oACAEBAAE/IcTtBXE2ryfIl1HkUVm1GAL0IVrc/9oADAMBAAIAAwAAABDjz//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QWIh//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxCdW//EABwQAQACAgMBAAAAAAAAAAAAAAEAESExQVFx0f/aAAgBAQABPxCuG5GOuoxgUunAW/VxLkLUcAAN+RNLKs3hfsbkF3mf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Não confunda ambiente virtual com realidade virtual (oculus-news.com)&amp;quot;&quot;
+        title=&quot;Não confunda ambiente virtual com realidade virtual (oculus-news.com)&quot;
+        src=&quot;/static/1163f3b60ffe996119f9ad3d133755d2/b4294/virtual-reality.jpg&quot;
+        srcset=&quot;/static/1163f3b60ffe996119f9ad3d133755d2/7809d/virtual-reality.jpg 192w,
+/static/1163f3b60ffe996119f9ad3d133755d2/4ecad/virtual-reality.jpg 384w,
+/static/1163f3b60ffe996119f9ad3d133755d2/b4294/virtual-reality.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não confunda ambiente virtual com realidade virtual (oculus-news.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;Instalando&lt;/h2&gt;
+&lt;p&gt;Para instalar o &lt;em&gt;virtualenvwrapper&lt;/em&gt;, o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; é o caminho mais fácil:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install virtualenvwrapper&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se você estiver usando o &lt;em&gt;Bash&lt;/em&gt;, será necessário executar as seguintes instruções após a instalação (recomendável colocá-las em seu &lt;code class=&quot;language-text&quot;&gt;~/.bash_profile&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ export WORKON_HOME=~/.virtualenvs
+$ source /usr/local/bin/virtualenvwrapper.sh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você utilize o &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot; title=&quot;A delightful community-driven framework for managing your zsh configuration&quot;&gt;&lt;em&gt;oh-my-zsh&lt;/em&gt;&lt;/a&gt;, basta adicionar o &lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/virtualenvwrapper&quot; title=&quot;Plugin do oh-my-zsh&quot;&gt;&lt;em&gt;virtualenvwrapper&lt;/em&gt;&lt;/a&gt; ao seu &lt;code class=&quot;language-text&quot;&gt;plugins&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A partir de agora, temos novos comandos disponíveis em nossa linha de comando.&lt;/p&gt;
+&lt;h2&gt;Usando&lt;/h2&gt;
+&lt;p&gt;Antes de mais nada, uma dica: Se você não quer mais cair no pecado de instalar
+pacotes &lt;em&gt;Python&lt;/em&gt; em seu sistema operacional,
+e permitir apenas instalação em &lt;em&gt;virtualenvs&lt;/em&gt;, basta exportar a seguinte variável de ambiente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;export PIP_REQUIRE_VIRTUALENV=true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! O &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; apenas continuará o procedimento de instalação de pacotes se você
+estiver com o seu ambiente virtual ativo.&lt;/p&gt;
+&lt;p&gt;Para criar um &lt;em&gt;virtualenv&lt;/em&gt;, utilizamos o comando &lt;code class=&quot;language-text&quot;&gt;mkvirtualenv&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mkvirtualenv teste&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você queira criar um ambiente para uma versão de &lt;em&gt;Python&lt;/em&gt; diferente da &lt;em&gt;default&lt;/em&gt;
+do seu sistema, basta especificar com o parâmetro &lt;code class=&quot;language-text&quot;&gt;--python&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mkvirtualenv teste_py3 --python=/usr/local/bin/python3.4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Estamos com o ambiente ativo, isolado e totalmente limpo! Vamos instalar o
+&lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(teste) $ pip install django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E como sei que o meu pacote foi instalado em um ambiente isolado, e não no
+&lt;code class=&quot;language-text&quot;&gt;site-packages&lt;/code&gt; do meu sistema operacional? No caso do exemplo acima, podemos
+garantir verificando o &lt;em&gt;path&lt;/em&gt; do executável &lt;code class=&quot;language-text&quot;&gt;django-admin&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(teste) $ which django-admin
+/Users/&amp;lt;user&amp;gt;/.virtualenvs/teste/bin/django-admin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notem o &lt;code class=&quot;language-text&quot;&gt;.virtualenvs/teste/&lt;/code&gt; no &lt;em&gt;path&lt;/em&gt;. Muito legal, não? Dessa forma, se eu tiver
+um projeto que necessite do &lt;em&gt;Django 1.4&lt;/em&gt;, por exemplo, consigo instalá-lo sem
+afetar os demais projetos na minha máquina.&lt;/p&gt;
+&lt;p&gt;Para desativar o &lt;em&gt;environ&lt;/em&gt;, basta executar o comando &lt;code class=&quot;language-text&quot;&gt;deactivate&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(teste) $ deactivate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E para trocar de ambiente virtual, usamos o comando &lt;code class=&quot;language-text&quot;&gt;workon&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ workon teste&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você queira ir para a pasta correspondente ao projeto,
+sempre que realizar o &lt;code class=&quot;language-text&quot;&gt;workon&lt;/code&gt;, basta utilizar o comando &lt;code class=&quot;language-text&quot;&gt;setvirtualenvproject&lt;/code&gt;
+no diretório escolhido:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ workon teste
+$ cd ~/Workspace/teste
+$ setvirtualenvproject
+Setting project for teste to /Users/&amp;lt;user&amp;gt;/Workspace/teste&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Agora toda vez que você fizer um &lt;code class=&quot;language-text&quot;&gt;workon&lt;/code&gt;, será automaticamente
+direcionado para a pasta &lt;code class=&quot;language-text&quot;&gt;~/Workspace/teste&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Quando você trabalha com inúmeros projetos em &lt;em&gt;Python&lt;/em&gt;, fica muito evidente
+a necessidade de ambientes virtuais. Ter diferentes &lt;em&gt;libs&lt;/em&gt;, de diferentes
+projetos, em diferentes versões, de maneira isolada é sem dúvida nenhuma
+uma das maiores vantagens de utilizar &lt;em&gt;virtualenv&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Então, se você quer começar em &lt;em&gt;Python&lt;/em&gt; (de forma &quot;profissional&quot;), a minha
+dica é: Comece instalando o &lt;em&gt;virtualenvwrapper&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://virtualenvwrapper.readthedocs.org/en/latest/&quot; title=&quot;Leia a documentação da ferramenta&quot;&gt;&lt;em&gt;virtualenvwrapper - Docs&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Como versionar projetos Django com o Mercurial - Parte 3]]></title><description><![CDATA[Dando continuidade a micro-série Como versionar projetos \Django_ com o
+Mercurial (confira a parte 1 e a parte 2), vamos finalizar com
+um exemplo prático de um projeto Django usando o Mercurial. Começando… Vamos reutilizar a estrutura dos posts anteriores. Para isso, inicie
+um projeto com o…]]></description><link>https://klauslaube.com.br/2011/06/04/como-versionar-projetos-django-mercurial-parte-3.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/06/04/como-versionar-projetos-django-mercurial-parte-3.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 04 Jun 2011 10:27:00 GMT</pubDate><content:encoded>&lt;p&gt;Dando continuidade a micro-série &lt;em&gt;Como versionar projetos \&lt;/em&gt;Django_ com o
+&lt;em&gt;Mercurial&lt;/em&gt; (confira a &lt;a href=&quot;/2011/05/10/como-versionar-projetos-django-mercurial-parte.html&quot;&gt;parte 1&lt;/a&gt; e a &lt;a href=&quot;/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html&quot; title=&quot;Como versionar projetos Django com o Mercurial - Parte 2&quot;&gt;parte 2&lt;/a&gt;), vamos finalizar com
+um exemplo prático de um projeto &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; usando o &lt;a href=&quot;/tag/mercurial.html&quot; title=&quot;Leia mais sobre Mercurial&quot;&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Começando…&lt;/h2&gt;
 &lt;p&gt;Vamos reutilizar a estrutura dos &lt;em&gt;posts&lt;/em&gt; anteriores. Para isso, inicie
-um projeto com o &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; ~/Projetos …&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 04 Jun 2011 12:27:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-06-04:/2011/06/04/como-versionar-projetos-django-mercurial-parte-3.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>virtualenv</category><category>mercurial</category><category>pip</category></item><item><title>Como organizar seus projetos Django</title><link>https://klauslaube.com.br/2011/04/11/como-organizar-seus-projetos-django.html</link><description>&lt;p&gt;Pretendo compartilhar com vocês a forma que venho utilizando para
-organizar meus projetos &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; com o uso do &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.
+um projeto com o &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Projetos/
+$ virtualenv DjangoComHG --no-site-packages
+$ cd DjangoComHG/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos aproveitar os procedimentos descritos na [parte 2][1] deste
+&lt;em&gt;post&lt;/em&gt;. Caso você ainda não tenha criado um repositório no
+&lt;a href=&quot;http://www.bitbucket.org/&quot; title=&quot;Versione e compartilhe código com o Mercurial&quot;&gt;&lt;em&gt;Bitbucket&lt;/em&gt;&lt;/a&gt;, essa é uma boa oportunidade.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg clone &amp;lt;caminho&amp;gt; django_com_hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não esqueça de mudar o &lt;strong&gt;caminho&lt;/strong&gt; para o &lt;strong&gt;endereço do seu
+repositório&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalando o Django&lt;/h2&gt;
+&lt;p&gt;Com o &lt;em&gt;virtualenv&lt;/em&gt; ativado, vamos instalar o &lt;em&gt;Django&lt;/em&gt; apenas para o
+nosso ambiente &lt;em&gt;virtual&lt;/em&gt; através do &lt;em&gt;pip&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ source bin/activate
+$ pip install django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Só para ter certeza que ele instalou o &lt;em&gt;Django&lt;/em&gt; dentro do nosso ambiente
+virtual, vamos abrir o terminal do &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e digitar as seguintes
+instruções:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; django
+django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;__path__&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Você deverá obter como resposta uma &lt;em&gt;string&lt;/em&gt; semelhante a esta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$HOME/Projetos/DjangoComHG/lib/python2.6/site-packages/django/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Iniciando um projeto&lt;/h2&gt;
+&lt;p&gt;Vamos fazer uma pequena brincadeira de troca de nomes de pastas, para
+que possamos criar o nosso projeto &lt;em&gt;Django&lt;/em&gt; com o mesmo nome do
+repositório &lt;em&gt;Mercurial&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mv post_django_com_hg post_django_com_hg.bk&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora mandamos o &lt;code class=&quot;language-text&quot;&gt;django-admin.py&lt;/code&gt; iniciar o projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ django-admin.py startproject post_django_com_hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Movemos os arquivos do nosso repositório para dentro de
+&lt;code class=&quot;language-text&quot;&gt;post_django_com_hg&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mv post_django_com_hg.bk/* post_django_com_hg/
+$ mv post_django_com_hg.bk/.hg post_django_com_hg/
+$ mv post_django_com_hg.bk/.hgignore post_django_com_hg/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Entre no diretório &lt;code class=&quot;language-text&quot;&gt;post_django_com_hg&lt;/code&gt; e dê um &lt;code class=&quot;language-text&quot;&gt;hg status&lt;/code&gt;. Os
+arquivos base do &lt;em&gt;Django&lt;/em&gt; não estão no projeto. Vamos adicioná-los,
+comitá-los e dar um &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt; deles para o repositório &lt;em&gt;Mercurial&lt;/em&gt; no
+&lt;em&gt;Bitbucket&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg add .
+$ hg commit -m &amp;quot;Projeto Django iniciado&amp;quot;
+$ hg push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nos &lt;em&gt;changesets&lt;/em&gt; do repositório, veremos a contribuição enviada:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 568px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c95e7c18e4f018ee5ab9d63faa63a129/10e91/changesets-no-bitbucket.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 29.166666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsSAAALEgHS3X78AAAA0klEQVQY04WQ3W7DIAyF8/4vt7vdtE2TogUCBAj/4EDmSrvYqkr75Jtjyz62h4nQj8/bsm4HQKmvQIUGHWorpVSMCgD1OACj9z4wrh5fq3XOWhv+EkM0Ts/bxezEWR283/ddaU1XIZU+sXm6jZRxypWx4Twxc/4GLWWmcBisoEwp+hCpMMZFlMN4n+8zMcb4dwQfcszBpx+J68SQMw6JrbVhoYIsXGyGCZVSxmNeeN4NtZaMFVxbym0kjEn1dJ6uV875pveYcv8PnIWfCzHnUrH5G5eaWLw77kfRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Changeset no BitBucket&amp;quot;&quot;
+        title=&quot;Changeset no BitBucket&quot;
+        src=&quot;/static/c95e7c18e4f018ee5ab9d63faa63a129/10e91/changesets-no-bitbucket.png&quot;
+        srcset=&quot;/static/c95e7c18e4f018ee5ab9d63faa63a129/8514f/changesets-no-bitbucket.png 192w,
+/static/c95e7c18e4f018ee5ab9d63faa63a129/804b2/changesets-no-bitbucket.png 384w,
+/static/c95e7c18e4f018ee5ab9d63faa63a129/10e91/changesets-no-bitbucket.png 568w&quot;
+        sizes=&quot;(max-width: 568px) 100vw, 568px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Changeset no BitBucket&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pronto!&lt;/strong&gt; Basicamente, para termos o &lt;em&gt;Mercurial&lt;/em&gt; versionando um
+projeto &lt;em&gt;Django&lt;/em&gt;, são estes os procedimentos… mas eu sei como deixar a
+coisa ainda mais interessante&lt;/p&gt;
+&lt;h2&gt;Hora de congelar!&lt;/h2&gt;
+&lt;p&gt;Digamos que você tenha um colaborador envolvido com o projeto. Quer
+dizer que ele vai ter que criar um &lt;em&gt;virtualenv&lt;/em&gt;, clonar o repositório e
+instalar as dependências do projeto? A resposta é “sim” – Mas podemos
+facilitar esta última parte através do &lt;em&gt;pip&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip freeze
+
+Django==1.3
+wsgiref==0.1.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O comando &lt;code class=&quot;language-text&quot;&gt;pip freeze&lt;/code&gt; vai coletar os pacotes &lt;em&gt;Python&lt;/em&gt; instalados
+(nesse nosso caso, dentro do nosso ambiente virtual através do
+&lt;em&gt;virtualenv&lt;/em&gt;) e exibir para a gente em formato de lista. Com isso,
+podemos criar um arquivo que armazene as dependências do nosso projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip freeze &amp;gt; requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos desativar o ambiente atual, criar um novo e instalar as
+dependências listadas nesta arquivo &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; neste novo
+ambiente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ deactivate
+$ cd ~/Projetos/
+$ virtualenv DjangoComHG-2 --no-site-packages
+$ source DjangoComHG-2/bin/activate
+$ pip install -r DjangoComHG/post_django_com_hg/requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja a mágica acontecendo… o &lt;em&gt;pip&lt;/em&gt; instalará todas as dependências
+contidas em &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; em nosso novo ambiente virtual.&lt;/p&gt;
+&lt;p&gt;Podemos resumir os comandos acima em:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install -E DjangoComHG-2 -r DjangoComHG/post_django_com_hg/requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A instrução acima deverá ser escrita em um linha só.&lt;/p&gt;
+&lt;h2&gt;Versionando dependências do projeto&lt;/h2&gt;
+&lt;p&gt;Logo o &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; sendo um arquivo de texto, pode ser
+facilmente versionado pelo &lt;em&gt;Mercurial&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Projetos/DjangoComHG/post_django_com_hg
+$ hg add requirements.txt
+$ hg commit -m &amp;quot;Adicionado arquivo de dependências do pip&amp;quot;
+$ hg push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finalmente, temos um projeto &lt;em&gt;Django&lt;/em&gt; versionado com &lt;em&gt;Mercurial&lt;/em&gt;,
+disponível no &lt;em&gt;Bitbucket&lt;/em&gt;, e com dependências facilmente gerenciáveis
+através do &lt;em&gt;pip&lt;/em&gt; em conjunto com o &lt;em&gt;virtualenv&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E você… utiliza controle de versão com o &lt;em&gt;Django&lt;/em&gt; de uma outra forma?
+Conte-nos através dos comentários abaixo.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Como organizar seus projetos Django]]></title><description><![CDATA[Pretendo compartilhar com vocês a forma que venho utilizando para
+organizar meus projetos Django com o uso do virtualenv.
+Não entrarei em muitos detalhes, até porque você verá que é um
+procedimento muito simples, mas que poderá garantir melhor organização
+dos seus projetos e dos seus ambientes de…]]></description><link>https://klauslaube.com.br/2011/04/11/como-organizar-seus-projetos-django.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/04/11/como-organizar-seus-projetos-django.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 11 Apr 2011 18:11:00 GMT</pubDate><content:encoded>&lt;p&gt;Pretendo compartilhar com vocês a forma que venho utilizando para
+organizar meus projetos &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; com o uso do &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.
 Não entrarei em muitos detalhes, até porque você verá que é um
 procedimento muito simples, mas que poderá garantir melhor organização
 dos seus projetos e dos seus ambientes de desenvolvimento.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;É …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 11 Apr 2011 20:11:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-04-11:/2011/04/11/como-organizar-seus-projetos-django.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>virtualenv</category></item><item><title>Python, Django e virtualenv</title><link>https://klauslaube.com.br/2011/03/18/python-django-virtualenv.html</link><description>&lt;p&gt;Dando continuidade a série “&lt;a href="{filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md" title="Montando seu ambiente de desenvolvimento Django em Linux"&gt;Montando seu ambiente de desenvolvimento
-&lt;em&gt;Django&lt;/em&gt; em &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;”, vamos dar uma pincelada na tríade &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre Virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+&lt;p&gt;É interessante que você leia o post &lt;a href=&quot;/2011/03/18/python-django-virtualenv.html&quot; title=&quot;Leia mais sobre a tríade Python, Django e virtualenv&quot;&gt;&lt;em&gt;Python&lt;/em&gt;, &lt;em&gt;Django&lt;/em&gt; e
+&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; antes de continuar.&lt;/p&gt;
+&lt;h2&gt;Simplesmente um projeto Django&lt;/h2&gt;
+&lt;p&gt;Antes de conhecer (e utilizar) o &lt;em&gt;virtualenv&lt;/em&gt;, utilizei algo parecido
+com o modelo “tradicional” de organização de pastas e códigos em um
+projeto &lt;em&gt;Django&lt;/em&gt;. Ou seja, parecido com aquela estrutura padrão
+gerada pelo comando &lt;code class=&quot;language-text&quot;&gt;django-admin.py startproject&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O modelo é bom, e funcionou para mim durante muito tempo. Mas de uns
+tempos para cá venho utilizando o esquema abaixo (confira um exemplo
+real):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;mysite/
+    apps/
+        __init__.py
+        eggs/
+            fixtures/
+                eggs_testdata.json
+            tests/
+                __init__.py
+                models.py
+                views.py
+            __init__.py
+            models.py
+            urls.py
+            views.py
+        core/
+            __init__.py
+            extras.py
+    __init__.py
+    manage.py
+    settings.py
+    urls.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A diferença principal está na utilização da pasta &lt;code class=&quot;language-text&quot;&gt;apps&lt;/code&gt; para
+encapsular as aplicações do projeto, e a criação de uma pasta (ou
+pacote, como preferir) &lt;code class=&quot;language-text&quot;&gt;core&lt;/code&gt;. Nesta última, gosto de armazenar
+&lt;em&gt;snippets&lt;/em&gt; de código que serão aproveitados pelo projeto inteiro.&lt;/p&gt;
+&lt;p&gt;Outro ponto que vale ser notado é a criação de uma pasta chamada
+&lt;code class=&quot;language-text&quot;&gt;tests&lt;/code&gt; para cada &lt;em&gt;app&lt;/em&gt;. Embora haja casos em que um arquivo
+&lt;code class=&quot;language-text&quot;&gt;tests.py&lt;/code&gt; seja o suficiente, podemos nos deparar com um arquivo
+gigantesco testando vários aspectos de uma &lt;em&gt;app&lt;/em&gt; (o que pode dificultar
+a legibilidade de código). Categorizar os testes por tipo, e em arquivos
+separados, irá facilitar a adição de novos testes e funcionalidades.&lt;/p&gt;
+&lt;p&gt;A abordagem dos testes também pode ser utilizada para o &lt;code class=&quot;language-text&quot;&gt;urls.py&lt;/code&gt;.
+Quando o seu arquivo de roteamento ficar muito grande, crie uma pasta
+&lt;code class=&quot;language-text&quot;&gt;urls&lt;/code&gt; e “quebre” suas rotas em arquivos diferentes. Categorize-os,
+sinta-se “zen” e nunca mais tenha medo de criar &lt;em&gt;URLs&lt;/em&gt; novamente&lt;/p&gt;
+&lt;p&gt;Comecei a utilizar esta estrutura após “xeretar” alguns projetos
+&lt;em&gt;Django&lt;/em&gt; &lt;em&gt;open source&lt;/em&gt;. Posso dizer por experiência própria que é uma
+prática interessante, e que tem me ajudado muito na organização de
+código.&lt;/p&gt;
+&lt;h2&gt;O projeto Django com o virtualenv&lt;/h2&gt;
+&lt;p&gt;Tratando-se do ambiente de desenvolvimento (construído pelo
+&lt;em&gt;virtualenv&lt;/em&gt;), já utilizei-o de duas formas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;O &lt;em&gt;environment&lt;/em&gt; em uma pasta separada do projeto:&lt;/strong&gt; Você pode
+possuir uma pasta “environments” e lá ter diferentes ambientes para
+diferentes projetos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O projeto &lt;em&gt;Django&lt;/em&gt; ficar dentro da pasta de &lt;em&gt;environment&lt;/em&gt;:&lt;/strong&gt; Você
+primeiramente constrói um ambiente com o &lt;em&gt;virtualenv&lt;/em&gt;, e depois cria
+um projeto dentro dessa mesma pasta (como demonstrado &lt;a href=&quot;http://blog.triveos.com.br/2010/04/25/trabalhando-com-python-e-django/&quot; title=&quot;Trabalhando com Python e Django à moda Osvaldo&quot;&gt;neste &lt;em&gt;post&lt;/em&gt; do &lt;em&gt;Osvaldo Santana&lt;/em&gt;&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Particularmente eu prefiro a segunda opção (nunca precisei de 2
+&lt;em&gt;environments&lt;/em&gt; idênticos). Além de manter todo o seu projeto agrupado,
+fica mais fácil para criação de &lt;em&gt;scripts&lt;/em&gt; de automatização de &lt;em&gt;deploy&lt;/em&gt;,
+por exemplo.&lt;/p&gt;
+&lt;p&gt;No fim das contas, geralmente a estrutura de pastas dos projetos
+&lt;em&gt;Django&lt;/em&gt; fica assim:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MySiteProject/
+    bin/
+    include/
+    lib/
+    mysite/
+        apps/
+            __init__.py
+            eggs/
+                fixtures/
+                    eggs_testdata.json
+                tests/
+                    __init__.py
+                    models.py
+                    views.py
+                __init__.py
+                models.py
+                urls.py
+                views.py
+            core/
+                __init__.py
+                extras.py
+        __init__.py
+        manage.py
+        settings.py
+        urls.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E você? De que forma organiza os seus projetos em &lt;em&gt;Django&lt;/em&gt;? Conte-nos
+através dos comentários abaixo!&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Python, Django e virtualenv]]></title><description><![CDATA[Dando continuidade a série “Montando seu ambiente de desenvolvimento
+Django em Linux”, vamos dar uma pincelada na tríade Python,
+Django e virtualenv. Python Conheça alguns motivos que lhe convencerão a usar Python. O Python já vem instalado na maioria das distribuições Linux. Na
+verdade, até hoje…]]></description><link>https://klauslaube.com.br/2011/03/18/python-django-virtualenv.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/03/18/python-django-virtualenv.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 18 Mar 2011 19:24:00 GMT</pubDate><content:encoded>&lt;p&gt;Dando continuidade a série “&lt;a href=&quot;/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html&quot; title=&quot;Montando seu ambiente de desenvolvimento Django em Linux&quot;&gt;Montando seu ambiente de desenvolvimento
+&lt;em&gt;Django&lt;/em&gt; em &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;”, vamos dar uma pincelada na tríade &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Python&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/" title="10 motivos para se usar Python"&gt;Conheça alguns motivos que lhe convencerão a usar &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;O &lt;em&gt;Python&lt;/em&gt; já vem instalado na maioria das distribuições &lt;a href="https://klauslaube.com.br/tag/linux.html" title="Leia mais sobre Linux"&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;. Na
-verdade, até hoje nunca usei uma distro …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 18 Mar 2011 20:24:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-03-18:/2011/03/18/python-django-virtualenv.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>slackware</category><category>virtualenv</category></item></channel></rss>
+&lt;p&gt;&lt;a href=&quot;http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/&quot; title=&quot;10 motivos para se usar Python&quot;&gt;Conheça alguns motivos que lhe convencerão a usar &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Python&lt;/em&gt; já vem instalado na maioria das distribuições &lt;a href=&quot;/tag/linux.html&quot; title=&quot;Leia mais sobre Linux&quot;&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;. Na
+verdade, até hoje nunca usei uma distro &lt;em&gt;Linux&lt;/em&gt; que não tivesse o
+&lt;em&gt;Python&lt;/em&gt; previamente instalado. No &lt;em&gt;Slackware 13.1&lt;/em&gt;, o &lt;em&gt;Python&lt;/em&gt; está na
+versão 2.6.4. No &lt;em&gt;Debian 6&lt;/em&gt;, o &lt;em&gt;Python&lt;/em&gt; está na versão 2.6.6.&lt;/p&gt;
+&lt;p&gt;O portal &lt;em&gt;Python Brasil&lt;/em&gt; possui um excelente material para você
+&lt;a href=&quot;http://www.python.org.br/wiki/InicieSe&quot; title=&quot;Inicie-se no Python&quot;&gt;instalar&lt;/a&gt; e dar os &lt;a href=&quot;http://www.python.org.br/wiki/AprendaMais&quot; title=&quot;Aprenda mais sobre Python&quot;&gt;primeiros passos&lt;/a&gt; com &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;virtualenv&lt;/h2&gt;
+&lt;p&gt;A linguagem &lt;em&gt;Python&lt;/em&gt; não vem “de bobeira” nas distribuições &lt;em&gt;Linux&lt;/em&gt;, ela
+faz parte delas, sendo utilizada para criação de uma série de &lt;em&gt;scripts&lt;/em&gt;
+fundamentais. Passei por uma situação peculiar com o &lt;em&gt;Python&lt;/em&gt;: estava
+usando o &lt;em&gt;OpenSuse&lt;/em&gt; (não recordo a versão) e decidi atualizar a versão
+do &lt;em&gt;Python&lt;/em&gt; utilizando o sistema de pacotes da distro… confirmei algumas
+operações de remoção (que não deveria ter autorizado) e acabei
+danificando minha instalação do &lt;a href=&quot;/tag/sistemas-operacionais.html&quot; title=&quot;Leia mais sobre Sistemas Operacionais&quot;&gt;&lt;em&gt;SO&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Então, para aqueles que programam em computadores pessoais, e não querem
+comprometer tanto o &lt;em&gt;SO&lt;/em&gt; quanto o &lt;em&gt;workspace&lt;/em&gt;, podem criar &lt;em&gt;ambientes
+isolados&lt;/em&gt; para os projetos utilizando o &lt;a href=&quot;http://pypi.python.org/pypi/virtualenv&quot; title=&quot;Virtual Python Environment Builder&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No &lt;em&gt;Slackware&lt;/em&gt; vamos instalar o &lt;a href=&quot;http://pypi.python.org/pypi/setuptools&quot; title=&quot;Download, build, install, upgrade, and uninstall Python packages&quot;&gt;&lt;em&gt;setuptools&lt;/em&gt;&lt;/a&gt;, que é um &lt;em&gt;framework&lt;/em&gt;
+que facilita a instalação e criação de pacotes &lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ wget http://peak.telecommunity.com/dist/ez_setup.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para instalá-lo é necessário ser &lt;em&gt;&lt;em&gt;root&lt;/em&gt;&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python ez_setup.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Em seguida, vamos instalar o &lt;em&gt;virtualenv&lt;/em&gt; com a ajuda do
+&lt;code class=&quot;language-text&quot;&gt;_easy_install_&lt;/code&gt; (que faz parte do pacote &lt;em&gt;setuptools&lt;/em&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ easy_install virtualenv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esta é uma forma interessante para você instalar módulos &lt;em&gt;Python&lt;/em&gt; em seu
+sistema sem recorrer ao sistema de pacotes do &lt;em&gt;SO&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Agora, como um usuário comum, vamos criar um ambiente em nosso
+&lt;code class=&quot;language-text&quot;&gt;home&lt;/code&gt; para testarmos o &lt;em&gt;virtualenv&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ virtualenv ~/projeto_django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Entrando nesta pasta, você irá se deparar com três diretórios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;bin&lt;/code&gt;: Os executáveis do seu ambiente isolado estarão aí. Você
+poderá notar o executável &lt;code class=&quot;language-text&quot;&gt;python&lt;/code&gt;, o &lt;code class=&quot;language-text&quot;&gt;easy_install&lt;/code&gt;, o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; e um carinha chamado &lt;code class=&quot;language-text&quot;&gt;activate&lt;/code&gt; (falaremos deste mais tarde).&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;lib&lt;/code&gt;: Nesta pasta você encontrará os módulos e bibliotecas
+&lt;em&gt;Python&lt;/em&gt; utilizadas por este ambiente.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;include&lt;/code&gt;: Segundo o &lt;a href=&quot;http://blog.triveos.com.br/2008/03/03/ambiente-isolado-para-python-com-virtualenv/&quot; title=&quot;Ambiente Isolado para Python com virtualenv&quot;&gt;&lt;em&gt;Osvaldo Santana&lt;/em&gt;&lt;/a&gt;, dentro desse diretório
+estão os &lt;em&gt;links&lt;/em&gt; simbólicos para todos os &lt;em&gt;headers&lt;/em&gt; do &lt;em&gt;Python&lt;/em&gt; que
+são necessário para se compilar extensões escritas em &lt;em&gt;C&lt;/em&gt; para ele.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Você apenas criou seu ambiente… para ativá-lo basta dar o seguinte
+comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ source ~/projeto_django/bin/activate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Se você executar o &lt;em&gt;Python&lt;/em&gt; agora, você estará utilizando as
+&lt;em&gt;libs&lt;/em&gt; deste ambiente. Isso pode permitir que você mova este
+ambiente entre máquinas, que você instale &lt;em&gt;libs&lt;/em&gt; somente neste ambiente
+(deixando o &lt;em&gt;Python&lt;/em&gt; do seu &lt;em&gt;SO&lt;/em&gt; “limpo”, isso pode te garantir maior
+performance da distro) e que você tenha um controle maior sobre as
+dependências do seu projeto.&lt;/p&gt;
+&lt;p&gt;Para “sair” do ambiente, basta executar o comando &lt;code class=&quot;language-text&quot;&gt;deactivate&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ deactivate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto… muito simples, não?&lt;/p&gt;
+&lt;h2&gt;Django&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.profissionaisti.com.br/2009/02/programando-python-para-a-web/&quot; title=&quot;Programando Python para Web&quot;&gt;Saiba um pouco mais sobre a programação &lt;em&gt;Python&lt;/em&gt; para &lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos instalar o &lt;em&gt;Django&lt;/em&gt; neste ambiente isolado. Ativaremos
+novamente o &lt;em&gt;virtualenv&lt;/em&gt; e usaremos o &lt;em&gt;*easy&lt;/em&gt;install*_ para nos
+ajudar com esta tarefa:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ source ~/projeto_django/bin/activate
+$ easy_install django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No final da operação, você irá se deparar com uma saída similar a esta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Installed /home/user/projeto_django/lib/python2.6/site-packages/Django-1.2.5-py2.6.egg Processing dependencies for django Finished processing dependencies for django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Isto é a garantia que o &lt;em&gt;Django&lt;/em&gt; foi &lt;strong&gt;instalado dentro deste
+ambiente&lt;/strong&gt;, e não está visível para o escopo global da distribuição.
+Tente importa o &lt;em&gt;Django&lt;/em&gt; no terminal interativo do &lt;em&gt;Python&lt;/em&gt; da sua
+distro e do &lt;em&gt;Python&lt;/em&gt; do seu ambiente isolado e veja o que acontece…&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.profissionaisti.com.br/2009/04/entendendo-o-django/&quot; title=&quot;Entendendo o Django&quot;&gt;Entenda o que é o &lt;em&gt;Django&lt;/em&gt; e como ele funciona&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

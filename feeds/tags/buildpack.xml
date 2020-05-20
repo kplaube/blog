@@ -1,7 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - buildpack</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 27 Aug 2016 16:00:00 -0300</lastBuildDate><item><title>Django, Sass e ES6 no Heroku com Multiple Buildpacks</title><link>https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</link><description>&lt;p&gt;Anteriormente, falamos sobre como utilizar o &lt;code&gt;django-compressor&lt;/code&gt; com &lt;a href="https://klauslaube.com.br/tag/sass.html" title="Leia mais sobre Sass"&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
-e &lt;a href="https://klauslaube.com.br/tag/es6.html" title="Leia mais sobre ES6"&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Se você quisesse utilizar o &lt;em&gt;Heroku&lt;/em&gt;,
-com uma aplicação &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; executando operações de &lt;em&gt;build&lt;/em&gt;
-em &lt;a href="https://klauslaube.com.br/tag/node.html" title="Leia mais sobre Node.JS"&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;, seria uma tarefa um tanto árdua,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - buildpack]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
+e ES6. Se você quisesse utilizar o Heroku,
+com uma aplicação Python executando operações de build
+em Node.js, seria uma tarefa um tanto árdua,
 que exigiria um certo nível de paciência na
-construção do seu próprio &lt;em&gt;Buildpack&lt;/em&gt;. Hoje, com o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 27 Aug 2016 16:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-08-27:/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>sass</category><category>es6</category><category>css</category><category>js</category><category>heroku</category><category>buildpack</category></item></channel></rss>
+construção do seu próprio Buildpack. Hoje, com o Multiple…]]></description><link>https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 27 Aug 2016 16:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Anteriormente, falamos sobre como utilizar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; com &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;/tag/es6.html&quot; title=&quot;Leia mais sobre ES6&quot;&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Se você quisesse utilizar o &lt;em&gt;Heroku&lt;/em&gt;,
+com uma aplicação &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; executando operações de &lt;em&gt;build&lt;/em&gt;
+em &lt;a href=&quot;/tag/node.html&quot; title=&quot;Leia mais sobre Node.JS&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;, seria uma tarefa um tanto árdua,
+que exigiria um certo nível de paciência na
+construção do seu próprio &lt;em&gt;Buildpack&lt;/em&gt;. Hoje, com o &lt;em&gt;Multiple Buildpacks&lt;/em&gt;, isso não é mais necessário.&lt;/p&gt;
+&lt;h2&gt;Build o quê?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Buildpack&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;São conjuntos de scripts que, dependendo da linguagem de programação que você escolher,
+resolverão dependências, geração de &lt;em&gt;assets&lt;/em&gt; e até mesmo compilação arquivos, dentro da plataforma &lt;em&gt;Heroku&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ou seja, eles são uma espécie de &quot;provisionamento&quot;, onde você escreverá uma série de
+instruções que deixarão o ambiente preparado para receber o seu projeto.&lt;/p&gt;
+&lt;p&gt;Antigamente, para você trabalhar com compilação/transpilação de &lt;em&gt;assets&lt;/em&gt; em um projeto
+&lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;, você tinha duas opções:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilizar (ou construir) um &lt;em&gt;Buildpack&lt;/em&gt; customizado que realizasse o procedimento de instalação das dependências e build (como o &lt;a href=&quot;https://github.com/jiaaro/heroku-buildpack-django&quot; title=&quot;Veja o repositório no GitHub&quot;&gt;heroku-buildpack-django&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;&quot;Commitar&quot; os arquivos &quot;buildados&quot; e utilizar o &lt;em&gt;Buildpack Python&lt;/em&gt; padrão.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Eu nunca tive muita paciência com a questão de provisionamento no &lt;em&gt;Heroku&lt;/em&gt;,
+então geralmente eu partia para a ignorância e vivia &quot;commitando&quot; &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; compilados.&lt;/p&gt;
+&lt;h2&gt;Repita comigo: Nunca mais vou commitar arquivos compilados&lt;/h2&gt;
+&lt;p&gt;É uma péssima ideia! Principalmente quando você está trabalhando em uma equipe grande.
+A quantidade de &lt;em&gt;merge hells&lt;/em&gt; envolvendo arquivos compilados é aquele tipo de dor de
+cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHISawFD//EABoQAAICAwAAAAAAAAAAAAAAAAECABEQEjH/2gAIAQEAAQUCAXVas9WLj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAQAGPwLWv//EABkQAQADAQEAAAAAAAAAAAAAAAEAESFRYf/aAAgBAQABPyG4eK3sKQsziDD5FTnGKrs//9oADAMBAAIAAwAAABD7H//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0oaJu+D2KDaGsdgsFnNgLgQsD8yM6kRMeS5K2f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Não dá pra pilotar um Jaeger sozinho (deadline.com)&amp;quot;&quot;
+        title=&quot;Não dá pra pilotar um Jaeger sozinho (deadline.com)&quot;
+        src=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg&quot;
+        srcset=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/7809d/multipack-pacific-rim.jpg 192w,
+/static/a5e7fde62eb0da75c7d6193857640faa/4ecad/multipack-pacific-rim.jpg 384w,
+/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não dá pra pilotar um Jaeger sozinho (deadline.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;De forma bem resumida, vamos ilustrar como funcionaria o fluxo de &lt;em&gt;build&lt;/em&gt; de estáticos com
+múltiplos &lt;em&gt;Buildpacks&lt;/em&gt;. Para começar, vamos criar um novo &lt;em&gt;app&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku create&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você tenha dúvidas sobre como criar um projeto &lt;em&gt;Python&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;,
+o &quot;&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-python#introduction&quot; title=&quot;Leia documentação oficial&quot;&gt;Getting started&lt;/a&gt;&quot; deles é muito bacana e fácil de seguir.&lt;/p&gt;
+&lt;p&gt;Supondo que já instalamos o &lt;em&gt;Django&lt;/em&gt;, e que criamos os arquivos &lt;code class=&quot;language-text&quot;&gt;runtime.txt&lt;/code&gt;,
+determinando qual a versão do &lt;em&gt;Python&lt;/em&gt; que usaremos, e &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;,
+para resolução de dependências, automaticamente o &lt;em&gt;Heroku&lt;/em&gt; saberá preparar
+o ambiente para o nosso projeto.&lt;/p&gt;
+&lt;p&gt;Mas caso você queira ter certeza disso, podemos usar o comando &lt;code class=&quot;language-text&quot;&gt;buildpacks:set&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku buildpacks:set heroku/python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como no &lt;a href=&quot;/2016/06/04/django-e-sass-com-django-compressor.html&quot; title=&quot;Django e Sass com django-compressor&quot;&gt;&lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;,
+utilizaremos a biblioteca &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;libsass&lt;/code&gt;. Logo, vamos adicioná-la ao &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django
+django-compressor
+libsass&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos deixar de configurar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/x-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sassc {infile} {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas e o &lt;em&gt;ES6&lt;/em&gt;? Precisaremos do &lt;a href=&quot;/tag/babel.html&quot; title=&quot;Leia mais sobre BabelJS&quot;&gt;BabelJS&lt;/a&gt;,
+e consequentemente do &lt;em&gt;Node.js&lt;/em&gt;, para realizar o &lt;em&gt;transpiling&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Python + Node.js em uma mesma instância Heroku&lt;/h2&gt;
+&lt;p&gt;Para adicionar um novo &lt;em&gt;Buildpack&lt;/em&gt;, temos o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku buildpacks:add --index 1 heroku/nodejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Onde &lt;code class=&quot;language-text&quot;&gt;--index&lt;/code&gt; determina qual será a ordem de execução do &lt;em&gt;Buildpack&lt;/em&gt;.
+Nesse caso, opto por ele ser o primeiro e o do &lt;em&gt;Python&lt;/em&gt; segundo,
+somente para garantir que todas as dependências estejam sanadas quando
+a resolução de estáticos do &lt;em&gt;Django&lt;/em&gt; acontecer.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Buildpack Python&lt;/em&gt; executa operações dependendo de alguns arquivos
+do nosso projeto. Por exemplo, como mencionado acima, precisamos especificar
+a versão da linguagem (&lt;code class=&quot;language-text&quot;&gt;runtime.txt&lt;/code&gt;), instalar as dependências do projeto
+(&lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;) e no caso do &lt;em&gt;Django&lt;/em&gt;, executar a operação de
+&lt;code class=&quot;language-text&quot;&gt;collectstatic&lt;/code&gt; após o deploy (&lt;code class=&quot;language-text&quot;&gt;manage.py&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;No caso do &lt;em&gt;Node.js&lt;/em&gt;, precisaremos ter um arquivo &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; na raíz do
+projeto, contendo todas as bibliotecas que o projeto usa, para essa linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm init .
+$ npm install --save babelify babel-preset-es2015&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos esquecer do &lt;code class=&quot;language-text&quot;&gt;.babelrc&lt;/code&gt;, essencial para a execução do &lt;em&gt;Babel&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// .babelrc&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E por fim, falta adicionar o pré-compilador ao &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/x-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sassc {infile} {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/es6&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./node_modules/.bin/browserify {infile} -t babelify --outfile {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Ao dar o &lt;code class=&quot;language-text&quot;&gt;git push heroku master&lt;/code&gt;, a plataforma executará primeiro o
+&lt;em&gt;Buildback Node.js&lt;/em&gt;, e na sequência o &lt;em&gt;Buildpack Python&lt;/em&gt;. No momento de entrega das
+páginas, teremos os binários &lt;code class=&quot;language-text&quot;&gt;browserify&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;sassc&lt;/code&gt; instalados em nossa instância,
+e poderemos entregar nossas páginas com &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; compilados sem a necessidade de &quot;commitá-los&quot;.&lt;/p&gt;
+&lt;h2&gt;Comprimindo no momento do deploy&lt;/h2&gt;
+&lt;p&gt;Comprimir/compilar &lt;em&gt;assets&lt;/em&gt; no momento da requisição também é algo que deve ser evitado.
+Embora o &lt;em&gt;Django Compressor&lt;/em&gt; faça um excelente trabalho nesse quesito, se estivermos usando
+uma &lt;em&gt;CDN&lt;/em&gt; para a entrega desses estáticos, esse procedimento não deve acontecer durante a requisição de um usuário.&lt;/p&gt;
+&lt;p&gt;Para executar o comando &lt;code class=&quot;language-text&quot;&gt;compress&lt;/code&gt; da biblioteca &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; em tempo de &lt;em&gt;deploy&lt;/em&gt;,
+basta fazermos duas coisas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Garantir que &lt;code class=&quot;language-text&quot;&gt;COMPRESS_OFFLINE&lt;/code&gt;, na configuração do seu projeto, esteja setado como &lt;code class=&quot;language-text&quot;&gt;True&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Criar um diretório &lt;code class=&quot;language-text&quot;&gt;bin&lt;/code&gt;, e dentro dele um arquivo &lt;code class=&quot;language-text&quot;&gt;post_compile&lt;/code&gt;, com a instrução de &lt;code class=&quot;language-text&quot;&gt;compress&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+python manage.py compress&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Feito! Agora a cada &lt;em&gt;deploy&lt;/em&gt; da sua aplicação, o &lt;em&gt;build&lt;/em&gt; dos &lt;em&gt;assets&lt;/em&gt; acontecerá
+automaticamente, dispensando assim a necessidade de ficar enviando &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; &quot;buildados&quot;
+através de &lt;code class=&quot;language-text&quot;&gt;git push&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Dúvidas sobre a relação entre Django, Sass e ES6? Eu a detalho um pouco melhor nesses dois posts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html&quot;&gt;Django e ES6 com django-compressor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html&quot;&gt;Django e Sass com django-compressor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app&quot;&gt;Heroku Dev Center: Using Multiple Buildpacks for an App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

@@ -1,5 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - home-office</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Thu, 29 Jun 2017 18:20:00 -0300</lastBuildDate><item><title>Pomodoro FTW!</title><link>https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html</link><description>&lt;p&gt;Sim, meus amigos! O título poderia ser "esse é mais um post sobre Pomodoro Technique",
-e embora haja toneladas de artigos na &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sobre o assunto, me sinto na obrigação
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - home-office]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Pomodoro FTW!]]></title><description><![CDATA[Sim, meus amigos! O título poderia ser "esse é mais um post sobre Pomodoro Technique",
+e embora haja toneladas de artigos na web sobre o assunto, me sinto na obrigação
 de falar um pouquinho sobre ele aqui também. Afinal, além de ser uma prática simples e que
-apresenta resultados, é …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 29 Jun 2017 18:20:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-06-29:/2017/06/29/pomodoro-ftw.html</guid><category>produtividade</category><category>foco</category><category>home-office</category><category>pomodoro</category></item></channel></rss>
+apresenta resultados, é ela que tem salvo…]]></description><link>https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 29 Jun 2017 18:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Sim, meus amigos! O título poderia ser &quot;esse é mais um post sobre Pomodoro Technique&quot;,
+e embora haja toneladas de artigos na &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sobre o assunto, me sinto na obrigação
+de falar um pouquinho sobre ele aqui também. Afinal, além de ser uma prática simples e que
+apresenta resultados, é ela que tem salvo a produtividade das minhas tardes de &lt;em&gt;home office&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Então prepare o seu &lt;em&gt;timer&lt;/em&gt; e vamos entender como essa técnica funciona.&lt;/p&gt;
+&lt;h2&gt;25 minutos focados, 5 minutos de descanso&lt;/h2&gt;
+&lt;p&gt;E vamos lá no oráculo da produtividade para entender o que é o &lt;em&gt;Pomodoro Technique&lt;/em&gt;.
+Segundo o &lt;a href=&quot;http://lifehacker.com/&quot; title=&quot;Tips, tricks and downloads to get things done&quot;&gt;&lt;em&gt;Lifehacker&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) is a cyclical system. You work in short sprints , which makes
+sure you&apos;re consistently productive. You also get to take regular breaks
+that bolster your motivation and keep you creative.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É possível resumir a técnica inteira nos seguintes passos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Escolha &lt;strong&gt;uma tarefa&lt;/strong&gt; que você queira concluir&lt;/li&gt;
+&lt;li&gt;Configure o seu &lt;em&gt;timer&lt;/em&gt; para &lt;strong&gt;25 minutos&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Trabalhe nessa tarefa até o &lt;em&gt;timer&lt;/em&gt; despertar&lt;/li&gt;
+&lt;li&gt;Faça uma pausa de &lt;strong&gt;5 minutos&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Repita do início&lt;/li&gt;
+&lt;li&gt;A cada 4 &quot;sprints&quot; de 25 minutos, faça uma &lt;strong&gt;pausa de 15 minutos&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esse é basicamente o &lt;em&gt;framework&lt;/em&gt; da técnica, sendo que existem algumas premissas fundamentais:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O ato de &quot;trabalhar focado durante 25 minutos&quot; é chamado de &lt;em&gt;Pomodoro&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;O ideal é que uma tarefa seja grande o suficiente para caber dentro de um &lt;em&gt;Pomodoro&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;Embora não seja de senso comum, os tempos de trabalho focado e repouso podem ser adaptados. Por exemplo, eu costumo fazer pausas longas de 30 minutos ao invés de 15.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Durante cada &lt;em&gt;Pomodoro&lt;/em&gt;, feche o seu &lt;em&gt;Facebook&lt;/em&gt;, ignore o seu celular e foque completamente
+no que precisa ser feito. Nos minutos de folga, usufrua de sua recompensa (redes sociais, &lt;em&gt;Youtube&lt;/em&gt;, uma passadinha no &lt;em&gt;9gag&lt;/em&gt; ou até mesmo aquele cafézinho).&lt;/p&gt;
+&lt;h2&gt;Adestramento?&lt;/h2&gt;
+&lt;p&gt;A técnica criada por &lt;a href=&quot;https://cirillocompany.de/&quot; title=&quot;Work smarter, not harder&quot;&gt;&lt;em&gt;Francesco Cirillo&lt;/em&gt;&lt;/a&gt; tem por objetivo te ajudar a melhorar
+a concentração, evitar distrações e combater a procrastinação. E embora ela seja
+amplamente recomendada, &lt;a href=&quot;https://productivityist.com/the-problem-with-the-pomodoro-technique/&quot; title=&quot;The Problem with The Pomodoro Technique&quot;&gt;não é vista com bons olhos por todo o mundo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4c1f0dd16eeb8f517488735f7ed4a17c/6af66/killer-tomatoes.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsSAAALEgHS3X78AAAC+0lEQVQozx2SW28bRRiGZ48zOzve83rX3l0fdu1d79qO4/gQN04a44Qmhro4pA0CQqhJOVQCqRVUAiE3VL1oVEC0lSokuOGu/6S/i0lHz9WMnnnfT/oAy3IMwwLAAAAEETXT+qAT6WqO3nCcwLJXcKxIkSGs23LTk9sebvs48yTAsjwAbNrM7+/Fw/X06GDzo0mclp0cIQBw3DuZ50WOExGEoYUbDmoVpZZHQYDGshxfibQo0but6nQnG48ae5POYtJh6c/vwhnA0Vo8I7Q8tR/qDQc2C1LDlahMHxhVVb9u1/7oOZcHyZOt0tPd6qqTH6q0mMAy0C3ZpUjdiLV53+1WzdRBGZUdCFiG1gZnHy7ePvj1Ta/w1yQ698njJHfsyH2CFI4XBNQfFfZn/m4vX1Hp2DQWNV0pc9GVLGLhfHjtz373nsmPDfmGozzf9B8G+EBDnomyhNQCjAkiCMaWlBaodkVCZXpUTR2o8lTkbmrSsUtOfTIxcU0SLEG0LMkvYixCSYRWDoeWHFqkbMq+hm1FAgQrjcjdzuxBrGz1HIsXVVb0RbEto9Qx2hWnH9mbidOrOeuhvVaxssAM80qgE08jYLs3HK8Vro+87oZ9bcuuOzjIoXpeUhB2dK1X0/qRErl64htlR019I/X00FbKphIYKtgbba6FXr9R6oT6qKGPamTazg0jXDFgnghxQYK8CAAvsAIRRZqmIIgEmFdJrWiAw1EncVRD4DPPWIvLvap2e1xaTFvfHA0O1wtBTshBWDTIoG4f71Qf3GpPM1vDyNRIEpjg8Pp+5GhVC9+a3Vkczr497l78MH/26Oi/3++9fvLp/Tujok4QwxQVKfHMIK/ZGsEIMXRneQhuz7/oNtudRnh29+fPF7NP3o9+Op++enz2cnX35cXyn8uvLh+d3Jz24oon0CWlIzAChecFWcJgb/vG7tbOj8v58uODpw9P/v7t9LMPNlb3Z68vvnyxWv777LtXF8sXq9Pnv5x8v3xvPo5dAkuGTKmY5H+fM3aDJqdwOAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Não é o Ataque dos Tomates Assassinos, mas vai te ajudar a matar a procrastinação (killertomatoes.com)&amp;quot;&quot;
+        title=&quot;Não é o Ataque dos Tomates Assassinos, mas vai te ajudar a matar a procrastinação (killertomatoes.com)&quot;
+        src=&quot;/static/4c1f0dd16eeb8f517488735f7ed4a17c/6af66/killer-tomatoes.png&quot;
+        srcset=&quot;/static/4c1f0dd16eeb8f517488735f7ed4a17c/8514f/killer-tomatoes.png 192w,
+/static/4c1f0dd16eeb8f517488735f7ed4a17c/804b2/killer-tomatoes.png 384w,
+/static/4c1f0dd16eeb8f517488735f7ed4a17c/6af66/killer-tomatoes.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não é o Ataque dos Tomates Assassinos, mas vai te ajudar a matar a procrastinação (killertomatoes.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Eu mesmo não sigo à risca os passos acima. Geralmente recorro ao &lt;em&gt;Pomodoro&lt;/em&gt; quando
+estou com dificuldades de concentração, ou quando preciso encarar uma tarefa que é
+muito penosa de se executar. Segundo o &quot;&lt;a href=&quot;https://pt.coursera.org/learn/aprender&quot; title=&quot;Ferramentas mentais poderosas para ajudá-lo a dominar assuntos difíceis&quot;&gt;Aprendendo a Aprender&lt;/a&gt;&quot;,
+com auxílio da técnica você faz com que o seu cérebro foque na execução do processo ao invés de focar no resultado
+da atividade (atingir os 25 minutos é muito mais palpável que finalizar aquele livro técnico
+que você está levando meses para terminar e só está na página 13). Com isso, diminuímos aquela resistência natural de
+&quot;hoje não, vou deixar para amanhã&quot; e driblamos a procrastinação.&lt;/p&gt;
+&lt;p&gt;Outra coisa que eu não consigo fazer é quebrar as tarefas em tamanhos ideais para caberem
+em um &lt;em&gt;Pomodoro&lt;/em&gt;. O que tem funcionado é gastar quantos &lt;em&gt;Pomodoros&lt;/em&gt; forem necessários
+para mover uma &lt;em&gt;task&lt;/em&gt; de &lt;em&gt;DOING&lt;/em&gt; para &lt;em&gt;DONE&lt;/em&gt;. Além disso, se percebo que estou embalado no
+raciocínio, negligencio algumas pausas e emendo os &lt;em&gt;sprints&lt;/em&gt; focados.&lt;/p&gt;
+&lt;p&gt;Existe abertura para adaptação da técnica. Mas mesmo assim, ouço relatos de amigos e conhecidos
+que tentaram usá-la e a acharam muito restritiva. Em alguns momentos ela chega a atrapalhar, é verdade,
+mas na grande maioria das vezes foi a salvadora dos meus dias de &lt;em&gt;home office&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Ferramentas&lt;/h2&gt;
+&lt;p&gt;O nome &lt;em&gt;Pomodoro&lt;/em&gt; vem do cronômetro gastronômico na forma de um tomate que
+&lt;em&gt;Cirillo&lt;/em&gt; usava em suas sessões. E embora seja muito maneiro ter um &lt;em&gt;gadget&lt;/em&gt; desses
+à disposição, qualquer cronômetro é o suficiente para praticar a técnica.&lt;/p&gt;
+&lt;p&gt;Algumas fontes sugerem que &quot;quanto menos tecnologia, melhor&quot;. Mas eu prefiro confiar no
+&lt;a href=&quot;https://itunes.apple.com/us/app/tomato-one-free-focus-timer/id907364780?mt=12&quot; title=&quot;Veja na App Store&quot;&gt;&lt;em&gt;Tomato One&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;http://www.moosti.com/&quot; title=&quot;Dê uma olhada na extensão para o Chrome&quot;&gt;&lt;em&gt;Moosti&lt;/em&gt;&lt;/a&gt; ou no &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.AT.PomodoroTimer&amp;#x26;hl=pt_BR&quot; title=&quot;Timer para o Android&quot;&gt;&lt;em&gt;Brain Focus&lt;/em&gt;&lt;/a&gt;.
+Ter uma noção de quantos &lt;em&gt;Pomodoros&lt;/em&gt; você está realizando te dará uma percepção melhor de progresso,
+sendo possível averiguar se a técnica está funcionando ou não.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Sempre tive certo carinho por essa prática, principalmente após começar a trabalhar remoto. Ao contrário
+do que muitos artigos vendem, ela não é uma técnica &quot;bala de prata&quot; e é provável que haja uma
+grande resistência no início de sua adoção.&lt;/p&gt;
+&lt;p&gt;Existem diferentes formas de &quot;getting things done&quot; e de dar &lt;em&gt;boost&lt;/em&gt; em sua concentração (você conhece o &lt;a href=&quot;https://www.noisli.com/&quot; title=&quot;Improve focus and boost productivity&quot;&gt;&lt;em&gt;Noisli&lt;/em&gt;&lt;/a&gt;?),
+mas desconheço uma forma tão simples e pragmática quanto a Técnica &lt;em&gt;Pomodoro&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;(IMO) Vale a pena tê-la no seu &lt;em&gt;tool belt&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.coursera.org/learn/aprender&quot;&gt;Coursera - Aprendendo a Aprender&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lifehacker.com/productivity-101-a-primer-to-the-pomodoro-technique-1598992730&quot;&gt;Lifehacker - Productivity 101: A Primer to The Pomodoro Technique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://productivityist.com/the-problem-with-the-pomodoro-technique/&quot;&gt;Productivityist - The Problem with The Pomodoro Technique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ramonkayo.com/ideias-e-opinioes/os-3-problemas-da-tecnica-pomodoro&quot;&gt;ramonkayo.com - Os 3 maiores problemas da Técnica Pomodoro e como contorná-los&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/T%C3%A9cnica_pomodoro&quot;&gt;Wikipedia - Técnica Pomodoro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

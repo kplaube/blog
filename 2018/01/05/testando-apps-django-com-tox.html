@@ -1,75 +1,278 @@
-<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Testando apps Django com Tox | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="O Django 2.0 foi lançado, e com ele o suporte a Python 2.7 deixa de existir. Conheça o tox, uma poderosa ferramenta para executar testes em diferentes virtualenvs."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, testes, tdd, tox, django, python, virtualenv"><meta property=og:title content="Testando apps Django com Tox"><meta property=og:description content="O Django 2.0 foi lançado, e com ele o suporte a Python 2.7 deixa de existir. Conheça o tox, uma poderosa ferramenta para executar testes em diferentes virtualenvs."><meta property=og:url content=https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html><meta property=og:image content=https://klauslaube.com.br//images/blog/python-snakes.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/python-snakes.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Testando apps Django com Tox </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2018-01-05T17:05:00-02:00 itemprop=datePublished>05 Jan, 2018</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/django-logo.png alt="Logotipo do Django" class=representative-image width=180 height=180> <p>O <a href=https://docs.djangoproject.com/pt-br/2.0/releases/2.0/ title="Django 2.0 release notes"><em>Django 2.0</em></a> foi lançado, e com ele o suporte a <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre Python"><em>Python</em></a> <code>2.7</code> deixa de existir para as próximas versões do <em>framework</em>. Alegria para os usuários, preocupação para os desenvolvedores dos <a href=http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/ title="Desmistificando O Conceito De Django Apps"><em>apps</em></a>. Afinal, a versão <code>1.11</code> é <em>LTS</em> (Long Term Support), logo, alguns <em>apps</em> (ainda) não podem abraçar incondicionalmente a versão <code>3.x</code> da linguagem.</p> <!-- PELICAN_END_SUMMARY --> <p>É nesse cenário que bibliotecas como o <a href=http://six.readthedocs.io/ title="Python 2 and 3 Compatibility Library"><em>six</em></a> e <a href=https://tox.readthedocs.io/en/latest/ title="Standardize testing in Python"><em>tox</em></a> mostram o seu valor. Nesse artigo, vamos falar um pouquinho mais sobre a última.</p> <h2>Antes de começar: Vida longa ao Python 3!</h2> <p>O <em>Python 2</em> estará aí por mais um tempo (até 2020). Portanto, qual a motivação para mudar para o <em>Python 3</em> agora?</p> <p>Na <a href=https://loadsmart.com/ title="Book a truck in seconds"><em>Loadsmart</em></a>, o nosso principal projeto é em <em>Python</em> <code>2.7</code>. Mas estamos experimentando <em>Python</em> <code>3.x</code> há um bom tempo em projetos paralelos. O fato é que a nova versão da linguagem está mais eficiente, possui suporte a assincronicidade, melhor controle de exceções e o fogo ardente do "unicode hell" foi controlado.</p> <p><img class=align-center-keep-size src=/images/blog/python-snakes.jpg width=640 height=400 title="Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy..." alt="Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy..."></p> <p>É verdade que há quebra de compatibilidade entre as versões, mas se considerarmos que a <code>2.7</code> só tem mais 2 anos de "vida", a urgência de migração fica mais latente.</p> <h2>tox é uma sacada das boas!</h2> <p>O site oficial da biblioteca a define como:</p> <blockquote> <p>(...) a generic virtualenv management and test command line tool (...)</p> </blockquote> <p>Com <em>tox</em> é possível:</p> <ul> <li>Validar o seu pacote contra diferentes versões do <em>Python</em>;</li> <li>Rodar os seus testes em diferentes <em>environments</em>.</li> </ul> <p>Não é só por usar <a href=https://klauslaube.com.br/tag/virtualenv.html title="Leia mais sobre Virtualenv"><em>ambientes virtuais</em></a> que o <em>tox</em> é uma boa ideia. Ele vem sendo uma mão na roda para os desenvolvedores de pacotes <em>Python</em> que precisam dar suporte às versões <code>2.x</code> e <code>3.x</code>, e que utilizam testes automatizados como <em>design</em> das soluções.</p> <p>Com o <em>Django</em> a "granularidade" pode ser ainda maior, rodando testes em ambientes que são combinações entre diferentes versões da linguagem e do <em>framework</em>.</p> <h2>Antes de continuar: Travis e Build Matrix</h2> <p>Se você estiver utilizando o <a href><em>Travis CI</em></a>, poderoso serviço de Continuous Integration, consegue reproduzir o comportamento que apresentaremos a seguir através do uso de <a href=https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix title="Customizing the build"><em>Build Matrix</em></a>.</p> <p>A diferença é que com o <em>tox</em>, podemos obter o mesmo comportamento em tempo de desenvolvimento. Agilizando um pouco mais o processo.</p> <p>Veja mais em <a href=https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/ title="Setting up Travis CI for github repo in Python">"Travis CI for Python project"</a>.</p> <h2>Na prática</h2> <p>Vou aproveitar o tema e usar o <em>tox</em> para me ajudar em um <em>refactoring</em> de um <em>app</em> de código aberto, que há muito não dou suporte: O <a href=https://github.com/kplaube/django-simple-contact title="Veja no Github">django-simple-contact</a>.</p> <p>Se você quiser acompanhar o passo-a-passo, clone o projeto e dê um <code>git checkout</code> da <em>revisão</em> <code>80145ae</code>:</p> <div class=highlight><pre><span></span>$ git clone git@github.com:kplaube/django-simple-contact.git
-$ <span class=nb>cd</span> django-simple-contact/
-$ git checkout 80145ae
-</pre></div> <p>Na estrutura atual, é possível executar os testes através do <code>setup.py</code> ou <code>python runtests.py</code>:</p> <div class=highlight><pre><span></span>$ python setup.py <span class=nb>test</span>
-<span class=o>(</span>...<span class=o>)</span>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.493e6315ef3a09bc2f74.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.12"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style data-styled="" data-styled-version="5.1.0">.dQgIel{display:inline-block;vertical-align:middle;overflow:hidden;}/*!sc*/
+data-styled.g1[id="sc-AxjAm"]{content:"dQgIel,"}/*!sc*/
+.dLmtYS{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g2[id="article-share__FacebookStyled-sc-1s9obkn-0"]{content:"dLmtYS,"}/*!sc*/
+.cXEKcd{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g3[id="article-share__LinkedinStyled-sc-1s9obkn-1"]{content:"cXEKcd,"}/*!sc*/
+.kBgYvV{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g4[id="article-share__TwitterStyled-sc-1s9obkn-2"]{content:"kBgYvV,"}/*!sc*/
+.jVnceN{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g5[id="article-share__WhatsappStyled-sc-1s9obkn-3"]{content:"jVnceN,"}/*!sc*/
+.hUktyW{display:inline-block;margin-right:8px;}/*!sc*/
+data-styled.g6[id="article-share__SocialLink-sc-1s9obkn-4"]{content:"hUktyW,"}/*!sc*/
+.hKQQPE{clear:both;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.hKQQPE{clear:none;float:right;line-height:48px;}}/*!sc*/
+data-styled.g7[id="article-share__SocialWrapper-sc-1s9obkn-5"]{content:"hKQQPE,"}/*!sc*/
+.gKRNvs{margin-bottom:24px;}/*!sc*/
+data-styled.g8[id="article-tags__Tags-lfitfk-0"]{content:"gKRNvs,"}/*!sc*/
+.kdcwKK{background-color:#f4f4f4;color:rgba(0,0,0,0.54);display:inline-block;font-size:14px;margin:0 8px 8px 0;padding:8px 16px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g9[id="article-tags__Tag-lfitfk-1"]{content:"kdcwKK,"}/*!sc*/
+.gfJCPa{color:rgba(0,0,0,0.84);margin-bottom:4px;}/*!sc*/
+data-styled.g14[id="article__AuthorName-sc-1bof3w4-0"]{content:"gfJCPa,"}/*!sc*/
+.cZgAvk{clear:both;font-family:Georgia,"Times New Roman",Times,serif;font-size:18px;font-weight:300;-webkit-letter-spacing:-0.054px;-moz-letter-spacing:-0.054px;-ms-letter-spacing:-0.054px;letter-spacing:-0.054px;line-height:28px;margin-bottom:48px;}/*!sc*/
+@media (min-width:768px){.cZgAvk{font-size:20px;}}/*!sc*/
+.cZgAvk *{margin:0;margin-block-end:0;margin-block-start:0;padding:0;}/*!sc*/
+.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{font-family:"Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;-webkit-letter-spacing:-0.66px;-moz-letter-spacing:-0.66px;-ms-letter-spacing:-0.66px;letter-spacing:-0.66px;margin-top:8px;margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{margin-bottom:16px;}}/*!sc*/
+.cZgAvk figure,.cZgAvk .gatsby-highlight{left:-24px;position:relative;width:100vw;}/*!sc*/
+@media (min-width:768px){.cZgAvk figure,.cZgAvk .gatsby-highlight{left:0;width:auto;}}/*!sc*/
+.cZgAvk a{color:#c4170c;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cZgAvk a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cZgAvk blockquote{color:rgba(0,0,0,0.54);font-style:italic;}/*!sc*/
+.cZgAvk code{font-size:16px;}/*!sc*/
+.cZgAvk figcaption{color:rgba(0,0,0,0.54);font-size:16px;line-height:20px;padding:16px 24px 0;text-align:center;}/*!sc*/
+.cZgAvk h2{font-size:26px;font-weight:600;line-height:32px;margin-bottom:28px;}/*!sc*/
+.cZgAvk h3{color:#333;font-size:22px;font-weight:300;line-height:28px;}/*!sc*/
+.cZgAvk h4{color:rgba(0,0,0,0.54);font-size:16;font-weight:300;line-height:24px;}/*!sc*/
+.cZgAvk iframe{display:block;margin:0 auto 28px auto;}/*!sc*/
+@media (min-width:768px){.cZgAvk iframe{margin-bottom:42px;}}/*!sc*/
+.cZgAvk img{display:block;margin:0 auto;}/*!sc*/
+.cZgAvk p{margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk p{margin-bottom:42px;}}/*!sc*/
+.cZgAvk pre{font-size:16px;margin-bottom:28px;padding:24px 16px;}/*!sc*/
+@media (min-width:768px){.cZgAvk pre{margin-bottom:42px;}}/*!sc*/
+.cZgAvk ol,.cZgAvk ul{margin-left:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk ol,.cZgAvk ul{margin-bottom:42px;}}/*!sc*/
+.cZgAvk li{margin-bottom:8px;}/*!sc*/
+@media (min-width:768px){.cZgAvk li{margin-bottom:16px;}}/*!sc*/
+data-styled.g15[id="article__Content-sc-1bof3w4-1"]{content:"cZgAvk,"}/*!sc*/
+.lhlkLZ{border-top:1px solid #f4f4f4;margin-bottom:24px;padding-top:24px;}/*!sc*/
+data-styled.g16[id="article__DiscussionWrapper-sc-1bof3w4-2"]{content:"lhlkLZ,"}/*!sc*/
+.hnJNBS{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(0,0,0,0.54);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;float:left;font-size:14px;margin-bottom:32px;}/*!sc*/
+data-styled.g17[id="article__Meta-sc-1bof3w4-3"]{content:"hnJNBS,"}/*!sc*/
+.cTbbvU{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g18[id="article__MetaText-sc-1bof3w4-4"]{content:"cTbbvU,"}/*!sc*/
+.lhqEXT{border-radius:60px;margin-right:16px;}/*!sc*/
+data-styled.g19[id="article__StyledAvatar-sc-1bof3w4-5"]{content:"lhqEXT,"}/*!sc*/
+.dtcUmd{color:rgba(0,0,0,0.84);font-weight:600;-webkit-letter-spacing:-0.93px;-moz-letter-spacing:-0.93px;-ms-letter-spacing:-0.93px;letter-spacing:-0.93px;margin:0 0 4px 0;font-size:30px;font-weight:400;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.dtcUmd{font-size:40px;}}/*!sc*/
+data-styled.g20[id="article__StyledTitle-sc-1bof3w4-6"]{content:"dtcUmd,"}/*!sc*/
+.bfwjqj{margin:0 auto;max-width:640px;padding:0 24px;}/*!sc*/
+data-styled.g21[id="container-sc-1o2is99-0"]{content:"bfwjqj,"}/*!sc*/
+.iyjQQp{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#c4170c;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-family:Arial,Helvetica,sans-serif;height:36px;width:36px;}/*!sc*/
+data-styled.g22[id="page-header-brand__Brand-ofbkek-0"]{content:"iyjQQp,"}/*!sc*/
+.hPHtvI{display:none;}/*!sc*/
+@media (min-width:768px){.hPHtvI{display:block;}}/*!sc*/
+data-styled.g23[id="page-header-brand__BrandFragment-ofbkek-1"]{content:"hPHtvI,"}/*!sc*/
+.exgtKg{color:#333;display:inline-block;margin-left:4px;}/*!sc*/
+.exgtKg:first-child{margin-left:0;margin-right:4px;}/*!sc*/
+data-styled.g24[id="page-header-brand__Bracket-ofbkek-2"]{content:"exgtKg,"}/*!sc*/
+.fUa-dQJ{color:#333;width:22px;}/*!sc*/
+data-styled.g25[id="page-header__GreyMail-sc-1ef23a-0"]{content:"fUa-dQJ,"}/*!sc*/
+.GBaPr{box-shadow:0 -8px 16px 0 rgba(0,0,0,0.54);font-size:1.1rem;margin-bottom:24px;}/*!sc*/
+@media (min-width:768px){.GBaPr{margin-bottom:64px;}}/*!sc*/
+data-styled.g26[id="page-header__Header-sc-1ef23a-1"]{content:"GBaPr,"}/*!sc*/
+.ktLFvT{margin:0 auto;max-width:640px;padding:0 24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:56px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:974px;}/*!sc*/
+data-styled.g27[id="page-header__HeaderContainer-sc-1ef23a-2"]{content:"ktLFvT,"}/*!sc*/
+.gbnbN{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g28[id="page-header__StyledLink-sc-1ef23a-3"]{content:"gbnbN,"}/*!sc*/
+.hJnaIf{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g29[id="page-header__StyledA-sc-1ef23a-4"]{content:"hJnaIf,"}/*!sc*/
+.eZHcyp{border-top:1px solid #f4f4f4;color:rgba(0,0,0,0.54);font-size:14px;padding:24px 0;text-align:center;}/*!sc*/
+@media (min-width:768px){.eZHcyp{text-align:right;}}/*!sc*/
+data-styled.g30[id="page-footer__Footer-sc-1jesc4c-0"]{content:"eZHcyp,"}/*!sc*/
+.hCZhVV{color:rgba(0,0,0,0.84);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hCZhVV:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g31[id="page-footer__Link-sc-1jesc4c-1"]{content:"hCZhVV,"}/*!sc*/
+body{color:rgba(0,0,0,0.84);font-family:Arial,Helvetica,sans-serif;margin:0;}/*!sc*/
+data-styled.g51[id="sc-global-eLbNMD1"]{content:"sc-global-eLbNMD1,"}/*!sc*/
+</style><title data-react-helmet="true">Testando apps Django com Tox | Klaus Laube</title><meta data-react-helmet="true" name="description" content="O Django 2.0 foi lançado,
+e com ele o suporte a Python  deixa de existir para
+as próximas versões do framework. Alegria para os usuários…"/><meta data-react-helmet="true" property="og:title" content="Testando apps Django com Tox"/><meta data-react-helmet="true" property="og:description" content="O Django 2.0 foi lançado,
+e com ele o suporte a Python  deixa de existir para
+as próximas versões do framework. Alegria para os usuários…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Klaus Peter Laube"/><meta data-react-helmet="true" name="twitter:title" content="Testando apps Django com Tox"/><meta data-react-helmet="true" name="twitter:description" content="O Django 2.0 foi lançado,
+e com ele o suporte a Python  deixa de existir para
+as próximas versões do framework. Alegria para os usuários…"/><meta data-react-helmet="true" name="keywords" content="desenvolvimento-web,testes,tdd,tox,django,python,virtualenv"/><meta data-react-helmet="true" property="og:image" content="https://klauslaube.com.br/static/46012f1b5a5e44b0747baafa90e04f8a/django-logo.png"/><link rel="icon" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="alternate" type="application/rss+xml" title="Klaus Laube" href="/feed/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-74a6d0a7c3b7aca6f059.js"/><link as="script" rel="preload" href="/framework-15c64f04ece7e16d9319.js"/><link as="script" rel="preload" href="/styles-72b9aca6a03bf971c27e.js"/><link as="script" rel="preload" href="/app-e7e259d06d29a943bae9.js"/><link as="script" rel="preload" href="/commons-d19a5247b9c341fd9cf4.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"/><link as="fetch" rel="preload" href="/page-data/2018/01/05/testando-apps-django-com-tox.html/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="page-header__Header-sc-1ef23a-1 GBaPr"><div class="container-sc-1o2is99-0 page-header__HeaderContainer-sc-1ef23a-2 ktLFvT"><a class="page-header__StyledLink-sc-1ef23a-3 gbnbN" href="/"><div class="page-header-brand__Brand-ofbkek-0 iyjQQp"><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">{</span>k<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">laus</span>l<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">aube</span><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">}</span></div></a><div><a href="https://about.me/klauslaube" title="Contato" class="page-header__StyledA-sc-1ef23a-4 hJnaIf"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="sc-AxjAm dQgIel page-header__GreyMail-sc-1ef23a-0 fUa-dQJ"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></div></div></div><div><div class="container-sc-1o2is99-0 bfwjqj"><h1 class="typograph__Title-sc-4kf6ch-1 article__StyledTitle-sc-1bof3w4-6 dtcUmd">Testando apps Django com Tox</h1><div class="article__Meta-sc-1bof3w4-3 hnJNBS"><img src="https://en.gravatar.com/userimage/12163112/d3ae0c6239980b01ff1f1730b65c2ebe.jpg" width="48" height="48" alt="Avatar" class="avatar-sc-46srdf-0 article__StyledAvatar-sc-1bof3w4-5 lhqEXT"/><div class="article__MetaText-sc-1bof3w4-4 cTbbvU"><div class="article__AuthorName-sc-1bof3w4-0 gfJCPa">Klaus Peter Laube</div>5 de Janeiro de 2018<!-- --> - <!-- -->6 minutos<!-- --> de leitura</div></div><div class="article-share__SocialWrapper-sc-1s9obkn-5 hKQQPE"><a href="https://twitter.com/intent/tweet?url=https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html&amp;text=Testando apps Django com Tox" target="_blank" rel="noreferrer" title="Compartilhe no Twitter" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__TwitterStyled-sc-1s9obkn-2 kBgYvV"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22 8.073 8.073 0 002.319-.624 8.645 8.645 0 01-2.019 2.083z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html" target="_blank" rel="noreferrer" title="Compartilhe no Facebook" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__FacebookStyled-sc-1s9obkn-0 dLmtYS"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325 1.42-3.592 3.5-3.592.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.725h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"></path></svg></a><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html&amp;title=Testando apps Django com Tox" target="_blank" rel="noreferrer" title="Compartilhe no Linkedin" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__LinkedinStyled-sc-1s9obkn-1 cXEKcd"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg></a><a href="https://api.whatsapp.com/send?text=https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html" target="_blank" rel="noreferrer" title="Compartilhe no Whatsapp" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__WhatsappStyled-sc-1s9obkn-3 jVnceN"><path fill-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 004.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 00-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 01-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 01-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 015.275 2.188 7.42 7.42 0 012.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 00-.429-.008.826.826 0 00-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263" clip-rule="evenodd"></path></svg></a></div><div class="article__Content-sc-1bof3w4-1 cZgAvk"><p>O <a href="https://docs.djangoproject.com/pt-br/2.0/releases/2.0/" title="Django 2.0 release notes"><em>Django 2.0</em></a> foi lançado,
+e com ele o suporte a <a href="/tag/python.html" title="Leia mais sobre Python"><em>Python</em></a> <code class="language-text">2.7</code> deixa de existir para
+as próximas versões do <em>framework</em>. Alegria para os usuários, preocupação para os desenvolvedores
+dos <a href="http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/" title="Desmistificando O Conceito De Django Apps"><em>apps</em></a>.
+Afinal, a versão <code class="language-text">1.11</code> é <em>LTS</em> (Long Term Support), logo, alguns <em>apps</em> (ainda) não podem abraçar
+incondicionalmente a versão <code class="language-text">3.x</code> da linguagem.</p>
+<p>É nesse cenário que bibliotecas como o <a href="http://six.readthedocs.io/" title="Python 2 and 3 Compatibility Library"><em>six</em></a>
+e <a href="https://tox.readthedocs.io/en/latest/" title="Standardize testing in Python"><em>tox</em></a> mostram o seu valor. Nesse artigo,
+vamos falar um pouquinho mais sobre a última.</p>
+<h2>Antes de começar: Vida longa ao Python 3!</h2>
+<p>O <em>Python 2</em> estará aí por mais um tempo (até 2020). Portanto, qual a motivação para mudar para o <em>Python 3</em> agora?</p>
+<p>Na <a href="https://loadsmart.com/" title="Book a truck in seconds"><em>Loadsmart</em></a>, o nosso principal projeto é em <em>Python</em> <code class="language-text">2.7</code>.
+Mas estamos experimentando <em>Python</em> <code class="language-text">3.x</code> há um bom tempo em projetos paralelos. O fato é que a nova versão da linguagem está mais eficiente,
+possui suporte a assincronicidade, melhor controle de exceções e o fogo ardente do "unicode hell" foi controlado.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGRkZK01hP/xAAaEAEBAAIDAAAAAAAAAAAAAAABAgMiABES/9oACAEBAAEFAve0wHKwIybORKx9TH//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAACAwEBAAAAAAAAAAAAAAAAARESMUEh/9oACAEBAAY/Aq4RbZOMTPOCUH//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUEQUf/aAAgBAQABPyEKGUcLuWBFnCr5MAQgbm/JlOc/Z//aAAwDAQACAAMAAAAQx/8A/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAwEBPxCqaRH/xAAWEQADAAAAAAAAAAAAAAAAAAAQIUH/2gAIAQIBAT8QqH//xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFxkaHR/9oACAEBAAE/ED/px4O0NoWC4DUJDgGzIAjZAW3XPyDUAWAvpue4734VdL4n/9k='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="&quot;Indiana Jones encarando uma cobra&quot;"
+        title="Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy..."
+        src="/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg"
+        srcset="/static/e8828b6f6e53d7cc049d0cbca6862b42/7809d/python-snakes.jpg 192w,
+/static/e8828b6f6e53d7cc049d0cbca6862b42/4ecad/python-snakes.jpg 384w,
+/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg 640w"
+        sizes="(max-width: 640px) 100vw, 640px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy...</figcaption>
+  </figure></p>
+<p>É verdade que há quebra de compatibilidade entre as versões, mas se considerarmos que a <code class="language-text">2.7</code> só tem mais 2 anos de "vida",
+a urgência de migração fica mais latente.</p>
+<h2>tox é uma sacada das boas!</h2>
+<p>O site oficial da biblioteca a define como:</p>
+<blockquote>
+<p>(...) a generic virtualenv management and test command line tool (...)</p>
+</blockquote>
+<p>Com <em>tox</em> é possível:</p>
+<ul>
+<li>Validar o seu pacote contra diferentes versões do <em>Python</em>;</li>
+<li>Rodar os seus testes em diferentes <em>environments</em>.</li>
+</ul>
+<p>Não é só por usar <a href="/tag/virtualenv.html" title="Leia mais sobre Virtualenv"><em>ambientes virtuais</em></a> que o <em>tox</em> é
+uma boa ideia. Ele vem sendo uma mão na roda para os desenvolvedores de pacotes <em>Python</em>
+que precisam dar suporte às versões <code class="language-text">2.x</code> e <code class="language-text">3.x</code>, e que utilizam testes automatizados como
+<em>design</em> das soluções.</p>
+<p>Com o <em>Django</em> a "granularidade" pode ser ainda maior, rodando testes em ambientes
+que são combinações entre diferentes versões da linguagem e do <em>framework</em>.</p>
+<h2>Antes de continuar: Travis e Build Matrix</h2>
+<p>Se você estiver utilizando o <a href=""><em>Travis CI</em></a>, poderoso serviço de Continuous Integration, consegue reproduzir o comportamento que apresentaremos
+a seguir através do uso de <a href="https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix" title="Customizing the build"><em>Build Matrix</em></a>.</p>
+<p>A diferença é que com o <em>tox</em>, podemos obter o mesmo comportamento em tempo de desenvolvimento. Agilizando um pouco mais o processo.</p>
+<p>Veja mais em <a href="https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/" title="Setting up Travis CI for github repo in Python">"Travis CI for Python project"</a>.</p>
+<h2>Na prática</h2>
+<p>Vou aproveitar o tema e usar o <em>tox</em> para me ajudar em um <em>refactoring</em> de um <em>app</em> de
+código aberto, que há muito não dou suporte: O <a href="https://github.com/kplaube/django-simple-contact" title="Veja no Github">django-simple-contact</a>.</p>
+<p>Se você quiser acompanhar o passo-a-passo, clone o projeto e dê um <code class="language-text">git checkout</code> da <em>revisão</em> <code class="language-text">80145ae</code>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ git clone git@github.com:kplaube/django-simple-contact.git
+$ cd django-simple-contact/
+$ git checkout 80145ae</code></pre></div>
+<p>Na estrutura atual, é possível executar os testes através do <code class="language-text">setup.py</code> ou <code class="language-text">python runtests.py</code>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ python setup.py test
+(...)
 -----------------------------------------------
-Ran <span class=m>6</span> tests in <span class=m>0</span>.230s
+Ran 6 tests in 0.230s
 
 OK
-Destroying <span class=nb>test</span> database <span class=k>for</span> <span class=nb>alias</span> <span class=s1>&#39;default&#39;</span>...
-</pre></div> <p>É possível fazer a troca da versão do <em>Python/Django</em> de forma manual (através do <a href=https://klauslaube.com.br/tag/pyenv.html title="Leia mais sobre pyenv"><em>pyenv</em></a>, por exemplo). Obviamente que o <em>tox</em> deixa tudo mais interessante (e automatizado).</p> <h3>Instalando o tox</h3> <p>Finalmente, vamos adicionar a ferramenta ao projeto:</p> <div class=highlight><pre><span></span>$ pip install tox
-</pre></div> <p>Caso esteja usando <em>pyenv</em>, a instalação do <code>tox-pyenv</code> é sugerida. <a href=https://pypi.python.org/pypi/tox-pyenv title="tox plugin that makes tox use pyenv which to find python executables">Leia mais sobre a biblioteca</a>.</p> <p>Para deixar tudo mais organizado, vamos nos inspirar na estrutura do projeto <a href=https://github.com/vandersonmota/model_mommy title="Object factory for django"><em>modelmommy</em></a>. Criaremos um arquivo <code>requirements.txt</code> com o seguinte conteúdo:</p> <div class=highlight><pre><span></span><span class=o>#</span> <span class=n>requirements</span><span class=p>.</span><span class=n>txt</span>
+Destroying test database for alias &#39;default&#39;...</code></pre></div>
+<p>É possível fazer a troca da versão do <em>Python/Django</em> de forma manual (através do <a href="/tag/pyenv.html" title="Leia mais sobre pyenv"><em>pyenv</em></a>, por exemplo).
+Obviamente que o <em>tox</em> deixa tudo mais interessante (e automatizado).</p>
+<h3>Instalando o tox</h3>
+<p>Finalmente, vamos adicionar a ferramenta ao projeto:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ pip install tox</code></pre></div>
+<p>Caso esteja usando <em>pyenv</em>, a instalação do <code class="language-text">tox-pyenv</code> é sugerida.
+<a href="https://pypi.python.org/pypi/tox-pyenv" title="tox plugin that makes tox use &#x60;pyenv which&#x60; to find python executables">Leia mais sobre a biblioteca</a>.</p>
+<p>Para deixar tudo mais organizado, vamos nos inspirar na estrutura do projeto
+<a href="https://github.com/vandersonmota/model_mommy" title="Object factory for django"><em>modelmommy</em></a>. Criaremos um arquivo <code class="language-text">requirements.txt</code> com o seguinte conteúdo:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># requirements.txt
 
-<span class=n>bleach</span>
-<span class=n>django</span><span class=o>&gt;=</span><span class=mi>1</span><span class=p>.</span><span class=mi>8</span><span class=p>.</span><span class=mi>0</span>
-</pre></div> <p>A versão <code>1.8.0</code> (até o momento) é a <em>LTS</em> mais antiga, portanto, garantiremos suporte dessa versão em diante. O <a href=https://pypi.python.org/pypi/bleach title="An easy safelist-based HTML-sanitizing tool"><em>bleach</em></a> é uma dependência do projeto, não relevante ao exemplo desse artigo.</p> <p>É interessante deixarmos explícito a instalação do <em>tox</em>... um <code>requirements-dev.txt</code> pode ser uma solução:</p> <div class=highlight><pre><span></span><span class=o>#</span> <span class=n>requirements</span><span class=o>-</span><span class=n>dev</span><span class=p>.</span><span class=n>txt</span>
+bleach
+django&gt;=1.8.0</code></pre></div>
+<p>A versão <code class="language-text">1.8.0</code> (até o momento) é a <em>LTS</em> mais antiga, portanto, garantiremos suporte dessa versão em diante.
+O <a href="https://pypi.python.org/pypi/bleach" title="An easy safelist-based HTML-sanitizing tool"><em>bleach</em></a> é uma dependência do projeto, não
+relevante ao exemplo desse artigo.</p>
+<p>É interessante deixarmos explícito a instalação do <em>tox</em>... um <code class="language-text">requirements-dev.txt</code> pode ser uma solução:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text"># requirements-dev.txt
 
-<span class=n>tox</span>
-</pre></div> <p>Agora, quando um <em>dev</em> juntar-se ao projeto, ele poderá executar o comando <code>pip install -r requirements-dev.txt</code>, e ter as dependências necessárias para contribuir com o <em>app</em>.</p> <h3>Configurando</h3> <p>Antes de executar a ferramenta é necessário criar um arquivo <code>tox.ini</code>, que será responsável por configurar os ambientes e disparar os testes:</p> <div class=highlight><pre><span></span><span class=c1># tox.ini</span>
+tox</code></pre></div>
+<p>Agora, quando um <em>dev</em> juntar-se ao projeto, ele poderá executar o comando <code class="language-text">pip install -r requirements-dev.txt</code>, e ter
+as dependências necessárias para contribuir com o <em>app</em>.</p>
+<h3>Configurando</h3>
+<p>Antes de executar a ferramenta é necessário criar um arquivo <code class="language-text">tox.ini</code>, que será responsável por configurar os ambientes
+e disparar os testes:</p>
+<div class="gatsby-highlight" data-language="ini"><pre class="language-ini"><code class="language-ini"><span class="token comment"># tox.ini</span>
 
-<span class=k>[tox]</span>
-<span class=na>envlist</span> <span class=o>=</span> <span class=s>py27-django{18,111}, py36-django{18,111,20}</span>
+<span class="token selector">[tox]</span>
+<span class="token constant">envlist</span> <span class="token attr-value"><span class="token punctuation">=</span> py27-django{18,111}, py36-django{18,111,20}</span>
 
-<span class=k>[testenv]</span>
-<span class=na>commands</span> <span class=o>=</span> <span class=s>python runtests.py</span>
-<span class=na>setenv</span> <span class=o>=</span><span class=s></span>
-<span class=s>    DJANGO_SETTINGS_MODULE=simple_contact.tests.test_settings</span>
-<span class=s>    PYTHONPATH={toxinidir}</span>
-<span class=na>basepython</span> <span class=o>=</span><span class=s></span>
-<span class=s>    py27: python2.7</span>
-<span class=s>    py36: python3.6</span>
-<span class=na>deps</span> <span class=o>=</span><span class=s></span>
-<span class=s>    bleach</span>
-<span class=s>    django18: Django==1.8</span>
-<span class=s>    django111: Django==1.11</span>
-<span class=s>    django20: Django==2.0</span>
-</pre></div> <p>Por partes:</p> <ul> <li><code>[tox]</code>: Aqui colocamos as configurações globais. <code>envlist</code> conterá a lista de ambientes nos quais executaremos os testes.</li> <li><code>[testenv]</code>: Configurações por ambiente de teste. Poderíamos ter configurações específicas ao utilizar <code>[testenv:py36-django20]</code>, por exemplo.</li> <li><code>commands</code>: O comando a ser executado.</li> <li><code>setenv</code>: Variáveis de ambiente setadas para a execução dos testes.</li> <li><code>basepython</code>: Nome do interpretador <em>Python</em> utilizado para a criação do ambiente virtual. Repare no "match" com <code>py27-</code> e <code>py36-</code> do <code>envlist</code>.</li> <li><code>deps</code>: Dependências para determinado ambiente de teste. Repare no "match" com <code>django{18,111,20}</code>.</li> </ul> <p>Com o uso dos <em>brackets</em>, ao invés de criarmos um <code>testenv</code> para cada combinação (exemplo: <code>py27-django18</code>, <code>py27-django111</code>, <code>py36-django18</code>, etc), o <em>tox</em> fica responsável por fazer a "matriz de combinações".</p> <p>Agora sim, podemos executar a ferramenta de linha de comando:</p> <div class=highlight><pre><span></span>$ tox
-<span class=o>(</span>...<span class=o>)</span>
+<span class="token selector">[testenv]</span>
+<span class="token constant">commands</span> <span class="token attr-value"><span class="token punctuation">=</span> python runtests.py</span>
+<span class="token constant">setenv</span> <span class="token attr-value"><span class="token punctuation">=</span></span>
+<span class="token constant">    DJANGO_SETTINGS_MODULE</span><span class="token attr-value"><span class="token punctuation">=</span>simple_contact.tests.test_settings</span>
+<span class="token constant">    PYTHONPATH</span><span class="token attr-value"><span class="token punctuation">=</span>{toxinidir}</span>
+<span class="token constant">basepython</span> <span class="token attr-value"><span class="token punctuation">=</span></span>
+    py27: python2.7
+    py36: python3.6
+<span class="token constant">deps</span> <span class="token attr-value"><span class="token punctuation">=</span></span>
+    bleach
+    django18: Django<span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">=</span>1.8</span>
+    django111: Django<span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">=</span>1.11</span>
+    django20: Django<span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">=</span>2.0</span></code></pre></div>
+<p>Por partes:</p>
+<ul>
+<li><code class="language-text">[tox]</code>: Aqui colocamos as configurações globais. <code class="language-text">envlist</code> conterá a lista de ambientes nos quais executaremos os testes.</li>
+<li>
+<p><code class="language-text">[testenv]</code>: Configurações por ambiente de teste. Poderíamos ter configurações específicas ao utilizar <code class="language-text">[testenv:py36-django20]</code>, por exemplo.</p>
+<ul>
+<li><code class="language-text">commands</code>: O comando a ser executado.</li>
+<li><code class="language-text">setenv</code>: Variáveis de ambiente setadas para a execução dos testes.</li>
+<li><code class="language-text">basepython</code>: Nome do interpretador <em>Python</em> utilizado para a criação do ambiente virtual. Repare no "match" com <code class="language-text">py27-</code> e <code class="language-text">py36-</code> do <code class="language-text">envlist</code>.</li>
+<li><code class="language-text">deps</code>: Dependências para determinado ambiente de teste. Repare no "match" com <code class="language-text">django{18,111,20}</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Com o uso dos <em>brackets</em>, ao invés de criarmos um <code class="language-text">testenv</code> para cada combinação (exemplo: <code class="language-text">py27-django18</code>, <code class="language-text">py27-django111</code>, <code class="language-text">py36-django18</code>, etc),
+o <em>tox</em> fica responsável por fazer a "matriz de combinações".</p>
+<p>Agora sim, podemos executar a ferramenta de linha de comando:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ tox
+(...)
 ERROR:   py27-django18: commands failed
 ERROR:   py27-django111: commands failed
 ERROR:   py36-django18: commands failed
 ERROR:   py36-django111: commands failed
-py36-django20: commands succeeded
-</pre></div> <p>No meu ambiente local, como esperado, apenas os testes do ambiente <code>py36-django20</code> passaram. Para ter acesso a versão corrigida, dê um <em>checkout</em> da revisão <code>a37ebd1608</code>:</p> <div class=highlight><pre><span></span>$ git checkout a37ebd1608
+py36-django20: commands succeeded</code></pre></div>
+<p>No meu ambiente local, como esperado, apenas os testes do ambiente <code class="language-text">py36-django20</code> passaram. Para ter acesso a versão corrigida,
+dê um <em>checkout</em> da revisão <code class="language-text">a37ebd1608</code>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ git checkout a37ebd1608
 $ tox
-<span class=o>(</span>...<span class=o>)</span>
+(...)
 py27-django18: commands succeeded
 py27-django111: commands succeeded
 py36-django18: commands succeeded
 py36-django111: commands succeeded
-py36-django20: commands succeeded
-</pre></div> <p>Perfeito!</p> <p>Ainda é possível executar apenas os testes de um ambiente específico:</p> <div class=highlight><pre><span></span>$ tox -e py36-django20
-<span class=o>(</span>...<span class=o>)</span>
+py36-django20: commands succeeded</code></pre></div>
+<p>Perfeito!</p>
+<p>Ainda é possível executar apenas os testes de um ambiente específico:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ tox -e py36-django20
+(...)
 -----------------------------------------------
-Ran <span class=m>6</span> tests in <span class=m>0</span>.055s
+Ran 6 tests in 0.055s
 
 OK
-Destroying <span class=nb>test</span> database <span class=k>for</span> <span class=nb>alias</span> <span class=s1>&#39;default&#39;</span>...
-</pre></div> <p>O resultado final está disponível na <em>tag</em> <code>0.3.0</code> do projeto.</p> <h2>Considerações finais</h2> <p>Que esse movimento da comunidade <em>Django</em> consiga influenciar ainda mais a adoção do <em>Python 3</em>. Admito que sem essa "motivação extra", dificilmente cogitaria o <em>upgrade</em> da linguagem em meus projetos nesse momento.</p> <p>O <em>tox</em> é sem dúvida uma ferramenta que pode auxiliar nessa fase de transição, portanto, não hesite em adicioná-la ao seu <em>toolbelt</em>.</p> <p>Para uma integração <em>seamless</em> com o <em>Travis CI</em>, o <a href=https://github.com/tox-dev/tox-travis title="Seamless integration of Tox into Travis CI"><em>tox-travis</em></a> é recomendado.</p> <p>Até a próxima!</p> <h2>Referências</h2> <ul> <li><a href=https://www.activestate.com/blog/2017/01/python-3-vs-python-2-its-different-time>ActiveState - Python 3 vs Python 2: It's different this time</a></li> <li><a href=http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/ >Henrique Bastos - Desmistificando O Conceito De Django Apps</a></li> <li><a href=http://jsatt.com/blog/using-tox-with-travis-ci-to-test-django-apps/ >Jeremy Satterfield - Using Tox with Travis CI to Test Django Apps</a></li> <li><a href=https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/ >vevurka-dev - Travis CI for Python project</a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/testes.html title="Leia mais sobre" class=Article-tagLink>testes</a> <a href=https://klauslaube.com.br/tag/tdd.html title="Leia mais sobre" class=Article-tagLink>tdd</a> <a href=https://klauslaube.com.br/tag/tox.html title="Leia mais sobre" class=Article-tagLink>tox</a> <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre" class=Article-tagLink>django</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> <a href=https://klauslaube.com.br/tag/virtualenv.html title="Leia mais sobre" class=Article-tagLink>virtualenv</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
-        var disqus_shortname = "klauslaube";
-        var disqus_identifier = "2018/01/05/testando-apps-django-com-tox.html";
-
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-19657400-1');ga('send','pageview');
-    </script> </body> </html>
+Destroying test database for alias &#39;default&#39;...</code></pre></div>
+<p>O resultado final está disponível na <em>tag</em> <code class="language-text">0.3.0</code> do projeto.</p>
+<h2>Considerações finais</h2>
+<p>Que esse movimento da comunidade <em>Django</em> consiga influenciar ainda mais a adoção do <em>Python 3</em>. Admito que sem essa
+"motivação extra", dificilmente cogitaria o <em>upgrade</em> da linguagem em meus projetos nesse momento.</p>
+<p>O <em>tox</em> é sem dúvida uma ferramenta que pode auxiliar nessa fase de transição, portanto, não hesite em adicioná-la ao seu <em>toolbelt</em>.</p>
+<p>Para uma integração <em>seamless</em> com o <em>Travis CI</em>, o <a href="https://github.com/tox-dev/tox-travis" title="Seamless integration of Tox into Travis CI"><em>tox-travis</em></a>
+é recomendado.</p>
+<p>Até a próxima!</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="https://www.activestate.com/blog/2017/01/python-3-vs-python-2-its-different-time">ActiveState - Python 3 vs Python 2: It's different this time</a></li>
+<li><a href="http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/">Henrique Bastos - Desmistificando O Conceito De Django Apps</a></li>
+<li><a href="http://jsatt.com/blog/using-tox-with-travis-ci-to-test-django-apps/">Jeremy Satterfield - Using Tox with Travis CI to Test Django Apps</a></li>
+<li><a href="https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/">vevurka-dev - Travis CI for Python project</a></li>
+</ul></div><div class="article-tags__Tags-lfitfk-0 gKRNvs"><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/desenvolvimento-web.html">desenvolvimento-web</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/testes.html">testes</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/tdd.html">tdd</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/tox.html">tox</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/django.html">django</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/python.html">python</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/virtualenv.html">virtualenv</a></div><div class="article__DiscussionWrapper-sc-1bof3w4-2 lhlkLZ"><div shortname="klauslaube" config="[object Object]" id="disqus_thread"></div></div></div></div><footer class="page-footer__Footer-sc-1jesc4c-0 eZHcyp"><div class="container-sc-1o2is99-0 bfwjqj"><p>O conteúdo desse blog está sob a licença<!-- --> <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Creative Commons Attribution</a>.</p><p><a href="https://github.com/kplaube/blog" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Fork me on Github</a>.</p></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2018/01/05/testando-apps-django-com-tox.html";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e7e259d06d29a943bae9.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-0712dae6686d19cfe871.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-37944ec4ec91a7d47898.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bf5e10cca5c03eb48f60.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js" async=""></script><script src="/commons-d19a5247b9c341fd9cf4.js" async=""></script><script src="/app-e7e259d06d29a943bae9.js" async=""></script><script src="/styles-72b9aca6a03bf971c27e.js" async=""></script><script src="/framework-15c64f04ece7e16d9319.js" async=""></script><script src="/webpack-runtime-74a6d0a7c3b7aca6f059.js" async=""></script></body></html>

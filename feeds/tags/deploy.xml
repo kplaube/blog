@@ -1,9 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - deploy</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 26 Feb 2012 19:40:13 -0300</lastBuildDate><item><title>Automatize o deploy dos seus projetos com Fabric</title><link>https://klauslaube.com.br/2012/02/26/automatize-o-deploy-dos-seus-projetos-com-fabric.html</link><description>&lt;p&gt;Durante a minha árdua trajetória com o &lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;,
-sempre fiz “subidas” de projetos utilizando um cliente &lt;a href="http://pt.wikipedia.org/wiki/File_Transfer_Protocol" title="Leia mais sobre File Transfer Protocol"&gt;&lt;em&gt;FTP&lt;/em&gt;&lt;/a&gt;. Um
-processo manual, extremamente repetitivo (e chato).&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Já com &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, pude utilizar o &lt;a href="http://pt.wikipedia.org/wiki/SSH" title="Leia mais sobre Secure Shell"&gt;&lt;em&gt;SSH&lt;/em&gt;&lt;/a&gt;, que me proporcionou
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - deploy]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Automatize o deploy dos seus projetos com Fabric]]></title><description><![CDATA[Durante a minha árdua trajetória com o PHP,
+sempre fiz “subidas” de projetos utilizando um cliente FTP. Um
+processo manual, extremamente repetitivo (e chato). Já com Python, pude utilizar o SSH, que me proporcionou
 maior agilidade e liberdade dentro do ambiente de produção. Mas que não
-deixou de ser um …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 26 Feb 2012 19:40:13 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-02-26:/2012/02/26/automatize-o-deploy-dos-seus-projetos-com-fabric.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>fabric</category><category>deploy</category></item></channel></rss>
+deixou de ser…]]></description><link>https://klauslaube.com.br/2012/02/26/automatize-o-deploy-dos-seus-projetos-com-fabric.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/02/26/automatize-o-deploy-dos-seus-projetos-com-fabric.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 26 Feb 2012 19:40:13 GMT</pubDate><content:encoded>&lt;p&gt;Durante a minha árdua trajetória com o &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;,
+sempre fiz “subidas” de projetos utilizando um cliente &lt;a href=&quot;http://pt.wikipedia.org/wiki/File_Transfer_Protocol&quot; title=&quot;Leia mais sobre File Transfer Protocol&quot;&gt;&lt;em&gt;FTP&lt;/em&gt;&lt;/a&gt;. Um
+processo manual, extremamente repetitivo (e chato).&lt;/p&gt;
+&lt;p&gt;Já com &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, pude utilizar o &lt;a href=&quot;http://pt.wikipedia.org/wiki/SSH&quot; title=&quot;Leia mais sobre Secure Shell&quot;&gt;&lt;em&gt;SSH&lt;/em&gt;&lt;/a&gt;, que me proporcionou
+maior agilidade e liberdade dentro do ambiente de produção. Mas que não
+deixou de ser um processo manual, extremamente repetitivo, chato e muito
+suscetível a falhas.&lt;/p&gt;
+&lt;p&gt;Foi utilizando o &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; que conheci o &lt;a href=&quot;http://docs.fabfile.org/en/1.4.0/index.html&quot; title=&quot;A library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks&quot;&gt;&lt;em&gt;Fabric&lt;/em&gt;&lt;/a&gt;, e percebi
+quanto tempo podemos economizar automatizando o processo de &lt;em&gt;deploy&lt;/em&gt; de
+nossos projetos.&lt;/p&gt;
+&lt;h2&gt;O agile e o deploy contínuo&lt;/h2&gt;
+&lt;p&gt;Todo e qualquer procedimento de &lt;em&gt;upload&lt;/em&gt; do seu projeto para o ambiente
+de produção corre algum tipo de risco. Com o &lt;em&gt;deploy&lt;/em&gt; automatizado,
+a tendência é que este risco seja reduzido, e que você possa fazer a
+entrega do seu projeto para &lt;a href=&quot;/2011/03/07/diferentes-ambientes.html&quot; title=&quot;Diferentes ambientes: Development, Testing, Staging e Production&quot;&gt;diversos ambientes&lt;/a&gt; com o menor esforço
+possível.&lt;/p&gt;
+&lt;p&gt;Logo, não consigo imaginar um cenário eficiente de &lt;em&gt;deploy&lt;/em&gt;
+contínuo, sem a utilização de alguma ferramenta de automatização. É
+através destas que respeitamos uma das premissas do &lt;a href=&quot;/tag/agile.html&quot; title=&quot;Leia mais sobre Agile&quot;&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt;, e
+diminuímos a incidência de falha humana.&lt;/p&gt;
+&lt;h2&gt;Mas o que é o Fabric?&lt;/h2&gt;
+&lt;p&gt;O &lt;strong&gt;&lt;em&gt;Fabric&lt;/em&gt;&lt;/strong&gt; é uma &lt;em&gt;lib&lt;/em&gt; &lt;em&gt;Python&lt;/em&gt;, e ferramenta de linha de comando,
+para auxiliá-lo em seu &lt;em&gt;deploy&lt;/em&gt; e na administração remota dos seus
+sistemas.&lt;/p&gt;
+&lt;p&gt;Embora seja feita em &lt;em&gt;Python&lt;/em&gt;, pode ser utilizada em projetos escritos
+em qualquer linguagem. Equivale ao &lt;a href=&quot;http://en.wikipedia.org/wiki/Capistrano&quot; title=&quot;Leia mais sobre o Capistrano&quot;&gt;&lt;em&gt;Capistrano&lt;/em&gt;&lt;/a&gt;, alternativa mais
+famosa, escrita em &lt;em&gt;Ruby&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Em casa de ferreiro, espeto de ferro&lt;/h2&gt;
+&lt;p&gt;Para dar um exemplo de uso do &lt;em&gt;Fabric&lt;/em&gt;, podemos utilizar o esquema de
+&lt;em&gt;deploy&lt;/em&gt; deste &lt;em&gt;blog&lt;/em&gt;. Sim! O processo está automatizado, e você pode
+&lt;a href=&quot;https://bitbucket.org/kplaube/klauslaube.com.br/src/d579e9d81641/fabfile.py&quot; title=&quot;Confira o script Fabric no repositório do BitBucket&quot;&gt;conferí-lo no &lt;em&gt;BitBucket&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Antes de mais nada, é necessário ter o &lt;em&gt;Fabric&lt;/em&gt; instalado:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install fabric&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Todo o procedimento será escrito em um arquivo chamado &lt;strong&gt;fabfile.py&lt;/strong&gt;.
+Com o comando &lt;strong&gt;fab&lt;/strong&gt;, a ferramenta carregará este arquivo e permitirá a
+execução de todos os métodos públicos definidos dentro dele.&lt;/p&gt;
+&lt;p&gt;Vamos listar todos os métodos que &lt;a href=&quot;https://bitbucket.org/kplaube/klauslaube.com.br/src/d579e9d81641/fabfile.py&quot; title=&quot;Veja no BitBucket&quot;&gt;criei no &lt;strong&gt;fabfile.py&lt;/strong&gt; do &lt;em&gt;blog&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ fab -l
+
+Available commands:
+
+bootstrap            Initialize remote host environment.
+collect_static       Collect all static files from Django apps and copy ...
+create_virtualenv    Setup virtualenv on remote host.
+database_restart     Restart the database server on remote server.
+deploy               Send the code to the remote host.
+http_restart         Restart the HTTP server on remote server.
+migrate              Execute South on remote host, to update the databas...
+production           Use production environment on remote host.
+staging              Use staging environment on remote host.
+syncdb               Execute syncdb on remote host.
+update_apache_conf   Move apache and fastcgi files to the public html.
+update_requirements  Update Python dependencies on remote host.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como é possível notar na listagem acima, temos operações de &lt;em&gt;deploy&lt;/em&gt;
+(&lt;strong&gt;deploy&lt;/strong&gt;, &lt;strong&gt;syncdb&lt;/strong&gt;, &lt;strong&gt;update_requirements&lt;/strong&gt; e
+&lt;strong&gt;update&lt;em&gt;apache&lt;/em&gt;conf&lt;/strong&gt;) e operações de administração remota
+(&lt;strong&gt;database_restart&lt;/strong&gt;, &lt;strong&gt;http_restart&lt;/strong&gt;, &lt;strong&gt;migrate&lt;/strong&gt;, etc). Os métodos
+&lt;strong&gt;production&lt;/strong&gt; e &lt;strong&gt;staging&lt;/strong&gt; são basicamente para “setar” para qual
+ambiente o &lt;em&gt;deploy&lt;/em&gt; será realizado. Por exemplo, a cada nova subida de
+&lt;em&gt;release&lt;/em&gt;, executo o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ fab production deploy http_restart&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Onde basicamente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Defino o usuário, &lt;em&gt;IP&lt;/em&gt;, e &lt;em&gt;paths&lt;/em&gt; para o ambiente de produção através do método &lt;strong&gt;production&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Executo o envio dos arquivos através de &lt;a href=&quot;http://pt.wikipedia.org/wiki/Rsync&quot; title=&quot;Leia mais sobre Rsync&quot;&gt;&lt;strong&gt;Rsync&lt;/strong&gt;&lt;/a&gt; para o servidor, com o método &lt;strong&gt;deploy&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Reinicio o &lt;em&gt;Apache&lt;/em&gt; através do método &lt;strong&gt;http_restart&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Se olharmos atentamente o &lt;a href=&quot;https://bitbucket.org/kplaube/klauslaube.com.br/src/d579e9d81641/fabfile.py#cl-101&quot; title=&quot;Veja em detalhes o método deploy&quot;&gt;método &lt;strong&gt;deploy&lt;/strong&gt;&lt;/a&gt;, utilizamos uma &lt;em&gt;lib&lt;/em&gt;
+(importada no início do arquivo) chamada &lt;strong&gt;rsync_project&lt;/strong&gt;. Que
+corresponde a ferramenta de linha de comando (encontrada em sistemas
+baseados em &lt;em&gt;Unix&lt;/em&gt;) chamada &lt;strong&gt;rsync&lt;/strong&gt;. O que o &lt;em&gt;Fabric&lt;/em&gt; faz (com
+maestria) é “abstrair” essas operações para que possamos fazer os nossos
+procedimentos através de uma interface simples (outros comandos, como
+&lt;strong&gt;scp&lt;/strong&gt; e &lt;strong&gt;sudo&lt;/strong&gt; também são utilizados pelo &lt;em&gt;Fabric&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;A função &lt;a href=&quot;https://bitbucket.org/kplaube/klauslaube.com.br/src/d579e9d81641/fabfile.py#cl-199&quot; title=&quot;Veja um exemplo de uso no fabfile.py&quot;&gt;&lt;strong&gt;run&lt;/strong&gt;&lt;/a&gt; faz grande parte da magia acontecer. Com ela,
+abrimos uma conexão &lt;em&gt;SSH&lt;/em&gt; com o nosso servidor, e executamos comandos
+como se estívessemos em um terminal. Extremamente útil para fazer
+&lt;em&gt;restart&lt;/em&gt; de serviços, escalonamento de &lt;em&gt;logs&lt;/em&gt;, limpeza de temporários,
+etc.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Fabric&lt;/em&gt; é muito simples de usar. Lendo o básico da documentação, já
+somos capazes de automatizar os processos mais triviais.&lt;/p&gt;
+&lt;p&gt;Recomendo o &lt;a href=&quot;https://bitbucket.org/copelco/caktus-deployment/src/6ad8ad84a938/example-django-project/caktus_website/fabfile.py&quot; title=&quot;Veja-o no BitBucket&quot;&gt;&lt;strong&gt;fabfile.py&lt;/strong&gt;&lt;/a&gt; da &lt;a href=&quot;http://www.caktusgroup.com/&quot; title=&quot;Visite o site da Caktus&quot;&gt;&lt;em&gt;Caktus Consulting Group&lt;/em&gt;&lt;/a&gt;. Simples
+e bem escrito, foi nele que me baseei para escrever o &lt;em&gt;script&lt;/em&gt;
+apresentado neste &lt;em&gt;post&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.fabfile.org/en/1.4.0/index.html&quot; title=&quot;Fabric: a library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks&quot;&gt;&lt;em&gt;Fabric – Documentation&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://yuji.wordpress.com/2011/04/09/django-python-fabric-deployment-script-and-example/&quot; title=&quot;Excelente exemplo de uso do Fabric&quot;&gt;&lt;em&gt;Useful Stuff – Fabric Deployment Script and Example&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

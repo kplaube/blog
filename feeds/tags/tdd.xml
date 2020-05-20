@@ -1,30 +1,576 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - tdd</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 05 Jan 2018 17:05:00 -0200</lastBuildDate><item><title>Testando apps Django com Tox</title><link>https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</link><description>&lt;p&gt;O &lt;a href="https://docs.djangoproject.com/pt-br/2.0/releases/2.0/" title="Django 2.0 release notes"&gt;&lt;em&gt;Django 2.0&lt;/em&gt;&lt;/a&gt; foi lançado,
-e com ele o suporte a &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; &lt;code&gt;2.7&lt;/code&gt; deixa de existir para
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - tdd]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Testando apps Django com Tox]]></title><description><![CDATA[O Django 2.0 foi lançado,
+e com ele o suporte a Python  deixa de existir para
+as próximas versões do framework. Alegria para os usuários, preocupação para os desenvolvedores
+dos apps.
+Afinal, a versão  é LTS (Long Term Support), logo, alguns apps (ainda) não podem abraçar
+incondicionalmente a versão…]]></description><link>https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/01/05/testando-apps-django-com-tox.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 05 Jan 2018 17:05:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;https://docs.djangoproject.com/pt-br/2.0/releases/2.0/&quot; title=&quot;Django 2.0 release notes&quot;&gt;&lt;em&gt;Django 2.0&lt;/em&gt;&lt;/a&gt; foi lançado,
+e com ele o suporte a &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt; deixa de existir para
 as próximas versões do &lt;em&gt;framework&lt;/em&gt;. Alegria para os usuários, preocupação para os desenvolvedores
-dos &lt;a href="http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/" title="Desmistificando O Conceito De Django Apps"&gt;&lt;em&gt;apps&lt;/em&gt;&lt;/a&gt;.
-Afinal, a versão &lt;code&gt;1.11&lt;/code&gt; é &lt;em&gt;LTS&lt;/em&gt; (Long Term Support), logo, alguns &lt;em&gt;apps&lt;/em&gt; (ainda) não podem …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 05 Jan 2018 17:05:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-01-05:/2018/01/05/testando-apps-django-com-tox.html</guid><category>desenvolvimento</category><category>testes</category><category>tdd</category><category>tox</category><category>django</category><category>python</category><category>virtualenv</category></item><item><title>Ferramentas de testes em Django - Parte 2</title><link>https://klauslaube.com.br/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html" title="Ferramentas de testes em Django - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
-conhecemos as ferramentas &lt;em&gt;default&lt;/em&gt; para construção de testes
-automatizados em &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Acontece que você pode “sair um pouco da
+dos &lt;a href=&quot;http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/&quot; title=&quot;Desmistificando O Conceito De Django Apps&quot;&gt;&lt;em&gt;apps&lt;/em&gt;&lt;/a&gt;.
+Afinal, a versão &lt;code class=&quot;language-text&quot;&gt;1.11&lt;/code&gt; é &lt;em&gt;LTS&lt;/em&gt; (Long Term Support), logo, alguns &lt;em&gt;apps&lt;/em&gt; (ainda) não podem abraçar
+incondicionalmente a versão &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt; da linguagem.&lt;/p&gt;
+&lt;p&gt;É nesse cenário que bibliotecas como o &lt;a href=&quot;http://six.readthedocs.io/&quot; title=&quot;Python 2 and 3 Compatibility Library&quot;&gt;&lt;em&gt;six&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://tox.readthedocs.io/en/latest/&quot; title=&quot;Standardize testing in Python&quot;&gt;&lt;em&gt;tox&lt;/em&gt;&lt;/a&gt; mostram o seu valor. Nesse artigo,
+vamos falar um pouquinho mais sobre a última.&lt;/p&gt;
+&lt;h2&gt;Antes de começar: Vida longa ao Python 3!&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Python 2&lt;/em&gt; estará aí por mais um tempo (até 2020). Portanto, qual a motivação para mudar para o &lt;em&gt;Python 3&lt;/em&gt; agora?&lt;/p&gt;
+&lt;p&gt;Na &lt;a href=&quot;https://loadsmart.com/&quot; title=&quot;Book a truck in seconds&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;, o nosso principal projeto é em &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt;.
+Mas estamos experimentando &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt; há um bom tempo em projetos paralelos. O fato é que a nova versão da linguagem está mais eficiente,
+possui suporte a assincronicidade, melhor controle de exceções e o fogo ardente do &quot;unicode hell&quot; foi controlado.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGRkZK01hP/xAAaEAEBAAIDAAAAAAAAAAAAAAABAgMiABES/9oACAEBAAEFAve0wHKwIybORKx9TH//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAACAwEBAAAAAAAAAAAAAAAAARESMUEh/9oACAEBAAY/Aq4RbZOMTPOCUH//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUEQUf/aAAgBAQABPyEKGUcLuWBFnCr5MAQgbm/JlOc/Z//aAAwDAQACAAMAAAAQx/8A/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAwEBPxCqaRH/xAAWEQADAAAAAAAAAAAAAAAAAAAQIUH/2gAIAQIBAT8QqH//xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFxkaHR/9oACAEBAAE/ED/px4O0NoWC4DUJDgGzIAjZAW3XPyDUAWAvpue4734VdL4n/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Indiana Jones encarando uma cobra&amp;quot;&quot;
+        title=&quot;Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy...&quot;
+        src=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg&quot;
+        srcset=&quot;/static/e8828b6f6e53d7cc049d0cbca6862b42/7809d/python-snakes.jpg 192w,
+/static/e8828b6f6e53d7cc049d0cbca6862b42/4ecad/python-snakes.jpg 384w,
+/static/e8828b6f6e53d7cc049d0cbca6862b42/c08c5/python-snakes.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Migrar para Python 3 pode parecer assustador. Mas é tranquilo, Indy...&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;É verdade que há quebra de compatibilidade entre as versões, mas se considerarmos que a &lt;code class=&quot;language-text&quot;&gt;2.7&lt;/code&gt; só tem mais 2 anos de &quot;vida&quot;,
+a urgência de migração fica mais latente.&lt;/p&gt;
+&lt;h2&gt;tox é uma sacada das boas!&lt;/h2&gt;
+&lt;p&gt;O site oficial da biblioteca a define como:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a generic virtualenv management and test command line tool (...)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Com &lt;em&gt;tox&lt;/em&gt; é possível:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Validar o seu pacote contra diferentes versões do &lt;em&gt;Python&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Rodar os seus testes em diferentes &lt;em&gt;environments&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Não é só por usar &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;&lt;em&gt;ambientes virtuais&lt;/em&gt;&lt;/a&gt; que o &lt;em&gt;tox&lt;/em&gt; é
+uma boa ideia. Ele vem sendo uma mão na roda para os desenvolvedores de pacotes &lt;em&gt;Python&lt;/em&gt;
+que precisam dar suporte às versões &lt;code class=&quot;language-text&quot;&gt;2.x&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;3.x&lt;/code&gt;, e que utilizam testes automatizados como
+&lt;em&gt;design&lt;/em&gt; das soluções.&lt;/p&gt;
+&lt;p&gt;Com o &lt;em&gt;Django&lt;/em&gt; a &quot;granularidade&quot; pode ser ainda maior, rodando testes em ambientes
+que são combinações entre diferentes versões da linguagem e do &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Antes de continuar: Travis e Build Matrix&lt;/h2&gt;
+&lt;p&gt;Se você estiver utilizando o &lt;a href=&quot;&quot;&gt;&lt;em&gt;Travis CI&lt;/em&gt;&lt;/a&gt;, poderoso serviço de Continuous Integration, consegue reproduzir o comportamento que apresentaremos
+a seguir através do uso de &lt;a href=&quot;https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix&quot; title=&quot;Customizing the build&quot;&gt;&lt;em&gt;Build Matrix&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A diferença é que com o &lt;em&gt;tox&lt;/em&gt;, podemos obter o mesmo comportamento em tempo de desenvolvimento. Agilizando um pouco mais o processo.&lt;/p&gt;
+&lt;p&gt;Veja mais em &lt;a href=&quot;https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/&quot; title=&quot;Setting up Travis CI for github repo in Python&quot;&gt;&quot;Travis CI for Python project&quot;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vou aproveitar o tema e usar o &lt;em&gt;tox&lt;/em&gt; para me ajudar em um &lt;em&gt;refactoring&lt;/em&gt; de um &lt;em&gt;app&lt;/em&gt; de
+código aberto, que há muito não dou suporte: O &lt;a href=&quot;https://github.com/kplaube/django-simple-contact&quot; title=&quot;Veja no Github&quot;&gt;django-simple-contact&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Se você quiser acompanhar o passo-a-passo, clone o projeto e dê um &lt;code class=&quot;language-text&quot;&gt;git checkout&lt;/code&gt; da &lt;em&gt;revisão&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;80145ae&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git clone git@github.com:kplaube/django-simple-contact.git
+$ cd django-simple-contact/
+$ git checkout 80145ae&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Na estrutura atual, é possível executar os testes através do &lt;code class=&quot;language-text&quot;&gt;setup.py&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;python runtests.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python setup.py test
+(...)
+-----------------------------------------------
+Ran 6 tests in 0.230s
+
+OK
+Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É possível fazer a troca da versão do &lt;em&gt;Python/Django&lt;/em&gt; de forma manual (através do &lt;a href=&quot;/tag/pyenv.html&quot; title=&quot;Leia mais sobre pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;, por exemplo).
+Obviamente que o &lt;em&gt;tox&lt;/em&gt; deixa tudo mais interessante (e automatizado).&lt;/p&gt;
+&lt;h3&gt;Instalando o tox&lt;/h3&gt;
+&lt;p&gt;Finalmente, vamos adicionar a ferramenta ao projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install tox&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso esteja usando &lt;em&gt;pyenv&lt;/em&gt;, a instalação do &lt;code class=&quot;language-text&quot;&gt;tox-pyenv&lt;/code&gt; é sugerida.
+&lt;a href=&quot;https://pypi.python.org/pypi/tox-pyenv&quot; title=&quot;tox plugin that makes tox use &amp;#x60;pyenv which&amp;#x60; to find python executables&quot;&gt;Leia mais sobre a biblioteca&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para deixar tudo mais organizado, vamos nos inspirar na estrutura do projeto
+&lt;a href=&quot;https://github.com/vandersonmota/model_mommy&quot; title=&quot;Object factory for django&quot;&gt;&lt;em&gt;modelmommy&lt;/em&gt;&lt;/a&gt;. Criaremos um arquivo &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; com o seguinte conteúdo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+bleach
+django&amp;gt;=1.8.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A versão &lt;code class=&quot;language-text&quot;&gt;1.8.0&lt;/code&gt; (até o momento) é a &lt;em&gt;LTS&lt;/em&gt; mais antiga, portanto, garantiremos suporte dessa versão em diante.
+O &lt;a href=&quot;https://pypi.python.org/pypi/bleach&quot; title=&quot;An easy safelist-based HTML-sanitizing tool&quot;&gt;&lt;em&gt;bleach&lt;/em&gt;&lt;/a&gt; é uma dependência do projeto, não
+relevante ao exemplo desse artigo.&lt;/p&gt;
+&lt;p&gt;É interessante deixarmos explícito a instalação do &lt;em&gt;tox&lt;/em&gt;... um &lt;code class=&quot;language-text&quot;&gt;requirements-dev.txt&lt;/code&gt; pode ser uma solução:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements-dev.txt
+
+tox&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora, quando um &lt;em&gt;dev&lt;/em&gt; juntar-se ao projeto, ele poderá executar o comando &lt;code class=&quot;language-text&quot;&gt;pip install -r requirements-dev.txt&lt;/code&gt;, e ter
+as dependências necessárias para contribuir com o &lt;em&gt;app&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Configurando&lt;/h3&gt;
+&lt;p&gt;Antes de executar a ferramenta é necessário criar um arquivo &lt;code class=&quot;language-text&quot;&gt;tox.ini&lt;/code&gt;, que será responsável por configurar os ambientes
+e disparar os testes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tox.ini&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[tox]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;envlist&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; py27-django{18,111}, py36-django{18,111,20}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[testenv]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;commands&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; python runtests.py&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;setenv&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;    DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;simple_contact.tests.test_settings&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;    PYTHONPATH&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;{toxinidir}&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;basepython&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+    py27: python2.7
+    py36: python3.6
+&lt;span class=&quot;token constant&quot;&gt;deps&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+    bleach
+    django18: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;1.8&lt;/span&gt;
+    django111: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;1.11&lt;/span&gt;
+    django20: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;2.0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por partes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;[tox]&lt;/code&gt;: Aqui colocamos as configurações globais. &lt;code class=&quot;language-text&quot;&gt;envlist&lt;/code&gt; conterá a lista de ambientes nos quais executaremos os testes.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[testenv]&lt;/code&gt;: Configurações por ambiente de teste. Poderíamos ter configurações específicas ao utilizar &lt;code class=&quot;language-text&quot;&gt;[testenv:py36-django20]&lt;/code&gt;, por exemplo.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;commands&lt;/code&gt;: O comando a ser executado.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;setenv&lt;/code&gt;: Variáveis de ambiente setadas para a execução dos testes.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;basepython&lt;/code&gt;: Nome do interpretador &lt;em&gt;Python&lt;/em&gt; utilizado para a criação do ambiente virtual. Repare no &quot;match&quot; com &lt;code class=&quot;language-text&quot;&gt;py27-&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;py36-&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;envlist&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;deps&lt;/code&gt;: Dependências para determinado ambiente de teste. Repare no &quot;match&quot; com &lt;code class=&quot;language-text&quot;&gt;django{18,111,20}&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Com o uso dos &lt;em&gt;brackets&lt;/em&gt;, ao invés de criarmos um &lt;code class=&quot;language-text&quot;&gt;testenv&lt;/code&gt; para cada combinação (exemplo: &lt;code class=&quot;language-text&quot;&gt;py27-django18&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;py27-django111&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;py36-django18&lt;/code&gt;, etc),
+o &lt;em&gt;tox&lt;/em&gt; fica responsável por fazer a &quot;matriz de combinações&quot;.&lt;/p&gt;
+&lt;p&gt;Agora sim, podemos executar a ferramenta de linha de comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ tox
+(...)
+ERROR:   py27-django18: commands failed
+ERROR:   py27-django111: commands failed
+ERROR:   py36-django18: commands failed
+ERROR:   py36-django111: commands failed
+py36-django20: commands succeeded&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No meu ambiente local, como esperado, apenas os testes do ambiente &lt;code class=&quot;language-text&quot;&gt;py36-django20&lt;/code&gt; passaram. Para ter acesso a versão corrigida,
+dê um &lt;em&gt;checkout&lt;/em&gt; da revisão &lt;code class=&quot;language-text&quot;&gt;a37ebd1608&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git checkout a37ebd1608
+$ tox
+(...)
+py27-django18: commands succeeded
+py27-django111: commands succeeded
+py36-django18: commands succeeded
+py36-django111: commands succeeded
+py36-django20: commands succeeded&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Perfeito!&lt;/p&gt;
+&lt;p&gt;Ainda é possível executar apenas os testes de um ambiente específico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ tox -e py36-django20
+(...)
+-----------------------------------------------
+Ran 6 tests in 0.055s
+
+OK
+Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O resultado final está disponível na &lt;em&gt;tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;0.3.0&lt;/code&gt; do projeto.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Que esse movimento da comunidade &lt;em&gt;Django&lt;/em&gt; consiga influenciar ainda mais a adoção do &lt;em&gt;Python 3&lt;/em&gt;. Admito que sem essa
+&quot;motivação extra&quot;, dificilmente cogitaria o &lt;em&gt;upgrade&lt;/em&gt; da linguagem em meus projetos nesse momento.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;tox&lt;/em&gt; é sem dúvida uma ferramenta que pode auxiliar nessa fase de transição, portanto, não hesite em adicioná-la ao seu &lt;em&gt;toolbelt&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para uma integração &lt;em&gt;seamless&lt;/em&gt; com o &lt;em&gt;Travis CI&lt;/em&gt;, o &lt;a href=&quot;https://github.com/tox-dev/tox-travis&quot; title=&quot;Seamless integration of Tox into Travis CI&quot;&gt;&lt;em&gt;tox-travis&lt;/em&gt;&lt;/a&gt;
+é recomendado.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.activestate.com/blog/2017/01/python-3-vs-python-2-its-different-time&quot;&gt;ActiveState - Python 3 vs Python 2: It&apos;s different this time&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://henriquebastos.net/desmistificando-o-conceito-de-django-apps/&quot;&gt;Henrique Bastos - Desmistificando O Conceito De Django Apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jsatt.com/blog/using-tox-with-travis-ci-to-test-django-apps/&quot;&gt;Jeremy Satterfield - Using Tox with Travis CI to Test Django Apps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://vevurka.github.io/dsp17/git/quality/django/python/travis_ci_frisor/&quot;&gt;vevurka-dev - Travis CI for Python project&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Ferramentas de testes em Django - Parte 2]]></title><description><![CDATA[No post anterior,
+conhecemos as ferramentas default para construção de testes
+automatizados em Django. Acontece que você pode “sair um pouco da
 caixa” e usufruir de ferramentas “third-party“, que enriquecerão o seu
-ambiente de desenvolvimento e lhe trarão maior segurança em seus &lt;a href="https://klauslaube.com.br/tag/testes.html" title="Leia mais sobre testes"&gt;testes
+ambiente de desenvolvimento e lhe trarão maior segurança em seus testes
+de software…]]></description><link>https://klauslaube.com.br/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 23 Jul 2011 18:00:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2011/07/18/ferramentas-de-testes-em-django-parte-1.html&quot; title=&quot;Ferramentas de testes em Django - Parte 1&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
+conhecemos as ferramentas &lt;em&gt;default&lt;/em&gt; para construção de testes
+automatizados em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Acontece que você pode “sair um pouco da
+caixa” e usufruir de ferramentas “third-party“, que enriquecerão o seu
+ambiente de desenvolvimento e lhe trarão maior segurança em seus &lt;a href=&quot;/tag/testes.html&quot; title=&quot;Leia mais sobre testes&quot;&gt;testes
 de &lt;em&gt;software&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;h2&gt;splinter – Testando a sua aplicação com um navegador&lt;/h2&gt;
+&lt;p&gt;É perfeitamente possível criar testes de aceitação em &lt;em&gt;Django&lt;/em&gt; com a
+&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/testing/#module-django.test.client&quot; title=&quot;Testando aplicações web com test client em Django&quot;&gt;&lt;em&gt;TestClient&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://lxml.de/&quot; title=&quot;Faça parser XML e HTML com lxml&quot;&gt;&lt;em&gt;lxml&lt;/em&gt;&lt;/a&gt;. Mas vamos ser sinceros, é deveras
+trabalhoso “parsear” os resultados das suas &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Com a &lt;a href=&quot;http://splinter.cobrateam.info/&quot; title=&quot;Visite a documentação oficial da Splinter&quot;&gt;&lt;em&gt;Splinter&lt;/em&gt;&lt;/a&gt;, uma ferramenta para testes de aplicações
+&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, você pode automatizar ações executadas por navegadores, como
+visitar uma página, preencher um formulário ou clicar em um &lt;em&gt;link&lt;/em&gt;; tudo
+isso sem preocupar-se com &lt;em&gt;parsing&lt;/em&gt;, nós, &lt;em&gt;DOM&lt;/em&gt;, nem nada do tipo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; splinter&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Browser
 
-&lt;h2&gt;splinter – Testando a sua aplicação …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 23 Jul 2011 18:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-07-23:/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>bdd</category><category>tdd</category><category>testes</category></item><item><title>Ferramentas de testes em Django - Parte 1</title><link>https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</link><description>&lt;p&gt;Dando continuidade à série
-“&lt;a href="{filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md" title="Veja outros posts desta série"&gt;Montando seu ambiente de desenvolvimento &lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;“, vou
+browser &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Browser&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Visitar uma URL&lt;/span&gt;
+url &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;http://search.twitter.com&quot;&lt;/span&gt;
+browser&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;visit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+browser&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fill&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;q&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#cobrateam&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Procurar e clicar no botão &apos;search&apos;&lt;/span&gt;
+button &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; browser&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;find_by_css&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#searchButton input&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;first
+
+&lt;span class=&quot;token comment&quot;&gt;# Interagir com os elementos&lt;/span&gt;
+button&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;click&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; browser&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;is_text_present&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;No results for #cobrateam&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;nobody likes us =(&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;we&apos;re popular =)&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O que eu acho mais bacana nesta ferramenta são os seletores, facilitam
+muito na hora de checar resultados e comportamentos.&lt;/p&gt;
+&lt;p&gt;A comunidade em volta desta ferramenta está em constante crescimento e
+atividade. Portanto, caso você queira contribuir com o projeto, vá agora
+mesmo para o &lt;a href=&quot;https://github.com/cobrateam/splinter&quot; title=&quot;Repositório da Splinter no GitHub&quot;&gt;repositório no &lt;em&gt;GitHub&lt;/em&gt; e colabore&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;nose – Caçando testes em seu projeto (Python)&lt;/h2&gt;
+&lt;p&gt;E quando queremos fugir da regra? Aposto que chegará um momento em que a
+estrutura de diretórios padrão, necessária para a execução dos seus
+testes em &lt;em&gt;Django&lt;/em&gt;, não te satisfará mais. O que fazer neste caso?
+Simples, recorra ao &lt;em&gt;Nose&lt;/em&gt;!&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;http://somethingaboutorange.com/mrl/projects/nose/1.0.0/&quot; title=&quot;Nose - is nicer testing for Python&quot;&gt;&lt;em&gt;Nose&lt;/em&gt;&lt;/a&gt; estende os recursos da &lt;em&gt;unittest&lt;/em&gt; e facilita a escrita
+e carregamento dos testes em projetos &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. De uma forma mais
+detalhada, ele percorre o seu projeto (ou uma determinada região de seu
+escolha) executando subclasses da &lt;code class=&quot;language-text&quot;&gt;unittest.TestCase&lt;/code&gt; ou funções que
+contenham “test”. Por exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# test_subclasse.py&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; unittest
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SubclasseTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;unittest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TestCase&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_um_eh_verdadeiro&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;assertTrue&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# test_funcao.py&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_zero_eh_falso&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ao executar o comando &lt;strong&gt;nosetests&lt;/strong&gt; o &lt;em&gt;nose&lt;/em&gt; se encarregará de procurar
+e carregar os testes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ nosetests
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.005s
+
+OK&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É claro que existe uma “mágica” aí. Na verdade o &lt;em&gt;nose&lt;/em&gt; pesquisará por
+&lt;strong&gt;arquivos&lt;/strong&gt; &lt;em&gt;Python&lt;/em&gt; com “test” em seu nome, por &lt;strong&gt;funções&lt;/strong&gt; com “test”
+em seu enunciado, e por &lt;strong&gt;classes&lt;/strong&gt; com métodos “test” em sua
+declaração. Ele age mesmo como um “runner“, tendo a capacidade de lidar
+com testes escritos com &lt;em&gt;unittest&lt;/em&gt; ou não.&lt;/p&gt;
+&lt;p&gt;Essa é só a ponta do &lt;em&gt;iceberg&lt;/em&gt;. É possível construir &lt;em&gt;plugins&lt;/em&gt; para o
+&lt;em&gt;nose&lt;/em&gt;, permitindo melhorar ainda mais o seu ambiente de testes (como
+por exemplo, permitir que o &lt;a href=&quot;http://pypi.python.org/pypi/nosepipe/&quot; title=&quot;Conheça o nosepipe&quot;&gt;&lt;em&gt;nose&lt;/em&gt; funcione em &lt;em&gt;subprocess&lt;/em&gt;
+separados&lt;/a&gt;).&lt;/p&gt;
+&lt;h3&gt;Caçando testes em seu projeto (Django)&lt;/h3&gt;
+&lt;p&gt;Para facilitar ainda mais a escrita de testes em &lt;em&gt;Django&lt;/em&gt; existem
+&lt;em&gt;plugins&lt;/em&gt; como o &lt;a href=&quot;http://pypi.python.org/pypi/django-nose&quot; title=&quot;Utilize o nose em seus projetos Django&quot;&gt;&lt;em&gt;django-nose&lt;/em&gt;&lt;/a&gt;, que permite que você substitua o
+&lt;em&gt;Test Runner&lt;/em&gt; padrão da &lt;em&gt;framework&lt;/em&gt; por um específico que utiliza o
+&lt;em&gt;nose&lt;/em&gt;, unindo assim a facilidade e “add-ons” do &lt;em&gt;nose&lt;/em&gt; com o ambiente
+de testes do &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;lettuce – BDD em Django&lt;/h2&gt;
+&lt;p&gt;E se você estava se perguntando sobre &lt;a href=&quot;/tag/bdd.html&quot; title=&quot;Leia mais sobre BDD&quot;&gt;&lt;em&gt;BDD&lt;/em&gt;&lt;/a&gt; em &lt;em&gt;Django&lt;/em&gt;, eu
+apresento a &lt;a href=&quot;http://lettuce.it/intro/overview.html#intro-overview&quot; title=&quot;Saiba mais sobre a lettuce&quot;&gt;&lt;em&gt;Lettuce&lt;/em&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;p&gt;Esta ferramenta, baseada na &lt;a href=&quot;http://cukes.info/&quot; title=&quot;Cucumber - Making BDD fun&quot;&gt;&lt;em&gt;Cucumber&lt;/em&gt;&lt;/a&gt;, permite com que você escreva
+histórias utilizando linguagem ubíqua, mais próxima da área de negócios
+do que da área técnica, e automatize a validação delas.&lt;/p&gt;
+&lt;p&gt;O mais bacana é que ela já vem preparada para o &lt;em&gt;Django&lt;/em&gt;, permitindo que
+a gente execute os testes de comportamento de forma fácil e rápida:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;gherkin&quot;&gt;&lt;pre class=&quot;language-gherkin&quot;&gt;&lt;code class=&quot;language-gherkin&quot;&gt;&lt;span class=&quot;token feature&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Feature:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Rocking with lettuce and django&lt;/span&gt;
+
+&lt;/span&gt;    &lt;span class=&quot;token scenario&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Scenario:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Simple Hello World&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token atrule&quot;&gt;Given&lt;/span&gt; &lt;span class=&quot;token atrule&quot;&gt;I&lt;/span&gt; access the url &lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt;
+        &lt;span class=&quot;token atrule&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;token atrule&quot;&gt;I&lt;/span&gt; see the header &lt;span class=&quot;token string&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token scenario&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Scenario:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Hello + capitalized name&lt;/span&gt;&lt;/span&gt;
+        &lt;span class=&quot;token atrule&quot;&gt;Given&lt;/span&gt; &lt;span class=&quot;token atrule&quot;&gt;I&lt;/span&gt; access the url &lt;span class=&quot;token string&quot;&gt;&quot;/some-name&quot;&lt;/span&gt;
+        &lt;span class=&quot;token atrule&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;token atrule&quot;&gt;I&lt;/span&gt; see the header &lt;span class=&quot;token string&quot;&gt;&quot;Hello Some Name&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;História escrita, vamos escrever o &lt;em&gt;script&lt;/em&gt; &lt;em&gt;Python&lt;/em&gt; que validará se está
+tudo de acordo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; lettuce &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; lxml &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; html
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;test&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;client &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Client
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@before&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;all&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;set_browser&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    world&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Client&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@step&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;r&apos;I access the url &quot;(.*)&quot;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;access_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;step&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    response &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; world&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    world&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dom &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; html&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fromstring&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;content&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@step&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;r&apos;I see the header &quot;(.*)&quot;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;see_header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;step&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    header &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; world&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dom&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cssselect&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;h1&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; header&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;text &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; text&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Basta executá-lo da seguinte maneira:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py harvest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://lettuce.it/recipes/django-lxml.html#recipes-django-lxml&quot; title=&quot;Django + Lettuce, uma dupla interessante!&quot;&gt;Confira mais informações sobre como utilizar o &lt;em&gt;lettuce&lt;/em&gt; com &lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;fudge – Ajude o Python a mentir&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;http://farmdev.com/projects/fudge/&quot; title=&quot;Fudge, criando objetos mentirosos&quot;&gt;&lt;em&gt;Fudge&lt;/em&gt;&lt;/a&gt; é um módulo &lt;em&gt;Python&lt;/em&gt; que auxilia na construção de
+objetos “dublês” (&lt;a href=&quot;http://www.infoq.com/br/articles/mocks-Arent-Stubs&quot; title=&quot;Mocks não são Stubs&quot;&gt;&lt;em&gt;mocks&lt;/em&gt; e &lt;em&gt;stubs&lt;/em&gt;&lt;/a&gt;), que permitem escrever testes
+sem necessariamente possuir um serviço ativo ou um objeto construído.&lt;/p&gt;
+&lt;p&gt;Um caso comum: Você está construindo uma &lt;em&gt;API&lt;/em&gt; que autentica via &lt;em&gt;OAuth&lt;/em&gt;
+ao &lt;em&gt;Twitter&lt;/em&gt; e está utilizando testes para guiar o seu desenvolvimento.
+Não é interessante que nossos testes sejam dependentes da
+disponibilidade do serviço do &lt;em&gt;Twitter&lt;/em&gt;, portanto, escrevemos um “objeto
+mentiroso”, que simulará este serviço, aceitando uma entrada e gerando
+um saída:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; fudge
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@fudge&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;patch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;oauthtwitter.OAuthApi&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;FakeOAuthApi&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;FakeOAuthApi&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;expects_call&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;with_args&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;returns_fake&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;expects&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;UpdateStatus&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;with_arg_count&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+post_msg_to_twitter&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;hey there fellow testing freaks!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Sabendo que valores serão passados, e quais os resultados,
+podemos simular o comportamento daquele serviço. Prático, não?&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Estas são as ferramentas que eu costumo utilizar em meus projetos
+&lt;em&gt;Python/Django&lt;/em&gt;. É claro que existem outras, na verdade existem várias.
+Tenha em mente que a ferramenta é apenas um meio de garantir, através de
+testes, que você está guiando a sua aplicação para o lugar certo. Os
+testes automatizados no final servem para garantir que ela ainda segue
+este caminho, que contribuições realizadas tardiamente não “quebraram” o
+comportamento que você escreveu no início do desenvolvimento.&lt;/p&gt;
+&lt;p&gt;Tenho a intenção de escrever um &lt;em&gt;post&lt;/em&gt; mais prático sobre testes e
+&lt;em&gt;Django&lt;/em&gt;. Fiquem no aguardo ;)&lt;/p&gt;
+&lt;p&gt;E você? Tem alguma ferramenta para recomendar? Utilize os comentários
+abaixo para compartilhá-la.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://cilliano.com/blog/2011/02/07/django-bdd-with-lettuce-and-splinter/&quot; title=&quot;Leia sobre Django, BDD, Lettuce e Splinter&quot;&gt;&lt;em&gt;CillianO – Django Full Stack Testing and BDD with Lettuce and Splinter&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.dtsato.com/blog/work/introduzindo_desenvolvimento_orientado_comportamento_bdd/&quot; title=&quot;Não sabe o que é BDD? Conheça neste artigo de Danilo Sato&quot;&gt;&lt;em&gt;Danilo Sato&lt;/em&gt; – Introduzindo Desenvolvimento Orientado por Comportamento &lt;em&gt;BDD&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jbalogh/django-nose&quot; title=&quot;Visite o repositório do django-nose no GitHub&quot;&gt;&lt;em&gt;django-nose – GitHub repository&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://farmdev.com/projects/fudge/using-fudge.html#fudging-a-web-service&quot; title=&quot;Documentação oficial do Fudge&quot;&gt;&lt;em&gt;Fudge – Using Fudge&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://jpz-log.info/archives/2010/06/08/nose-testing-in-python-made-easy/&quot; title=&quot;Testes em Python passam a ser mais fáceis com nose&quot;&gt;&lt;em&gt;JPz’log – nose: Testing in Python made easy&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://somethingaboutorange.com/mrl/projects/nose/1.0.0/writing_tests.html&quot; title=&quot;Aprenda a escrever testes Python com o Nose&quot;&gt;&lt;em&gt;Nose – Writing tests&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://splinter.cobrateam.info/&quot; title=&quot;Conheça o projeto Splinter, e envolva-se&quot;&gt;&lt;em&gt;Splinter – Test framework for web applications&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Ferramentas de testes em Django - Parte 1]]></title><description><![CDATA[Dando continuidade à série
+“Montando seu ambiente de desenvolvimento Django no Linux“, vou
 indicar algumas ferramentas de testes para que você também possa deixar
-com que os &lt;a href="https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html" title="TDD: Desenvolvimento Orientado a Testes"&gt;testes guiem o desenvolvimento de suas aplicações&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+com que os testes guiem o desenvolvimento de suas aplicações. Afinal, testar é preciso ;) Testar em Django é possível? Sem dúvida nenhuma…]]></description><link>https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 18 Jul 2011 22:06:00 GMT</pubDate><content:encoded>&lt;p&gt;Dando continuidade à série
+“&lt;a href=&quot;/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html&quot; title=&quot;Veja outros posts desta série&quot;&gt;Montando seu ambiente de desenvolvimento &lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;“, vou
+indicar algumas ferramentas de testes para que você também possa deixar
+com que os &lt;a href=&quot;/2011/01/27/tdd-desenvolvimento-orientado-testes.html&quot; title=&quot;TDD: Desenvolvimento Orientado a Testes&quot;&gt;testes guiem o desenvolvimento de suas aplicações&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Afinal, testar é preciso ;)&lt;/p&gt;
 &lt;h2&gt;Testar em Django é possível?&lt;/h2&gt;
-&lt;p&gt;Sem dúvida nenhuma! Mas não espere que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 18 Jul 2011 22:06:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-07-18:/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>testes</category><category>bdd</category><category>tdd</category></item><item><title>TDD: Desenvolvimento Orientado a Testes</title><link>https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html</link><description>&lt;p&gt;Esse post foi originalmente escrito para o &lt;a href="http://www.profissionaisti.com.br/" title="Tudo sobre Tecnologia! ProfissionaisTI"&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;, você
-pode conferi-lo na &lt;a href="http://www.profissionaisti.com.br/2009/11/tdd-desenvolvimento-orientado-a-testes/" title="TDD: Desenvolvimento Orientado a Testes"&gt;íntegra aqui&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Sem dúvida nenhuma! Mas não espere que o &lt;em&gt;framework&lt;/em&gt; adeque-se a você,
+você precisa ter a iniciativa de tentar compreender as melhores maneiras
+para escrever testes em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Por exemplo, se você tem por hábito isolar os modelos para &lt;a href=&quot;/tag/testes.html&quot; title=&quot;Leia mais sobre testes&quot;&gt;testá-los&lt;/a&gt;
+de forma unitária, pode passar por certa dor de cabeça com o
+&lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; / &lt;em&gt;Django&lt;/em&gt;. Não que seja impossível, mas o comportamento
+&lt;em&gt;default&lt;/em&gt; do &lt;em&gt;framework&lt;/em&gt; é criar uma base de dados “fake” para você não
+precisar ter este trabalho.&lt;/p&gt;
+&lt;p&gt;Enfim, talvez a forma de &lt;strong&gt;utilizar&lt;/strong&gt; estas ferramentas &lt;strong&gt;caiba em um
+outro &lt;em&gt;post&lt;/em&gt;&lt;/strong&gt;, o objetivo deste é &lt;strong&gt;apenas apresentá-las&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;unittest – Testando unidades através de classes&lt;/h2&gt;
+&lt;p&gt;A &lt;a href=&quot;http://docs.python.org/library/unittest.html&quot; title=&quot;unittest — Unit testing framework&quot;&gt;&lt;em&gt;unittest&lt;/em&gt;&lt;/a&gt; é uma biblioteca padrão do &lt;em&gt;Python&lt;/em&gt; que ajuda (e muito)
+a escrever testes automatizados com a linguagem.&lt;/p&gt;
+&lt;p&gt;Os testes são escritos através de classes, onde utilizamos os esquemas
+de &lt;a href=&quot;http://docs.python.org/library/unittest.html#assert-methods&quot; title=&quot;Veja a lista de asserts da unittest&quot;&gt;&lt;em&gt;assertions&lt;/em&gt;&lt;/a&gt; para garantir o comportamento do código testado
+(nenhuma novidade até aqui). Para quem utiliza testes unitários no
+&lt;em&gt;Java&lt;/em&gt; não vai sentir grandes mudanças na abordagem, já que a &lt;em&gt;unittest&lt;/em&gt;
+é inspirada na &lt;a href=&quot;http://javafree.uol.com.br/wiki/JUnit&quot; title=&quot;Leia mais sobre a JUnit&quot;&gt;&lt;em&gt;JUnit&lt;/em&gt;&lt;/a&gt; (sendo muitas vezes até chamada de &lt;em&gt;PyUnit&lt;/em&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; unittest
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; myapp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;models &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Animal
 
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AnimalTestCase&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;unittest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TestCase&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setUp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lion &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Animal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;create&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;lion&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; sound&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;roar&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cat &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Animal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;create&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;cat&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; sound&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;meow&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;testSpeaking&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;assertEquals&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;lion&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;speak&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;The lion says &quot;roar&quot;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;assertEquals&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cat&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;speak&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;The cat says &quot;meow&quot;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;test runner&lt;/em&gt; padrão do &lt;em&gt;Django&lt;/em&gt; irá procurar por subclasses de
+&lt;code class=&quot;language-text&quot;&gt;unittest.TestCase&lt;/code&gt; nos arquivos &lt;code class=&quot;language-text&quot;&gt;models.py&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;tests.py&lt;/code&gt;. A suíte
+de testes tenta facilitar ao máximo a sua vida… execute a seguinte
+instrução e confira se a sua aplicação está &lt;em&gt;ok&lt;/em&gt; ou não:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py test&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Peraí que não acabou! Apresentando a TestCase&lt;/h3&gt;
+&lt;p&gt;Testar aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt; com a &lt;em&gt;unittest&lt;/em&gt; pode ser dureza. Pensando
+nisso o &lt;em&gt;Django&lt;/em&gt; disponibiliza a &lt;code class=&quot;language-text&quot;&gt;TestCase&lt;/code&gt;, que estende a &lt;em&gt;unittest&lt;/em&gt;
+adicionando funcionalidades como carregamento de &lt;em&gt;fixtures&lt;/em&gt;, roteamento
+de &lt;em&gt;urls&lt;/em&gt; e um &lt;em&gt;client&lt;/em&gt; para fazer requisições &lt;em&gt;Web&lt;/em&gt; e testar as suas
+&lt;em&gt;views&lt;/em&gt; (o &lt;em&gt;TestClient&lt;/em&gt;, detalhado mais abaixo).&lt;/p&gt;
+&lt;h2&gt;doctest – Testando através de docstrings&lt;/h2&gt;
+&lt;p&gt;Admito que escrever documentação de &lt;em&gt;software&lt;/em&gt; não é o meu forte… mas
+com &lt;em&gt;doctests&lt;/em&gt; pode-se documentar métodos ao mesmo tempo em que
+escreve-se testes!&lt;/p&gt;
+&lt;p&gt;A &lt;a href=&quot;http://docs.python.org/library/doctest.html&quot; title=&quot;Leia mais sobre a doctest&quot;&gt;&lt;em&gt;doctest&lt;/em&gt;&lt;/a&gt; é uma biblioteca padrão do &lt;em&gt;Python&lt;/em&gt; que procura e
+interpreta &lt;a href=&quot;http://www.python.org/dev/peps/pep-0257/&quot; title=&quot;Entenda o que é uma docstring&quot;&gt;&lt;em&gt;docstrings&lt;/em&gt;&lt;/a&gt; na aplicação. A sintaxe nesses trechos de
+&lt;em&gt;docstrings&lt;/em&gt; é diferenciada, simulando um interpretador interativo do
+&lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# models.py&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;db &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; models
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Animal&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+  An animal that knows how to make noise
+
+  # Create some animals
+  &gt;&gt;&gt; lion = Animal.objects.create(name=&quot;lion&quot;, sound=&quot;roar&quot;)
+  &gt;&gt;&gt; cat = Animal.objects.create(name=&quot;cat&quot;, sound=&quot;meow&quot;)
+
+  # Make &apos;em speak
+  &gt;&gt;&gt; lion.speak()
+  &apos;The lion says &quot;roar&quot;&apos;
+  &gt;&gt;&gt; cat.speak()
+  &apos;The cat says &quot;meow&quot;&apos;
+  &quot;&quot;&quot;&lt;/span&gt;
+  name &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+  sound &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;speak&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;The %s says &quot;%s&quot;&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sound&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Assim como com a &lt;em&gt;unittest&lt;/em&gt;, o &lt;em&gt;test runner&lt;/em&gt; padrão do &lt;em&gt;Django&lt;/em&gt;
+procurará por ocorrências de &lt;em&gt;docstests&lt;/em&gt; em &lt;code class=&quot;language-text&quot;&gt;models.py&lt;/code&gt; e
+&lt;code class=&quot;language-text&quot;&gt;tests.py&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Django Test Client – Testando a sua aplicação como se fosse um navegador&lt;/h2&gt;
+&lt;p&gt;E como fazer para testar requisições &lt;em&gt;Web&lt;/em&gt;? Por exemplo, você não quer
+testar a sua &lt;em&gt;view&lt;/em&gt; de forma isolada, quer testar desde a parte de
+roteamento ao comportamento com o banco de dados, como se você se
+estivesse realmente visitando a página. Neste caso entra a &lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/testing/#module-django.test.client&quot; title=&quot;Testando aplicações Django com requisições Web falsas&quot;&gt;&lt;em&gt;test
+client&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Toda a classe &lt;code class=&quot;language-text&quot;&gt;TestCase&lt;/code&gt; possui uma instância da &lt;strong&gt;Django Test
+Client&lt;/strong&gt;. Então escrever testes com requisições à sua aplicação fica
+muito simples utilizando classes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;test &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; TestCase
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SimpleTest&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;TestCase&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_details&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    response &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;client&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/customer/details/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;assertEqual&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;status_code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    response &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;client&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/customer/index/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;assertEqual&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;status_code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É perfeitamente possível utilizar a &lt;strong&gt;test client&lt;/strong&gt; em &lt;em&gt;doctests&lt;/em&gt;
+também:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+&gt;&gt;&gt; from django.test.client import Client
+&gt;&gt;&gt; c = Client()
+&gt;&gt;&gt; response = c.post(&apos;/login/&apos;, {&apos;username&apos;: &apos;john&apos;,
+...        &apos;password&apos;: &apos;smith&apos;})
+&gt;&gt;&gt; response.status_code
+200
+&quot;&quot;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Particularmente, tive a oportunidade de implementar testes unitários já
+no início do meu aprendizado em &lt;em&gt;Django&lt;/em&gt;. Deixar os testes te guiarem é
+uma prática excelente!&lt;/p&gt;
+&lt;p&gt;Tudo parte do bom senso, óbvio. Nenhum processo ou ferramenta deveria
+substituir o “feeling” do profissional… também não é muito sadio ser
+extremamente “by the book“. Mas se puder utilizar testes para guiar o
+seu desenvolvimento, use-os!&lt;/p&gt;
+&lt;p&gt;Na segunda parte deste &lt;em&gt;post&lt;/em&gt; pretendo apresentar algumas ferramentas
+que irão turbinar ainda mais o seu desenvolvimento orientado a testes.&lt;/p&gt;
+&lt;p&gt;Até lá!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.1/topics/testing/#writing-unit-tests&quot; title=&quot;Leia direto da fonte como escrever testes em Django&quot;&gt;&lt;em&gt;Django Documentation – Writing unit tests&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.1/topics/testing/#writing-doctests&quot; title=&quot;Leia direto da fonte sobre como escrever testes com docstrings&quot;&gt;&lt;em&gt;Django Documentation – Writing doctests&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.1/topics/testing/#testcase&quot; title=&quot;Entenda a diferença entre unittest do Python e o TestCase do Django&quot;&gt;&lt;em&gt;Django Documentation – TestCase&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.python.org/library/unittest.html&quot; title=&quot;Leia sobre a unittest direto da documentação do Python&quot;&gt;&lt;em&gt;Python Documentation – unittest: Unit testing framework&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://dougalmatthews.com/articles/2010/jan/20/testing-your-first-django-app/&quot; title=&quot;Aprenda a testar a sua primeira aplicação em Django&quot;&gt;&lt;em&gt;Dougal Matthews – Testing your first Django app&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://kokoko.fluxionary.net/testing-django-part-1-nose&quot; title=&quot;O Konrad apresenta algumas ferramentas muito boas para testes com Django&quot;&gt;&lt;em&gt;Konrad’s Kode, Konfigs &amp;#x26; Konstructions – Testing Django&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.marinhobrandao.com/blog/programacao-dirigida-a-testes-no-django/&quot; title=&quot;Aprenda Django de uma forma divertida com o Marinho&quot;&gt;&lt;em&gt;Marinho Brandão&lt;/em&gt; – Programação dirigida a testes no &lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[TDD: Desenvolvimento Orientado a Testes]]></title><description><![CDATA[Esse post foi originalmente escrito para o Profissionais TI, você
+pode conferi-lo na íntegra aqui. O caos! Hoje em dia o agile passou de uma “técnica anarquista” para uma
+saborosa realidade, principalmente nas startups de tecnologia. Uma das características de qualquer método ou ferramenta agile é…]]></description><link>https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 27 Jan 2011 11:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Esse post foi originalmente escrito para o &lt;a href=&quot;http://www.profissionaisti.com.br/&quot; title=&quot;Tudo sobre Tecnologia! ProfissionaisTI&quot;&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;, você
+pode conferi-lo na &lt;a href=&quot;http://www.profissionaisti.com.br/2009/11/tdd-desenvolvimento-orientado-a-testes/&quot; title=&quot;TDD: Desenvolvimento Orientado a Testes&quot;&gt;íntegra aqui&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;O caos!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Hoje em dia o &lt;a href="https://klauslaube.com.br/tag/agile.html" title="Leia mais sobre Agile"&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt; passou de uma “técnica anarquista” para uma
+&lt;p&gt;Hoje em dia o &lt;a href=&quot;/tag/agile.html&quot; title=&quot;Leia mais sobre Agile&quot;&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt; passou de uma “técnica anarquista” para uma
 saborosa realidade, principalmente nas &lt;em&gt;startups&lt;/em&gt; de tecnologia.&lt;/p&gt;
 &lt;p&gt;Uma das características de qualquer método ou ferramenta &lt;em&gt;agile&lt;/em&gt; é que:
-&lt;strong&gt;Qualidade não é …&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 27 Jan 2011 11:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-01-27:/2011/01/27/tdd-desenvolvimento-orientado-testes.html</guid><category>desenvolvimento</category><category>testes</category><category>tdd</category><category>agile</category></item></channel></rss>
+&lt;strong&gt;Qualidade não é negociável&lt;/strong&gt;; Como podemos garantir que ao final de
+cada ciclo de entregas estamos entregando uma solução que atenda escopo,
+prazo e também qualidade?&lt;/p&gt;
+&lt;h2&gt;Test first&lt;/h2&gt;
+&lt;p&gt;Metodologias ágeis como o &lt;a href=&quot;/tag/scrum.html&quot; title=&quot;Leia mais sobre Scrum&quot;&gt;&lt;em&gt;Scrum&lt;/em&gt;&lt;/a&gt; e o &lt;em&gt;XP&lt;/em&gt; adotam a técnica “Test
+First”:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Primeiro escreva um teste que falhe&lt;/li&gt;
+&lt;li&gt;Depois escreva um código que faça o teste passar&lt;/li&gt;
+&lt;li&gt;Melhore o código escrito&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 220px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6d58617bdc43b76ee0fdd3d92d9a93d1/c8042/red-green-refactor.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.979166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAAC3ElEQVQozx3Q209SARzA8bNZWz2UD2n10NbKrTncMlcP1hxeuUiClpCAeMVLy2t4AVEpbiIewHOAw+HcAD3nCKigoIIu0knWlpe2eqie+ls69fDbvi+f/fb7AROTkyKh0GkzI8uuAOTCYA/hh8JBP0MGV4nACobQBMqQaCyCZ5KxVJxlKKy7q6OazwedDoDP5wMAsGY3nLHI6QaVp5Ec5U1BC1/XsKzPeUIjRyE4BS9kUfDX/kaewXYQV3lZKUeUr+RAfYOAq4hj7jvuODMPXbgN57axE9B4hDrzpOdzGD4mXP8iAp/HiZOI7wsdKHtQwhGZtAloft44Kxd9StIXoeXfxp4/3tmfS9MH1sl9mtxdwfPpeIYN7awSR1vst8PMQZw+Sq3fK7nPYZFYDHTLW9DGZ8eQJZeO4uu0gyVtlP+dyz6FgOkks43BH+PhXDS0RXgPN1b3VrEYZMeGukGVpFetANpbWxZqK5OmKTqEGIIeHeoe99iJAOgm4GyCzjH4hyjFySTuzUWpvZUAZRz3iSoRQcWUVgMMKl4u1lSmLHrS4RwbBS0m1DbvNemXvAuo2YxZzNjhJnu6G/1xmObWMvAiaZqceVr6sLCgjntWvUBQAAATbS2s27E0awnD/njAZ9ObEIeThHzg+8VUGMvSWJbBN3E45LZDRt2jO7e4m4VCETdCrvoVzduIC7fPR0BbwGZyG94yoDVDQazbmia9iSCUDiO7EYx0WiGz8Vrh9f9YCFTV1kp5JQcjAwndMDE+QOgGHFq1p7/jwDSRmhmKTg9So52eLplTJbEqxFZ1U6ekpuhGEYcFggaguq6u+FJBO690rp6/rJQRWjnZIfNrWhmtMtanivS1RQaVXrVIX8Xrrbg7Ul/ue908IpdeuXxVLBIDCoWi+Obtx+UV0toajaxJ+7JloPWFViqZl4mDPaqY7k3CMBbTD1PDGlub2NLeyBq12/axJ2W8NqXmL4nWVcR08rjdAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;red, green, refactor&amp;quot;&quot;
+        title=&quot;Red, Green, Refactor!&quot;
+        src=&quot;/static/6d58617bdc43b76ee0fdd3d92d9a93d1/c8042/red-green-refactor.png&quot;
+        srcset=&quot;/static/6d58617bdc43b76ee0fdd3d92d9a93d1/8514f/red-green-refactor.png 192w,
+/static/6d58617bdc43b76ee0fdd3d92d9a93d1/c8042/red-green-refactor.png 220w&quot;
+        sizes=&quot;(max-width: 220px) 100vw, 220px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Red, Green, Refactor!&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Além da garantia de que sua aplicação irá
+funcionar após uma atualização ou &lt;em&gt;bugfix&lt;/em&gt;, devemos levar em conta que
+estamos indo além do simples ato de testar. É nisso que muita gente se
+confunde quando fala-se em &lt;a href=&quot;/tag/tdd.html&quot; title=&quot;Leia mais sobre TDD&quot;&gt;&lt;em&gt;Test-Driven Development&lt;/em&gt;&lt;/a&gt;: Não trata-se
+apenas de testes, trata-se de design!&lt;/p&gt;
+&lt;p&gt;Os testes passam a ser a sua especificação, passam a ser a forma de você
+medir se o seu &lt;em&gt;software&lt;/em&gt; está sendo conduzido para o real objetivo ou
+não. Literalmente, os &lt;strong&gt;testes guiam o seu desenvolvimento&lt;/strong&gt; – mas isso
+não garante que a solução como um todo esteja funcional, por isso é
+necessário uma pitada de bom senso (como em tudo na vida).&lt;/p&gt;
+&lt;p&gt;Quando você menos espera, a construção dos testes automatizados passou
+de “testes” para “desenvolvimento”. Ou seja, esse método irá fazer parte
+do processo de construção de código e você começará a medir qualquer
+estimativa referente a codificação com os testes inclusos, naturalmente.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;web&lt;/em&gt; está repleta de artigos sobre como construir estes testes, como
+executá-los, etc. Então, não vou ficar repetindo o que o &lt;em&gt;Google&lt;/em&gt; pode
+responder.&lt;/p&gt;
+&lt;h2&gt;Automatizar = Agilidade?&lt;/h2&gt;
+&lt;p&gt;Mas porque &lt;em&gt;TDD&lt;/em&gt; ajuda tanto? Será que vale a pena praticar?&lt;/p&gt;
+&lt;p&gt;Quando comecei a programar orientado a objetos, tinha em mente que
+aquilo era só curiosidade, que no modo estruturado estava muito bom e
+não via a real utilidade daquilo tudo. Claro, isso até ser completamente
+envolvido por &lt;em&gt;OOP&lt;/em&gt;, e quando me dei conta não sabia mais viver sem ele.&lt;/p&gt;
+&lt;p&gt;Agora já posso dizer o mesmo de &lt;em&gt;TDD&lt;/em&gt;. O prazer de construirmos
+orientados a testes, através de um processo &lt;em&gt;baby-steps&lt;/em&gt;, é desafiador…
+voltei a acreditar que posso fazer &lt;em&gt;software&lt;/em&gt; bom e de qualidade, pois:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A taxa de acerto é alta&lt;/li&gt;
+&lt;li&gt;A ocorrência de erros diminui&lt;/li&gt;
+&lt;li&gt;Você ganha confiança no que está produzindo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mesmo que você perca tempo não previsto no desenvolvimento, poupa tempo
+(espero eu que) previsto nos testes. No começo a performance do
+desenvolvedor cai significativamente… mas com o tempo irá tornar-se uma
+prática para dar maior segurança em relação a qualidade do seu
+&lt;em&gt;software&lt;/em&gt;, e também dar maior segurança a você.&lt;/p&gt;</content:encoded></item></channel></rss>

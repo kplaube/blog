@@ -1,34 +1,795 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - agile</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 07 Jan 2020 16:00:00 -0300</lastBuildDate><item><title>Software Design x Software Architecture</title><link>https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html</link><description>&lt;p&gt;Uma das características que eu mais gosto no &lt;a href="https://klauslaube.com.br/tag/agile.html" title="Leia mais sobre ágil"&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - agile]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Software Design x Software Architecture]]></title><description><![CDATA[Uma das características que eu mais gosto no agile
 é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores generalistas,
 falo também das responsabilidades que em um modelo mais parecido com o
-&lt;em&gt;waterfall&lt;/em&gt; seriam atribuídas a um indivíduo apenas, mas que no ágil são diluídas na equipe …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 07 Jan 2020 16:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-01-07:/2020/01/07/software-design-software-architecture.html</guid><category>desenvolvimento</category><category>análise</category><category>arquitetura-de-software</category><category>design-de-software</category><category>agile</category><category>safe</category></item><item><title>Diferentes ambientes: Development, Testing, Staging e Production</title><link>https://klauslaube.com.br/2011/03/07/diferentes-ambientes.html</link><description>&lt;p&gt;Uma das práticas mais interessantes nessa
-“nova onda” de qualidade que está “encrostada” nas práticas &lt;a href="https://klauslaube.com.br/tag/agile.html" title="Leia mais sobre Agile"&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt;
+waterfall seriam atribuídas a um indivíduo apenas, mas que no ágil são diluídas…]]></description><link>https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 07 Jan 2020 16:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Uma das características que eu mais gosto no &lt;a href=&quot;/tag/agile.html&quot; title=&quot;Leia mais sobre ágil&quot;&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt;
+é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores generalistas,
+falo também das responsabilidades que em um modelo mais parecido com o
+&lt;em&gt;waterfall&lt;/em&gt; seriam atribuídas a um indivíduo apenas, mas que no ágil são diluídas na equipe.&lt;/p&gt;
+&lt;p&gt;Como o time geralmente trabalha em um escopo focado,
+com quem fica a responsabilidade da arquitetura de toda uma solução?
+Quem pensa no longo prazo? Na comunicação entre serviços e componentes?&lt;/p&gt;
+&lt;p&gt;Até onde vai a responsabilidade de &lt;em&gt;design&lt;/em&gt; e começa a de arquitetura?&lt;/p&gt;
+&lt;h2&gt;Definição&lt;/h2&gt;
+&lt;p&gt;Fundamentalmente, há distinção entre as disciplinas de &lt;em&gt;software design&lt;/em&gt; e
+&lt;em&gt;software architecture&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Software design&lt;/strong&gt;: Foca nos aspectos mais &quot;baixo nível&quot; do sistema;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Software architecture&lt;/strong&gt;: Olha para aspectos mais &quot;alto nível&quot; do sistema.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 733px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/40c89cf82db1e91aeb3b2649da0e9dcf/b8220/matrix-filosofia.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.77083333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGZlUVhYuh//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAECAxIhI0H/2gAIAQEAAQUCyo9sZWSIrcf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAAEAECMSH/2gAIAQEABj8C6sMgqv/EABsQAQACAwEBAAAAAAAAAAAAAAEAESExUWGR/9oACAEBAAE/IVQCrnAT1fJQDBfIWrRiWz//2gAMAwEAAgADAAAAEIQf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QR//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPxCMf//EAB4QAAEEAQUAAAAAAAAAAAAAAAEAESExQWFxkaHx/9oACAEBAAE/EG2CA8QBIviaL2mb7CKNicNUTAihDZW1wF//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Oráculo e Neo em The Matrix&quot;
+        title=&quot;Calma! Não vamos misturar filosofia e programação. Mas piadas com o The Matrix estão liberadas (rottenmelon.tripod.com)&quot;
+        src=&quot;/static/40c89cf82db1e91aeb3b2649da0e9dcf/b8220/matrix-filosofia.jpg&quot;
+        srcset=&quot;/static/40c89cf82db1e91aeb3b2649da0e9dcf/7809d/matrix-filosofia.jpg 192w,
+/static/40c89cf82db1e91aeb3b2649da0e9dcf/4ecad/matrix-filosofia.jpg 384w,
+/static/40c89cf82db1e91aeb3b2649da0e9dcf/b8220/matrix-filosofia.jpg 733w&quot;
+        sizes=&quot;(max-width: 733px) 100vw, 733px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Calma! Não vamos misturar filosofia e programação. Mas piadas com o The Matrix estão liberadas (rottenmelon.tripod.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Mesmo assim, não é raro misturarmos as duas responsabilidades e atribuí-las a um papel só. O que não é
+necessariamente um problema, já que as disciplinas podem ser encaradas como o mesmo problema
+em escalas diferentes.&lt;/p&gt;
+&lt;h2&gt;Software Architecture&lt;/h2&gt;
+&lt;p&gt;Definir arquitetura de &lt;em&gt;software&lt;/em&gt; é um desafio. O &lt;a href=&quot;https://pt.wikipedia.org/wiki/Arquitetura_de_software&quot; title=&quot;Arquitetura de Software no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt; define o termo da seguinte forma:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) consiste na definição dos componentes de software, suas propriedades externas, e seus relacionamentos com outros softwares. O termo também se refere à documentação da arquitetura de software do sistema. A documentação da arquitetura do software facilita: a comunicação entre os stakeholders, registra as decisões iniciais acerca do projeto de alto-nível, e permite o reúso do projeto dos componentes e padrões entre projetos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Eu me dou conta que estou nos &quot;domínios&quot; da arquitetura de &lt;em&gt;software&lt;/em&gt; quando estou debatendo as &quot;ilities&quot; de um projeto. Portanto, a definição do &lt;a href=&quot;https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830&quot; title=&quot;Software Architecture - The Difference Between Architecture and Design&quot;&gt;&lt;em&gt;Codeburst&lt;/em&gt;&lt;/a&gt; casa melhor com a minha compreensão sobre o assunto:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In simple words, software architecture is the process of converting software characteristics such as flexibility, scalability, feasibility, reusability, and security into a structured solution that meets the technical and the business expectations. This definition leads us to ask about the characteristics of a software that can affect a software architecture design. There is a long list of characteristics which mainly represent the business or the operational requirements, in addition to the technical requirements.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Portanto, quando há um requisito de produto que demanda rápida adaptação do modelo de negócios, pois a empresa ainda está procurando o seu &lt;em&gt;market fit&lt;/em&gt;, a solução poderia ser &lt;strong&gt;extensível&lt;/strong&gt;, &lt;strong&gt;modular&lt;/strong&gt; e de &lt;strong&gt;fácil alteração&lt;/strong&gt;. Essas qualidades possivelmente não se encaixarão em um projeto de perfil mais conservador, como um sistema bancário, por exemplo, que teria como uma provável &lt;em&gt;ility&lt;/em&gt; a &lt;strong&gt;segurança&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 734px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a22b4a33ec2154486727e674c8461260/7043a/the-matrix-the-keymaker.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.14583333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIBAwQF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB5Trfm8ZJR//EABkQAAIDAQAAAAAAAAAAAAAAAAECABIhA//aAAgBAQABBQJRH5kLkTBe0JIb/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQElFx/9oACAEBAAY/AhPVFjgz/8QAGxABAQEAAgMAAAAAAAAAAAAAAREAITFBUaH/2gAIAQEAAT8hKOEPVNRwmPtNkcMA/WIL53//2gAMAwEAAgADAAAAEH/v/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EFxn/8QAGxABAQACAwEAAAAAAAAAAAAAAREAUSExgbH/2gAIAQEAAT8QgEOqzBPSDS2MZ9yYBQ73l+wDIJ6OFewgTbWvMNNRczvP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;O Keymaker em The Matrix&quot;
+        title=&quot;Quem tem que lidar com certificados no cotidiano reza para ter um Keymaker na empresa (reddit.com)&quot;
+        src=&quot;/static/a22b4a33ec2154486727e674c8461260/7043a/the-matrix-the-keymaker.jpg&quot;
+        srcset=&quot;/static/a22b4a33ec2154486727e674c8461260/7809d/the-matrix-the-keymaker.jpg 192w,
+/static/a22b4a33ec2154486727e674c8461260/4ecad/the-matrix-the-keymaker.jpg 384w,
+/static/a22b4a33ec2154486727e674c8461260/7043a/the-matrix-the-keymaker.jpg 734w&quot;
+        sizes=&quot;(max-width: 734px) 100vw, 734px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Quem tem que lidar com certificados no cotidiano reza para ter um Keymaker na empresa (reddit.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_system_quality_attributes&quot; title=&quot;Veja a lista no Wikipedia&quot;&gt;Confira uma lista completa de &lt;em&gt;system quality attributes&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Esses aspectos são de responsabilidade do arquiteto de &lt;em&gt;software&lt;/em&gt; de levantar, debater, e de setar como &lt;em&gt;boundaries&lt;/em&gt; do projeto em questão. Sem dúvida elas passam a influenciar o &lt;em&gt;design&lt;/em&gt; dos componentes que serão construídos durante o tempo de projeto.&lt;/p&gt;
+&lt;h3&gt;O arquiteto&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Kostadis Roussos&lt;/em&gt;, no breve (mas excelente) &lt;a href=&quot;https://medium.com/@kostadisroussos/21-architecturalist-papers-always-be-right-right-now-1552af8dc330&quot; title=&quot;Leia na íntegra no Medium&quot;&gt;&quot;21 architecturalist papers: always be right, right now.&quot;&lt;/a&gt; define o papel do arquiteto salientando o seguinte atributo:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;An architect has visions of the future, and those visions are often years away from delivery, and worse, even more years away from solving any of the immediate problems engineering management has.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Segundo &lt;em&gt;Kostadis&lt;/em&gt;, o arquiteto precisa guiar o projeto para a direção correta. Dentro do contexto ágil, sabemos que essa direção pode mudar, mas ainda assim o arquiteto deve ser capaz de se adaptar a essa mudança, mudar o curso, e continuar fazendo com que o projeto siga o caminho certo.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 559px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/10180e9ff7784e48836fe0a7ef59f3c7/a65ce/the-architect.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAADHklEQVQozw2S7U8aBwCHL0sWV1l1Nd0al7KqvBx33nGewAl6JyDj5Ricgt4pOakileEocgKHaO2sGvDA3vnSERydkTkNTbXbsm6fljRpsi/rX1X+gF/y/J48AGIahHEENRth3EC5rQRlgoYNrsAYzVA96i8DDP3h7Zv/ri9pv6fjC1X3vbvd93owAiKdBEHhADRk4KJBh5v8euA+5RkfsdvuD6hH7CPDpLnjzucJnvtHeXoQCzHjI5/eutV5W9XZfdtoMTp9dhA1AFanaTkxNcW6+qD++Vgg/iikMWr4pclcPtrV2xNlvOfrcYmnOWp4wNDfq+5V9XRPsq518eGYywJAGAwaIb3RoIG1QwQG47AO0VooHDFBn6g67JTtbDuzk2ARWNsG+ayrU3Wnq30Qs6CYBQFMY3jyhwjNONX6Pi7KMDM+te6BL+xhF8J2ryv/pChLu0J6ObOe42PzpIO62/sV6R6NPAzjVhwYnTD7v6OcXpseA6fnPCzn0WP6eJr//e/Wu//fv/7rOlvM7Uh7F62L6z9vWjevZiIz/ikqneIcPhsAYzBG4FoE/Eb3YNCEgkODbXOPxdTVzW+NZr328kWz9et+pZwVhdrL+p60F08sQZhBg4CQEQLo6W9FMRaa9aEEKhRiyytzZrtVOqqeXTQazdPKYeX8spleS8knz+UXslBYTSTj0TibzS9N+O2AkyaHCdRM4kYr6nRbLaNokAsqtcOjutIeH9WUxvnP8k/y6S/17fL247VkYTM3w/lDYYcrQAK4DXd4ne1I+sCBca+dmQ3lirnCZl6pydUjqXoo1c/qklIpH5TErfyjlVg6kwiFA0bLEIiAALc4VRQXwxGvL+i+bDVe/fH6+Ylc2MyeNE7EjXz1sHJ8erxdfvZkdyu7ISyvLJYqu82ri51ynp0PAp6gQw9rLKN47an45ri8MM9Os5OpteS+UuLmQrvS3o70LCUkBXG1zRzhw1Wp9O/V6VYhwczS7cKsDtpBkMRBgs/MBjW6fu2gbkX4nhy3urxOSdkvHZQy+dWFJT5XFKa5gLKRfSv/yDMTesTwETw6CZE8kmlTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;O arquiteto em The Matrix&quot;
+        title=&quot;Não é desse arquiteto que estamos falando (quora.com)&quot;
+        src=&quot;/static/10180e9ff7784e48836fe0a7ef59f3c7/a65ce/the-architect.png&quot;
+        srcset=&quot;/static/10180e9ff7784e48836fe0a7ef59f3c7/8514f/the-architect.png 192w,
+/static/10180e9ff7784e48836fe0a7ef59f3c7/804b2/the-architect.png 384w,
+/static/10180e9ff7784e48836fe0a7ef59f3c7/a65ce/the-architect.png 559w&quot;
+        sizes=&quot;(max-width: 559px) 100vw, 559px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não é desse arquiteto que estamos falando (quora.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Além de ser &quot;high-level o suficiente&quot; para ter a visão do todo, o arquiteto ainda é responsável por gerenciar expectativas de gerentes, diretores, &lt;em&gt;product owners&lt;/em&gt;, e até mesmo dos próprios engenheiros. E em relação à engenharia a balança pode ser ainda mais frágil, uma vez que ele deve ser &quot;distante o suficiente&quot; para que um &lt;em&gt;gap&lt;/em&gt; criativo seja formado, e que engenharia tenha a oportunidade de inovar.&lt;/p&gt;
+&lt;p&gt;Então chegamos ao melhor parágrafo do texto de &lt;em&gt;Roussos&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In short, you need to be right, and high-level enough that you can’t be wrong, but if that’s where you end, you fail.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Chris Richardson&lt;/em&gt;, no livro &lt;a href=&quot;https://www.goodreads.com/book/show/34372564-microservice-patterns?ac=1&amp;#x26;from_search=true&amp;#x26;qid=cFhoy0HIPb&amp;#x26;rank=1&quot; title=&quot;Veja no Goodreads&quot;&gt;&lt;em&gt;Microservices Patterns&lt;/em&gt;&lt;/a&gt;, estressa um pouco mais sobre a importância desse papel:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Architecture is important because it enables an application to satisfy the second category of requirements: its quality of service requirements. These are also known as quality attributes and are the so-called -ilities. The quality of service requirements define the runtime qualities such as scalability and reliability. They also define development time qualities including maintainability, testability, and deployability. The architecture you choose for your application determines how well it meets these quality requirements.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;Padrões e ferramentas&lt;/h3&gt;
+&lt;p&gt;Encontramos alguns estilos já estabelecidos e bem conhecidos de arquiteturas que resolvem combinações de qualidades, como o caso do &lt;a href=&quot;https://microservices.io/patterns/monolithic.html&quot; title=&quot;Leia mais no microservices.io&quot;&gt;&lt;em&gt;Monolithic Architecture&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven&quot; title=&quot;Leia mais na documentação do Azure&quot;&gt;&lt;em&gt;Event-Driven (Implicit Invocation) Architecture&lt;/em&gt;&lt;/a&gt;, e talvez o mais &quot;hypado&quot;, &lt;a href=&quot;https://www.infoq.com/br/news/2014/07/introducing-microservices/&quot; title=&quot;Leia a introdução no InfoQ&quot;&gt;&lt;em&gt;Microservices Architecture&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Eles podem fazer uso de um ou mais padrões de arquitetura, como por exemplo, a arquitetura monolítica pode ser composta pelos padrões &lt;a href=&quot;https://en.wikipedia.org/wiki/Multitier_architecture&quot; title=&quot;Leia na íntegra no Wikipedia&quot;&gt;&lt;em&gt;n-tier&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller&quot; title=&quot;LEia na íntegra no Wikipedia&quot;&gt;&lt;em&gt;model-view-controller&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/216ac6208b49cedeac31cbbc2c74f14f/07f3a/the-matrix-architect-neo.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHE9V5IxWD/xAAaEAACAgMAAAAAAAAAAAAAAAAAAQIRAxAS/9oACAEBAAEFAuWyWOii9M//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAXEAADAQAAAAAAAAAAAAAAAAAAATEg/9oACAEBAAY/AoQjx//EABkQAQEBAQEBAAAAAAAAAAAAAAERACExcf/aAAgBAQABPyEp74o8uRQfh2azlPmFq5N3/9oADAMBAAIAAwAAABD4/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxCq/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EABwQAQACAwADAAAAAAAAAAAAAAEAESExUUFh8P/aAAgBAQABPxBR2qC1m4DXFvamZqiGkUfXc7Y9vEFi1P/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Neo e Arquiteto em The Matrix&quot;
+        title=&quot;Não é só de terno e vis-a-vis que vive um arquiteto (lascimmiapensa.com)&quot;
+        src=&quot;/static/216ac6208b49cedeac31cbbc2c74f14f/07f3a/the-matrix-architect-neo.jpg&quot;
+        srcset=&quot;/static/216ac6208b49cedeac31cbbc2c74f14f/7809d/the-matrix-architect-neo.jpg 192w,
+/static/216ac6208b49cedeac31cbbc2c74f14f/4ecad/the-matrix-architect-neo.jpg 384w,
+/static/216ac6208b49cedeac31cbbc2c74f14f/07f3a/the-matrix-architect-neo.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não é só de terno e vis-a-vis que vive um arquiteto (lascimmiapensa.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_software_architecture_styles_and_patterns&quot; title=&quot;List of software architecture styles and patterns&quot;&gt;Lista de estilos e padrões de arquitetura de &lt;em&gt;software&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Algumas ferramentas estão disponíveis para auxiliar o arquiteto na tarefa de modelar a solução, bem como de expor determinados detalhes para diferentes tipos de &lt;em&gt;stakeholders&lt;/em&gt;. Talvez a &lt;em&gt;top of mind&lt;/em&gt; seja a própria &lt;a href=&quot;https://www.visual-paradigm.com/guide/uml-unified-modeling-language/modeling-software-architecture-with-package/&quot; title=&quot;UML: Modeling Software Architecture with Packages&quot;&gt;&lt;em&gt;UML&lt;/em&gt;&lt;/a&gt;. Outra opção é o &lt;em&gt;4 + 1 architectural view model&lt;/em&gt;, que é uma espécie de &lt;em&gt;framework&lt;/em&gt; que auxilia na separação de diferentes aspectos do sistema em diferentes visões (que podem inclusive utilizar artefatos da &lt;em&gt;UML&lt;/em&gt; para os seus propósitos).&lt;/p&gt;
+&lt;p&gt;As visões são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Logical view:&lt;/strong&gt; Preocupa-se com a funcionalidade que o sistema provê para o usuário final. Utiliza &lt;a href=&quot;https://en.wikipedia.org/wiki/Class_diagram&quot; title=&quot;Class diagram&quot;&gt;diagramas de classe&lt;/a&gt; e de &lt;a href=&quot;https://en.wikipedia.org/wiki/State_diagram&quot; title=&quot;State diagram&quot;&gt;estado&lt;/a&gt; da &lt;em&gt;UML&lt;/em&gt;, e é relevante para desenvolvedores;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Process view:&lt;/strong&gt; Descreve processos concorrentes dentro de um sistema. Pode englobar requisitos não funcionais, como performance e disponibilidade, e é representado através do &lt;a href=&quot;https://www.tutorialspoint.com/uml/uml_activity_diagram.htm&quot; title=&quot;Activity diagram&quot;&gt;diagrama de atividade&lt;/a&gt; da &lt;em&gt;UML&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Development view:&lt;/strong&gt; Foca na ótica do programador, e descreve componentes do sistema. Utiliza o diagrama de &lt;a href=&quot;https://en.wikipedia.org/wiki/Component_diagram&quot; title=&quot;Component diagram&quot;&gt;componente&lt;/a&gt; e de &lt;a href=&quot;https://en.wikipedia.org/wiki/Package_diagram&quot; title=&quot;Package diagram&quot;&gt;pacote&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Physical view:&lt;/strong&gt; Descreve a topologia do sistema de uma perspectiva física. Por exemplo, quantos nós são utilizados, o que é &quot;deployado&quot; em cada nó, como escala, etc. Utiliza o &lt;a href=&quot;https://en.wikipedia.org/wiki/Deployment_diagram&quot; title=&quot;Deployment diagram&quot;&gt;diagrama de &lt;em&gt;deploy&lt;/em&gt;&lt;/a&gt; da &lt;em&gt;UML&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Use case view:&lt;/strong&gt; Descreve a funcionalidade do sistema da perspectiva do mundo exterior, ou seja, ilustra o que o sistema deveria fazer através de cenários, que são determinantes para identificar elementos da arquitetura e validar &lt;em&gt;design&lt;/em&gt;. Utiliza casos de uso da &lt;em&gt;UML&lt;/em&gt;, e todas as outras visões utilizam dessa (e de seus cenários) para guiá-las.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.coursera.org/lecture/software-architecture/3-1-2-kruchtens-4-1-model-view-z65ZO&quot; title=&quot;Kruchten&amp;#x27;s 4 + 1 Model View&quot;&gt;Assista à introdução ao &lt;em&gt;4 + 1&lt;/em&gt; no Coursera&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para finalizar, outra prática bem interessante é a escrita de &lt;a href=&quot;https://etutorials.org/Programming/Software+architecture+in+practice,+second+edition/Part+Two+Creating+an+Architecture/Chapter+4.+Understanding+Quality+Attributes/4.3+System+Quality+Attributes/&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&lt;em&gt;Quality Attribute Scenarios&lt;/em&gt;&lt;/a&gt;, que são requisitos não funcionais, específicos para mensurar a qualidade da sua solução para problemas específicos.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/779789a21aa47e2172f859163d9ba782/50383/example-quality-attributes.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.541666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA5UlEQVQY051QSY6EMAzk/6/jC8AgBKOQjTg7nupE6kXq0/jglO2qSuKBv8XdQkpZSun4K224rgsHSCGEnDNAbgGgtU4p9U7P3vtay0s8TROOGCNc3i+ptVproXm+BR2tjffpQwx7DJB7KwRP5EupEEBMRLGNUDacfcBlTayUAgPi2BvM1jrCvLGRnXPkbC+B8fyUOXTxuq74LbpwwZeQCVzH2sA+SXmivNyt9J1iUUoSBUyV4VJ5GMcRAiHEPM8Ay7KcpxCKt/2xCCwcvqfi/ZdjKsdxGGO3g6cfzpmHfccOAv8r/gA6tdMljHwOFQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de Quality Attributes revisados&quot;
+        title=&quot;Exemplo de Quality Attributes revisados&quot;
+        src=&quot;/static/779789a21aa47e2172f859163d9ba782/50383/example-quality-attributes.png&quot;
+        srcset=&quot;/static/779789a21aa47e2172f859163d9ba782/8514f/example-quality-attributes.png 192w,
+/static/779789a21aa47e2172f859163d9ba782/804b2/example-quality-attributes.png 384w,
+/static/779789a21aa47e2172f859163d9ba782/50383/example-quality-attributes.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de Quality Attributes revisados&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.coursera.org/lecture/software-architecture/3-3-1-quality-attributes-xAwkW&quot; title=&quot;Quality Attributes&quot;&gt;Veja mais na excelente aula do &lt;em&gt;Coursera&lt;/em&gt; sobre &lt;em&gt;Quality Attributes&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Software Design&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://www.coursera.org/learn/object-oriented-design/&quot; title=&quot;Object-Oriented Design no Coursera&quot;&gt;curso &lt;em&gt;Object-Oriented Design&lt;/em&gt;&lt;/a&gt;,
+da Universidade de Alberta, define &lt;em&gt;software design&lt;/em&gt; da seguinte forma:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The process of planning a software solution, taking the requirements and constraints into account.
+Divided into higher-level conceptual design and more specific technical design.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O foco está em pensar na solução para um problema específico, projetando detalhes de um determinado
+componente e suas responsabilidades, e utilizando de artefatos que ajudem no debate
+com a camada mais próxima de negócios (&lt;em&gt;high-level&lt;/em&gt;, mais conceitual) e mais próxima de implementação
+(&lt;em&gt;low-level&lt;/em&gt;, técnica).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0fadc627531272819d6f78dc90f06355/07f3a/the-matrix-mouser.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABwNwjYWGv/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAIDAUFD/9oACAEBAAEFAlXCiZN9lM8qHP/EABYRAQEBAAAAAAAAAAAAAAAAAAARQf/aAAgBAwEBPwHEf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAEDBQAAAAAAAAAAAAAAAAEAAhAhMUFygf/aAAgBAQAGPwJpuCqZh/E3UR//xAAdEAACAgEFAAAAAAAAAAAAAAAAARExIRBRcaGx/9oACAEBAAE/IZzosTQpqidDzwmkLM2/rSFTg//aAAwDAQACAAMAAAAQDA//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8Q2EP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8QjX//xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFRYYGx/9oACAEBAAE/EKA3IeC7D3M97HAmt5h1qmAzuaqb6ajUurVHjJkDCnyf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Mouser em The Matrix&quot;
+        title=&quot;Um viva para o designer da Mulher de Vermelho (ballardwachowskiproject.wordpress.com)&quot;
+        src=&quot;/static/0fadc627531272819d6f78dc90f06355/07f3a/the-matrix-mouser.jpg&quot;
+        srcset=&quot;/static/0fadc627531272819d6f78dc90f06355/7809d/the-matrix-mouser.jpg 192w,
+/static/0fadc627531272819d6f78dc90f06355/4ecad/the-matrix-mouser.jpg 384w,
+/static/0fadc627531272819d6f78dc90f06355/07f3a/the-matrix-mouser.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Um viva para o designer da Mulher de Vermelho (ballardwachowskiproject.wordpress.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Esse passo tem presença constante no início das iterações no modelo iterativo/incremental, e pode ser desempenhado
+por diferentes papéis dentro de um time (naturalmente, com envolvimento dos desenvolvedores).&lt;/p&gt;
+&lt;h3&gt;Design conceitual&lt;/h3&gt;
+&lt;p&gt;Partimos do princípio que tudo origina-se de um requisito:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Quero ver a minha lista de músicas favoritas.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Requisitos podem ser &quot;funcionais&quot; (como o exemplo acima), ou &quot;não funcionais&quot; (como o exemplo de &quot;ilities&quot; da seção anterior).
+Quando falamos de &lt;em&gt;design&lt;/em&gt; conceitual, geralmente nos referimos ao primeiro tipo, e através de discussões mais próximas do problema exploramos soluções.&lt;/p&gt;
+&lt;p&gt;Nessa etapa é comum lidar com ferramentas, preferencialmente de baixo custo e fácil alteração, que consigam
+&quot;traduzir&quot; a solução sendo discutida em artefatos visuais, como por exemplo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Diagramas de alto nível:&lt;/strong&gt; Para exemplificar relacionamentos entre o usuário, interface e demais componentes (não técnico);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Wireframes:&lt;/strong&gt; Para discutir elementos em uma interface de usuário;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Protótipos:&lt;/strong&gt; Para demonstrar comportamentos;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Mockups:&lt;/strong&gt; Para refletir decisões de &lt;em&gt;design&lt;/em&gt; como cores, &lt;em&gt;layouts&lt;/em&gt;, tipografia, interações, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Uma outra forma de debatermos requisitos sob uma ótica conceitual é através da construção de &lt;em&gt;user stories&lt;/em&gt;. Com elas,
+podemos tomar algumas liberdades para sermos mais específicos sobre as necessidades e expectativas que precisam ser atendidas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Eu como um usuário autenticado,
+Quero poder visualizar as minhas músicas favoritas,
+Para que eu consiga ouví-las com facilidade e maior frequência.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Design técnico&lt;/h3&gt;
+&lt;p&gt;Com o &lt;em&gt;design&lt;/em&gt; técnico, estamos enfim discutindo aspectos voltados à &quot;solução prática&quot;. Mas nem por isso deixamos de ser expostos a abstrações, como por exemplo, se você estiver utilizando &lt;a href=&quot;/tag/oop.html&quot; title=&quot;Leia mais sobre Orientação a Objetos&quot;&gt;&lt;em&gt;OOP&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento&quot; title=&quot;O que é um diagrama de entidade e relacionamento?&quot;&gt;Diagrama de Entidade e Relacionamento (ER)&lt;/a&gt;: Caso você esteja partindo da ótica do seu banco de dados;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/&quot; title=&quot;What is Unified Modeling Language?&quot;&gt;&lt;em&gt;UML&lt;/em&gt;&lt;/a&gt;: Caso você queira esquematizar relacionamentos e ciclo de vida dos seus componentes;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://atomicobject.com/resources/oo-programming/crc-cards&quot; title=&quot;CRC Cards&quot;&gt;Cartões &lt;em&gt;CRC&lt;/em&gt;&lt;/a&gt;: Uma alternativa mais &quot;barata&quot; ao &lt;em&gt;UML&lt;/em&gt;, útil para descrever relacionamentos entre entidades.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ainda utilizando o contexto de orientação a objetos, outro tópico que pode aparecer nesse momento são os &lt;a href=&quot;/tag/design-patterns.html&quot; title=&quot;Leia mais sobre Design Patterns&quot;&gt;&lt;em&gt;Design Patterns&lt;/em&gt;&lt;/a&gt;. No caso da construção de &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, uma possibilidade é a construção do contrato via &lt;a href=&quot;/2017/11/25/swagger-e-o-open-api-initiative.html&quot; title=&quot;Swagger e o Open API Initiative&quot;&gt;&lt;em&gt;Swagger file&lt;/em&gt;&lt;/a&gt;. Enfim, estamos mais próximos de ideias e artefatos que representem de fato o sistema.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 580px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fbe78afa37ef4a8565412eea8f336018/78d0c/the-matrix-tank.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.45833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAeRNZhI//8QAGRAAAgMBAAAAAAAAAAAAAAAAADEBAhEi/9oACAEBAAEFAmS2bwWf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFRABAQAAAAAAAAAAAAAAAAAAICH/2gAIAQEABj8Ci//EABsQAAIDAAMAAAAAAAAAAAAAAAERACExEEGh/9oACAEBAAE/ISCAQ5AGIcM+xlL7Ubs3fH//2gAMAwEAAgADAAAAEGvP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPxBG1W5CaUUGvWXsAorQMrtPh5WMunQDs6z/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Tank em The Matrix&quot;
+        title=&quot;Existem ferramentas que te permitem abstrair todo aquele caractere verde escorrendo pelo seu monitor (reddit.com)&quot;
+        src=&quot;/static/fbe78afa37ef4a8565412eea8f336018/78d0c/the-matrix-tank.jpg&quot;
+        srcset=&quot;/static/fbe78afa37ef4a8565412eea8f336018/7809d/the-matrix-tank.jpg 192w,
+/static/fbe78afa37ef4a8565412eea8f336018/4ecad/the-matrix-tank.jpg 384w,
+/static/fbe78afa37ef4a8565412eea8f336018/78d0c/the-matrix-tank.jpg 580w&quot;
+        sizes=&quot;(max-width: 580px) 100vw, 580px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Existem ferramentas que te permitem abstrair todo aquele caractere verde escorrendo pelo seu monitor (reddit.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Independente de qual estilo de programação você esteja usando, ou de qual região da aplicação você esteja desenvolvendo, é nesse momento que acontecem discussões sobre os &lt;em&gt;trade-offs&lt;/em&gt; entre as qualidades (&lt;em&gt;code quality&lt;/em&gt;, &lt;em&gt;security&lt;/em&gt;, &lt;em&gt;usability&lt;/em&gt;, &lt;em&gt;performance&lt;/em&gt;, &lt;em&gt;time to market&lt;/em&gt;, etc) definidas pelo contexto do seu projeto, bem como outros requisitos não funcionais, e como isso impactará o &lt;em&gt;design&lt;/em&gt; (e se o mesmo precisa ser alterado para encontrar o balanço ideal).&lt;/p&gt;
+&lt;h2&gt;Onde cada um se encaixa?&lt;/h2&gt;
+&lt;p&gt;Não é difícil imaginar o papel de &lt;em&gt;design&lt;/em&gt; sendo exercido no início de cada iteração, ou em &lt;em&gt;plannings&lt;/em&gt; e &lt;em&gt;groomings&lt;/em&gt;. Além disso,
+ter essa responsabilidade diluída no time é natural em um contexto multidisciplinar.&lt;/p&gt;
+&lt;p&gt;Ele pode acontecer também &quot;ahead of time&quot;. Por exemplo, participei de projetos dos quais os &quot;UXizes&quot; estavam alguns &lt;em&gt;sprints&lt;/em&gt; na frente, em
+relação aos desenvolvedores. Algumas decisões de &lt;em&gt;design&lt;/em&gt; são tomadas com antecedência, e os resultados são apresentados ao longo do tempo de vida do projeto.&lt;/p&gt;
+&lt;p&gt;Já a arquitetura pode exigir um pouco mais de organização e criatividade. Já tive diferentes experiências com esse dilema &quot;agile x software architecture&quot;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Todo mundo é arquiteto:&lt;/strong&gt; É o mesmo princípio do marco de &lt;em&gt;design&lt;/em&gt; ilustrado acima. Comum em &lt;em&gt;startups&lt;/em&gt; e empresas relativamente pequenas;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;A gerência é o arquiteto:&lt;/strong&gt; Pode acontecer de gerentes técnicos, &lt;em&gt;team leads&lt;/em&gt;, ou &lt;em&gt;CTOs&lt;/em&gt; &quot;herdarem&quot; essa responsabilidade. Outro cenário comum em &lt;em&gt;startups&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Um arquiteto por time:&lt;/strong&gt; O papel é atribuído a um grupo de pessoas que compartilha uma visão em comum, e essas transitam entre os times afim de manter a visão coesa. &quot;Casa&quot; com a proposta de &lt;a href=&quot;https://medium.com/productmanagement101/spotify-squad-framework-part-i-8f74bcfcd761&quot; title=&quot;Spotify Squad framework — Part I&quot;&gt;&lt;em&gt;squads&lt;/em&gt;, &lt;em&gt;chapters&lt;/em&gt; e &lt;em&gt;tribes&lt;/em&gt; do &lt;em&gt;Spotify&lt;/em&gt;&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Um time de arquitetos:&lt;/strong&gt; O mesmo fenômeno que pode acontecer com &lt;em&gt;UI&lt;/em&gt;/&lt;em&gt;UX&lt;/em&gt;. Nesse caso temos um time específico para arquitetura, com seu próprio processo e &lt;em&gt;backlog&lt;/em&gt;, e ele acaba colaborando com os demais times.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E &lt;strong&gt;quando&lt;/strong&gt; ela deve ser exercida pode ser outro desafio. &lt;em&gt;Miguel Arlandy&lt;/em&gt; sugere o seguinte processo no &lt;a href=&quot;https://medium.com/quick-code/software-architecture-and-agile-are-they-both-really-compatible-c1eef0afcbb1&quot;&gt;&quot;Software Architecture and Agile. Are they both really compatible?&quot;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) As a rule, it would be recommended to do some upfront design at the beginning of the project (Sprint Zero?) and before the first iteration. Besides, we should include an “Architecture review” as part of the Definition of Done (DoD) in each user story. Of course within the Sprint Planning, this fact has to be taken into account. It would be worthwhile if at least one of the team members (if not all of them) will be accountable to ensure both product development and Architecture are aligned.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Uma das possíveis respostas para as perguntas do início desse &lt;em&gt;post&lt;/em&gt; é o conceito de &lt;a href=&quot;https://www.scaledagileframework.com/agile-architecture/&quot; title=&quot;Agile Architecture in SAFe&quot;&gt;&lt;em&gt;Agile Architecture&lt;/em&gt;&lt;/a&gt;, usado pelo &lt;a href=&quot;https://www.scaledagileframework.com/&quot; title=&quot;Scaling Agile&quot;&gt;&lt;em&gt;SAFe Framework&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) is a set of values, practices, and collaborations that support the active, evolutionary design and architecture of a system. This approach embraces the DevOps mindset, allowing the architecture of a system to evolve continuously over time, while simultaneously supporting the needs of current users. It avoids the overhead and delays associated with the start-stop-start nature and large-scale redesign inherent with phase-gate processes and Big Up Front Design (BUFD).&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Onde, resumidamente, inicia-se com um pouco de &lt;em&gt;upfront design&lt;/em&gt; que é retroalimentado pelos &lt;em&gt;feedbacks&lt;/em&gt;, &lt;em&gt;design&lt;/em&gt; e decisões futuras dos times autônomos.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 694px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/739c897b4e9dd67be089a75b216bfd65/31198/safe-design-architecture.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.10416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABF0lEQVQY04WQW2uDMBTH/f5fZux1bLDtYYXB2OWhVKoVV7WJxltuJvEkLur6UOjYj0M4Obf8cwJjRsbldMZaixFy1q7XEuM0TZXS0zUC0IxXUVl3AOMaMuPoFryPMI7iiHF+0WTn1ORcQMkRyOfN4ysTwkdgGGhdGyFAKUmIW9ucs8Y4PxRgPlcDCA77neyObx9fBCHVtOiQVEmCt9s+yxRjehigp8C4FcKbM+ZCdp7ns1SjfSntelI3ymiMSx/0Pl/k+BV4ob92ZpZ9+o5rFN7ePx+Lgitoqex6SghpmjbPC6O18A8u/7+yMNkVTbp52LxnRWHcxJTt2VxNKfXpnScMpz8I3CjbKrl7etlH8bJqKwe1CPyfHzuWzHl1k7e7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Nível de abstração entre Arquiteto e Time&quot;
+        title=&quot;Exemplo de regulação entre arquitetura e design (medium.com)&quot;
+        src=&quot;/static/739c897b4e9dd67be089a75b216bfd65/31198/safe-design-architecture.png&quot;
+        srcset=&quot;/static/739c897b4e9dd67be089a75b216bfd65/8514f/safe-design-architecture.png 192w,
+/static/739c897b4e9dd67be089a75b216bfd65/804b2/safe-design-architecture.png 384w,
+/static/739c897b4e9dd67be089a75b216bfd65/31198/safe-design-architecture.png 694w&quot;
+        sizes=&quot;(max-width: 694px) 100vw, 694px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de regulação entre arquitetura e design (medium.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Desse modo, teoricamente, é possível ter uma referência sólida de arquitetura, e ainda assim abrir espaço para inovação e alterações nessa referência. Outro aspecto interessante desse modelo é que é possível imaginá-lo com a proposta de &lt;em&gt;squads&lt;/em&gt; do &lt;em&gt;Spotify&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Acredito que o &lt;em&gt;agile&lt;/em&gt; e sua comunidade amadureceram o suficiente para compreender que alguns papéis mais &quot;tradicionais&quot; do desenvolvimento de &lt;em&gt;software&lt;/em&gt; precisam ser integrados à sua dinâmica. Quando em uma &lt;em&gt;startup&lt;/em&gt;, em que ainda é possível se ter a &quot;visão do todo&quot;, é completamente natural que engenheiros/desenvolvedores assumam responsabilidades de &lt;em&gt;design&lt;/em&gt; e arquitetura. Mas em um contexto mais &quot;enterprise&quot;, além de difícil, consome-se muito tempo &quot;tentando tirar a cabeça da areia&quot; e olhar em volta, principalmente se o processo esteja montado em torno de times autônomos.&lt;/p&gt;
+&lt;p&gt;Independente de quem desempenhe tais papéis, essa característica &quot;iterativa/incremental&quot; que conceitos como o &lt;em&gt;Agile Architecture&lt;/em&gt; trazem são bem interessantes, e combinam completamente com os valores que desenvolvedores de &lt;em&gt;software&lt;/em&gt; mais se identificam quando adotando ferramentas ágeis.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://atomicobject.com/resources/oo-programming/crc-cards&quot;&gt;Atomic Object - CRC Cards&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://codeburst.io/software-architecture-the-difference-between-architecture-and-design-7936abdd5830&quot;&gt;Codeburst.io - Software Architecture: The Difference Between Architecture And Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.coursera.org/learn/object-oriented-design/home/welcome&quot;&gt;Coursera - Object-Oriented Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dzone.com/articles/%E2%80%9C41%E2%80%9D-view-model-software&quot;&gt;DZone - The “4+1” View Model of Software Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.experienceux.co.uk/faqs/what-is-wireframing/&quot;&gt;Experience UX - What is wireframing?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.lucidchart.com/pages/pt/o-que-e-diagrama-entidade-relacionamento&quot;&gt;Lucidchart - O que é um diagrama entidade relacionamento?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@kostadisroussos/21-architecturalist-papers-always-be-right-right-now-1552af8dc330&quot;&gt;Medium - 21 architecturalist papers: always be right, right now.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@designveloper.com/what-is-software-development-862fdcccd3b&quot;&gt;Medium - What is Software Development?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/quick-code/software-architecture-and-agile-are-they-both-really-compatible-c1eef0afcbb1&quot;&gt;Quick Code - Software Architecture and Agile. Are they both really compatible?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.scaledagileframework.com/agile-architecture/&quot;&gt;Scaled Agile Framework - Agile Architecture in SAFe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.uxpin.com/studio/blog/what-is-a-mockup-the-final-layer-of-ui-design/&quot;&gt;UXPin - What is a Mockup: The Final Layer of UI Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-uml/&quot;&gt;Visual Paradigm: What is Unified Modeling Language (UML)?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.visual-paradigm.com/guide/uml-unified-modeling-language/modeling-software-architecture-with-package/&quot;&gt;Visual Paradigm: Modeling Software Architecture with Packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional&quot;&gt;Wikipedia - Requisito não funcional&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Diferentes ambientes: Development, Testing, Staging e Production]]></title><description><![CDATA[Uma das práticas mais interessantes nessa
+“nova onda” de qualidade que está “encrostada” nas práticas agile
+de desenvolvimento de software, é o uso de diferentes ambientes para
+diferentes estágios do ciclo de vida de uma aplicação. Com auxílio da virtualização, podemos implementar (sem dificuldades…]]></description><link>https://klauslaube.com.br/2011/03/07/diferentes-ambientes.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/03/07/diferentes-ambientes.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 07 Mar 2011 11:37:00 GMT</pubDate><content:encoded>&lt;p&gt;Uma das práticas mais interessantes nessa
+“nova onda” de qualidade que está “encrostada” nas práticas &lt;a href=&quot;/tag/agile.html&quot; title=&quot;Leia mais sobre Agile&quot;&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt;
 de desenvolvimento de &lt;em&gt;software&lt;/em&gt;, é o uso de diferentes ambientes para
 diferentes estágios do ciclo de vida de uma aplicação.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Com auxílio da &lt;a href="{virtualbox-uma-maneira-interessante-de-possuir-varios-sos-em-uma-maquina-so.md" title="Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só"&gt;virtualização&lt;/a&gt;, podemos implementar (sem dificuldades)
-estes ambientes em qualquer empresa que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 07 Mar 2011 12:37:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-03-07:/2011/03/07/diferentes-ambientes.html</guid><category>desenvolvimento</category><category>infraestrutura</category><category>agile</category><category>ambiente-de-desenvolvimento</category><category>qualidade</category><category>testes</category></item><item><title>BDD: Desenvolvimento Orientado a Comportamento</title><link>https://klauslaube.com.br/2011/02/02/bdd-desenvolvimento-orientado-comportamento.html</link><description>&lt;p&gt;Esse post foi originalmente escrito para o &lt;a href="http://www.profissionaisti.com.br/" title="Artigos sobre Tecnologia da Informação"&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;, você
-pode conferi-lo na &lt;a href="http://www.profissionaisti.com.br/2010/01/bdd-desenvolvimento-orientado-a-comportamento/" title="BDD: Desenvolvimento Orientado a Comportamento"&gt;íntegra aqui&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html" title="TDD: Desenvolvimento Orientado a Testes"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, introduzi o conceito de &lt;a href="https://klauslaube.com.br/tag/tdd.html"&gt;&lt;em&gt;TDD&lt;/em&gt;&lt;/a&gt;. Mas para
+&lt;p&gt;Com auxílio da &lt;a href=&quot;%7Bvirtualbox-uma-maneira-interessante-de-possuir-varios-sos-em-uma-maquina-so.md&quot; title=&quot;Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só&quot;&gt;virtualização&lt;/a&gt;, podemos implementar (sem dificuldades)
+estes ambientes em qualquer empresa que tenha como cultura entregar
+&lt;em&gt;software&lt;/em&gt; de qualidade.&lt;/p&gt;
+&lt;h2&gt;Development&lt;/h2&gt;
+&lt;p&gt;Ter um ambiente isolado só seu, onde você possa codificar sem se
+preocupar com o resto da equipe. Essa é a premissa do ambiente de
+desenvolvimento.&lt;/p&gt;
+&lt;p&gt;Em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, é muito simples construirmos um &lt;a href=&quot;http://blog.triveos.com.br/2010/04/25/trabalhando-com-python-e-django/&quot; title=&quot;Trabalhando com Python e Django&quot;&gt;ambiente isolado&lt;/a&gt; em
+nossas máquinas, isolado até mesmo do nosso SO. Podemos codificar,
+testar, errar e corrigir, sem afetar diretamente os outros membros da
+equipe.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.setinet.com.br/&quot; title=&quot;Setinet, Internet Controlada&quot;&gt;Onde eu trabalho atualmente&lt;/a&gt;, o ambiente de desenvolvimento é
+totalmente construído em uma máquina virtual, devido as fortes
+dependências entre ferramentas como &lt;a href=&quot;http://www.nagios.org/&quot; title=&quot;Monitore a sua infraestrutura com Nagios&quot;&gt;&lt;em&gt;Nagios&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://www.mrtg.org/rrdtool/&quot; title=&quot;Data logging e gráficos com RRDTools&quot;&gt;&lt;em&gt;RRDTools&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ao fim do dia (ou de uma &lt;em&gt;feature&lt;/em&gt;), você pode “comitar” suas alterações
+para uma máquina central, comumente chamada de “Integration” (podendo
+ser o responsável por manter um servidor &lt;a href=&quot;http://subversion.tigris.org/&quot; title=&quot;Versionamento de projetos com Subversion&quot;&gt;&lt;em&gt;SVN&lt;/em&gt;&lt;/a&gt; ou um repositório
+central quando for um &lt;a href=&quot;http://en.wikipedia.org/wiki/Distributed_Version_Control_System&quot; title=&quot;Leia mais sobre Distributed Version Control System no Wikipedia&quot;&gt;&lt;em&gt;DVCS&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Antes de implantar o método descrito acima, o ambiente de
+desenvolvimento era um servidor compartilhado onde os membros da equipe
+trabalhavam simultaneamente (no mesmo ambiente). Funcionou e tenho
+certeza que funcionaria até hoje, mas acredito que ambientes isolado
+sejam mais organizados e seguros.&lt;/p&gt;
+&lt;h2&gt;Testing&lt;/h2&gt;
+&lt;p&gt;Quando você possui uma equipe de testes em seu projeto, nada melhor do
+que montar um servidor onde você possa por à prova as últimas
+modificações inseridas em sua aplicação.&lt;/p&gt;
+&lt;p&gt;Como eu nunca tive a oportunidade de trabalhar com pessoas dedicadas a
+testes, geralmente utilizo o próprio ambiente de &lt;em&gt;staging&lt;/em&gt; para testes.&lt;/p&gt;
+&lt;p&gt;Embora &lt;a href=&quot;/tag/tdd.html&quot; title=&quot;Leia mais sobre TDD&quot;&gt;testes unitários&lt;/a&gt; e de &lt;a href=&quot;/tag/bdd.html&quot; title=&quot;Leia mais sobre BDD&quot;&gt;aceitação&lt;/a&gt; sejam amplamente
+executados em ambiente de desenvolvimento, quando o projeto ficar
+gigante, executar todos os testes do projeto a cada nova feature
+desenvolvida pode lhe consumir muito tempo. Neste caso é interessante
+você construir um &lt;a href=&quot;http://blog.caelum.com.br/integracao-continua/&quot; title=&quot;Leia artigo da Caelum falando sobre Continuous Integration&quot;&gt;servidor de integração contínua&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Na &lt;a href=&quot;http://uptimetecnologia.com.br/&quot; title=&quot;Uptime, garantindo a sua segurança na internet&quot;&gt;&lt;em&gt;Uptime&lt;/em&gt;&lt;/a&gt;, trabalhávamos da seguinte maneira: Existia um servidor
+que era responsável apenas por clonar o repositório central e executar
+os testes automatizados. Quando um teste falhava, um membro da equipe
+era notificado, e ele designava alguém para resolver conflitos e
+problemas. O conceito é o mesmo apresentado no &lt;em&gt;link&lt;/em&gt; acima, a exceção é
+que esse processo era uma tarefa agendada e executava em determinada
+hora do dia (e não diretamente a cada &lt;em&gt;commit&lt;/em&gt; ou em um determinado
+momento do processo de integração).&lt;/p&gt;
+&lt;h2&gt;Staging&lt;/h2&gt;
+&lt;p&gt;O papel do ambiente de &lt;em&gt;staging&lt;/em&gt; é ser o mais próximo da realidade, ou
+seja, ele deve ser uma réplica perfeita do ambiente de produção.
+Tratando-se de desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, deve-se utilizar o mesmo
+serviço &lt;em&gt;web&lt;/em&gt;, o mesmo banco de dados, os mesmos módulos e &lt;em&gt;plugins&lt;/em&gt;.
+Isso garantirá um &lt;em&gt;deploy&lt;/em&gt; muito mais “suave” para o ambiente de
+produção.&lt;/p&gt;
+&lt;p&gt;No meu caso específico, utilizei o ambiente de &lt;em&gt;staging&lt;/em&gt; para, além de
+testar a aplicação em um ambiente mais “real”, demonstrar as &lt;em&gt;features&lt;/em&gt;
+para o cliente. Logo, ele tinha algo real, e com dados que faziam
+sentido, antes mesmo do projeto ir para o ar.&lt;/p&gt;
+&lt;p&gt;Ficou mais simples determinar se a solução soluciona o seu problema ou
+não.&lt;/p&gt;
+&lt;h2&gt;Production&lt;/h2&gt;
+&lt;p&gt;E finalmente, o ambiente de produção.&lt;/p&gt;
+&lt;p&gt;É neste ambiente que a sua aplicação ganha vida e enfrenta a dura
+realidade do mundo :)&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://spacebug.com/effective_development_environments/&quot; title=&quot;Uma excelente referência, um artigo bem escrito e objetivo.&quot;&gt;&lt;em&gt;Effective Development Environments: Development, Test, Staging/Pre-prod and Production Environments&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.caelum.com.br/integracao-continua/&quot; title=&quot;A Caelum é uma das melhores referências do país sobre agile e desenvolvimento em geral.&quot;&gt;&lt;em&gt;Caelum&lt;/em&gt;: Integração Contínua&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://devagil.wordpress.com/2007/04/14/4611-integracao-continua/&quot; title=&quot;Excelente artigo sobre Integração Contínua dentro do contexto de agile.&quot;&gt;Integração Contínua&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.dotkernel.com/php-development/php-environment-development-staging-production/&quot; title=&quot;Um artigo claro e objetivo sobre os ambientes de Development, Staging e Production.&quot;&gt;&lt;em&gt;PHP Environment: Development Staging Production&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://dltj.org/article/software-development-practice/&quot; title=&quot;Um post muito bom sobre desenvolvimento de software com qualidade.&quot;&gt;&lt;em&gt;Traditional Development/Integration/Staging/Production Practice for Software Development&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Acompanhe a produção dos posts da série &lt;a href=&quot;/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html&quot; title=&quot;Saiba como montar o seu ambiente de desenvolvimento para trabalhar com Django&quot;&gt;Montando seu ambiente de
+desenvolvimento &lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt; assinando o &lt;a href=&quot;https://klauslaube.com.br/feed/rss.xml&quot; title=&quot;Leia os posts deste blog no seu leitor RSS favorito&quot;&gt;&lt;em&gt;Feeds RSS&lt;/em&gt;&lt;/a&gt; ou me
+seguindo no &lt;a href=&quot;http://www.twitter.com/kplaube&quot; title=&quot;Siga-me no Twitter&quot;&gt;&lt;em&gt;Twitter&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[BDD: Desenvolvimento Orientado a Comportamento]]></title><description><![CDATA[Esse post foi originalmente escrito para o Profissionais TI, você
+pode conferi-lo na íntegra aqui. No post anterior, introduzi o conceito de TDD. Mas para
+relembrar, utilizando a prática “baby steps” temos os seguintes
+procedimentos: Escreva um teste que falhe; Escreva um código (rudimentar) para o…]]></description><link>https://klauslaube.com.br/2011/02/02/bdd-desenvolvimento-orientado-comportamento.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/02/02/bdd-desenvolvimento-orientado-comportamento.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 02 Feb 2011 11:48:00 GMT</pubDate><content:encoded>&lt;p&gt;Esse post foi originalmente escrito para o &lt;a href=&quot;http://www.profissionaisti.com.br/&quot; title=&quot;Artigos sobre Tecnologia da Informação&quot;&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;, você
+pode conferi-lo na &lt;a href=&quot;http://www.profissionaisti.com.br/2010/01/bdd-desenvolvimento-orientado-a-comportamento/&quot; title=&quot;BDD: Desenvolvimento Orientado a Comportamento&quot;&gt;íntegra aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No &lt;a href=&quot;/2011/01/27/tdd-desenvolvimento-orientado-testes.html&quot; title=&quot;TDD: Desenvolvimento Orientado a Testes&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, introduzi o conceito de &lt;a href=&quot;/tag/tdd.html&quot;&gt;&lt;em&gt;TDD&lt;/em&gt;&lt;/a&gt;. Mas para
 relembrar, utilizando a prática “baby steps” temos os seguintes
 procedimentos:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Escreva um teste que falhe;&lt;/li&gt;
 &lt;li&gt;Escreva um código (rudimentar) para o teste;&lt;/li&gt;
-&lt;li&gt;Faça o teste …&lt;/li&gt;&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 02 Feb 2011 12:48:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-02-02:/2011/02/02/bdd-desenvolvimento-orientado-comportamento.html</guid><category>desenvolvimento</category><category>testes</category><category>bdd</category><category>agile</category></item><item><title>TDD: Desenvolvimento Orientado a Testes</title><link>https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html</link><description>&lt;p&gt;Esse post foi originalmente escrito para o &lt;a href="http://www.profissionaisti.com.br/" title="Tudo sobre Tecnologia! ProfissionaisTI"&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;, você
-pode conferi-lo na &lt;a href="http://www.profissionaisti.com.br/2009/11/tdd-desenvolvimento-orientado-a-testes/" title="TDD: Desenvolvimento Orientado a Testes"&gt;íntegra aqui&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+&lt;li&gt;Faça o teste passar;&lt;/li&gt;
+&lt;li&gt;Deixe o código “cheirando bem” (&lt;em&gt;refactoring&lt;/em&gt;);&lt;/li&gt;
+&lt;li&gt;Volte para o primeiro procedimento.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O &lt;em&gt;TDD&lt;/em&gt; é focado em testes unitários, onde você isola um modelo (por
+exemplo) e monta-o de acordo com os testes que você escrever. Quando
+você tiver um determinado número de modelos, aí você testa a integração
+entre eles, e assim por diante.&lt;/p&gt;
+&lt;p&gt;Fazendo uma analogia, isso é mais ou menos como construir o &lt;em&gt;software&lt;/em&gt;
+&lt;strong&gt;“de dentro para fora”&lt;/strong&gt;, onde partimos escrevendo testes específicos
+(unitários) e depois vamos abrangendo outras regiões do sistema
+(integração, funcional, aceitação, etc). Já em &lt;em&gt;BDD&lt;/em&gt; (&lt;em&gt;Behavior-Driven
+Development&lt;/em&gt;) podemos dizer que o &lt;em&gt;software&lt;/em&gt; é desenvolvido &lt;strong&gt;“de fora
+para dentro”&lt;/strong&gt;, onde os testes são construídos baseados nos requisitos
+do cliente ou em um roteiro de aceitação (também conhecidos por
+estórias).&lt;/p&gt;
+&lt;p&gt;Esta prática é semelhante ao &lt;em&gt;TDD&lt;/em&gt;: &lt;strong&gt;testes são escritos primeiro,
+funções depois&lt;/strong&gt;; O diferencial está que &lt;em&gt;BDD&lt;/em&gt; aborda o
+&lt;strong&gt;comportamento&lt;/strong&gt; e o resultado como um todo, não preocupando-se
+necessariamente com as classes, métodos e atributos de forma isolada.&lt;/p&gt;
+&lt;h2&gt;Mas então qual usar? TDD ou BDD?&lt;/h2&gt;
+&lt;p&gt;Essa era a minha dúvida. E demorou até cair a ficha&lt;/p&gt;
+&lt;p&gt;Depois de uma boa conversa com o &lt;a href=&quot;http://twitter.com/andrewsmedina&quot; title=&quot;Siga o Andrews no Twitter.&quot;&gt;&lt;em&gt;@andrewsmedina&lt;/em&gt;&lt;/a&gt; (hoje já faz um
+tempo que esta conversa aconteceu (: ), captei que pode-se utilizar os
+dois! Claro! Garanta que a aplicação está indo de acordo com o teste de
+aceitação escrito, e garanta que a escrita de determinada classe esteja
+de acordo com os testes unitários criados.&lt;/p&gt;
+&lt;p&gt;Geralmente trabalho com testes automatizados da seguinte maneira:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Escrevo estórias para determinada tarefa;&lt;/li&gt;
+&lt;li&gt;Escrevo estas estórias em forma de testes. Estes testes podem ser
+classificados como funcionais (no meu caso testo as &lt;em&gt;views&lt;/em&gt; do
+&lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, mas isso pode variar de acordo com a aplicação);&lt;/li&gt;
+&lt;li&gt;E através de “baby step” e &lt;em&gt;unit&lt;/em&gt;, crio testes isolados para os
+modelos, formulários, &lt;em&gt;views&lt;/em&gt;, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Testes de comportamento tendem a levar mais tempo para serem executados,
+esta é outra razão para termos sempre em mãos os testes unitários.&lt;/p&gt;
+&lt;p&gt;Até hoje não ví uma maneira “silver bullet” de trabalhar com testes
+automatizados. Encaro da seguinte maneira:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Está cobrindo o teu sistema?&lt;/li&gt;
+&lt;li&gt;Está guiando de forma correta o seu desenvolvimento?&lt;/li&gt;
+&lt;li&gt;Está sendo escrito da forma correta (não deixando &lt;em&gt;bugs&lt;/em&gt; passarem
+despercebidos, por exemplo)?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Se todas as respostas forem sim, acredito que esteja sendo feito da
+maneira adequada.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://logbr.reflectivesurface.com/2008/10/27/algumas-consideracoes-sobre-tdd-e-bdd/&quot; title=&quot;Leia mais no Superfície Reflexiva.&quot;&gt;&lt;em&gt;Superfície Reflexiva&lt;/em&gt; - Algumas considerações sobre &lt;em&gt;TDD&lt;/em&gt; e
+&lt;em&gt;BDD&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://portalarquiteto.blogspot.com/2008/02/automao-de-testes-funcionais-e-de.html&quot; title=&quot;Leia mais no Portal do Arquiteto.&quot;&gt;&lt;em&gt;Portal do Arquiteto&lt;/em&gt; - Automação de testes funcionais e de
+aceitação&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.aprendendodjango.com/programando-com-testes-automatizados/&quot; title=&quot;Leia mais no Aprendendo Django.&quot;&gt;&lt;em&gt;Aprendendo Django no Planeta Terra&lt;/em&gt; - Programando com Testes
+Automatizados&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.slideshare.net/cmilfont/mare-de-agilidade-bdd-e-tdd&quot; title=&quot;Veja a apresentação no Slideshare.&quot;&gt;&lt;em&gt;Maré de Agilidade&lt;/em&gt;: &lt;em&gt;BDD&lt;/em&gt; e &lt;em&gt;TDD&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.dtsato.com/blog/work/introduzindo_desenvolvimento_orientado_comportamento_bdd/&quot; title=&quot;Leia mais no blog do Sato.&quot;&gt;&lt;em&gt;Danilo Sato&lt;/em&gt; - Introduzindo Desenvolvimento Orientado por
+Comportamento&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[TDD: Desenvolvimento Orientado a Testes]]></title><description><![CDATA[Esse post foi originalmente escrito para o Profissionais TI, você
+pode conferi-lo na íntegra aqui. O caos! Hoje em dia o agile passou de uma “técnica anarquista” para uma
+saborosa realidade, principalmente nas startups de tecnologia. Uma das características de qualquer método ou ferramenta agile é…]]></description><link>https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 27 Jan 2011 11:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Esse post foi originalmente escrito para o &lt;a href=&quot;http://www.profissionaisti.com.br/&quot; title=&quot;Tudo sobre Tecnologia! ProfissionaisTI&quot;&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;, você
+pode conferi-lo na &lt;a href=&quot;http://www.profissionaisti.com.br/2009/11/tdd-desenvolvimento-orientado-a-testes/&quot; title=&quot;TDD: Desenvolvimento Orientado a Testes&quot;&gt;íntegra aqui&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;O caos!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Hoje em dia o &lt;a href="https://klauslaube.com.br/tag/agile.html" title="Leia mais sobre Agile"&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt; passou de uma “técnica anarquista” para uma
+&lt;p&gt;Hoje em dia o &lt;a href=&quot;/tag/agile.html&quot; title=&quot;Leia mais sobre Agile&quot;&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt; passou de uma “técnica anarquista” para uma
 saborosa realidade, principalmente nas &lt;em&gt;startups&lt;/em&gt; de tecnologia.&lt;/p&gt;
 &lt;p&gt;Uma das características de qualquer método ou ferramenta &lt;em&gt;agile&lt;/em&gt; é que:
-&lt;strong&gt;Qualidade não é …&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 27 Jan 2011 11:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-01-27:/2011/01/27/tdd-desenvolvimento-orientado-testes.html</guid><category>desenvolvimento</category><category>testes</category><category>tdd</category><category>agile</category></item><item><title>SCRUM: Como encontrei a felicidade gerenciando prazos</title><link>https://klauslaube.com.br/2010/12/09/scrum-como-encontrei-felicidade-gerenciando-prazos.html</link><description>&lt;p&gt;Eu como desenvolvedor nunca tive real interesse em
+&lt;strong&gt;Qualidade não é negociável&lt;/strong&gt;; Como podemos garantir que ao final de
+cada ciclo de entregas estamos entregando uma solução que atenda escopo,
+prazo e também qualidade?&lt;/p&gt;
+&lt;h2&gt;Test first&lt;/h2&gt;
+&lt;p&gt;Metodologias ágeis como o &lt;a href=&quot;/tag/scrum.html&quot; title=&quot;Leia mais sobre Scrum&quot;&gt;&lt;em&gt;Scrum&lt;/em&gt;&lt;/a&gt; e o &lt;em&gt;XP&lt;/em&gt; adotam a técnica “Test
+First”:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Primeiro escreva um teste que falhe&lt;/li&gt;
+&lt;li&gt;Depois escreva um código que faça o teste passar&lt;/li&gt;
+&lt;li&gt;Melhore o código escrito&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 220px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6d58617bdc43b76ee0fdd3d92d9a93d1/c8042/red-green-refactor.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.979166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAAC3ElEQVQozx3Q209SARzA8bNZWz2UD2n10NbKrTncMlcP1hxeuUiClpCAeMVLy2t4AVEpbiIewHOAw+HcAD3nCKigoIIu0knWlpe2eqie+ls69fDbvi+f/fb7AROTkyKh0GkzI8uuAOTCYA/hh8JBP0MGV4nACobQBMqQaCyCZ5KxVJxlKKy7q6OazwedDoDP5wMAsGY3nLHI6QaVp5Ec5U1BC1/XsKzPeUIjRyE4BS9kUfDX/kaewXYQV3lZKUeUr+RAfYOAq4hj7jvuODMPXbgN57axE9B4hDrzpOdzGD4mXP8iAp/HiZOI7wsdKHtQwhGZtAloft44Kxd9StIXoeXfxp4/3tmfS9MH1sl9mtxdwfPpeIYN7awSR1vst8PMQZw+Sq3fK7nPYZFYDHTLW9DGZ8eQJZeO4uu0gyVtlP+dyz6FgOkks43BH+PhXDS0RXgPN1b3VrEYZMeGukGVpFetANpbWxZqK5OmKTqEGIIeHeoe99iJAOgm4GyCzjH4hyjFySTuzUWpvZUAZRz3iSoRQcWUVgMMKl4u1lSmLHrS4RwbBS0m1DbvNemXvAuo2YxZzNjhJnu6G/1xmObWMvAiaZqceVr6sLCgjntWvUBQAAATbS2s27E0awnD/njAZ9ObEIeThHzg+8VUGMvSWJbBN3E45LZDRt2jO7e4m4VCETdCrvoVzduIC7fPR0BbwGZyG94yoDVDQazbmia9iSCUDiO7EYx0WiGz8Vrh9f9YCFTV1kp5JQcjAwndMDE+QOgGHFq1p7/jwDSRmhmKTg9So52eLplTJbEqxFZ1U6ekpuhGEYcFggaguq6u+FJBO690rp6/rJQRWjnZIfNrWhmtMtanivS1RQaVXrVIX8Xrrbg7Ul/ue908IpdeuXxVLBIDCoWi+Obtx+UV0toajaxJ+7JloPWFViqZl4mDPaqY7k3CMBbTD1PDGlub2NLeyBq12/axJ2W8NqXmL4nWVcR08rjdAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;red, green, refactor&amp;quot;&quot;
+        title=&quot;Red, Green, Refactor!&quot;
+        src=&quot;/static/6d58617bdc43b76ee0fdd3d92d9a93d1/c8042/red-green-refactor.png&quot;
+        srcset=&quot;/static/6d58617bdc43b76ee0fdd3d92d9a93d1/8514f/red-green-refactor.png 192w,
+/static/6d58617bdc43b76ee0fdd3d92d9a93d1/c8042/red-green-refactor.png 220w&quot;
+        sizes=&quot;(max-width: 220px) 100vw, 220px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Red, Green, Refactor!&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Além da garantia de que sua aplicação irá
+funcionar após uma atualização ou &lt;em&gt;bugfix&lt;/em&gt;, devemos levar em conta que
+estamos indo além do simples ato de testar. É nisso que muita gente se
+confunde quando fala-se em &lt;a href=&quot;/tag/tdd.html&quot; title=&quot;Leia mais sobre TDD&quot;&gt;&lt;em&gt;Test-Driven Development&lt;/em&gt;&lt;/a&gt;: Não trata-se
+apenas de testes, trata-se de design!&lt;/p&gt;
+&lt;p&gt;Os testes passam a ser a sua especificação, passam a ser a forma de você
+medir se o seu &lt;em&gt;software&lt;/em&gt; está sendo conduzido para o real objetivo ou
+não. Literalmente, os &lt;strong&gt;testes guiam o seu desenvolvimento&lt;/strong&gt; – mas isso
+não garante que a solução como um todo esteja funcional, por isso é
+necessário uma pitada de bom senso (como em tudo na vida).&lt;/p&gt;
+&lt;p&gt;Quando você menos espera, a construção dos testes automatizados passou
+de “testes” para “desenvolvimento”. Ou seja, esse método irá fazer parte
+do processo de construção de código e você começará a medir qualquer
+estimativa referente a codificação com os testes inclusos, naturalmente.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;web&lt;/em&gt; está repleta de artigos sobre como construir estes testes, como
+executá-los, etc. Então, não vou ficar repetindo o que o &lt;em&gt;Google&lt;/em&gt; pode
+responder.&lt;/p&gt;
+&lt;h2&gt;Automatizar = Agilidade?&lt;/h2&gt;
+&lt;p&gt;Mas porque &lt;em&gt;TDD&lt;/em&gt; ajuda tanto? Será que vale a pena praticar?&lt;/p&gt;
+&lt;p&gt;Quando comecei a programar orientado a objetos, tinha em mente que
+aquilo era só curiosidade, que no modo estruturado estava muito bom e
+não via a real utilidade daquilo tudo. Claro, isso até ser completamente
+envolvido por &lt;em&gt;OOP&lt;/em&gt;, e quando me dei conta não sabia mais viver sem ele.&lt;/p&gt;
+&lt;p&gt;Agora já posso dizer o mesmo de &lt;em&gt;TDD&lt;/em&gt;. O prazer de construirmos
+orientados a testes, através de um processo &lt;em&gt;baby-steps&lt;/em&gt;, é desafiador…
+voltei a acreditar que posso fazer &lt;em&gt;software&lt;/em&gt; bom e de qualidade, pois:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A taxa de acerto é alta&lt;/li&gt;
+&lt;li&gt;A ocorrência de erros diminui&lt;/li&gt;
+&lt;li&gt;Você ganha confiança no que está produzindo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mesmo que você perca tempo não previsto no desenvolvimento, poupa tempo
+(espero eu que) previsto nos testes. No começo a performance do
+desenvolvedor cai significativamente… mas com o tempo irá tornar-se uma
+prática para dar maior segurança em relação a qualidade do seu
+&lt;em&gt;software&lt;/em&gt;, e também dar maior segurança a você.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[SCRUM: Como encontrei a felicidade gerenciando prazos]]></title><description><![CDATA[Eu como desenvolvedor nunca tive real interesse em
 gerência de projetos, o que fatalmente resultava em projetos de
 qualidade duvidosa e fora de prazo. Devo confidenciar que até hoje não
 tenho interesse no modelo “tradicional” de gerenciar projetos de
-&lt;em&gt;software&lt;/em&gt;, mas a preocupação com a qualidade, prazos e escopo acabou …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 09 Dec 2010 12:53:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-12-09:/2010/12/09/scrum-como-encontrei-felicidade-gerenciando-prazos.html</guid><category>agile</category><category>scrum</category><category>gerencia-de-projetos</category></item></channel></rss>
+software, mas a preocupação com a qualidade…]]></description><link>https://klauslaube.com.br/2010/12/09/scrum-como-encontrei-felicidade-gerenciando-prazos.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/12/09/scrum-como-encontrei-felicidade-gerenciando-prazos.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 09 Dec 2010 11:53:00 GMT</pubDate><content:encoded>&lt;p&gt;Eu como desenvolvedor nunca tive real interesse em
+gerência de projetos, o que fatalmente resultava em projetos de
+qualidade duvidosa e fora de prazo. Devo confidenciar que até hoje não
+tenho interesse no modelo “tradicional” de gerenciar projetos de
+&lt;em&gt;software&lt;/em&gt;, mas a preocupação com a qualidade, prazos e escopo acabou
+por fazer parte do meu cotidiano quando abri minha própria empresa de
+desenvolvimento.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Startups&lt;/em&gt; geralmente são compostas por equipes pequenas, e estas
+devem ser &lt;strong&gt;multidisciplinares&lt;/strong&gt;. Acredito que o “desenvolvedor
+&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;” atualmente é mais do que aquele “feijão com arroz” do início
+dos anos 2000. Hoje temos a obrigação de saber o mínimo possível de cada
+área de conhecimento que envolve o desenvolvimento de &lt;em&gt;software&lt;/em&gt;: desde
+&lt;em&gt;design&lt;/em&gt; de interfaces à modelagem de entidades e relacionamentos em um
+banco de dados (ou seja, verdadeiros Engenheiros de &lt;em&gt;Software&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Um dia eu disse “chega” ao caos, e decidi que meus projetos de agora em
+diante deveriam possuir prazos bem definidos e acima de tudo
+qualidade. O meu primeiro passo foi procurar ferramentas, e esse foi
+o meu maior erro. Não se trata de ferramentas ou processos… &lt;strong&gt;trata-se
+de pessoas e atitude!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Eu me sinto na obrigação de falar sobre &lt;a href=&quot;/tag/scrum.html&quot; title=&quot;Leia mais sobre Scrum&quot;&gt;&lt;em&gt;Scrum&lt;/em&gt;&lt;/a&gt; antes mesmo de falar
+sobre camadas de desenvolvimento &lt;em&gt;web&lt;/em&gt;, ambientes de desenvolvimento
+&lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; / &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, ou sobre testes automatizados.&lt;/p&gt;
+&lt;h2&gt;Trata-se de pessoas…&lt;/h2&gt;
+&lt;p&gt;Se você não sabe o que é &lt;em&gt;Scrum&lt;/em&gt;, recomendo:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Primeiramente assitir ao vídeo “&lt;a href=&quot;http://www.youtube.com/watch?v=Q5k7a9YEoUI&amp;#x26;feature=player_embedded&quot; title=&quot;Aprenda Scrum em 10 minutos no Youtube&quot;&gt;&lt;em&gt;Scrum under 10 minutes&lt;/em&gt;&lt;/a&gt;“;&lt;/li&gt;
+&lt;li&gt;Após esta divertida introdução, ver &lt;em&gt;Scrum&lt;/em&gt; no mundo real assistindo
+ao &lt;a href=&quot;http://remoteprocedurecall.wordpress.com/2009/05/22/scrum-na-globo/&quot; title=&quot;Scrum na Globo.com&quot;&gt;depoimento sobre como ele é usado na &lt;em&gt;Globo.com&lt;/em&gt;&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Por fim, recomendo ler o &lt;em&gt;e-book&lt;/em&gt; “&lt;a href=&quot;http://www.infoq.com/minibooks/scrum-xp-from-the-trenches&quot; title=&quot;Faça download do e-book. Necessário cadastro&quot;&gt;&lt;em&gt;Scrum&lt;/em&gt; e &lt;em&gt;XP&lt;/em&gt; direto das
+trincheiras&lt;/a&gt;” (sem dúvida a minha refência favorita sobre Scrum).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 416px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9793cf10ae3d1290cb72eca6ab42e37a/8d0ef/scrum.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 71.875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAFFUD4bIg//xAAbEAACAgMBAAAAAAAAAAAAAAABAgMSABETIf/aAAgBAQABBQIKBkarR4Vt6I+7VZtt/8QAFREBAQAAAAAAAAAAAAAAAAAAACH/2gAIAQMBAT8BR//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAQACAgMBAAAAAAAAAAAAAAEAESFRAjEyQf/aAAgBAQAGPwIxkaZaCn2eiGoceql7n//EAB4QAQACAgEFAAAAAAAAAAAAAAEAIRFRcTFBYYHR/9oACAEBAAE/IVBbeS4ZeivnUQnG9zHyZKUG5ovUrnRpG3mOw8san//aAAwDAQACAAMAAAAQ7D//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QmK//xAAVEQEBAAAAAAAAAAAAAAAAAAAAIf/aAAgBAgEBPxCI/8QAHhABAAICAgMBAAAAAAAAAAAAAREhADFRYXGBoeH/2gAIAQEAAT8QiS2ASileuPOOa1IjThNoX5hQY0Jh9E/crYniJXarwKpQLQCMdEnWVhiZAsth1n//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Formação Scrum, no Rugby&amp;quot;&quot;
+        title=&quot;Formação Scrum, no Rugby&quot;
+        src=&quot;/static/9793cf10ae3d1290cb72eca6ab42e37a/8d0ef/scrum.jpg&quot;
+        srcset=&quot;/static/9793cf10ae3d1290cb72eca6ab42e37a/7809d/scrum.jpg 192w,
+/static/9793cf10ae3d1290cb72eca6ab42e37a/4ecad/scrum.jpg 384w,
+/static/9793cf10ae3d1290cb72eca6ab42e37a/8d0ef/scrum.jpg 416w&quot;
+        sizes=&quot;(max-width: 416px) 100vw, 416px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Formação Scrum, no Rugby&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Posso afirmar que o grande lance do
+&lt;em&gt;Scrum&lt;/em&gt; é &lt;strong&gt;aproximar as pessoas envolvidas em um projeto&lt;/strong&gt; removendo o
+que não importa. É tirá-las de baias, fazê-las pararem de ficar enviando
+&lt;em&gt;e-mails&lt;/em&gt; umas para as outras, botar estas pessoas numa sala e fazer com
+que se conversem como seres humanos normais.&lt;/p&gt;
+&lt;p&gt;Particularmente, detesto o &lt;em&gt;face-to-face&lt;/em&gt;. Mas me aproximar do cliente
+foi uma experiência muito agradável que só me trouxe benefícios. Agora
+eu sabia exatamente qual era a necessidade dele. O &lt;em&gt;Scrum&lt;/em&gt; me
+possibilitou isso removendo pilhas de documentos e processos do caminho,
+mostrando que para você entender qual é o problema do cliente é
+necessário comunicação.&lt;/p&gt;
+&lt;h2&gt;Foco garante agilidade&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 120px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ddd4a46bcc8ebd5785be5a58421f9726/070ae/scrum-iteration.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAAFHklEQVQ4y4VTfUxTVxS/0E7n/MLC1MREM5c45xKXTKMm69QZNUiUCGqJEAVb3m0LLVQKLaOlWKHY8g0taIsWBcXpRqXU4qAVkCoKiErBjfkBghUGOhU3Pwht7967yDb+2U5y87vnnt/53fPOOxcA0g5bCRB3kkdtgdpO+IL3VjMc7lczFMWyv4hWO17z9Q2votXWkai91mfhAZOc/GYujUJppQRobKRGsBKCVRDiIK8U4iBCi33KOnlKfXvM26oBOTrfJ0Nn70tRVf93qGZQhox3YsnFK6n/Y/dciq80C3GeP1MFwJccAovtTId0Cit+Jj6RnuPfiz0Rj1gqkZUpFEhWcw7u/ioyaetaIiFok1gYHa0VF6ecEz1RWYWDhQ7eeipPXDEhim1TEoGdKC3xWUgG7N1wkKcDMw8sAP9jrEzR7oRyYZPCJNhE+TGlAl+wmjfRs6V74IItybB3s5QIn0xodOX6BMlj6DsUAlqoMt53V7qQtlMZQ1dbFP9U8zn3Q1giFEsqRQun3EZW2SE8SXRQ+/mBPFpgCtd3FZcDmHE8sIrNBWv4EHwdN9EepogDVrIJcKAwHrcJLIn02a6I2UpfB32wv/IAjEo0iZGhg8ii/AIHgYkaOwT843DKxd8mQnJFA5FRjP0gOY8+URBkb5bCde9JRHXJbSyomkzU35wQOtMzVZBXegsj1+AAyhoNCM+Nxp+/N4dIYGlgMgAfQ1pQKmw9/VCEjJ2EjgoaOuDif4tSlnj2HhCWOQG/3Il9wSmnz968G0B+IRZXKD1P6BPOcAtxcHsatJ/oFqLv7xM9ZU7YdbILKqlzEumlt6RAYXYBee1jkGJ5Ag6bXEByoRf/SMubMtyzo20zaLrrXFdu4/uBZsYT8SkXYlD1Y+iuGxVRwkb8Clp+mqZpfkxXN/1Oy3K8oBZd1+fBIkRBs19CMMD7qkd5R07/Ih8z3IzwB0t2caZnX4Yl1S4usg4T72qGeMjUD2//1/wlm/uYB3+4PwBP9ci6kTOsE7Uh629GPg5ukxMrguTc7qzLYlT3TIAcbwh0eZQY03Y0JMkuvWJnNg1zjzQ9g5rm54S6+bkk3TZ8UVE3hFLrhlH21QFkGeoZvIPuxlJaxY2KyTuNvgFb9gXvUaV0pZmTUbmT7Slqt6LD9jFU0P4O5d8YQ7rbHqTt8KK81jGkvDSEMmyD45l1D1FydY8nTNfNpFQklrt0EKopx7+9DSG//cedfeulJrQxSe/ZV1TvTrc9dec4Rt0FLa/d2ta3FI7nXB0dz6gf8aZefIIkpj63sOJXJDjXMyKuerDo756s2CD5gGNoc4iq+5HgTNd4YtUDlGZ1eXOuPPVqr7/06m++9ho733mPtf3pLbr2EmU3jXgPXRzwyiyPkKjy7njcj72IY2i3zZ4ZPPEkN4or5wfKqga2K6pRaLrFzTpS64nIrvfsz2vwcIqueLhHr3n4+hsYOdornsj8Bk9Ejs3Dyqz1hJD8HWlmROb3kjr+INUyhEUDZaZLoeoGtDOjFu3R2FF4biPaX+hAbF0LgsdaEc/QjpFd3IIiyfMIMs7KsqMQkh+qaSQFTWYsFGV8gGdpPb9YvSWpYnRbcuVAsPy8K/SQyRWmMrsiNFZXZG6di51vw0j5Yaoa1y6lyUXxSH4/lfcNvzhj6nAxls8CYLY/AHPngekLGWDOEgYtYBnjo0UrGfM+XcuYv5zJ8Fu6hjGD9H39lzHA7MUMMG0BA/PBHH8Q8MUsSuYvsGqOIf64T4IAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Iterações de projetos Scrum&amp;quot;&quot;
+        title=&quot;Iterações de projetos Scrum&quot;
+        src=&quot;/static/ddd4a46bcc8ebd5785be5a58421f9726/070ae/scrum-iteration.png&quot;
+        srcset=&quot;/static/ddd4a46bcc8ebd5785be5a58421f9726/070ae/scrum-iteration.png 120w&quot;
+        sizes=&quot;(max-width: 120px) 100vw, 120px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Iterações de projetos Scrum&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Sabendo exatamente qual era a necessidade do cliente, foi possível determinar
+o que era mais importante para o mesmo. O modelo de desenvolvimento iterativo
+permite que os desenvolvedores de &lt;em&gt;software&lt;/em&gt; possam entregar &lt;strong&gt;pequenas partes usáveis&lt;/strong&gt;
+de seu sistema para o cliente. Através de pequenas tarefas priorizadas pelo próprio,
+podemos gerar valor mesmo durante o processo de desenvolvimento (ao
+contrário do modelo cascata onde a aplicação só irá gerar valor ao
+término do desenvolvimento).&lt;/p&gt;
+&lt;p&gt;O modelo de pequenas entregas trouxe algumas vantagens para o meu
+ambiente de trabalho:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Escopo bem definido:&lt;/strong&gt; Nos preocupávamos com pequenos grupos de
+funcionalidades por vez, garantindo um foco no que realmente
+importava ao cliente naquela etapa de desenvolvimento do projeto.
+Com as propostas do &lt;em&gt;Scrum&lt;/em&gt; para gerência de estórias, o
+conhecimento era sempre explícito (ou seja, todos da equipe sabem
+exatamente o que deve ser feito);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexibilidade:&lt;/strong&gt; Em um pequeno projeto, percebi que a maneira
+determinada inicialmente para resolver um problema específico era
+ineficaz. O modelo iterativo me permitiu mudar o andamento do
+desenvolvimento (através da utilização do &lt;em&gt;Backlog&lt;/em&gt; e de &lt;em&gt;Sprint
+Plannings&lt;/em&gt;);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Qualidade acima de tudo:&lt;/strong&gt; Com os &lt;em&gt;feedbacks&lt;/em&gt; rápidos foi possível
+captar o sentimento do cliente em relação ao projeto. Com ele
+próximo a equipe fica muito mais fácil negociar escopo e garantir
+qualidade. Já li em alguns lugares que muitas vezes o fim do prazo
+do projeto não fora atingido mas o cliente já estava totalmente
+feliz com a solução… na verdade o cliente só vai saber o que quer
+quando mostrarmos algo a ele.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Conhecendo o escopo, tendo uma equipe “sincronizada”, tendo o poder de
+negociar escopo e coletando &lt;em&gt;feedbacks&lt;/em&gt; rápidos do cliente; além de
+&lt;strong&gt;qualidade&lt;/strong&gt; ganhamos o que falta no modelo tradicional de
+desenvolvimento de &lt;em&gt;software&lt;/em&gt;: &lt;strong&gt;agilidade&lt;/strong&gt;. Esta me permitiu entregar
+o escopo prometido (e negociado durante o desenvolvimento) dentro do
+prazo prometido (que influenciou diretamente na negociação do escopo)
+sem denegrir qualidade.&lt;/p&gt;
+&lt;p&gt;O cliente ganha, o desenvolvedor ganha e as famílias dos desenvolvedores
+também ganham =D&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Se você achou o &lt;em&gt;Scrum&lt;/em&gt; burocrático demais para a sua empresa (garanto
+que terão pessoas que o acharão), recomendo a leitura do &lt;em&gt;e-Book&lt;/em&gt;
+“&lt;a href=&quot;http://gettingreal.37signals.com/GR_por.php&quot; title=&quot;Leia &quot;&gt;&lt;em&gt;Getting Real&lt;/em&gt;&lt;/a&gt;” do pessoal da &lt;a href=&quot;http://37signals.com/&quot; title=&quot;Os produtos da 37Signals são referências para todas as Startups de tecnologia&quot;&gt;&lt;em&gt;37 Signals&lt;/em&gt;&lt;/a&gt;.
+Já para aqueles que acharam o &lt;em&gt;Scrum&lt;/em&gt; “anárquico” demais, recomendo conhecer a &lt;a href=&quot;http://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_extrema&quot; title=&quot;Leia mais sobre eXtreme Programming no Wikipedia&quot;&gt;&lt;em&gt;eXtreme
+Programming&lt;/em&gt;&lt;/a&gt; (&lt;a href=&quot;http://improveit.com.br/xp&quot; title=&quot;Uma documentação muito rica sobre XP&quot;&gt;este artigo da &lt;em&gt;ImproveIT&lt;/em&gt; está sensacional!&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Não acho o &lt;em&gt;agile&lt;/em&gt; uma solução ”bala de prata”. Acredito que os
+processos devam ser moldados de acordo com a realidade de cada
+instituição. Mas tenha em mente, este conceito de “fábrica de &lt;em&gt;Software&lt;/em&gt;”
+já perdeu muito do seu prestígio, e hoje quase virou sinônimo de
+“projetos atrasados”.&lt;/p&gt;
+&lt;p&gt;Para mim funcionou muito bem, mesmo depois de fechar a minha empresa
+(não foi culpa do &lt;em&gt;Scrum&lt;/em&gt; (: ) e aplicar estes conceitos em meus
+projetos &lt;em&gt;freelancer&lt;/em&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>

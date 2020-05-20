@@ -1,11 +1,273 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - restless</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 06 Jan 2017 10:45:00 -0200</lastBuildDate><item><title>Construindo APIs em Django com Restless</title><link>https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html</link><description>&lt;p&gt;Construir &lt;em&gt;APIs&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/rest.html" title="Leia mais sobre REST"&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt; em
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; nos dias atuais é uma
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - restless]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Construindo APIs em Django com Restless]]></title><description><![CDATA[Construir APIs REST em
+Django nos dias atuais é uma
 tarefa no máximo corriqueira. Com a ajuda de bibliotecas consagradas, como
-&lt;a href="http://www.django-rest-framework.org/"&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt; e
-&lt;a href="https://django-tastypie.readthedocs.io/en/latest/"&gt;&lt;em&gt;Tastypie&lt;/em&gt;&lt;/a&gt;,
+Django REST Framework e
+Tastypie,
+e utilizando toda a abstração que envolve os Models do framework, é
+possível ter endpoints respondendo em questão de minutos. Mas existem…]]></description><link>https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 06 Jan 2017 10:45:00 GMT</pubDate><content:encoded>&lt;p&gt;Construir &lt;em&gt;APIs&lt;/em&gt; &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt; em
+&lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; nos dias atuais é uma
+tarefa no máximo corriqueira. Com a ajuda de bibliotecas consagradas, como
+&lt;a href=&quot;http://www.django-rest-framework.org/&quot;&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;https://django-tastypie.readthedocs.io/en/latest/&quot;&gt;&lt;em&gt;Tastypie&lt;/em&gt;&lt;/a&gt;,
 e utilizando toda a abstração que envolve os &lt;em&gt;Models&lt;/em&gt; do &lt;em&gt;framework&lt;/em&gt;, é
 possível ter &lt;em&gt;endpoints&lt;/em&gt; respondendo em questão de minutos.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Mas existem alternativas que são capazes de tornar esse processo ainda
+mais prático, e com uma curva de aprendizado um pouquinho menor. Nesse
+seleto grupo, uma biblioteca que me agrada é o &lt;a href=&quot;https://github.com/toastdriven/restless&quot;&gt;&lt;em&gt;Restless&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Por que Restless (e não as outras)?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/toastdriven&quot;&gt;&lt;em&gt;Daniel Lindsley&lt;/em&gt;&lt;/a&gt; (também conhecido como &lt;em&gt;Toast Driven&lt;/em&gt;),
+um dos criadores do &lt;em&gt;Tastypie&lt;/em&gt; (famosa biblioteca &lt;em&gt;Django&lt;/em&gt; para construção de &lt;em&gt;APIs RESTful&lt;/em&gt;),
+também é criador do &lt;em&gt;Restless&lt;/em&gt;. Segundo ele, o que o motivou a escrever uma alternativa ao &lt;em&gt;Tastypie&lt;/em&gt; foi:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Quite simply, I care about creating flexible &amp;#x26; RESTFul APIs. In building Tastypie, I tried
+to create something extremely complete &amp;#x26; comprehensive. The result was writing a lot of hook
+methods (for easy extensibility) &amp;#x26; a lot of (perceived) bloat, as I tried to accommodate for
+everything people might want/need in a flexible/overridable manner.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Não há dúvidas que as duas bibliotecas citadas no início desse artigo são extremamente completas.
+Se você estiver procurando um &lt;em&gt;engine&lt;/em&gt; poderoso para a criação de &lt;em&gt;APIs&lt;/em&gt; em &lt;em&gt;Django&lt;/em&gt;, pule logo
+para a &lt;a href=&quot;http://www.django-rest-framework.org/tutorial/quickstart/&quot; title=&quot;Comece agora com o REST Framework&quot;&gt;documentação do &lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Mas nem sempre precisamos de todo esse poderio para dar vida ao nosso projeto. E é exatamente
+com esse posicionamento que &lt;em&gt;Daniel&lt;/em&gt; fecha o seu argumento:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;But in reality, all I really ever personally want are the RESTful verbs, JSON serialization &amp;#x26;
+the ability of override behavior.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Se assim como o autor você só precisa dos verbos &lt;em&gt;HTTP&lt;/em&gt;, serialização &lt;em&gt;JSON&lt;/em&gt; e uma leve camada
+de customização, talvez o &lt;em&gt;Restless&lt;/em&gt; seja tudo o que você necessita.&lt;/p&gt;
+&lt;p&gt;Por último mas não menos importante: O &lt;em&gt;Restless&lt;/em&gt;, é &quot;framework agnostic&quot; e funciona com &lt;em&gt;Django&lt;/em&gt;,
+&lt;em&gt;Flask&lt;/em&gt;, &lt;em&gt;Pyramid&lt;/em&gt; e &lt;em&gt;Tornado&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Mão na massa&lt;/h2&gt;
+&lt;p&gt;Lembra do nosso &quot;mini IMDB&quot;, lá do &lt;a href=&quot;/2016/05/20/rest-parte-2.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;? Vamos aproveitar a temática para exemplificar
+o uso de &lt;em&gt;Restless&lt;/em&gt; com &lt;em&gt;Django&lt;/em&gt;. Mas antes, aquele &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; &quot;de leve&quot; para instalar o pacote:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install restless&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não é necessária a adição da biblioteca ao &lt;code class=&quot;language-text&quot;&gt;settings.py&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Relembrando o exemplo do &lt;em&gt;post&lt;/em&gt; anterior, precisaremos construir os seguintes recursos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /movies&lt;/code&gt;: Trará uma lista de filmes&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;POST /movies&lt;/code&gt;: Adicionará um novo filme ao banco de dados&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /movies/{id}&lt;/code&gt;: Trará um filme específico&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;PUT /movies/{id}&lt;/code&gt;: Atualizará um filme específico&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;DELETE /movies/{id}&lt;/code&gt;: Removerá um filme específico do banco de dados&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para tanto, teremos um &lt;em&gt;model&lt;/em&gt; &lt;em&gt;Django&lt;/em&gt; similar ao abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# movies/models.py&lt;/span&gt;
 
-&lt;p&gt;Mas existem alternativas que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 06 Jan 2017 10:45:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-01-06:/2017/01/06/construindo-apis-em-django-com-restless.html</guid><category>desenvolvimento</category><category>web</category><category>apis</category><category>python</category><category>django</category><category>rest</category><category>restless</category></item></channel></rss>
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; uuid
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;db &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; models
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token builtin&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;UUIDField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;primary_key&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; default&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;uuid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid4&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; editable&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    title &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    description &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TextField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;blank&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; null&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Podemos partir agora para a criação dos &lt;em&gt;resources&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Resourcers e Preparers&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Resources&lt;/em&gt; são classes que descrevem um recurso &lt;em&gt;REST&lt;/em&gt;, dentro do &lt;em&gt;Restless&lt;/em&gt;. É através deles
+que definiremos &lt;em&gt;endpoints&lt;/em&gt; e todos os verbos suportados. Já os &lt;em&gt;Preparers&lt;/em&gt; fazem
+o papel do &quot;mapping&quot; do objeto que você está expondo na API.&lt;/p&gt;
+&lt;p&gt;Para começar, vamos criar um arquivo &lt;code class=&quot;language-text&quot;&gt;api.py&lt;/code&gt; dentro do nosso &lt;em&gt;app&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# movies/api.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; restless&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dj &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; DjangoResource
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; restless&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;preparers &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; FieldsPreparer
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; movies&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;models &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Movie
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MovieResource&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;DjangoResource&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    preparer &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; FieldsPreparer&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fields&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Movie&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;DjangoResource&lt;/code&gt; é um &lt;em&gt;Resource&lt;/em&gt; &lt;em&gt;Restless&lt;/em&gt; com algumas &quot;facilidades&quot; para funcionar dentro do
+framework &lt;em&gt;Django&lt;/em&gt;. Uma dessas facilidades é o roteamento (que veremos logo abaixo).&lt;/p&gt;
+&lt;p&gt;Todo recurso precisa de um atributo &lt;code class=&quot;language-text&quot;&gt;preparer&lt;/code&gt;, é através dele que o &lt;em&gt;Resource&lt;/em&gt; fará o &quot;de-para&quot;
+dos campos no seu banco dados, e os campos que serão exibidos em sua &lt;em&gt;API&lt;/em&gt;. Nesse caso
+estamos utilizando o &lt;code class=&quot;language-text&quot;&gt;FieldsPreparer&lt;/code&gt;, e através de um dicionário (onde a chave é o nome do campo
+na &lt;em&gt;API&lt;/em&gt; e o valor é o caminho para o dado) fazemos o mapeamento necessário para expor os
+dados do recurso.&lt;/p&gt;
+&lt;p&gt;O método &lt;code class=&quot;language-text&quot;&gt;list&lt;/code&gt; será o responsável por responder uma rota &lt;code class=&quot;language-text&quot;&gt;GET /movies/&lt;/code&gt; em nosso projeto. Aqui já
+podemos ver o conceito de &lt;em&gt;BYOD&lt;/em&gt; (&lt;em&gt;Bring Your Own Data&lt;/em&gt;) em ação. O &lt;em&gt;Restless&lt;/em&gt; não &quot;introspecta&quot;
+os seus &lt;em&gt;models&lt;/em&gt; &lt;em&gt;Django&lt;/em&gt; para entender o que e como ele deve expor dados. É necessário que
+você faça isso explicitamente... é esse princípio que torna fácil o trabalho da biblioteca com outros
+&lt;em&gt;frameworks&lt;/em&gt; e bancos de dados.&lt;/p&gt;
+&lt;p&gt;Falta atualizar o &lt;code class=&quot;language-text&quot;&gt;urls.py&lt;/code&gt; para que o &lt;em&gt;Django&lt;/em&gt; possa fazer o roteamento dos endereços
+com as &lt;em&gt;views&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# urls.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;conf&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; include
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; movies&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;api &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; MovieResource
+
+urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    url&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;r&apos;movies/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;MovieResource&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Aquele &lt;code class=&quot;language-text&quot;&gt;.urls()&lt;/code&gt; é uma das facilidades que o &lt;code class=&quot;language-text&quot;&gt;DjangoResource&lt;/code&gt; oferece. Caso você esteja trabalhando
+com algum outro &lt;em&gt;framework&lt;/em&gt;, você pode estender o comportamento de &lt;code class=&quot;language-text&quot;&gt;Resource&lt;/code&gt; e resolver o roteamento
+manualmente.&lt;/p&gt;
+&lt;p&gt;Pronto! O &lt;em&gt;endpoint&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;movies/&lt;/code&gt; já está respondendo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X GET http://localhost:8000/movies/ | json_pp
+
+{
+   &amp;quot;objects&amp;quot; : [
+      {
+         &amp;quot;description&amp;quot; : &amp;quot;The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow. (133 mins.)&amp;quot;,
+         &amp;quot;id&amp;quot; : &amp;quot;7e383f9c-5dc4-4b0d-9864-71e05a5d271b&amp;quot;,
+         &amp;quot;title&amp;quot; : &amp;quot;Rogue One&amp;quot;
+      },
+      (...)
+   ]
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Criação e autorização&lt;/h2&gt;
+&lt;p&gt;Para adicionar um filme, faremos um POST em &lt;code class=&quot;language-text&quot;&gt;movies/&lt;/code&gt;, para isso, precisamos adicionar um método &lt;code class=&quot;language-text&quot;&gt;create&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# movies/api.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MovieResource&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;DjangoResource&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Movie&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Movie&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;create&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            description&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mais uma vez o &lt;em&gt;Restless&lt;/em&gt; não introspecta o modelo, logo, é necessário fazer a validação e criação do objeto
+em banco &quot;na mão&quot;.&lt;/p&gt;
+&lt;p&gt;Vamos testar se o comportamento é o esperado:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;{&amp;quot;title&amp;quot;: &amp;quot;just a test&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;foo bar&amp;quot;}&amp;#39; http://localhost:8000/movies/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Provavelmente retornará um &lt;em&gt;exception&lt;/em&gt; dizendo que o acesso não foi autorizado. O &lt;em&gt;Restless&lt;/em&gt; por padrão espera
+que todo o &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt; seja realizado através de uma requisição autenticada. Para isso, antes
+de executar cada verbo, ele consulta o método &lt;code class=&quot;language-text&quot;&gt;is_authenticated&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7ydaX4mWf8A/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAEQMSEyH/2gAIAQEAAQUCxlL6rS+gRZsZ/8QAFhEAAwAAAAAAAAAAAAAAAAAAAhAx/9oACAEDAQE/ASi//8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEQISIx/9oACAEBAAY/AulYow0i8+n/xAAaEAEBAAIDAAAAAAAAAAAAAAABABExIUFR/9oACAEBAAE/ISc8RjD0mMnbbXdkdK//2gAMAwEAAgADAAAAEBQv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEx/9oACAEDAQE/ENEj/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQIBAT8Qo//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExQWH/2gAIAQEAAT8QZPJAefYb2oA7Kklzp2LRMUdlQAAMGf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;is_authenticated retornando True é pior que o problema de segurança na Estrela da Morte (movieweb.com)&amp;quot;&quot;
+        title=&quot;is_authenticated retornando True é pior que o problema de segurança na Estrela da Morte (movieweb.com)&quot;
+        src=&quot;/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg&quot;
+        srcset=&quot;/static/4e027daa42357f668194d325afbcf154/7809d/deathstar.jpg 192w,
+/static/4e027daa42357f668194d325afbcf154/4ecad/deathstar.jpg 384w,
+/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;is_authenticated retornando True é pior que o problema de segurança na Estrela da Morte (movieweb.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Para fins educacionais, vamos informar à biblioteca que todas as requisições são aceitas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# movies/api.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MovieResource&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;DjangoResource&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Movie&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;create&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            title&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            description&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;is_authenticated&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mais uma vez executamos o &lt;em&gt;POST&lt;/em&gt; via &lt;code class=&quot;language-text&quot;&gt;curl&lt;/code&gt;, e &lt;em&gt;voilà&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;just a test&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;foo bar&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Verbos por ID&lt;/h2&gt;
+&lt;p&gt;Já listamos e criamos novos filmes. Como fazemos para ver os detalhes de um filme através do
+seu &lt;em&gt;ID&lt;/em&gt;? Simples! O método &lt;code class=&quot;language-text&quot;&gt;detail&lt;/code&gt; resolve essa para a gente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# movies/api.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;shortcuts &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; get_object_or_404
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MovieResource&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;DjangoResource&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pk&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; get_object_or_404&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Movie&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pk&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;pk&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt; para &lt;code class=&quot;language-text&quot;&gt;movies/{id}&lt;/code&gt; retornará os detalhes do recurso:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X GET http://localhost:8000/movies/7e383f9c-5dc4-4b0d-9864-71e05a5d271b/
+
+{
+  &amp;quot;description&amp;quot;: &amp;quot;The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow. (133 mins.)&amp;quot;,
+  &amp;quot;id&amp;quot;: &amp;quot;7e383f9c-5dc4-4b0d-9864-71e05a5d271b&amp;quot;,
+  &amp;quot;title&amp;quot;: &amp;quot;Rogue One&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note que o &lt;code class=&quot;language-text&quot;&gt;DjangoResource&lt;/code&gt; resolveu a passagem do parâmetro &lt;code class=&quot;language-text&quot;&gt;pk&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Para finalizar, vamos criar os métodos &lt;code class=&quot;language-text&quot;&gt;update&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;delete&lt;/code&gt;, que serão responsáveis
+por atualizar e remover o recurso:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# movies/api.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MovieResource&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;DjangoResource&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pk&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; get_object_or_404&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Movie&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pk&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;pk&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pk&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        movie &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;detail&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pk&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        movie&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+        movie&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;description &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+        movie&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;save&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; movie
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; pk&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        movie &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;detail&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pk&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        movie&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;delete&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Assim como o método &lt;code class=&quot;language-text&quot;&gt;create&lt;/code&gt;, não há nenhuma &quot;mágica&quot; resolvendo a operação para a gente.
+Precisamos explicitamente realizar a atualização e remoção do dado através do &lt;em&gt;ORM&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Agora somos capazes de atualizar:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X PUT -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;{&amp;quot;title&amp;quot;: &amp;quot;Zombieland&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;So much fun&amp;quot;}&amp;#39; http://localhost:8000/movies/bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4/
+
+{
+  &amp;quot;title&amp;quot;: &amp;quot;Zombieland&amp;quot;,
+  &amp;quot;description&amp;quot;: &amp;quot;So much fun&amp;quot;,
+  &amp;quot;id&amp;quot;: &amp;quot;bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4&amp;quot;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E remover um filme através da API:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -X DELETE http://localhost:8000/movies/bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Gosto bastante do &lt;em&gt;Restless&lt;/em&gt; pela sua filosofia de manter-se simples. Mas nem tudo são rosas!
+A falta de autorização, &lt;em&gt;HATEOAS&lt;/em&gt; e saídas em outros formatos (como &lt;em&gt;XML&lt;/em&gt;, por exemplo)
+podem ser argumentos decisivos para a escolha de uma biblioteca mais completa.&lt;/p&gt;
+&lt;p&gt;Eu costumo utilizar o &lt;em&gt;Restless&lt;/em&gt; em projetos muito específicos, onde sei que a &lt;em&gt;API&lt;/em&gt; será sempre
+&lt;em&gt;JSON&lt;/em&gt;, e integrações com o &lt;em&gt;ORM&lt;/em&gt; trarão mais dores de cabeça do que soluções (em um cenário
+onde há interação com bancos &lt;em&gt;NoSQL&lt;/em&gt;, o &lt;em&gt;Restless&lt;/em&gt; se mostra uma ferramenta muito útil).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/kplaube/post-django-restless&quot; title=&quot;Veja o exemplo completo no Github&quot;&gt;Confira o exemplo desse &lt;em&gt;post&lt;/em&gt; no Github&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item></channel></rss>

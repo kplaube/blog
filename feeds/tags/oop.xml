@@ -1,28 +1,644 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - oop</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 15 Mar 2016 13:20:00 -0300</lastBuildDate><item><title>Fazendo Javascript OO de forma fácil - Parte 2</title><link>https://klauslaube.com.br/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</link><description>&lt;p&gt;Há cerca de 5 anos, fiz um &lt;em&gt;post&lt;/em&gt; sobre como escrever
-&lt;a href="https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html" title="Leia o artigo completo"&gt;Javascript OO de forma fácil&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oop]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Fazendo Javascript OO de forma fácil - Parte 2]]></title><description><![CDATA[Há cerca de 5 anos, fiz um post sobre como escrever
+Javascript OO de forma fácil
 utilizando a orientação a objetos da linguagem através de
-&lt;a href="https://klauslaube.com.br/2011/10/23/javascript-constructor-function-object-literal.html" title="Diferença entre Constructor Function e Object Literal"&gt;&lt;em&gt;Constructor Functions&lt;/em&gt; e &lt;em&gt;Object Literal&lt;/em&gt;&lt;/a&gt;.
+Constructor Functions e Object Literal.
+Hoje, com o ES6, o esquema de Prototype ainda continua,
+mas a sintaxe ficou muito mais fácil e intuitiva, valendo a pena…]]></description><link>https://klauslaube.com.br/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 15 Mar 2016 12:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Há cerca de 5 anos, fiz um &lt;em&gt;post&lt;/em&gt; sobre como escrever
+&lt;a href=&quot;/2011/05/16/fazendo-javascript-oo-de-forma-facil.html&quot; title=&quot;Leia o artigo completo&quot;&gt;Javascript OO de forma fácil&lt;/a&gt;
+utilizando a orientação a objetos da linguagem através de
+&lt;a href=&quot;/2011/10/23/javascript-constructor-function-object-literal.html&quot; title=&quot;Diferença entre Constructor Function e Object Literal&quot;&gt;&lt;em&gt;Constructor Functions&lt;/em&gt; e &lt;em&gt;Object Literal&lt;/em&gt;&lt;/a&gt;.
 Hoje, com o &lt;em&gt;ES6&lt;/em&gt;, o esquema de &lt;em&gt;Prototype&lt;/em&gt; ainda continua,
-mas a sintaxe ficou muito mais fácil e intuitiva, valendo …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 15 Mar 2016 13:20:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-03-15:/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>es6</category><category>oop</category></item><item><title>Javascript: A diferença entre Constructor Function e Object Literal</title><link>https://klauslaube.com.br/2011/10/23/javascript-constructor-function-object-literal.html</link><description>&lt;p&gt;Meses atrás, &lt;a href="https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html" title="Fazendo Javascript OO de forma fácil"&gt;escrevi sobre como era fácil criar objetos em &lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;.
-Devo confessar que, a minha visão sobre a utilização da &lt;a href="https://klauslaube.com.br/tag/oop.html" title="Leia mais sobre OOP"&gt;Orientação a Objetos&lt;/a&gt;
-em &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; era muito superficial, e que uma dúvida muito pertinente
-surgiu na época: Onde usar &lt;em&gt;object literal&lt;/em&gt; e onde usar classes?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+mas a sintaxe ficou muito mais fácil e intuitiva, valendo a pena dar um &lt;em&gt;revival&lt;/em&gt;
+no tema para explorar um pouquinho mais das novas funcionalidades.&lt;/p&gt;
+&lt;p&gt;Então, nobre leitor, prepare o seu &lt;a href=&quot;https://babeljs.io/&quot; title=&quot;Javascript compiler&quot;&gt;&lt;em&gt;Babel&lt;/em&gt;&lt;/a&gt; e vamos escrever algumas classes
+na nova sintaxe do &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Açúcares sintáticos&lt;/h2&gt;
+&lt;p&gt;Sim! A sintaxe apresentada no &lt;em&gt;ECMAScript 6&lt;/em&gt; não passa de açúcar sintático!&lt;/p&gt;
+&lt;p&gt;Na prática, o &lt;em&gt;Javascript&lt;/em&gt; continua utilizando a orientação a objetos através de
+&lt;em&gt;Prototype&lt;/em&gt;. Mas isso não diminui em nada o valor desse &lt;em&gt;approach&lt;/em&gt; para com a
+linguagem. Fazer &lt;em&gt;Javascript&lt;/em&gt; OOP é a realidade de muitas aplicações
+(complexas ou não), e caso você queira escrever componentes utilizando &lt;em&gt;React&lt;/em&gt;,
+verá que a dupla &lt;em&gt;ES6&lt;/em&gt; + &lt;em&gt;React&lt;/em&gt; é capaz de produzir componentes com código
+extremamente legível e elegante.&lt;/p&gt;
+&lt;p&gt;Vamos começar escrevendo nossa classe &lt;code class=&quot;language-text&quot;&gt;Pessoa&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pessoa&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; idade &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;idade &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; idade&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
-&lt;p&gt;Hoje, depois de entender …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 23 Oct 2011 15:07:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-10-23:/2011/10/23/javascript-constructor-function-object-literal.html</guid><category>desenvolvimento</category><category>javascript</category><category>prototype</category><category>oop</category><category>web</category></item><item><title>Decorators em Python</title><link>https://klauslaube.com.br/2011/08/02/decorators-em-python.html</link><description>&lt;p&gt;E na mesma linha dos &lt;a href="https://klauslaube.com.br/2011/05/29/afinal-o-que-sao-closures.html" title="Afinal, o que são Closures?"&gt;&lt;em&gt;closures&lt;/em&gt;&lt;/a&gt;, eu passei a
-saber realmente o que são &lt;em&gt;decorators&lt;/em&gt; depois de utilizar o &lt;em&gt;framework&lt;/em&gt;
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Se você está trabalhando com &lt;a href="https://klauslaube.com.br/tag/oop.html" title="Leia mais sobre OOP"&gt;Orientação a Objetos&lt;/a&gt; e
+  &lt;span class=&quot;token function&quot;&gt;sayTheName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; pessoa &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; idade&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Guido&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pessoa&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sayTheName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Guido&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pessoa&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;__proto__&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sayTheName&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// function sayTheName&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora possuímos a palavra reservada &lt;code class=&quot;language-text&quot;&gt;class&lt;/code&gt; para a construção de classes. Além
+disso, temos a inserção do método &lt;code class=&quot;language-text&quot;&gt;constructor&lt;/code&gt;, que será executado no momento em que
+a instância for criada.&lt;/p&gt;
+&lt;p&gt;Não precisamos mais da assinatura &lt;code class=&quot;language-text&quot;&gt;Pessoa.prototype.method = function&lt;/code&gt;
+para adicionarmos um método. Agora há uma sintaxe específica, muito mais clara
+e fácil de lembrar.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1fe8dac458a469ed60158d951d6edef8/b4294/stay-classy.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAFOYWWVkBR//8QAGBABAQEBAQAAAAAAAAAAAAAAAQACERL/2gAIAQEAAQUCdGQc5m72S9N//8QAFhEBAQEAAAAAAAAAAAAAAAAAABES/9oACAEDAQE/AYy//8QAGBEBAQADAAAAAAAAAAAAAAAAAQADERP/2gAIAQIBAT8Bcou7sX//xAAbEAACAQUAAAAAAAAAAAAAAAAAARARITFhcf/aAAgBAQAGPwKrFtRcXDJ//8QAGhAAAwADAQAAAAAAAAAAAAAAAAERITFR4f/aAAgBAQABPyGgMHE6vRslSmqFJNwM3//aAAwDAQACAAMAAAAQKD//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQMBAT8QECWr/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERMWH/2gAIAQIBAT8QUIUYs//EABwQAQEBAQACAwAAAAAAAAAAAAERIQAxUWGB0f/aAAgBAQABPxClBUzzf3myojg26x+XaIP0dOsGx4BEaD6d5Lq7/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Stay classy San Diego! (sandiegouniontribune.com)&amp;quot;&quot;
+        title=&quot;Stay classy San Diego! (sandiegouniontribune.com)&quot;
+        src=&quot;/static/1fe8dac458a469ed60158d951d6edef8/b4294/stay-classy.jpg&quot;
+        srcset=&quot;/static/1fe8dac458a469ed60158d951d6edef8/7809d/stay-classy.jpg 192w,
+/static/1fe8dac458a469ed60158d951d6edef8/4ecad/stay-classy.jpg 384w,
+/static/1fe8dac458a469ed60158d951d6edef8/b4294/stay-classy.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Stay classy San Diego! (sandiegouniontribune.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Note que no momento de instanciar a classe, nada muda em relação à versão atual.
+O que temos de mais &quot;exótico&quot; é a capacidade de nomearmos parâmetros
+(como os &lt;code class=&quot;language-text&quot;&gt;**kwargs&lt;/code&gt; do &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;),
+na definição do construtor.&lt;/p&gt;
+&lt;p&gt;Esse conceito, apresentado na linha &lt;code class=&quot;language-text&quot;&gt;constructor({nome, idade})&lt;/code&gt;, é chamado de
+&lt;a href=&quot;https://github.com/lukehoban/es6features#destructuring&quot;&gt;&lt;em&gt;destructuring&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para chegarmos a um resultado parecido no &lt;em&gt;ES5&lt;/em&gt;, precisaríamos fazer o seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Pessoa&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; idade &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;idade&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;idade &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; idade&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Herança&lt;/h2&gt;
+&lt;p&gt;Lembra da confusão que era fazer heranças no &lt;em&gt;Javascript&lt;/em&gt;? Pois bem, ganhamos
+nessa nova versão da linguagem a palavra reservada &lt;code class=&quot;language-text&quot;&gt;extends&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Atleta&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pessoa&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; idade&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; esporte &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Basquete&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; idade&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; idade &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;esporte &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; esporte&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; jogador &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Atleta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; idade&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Fulano&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; esporte&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Futebol&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jogador&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Fulano&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jogador&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;esporte&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Futebol&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; jogador2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Atleta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; idade&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Beltrano&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jogador2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Beltrano&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jogador2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;esporte&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Basquete&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E para tornar ainda mais fácil essa prática, também ganhamos a função reservada
+&lt;code class=&quot;language-text&quot;&gt;super&lt;/code&gt;, que é responsável por executar o método pai, dada a chamada em um
+determinado método de uma classe filha.&lt;/p&gt;
+&lt;p&gt;Para finalizar o nosso exemplo, na linha &lt;code class=&quot;language-text&quot;&gt;constructor({nome, idade, esporte=&amp;#39;Basquete&amp;#39;})&lt;/code&gt;
+temos a apresentação do recurso &lt;a href=&quot;https://github.com/lukehoban/es6features#default--rest--spread&quot; title=&quot;Leia mais sobre default, rest e spread&quot;&gt;&lt;em&gt;default&lt;/em&gt;&lt;/a&gt;.
+Com ele, somos capazes de definir valores padrões caso a passagem de determinado
+parâmetro seja omitida.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Se tem algo que chama a atenção com o advento do &lt;em&gt;ECMAScript 6&lt;/em&gt; é a facilidade
+na construção de classes e objetos, uma coisa que sempre foi muito confusa
+(mas não menos eficiente) em &lt;em&gt;Javascript&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Bibliotecas como o &lt;em&gt;React&lt;/em&gt; tem feito um bom uso desse recurso, proporcionando
+soluções limpas e legíveis, fáceis de estender e customizar.&lt;/p&gt;
+&lt;p&gt;O suporte pelos &lt;em&gt;browsers&lt;/em&gt; ainda não é dos melhores, se fazendo necessário
+o uso do &lt;em&gt;Babel&lt;/em&gt; para o &lt;em&gt;transpiling&lt;/em&gt; de &lt;em&gt;ES6&lt;/em&gt; para &lt;em&gt;ES5&lt;/em&gt;. Mesmo assim, nada
+que impeça o uso de sintaxe &lt;em&gt;ES6&lt;/em&gt; nos seus próximos projetos.&lt;/p&gt;
+&lt;p&gt;Confira a &lt;a href=&quot;https://babeljs.io/repl/#?evaluate=true&amp;#x26;presets=es2015%2Cstage-2&amp;#x26;code=class%20Pessoa%20%7B%0A%20%20constructor(%7Bnome%2C%20idade%7D)%20%7B%0A%20%20%20%20this.nome%20%3D%20nome%0A%20%20%20%20this.idade%20%3D%20idade%0A%20%20%7D%0A%20%20%0A%20%20sayTheName()%20%7B%0A%20%20%20%20console.log(this.nome)%3B%0A%20%20%7D%0A%7D%0A%0Alet%20pessoa%20%3D%20new%20Pessoa(%7Bidade%3A18%2C%20nome%3A&amp;#x27;Guido&amp;#x27;%7D)%3B%0Apessoa.sayTheName()%3B%20%2F%2F%20Guido%0Aconsole.log(pessoa.__proto__.sayTheName)%3B%20%2F%2F%20function%20sayTheName%0A%0Aclass%20Atleta%20extends%20Pessoa%20%7B%0A%20%20constructor(%7Bnome%2C%20idade%2C%20esporte%3D%22Basquete%22%7D)%20%7B%0A%20%20%20%20super(%7Bnome%2C%20idade%7D)%0A%0A%20%20%20%20this.esporte%20%3D%20esporte%0A%20%20%7D%0A%7D%0A%0Alet%20jogador%20%3D%20new%20Atleta(%7Bidade%3A%2022%2C%20nome%3A&amp;#x27;Fulano&amp;#x27;%2C%20esporte%3A&amp;#x27;Futebol&amp;#x27;%7D)%0Aconsole.log(jogador.nome)%3B%20%2F%2F%20Fulano%0Aconsole.log(jogador.esporte)%3B%20%2F%2F%20Futebol%0A%0Alet%20jogador2%20%3D%20new%20Atleta(%7Bidade%3A%2028%2C%20nome%3A%20&amp;#x27;Beltrano&amp;#x27;%7D)%3B%0Aconsole.log(jogador2.nome)%3B%20%2F%2F%20Beltrano%0Aconsole.log(jogador2.esporte)%3B%20%2F%2F%20Basquete&quot; title=&quot;Veja o código transpilado no Babel&quot;&gt;versão &quot;transpilada&quot; no &lt;em&gt;Babel&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.2ality.com/2015/08/getting-started-es6.html&quot;&gt;&lt;em&gt;2ality - Getting started with ECMAScript 6&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/lukehoban/es6features&quot;&gt;&lt;em&gt;lukehoban - Overview of ECMAScript 6 features&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Javascript: A diferença entre Constructor Function e Object Literal]]></title><description><![CDATA[Meses atrás, escrevi sobre como era fácil criar objetos em Javascript.
+Devo confessar que, a minha visão sobre a utilização da Orientação a Objetos
+em Javascript era muito superficial, e que uma dúvida muito pertinente
+surgiu na época: Onde usar object literal e onde usar classes? Hoje, depois de…]]></description><link>https://klauslaube.com.br/2011/10/23/javascript-constructor-function-object-literal.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/10/23/javascript-constructor-function-object-literal.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 23 Oct 2011 15:07:00 GMT</pubDate><content:encoded>&lt;p&gt;Meses atrás, &lt;a href=&quot;/2011/05/16/fazendo-javascript-oo-de-forma-facil.html&quot; title=&quot;Fazendo Javascript OO de forma fácil&quot;&gt;escrevi sobre como era fácil criar objetos em &lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;.
+Devo confessar que, a minha visão sobre a utilização da &lt;a href=&quot;/tag/oop.html&quot; title=&quot;Leia mais sobre OOP&quot;&gt;Orientação a Objetos&lt;/a&gt;
+em &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; era muito superficial, e que uma dúvida muito pertinente
+surgiu na época: Onde usar &lt;em&gt;object literal&lt;/em&gt; e onde usar classes?&lt;/p&gt;
+&lt;p&gt;Hoje, depois de entender que a Orientação a Objetos no &lt;em&gt;Javascript&lt;/em&gt; não é
+muito diferente da utilizada em outras linguagens, sou capaz de enxergar
+as possibilidades utilizando as duas maneiras. E este é o objetivo deste
+&lt;em&gt;post&lt;/em&gt;: &lt;strong&gt;compartilhar esta visão com vocês&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Traçando um paralelo&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;http://net.tutsplus.com/&quot; title=&quot;Não conhece o Nettuts? Não perca tempo!&quot;&gt;&lt;em&gt;Nettuts&lt;/em&gt;&lt;/a&gt; fez um &lt;a href=&quot;http://net.tutsplus.com/tutorials/javascript-ajax/the-basics-of-object-oriented-javascript/&quot; title=&quot;The Basics of Object-Oriented JavaScript&quot;&gt;ótimo &lt;em&gt;post&lt;/em&gt;&lt;/a&gt; comparando as diferenças entre
+os dois métodos de criação de objetos (este artigo é fortemente baseado
+na publicação deles). Vamos adotar a estratégia deles e criar estruturas
+semelhantes utilizando &lt;em&gt;object literal&lt;/em&gt; e &lt;em&gt;constructors&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; object_literal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  Automovel&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    quantidadeRodas&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; constructor &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;Automovel&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acima já reparamos numa das maiores vantagens do &lt;em&gt;object literal&lt;/em&gt;:
+&lt;strong&gt;criar &lt;em&gt;namespaces&lt;/em&gt;&lt;/strong&gt;. Isolamos as duas declarações para que possamos
+usar os mesmos nomes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// object literal&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; carro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; object_literal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Automovel&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas:&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 4&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// constructor function&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; carro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;constructor&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Automovel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas:&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acessar &lt;code class=&quot;language-text&quot;&gt;quantidadeRodas&lt;/code&gt; de &lt;code class=&quot;language-text&quot;&gt;object_literal.Automovel&lt;/code&gt; é muito
+mais fácil do que de &lt;code class=&quot;language-text&quot;&gt;constructor.Automovel&lt;/code&gt;. Não é errado dizer que
+&lt;code class=&quot;language-text&quot;&gt;quantidadeRodas&lt;/code&gt; de &lt;code class=&quot;language-text&quot;&gt;constructor.Automovel&lt;/code&gt; é um “atributo de
+instância”, logo, é necessário criar uma instância da classe para
+acessá-lo.&lt;/p&gt;
+&lt;h2&gt;Os métodos entram em ação&lt;/h2&gt;
+&lt;p&gt;Vamos atribuir aos nossos automóveis a capacidade de &lt;code class=&quot;language-text&quot;&gt;ligarMotor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; object_literal &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  Automovel&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    quantidadeRodas&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    motorLigado&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+    &lt;span class=&quot;token function-variable function&quot;&gt;ligarMotor&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token comment&quot;&gt;//object_literal.Automovel.motorLigado = true;&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;motorLigado &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; constructor &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;Automovel&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;motorLigado &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+constructor&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Automovel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;ligarMotor&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;motorLigado &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Aqui que as diferenças começam a ficar mais “gritantes”.&lt;/p&gt;
+&lt;p&gt;Por não conseguirmos criar uma instância de um &lt;em&gt;object literal&lt;/em&gt; (afinal
+de contas, ele já é um objeto), &lt;del&gt;não conseguimos fazer uma referência
+&lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt; como em classes&lt;/del&gt; não temos a definição de atributos e métodos
+via &lt;em&gt;Prototype&lt;/em&gt;. &lt;del&gt;Se o fizéssemos, estaríamos explorando atributos da
+função anônima associada à propriedade &lt;code class=&quot;language-text&quot;&gt;ligarMotor&lt;/code&gt;, da propriedade
+&lt;code class=&quot;language-text&quot;&gt;Automovel&lt;/code&gt;, da variável &lt;code class=&quot;language-text&quot;&gt;object_literal&lt;/code&gt;&lt;/del&gt;. Mas, conseguimos
+&lt;strong&gt;sim&lt;/strong&gt; explorar atributos e métodos do objeto através do &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt;. O
+mesmo ocorre em &lt;code class=&quot;language-text&quot;&gt;ligarMotor&lt;/code&gt; de constructor, o &lt;code class=&quot;language-text&quot;&gt;this&lt;/code&gt; é capaz de
+acessar os valores e métodos nas instâncias de &lt;code class=&quot;language-text&quot;&gt;Automovel&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// object literal&lt;/span&gt;
+carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ligarMotor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;motor ligado:&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;motorLigado&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// true&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// constructor function&lt;/span&gt;
+carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;ligarMotor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;motor ligado:&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;motorLigado&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Atributos diferentes para instâncias diferentes&lt;/h2&gt;
+&lt;p&gt;Sabemos que um automóvel pode ter 2, 4, 6 ou até 8 rodas, então vamos
+adaptá-los:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; constructor &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;Automovel&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;qtndRodas&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; qtndRodas&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;motorLigado &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ué?! Mas e o &lt;strong&gt;object literal&lt;/strong&gt;? Pois é.. como ele não pode gerar
+instâncias (novamente, ele já é um objeto), temos que alterar “na mão”:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// object literal&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; moto &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; object_literal&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Automovel&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+moto&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas (moto):&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; moto&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 2&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// constructor function&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; moto &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;constructor&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Automovel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas (moto):&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; moto&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Só por curiosidade, como estarão os nossos objetos &lt;code class=&quot;language-text&quot;&gt;carro&lt;/code&gt;? (Lá vem a
+pegadinha =P )&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// object literal&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas (carro):&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 2&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// constructor function&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas (carro):&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pelo lado da instância de &lt;code class=&quot;language-text&quot;&gt;constructor.Automovel&lt;/code&gt;, nenhuma surpresa.
+Mas o que aconteceu com o valor do atributo &lt;code class=&quot;language-text&quot;&gt;quantidadeRodas&lt;/code&gt; da
+variável &lt;code class=&quot;language-text&quot;&gt;carro&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;object_literal.Automovel&lt;/code&gt;?&lt;/p&gt;
+&lt;h2&gt;Instâncias x Referências&lt;/h2&gt;
+&lt;p&gt;A grosso modo, com uso de &lt;em&gt;constructor functions&lt;/em&gt;, criamos uma
+“estrutura” (classe), que a cada &lt;code class=&quot;language-text&quot;&gt;new&lt;/code&gt; é “copiada” para um novo espaço
+na memória (instância). Assim, a propriedade &lt;code class=&quot;language-text&quot;&gt;quantidadeRodas&lt;/code&gt; de moto
+é diferente da propriedade de mesmo nome, da instância &lt;code class=&quot;language-text&quot;&gt;carro&lt;/code&gt; (&lt;a href=&quot;http://pt.wikipedia.org/wiki/Inst%C3%A2ncia_(classe)&quot; title=&quot;Leia mais sobre instância no Wikipedia&quot;&gt;leia mais sobre instâncias e classes&lt;/a&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// constructor function&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;carro == moto:&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; moto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Já com &lt;em&gt;object literal&lt;/em&gt;, não temos a capacidade de criar uma classe.
+Criamos diretamente uma instância, e vinculamos o espaço na memória onde
+esta foi criada à uma variável. No nosso caso, a variável em questão é
+&lt;code class=&quot;language-text&quot;&gt;object_literal.Automovel&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Quando atribuímos &lt;code class=&quot;language-text&quot;&gt;object_literal.Automovel&lt;/code&gt; à variável &lt;code class=&quot;language-text&quot;&gt;carro&lt;/code&gt; e
+depois à variável &lt;code class=&quot;language-text&quot;&gt;moto&lt;/code&gt;, na verdade estávamos criando referências a
+instânca contida em &lt;code class=&quot;language-text&quot;&gt;object_literal.Automovel&lt;/code&gt; (ou seja, as três
+variáveis correspondem ao mesmo endereço e valor na memória):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// object literal&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;carro == moto:&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; moto&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Portanto, se eu criar uma variável chamada &lt;code class=&quot;language-text&quot;&gt;moto2&lt;/code&gt; e atribuir a ela a
+instância de &lt;code class=&quot;language-text&quot;&gt;constructor.Automovel&lt;/code&gt; contida em &lt;code class=&quot;language-text&quot;&gt;moto&lt;/code&gt;, terei o
+mesmo resultado que acima:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// constructor function&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; moto2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; moto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+moto2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas (instancia carro):&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 4&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas (instancia moto):&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; moto&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 3&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;quantidade de rodas (referencia moto2):&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; moto2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quantidadeRodas&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 3&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;moto == moto2:&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; moto &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; moto2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Interessante, não?&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Uma vez descobrindo a diferença entre &lt;em&gt;object literal&lt;/em&gt; e &lt;em&gt;constructor function&lt;/em&gt;,
+notamos que não há diferenças conceituais em relação a
+linguagens como &lt;em&gt;Python&lt;/em&gt;, &lt;em&gt;C++&lt;/em&gt; ou &lt;em&gt;Java&lt;/em&gt;. Basta termos em mente que o
+tipo de escrita, através da &lt;em&gt;prototype&lt;/em&gt;, é diferente (e mais dinâmica)
+do que o usual, mas os resultados são (conceitualmente falando)
+praticamente os mesmos.&lt;/p&gt;
+&lt;p&gt;Então, quando você tiver um tipo que possuirá várias instâncias, utilize
+&lt;em&gt;constructor functions&lt;/em&gt;. Quando quiser criar objetos “estáticos”, que
+não sofrerão alterações no decorrer de uma execução (como o exemplo do
+namespace), utilize &lt;em&gt;object literal&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://net.tutsplus.com/tutorials/javascript-ajax/the-basics-of-object-oriented-javascript/&quot; title=&quot;The Basics of Object-Oriented JavaScript&quot;&gt;&lt;em&gt;Nettuts+ – The Basics of Object-Oriented JavaScript&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/&quot; title=&quot;Stop Nesting Functions! But Not All of Them&quot;&gt;&lt;em&gt;Nettuts+ – Stop Nesting Functions! (But Not All of Them)&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O exemplo completo está disponível para download em:
+&lt;a href=&quot;https://github.com/kplaube/post-javascript-object-literal-constructors&quot; title=&quot;Veja o exemplo completo no GitHub&quot;&gt;https://github.com/kplaube/post-javascript-object-literal-constructors&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Decorators em Python]]></title><description><![CDATA[E na mesma linha dos closures, eu passei a
+saber realmente o que são decorators depois de utilizar o framework
+Django. Se você está trabalhando com Orientação a Objetos e
 até agora não se deparou com este recurso, te garanto que um dia você
-precisará dele… afinal, é um dos …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 02 Aug 2011 20:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-08-02:/2011/08/02/decorators-em-python.html</guid><category>desenvolvimento</category><category>python</category><category>oop</category><category>design-patterns</category><category>decorators</category></item><item><title>Afinal, o que são Closures?</title><link>https://klauslaube.com.br/2011/05/29/afinal-o-que-sao-closures.html</link><description>&lt;p&gt;Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com
+precisará dele… afinal, é um dos Design Patterns mais…]]></description><link>https://klauslaube.com.br/2011/08/02/decorators-em-python.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/08/02/decorators-em-python.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 02 Aug 2011 20:00:00 GMT</pubDate><content:encoded>&lt;p&gt;E na mesma linha dos &lt;a href=&quot;/2011/05/29/afinal-o-que-sao-closures.html&quot; title=&quot;Afinal, o que são Closures?&quot;&gt;&lt;em&gt;closures&lt;/em&gt;&lt;/a&gt;, eu passei a
+saber realmente o que são &lt;em&gt;decorators&lt;/em&gt; depois de utilizar o &lt;em&gt;framework&lt;/em&gt;
+&lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Se você está trabalhando com &lt;a href=&quot;/tag/oop.html&quot; title=&quot;Leia mais sobre OOP&quot;&gt;Orientação a Objetos&lt;/a&gt; e
+até agora não se deparou com este recurso, te garanto que um dia você
+precisará dele… afinal, é um dos &lt;a href=&quot;http://pt.wikipedia.org/wiki/Padr%C3%A3o_de_projeto_de_software&quot; title=&quot;Conheça os Design Patterns&quot;&gt;&lt;em&gt;Design Patterns&lt;/em&gt;&lt;/a&gt; mais bacanas (e
+úteis) que já vi.&lt;/p&gt;
+&lt;p&gt;Vamos lá “decorar” nossos métodos &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;h2&gt;Decoradores? Really?&lt;/h2&gt;
+&lt;p&gt;Eu não saberia explicar de uma forma melhor do que foi explicado pela
+&lt;a href=&quot;http://pt.wikipedia.org/wiki/Decorator&quot; title=&quot;Leia mais sobre o pattern Decorator&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;, o que é o padrão decorator:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Intenção:&lt;/strong&gt; Acrescentar responsabilidades a um objeto
+dinamicamente. Prover alternativa flexível ao uso de subclasses para
+se estender a funcionalidade de uma classe;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Motivação:&lt;/strong&gt; Objeto usado possui as funcionalidades básicas, mas é
+necessário adicionar funcionalidades adicionais a ele que podem
+ocorrer antes ou depois da funcionalidade básica. Funcionalidades
+devem ser adicionadas em instancias individuais e não na classe;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consequências:&lt;/strong&gt; Mais flexibilidade do que herança.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Encontramos na &lt;a href=&quot;http://wiki.python.org/moin/FrontPage&quot; title=&quot;Wiki oficial da linguagem Python&quot;&gt;&lt;em&gt;Wiki&lt;/em&gt; do &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; uma explicação mais objetiva e
+esclarecedora:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Decorators alteram dinamicamente a funcionalidade de uma função,
+método ou classe, sem uso direto de subclasses ou alterando o
+código-fonte da função “decorada”.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;O uso de decorators em Python&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Python&lt;/em&gt; começou a dar suporte a &lt;em&gt;decorators&lt;/em&gt; a partir da &lt;strong&gt;versão
+2.4&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Você terá a sua disposição alguns decoradores &lt;em&gt;built-in&lt;/em&gt; e também poderá
+criar os seus próprios sem muito dificuldade. É possível identificar um
+&lt;em&gt;decorator&lt;/em&gt; através do caractere &lt;code class=&quot;language-text&quot;&gt;@&lt;/code&gt;, por exemplo, a instrução abaixo
+declara o método &lt;code class=&quot;language-text&quot;&gt;say_hello&lt;/code&gt; da classe &lt;code class=&quot;language-text&quot;&gt;People&lt;/code&gt; como estático:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;People&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@staticmethod&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;say_hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello!&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vale notar que podemos reproduzir o comportamento acima sem utilizar a
+sintaxe especial de &lt;em&gt;decorators&lt;/em&gt; (mas não deixamos de utilizar o
+conceito):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;People&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;say_hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello!&apos;&lt;/span&gt;
+  say_hello &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;staticmethod&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;say_hello&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quer conhecer mais sobre &lt;em&gt;decorators&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;? Leia a
+&lt;a href=&quot;http://www.python.org/dev/peps/pep-0318/&quot; title=&quot;Leia mais sobre a PEP318&quot;&gt;&lt;em&gt;PEP 318 – Decorators for functions and methods&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Um pouco de prática&lt;/h2&gt;
+&lt;p&gt;Vamos por a mão na massa e criar o nosso próprio &lt;em&gt;decorator&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# meu_decorator.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;meu_decorador&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;alvo&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Chamando a funcao &quot;%s&quot;&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; alvo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;__name__
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; alvo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; wrapper
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@meu_decorador&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;meu_alvo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Eu sou um alvo!&apos;&lt;/span&gt;
+
+meu_alvo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Chamando o &lt;em&gt;script&lt;/em&gt; acima, teremos o seguinte resultado:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python meu_decorator.py
+
+Chamando a funcao &amp;quot;meu_alvo&amp;quot;
+Eu sou um alvo!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vou tentar seguir um fluxo que deixe claro o que o procedimento está
+realizando.&lt;/p&gt;
+&lt;p&gt;O comportamento da função &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt; é muito simples: imprimir &lt;code class=&quot;language-text&quot;&gt;“Eu sou um alvo!”&lt;/code&gt; na tela. Mas o &lt;code class=&quot;language-text&quot;&gt;@meu_decorador&lt;/code&gt; está lá para
+complicar a nossa vida :D&lt;/p&gt;
+&lt;p&gt;Com a chamada de &lt;code class=&quot;language-text&quot;&gt;@meu_decorador&lt;/code&gt; logo acima de &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;, fica
+claro que na verdade estamos passando &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt; como um parâmetro
+(&lt;code class=&quot;language-text&quot;&gt;alvo&lt;/code&gt;) para o método &lt;code class=&quot;language-text&quot;&gt;meu_decorador&lt;/code&gt;, encontrado logo no início
+do arquivo. Note que o método retorna &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt; sem os parênteses no
+final (que caracterizam uma chamada de função), ele está retornando
+apenas a referência ao método &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt;, que será de fato “executado”
+externamente.&lt;/p&gt;
+&lt;p&gt;Dentro da função &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt; temos a impressão da &lt;em&gt;string&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;‘Chamando a funcao “meu_alvo”‘&lt;/code&gt; e a execução de &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;. Isto deve-se ao
+fato de que &lt;code class=&quot;language-text&quot;&gt;alvo&lt;/code&gt; nada mais é que uma referência a função
+&lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;, que passamos como argumento para &lt;code class=&quot;language-text&quot;&gt;meu_decorador&lt;/code&gt;
+através do &lt;code class=&quot;language-text&quot;&gt;@meu_decorador&lt;/code&gt; logo acima da função &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;,
+certo?&lt;/p&gt;
+&lt;p&gt;Então resumindo isso tudo, o resultado final é que &lt;code class=&quot;language-text&quot;&gt;meu_alvo()&lt;/code&gt; no
+final do arquivo na verdade é a execução da referência a &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt;, ou
+seja, é o mesmo que ler &lt;code class=&quot;language-text&quot;&gt;“wrapper()“&lt;/code&gt;. Ele fará o &lt;em&gt;print&lt;/em&gt; e
+posteriormente retornará o resultado de &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;, que nada mais é
+que a impressão de &lt;code class=&quot;language-text&quot;&gt;“Eu sou um alvo!”&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Bacana não? Aqui vai mais um para deixar as coisas um pouco mais claras…
+vamos simular o esquema de roteamento de um &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/web.html&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;rotas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rota&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;endereco&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fn&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    rotas&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;append&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;endereco&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fn&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; wrapper
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@rota&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/index/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;home_view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Pagina inicial&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@rota&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/contato/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;contato_view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Pagina de contato&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; rotas&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Pagina inicial&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; rotas&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Pagina de contato&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; rotas
+&lt;span class=&quot;token comment&quot;&gt;# [(&apos;/index/&apos;, &amp;lt; function home_view at 0xb736580c &gt;),&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;#  (&apos;/contato/&apos;, &amp;lt; function contato_view at 0xb7365b8c &gt;)]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://devlog.waltercruz.com/python_decorators&quot; title=&quot;Walter Cruz em um excelente post sobre Decorators em Python&quot;&gt;&lt;em&gt;Devlog – @decorators&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.fiveminutes.eu/a-quick-introduction-to-python-decorators/&quot; title=&quot;Uma introdução rápida aos decorators em Python. Muito bom!&quot;&gt;&lt;em&gt;Five Minutes – A quick introduction to Python decorators&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/workshops/1997-10/proceedings/savikko.html&quot; title=&quot;Padrões de Projetos em Python.&quot;&gt;&lt;em&gt;Python.org – Design Patterns in Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wiki.python.org/moin/PythonDecorators&quot; title=&quot;Decorators em Python, direto da Wiki oficial do Python&quot;&gt;&lt;em&gt;Python.org – Python Decorators&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.siafoo.net/article/68&quot; title=&quot;Decorators em Python não precisam ser assustadores. Um ótimo artigo.&quot;&gt;&lt;em&gt;Siafoo – Python Decorators Don’t Have to be (that) Scary&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Decorator&quot; title=&quot;Leia mais na Wikipedia sobre Decorators&quot;&gt;&lt;em&gt;Wikipedia – Decorator&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Afinal, o que são Closures?]]></title><description><![CDATA[Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com
+um nome “pomposo” para a parada (que você nunca ouviu falar)? Isso
+aconteceu comigo com closures. What (the hell) are closures? Entendi o conceito de closures enquanto estudava Ruby. Na verdade,
+fica a dica… se você quer aprender…]]></description><link>https://klauslaube.com.br/2011/05/29/afinal-o-que-sao-closures.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/05/29/afinal-o-que-sao-closures.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 29 May 2011 13:52:00 GMT</pubDate><content:encoded>&lt;p&gt;Sabem aqueles conceitos, que a gente sempre utiliza e chega alguém com
 um nome “pomposo” para a parada (que você nunca ouviu falar)? Isso
 aconteceu comigo com &lt;em&gt;closures&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;h2&gt;What (the hell) are closures?&lt;/h2&gt;
 &lt;p&gt;Entendi o conceito de &lt;em&gt;closures&lt;/em&gt; enquanto estudava &lt;em&gt;Ruby&lt;/em&gt;. Na verdade,
-fica a dica… se você quer aprender …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 29 May 2011 13:52:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-05-29:/2011/05/29/afinal-o-que-sao-closures.html</guid><category>desenvolvimento</category><category>closures</category><category>oop</category><category>javascript</category></item><item><title>Fazendo Javascript OO de forma fácil</title><link>https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html</link><description>&lt;p&gt;Embora o &lt;em&gt;Javascript&lt;/em&gt; (em sua essência) seja orientado a objetos, temos
+fica a dica… se você quer aprender &lt;a href=&quot;/tag/oop.html&quot; title=&quot;Leia mais sobre Orientação a Objetos&quot;&gt;Orientação a Objetos&lt;/a&gt;, aprenda
+linguagens dinâmicas como &lt;em&gt;Ruby&lt;/em&gt;, &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e até mesmo &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;.
+Depois parta para linguagens mais “hardcore” como &lt;em&gt;Java&lt;/em&gt; e &lt;em&gt;C++&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos deixar a &lt;a href=&quot;http://pt.wikipedia.org/wiki/Closure&quot; title=&quot;Leia sobre closure no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt; nos explicar o que é uma &lt;em&gt;closure&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Uma closure ocorre normalmente quando uma função é declarada dentro do
+corpo de outra, e a função interior referencia variáveis locais da
+função exterior. Em tempo de execução, quando a função exterior é
+executada, então uma closure é formada, que consiste do código da
+função interior e referências para quaisquer variáveis no escopo da
+função exterior que a closure necessita.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ok… sou a favor das pessoas que dizem que é difícil compreender alguns
+conceitos apenas por parágrafos formados por palavras bem escritas.
+Vamos ao exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;digaSeuNome&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; msg &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Olá &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; nome &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;. Seja bem-vindo!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;exibeMensagem&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;msg&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;exibeMensagem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;digaSeuNome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;João&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Olá João. Seja bem-vindo!&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Temos uma função definida dentro de outra função. A função interna
+utiliza de parâmetros e variáveis da função externa… basicamente, este é
+o conceito de &lt;em&gt;closure&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Não achou muito útil? Dê uma olhada no exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;FabricaDeUsuarios&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;criaUsuario&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    id&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      id&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; criaUsuario&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; novoUsuario &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;FabricaDeUsuarios&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; joao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;novoUsuario&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;João&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; jose &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;novoUsuario&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;José&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;joao&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jose&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Utilizamos o conceito de &lt;em&gt;closure&lt;/em&gt; no exemplo acima. Abusamos do
+contexto da linguagem, onde, mesmo que estejamos “chamando” a função
+fora do escopo de &lt;code class=&quot;language-text&quot;&gt;FabricaDeUsuarios&lt;/code&gt;, na verdade &lt;code class=&quot;language-text&quot;&gt;novoUsuario&lt;/code&gt;
+trata-se de uma referência a função &lt;code class=&quot;language-text&quot;&gt;criaUsuario&lt;/code&gt;. Logo, ainda
+estaremos utilizando os recursos do contexto de &lt;code class=&quot;language-text&quot;&gt;FabricaDeUsuarios&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.javascriptkit.com/javatutors/closures.shtml&quot; title=&quot;Alguns exemplos de closures com Javascript&quot;&gt;&lt;em&gt;Javascript Closures – They’re not magic&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.morrisjohns.com/javascript_closures_for_dummies&quot; title=&quot;Leia sobre Closures em Javascript&quot;&gt;&lt;em&gt;Morris Johns – Javascript Closures for Dummies&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en/JavaScript/Guide/Closures&quot; title=&quot;Leia sobre Closures no guia Javascript da Mozilla&quot;&gt;&lt;em&gt;Mozilla Developer Network – Closures&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://devlog.waltercruz.com/closures&quot; title=&quot;Closures em Ruby&quot;&gt;&lt;em&gt;Walter Cruz – Closures&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;E você… tem algum exemplo bacana sobre &lt;em&gt;closures&lt;/em&gt;? Não deixe de
+comentar.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Fazendo Javascript OO de forma fácil]]></title><description><![CDATA[Embora o Javascript (em sua essência) seja orientado a objetos, temos
+que admitir que ela foge um pouco do convencional através do estilo de
+escrita prototype. Quero dizer que, é possível utilizarmos
+conceitos como encapsulamento, herança, atributos e métodos públicos e
+privados, etc. Mas de uma…]]></description><link>https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 16 May 2011 20:27:00 GMT</pubDate><content:encoded>&lt;p&gt;Embora o &lt;em&gt;Javascript&lt;/em&gt; (em sua essência) seja orientado a objetos, temos
 que admitir que ela foge um pouco do convencional através do estilo de
 escrita &lt;em&gt;&lt;em&gt;prototype&lt;/em&gt;&lt;/em&gt;. Quero dizer que, é possível utilizarmos
 conceitos como encapsulamento, herança, atributos e métodos públicos e
-privados, etc. Mas de uma maneira um pouco diferente …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 16 May 2011 22:27:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-05-16:/2011/05/16/fazendo-javascript-oo-de-forma-facil.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>oop</category></item></channel></rss>
+privados, etc. Mas de uma maneira um pouco diferente se comparada a
+linguagens como &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Encapsular para conquistar!&lt;/h2&gt;
+&lt;p&gt;A linguagem é composta por alguns objetos muito utilizados no cotidiano,
+como os objetos &lt;code class=&quot;language-text&quot;&gt;Array&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Math&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;String&lt;/code&gt;. Estes (e outros
+&lt;a href=&quot;https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects&quot; title=&quot;Veja outros objetos globais da linguagem&quot;&gt;objetos de &lt;em&gt;core&lt;/em&gt;&lt;/a&gt;) são instâncias do objeto &lt;code class=&quot;language-text&quot;&gt;Object&lt;/code&gt;, que você
+pode representar através da seguinte expressão:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; meuObjeto &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; meuObjeto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// object&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; Math&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// object&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Você encontrará uma forma (muito bacana por sinal) de construir objetos
+através de expressões como essas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; fooBar &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Posso funcionar como um inicializador!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;_private&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;tipo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Testando chamada &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; tipo &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;.&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;eggs&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Eggs.&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    fooBar&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;_private&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;interna&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token function-variable function&quot;&gt;spam&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Spam: &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; msg &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;.&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+fooBar&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Posso funcionar como um inicializador!&lt;/span&gt;
+fooBar&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;eggs&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Eggs.&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Testando chamada interna&lt;/span&gt;
+fooBar&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;_private&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;externa&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Testando chamada externa&lt;/span&gt;
+fooBar&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;spam&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Eggs and Spam&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Spam: Eggs and Spam&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pode-se observar que é uma prática válida para organizar código através
+de namespaces.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Referência:&lt;/strong&gt; &lt;a href=&quot;http://blog.rebeccamurphey.com/2009/10/15/using-objects-to-organize-your-code/&quot; title=&quot;Um bom artigo da Rebecca Murphey sobre como organizar seus scripts através de Objects&quot;&gt;&lt;em&gt;Using Objects to organize your code&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Função ou Classe?&lt;/h2&gt;
+&lt;p&gt;Já utilizei algumas vezes o modelo acima… mas devo dizer que sou adepto
+a uma outra forma de construirmos classes em &lt;em&gt;Javascript&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Pessoa&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Pessoa instanciada!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token function&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Pessoa instanciada!&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; Pessoa&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// function&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; pessoa1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Pessoa instanciada!&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;typeof&lt;/span&gt; pessoa1&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// object&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No exemplo acima, podemos reparar que seguindo o comportamento normal de
+uma função, não há surpresas na execução da expressão &lt;code class=&quot;language-text&quot;&gt;Pessoa&lt;/code&gt;. Porém,
+quando adicionamos o operador &lt;code class=&quot;language-text&quot;&gt;new&lt;/code&gt; na frente, o &lt;em&gt;Javascript&lt;/em&gt; cria uma
+instância do tipo &lt;code class=&quot;language-text&quot;&gt;Pessoa&lt;/code&gt;. Basicamente é como se a expressão
+&lt;code class=&quot;language-text&quot;&gt;function&lt;/code&gt; fosse “multiuso”, sendo útil para definir funções e
+classes.&lt;/p&gt;
+&lt;p&gt;O mais legal disso é que, como você já deve ter reparado, com o uso do
+&lt;code class=&quot;language-text&quot;&gt;new&lt;/code&gt; ganhamos de graça um &lt;code class=&quot;language-text&quot;&gt;constructor&lt;/code&gt; (ou inicializador, como
+preferir) em nossa classe &lt;code class=&quot;language-text&quot;&gt;Pessoa&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Referência:&lt;/strong&gt; &lt;a href=&quot;https://developer.mozilla.org/en/Introduction_to_Object-Oriented_JavaScript&quot; title=&quot;Excelente artigo da Mozilla ensinando a como representar estados da Orientação a Objetos com Javascript&quot;&gt;&lt;em&gt;Introduction to Object-Oriented Javascript&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Métodos, propriedades e um pouco de confusão&lt;/h2&gt;
+&lt;p&gt;Do construtor em diante, já me deparei com algumas vertentes de
+implementações do &lt;em&gt;Javascript&lt;/em&gt;. Já encontrei algumas &lt;a href=&quot;http://jquery-howto.blogspot.com/2009/01/object-oriented-javascript-how-to_21.html&quot; title=&quot;Object-Oriented JavaScript, how to achieve public properties/fields&quot;&gt;bem simples&lt;/a&gt;,
+outras &lt;a href=&quot;http://www.coolpage.com/developer/javascript/Correct%20OOP%20for%20Javascript.html&quot; title=&quot;Correct OOP for Javascript&quot;&gt;um pouco mais complicadas&lt;/a&gt; … vou mostrar aqui a que eu
+acredito ser a mais usual. Não tenho propriedade para dizer se é o modo
+certo ou mais elegante, apenas é o modo que incorpora características de
+&lt;em&gt;OOP&lt;/em&gt; que melhor me atendeu:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Linguagem&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; versao&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;versao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; versao&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acima temos a construção da classe &lt;code class=&quot;language-text&quot;&gt;Linguagem&lt;/code&gt;. Em seu constructor
+aproveitamos para setar alguns atributos, como &lt;code class=&quot;language-text&quot;&gt;nome&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;versao&lt;/code&gt;, que são
+passados imediatamente na hora de instanciá-la.&lt;/p&gt;
+&lt;p&gt;Para criar um método para esta classe, vamos recorrer ao &lt;em&gt;prototype&lt;/em&gt; do
+&lt;em&gt;Javascript&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;Linguagem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;descricaoCompleta&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; vr. &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;versao&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Resumidamente, estamos adicionando um método de instância na estrutura
+da classe. Fazemos isso adicionando uma função ao &lt;code class=&quot;language-text&quot;&gt;prototype&lt;/code&gt; da classe.
+Dessa forma o método terá acesso as propriedades do objeto na hora que
+for instanciado.&lt;/p&gt;
+&lt;p&gt;Se tentarmos executar a expressão &lt;code class=&quot;language-text&quot;&gt;Linguagem.descricaoCompleta&lt;/code&gt;,
+iremos nos deparar com um erro de método inexistente. Mas, se
+instanciarmos a classe veremos que o método está acessível:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; python &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Linguagem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Python&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;2.7&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;python&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Linguagem&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;python&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;descricaoCompleta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Python vr.2.7&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acima utilizamos o conceito de métodos e atributos de instância. Através
+do modelo &lt;em&gt;object literal&lt;/em&gt; podemos ter um comportamento parecido com o
+conceito de métodos de classe:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Linguagem&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; versao&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;versao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; versao&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Chamando um método que está fora do prototype da classe&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;meuId &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Linguagem&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;incId&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Adicionando uma propriedade através de Object Literal&lt;/span&gt;
+Linguagem&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Adicionando um método através de Object Literal&lt;/span&gt;
+Linguagem&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;incId&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; javascript &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Linguagem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Javascript&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.5&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;javascript&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Linguagem&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;javascript&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;meuId&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esta forma de criar classes e objetos em &lt;em&gt;Javascript&lt;/em&gt; é executada com
+muito sucesso na biblioteca &lt;a href=&quot;http://www.rgraph.net/&quot; title=&quot;RGraph: HTML5 canvas graph library based on the HTML5 canvas tag &quot;&gt;&lt;em&gt;RGraph&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Referências:&lt;/strong&gt; &lt;a href=&quot;http://weblog.bocoup.com/javascript-is-object-oriented-programming&quot; title=&quot;Excelente artigo mostrando os conceitos de OOP aplicados ao Javascript&quot;&gt;&lt;em&gt;Javascript is Object Oriented Programming&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Herdar é preciso&lt;/h2&gt;
+&lt;p&gt;Para entender como criar heranças com o &lt;em&gt;prototype&lt;/em&gt; do &lt;em&gt;Javascript&lt;/em&gt;,
+vamos primeiramente criar um tipo chamado &lt;code class=&quot;language-text&quot;&gt;Framework&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Framework&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;nomeFramework&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; versao&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;versao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; versao&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nomeFramework &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nomeFramework&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No caso acima, iremos sobrescrever o comportamento do &lt;em&gt;constructor&lt;/em&gt; da
+classe &lt;code class=&quot;language-text&quot;&gt;Linguagem&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;E é aqui que a mágica acontece… instanciamos o tipo &lt;code class=&quot;language-text&quot;&gt;Linguagem&lt;/code&gt; no
+&lt;code class=&quot;language-text&quot;&gt;prototype&lt;/code&gt; da classe &lt;code class=&quot;language-text&quot;&gt;Framework&lt;/code&gt;. Isto fará com que o tipo
+&lt;code class=&quot;language-text&quot;&gt;Framework&lt;/code&gt; possua todas as propriedades de &lt;code class=&quot;language-text&quot;&gt;Linguagem&lt;/code&gt;. Depois corrigimos
+o &lt;code class=&quot;language-text&quot;&gt;constructor&lt;/code&gt;, apontando ele novamente para &lt;code class=&quot;language-text&quot;&gt;Framework&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Cria herança com Linguagem&lt;/span&gt;
+&lt;span class=&quot;token class-name&quot;&gt;Framework&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Linguagem&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;// Corrige o ponteiro do constructor para Framework (está apontando para Linguagem)&lt;/span&gt;
+&lt;span class=&quot;token class-name&quot;&gt;Framework&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;constructor &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Framework&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos adicionar um método exclusivo da classe &lt;code class=&quot;language-text&quot;&gt;Framework&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token class-name&quot;&gt;Framework&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;prototype&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function-variable function&quot;&gt;feitoEm&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nomeFramework &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot; é feito em &quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Instanciamos algumas vezes a classe &lt;code class=&quot;language-text&quot;&gt;Framework&lt;/code&gt;, e teremos o
+comportamento esperado de uma herança:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; django &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Framework&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Django&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Python&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;2.7&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;django&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Framework&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;descricaoCompleta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Python vr.2.7&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;feitoEm&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Django é feito em Python&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; jquery &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Framework&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;jQuery&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Javascript&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;1.5&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jquery&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Framework&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jquery&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;descricaoCompleta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// jQuery vr.1.5&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jquery&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;feitoEm&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// jQuery é feito em Javascript&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Existem algumas bibliotecas (como a &lt;a href=&quot;http://mootools.net/&quot; title=&quot;MooTools, a compact javascript framework&quot;&gt;&lt;em&gt;Mootools&lt;/em&gt;&lt;/a&gt;) que facilitam a
+criação de classes e heranças em &lt;em&gt;Javascript&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O exemplo completo está disponível para &lt;em&gt;download&lt;/em&gt; em:
+&lt;a href=&quot;http://github.com/kplaube/post-javascript-oop&quot; title=&quot;Código do exemplo no GitHub&quot;&gt;http://github.com/kplaube/post-javascript-oop&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

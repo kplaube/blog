@@ -1,8 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - provisionamento</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 03 Oct 2015 14:00:00 -0300</lastBuildDate><item><title>Esse é mais um post sobre Vagrant</title><link>https://klauslaube.com.br/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html</link><description>&lt;p&gt;Sim! Esse é mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Vagrant&lt;/em&gt;, entre tantos outros espalhados pela
-&lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Sim! Se você já conhece a ferramenta,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - provisionamento]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Esse é mais um post sobre Vagrant]]></title><description><![CDATA[Sim! Esse é mais um post sobre Vagrant, entre tantos outros espalhados pela
+web. Sim! Se você já conhece a ferramenta,
+provavelmente não terá nada de novo para você nesse artigo. Já falamos um pouco sobre ambientes virtuais,
+e as vantagens são numerosas. A "atomicidade" de poder construir e destruir…]]></description><link>https://klauslaube.com.br/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html</link><guid isPermaLink="false">https://klauslaube.com.br/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 03 Oct 2015 14:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sim! Esse é mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Vagrant&lt;/em&gt;, entre tantos outros espalhados pela
+&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Sim! Se você já conhece a ferramenta,
 provavelmente não terá nada de novo para você nesse artigo.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Já falamos um pouco sobre &lt;a href=&quot;/tag/virtualizacao.html&quot; title=&quot;Leia mais sobre Virtualização&quot;&gt;ambientes virtuais&lt;/a&gt;,
+e as vantagens são numerosas. A &quot;atomicidade&quot; de poder construir e destruir um
+ambiente inteiro, sem acarretar efeitos colaterais ao seu ambiente de trabalho,
+traz agilidade sem perder segurança e sanidade.&lt;/p&gt;
+&lt;p&gt;Sem dúvida o que levou &quot;virtualização&quot; de um &lt;em&gt;buzzword&lt;/em&gt; para uma necessidade
+real na vida dos profissionais foi a diminuição do &lt;em&gt;overhead&lt;/em&gt; na criação de
+ambientes virtuais. Hoje, uma porção de ferramentas é capaz de realizar essa
+operação de maneira muito fácil.&lt;/p&gt;
+&lt;p&gt;Entre essas ferramentas está o &lt;em&gt;Vagrant&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Quanto mais perto de produção, melhor&lt;/h2&gt;
+&lt;p&gt;Por quê? Por que usar &lt;em&gt;Vagrant&lt;/em&gt;? Por que adicionar essa complexidade na minha
+&lt;em&gt;stack&lt;/em&gt; de desenvolvimento?&lt;/p&gt;
+&lt;p&gt;Quem utiliza &lt;a href=&quot;/2011/03/07/diferentes-ambientes.html&quot;&gt;mais de um ambiente&lt;/a&gt;
+(como &lt;em&gt;dev&lt;/em&gt;, &lt;em&gt;qa&lt;/em&gt;, &lt;em&gt;staging&lt;/em&gt;, etc) defende que
+eles servem como &quot;peneiras&quot; para pegarmos eventuais &lt;em&gt;bugs&lt;/em&gt; e problemas de
+integração de código.&lt;/p&gt;
+&lt;p&gt;Você já deve ter se deparado com o famoso problema &quot;works on my machine&quot;:
+Instalou aquela dependência que resolve a sua vida, mas quando sobe para algum
+ambiente ela simplesmente não funciona.&lt;/p&gt;
+&lt;p&gt;Ter um ambiente muito próximo de produção disponível para você em tempo de
+desenvolvimento pode ser uma excelente ideia para economizar tempo, otimizar
+processos, e lhe dar segurança para fazer aquela subida de código em plena
+sexta-feira.&lt;/p&gt;
+&lt;h2&gt;Vagrant FTW&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://en.wikipedia.org/wiki/Vagrant_%28software%29&quot; title=&quot;Leia sobre Vagrant&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Vagrant is computer software that creates and configures virtual development environments. It can be seen as a higher-level wrapper around virtualization software such as VirtualBox, VMware, KVM and Linux Containers (LXC), and around configuration management software such as Ansible, Chef, Salt, and Puppet.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É isso mesmo o que você leu! O &lt;em&gt;Vagrant&lt;/em&gt; é uma ferramenta que serve como uma
+&quot;cola&quot; entre a sua máquina &lt;em&gt;VirtualBox&lt;/em&gt; e o seu provisionamento por &lt;em&gt;Puppet&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nesse &lt;em&gt;blog&lt;/em&gt;, eu uso o &lt;em&gt;Vagrant&lt;/em&gt; para simular o meu ambiente de produção da
+&lt;em&gt;Digital Ocean&lt;/em&gt;, composto por uma máquina &lt;em&gt;Ubuntu Linux&lt;/em&gt; com &lt;a href=&quot;/tag/nginx.html&quot; title=&quot;Leia mais sobre NGINX&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt;,
+provisionada através de &lt;em&gt;Salt Stack&lt;/em&gt;. O meu &lt;code class=&quot;language-text&quot;&gt;Vagrantfile&lt;/code&gt; ficou &lt;a href=&quot;https://raw.githubusercontent.com/kplaube/blog/master/Vagrantfile&quot; title=&quot;Veja no GitHub&quot;&gt;assim&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ruby&quot;&gt;&lt;pre class=&quot;language-ruby&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Vagrantfile API/syntax version. Don&apos;t touch unless you know what you&apos;re doing!&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;2&quot;&lt;/span&gt;
 
-&lt;p&gt;Já falamos um pouco sobre &lt;a href="https://klauslaube.com.br/tag/virtualizacao.html" title="Leia mais sobre Virtualização"&gt;ambientes virtuais&lt;/a&gt;,
-e as vantagens são numerosas. A "atomicidade" de poder construir e destruir …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 03 Oct 2015 14:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2015-10-03:/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html</guid><category>desenvolvimento</category><category>infraestrutura</category><category>virtualizacao</category><category>provisionamento</category><category>vagrant</category></item></channel></rss>
+&lt;span class=&quot;token constant&quot;&gt;Vagrant&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;configure&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;VAGRANTFILE_API_VERSION&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;config&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+  config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;vm&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;box &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ubuntu1210-64&quot;&lt;/span&gt;
+  config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;vm&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;box_url &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://github.com/downloads/roderik/VagrantQuantal64Box/quantal64.box&quot;&lt;/span&gt;
+
+  config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;vm&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;network &lt;span class=&quot;token symbol&quot;&gt;:forwarded_port&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; guest&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; host&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8080&lt;/span&gt;
+  config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;vm&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;synced_folder &lt;span class=&quot;token string&quot;&gt;&quot;salt/roots/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/srv/salt/&quot;&lt;/span&gt;
+
+  config&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;vm&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;provision &lt;span class=&quot;token symbol&quot;&gt;:salt&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;salt&lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt;
+
+    salt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;minion_config &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;salt/minion&quot;&lt;/span&gt;
+    salt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;run_highstate &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+    salt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;verbose &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quer entender o que está acontecendo no exemplo acima? A documentação de &lt;a href=&quot;https://docs.vagrantup.com/v2/getting-started/index.html&quot; title=&quot;Leia a documentação do Vagrant&quot;&gt;&lt;em&gt;Getting started&lt;/em&gt; do &lt;em&gt;Vagrant&lt;/em&gt;&lt;/a&gt;
+é uma excelente dica para começar. Engloba desde a instalação até o provisionamento.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7010f93865b5b510f43f79b126ff8a6c/b4294/the-vagrant.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAcqkNLQBc//EABsQAAIBBQAAAAAAAAAAAAAAAAABEQIDEDFB/9oACAEBAAEFArbg4U7bnH//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQMBAT8BEX//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAABEAARITH/2gAIAQEABj8CO1OIP//EABwQAAICAgMAAAAAAAAAAAAAAAABESEQUTFhof/aAAgBAQABPyHTD9IUMLK7Il7Hyf/aAAwDAQACAAMAAAAQSz//xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQMBAT8Qkuv/xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QNX//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMVFxgZGh/9oACAEBAAE/EDBajOL0SvsoThu6zLfUIhpFxLNhU+Isu5//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Não é desse Vagrant que estamos falando... (deathsdoormatt.com)&amp;quot;&quot;
+        title=&quot;Não é desse Vagrant que estamos falando... (deathsdoormatt.com)&quot;
+        src=&quot;/static/7010f93865b5b510f43f79b126ff8a6c/b4294/the-vagrant.jpg&quot;
+        srcset=&quot;/static/7010f93865b5b510f43f79b126ff8a6c/7809d/the-vagrant.jpg 192w,
+/static/7010f93865b5b510f43f79b126ff8a6c/4ecad/the-vagrant.jpg 384w,
+/static/7010f93865b5b510f43f79b126ff8a6c/b4294/the-vagrant.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não é desse Vagrant que estamos falando... (deathsdoormatt.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;http://saltstack.com/&quot; title=&quot;Conheça o SaltStack&quot;&gt;&lt;em&gt;Salt Stack&lt;/em&gt;&lt;/a&gt; é uma excelente
+ferramenta de provisionamento escrita em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. Vale muito a pena conhecer.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Além da vantagem de ter um ambiente próximo de produção disponível para você em
+tempo de desenvolvimento, com o &lt;em&gt;Vagrant&lt;/em&gt; temos uma segunda vantagem: Quando um
+novo integrante fazer parte do seu time, basta ele clonar o projeto e dar
+um &lt;code class=&quot;language-text&quot;&gt;vagrant up&lt;/code&gt;. Pronto! O ambiente levanta-se em uma máquina virtual, e é
+provisionado sem necessidade de intervenção humana.&lt;/p&gt;
+&lt;p&gt;Existem toneladas de artigos na &lt;em&gt;Web&lt;/em&gt; sobre o &lt;em&gt;Vagrant&lt;/em&gt;. O &lt;a href=&quot;http://simplesideias.com.br/usando-o-vagrant-como-ambiente-de-desenvolvimento-no-windows&quot; title=&quot;Leia o artigo no SimplesIdeias&quot;&gt;Usando o Vagrant como ambiente de desenvolvimento no Windows&lt;/a&gt;, do &lt;strong&gt;Simples Ideias&lt;/strong&gt; e &lt;a href=&quot;http://flaviosilveira.com/2012/vagrant-facil-e-util/&quot; title=&quot;Leia no blog do Flavio&quot;&gt;Vagrant: Fácil E útil&lt;/a&gt; do &lt;strong&gt;Flávio Silveira&lt;/strong&gt; são duas boas referências para quem está iniciando.&lt;/p&gt;
+&lt;p&gt;Nos próximos &lt;em&gt;posts&lt;/em&gt; pretendo dar uma pincelada no &lt;em&gt;Salt Stack&lt;/em&gt; e &lt;em&gt;Ansible&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&quot;http://saltstack.com/&quot; title=&quot;Conheça o Salt Stack&quot;&gt;SaltStack - Automation for CloudOps&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&quot;https://www.vagrantup.com/&quot; title=&quot;Conheça o Vagrant&quot;&gt;Vagrant - Development environments made easy&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Vagrant_%28software%29&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia - Vagrant (software)&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

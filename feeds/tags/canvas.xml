@@ -1,8 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - canvas</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 19 Jun 2011 21:24:00 -0300</lastBuildDate><item><title>Front in Rio 2011 - Eu fui!</title><link>https://klauslaube.com.br/2011/06/19/front-in-rio-2011-eu-fui.html</link><description>&lt;p&gt;Enquanto as minhas esperanças de ir para o &lt;a href="http://www.rockinrio.com.br/pt/ingressos/" title="Rock in Rio 2011 - Ingressos esgotados"&gt;&lt;em&gt;Rock in Rio&lt;/em&gt;&lt;/a&gt; deste ano
-acabaram, não pude deixar de acompanhar meus colegas &lt;a href="http://twitter.com/#!/romulojales" title="Acompanhe o bom humor do Rômulo Jales"&gt;&lt;em&gt;@romulojales&lt;/em&gt;&lt;/a&gt;,
-&lt;a href="http://twitter.com/#!/kenjiyamamoto" title="Novidades tecnológicas são com ele!"&gt;&lt;em&gt;@kenjiyamamoto&lt;/em&gt;&lt;/a&gt; e &lt;a href="http://twitter.com/#!/davidsonFellipe" title="Davidson fala muito sobre front-end em seu Twitter"&gt;&lt;em&gt;@davidsonFellipe&lt;/em&gt;&lt;/a&gt; na edição do &lt;a href="http://www.frontinrio.com.br/" title="Página oficial do evento"&gt;&lt;em&gt;Front in Rio 2011&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;É o primeiro evento que participo como funcionário da &lt;a href="http://globo.com/" title="Absolutamente tudo sobre notícias, entretenimento e esportes"&gt;&lt;em&gt;Globo.com&lt;/em&gt;&lt;/a&gt;, e
-devo confessar que é também o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 19 Jun 2011 21:24:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-06-19:/2011/06/19/front-in-rio-2011-eu-fui.html</guid><category>desenvolvimento</category><category>eventos</category><category>android</category><category>canvas</category><category>css3</category><category>frontinrio</category><category>html5</category><category>svg</category></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - canvas]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Front in Rio 2011 - Eu fui!]]></title><description><![CDATA[Enquanto as minhas esperanças de ir para o Rock in Rio deste ano
+acabaram, não pude deixar de acompanhar meus colegas @romulojales,
+@kenjiyamamoto e @davidsonFellipe na edição do Front in Rio 2011. É o primeiro evento que participo como funcionário da Globo.com, e
+devo confessar que é também o…]]></description><link>https://klauslaube.com.br/2011/06/19/front-in-rio-2011-eu-fui.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/06/19/front-in-rio-2011-eu-fui.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 19 Jun 2011 21:24:00 GMT</pubDate><content:encoded>&lt;p&gt;Enquanto as minhas esperanças de ir para o &lt;a href=&quot;http://www.rockinrio.com.br/pt/ingressos/&quot; title=&quot;Rock in Rio 2011 - Ingressos esgotados&quot;&gt;&lt;em&gt;Rock in Rio&lt;/em&gt;&lt;/a&gt; deste ano
+acabaram, não pude deixar de acompanhar meus colegas &lt;a href=&quot;http://twitter.com/#!/romulojales&quot; title=&quot;Acompanhe o bom humor do Rômulo Jales&quot;&gt;&lt;em&gt;@romulojales&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;http://twitter.com/#!/kenjiyamamoto&quot; title=&quot;Novidades tecnológicas são com ele!&quot;&gt;&lt;em&gt;@kenjiyamamoto&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://twitter.com/#!/davidsonFellipe&quot; title=&quot;Davidson fala muito sobre front-end em seu Twitter&quot;&gt;&lt;em&gt;@davidsonFellipe&lt;/em&gt;&lt;/a&gt; na edição do &lt;a href=&quot;http://www.frontinrio.com.br/&quot; title=&quot;Página oficial do evento&quot;&gt;&lt;em&gt;Front in Rio 2011&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É o primeiro evento que participo como funcionário da &lt;a href=&quot;http://globo.com/&quot; title=&quot;Absolutamente tudo sobre notícias, entretenimento e esportes&quot;&gt;&lt;em&gt;Globo.com&lt;/em&gt;&lt;/a&gt;, e
+devo confessar que é também o primeiro evento fora do ambiente
+acadêmico. Não, não palestrei… esse papel foi muito bem desempenhado
+pelas grandes pessoas que estiveram “em cima dos palcos”.&lt;/p&gt;
+&lt;h2&gt;@font-face&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 300px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ffbbc87d67449fd535b427253f45e7bd/f93b5/maujor-frontinrio-2011.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 68.22916666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQFBv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGXb52oKyf/xAAYEAADAQEAAAAAAAAAAAAAAAABAgMRE//aAAgBAQABBQJa6RAFbUE6qMNaPwSU2T//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAAAQIRIRL/2gAIAQEABj8CoT6Y4raGc3hFyjtH/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARIVFh/9oACAEBAAE/IW2Eqo2RRgqrZ22xRwLvsv6sW9n/2gAMAwEAAgADAAAAEPP/AP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EIj/xAAWEQEBAQAAAAAAAAAAAAAAAAARECH/2gAIAQIBAT8QdJ//xAAbEAEAAwEAAwAAAAAAAAAAAAABABEhMUFxof/aAAgBAQABPxCguwOUy5CBdE+ksXSDTdaZACeUL2iA8YQ7rnqE0aXOq7P/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Maujor no Front in Rio 2011&amp;quot;&quot;
+        title=&quot;Maujor no Front in Rio 2011&quot;
+        src=&quot;/static/ffbbc87d67449fd535b427253f45e7bd/f93b5/maujor-frontinrio-2011.jpg&quot;
+        srcset=&quot;/static/ffbbc87d67449fd535b427253f45e7bd/7809d/maujor-frontinrio-2011.jpg 192w,
+/static/ffbbc87d67449fd535b427253f45e7bd/f93b5/maujor-frontinrio-2011.jpg 300w&quot;
+        sizes=&quot;(max-width: 300px) 100vw, 300px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Maujor no Front in Rio 2011&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E para começar bem o dia, fui logo ver o mestre, o “dinossauro das CSS“, &lt;a href=&quot;http://twitter.com/#!/maujor/&quot; title=&quot;Twitter do Maujor&quot;&gt;&lt;em&gt;@maujor&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Em uma palestra descontraída, ele nos apresentou a propriedade
+&lt;code class=&quot;language-text&quot;&gt;@font-face&lt;/code&gt; da &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS3&quot;&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;. Agora podemos deixar os &lt;em&gt;designers&lt;/em&gt;
+utilizarem as fontes que bem entenderem (calma, estou sendo exagerado),
+pois com este recurso, poderemos “uppar” um arquivo de fonte para um
+servidor remoto. O navegador fará &lt;em&gt;download&lt;/em&gt; deste arquivo,
+interpretando assim os mais bizarros &lt;code class=&quot;language-text&quot;&gt;font-family&lt;/code&gt; que o “pessoal do
+photoshop” sempre quis utilizar:&lt;/p&gt;
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/hkar8jJLZEBu5G&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt; &lt;/iframe&gt;
+&lt;h2&gt;Android UI Design Patterns &amp;#x26; Melhores Práticas&lt;/h2&gt;
+&lt;p&gt;Em seguida, &lt;em&gt;Oscar Marques&lt;/em&gt; esclareceu ao pessoal sobre as melhores
+práticas do desenvolvimento &lt;em&gt;Android&lt;/em&gt; tratando-se de &lt;em&gt;front-end&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Embora a palestra tenha sido bem rápida, o &lt;em&gt;Oscar&lt;/em&gt; foi capaz de
+transmitir alguns conceitos e cuidados em relação ao desenvolvimento
+&lt;em&gt;Android&lt;/em&gt;. Foi interessante ver que o pessoal tem uma forte preocupação
+com a usabilidade, principalmente levando em conta o fato que o
+&lt;em&gt;Android&lt;/em&gt; está disseminado nos mais diversos tipos de dispositivos.&lt;/p&gt;
+&lt;h2&gt;Desbravando o HTML5 Boilerplate&lt;/h2&gt;
+&lt;p&gt;E a &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; esteve fortemente representada neste &lt;em&gt;Front in Rio&lt;/em&gt;.
+&lt;a href=&quot;http://twitter.com/#!/zenorocha/&quot; title=&quot;Twitter do Zeno&quot;&gt;&lt;em&gt;@zenorocha&lt;/em&gt;&lt;/a&gt; me convenceu a deixar com que o pessoal do &lt;a href=&quot;http://html5boilerplate.com/&quot; title=&quot;Visite o site oficial do projeto HTML5 Boilerplate&quot;&gt;&lt;em&gt;HTML5
+Boilerplate&lt;/em&gt;&lt;/a&gt; guiasse a estrutura dos meus próximos projetos com
+&lt;em&gt;HTML5&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Em uma palestra com bastante momentos práticos, &lt;em&gt;Zeno&lt;/em&gt; nos explicou a
+filosofia do projeto e seus artefatos. No final, nos presenteou com
+alguns &lt;em&gt;links&lt;/em&gt;, entre eles o &lt;a href=&quot;https://github.com/mike360/django-html5-boilerplate&quot; title=&quot;Visite e contribua com o projeto no GitHub&quot;&gt;&lt;em&gt;django-html5-boilerplate&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/iHS2pmCBConHb3&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt; &lt;/iframe&gt;
+&lt;h2&gt;Seletores&lt;/h2&gt;
+&lt;p&gt;Depois do almoço, e de uma caminhada para conhecer um pouco mais o
+bairro da &lt;em&gt;Urca&lt;/em&gt;, foi a vez de prestigiar o colega de trabalho
+&lt;a href=&quot;http://twitter.com/#!/fabiomiranda&quot; title=&quot;Twitter do Fábio Miranda&quot;&gt;&lt;em&gt;@fabiomiranda&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;“Mago dos seletores”, como denominado por alguns colegas, o &lt;em&gt;Fábio&lt;/em&gt;
+ajudou a construir a &lt;em&gt;engine&lt;/em&gt; de seletores da &lt;a href=&quot;http://www.mootools.net/&quot; title=&quot;Página oficial da framework Mootools&quot;&gt;&lt;em&gt;Mootools&lt;/em&gt;&lt;/a&gt;. Além de
+nos apresentar a &lt;a href=&quot;http://sizzlejs.com/&quot; title=&quot;Conheça a engine selector utilizada pela jQuery&quot;&gt;&lt;em&gt;Sizzle&lt;/em&gt;&lt;/a&gt; (utilizada pela &lt;a href=&quot;http://www.jquery.com/&quot; title=&quot;Página oficial da framework jQuery&quot;&gt;&lt;em&gt;jQuery&lt;/em&gt;&lt;/a&gt;) e a
+&lt;a href=&quot;http://www.xpertdeveloper.com/2010/10/introduction-to-slick-a-standalone-element-selector-engine/&quot; title=&quot;Introduction to Slick – A Standalone Element Selector Engine&quot;&gt;&lt;em&gt;Slick&lt;/em&gt;&lt;/a&gt; (utilizada pela &lt;em&gt;Mootools&lt;/em&gt;), propos a análise de alguns
+seletores e nos fez pensar sobre performance.&lt;/p&gt;
+&lt;p&gt;A palestra, embora recheada de piadas internas, foi extremamente útil:&lt;/p&gt;
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/yrbU0Zyp0IaxDm&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt; &lt;/iframe&gt;
+&lt;h2&gt;Animações e Jogos além do canvas&lt;/h2&gt;
+&lt;p&gt;E mais uma vez a dupla &lt;em&gt;HTML5&lt;/em&gt; e &lt;em&gt;CSS3&lt;/em&gt; teve vez com a palestra do
+&lt;a href=&quot;http://twitter.com/#!/andrewsmedina&quot; title=&quot;Twitter do Andrews Medina&quot;&gt;&lt;em&gt;@andrewsmedina&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Andrews&lt;/em&gt; apresentou alguns argumentos para deixarmos de pensar somente
+em &lt;em&gt;canvas&lt;/em&gt; quando o assunto é desenvolvimento de jogos para a
+&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;, e considerarmos o uso de “elementos comuns” (como &lt;code class=&quot;language-text&quot;&gt;div&lt;/code&gt;) e
+das propriedades de animação e transformação da &lt;em&gt;CSS3&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ele desenvolveu um &lt;em&gt;pacman&lt;/em&gt; simples, que ilustrou muito bem o objetivo
+da palestra. O projeto, inclusive, está no &lt;a href=&quot;https://github.com/andrewsmedina/pacman&quot; title=&quot;Projeto do web-game Pacman de Andrews Medina&quot;&gt;&lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/AzXZYHJph9JFUc&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt; &lt;/iframe&gt;
+&lt;h2&gt;Canvas vs. SVG&lt;/h2&gt;
+&lt;p&gt;Para finalizar o dia, o amigo &lt;a href=&quot;http://twitter.com/#!/davidsonFellipe&quot; title=&quot;Davidson fala muito sobre front-end em seu Twitter&quot;&gt;&lt;em&gt;@davidsonFellipe&lt;/em&gt;&lt;/a&gt; fez um comparativo
+entre &lt;em&gt;canvas&lt;/em&gt; e &lt;em&gt;svg&lt;/em&gt;, dando dicas de uso de ambos (em seus respectivos
+cenários). Para aqueles que ainda têm dúvidas sobre onde usar cada um,
+foi uma palestra extremamente esclarecedora.&lt;/p&gt;
+&lt;p&gt;A sua palestra lembrou-me muito um &lt;a href=&quot;http://www.profissionaisti.com.br/2009/01/svg-x-canvas-entenda-as-diferencas/&quot; title=&quot;SVG x Canvas: Entenda as diferenças&quot;&gt;&lt;em&gt;post&lt;/em&gt; que fiz ao &lt;em&gt;Profissionais TI&lt;/em&gt;
+sobre o assunto&lt;/a&gt;. No final das contas, concordei 100% com tudo o que
+foi proposto pelo palestrante.&lt;/p&gt;
+&lt;iframe src=&quot;//www.slideshare.net/slideshow/embed_code/key/cBrSaB767SSlID&quot; width=&quot;595&quot; height=&quot;485&quot; frameborder=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen&gt; &lt;/iframe&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Voltei para casa, com aquele sentimento de um grande dia. Posso resumir
+assim esta edição do &lt;em&gt;Front in Rio 2011&lt;/em&gt; (e olha que tinham &lt;a href=&quot;http://www.frontinrio.com.br/&quot; title=&quot;Confira a grade completa do Front in Rio 2011&quot;&gt;mais
+palestras para assistir!&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Agora é esperar até o ano que vem, e quem sabe, deixar de ser somente um
+“consumidor”.&lt;/p&gt;</content:encoded></item></channel></rss>

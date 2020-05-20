@@ -1,7 +1,220 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - recursividade</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 25 Mar 2019 18:55:00 -0300</lastBuildDate><item><title>Recursividade e o "dividir e conquistar"</title><link>https://klauslaube.com.br/2019/03/25/recursividade-e-dividir-e-conquistar.html</link><description>&lt;p&gt;Sabe aquelas pessoas que têm problemas em determinar qual lado é o "esquerdo" e qual lado é o "direito"?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - recursividade]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Recursividade e o "dividir e conquistar"]]></title><description><![CDATA[Sabe aquelas pessoas que têm problemas em determinar qual lado é o "esquerdo" e qual lado é o "direito"?
+Admito, sem orgulho algum, que tenho o mesmo problema com recursividade. Meu cérebro simplesmente se embaralha,
+e preciso fazer um grande esforço para imaginar o que está acontecendo. A boa…]]></description><link>https://klauslaube.com.br/2019/03/25/recursividade-e-dividir-e-conquistar.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/03/25/recursividade-e-dividir-e-conquistar.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 25 Mar 2019 18:55:00 GMT</pubDate><content:encoded>&lt;p&gt;Sabe aquelas pessoas que têm problemas em determinar qual lado é o &quot;esquerdo&quot; e qual lado é o &quot;direito&quot;?
 Admito, sem orgulho algum, que tenho o mesmo problema com recursividade. Meu cérebro simplesmente se embaralha,
 e preciso fazer um grande esforço para imaginar o que está acontecendo.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;A boa notícia é que assim como usar a mão do relógio (ou a mão que você escreve) ajuda a determinar o que é esquerda e direita, é possível utilizar alguns padrões de escrita de código para ajudar a entender o que está acontecendo em um algoritmo com recursividade.&lt;/p&gt;
+&lt;p&gt;Mas como só a receita de bolo não basta... senta que lá vem história.&lt;/p&gt;
+&lt;h2&gt;Napoleão style!&lt;/h2&gt;
+&lt;p&gt;O &quot;Dividir e Conquistar&quot; (ou &lt;em&gt;Divide and Conquer&lt;/em&gt;), assim como os &lt;a href=&quot;/2019/01/27/os-greedy-algorithms.html&quot; title=&quot;Os Greedy algorithms&quot;&gt;&lt;em&gt;Greedy algorithms&lt;/em&gt;&lt;/a&gt;, é um paradigma para construção de algoritmos (&lt;em&gt;algorithmic paradigm&lt;/em&gt;), onde a ideia é resolver um determinado problema utilizando três passos diferentes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dividir: Quebre um determinado problema em subproblemas do mesmo tipo;&lt;/li&gt;
+&lt;li&gt;Conquistar: Resolva esses subproblemas de forma recursiva;&lt;/li&gt;
+&lt;li&gt;Combinar: Combine as respostas apropriadamente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Algoritmos de ordenação famosos, como o &lt;em&gt;Quicksort&lt;/em&gt; e o &lt;em&gt;Merge Sort&lt;/em&gt;, utilizam esse paradigma para apresentar soluções com performance ótima.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4f305a9c1529024471828ae2df1570c7/b4294/divide-and-conquer-napoleon.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAB1c2sIhbf/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIBEwQRM//aAAgBAQABBQK5SWsVm1Jjj9P/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERL/2gAIAQMBAT8BjL//xAAXEQADAQAAAAAAAAAAAAAAAAAAARES/9oACAECAQE/AdVwp//EABsQAAIBBQAAAAAAAAAAAAAAAAABAhARIjFx/9oACAEBAAY/AtmLLOkiXT//xAAbEAACAwADAAAAAAAAAAAAAAAAAREhMRBBcf/aAAgBAQABPyFqcOw+XN3cE/Qxd+8Dvcf/2gAMAwEAAgADAAAAEOTf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EMhsBL//xAAVEQEBAAAAAAAAAAAAAAAAAAABAP/aAAgBAgEBPxAcFjf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUFR/9oACAEBAAE/EOObtC1KgwEolBc0fY8gmx5ZHCrGG8n/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Napeleon sentado no sofá&quot;
+        title=&quot;Não! Não esse Napoleon... (youtube.com)&quot;
+        src=&quot;/static/4f305a9c1529024471828ae2df1570c7/b4294/divide-and-conquer-napoleon.jpg&quot;
+        srcset=&quot;/static/4f305a9c1529024471828ae2df1570c7/7809d/divide-and-conquer-napoleon.jpg 192w,
+/static/4f305a9c1529024471828ae2df1570c7/4ecad/divide-and-conquer-napoleon.jpg 384w,
+/static/4f305a9c1529024471828ae2df1570c7/b4294/divide-and-conquer-napoleon.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não! Não esse Napoleon... (youtube.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Compreender essa estrutura é um bom passo para dominar funções recursivas. Na verdade, a utilização de recursividade parte do princípio que você seja capaz de quebrar um grande problema em problemas menores (e semelhantes). No fim, os dois conceitos se completam e é difícil imaginar um sem o outro. O &lt;a href=&quot;https://www.tutorialspoint.com/data_structures_algorithms/divide_and_conquer.htm&quot; title=&quot;Data Structures - Divide and Conquer&quot;&gt;&lt;em&gt;tutorialspoint&lt;/em&gt;&lt;/a&gt; reforça essa idea:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In divide and conquer approach, the problem in hand, is divided into smaller sub-problems and then each problem is solved independently. When we keep on dividing the subproblems into even smaller sub-problems, we may eventually reach a stage where no more division is possible. Those &quot;atomic&quot; smallest possible sub-problem (fractions) are solved. The solution of all sub-problems is finally merged in order to obtain the solution of an original problem.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Não será surpresa se vermos a mesma receita se repetir pelo resto desse &lt;em&gt;post&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Uma função que chama a si mesmo&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://pt.wikibooks.org/wiki/Algoritmos_e_Estruturas_de_Dados/Recursividade&quot; title=&quot;Algoritmos e Estruturas de Dados/Recursividade&quot;&gt;&lt;em&gt;Wikibooks&lt;/em&gt;&lt;/a&gt; explica de forma muito clara o que é recursividade:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Recursão é um método de programação no qual uma função pode chamar a si mesma. O termo é usado de maneira mais geral para descrever o processo de repetição de um objeto de um jeito similar ao que já fora mostrado. Muitos problemas em computação tem a propriedade de que cada instância sua contém uma instância menor do mesmo problema.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em termos mais práticos, é como se criássemos uma função para fatorar, e essa função chamasse a ela mesma:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FUNÇÃO fatorial(numero)
+    RETORNE numero * fatorial(numero - 1)
+FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos fazer um rápido teste de mesa. Imagine que queremos saber o fatorial de 3:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;3 * fatorial(2)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(2)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;2 * fatorial(1)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Por intuição (falaremos mais sobre esse passo a seguir), assumimos que &lt;code class=&quot;language-text&quot;&gt;fatorial(1) == 1&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A função chama a si mesma recursivamente em uma versão menor da entrada (&lt;code class=&quot;language-text&quot;&gt;n - 1&lt;/code&gt;), e multiplica o resultado por &lt;code class=&quot;language-text&quot;&gt;numero&lt;/code&gt;. Podemos visualizar o resultado desse comportamento ao fazer o caminho &quot;de baixo para cima&quot; na lista acima: &lt;code class=&quot;language-text&quot;&gt;1 * 2 * 3 = 6&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aab18e08c8f881190c73d853f5090ed3/50383/recursion-russian-doll.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQozyWQa0hTYRzGD0FQmUu38573Pe973rOds53pZpt5KXOaFzZ1zrykTlFKu5FXSsoGU5NEWhDKEhX8YjcUlMrLvMzrxEviNwu/RtDXqE9B0LfOEp6Pz4/f8/8zXk5XArQdEPQpuFIGXjMqleBVE+mv9nx+PXD0YfxWRrLLSNKBJpAt+dLomwJTt5VUAV0jBsxdnr3Hg04JVYjsJS7OgbUXdJqgt2gv+DQS8P053Poefn84Ppgncu0ppMbIPcmg0/nGOsDe5AHTjeEgRb1W3JKE3CLrNnAp2rNLXc2fhvumfM3fIqEfXw6+To5lYbZYD9pswkCO9LHQ2KHnyoGOmRDRCEX+VNmt4BwKnHroFGGqgDw2s0uhlXZTSZIxS6Z5FNyx0TKzUG2jY4WWV2ZczmqZeYrGBNipGIwxMSkY1iq4QgL5JL7USKb9rVM9D4oknMrGPkwVArnyoyuJ8rk4n0m/IAlBwjGLApwicAZzuwS9teo9BpDNx+UQdtHftB/s/Xu0/3tv8fZle4PC9jgMOzX2TZFsYG5OgCGKmCUCVwhaJnAPwdFEUmRGbpmvt4ovrpcF6ooHOpqGHrfX201VCm5JlyY95l2JX8JcSICzAoyaVXiVwG0Mh0XeI5L2i5YWG7FoThfzGmf8SeXUCa+sCzgt3gT5uSxsUV71hSicE1AUDhO0RqCaTZ7bp2gkgZbJnPr5Z9dc7+7fqLDKVTIYcinb58UNANRyWIAqNa/C6uDV//A6jmZZRE1GmMHFtjmSDwb9P3dC6y/7C3iNP1O/lmtaQXBFQGECVWqBQiYc3YyOyS0ezuhRYwKqNega0syRrtZfq7OR0YALnOnK1E84DOtRU/TMY/k/0eXB+NLo+R0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Imagem ilustrando a recursão&quot;
+        title=&quot;Duas referências no mesmo post. Ousado! (mashable.com)&quot;
+        src=&quot;/static/aab18e08c8f881190c73d853f5090ed3/50383/recursion-russian-doll.png&quot;
+        srcset=&quot;/static/aab18e08c8f881190c73d853f5090ed3/8514f/recursion-russian-doll.png 192w,
+/static/aab18e08c8f881190c73d853f5090ed3/804b2/recursion-russian-doll.png 384w,
+/static/aab18e08c8f881190c73d853f5090ed3/50383/recursion-russian-doll.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Duas referências no mesmo post. Ousado! (mashable.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Roubamos no exemplo anterior, quando dissemos que por intuição sabemos o resultado da última etapa. &quot;Intuição&quot; não funciona do ponto de vista do algoritmo, e acabaríamos com um &lt;em&gt;loop&lt;/em&gt; infinito, uma vez que não informamos em qual momento a função tem que parar de chamar a si mesma. O caso acima, se executado em uma linguagem de programação, vai resultar no famoso &lt;a href=&quot;http://ptcomputador.com/P/computer-programming-languages/88738.html&quot; title=&quot;O que é o estouro de pilha&quot;&gt;estouro de pilha&lt;/a&gt; (ou &lt;a href=&quot;https://pt.stackoverflow.com/questions/59135/erro-stackoverflow&quot; title=&quot;Erro stack overflow no StackOverflow&quot;&gt;&lt;em&gt;stack overflow&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Precisamos adicionar o que é conhecido por &quot;caso base&quot; (ou &quot;condição de parada&quot;) ao algoritmo. É esse caso que vai determinar quando a função deve parar:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FUNÇÃO fatorial(numero)
+    SE numero &amp;lt;= 1 ENTÃO
+        RETORNE 1
+    SENÃO
+        RETORNE numero * fatorial(numero - 1)
+FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Podemos refazer o nosso teste de mesa:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;3 * fatorial(2)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(2)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;2 * fatorial(1)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(1)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;É possível perceber uma estrutura que costuma se repetir em outros algoritmos que utilizam recursão:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Um número limitado de casos base;&lt;/li&gt;
+&lt;li&gt;Um caso recursivo;&lt;/li&gt;
+&lt;li&gt;Uma chamada externa (ex.: &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;Um conjunto de chamadas recursivas (ex.: &lt;code class=&quot;language-text&quot;&gt;fatorial(3 - 1)&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Tail recursion&lt;/h2&gt;
+&lt;p&gt;Voltando ao exemplo &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;, uma melhor leitura da ordem de chamada seria a seguinte:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;3 * fatorial(2)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;3 * (2 * fatorial(1))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;3 * (2 * (1))&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cada linha cria um &lt;a href=&quot;https://stackoverflow.com/questions/10057443/explain-the-concept-of-a-stack-frame-in-a-nutshell&quot; title=&quot;Explain the concept of a stack frame in a nutshell&quot;&gt;&lt;em&gt;stack frame&lt;/em&gt;&lt;/a&gt;, que é empilhado de acordo com a ordem das chamadas. Ao fim da última chamada recursiva, os &lt;em&gt;frames&lt;/em&gt; são retirados gradativamente da pilha, como ilustrado no exemplo abaixo:&lt;/p&gt;
+&lt;p&gt;{% img align-center-keep-size /images/blog/javascript-stack-example.png 740 243 Exemplo de call stack em Javascript (thinkingincrowd.me) %}&lt;/p&gt;
+&lt;p&gt;Uma função recursiva é &lt;em&gt;tail recursive&lt;/em&gt; quando a chamada recursiva é a última coisa executada pela função. No nosso exemplo, temos uma função que aparentemente possui essa característica. Porém, não é certo dizer que ela possui de fato recursão de cauda, uma vez que temos que considerar que &lt;code class=&quot;language-text&quot;&gt;fatorial(numero - 1)&lt;/code&gt; é usado dentro de &lt;code class=&quot;language-text&quot;&gt;fatorial(numero)&lt;/code&gt;. O exemplo abaixo passa a ideia de que a chamada da função não é a última coisa executada no &lt;em&gt;frame&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chamada inicial: &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;3 * fatorial(2)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 2: &lt;code class=&quot;language-text&quot;&gt;3 * (2 * fatorial(1))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 3: Atinge caso base em &lt;code class=&quot;language-text&quot;&gt;fatorial(1)&lt;/code&gt; e retorna &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 2: &lt;code class=&quot;language-text&quot;&gt;3 * (2 * (1))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;3 * (2)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Retorno da chamada inicial: &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://www.geeksforgeeks.org/tail-recursion/&quot; title=&quot;Tail Recursion&quot;&gt;GeeksForGeeks&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Consider the (...) function to calculate factorial of n. It is a non-tail-recursive function. Although it looks like a tail recursive at first look. If we take a closer look, we can see that the value returned by fact(n-1) is used in fact(n), so the call to fact(n-1) is not the last thing done by fact(n)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É preciso fazer uma manutenção no corpo da função:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FUNÇÃO fatorial-interna(numero, acumulador)
+    SE numero == 0 ENTÃO
+        RETORNE acumulador
+    SENÃO
+        RETORNE fatorial-interna(numero - 1, numero * acumulador)
 
-&lt;p&gt;A boa notícia …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 25 Mar 2019 18:55:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-03-25:/2019/03/25/recursividade-e-dividir-e-conquistar.html</guid><category>desenvolvimento</category><category>estrutura-de-dados. algoritmos</category><category>recursividade</category><category>divide-and-conquer</category></item></channel></rss>
+FUNÇÃO fatorial(numero)
+    RETORNE fatorial-interna(numero, 1)
+FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como resultado, teremos um &lt;em&gt;call stack&lt;/em&gt; diferente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chamada inicial: &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(3, 1)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 2: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(2, 3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 3: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(1, 6)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 4: Atinge caso base em &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(0, 6)&lt;/code&gt; e retorna &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 3: Retorno de &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 2: Retorno de &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: Retorno de &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Retorno da chamada inicial: &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Qual a real motivação em utilizar funções com recursão de cauda? Esse tipo de função pode ser otimizada pelo interpretador/compilador, portanto, o seu uso é encorajado em &lt;a href=&quot;https://www.quora.com/Which-programming-languages-support-tail-recursion-optimization-out-of-the-box%22%0AWhich%20programming%20languages%20support%20tail%20recursion%20optimization%20out%20of%20the%20box?%22&quot;&gt;linguagens que suportam essa funcionalidade&lt;/a&gt;. De forma bem resumida, uma vez que a chamada recursiva é o último &quot;statement&quot;, não há nada mais para ser executado pela função corrente, podendo utilizar o mesmo &lt;em&gt;stack frame&lt;/em&gt;, &lt;a href=&quot;https://www.geeksforgeeks.org/tail-call-elimination/&quot; title=&quot;Tail Call Elimination&quot;&gt;minimizando o esforço de empilhar e desempilhar chamadas&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chamada inicial: &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(3, 1)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(2, 3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(1, 6)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: Atinge caso base em &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(0, 6)&lt;/code&gt; e retorna &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Retorno da chamada inicial: &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vamos para uma abordagem mais prática, e para esse bloco, nada melhor que um dos desafios mais populares em entrevistas de emprego: Determinar se uma palavra é palíndromo.&lt;/p&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://www.todamateria.com.br/palindromo/&quot; title=&quot;Palíndromo&quot;&gt;TodaMatéria&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Palíndromo, do grego palin (novo) e dromo (percurso), é toda palavra ou frase que pode ser lida de trás pra frente e que, independente da direção, mantém o seu sentido.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Vamos nos ater apenas à palavra. Utilizando a ideia de dividir e conquistar, é possível imaginar o seguinte algoritmo:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dividir:&lt;/strong&gt; Recebo determinada palavra, ou qualquer fração da mesma (exemplo: &lt;code class=&quot;language-text&quot;&gt;arara&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;rar&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conquistar:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se a largura da palavra for igual a &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt; (exemplo: &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt;), é palíndromo. Esse é um caso base;&lt;/li&gt;
+&lt;li&gt;Senão, se primeira e última letra da palavra forem diferentes (exemplo: &lt;code class=&quot;language-text&quot;&gt;araro&lt;/code&gt;), não é palíndromo. Esse é o segundo caso base;&lt;/li&gt;
+&lt;li&gt;Senão, retiramos a primeira e última letra da palavra, e passamos a nova palavra como parâmetro recursivamente (exemplo: &lt;code class=&quot;language-text&quot;&gt;rar&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Combinar:&lt;/strong&gt; O resultado do último caso base executado vai dizer se o parâmetro passado é palíndromo ou não.&lt;/p&gt;
+&lt;p&gt;Em &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, podemos reproduzir as condições acima da seguinte forma:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;isPalindrome&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// Caso base #1&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// Caso base #2&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; word&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// Chamada recursiva&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isPalindrome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;str&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acredito que deixando a chamada recursiva para o final, além de ser mais fácil de imaginar o problema e seus diferentes casos, &quot;ganhamos&quot; a característica de &lt;em&gt;tail recursion&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Recursividade sempre é um assunto que demanda um pouco mais de energia na leitura de um código, principalmente se você (assim como eu) prefere a forma iterativa (com &lt;code class=&quot;language-text&quot;&gt;for&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt; e utilizando uma &lt;code class=&quot;language-text&quot;&gt;stack&lt;/code&gt; como estrutura de dados), mas sem dúvida alguma que compreender o &lt;em&gt;divide and conquer&lt;/em&gt; e praticar uma forma mais estruturada de pensar facilita na compreensão de problemas com recursão.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction/&quot;&gt;GeeksForGeeks - Divide and Conquer Algorithm. Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/tail-recursion/&quot;&gt;GeeksForGeeks - Tail recursion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/recursion&quot;&gt;Khan Academy - Recursividade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cs.stackexchange.com/questions/6230/what-is-tail-recursion&quot;&gt;StackExchange - What is tail recursion?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.tutorialspoint.com/data_structures_algorithms/divide_and_conquer.htm&quot;&gt;TutorialsPoint - Divide and Conquer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikibooks.org/wiki/Algoritmos_e_Estruturas_de_Dados/Recursividade&quot;&gt;Wikibooks - Algoritmos e Estruturas de Dados/Recursividade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Recursividade_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)&quot;&gt;Wikipedia - Recursividade (ciência da computação)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

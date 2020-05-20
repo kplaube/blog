@@ -1,8 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - dodgy</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 18 Dec 2019 08:10:00 -0300</lastBuildDate><item><title>Assegure a qualidade do seu código Python - Dodgy</title><link>https://klauslaube.com.br/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</link><description>&lt;p&gt;Ferramentas de &lt;a href="https://klauslaube.com.br/tag/qualidade.html" title="Leia mais sobre qualidade"&gt;qualidade de código&lt;/a&gt; parece um tópico com conteúdo infinito
-quando o assunto é &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. Hoje a dica é rápida e rasteira, de uma ferramenta
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - dodgy]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Dodgy]]></title><description><![CDATA[Ferramentas de qualidade de código parece um tópico com conteúdo infinito
+quando o assunto é Python. Hoje a dica é rápida e rasteira, de uma ferramenta
 extremamente simples, mas que pode ser muito útil para dar aquele "up" no quesito segurança do seu projeto. Apresento-lhe
-o &lt;a href="https://github.com/landscapeio/dodgy" title="Veja o repositório no Github"&gt;&lt;em&gt;Dodgy&lt;/em&gt;&lt;/a&gt;!&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;Talk is cheap …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 18 Dec 2019 08:10:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-12-18:/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>seguranca</category><category>dodgy</category></item></channel></rss>
+o Dodgy! Talk is cheap…]]></description><link>https://klauslaube.com.br/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 18 Dec 2019 08:10:00 GMT</pubDate><content:encoded>&lt;p&gt;Ferramentas de &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade&quot;&gt;qualidade de código&lt;/a&gt; parece um tópico com conteúdo infinito
+quando o assunto é &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. Hoje a dica é rápida e rasteira, de uma ferramenta
+extremamente simples, mas que pode ser muito útil para dar aquele &quot;up&quot; no quesito segurança do seu projeto. Apresento-lhe
+o &lt;a href=&quot;https://github.com/landscapeio/dodgy&quot; title=&quot;Veja o repositório no Github&quot;&gt;&lt;em&gt;Dodgy&lt;/em&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;h2&gt;Talk is cheap...&lt;/h2&gt;
+&lt;p&gt;Tudo começa com o nosso queridíssimo comando &lt;code class=&quot;language-text&quot;&gt;pip install&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install dodgy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E na sequência, com a execução do utilitário via terminal:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/hello-world-em-django/
+$ dodgy
+{
+    &amp;quot;warnings&amp;quot;: [
+        {
+        &amp;quot;path&amp;quot;: &amp;quot;hello_world/settings.py&amp;quot;,
+        &amp;quot;line&amp;quot;: 23,
+        &amp;quot;code&amp;quot;: &amp;quot;secret&amp;quot;,
+        &amp;quot;message&amp;quot;: &amp;quot;Possible hardcoded secret key&amp;quot;
+        }
+    ]
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Dodgy&lt;/em&gt; é uma ferramenta de código aberto, que tem
+por objetivo utilizar expressões regulares para inspecionar o seu código e identificar problemas como &lt;code class=&quot;language-text&quot;&gt;diffs&lt;/code&gt; esquecidos
+nos arquivos, senhas expostas, e &lt;em&gt;secrets&lt;/em&gt; (como o exemplo acima) sendo &quot;commitados&quot;. A biblioteca é extremamente simples,
+e caso você não goste do &quot;barulho&quot; que o &lt;a href=&quot;/2019/02/21/assegure-qualidade-seu-codigo-python-bandit.html&quot; title=&quot;Leia mais sobre Bandit&quot;&gt;&lt;em&gt;Bandit&lt;/em&gt;&lt;/a&gt;
+faz, pode ser uma alternativa.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1a27dd338f27cf4defade1b51f89730c/50383/dodge-this.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9ALXM3L3a6bnY5s7o8OD0+Or4+vL+/uTw8O/29fv//6eusXFuca3ByZ6utnVydtfZ2/////v8+v7///L8/ABCTV2Qpa/D3eXd+vrp/v74///g5ud5eXuqp6X///+3uLqMjo6wxsybrbV/e4K/xszh6e3t8/Tj7O3f7fEACAkXGh0tP0VReISHo7Gst728iYOIZ2FmgX196/Pvv8nIt8fCu8/On624g36HU01XRTxIrr7BhoqPmqCnABIRHycnMispLSQjJjs6OkZDQVRQT2dhXGFfV2htZXl9eJWdnoWGiouNkFM/PU88NDsvM4mNj3x9f391dQAQEBseHyQnJyknJickJSkhISQlIiUqKCZDQjpDQj49OjiFgn9wbXF4cWltUUJ3X0tCNDNLPEFTRUZtYFoAFhUaMzAuNS8tFhQYJCElJCAhJSIhPjYyMi0uJycqOTQyinp3r6emoKKanoFpmYZyamBjT0RCUERDdWpjADs3OFBKR1FNREVFNVBRPV1cTigkJm5jXW1OSxMQFRYUHGQ2MsOuo9jU1H9lUnttYJeSh7u8uLe6uLu8ugBwcF5naFJqbFiHiXugpaLM099gZWlRSkOBYVRWOTJHKCaUb1eslm6jjW4ZFBgAABY7ODrDwsG/wMO8vLoAcnFqlJKUsbO/x8zdy9PnytTqvsXWtLjHgnhzUzAlfU85kHRatLGkRkA4BAUODhEgOzw/srSxvLq4t7awAMTE1MrK3MnK3MbI2MPI2cHJ28jR5dXh+7W4wlU5LGA4JJWPhs3a7GJkZAoIDh0cIWZgTbazqLq7trO0rADBv8q/vsm8vMS7u8G8vMO/wMm/wcy+wc7DyNizs7muqq6+xM/N1d6ChoQAAQgPEBlkYFCpopS5urSwsqeEXVOjgX+zbAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Trinity em The Matrix&quot;
+        title=&quot;Desvia disso! (vulturehound.co.uk)&quot;
+        src=&quot;/static/1a27dd338f27cf4defade1b51f89730c/50383/dodge-this.png&quot;
+        srcset=&quot;/static/1a27dd338f27cf4defade1b51f89730c/8514f/dodge-this.png 192w,
+/static/1a27dd338f27cf4defade1b51f89730c/804b2/dodge-this.png 384w,
+/static/1a27dd338f27cf4defade1b51f89730c/50383/dodge-this.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Desvia disso! (vulturehound.co.uk)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E claro, podemos utilizá-la com o &lt;a href=&quot;https://pre-commit.com/&quot; title=&quot;pre-commit hooks&quot;&gt;&lt;em&gt;pre-commit&lt;/em&gt;&lt;/a&gt;. Adicione o seguinte &lt;em&gt;snippet&lt;/em&gt; ao &lt;code class=&quot;language-text&quot;&gt;.pre-commit-config.yaml&lt;/code&gt; do seu projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;repos&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//github.com/kplaube/pre&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;commit&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;dodgy
+    &lt;span class=&quot;token key atrule&quot;&gt;rev&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;0.0.1&quot;&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dodgy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Podemos utilizá-la nos editores também. Ganhamos o utilitário &quot;de graça&quot; com o uso do &lt;a href=&quot;https://prospector.readthedocs.io/en/master/index.html&quot; title=&quot;Python Static Analysis&quot;&gt;&lt;em&gt;Prospector&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Para quem está dando os primeiros passos em direção a um controle mais apurado de um projeto, o &lt;em&gt;Dodgy&lt;/em&gt; pode ser uma boa pedida. Mas na realidade, se você está querendo de fato maior segurança, vá para o &lt;a href=&quot;https://github.com/PyCQA/bandit&quot; title=&quot;Find common security issues in Python code&quot;&gt;&lt;em&gt;Bandit&lt;/em&gt;&lt;/a&gt;, sem medo de ser feliz.&lt;/p&gt;
+&lt;p&gt;Ou utilize o &lt;em&gt;Prospector&lt;/em&gt; e tenha os dois à disposição ¯\_(ツ)_/¯&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item></channel></rss>

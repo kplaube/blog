@@ -1,9 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - rgraph</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 12 Jun 2011 21:38:00 -0300</lastBuildDate><item><title>Gráficos estatísticos em Canvas com RGraph</title><link>https://klauslaube.com.br/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</link><description>&lt;p&gt;O &lt;a href="http://www.rgraph.net/" title="RGraph: HTML5 canvas graph library based on the HTML5 canvas tag"&gt;&lt;em&gt;RGraph&lt;/em&gt;&lt;/a&gt; é uma fantástica &lt;em&gt;lib&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, que gera
-gráficos estatísticos em &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;Canvas&lt;/em&gt;&lt;/a&gt; de uma forma extremamente simples
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - rgraph]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Gráficos estatísticos em Canvas com RGraph]]></title><description><![CDATA[O RGraph é uma fantástica lib Javascript, que gera
+gráficos estatísticos em Canvas de uma forma extremamente simples
+e direta. Sinceramente, foi uma das libs mais eficazes que já usei
+para criar representações visuais de relatórios. Por criar gráficos em Canvas, podemos interagir com os elementos…]]></description><link>https://klauslaube.com.br/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 12 Jun 2011 21:38:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;http://www.rgraph.net/&quot; title=&quot;RGraph: HTML5 canvas graph library based on the HTML5 canvas tag&quot;&gt;&lt;em&gt;RGraph&lt;/em&gt;&lt;/a&gt; é uma fantástica &lt;em&gt;lib&lt;/em&gt; &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, que gera
+gráficos estatísticos em &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;Canvas&lt;/em&gt;&lt;/a&gt; de uma forma extremamente simples
 e direta. Sinceramente, foi uma das &lt;em&gt;libs&lt;/em&gt; mais eficazes que já usei
 para criar representações visuais de relatórios.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Por criar gráficos em &lt;em&gt;Canvas&lt;/em&gt;, podemos interagir com os elementos
-através do &lt;em&gt;Javascript&lt;/em&gt;. Isso …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 12 Jun 2011 21:38:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-06-12:/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</guid><category>desenvolvimento</category><category>web</category><category>html5</category><category>rgraph</category><category>padroes-web</category></item></channel></rss>
+através do &lt;em&gt;Javascript&lt;/em&gt;. Isso permite que nossos sistemas fiquem muito
+mais dinâmicos (e ainda por cima, garante que nossos clientes vejam
+representações visuais dos números da sua empresa em seu &lt;em&gt;iPad&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Contamos com os seguintes tipos de gráficos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Barra (&lt;a href=&quot;http://www.rgraph.net/examples/hbar.html&quot; title=&quot;Veja exemplo de gráfico de barra horizontal&quot;&gt;horizontal&lt;/a&gt; e &lt;a href=&quot;http://www.rgraph.net/examples/bar.html&quot; title=&quot;Veja exemplo de gráfico de barra vertical&quot;&gt;vertical&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Barra de progresso (&lt;a href=&quot;http://www.rgraph.net/examples/hprogress.html&quot; title=&quot;Veja exemplo de barra de progresso horizontal&quot;&gt;horizontal&lt;/a&gt; e &lt;a href=&quot;http://www.rgraph.net/examples/vprogress.html&quot; title=&quot;Veja exemplo de barra de progresso vertical&quot;&gt;vertical&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/bipolar.html&quot; title=&quot;Veja exemplo de gráfico bipolar&quot;&gt;Bi-polar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/donut.html&quot; title=&quot;Veja exemplo de gráfico de donut&quot;&gt;&lt;em&gt;Donut&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/funnel.html&quot; title=&quot;Veja exemplo de gráfico de funil&quot;&gt;Funil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/line.html&quot; title=&quot;Veja exemplo de gráfico de linha&quot;&gt;Linha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/odo.html&quot; title=&quot;Veja exemplo de gráfico de odômetro&quot;&gt;Odômetro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/pie.html&quot; title=&quot;Veja exemplo de gráfico em pizza&quot;&gt;&lt;em&gt;Pizza&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/tradar.html&quot; title=&quot;Veja exemplo de gráfico em forma de radar&quot;&gt;Radar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/rose.html&quot; title=&quot;Veja exemplo de gráfico de rosa&quot;&gt;Rosa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/thermometer.html&quot; title=&quot;Veja exemplo de gráfico em forma de termometro&quot;&gt;Termometro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Entre outros…&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;RGraph&lt;/em&gt; é gratuito para uso não comercial. Se você está disposto a
+utilizá-lo em uma aplicação comercial, eu recomendo a sua compra.
+Utilizamos na &lt;a href=&quot;http://www.setinet.com.br/&quot; title=&quot;Seti - Internet Controlada&quot;&gt;&lt;em&gt;Seti&lt;/em&gt;&lt;/a&gt; com muito sucesso esta poderosa ferramenta.&lt;/p&gt;
+&lt;p&gt;E você? Conhece alguma outra &lt;em&gt;lib&lt;/em&gt; para criar dados estatísticos?
+Conte-nos através dos comentários abaixo.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

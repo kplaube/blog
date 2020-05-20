@@ -1,57 +1,398 @@
-<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Engatinhando em Java para a web - Parte 1 | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content='Uma constante nesses dois últimos anos da minha vida profissional tem sido "reavaliar" algumas opiniões que tive durante a minha carreira. Não à toa...'><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, java, servlet"><meta property=og:title content="Engatinhando em Java para a web - Parte 1"><meta property=og:description content='Uma constante nesses dois últimos anos da minha vida profissional tem sido "reavaliar" algumas opiniões que tive durante a minha carreira. Não à toa...'><meta property=og:url content=https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html><meta property=og:image content=https://klauslaube.com.br//images/blog/java-darth-vader.jpeg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/java-darth-vader.jpeg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Engatinhando em Java para a web - Parte 1 </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2019-11-28T11:35:00-03:00 itemprop=datePublished>28 Nov, 2019</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/java-logo.jpeg alt="Logotipo da linguagem Java" class=representative-image width=180 height=180> <p>Uma constante nesses dois últimos anos da minha vida profissional tem sido "reavaliar" algumas opiniões que tive durante a minha carreira. Não à toa costumo escrever <a href=https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html title="Já me rendi até ao Material Design">alguns artigos do tipo "eu me rendo"</a>. Já me rendi ao <a href=https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html title="Relato onde admito estar traindo o Vim">VS Code, ao uso de IDEs</a>, e até mesmo ao <em>React</em>. Agora chegou a hora do <a href=https://klauslaube.com.br/tag/java.html title="Leia mais sobre Java"><em>Java</em></a>.</p> <!-- PELICAN_END_SUMMARY --> <p><a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre Python"><em>Python</em></a> ainda é de longe a minha linguagem favorita. Mas acabei "caindo de paraquedas" no mundo <em>Java</em> (principal linguagem usada aqui na <a href=https://tradeshift.com/ title="Reimagine procure-to-pay"><em>Tradeshift</em></a>), e assim como o <em>Python</em> enriqueceu o meu conhecimento quando me rendi a ele (minha primeira linguagem foi o <a href=https://klauslaube.com.br/tag/php.html title="Leia mais sobre PHP"><em>PHP</em></a>), o <em>Java</em> tem feito o mesmo.</p> <p><img class=align-center-keep-size src=/images/blog/java-darth-vader.jpeg width=740 height=463 title="Come join the dark side (craigblower.wordpress.com)" alt="Come join the dark side (craigblower.wordpress.com)"></p> <p>Após essa longa argumentação exibindo a motivação por trás desse <em>post</em>, vamos ao que interessa: <em>Java</em> para a <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre web"><em>web</em></a> pode ser divertido...</p> <p>... só precisa ter um pouquinho de paciência.</p> <h2>Linguagem x Ambiente</h2> <p>Parece chover no molhado, mas quando falamos em <em>Java</em> temos que levar sempre em consideração que estamos referenciando duas coisas: A linguagem de programação e a plataforma.</p> <p>Sobre a linguagem, é exatamente aquele mesmo discurso que a gente já está cansado de ouvir: Orientada a objetos, de alto nível, estática e de tipagem forte.</p> <p><img class=align-center-keep-size src=/images/blog/java-luke-no.jpg width=550 height=374 title="Noooooooooooooooooooooooo (starwarsanon.wordpress.com)" alt="Noooooooooooooooooooooooo (starwarsanon.wordpress.com)"></p> <h3>Plataformas e a sopa de letrinha</h3> <p>As plataformas <em>Java</em> possuem a <em>Java Virtual Machine</em> (<em>JVM</em>) e uma <em>API</em> (<em>Application Programming Interface</em>). A primeira é quem "executa" aplicações <em>Java</em> para uma determinada plataforma de <em>hardware</em> e <em>software</em>. Já a segunda é uma coleção de componentes usados para criação de outros componentes e aplicações.</p> <p>A <em>Java Runtime Environment</em> (<em>JRE</em>) provê o ambiente necessário para executar aplicações <em>Java</em>. Inclui implementação da <em>JVM</em> juntamente com bibliotecas e outros arquivos necessários para sua execução.</p> <p><img class=align-center-keep-size src=/images/blog/jre-diagram.png width=619 height=364 title="Diagrama da relação entre a JRE e a JVM (javatpoint.com)" alt="Diagrama da relação entre a JRE e a JVM (javatpoint.com)"></p> <p>Para escrever código <em>Java</em> utiliza-se um conjunto de ferramentas de desenvolvimento chamado de <em>Java Development Kit</em> (<em>JDK</em>). Entre essas ferramentas está o compilador, o <em>debugger</em> <em>Java</em>, e a própria <em>JRE</em>.</p> <p><img class=align-center-keep-size src=/images/blog/jdk-diagram.png width=619 height=362 title="Diagrama da relação entre a JDK, JRE e a JVM (javatpoint.com)" alt="Diagrama da relação entre a JDK, JRE e a JVM (javatpoint.com)"></p> <p>O <em>Java</em> é uma linguagem de propósito genérico, portanto, há diferentes especificações (e fatalmente implementações) que auxiliam na construção de soluções para diferentes fins. As mais mencionadas sendo:</p> <ul> <li><em>Java Standard Edition (SE)</em>: Disponibiliza as funcionalidades "core" da linguagem. De tipos básicos a classes de alto nível que lidam com <em>networking</em>, segurança, <em>parsing</em>, <em>math</em>, entre outros. Além disso, consiste de máquina virtual, ferramentas de desenvolvimento, tecnologias de <em>deployment</em>, etc;</li> <li><em>Java Enterprise Edition (EE)</em>: Construída em cima da anterior, disponibiliza <em>API</em> e ambiente de execução para ambientes "enterprise" de larga escala e distruídos. Aqui encontraremos os componentes mais comuns para construção de aplicações <em>web</em>;</li> <li><em>Java Micro Edition (ME)</em>: Também construída em cima da <em>SE</em>, disponibiliza uma máquina virtual própria para dispositivos menores (como <em>smartphones</em> e embarcados).</li> </ul> <p>Confuso? Isso que <a href=https://www.baeldung.com/oracle-jdk-vs-openjdk title="Leia mais sobre no Baeldung">nem falamos de <em>OpenJDK</em></a>...</p> <h2>Tudo começa pelo servidor de aplicação</h2> <p>O motivo no qual estamos lidando com essa quantidade de acrônimos é para compreendermos que, quando estamos falando do servidor de aplicações (que será o ambiente no qual executaremos a nossa aplicação <em>web</em>), estamos falando do "domínio" do <em>Java EE</em>.</p> <p>Segundo a <a href=https://www.caelum.com.br/apostila-java-web/o-que-e-java-ee/ title="Leia o trecho completo no material original">apostila de <em>Java</em> para <em>web</em></a>, da <em>Caelum</em>:</p> <blockquote> <p>(...) o Java EE é um grande conjunto de especificações. Essas especificações, quando implementadas, vão auxiliar bastante o desenvolvimento da sua aplicação, pois você não precisará se preocupar com grande parte de código de infraestrutura, que demandaria muito trabalho.</p> </blockquote> <p>Ainda citando a fonte acima:</p> <blockquote> <p>Existem diversas dessas implementações. Já que esse software tem papel de servir sua aplicação para auxiliá-la com serviços de infraestrutura, esse software ganha o nome de servidor de aplicação. A própria Sun/Oracle desenvolve uma dessas implementações, o Glassfish que é open source e gratuito (...).</p> </blockquote> <p>Vamos utilizar uma ferramenta que implementa apenas parte da especificação do <em>Java EE</em>, não sendo por definição um "servidor de aplicação completo", mas nem por isso deixando de atender nossos requisitos. No momento, só estamos interessados no <em>Java ServerPages</em> (<em>JSP</em>) e em <em>Servlets</em>, e há um <em>software</em> extremamente popular que entrega isso para a gente.</p> <h3>Tomcat</h3> <p><a href=https://en.wikipedia.org/wiki/Apache_Tomcat title="Leia mais no artigo original">Segundo o <em>Wikipedia</em></a>:</p> <blockquote> <p>Apache Tomcat (sometimes simply "Tomcat") is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and WebSocket technologies. (...) provides a "pure Java" HTTP web server environment in which Java code can run.</p> </blockquote> <p>Exatamente o que precisamos!</p> <p>Instalá-lo é simples:</p> <ul> <li>Faça o <em>download</em> no <a href=https://tomcat.apache.org title="Site oficial do Tomcat">tomcat.apache.org</a>;</li> <li>Descompacte no diretório de sua preferência;</li> <li>Tenha certeza que o arquivo <code>startup.sh</code> tem permissão de execução;</li> <li>Execute o arquivo;</li> <li>Abra o endereço <code>http://localhost:8080</code>;</li> <li>Se tudo estiver certo, você deve ver a mensagem em verde <code>If you're seeing this, you've successfully installed Tomcat. Congratulations!</code>.</li> </ul> <p><img class=align-center-keep-size src=/images/blog/tomcat-example.png width=640 height=172 title="Exemplo de execução do Tomcat via terminal" alt="Exemplo de execução do Tomcat via terminal"></p> <p>Mas a maneira que considero mais prática é manuseá-lo através de alguma ferramenta de <em>build</em>. No caso desse tutorial, usaremos o <em>Maven</em>.</p> <p>Não esqueça de desligar o <em>Tomcat</em> através do <code>./shutdown.sh</code>.</p> <h3>Maven</h3> <p>Com o <em>Maven</em> você controlará grande parte do ciclo de vida da sua aplicação, resolvendo dependências, executando testes, compilando o projeto, etc. Com ele você pode também criar o projeto utilizando o arquétipo de <em>webapp</em>, como ilustrado no exemplo abaixo:</p> <div class=highlight><pre><span></span>$ mvn archetype:generate
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.493e6315ef3a09bc2f74.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.12"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style data-styled="" data-styled-version="5.1.0">.dQgIel{display:inline-block;vertical-align:middle;overflow:hidden;}/*!sc*/
+data-styled.g1[id="sc-AxjAm"]{content:"dQgIel,"}/*!sc*/
+.dLmtYS{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g2[id="article-share__FacebookStyled-sc-1s9obkn-0"]{content:"dLmtYS,"}/*!sc*/
+.cXEKcd{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g3[id="article-share__LinkedinStyled-sc-1s9obkn-1"]{content:"cXEKcd,"}/*!sc*/
+.kBgYvV{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g4[id="article-share__TwitterStyled-sc-1s9obkn-2"]{content:"kBgYvV,"}/*!sc*/
+.jVnceN{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g5[id="article-share__WhatsappStyled-sc-1s9obkn-3"]{content:"jVnceN,"}/*!sc*/
+.hUktyW{display:inline-block;margin-right:8px;}/*!sc*/
+data-styled.g6[id="article-share__SocialLink-sc-1s9obkn-4"]{content:"hUktyW,"}/*!sc*/
+.hKQQPE{clear:both;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.hKQQPE{clear:none;float:right;line-height:48px;}}/*!sc*/
+data-styled.g7[id="article-share__SocialWrapper-sc-1s9obkn-5"]{content:"hKQQPE,"}/*!sc*/
+.gKRNvs{margin-bottom:24px;}/*!sc*/
+data-styled.g8[id="article-tags__Tags-lfitfk-0"]{content:"gKRNvs,"}/*!sc*/
+.kdcwKK{background-color:#f4f4f4;color:rgba(0,0,0,0.54);display:inline-block;font-size:14px;margin:0 8px 8px 0;padding:8px 16px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g9[id="article-tags__Tag-lfitfk-1"]{content:"kdcwKK,"}/*!sc*/
+.gfJCPa{color:rgba(0,0,0,0.84);margin-bottom:4px;}/*!sc*/
+data-styled.g14[id="article__AuthorName-sc-1bof3w4-0"]{content:"gfJCPa,"}/*!sc*/
+.cZgAvk{clear:both;font-family:Georgia,"Times New Roman",Times,serif;font-size:18px;font-weight:300;-webkit-letter-spacing:-0.054px;-moz-letter-spacing:-0.054px;-ms-letter-spacing:-0.054px;letter-spacing:-0.054px;line-height:28px;margin-bottom:48px;}/*!sc*/
+@media (min-width:768px){.cZgAvk{font-size:20px;}}/*!sc*/
+.cZgAvk *{margin:0;margin-block-end:0;margin-block-start:0;padding:0;}/*!sc*/
+.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{font-family:"Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;-webkit-letter-spacing:-0.66px;-moz-letter-spacing:-0.66px;-ms-letter-spacing:-0.66px;letter-spacing:-0.66px;margin-top:8px;margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{margin-bottom:16px;}}/*!sc*/
+.cZgAvk figure,.cZgAvk .gatsby-highlight{left:-24px;position:relative;width:100vw;}/*!sc*/
+@media (min-width:768px){.cZgAvk figure,.cZgAvk .gatsby-highlight{left:0;width:auto;}}/*!sc*/
+.cZgAvk a{color:#c4170c;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cZgAvk a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cZgAvk blockquote{color:rgba(0,0,0,0.54);font-style:italic;}/*!sc*/
+.cZgAvk code{font-size:16px;}/*!sc*/
+.cZgAvk figcaption{color:rgba(0,0,0,0.54);font-size:16px;line-height:20px;padding:16px 24px 0;text-align:center;}/*!sc*/
+.cZgAvk h2{font-size:26px;font-weight:600;line-height:32px;margin-bottom:28px;}/*!sc*/
+.cZgAvk h3{color:#333;font-size:22px;font-weight:300;line-height:28px;}/*!sc*/
+.cZgAvk h4{color:rgba(0,0,0,0.54);font-size:16;font-weight:300;line-height:24px;}/*!sc*/
+.cZgAvk iframe{display:block;margin:0 auto 28px auto;}/*!sc*/
+@media (min-width:768px){.cZgAvk iframe{margin-bottom:42px;}}/*!sc*/
+.cZgAvk img{display:block;margin:0 auto;}/*!sc*/
+.cZgAvk p{margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk p{margin-bottom:42px;}}/*!sc*/
+.cZgAvk pre{font-size:16px;margin-bottom:28px;padding:24px 16px;}/*!sc*/
+@media (min-width:768px){.cZgAvk pre{margin-bottom:42px;}}/*!sc*/
+.cZgAvk ol,.cZgAvk ul{margin-left:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk ol,.cZgAvk ul{margin-bottom:42px;}}/*!sc*/
+.cZgAvk li{margin-bottom:8px;}/*!sc*/
+@media (min-width:768px){.cZgAvk li{margin-bottom:16px;}}/*!sc*/
+data-styled.g15[id="article__Content-sc-1bof3w4-1"]{content:"cZgAvk,"}/*!sc*/
+.lhlkLZ{border-top:1px solid #f4f4f4;margin-bottom:24px;padding-top:24px;}/*!sc*/
+data-styled.g16[id="article__DiscussionWrapper-sc-1bof3w4-2"]{content:"lhlkLZ,"}/*!sc*/
+.hnJNBS{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(0,0,0,0.54);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;float:left;font-size:14px;margin-bottom:32px;}/*!sc*/
+data-styled.g17[id="article__Meta-sc-1bof3w4-3"]{content:"hnJNBS,"}/*!sc*/
+.cTbbvU{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g18[id="article__MetaText-sc-1bof3w4-4"]{content:"cTbbvU,"}/*!sc*/
+.lhqEXT{border-radius:60px;margin-right:16px;}/*!sc*/
+data-styled.g19[id="article__StyledAvatar-sc-1bof3w4-5"]{content:"lhqEXT,"}/*!sc*/
+.dtcUmd{color:rgba(0,0,0,0.84);font-weight:600;-webkit-letter-spacing:-0.93px;-moz-letter-spacing:-0.93px;-ms-letter-spacing:-0.93px;letter-spacing:-0.93px;margin:0 0 4px 0;font-size:30px;font-weight:400;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.dtcUmd{font-size:40px;}}/*!sc*/
+data-styled.g20[id="article__StyledTitle-sc-1bof3w4-6"]{content:"dtcUmd,"}/*!sc*/
+.bfwjqj{margin:0 auto;max-width:640px;padding:0 24px;}/*!sc*/
+data-styled.g21[id="container-sc-1o2is99-0"]{content:"bfwjqj,"}/*!sc*/
+.iyjQQp{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#c4170c;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-family:Arial,Helvetica,sans-serif;height:36px;width:36px;}/*!sc*/
+data-styled.g22[id="page-header-brand__Brand-ofbkek-0"]{content:"iyjQQp,"}/*!sc*/
+.hPHtvI{display:none;}/*!sc*/
+@media (min-width:768px){.hPHtvI{display:block;}}/*!sc*/
+data-styled.g23[id="page-header-brand__BrandFragment-ofbkek-1"]{content:"hPHtvI,"}/*!sc*/
+.exgtKg{color:#333;display:inline-block;margin-left:4px;}/*!sc*/
+.exgtKg:first-child{margin-left:0;margin-right:4px;}/*!sc*/
+data-styled.g24[id="page-header-brand__Bracket-ofbkek-2"]{content:"exgtKg,"}/*!sc*/
+.fUa-dQJ{color:#333;width:22px;}/*!sc*/
+data-styled.g25[id="page-header__GreyMail-sc-1ef23a-0"]{content:"fUa-dQJ,"}/*!sc*/
+.GBaPr{box-shadow:0 -8px 16px 0 rgba(0,0,0,0.54);font-size:1.1rem;margin-bottom:24px;}/*!sc*/
+@media (min-width:768px){.GBaPr{margin-bottom:64px;}}/*!sc*/
+data-styled.g26[id="page-header__Header-sc-1ef23a-1"]{content:"GBaPr,"}/*!sc*/
+.ktLFvT{margin:0 auto;max-width:640px;padding:0 24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:56px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:974px;}/*!sc*/
+data-styled.g27[id="page-header__HeaderContainer-sc-1ef23a-2"]{content:"ktLFvT,"}/*!sc*/
+.gbnbN{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g28[id="page-header__StyledLink-sc-1ef23a-3"]{content:"gbnbN,"}/*!sc*/
+.hJnaIf{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g29[id="page-header__StyledA-sc-1ef23a-4"]{content:"hJnaIf,"}/*!sc*/
+.eZHcyp{border-top:1px solid #f4f4f4;color:rgba(0,0,0,0.54);font-size:14px;padding:24px 0;text-align:center;}/*!sc*/
+@media (min-width:768px){.eZHcyp{text-align:right;}}/*!sc*/
+data-styled.g30[id="page-footer__Footer-sc-1jesc4c-0"]{content:"eZHcyp,"}/*!sc*/
+.hCZhVV{color:rgba(0,0,0,0.84);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hCZhVV:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g31[id="page-footer__Link-sc-1jesc4c-1"]{content:"hCZhVV,"}/*!sc*/
+body{color:rgba(0,0,0,0.84);font-family:Arial,Helvetica,sans-serif;margin:0;}/*!sc*/
+data-styled.g51[id="sc-global-eLbNMD1"]{content:"sc-global-eLbNMD1,"}/*!sc*/
+</style><title data-react-helmet="true">Engatinhando em Java para a web - Parte 1 | Klaus Laube</title><meta data-react-helmet="true" name="description" content="Uma constante nesses dois últimos anos da minha vida profissional tem sido &quot;reavaliar&quot; algumas opiniões que tive durante a minha carreira.…"/><meta data-react-helmet="true" property="og:title" content="Engatinhando em Java para a web - Parte 1"/><meta data-react-helmet="true" property="og:description" content="Uma constante nesses dois últimos anos da minha vida profissional tem sido &quot;reavaliar&quot; algumas opiniões que tive durante a minha carreira.…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Klaus Peter Laube"/><meta data-react-helmet="true" name="twitter:title" content="Engatinhando em Java para a web - Parte 1"/><meta data-react-helmet="true" name="twitter:description" content="Uma constante nesses dois últimos anos da minha vida profissional tem sido &quot;reavaliar&quot; algumas opiniões que tive durante a minha carreira.…"/><meta data-react-helmet="true" name="keywords" content="desenvolvimento-web,java,servlet"/><meta data-react-helmet="true" property="og:image" content="https://klauslaube.com.br/static/67d414e7cfca2f4bb8d06148a549b9b8/java-logo.png"/><link rel="icon" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="alternate" type="application/rss+xml" title="Klaus Laube" href="/feed/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-74a6d0a7c3b7aca6f059.js"/><link as="script" rel="preload" href="/framework-15c64f04ece7e16d9319.js"/><link as="script" rel="preload" href="/styles-72b9aca6a03bf971c27e.js"/><link as="script" rel="preload" href="/app-e7e259d06d29a943bae9.js"/><link as="script" rel="preload" href="/commons-d19a5247b9c341fd9cf4.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"/><link as="fetch" rel="preload" href="/page-data/2019/11/28/engatinhando-em-java-web-parte-1.html/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="page-header__Header-sc-1ef23a-1 GBaPr"><div class="container-sc-1o2is99-0 page-header__HeaderContainer-sc-1ef23a-2 ktLFvT"><a class="page-header__StyledLink-sc-1ef23a-3 gbnbN" href="/"><div class="page-header-brand__Brand-ofbkek-0 iyjQQp"><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">{</span>k<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">laus</span>l<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">aube</span><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">}</span></div></a><div><a href="https://about.me/klauslaube" title="Contato" class="page-header__StyledA-sc-1ef23a-4 hJnaIf"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="sc-AxjAm dQgIel page-header__GreyMail-sc-1ef23a-0 fUa-dQJ"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></div></div></div><div><div class="container-sc-1o2is99-0 bfwjqj"><h1 class="typograph__Title-sc-4kf6ch-1 article__StyledTitle-sc-1bof3w4-6 dtcUmd">Engatinhando em Java para a web - Parte 1</h1><div class="article__Meta-sc-1bof3w4-3 hnJNBS"><img src="https://en.gravatar.com/userimage/12163112/d3ae0c6239980b01ff1f1730b65c2ebe.jpg" width="48" height="48" alt="Avatar" class="avatar-sc-46srdf-0 article__StyledAvatar-sc-1bof3w4-5 lhqEXT"/><div class="article__MetaText-sc-1bof3w4-4 cTbbvU"><div class="article__AuthorName-sc-1bof3w4-0 gfJCPa">Klaus Peter Laube</div>28 de Novembro de 2019<!-- --> - <!-- -->7 minutos<!-- --> de leitura</div></div><div class="article-share__SocialWrapper-sc-1s9obkn-5 hKQQPE"><a href="https://twitter.com/intent/tweet?url=https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html&amp;text=Engatinhando em Java para a web - Parte 1" target="_blank" rel="noreferrer" title="Compartilhe no Twitter" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__TwitterStyled-sc-1s9obkn-2 kBgYvV"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22 8.073 8.073 0 002.319-.624 8.645 8.645 0 01-2.019 2.083z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html" target="_blank" rel="noreferrer" title="Compartilhe no Facebook" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__FacebookStyled-sc-1s9obkn-0 dLmtYS"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325 1.42-3.592 3.5-3.592.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.725h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"></path></svg></a><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html&amp;title=Engatinhando em Java para a web - Parte 1" target="_blank" rel="noreferrer" title="Compartilhe no Linkedin" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__LinkedinStyled-sc-1s9obkn-1 cXEKcd"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg></a><a href="https://api.whatsapp.com/send?text=https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html" target="_blank" rel="noreferrer" title="Compartilhe no Whatsapp" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__WhatsappStyled-sc-1s9obkn-3 jVnceN"><path fill-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 004.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 00-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 01-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 01-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 015.275 2.188 7.42 7.42 0 012.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 00-.429-.008.826.826 0 00-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263" clip-rule="evenodd"></path></svg></a></div><div class="article__Content-sc-1bof3w4-1 cZgAvk"><p>Uma constante nesses dois últimos anos da minha vida profissional tem sido "reavaliar" algumas opiniões que tive durante a minha carreira. Não à toa costumo escrever <a href="/2017/04/19/eu-me-rendo-material-design.html" title="Já me rendi até ao Material Design">alguns artigos do tipo "eu me rendo"</a>. Já me rendi ao <a href="/2018/06/04/eu-me-rendo-vscode.html" title="Relato onde admito estar traindo o Vim">VS Code, ao uso de IDEs</a>, e até mesmo ao <em>React</em>. Agora chegou a hora do <a href="/tag/java.html" title="Leia mais sobre Java"><em>Java</em></a>.</p>
+<p><a href="/tag/python.html" title="Leia mais sobre Python"><em>Python</em></a> ainda é de longe a minha linguagem favorita. Mas acabei "caindo de paraquedas" no mundo <em>Java</em> (principal linguagem usada aqui na <a href="https://tradeshift.com/" title="Reimagine procure-to-pay"><em>Tradeshift</em></a>), e assim como o <em>Python</em> enriqueceu o meu conhecimento quando me rendi a ele (minha primeira linguagem foi o <a href="/tag/php.html" title="Leia mais sobre PHP"><em>PHP</em></a>), o <em>Java</em> tem feito o mesmo.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7d22c1621039359e39fec86f1d50376a/07f3a/java-darth-vader.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHAomkhi//EABkQAAMAAwAAAAAAAAAAAAAAAAABAhAREv/aAAgBAQABBQIemiKcPusf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxAAAwEAAAAAAAAAAAAAAAAAABAhAf/aAAgBAQAGPwImKP8A/8QAGhAAAgMBAQAAAAAAAAAAAAAAESEAARBBMf/aAAgBAQABPyGqNzmfcKAaigUB5n//2gAMAwEAAgADAAAAEDwv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxCMU//EABsQAQEAAwADAAAAAAAAAAAAAAERACFREIGx/9oACAEBAAE/EJJv1jS0jSXRz54cnQql1iwQ4AatmLWwz//Z'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Imagem com o Darth Vader"
+        title="Come join the dark side (craigblower.wordpress.com)"
+        src="/static/7d22c1621039359e39fec86f1d50376a/07f3a/java-darth-vader.jpg"
+        srcset="/static/7d22c1621039359e39fec86f1d50376a/7809d/java-darth-vader.jpg 192w,
+/static/7d22c1621039359e39fec86f1d50376a/4ecad/java-darth-vader.jpg 384w,
+/static/7d22c1621039359e39fec86f1d50376a/07f3a/java-darth-vader.jpg 740w"
+        sizes="(max-width: 740px) 100vw, 740px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Come join the dark side (craigblower.wordpress.com)</figcaption>
+  </figure></p>
+<p>Após essa longa argumentação exibindo a motivação por trás desse <em>post</em>, vamos ao que interessa: <em>Java</em> para a <a href="/tag/web.html" title="Leia mais sobre web"><em>web</em></a> pode ser divertido...</p>
+<p>... só precisa ter um pouquinho de paciência.</p>
+<h2>Linguagem x Ambiente</h2>
+<p>Parece chover no molhado, mas quando falamos em <em>Java</em> temos que levar sempre em consideração que estamos referenciando duas coisas: A linguagem de programação e a plataforma.</p>
+<p>Sobre a linguagem, é exatamente aquele mesmo discurso que a gente já está cansado de ouvir: Orientada a objetos, de alto nível, estática e de tipagem forte.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 550px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9d9922853c9497909d19d7237c71b757/d7854/java-luke-no.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 68.22916666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAcCrNoXDH//EABoQAQACAwEAAAAAAAAAAAAAAAEAAhESIiH/2gAIAQEAAQUCq617wQRPUeZ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8BV//EABoQAAICAwAAAAAAAAAAAAAAAAABEUECIYH/2gAIAQEABj8CeXEbZY07Iog//8QAGRAAAwEBAQAAAAAAAAAAAAAAAAERITGR/9oACAEBAAE/IXU9SBtKbpc6KlRhvQxxCKKfh//aAAwDAQACAAMAAAAQUA//xAAXEQADAQAAAAAAAAAAAAAAAAAAASER/9oACAEDAQE/EJlGj//EABcRAAMBAAAAAAAAAAAAAAAAAAABIRH/2gAIAQIBAT8Quig//8QAHRAAAgMAAgMAAAAAAAAAAAAAAREAITFBYaGx8P/aAAgBAQABPxAExQZoZ33DMixs59ced16CFBHKCFwoLk78gvHULsAgccz/2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Luke gritando no"
+        title="Noooooooooooooooooooooooo (starwarsanon.wordpress.com)"
+        src="/static/9d9922853c9497909d19d7237c71b757/d7854/java-luke-no.jpg"
+        srcset="/static/9d9922853c9497909d19d7237c71b757/7809d/java-luke-no.jpg 192w,
+/static/9d9922853c9497909d19d7237c71b757/4ecad/java-luke-no.jpg 384w,
+/static/9d9922853c9497909d19d7237c71b757/d7854/java-luke-no.jpg 550w"
+        sizes="(max-width: 550px) 100vw, 550px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Noooooooooooooooooooooooo (starwarsanon.wordpress.com)</figcaption>
+  </figure></p>
+<h3>Plataformas e a sopa de letrinha</h3>
+<p>As plataformas <em>Java</em> possuem a <em>Java Virtual Machine</em> (<em>JVM</em>) e uma <em>API</em> (<em>Application Programming Interface</em>). A primeira é quem "executa" aplicações <em>Java</em> para uma determinada plataforma de <em>hardware</em> e <em>software</em>. Já a segunda é uma coleção de componentes usados para criação de outros componentes e aplicações.</p>
+<p>A <em>Java Runtime Environment</em> (<em>JRE</em>) provê o ambiente necessário para executar aplicações <em>Java</em>. Inclui implementação da <em>JVM</em> juntamente com bibliotecas e outros arquivos necessários para sua execução.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 619px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f41c59ff528f47a7fed0a5a4943946df/e628c/jre-diagram.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAAB+klEQVQoz42Sb2/SUBTG+zX8Fn5UI77XRGN8ZcyMMzEOFeifW1qYATdmBNzcgAFSenvbe/HCHs+9hWXGadbkl56ePn16ztM6i7Mq5MxDcdkg3H8ipy7UTw9y7v6F7U9LnWPMIFoAj4Asvh0RQ88Z8qEHdRpAnRkYVoT87tv+JgmtzjGTGbOrtAmkDJtlYDG16dl+FkGcNpAzhnm9jvGHKkbVA5wfvEfq++DMhxx7VueYMc0UV2kImRxBZSNIfgGVdMk0pD5NLsjwrAF92Ma3/TcIXzxH7cljeM+eQoQMRRxCTXyrc4qpMQxRJD2IXOJyOsNsvrC1eYGZ1KyS/3CRx8wiogC86SFvMajDCDz2SsNsZ8hJmPRRqDV6vR4GgwHUaoN8cUKGtD6PsaaMxKSOnCK6ed7Vm2Voo7teeb2ktZIhVMEh8xRi0S/X3WYoRx6yjgfRpbyOaUVCHjF7zTsuVtPgzwztg5TZOmF2GlPTXuVHsRnS7xFGUM0IJ3uv8eXlKwz330K32jZHNfZ3X9nV5KzpQSLSZGIxddlr2vuUoc7iQOetQCesoResrpdhQxdtptPY1ZSh1TlQnwF8JXr/gbLEMfCrU7Luluhuea071zpn0n9X4RefKsvzj7eSEhT6AzGuP+Sj2qNsVKvwG2Rb0q2Hc8fjPnHvLsLfVakbXpYt9vcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Diagrama da relação entre a JRE e a JVM (javatpoint.com)"
+        title="Diagrama da relação entre a JRE e a JVM (javatpoint.com)"
+        src="/static/f41c59ff528f47a7fed0a5a4943946df/e628c/jre-diagram.png"
+        srcset="/static/f41c59ff528f47a7fed0a5a4943946df/8514f/jre-diagram.png 192w,
+/static/f41c59ff528f47a7fed0a5a4943946df/804b2/jre-diagram.png 384w,
+/static/f41c59ff528f47a7fed0a5a4943946df/e628c/jre-diagram.png 619w"
+        sizes="(max-width: 619px) 100vw, 619px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Diagrama da relação entre a JRE e a JVM (javatpoint.com)</figcaption>
+  </figure></p>
+<p>Para escrever código <em>Java</em> utiliza-se um conjunto de ferramentas de desenvolvimento chamado de <em>Java Development Kit</em> (<em>JDK</em>). Entre essas ferramentas está o compilador, o <em>debugger</em> <em>Java</em>, e a própria <em>JRE</em>.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 619px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/522963bb17ca0f1b07673df5bd23aa9e/e628c/jdk-diagram.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAACCklEQVQoz41S2W7aUBD1X/QX+tFdXFVKq770oapEcGjBO+AQAW2TggmLN9ZgFm9c0tOxsRJC+xBLRzOemXvunJnL3Y2+IZwq2HgitmPpWQgnCoKJ/N84l5JFjorY1v5BNKK4pR1BRTCUwRZVxGOV8kpWlxBC8ndzHVzaWVoM9xJw6oBdJd/AH7eOhVGGXRJglYoYXRQxFklNV0Ey07ImYBuAR+fGDeytGiK6hNt6EpKU0Klh5zbBZl0w54pIa3BkAfWzj5De8Si/eQv3OxGaj4RxXwWzqkgG9E9+MtWIkLQnI5l+uljcLdE1Tax8H4nXwqYtYnkpU6cV+A2aU0tDYJJkkrYZirgqnqFZ+oCu8hnrTgW7mX4gjHPC2XwB0+zB95fYeW3sRzrubRqDY2R2N9QPIMLVoAL9Cw+j8B4/y58wbhXzDk8k7+cHyXtbx5K6Gpyfo1f4ms1wVaXX0JEywshRMsl7khyT5KAnI35CeLIUeAaiHzqc0gUGQoEWIyBsVBF05WyG8clS7u0a4omaSWaBJTNa+wMiS2W+WWZuu8DWtyLbEFK7pNimL7JkrrHQVdh2ILHQSuvJH0qMLmIc4iaA34RfhOvcdrKHO+0Lee46x82RvTmKP+a56a3Ak2x+7Yr8JsfaEXl69Xw8U8mv8NTRq2iqvF6Rn+XdypP6h3MU5575vSS8eE7hX1buEmpYu0mnAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Diagrama da relação entre a JDK, JRE e a JVM (javatpoint.com)"
+        title="Diagrama da relação entre a JDK, JRE e a JVM (javatpoint.com)"
+        src="/static/522963bb17ca0f1b07673df5bd23aa9e/e628c/jdk-diagram.png"
+        srcset="/static/522963bb17ca0f1b07673df5bd23aa9e/8514f/jdk-diagram.png 192w,
+/static/522963bb17ca0f1b07673df5bd23aa9e/804b2/jdk-diagram.png 384w,
+/static/522963bb17ca0f1b07673df5bd23aa9e/e628c/jdk-diagram.png 619w"
+        sizes="(max-width: 619px) 100vw, 619px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Diagrama da relação entre a JDK, JRE e a JVM (javatpoint.com)</figcaption>
+  </figure></p>
+<p>O <em>Java</em> é uma linguagem de propósito genérico, portanto, há diferentes especificações (e fatalmente implementações) que auxiliam na construção de soluções para diferentes fins. As mais mencionadas sendo:</p>
+<ul>
+<li><em>Java Standard Edition (SE)</em>: Disponibiliza as funcionalidades "core" da linguagem. De tipos básicos a classes de alto nível que lidam com <em>networking</em>, segurança, <em>parsing</em>, <em>math</em>, entre outros. Além disso, consiste de máquina virtual, ferramentas de desenvolvimento, tecnologias de <em>deployment</em>, etc;</li>
+<li><em>Java Enterprise Edition (EE)</em>: Construída em cima da anterior, disponibiliza <em>API</em> e ambiente de execução para ambientes "enterprise" de larga escala e distruídos. Aqui encontraremos os componentes mais comuns para construção de aplicações <em>web</em>;</li>
+<li><em>Java Micro Edition (ME)</em>: Também construída em cima da <em>SE</em>, disponibiliza uma máquina virtual própria para dispositivos menores (como <em>smartphones</em> e embarcados).</li>
+</ul>
+<p>Confuso? Isso que <a href="https://www.baeldung.com/oracle-jdk-vs-openjdk" title="Leia mais sobre no Baeldung">nem falamos de <em>OpenJDK</em></a>...</p>
+<h2>Tudo começa pelo servidor de aplicação</h2>
+<p>O motivo no qual estamos lidando com essa quantidade de acrônimos é para compreendermos que, quando estamos falando do servidor de aplicações (que será o ambiente no qual executaremos a nossa aplicação <em>web</em>), estamos falando do "domínio" do <em>Java EE</em>.</p>
+<p>Segundo a <a href="https://www.caelum.com.br/apostila-java-web/o-que-e-java-ee/" title="Leia o trecho completo no material original">apostila de <em>Java</em> para <em>web</em></a>, da <em>Caelum</em>:</p>
+<blockquote>
+<p>(...) o Java EE é um grande conjunto de especificações. Essas especificações, quando implementadas, vão auxiliar bastante o desenvolvimento da sua aplicação, pois você não precisará se preocupar com grande parte de código de infraestrutura, que demandaria muito trabalho.</p>
+</blockquote>
+<p>Ainda citando a fonte acima:</p>
+<blockquote>
+<p>Existem diversas dessas implementações. Já que esse software tem papel de servir sua aplicação para auxiliá-la com serviços de infraestrutura, esse software ganha o nome de servidor de aplicação. A própria Sun/Oracle desenvolve uma dessas implementações, o Glassfish que é open source e gratuito (...).</p>
+</blockquote>
+<p>Vamos utilizar uma ferramenta que implementa apenas parte da especificação do <em>Java EE</em>, não sendo por definição um "servidor de aplicação completo", mas nem por isso deixando de atender nossos requisitos. No momento, só estamos interessados no <em>Java ServerPages</em> (<em>JSP</em>) e em <em>Servlets</em>, e há um <em>software</em> extremamente popular que entrega isso para a gente.</p>
+<h3>Tomcat</h3>
+<p><a href="https://en.wikipedia.org/wiki/Apache_Tomcat" title="Leia mais no artigo original">Segundo o <em>Wikipedia</em></a>:</p>
+<blockquote>
+<p>Apache Tomcat (sometimes simply "Tomcat") is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and WebSocket technologies. (...) provides a "pure Java" HTTP web server environment in which Java code can run.</p>
+</blockquote>
+<p>Exatamente o que precisamos!</p>
+<p>Instalá-lo é simples:</p>
+<ul>
+<li>Faça o <em>download</em> no <a href="https://tomcat.apache.org" title="Site oficial do Tomcat">tomcat.apache.org</a>;</li>
+<li>Descompacte no diretório de sua preferência;</li>
+<li>Tenha certeza que o arquivo <code class="language-text">startup.sh</code> tem permissão de execução;</li>
+<li>Execute o arquivo;</li>
+<li>Abra o endereço <code class="language-text">http://localhost:8080</code>;</li>
+<li>Se tudo estiver certo, você deve ver a mensagem em verde <code class="language-text">If you&#39;re seeing this, you&#39;ve successfully installed Tomcat. Congratulations!</code>.</li>
+</ul>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d7f82b06ae47bd09974f6ce003f0629b/6af66/tomcat-example.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 27.083333333333332%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABH0lEQVQY0yXPXU+CUADGcb5D8aIwtWk6siRBOXAwhiAewDcEJihMTbTVutMLL/ou3VSrvmVna/vd/vfsIZqdnmYOJc1QjGGjeVvpb7j8u7z7ZLcf3OMXl/8U818me6+5z3f24mYQV/V5QfbojoMRYJ6rwd5YvmjRgR/EwN+B2UaPci3Y6dFenW/BdC2Nsno/LAIPK3RdnJESwgg1PMDoyVi+lnt+Y5DAIAfjFPprMM3kcSo6cduJW3bUQivBywR3Jbgpby3w/rUREqI1U1AomlMeoqr0cKUnZf+tMjmXJmfGOdLOiXJOF/axbgclBdFdj+m6RdljwYhVRgTdNpm2Rd+bjGjRgkFK7iWMSXWBUTCmtAQjYcKqOEP/VzFKQtgfOzVL+Z8c9EgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Exemplo de execução do Tomcat via terminal"
+        title="Exemplo de execução do Tomcat via terminal"
+        src="/static/d7f82b06ae47bd09974f6ce003f0629b/6af66/tomcat-example.png"
+        srcset="/static/d7f82b06ae47bd09974f6ce003f0629b/8514f/tomcat-example.png 192w,
+/static/d7f82b06ae47bd09974f6ce003f0629b/804b2/tomcat-example.png 384w,
+/static/d7f82b06ae47bd09974f6ce003f0629b/6af66/tomcat-example.png 640w"
+        sizes="(max-width: 640px) 100vw, 640px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Exemplo de execução do Tomcat via terminal</figcaption>
+  </figure></p>
+<p>Mas a maneira que considero mais prática é manuseá-lo através de alguma ferramenta de <em>build</em>. No caso desse tutorial, usaremos o <em>Maven</em>.</p>
+<p>Não esqueça de desligar o <em>Tomcat</em> através do <code class="language-text">./shutdown.sh</code>.</p>
+<h3>Maven</h3>
+<p>Com o <em>Maven</em> você controlará grande parte do ciclo de vida da sua aplicação, resolvendo dependências, executando testes, compilando o projeto, etc. Com ele você pode também criar o projeto utilizando o arquétipo de <em>webapp</em>, como ilustrado no exemplo abaixo:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ mvn archetype:generate
     -DgroupId=com.kplaube
     -DartifactId=ola-mundo
     -DarchetypeArtifactId=maven-archetype-webapp
-    -DinteractiveMode=false
-</pre></div> <p>Onde:</p> <ul> <li><code>-DgroupId</code>: O <em>namespace</em> utilizado para empacotamento</li> <li><code>-DartifactId</code>: O nome do projeto</li> <li><code>-DarchetypeArtifactId</code>: O nome do "template" usado como base para criar arquivos e diretórios</li> <li><code>-DinteractiveMode</code>: Desabilitar o modo interativo</li> </ul> <p>Uma porção de pacotes serão baixados. Sente e relaxe... aproveite para ver mais informações sobre <a href=https://maven.apache.org/install.html title="Installing Apache Maven">como instalar o <em>Maven</em></a>.</p> <p>Ainda falta "linkar" o <em>Tomcat</em> ao processo de <em>build</em>. Entre no diretório <code>ola-mundo</code>, recém criado, e abra o arquivo <code>pom.xml</code> (<em>Project Object Model</em>, arquivo utilizado pelo <em>Maven</em>). Altere-o para ficar parecido com o exemplo abaixo:</p> <div class=highlight><pre><span></span><span class=nt>&lt;project</span> <span class=na>xmlns=</span><span class=s>&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class=na>xmlns:xsi=</span><span class=s>&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>
-<span class=na>xsi:schemaLocation=</span><span class=s>&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;</span><span class=nt>&gt;</span>
-    <span class=nt>&lt;modelVersion&gt;</span>4.0.0<span class=nt>&lt;/modelVersion&gt;</span>
-    <span class=nt>&lt;groupId&gt;</span>com.kplaube<span class=nt>&lt;/groupId&gt;</span>
-    <span class=nt>&lt;artifactId&gt;</span>ola-mundo<span class=nt>&lt;/artifactId&gt;</span>
-    <span class=nt>&lt;packaging&gt;</span>war<span class=nt>&lt;/packaging&gt;</span>
-    <span class=nt>&lt;version&gt;</span>1.0-SNAPSHOT<span class=nt>&lt;/version&gt;</span>
-    <span class=nt>&lt;name&gt;</span>ola-mundo Maven Webapp<span class=nt>&lt;/name&gt;</span>
-    <span class=nt>&lt;url&gt;</span>http://maven.apache.org<span class=nt>&lt;/url&gt;</span>
-    <span class=nt>&lt;build&gt;</span>
-        <span class=nt>&lt;finalName&gt;</span>ola-mundo<span class=nt>&lt;/finalName&gt;</span>
-        <span class=nt>&lt;plugins&gt;</span>
-            <span class=c>&lt;!-- Tomcat plugin --&gt;</span>
-            <span class=nt>&lt;plugin&gt;</span>
-                <span class=nt>&lt;groupId&gt;</span>org.apache.tomcat.maven<span class=nt>&lt;/groupId&gt;</span>
-                <span class=nt>&lt;artifactId&gt;</span>tomcat7-maven-plugin<span class=nt>&lt;/artifactId&gt;</span>
-                <span class=nt>&lt;version&gt;</span>2.2<span class=nt>&lt;/version&gt;</span>
-                <span class=nt>&lt;configuration&gt;</span>
-                    <span class=nt>&lt;path&gt;</span>/<span class=nt>&lt;/path&gt;</span>
-                    <span class=nt>&lt;webapps&gt;</span>
-                        <span class=nt>&lt;webapp&gt;</span>
-                            <span class=nt>&lt;contextPath&gt;</span>/<span class=nt>&lt;/contextPath&gt;</span>
-                            <span class=nt>&lt;groupId&gt;</span>com.kplaube<span class=nt>&lt;/groupId&gt;</span>
-                            <span class=nt>&lt;artifactId&gt;</span>ola-mundo<span class=nt>&lt;/artifactId&gt;</span>
-                            <span class=nt>&lt;version&gt;</span>1.0-SNAPSHOT<span class=nt>&lt;/version&gt;</span>
-                            <span class=nt>&lt;type&gt;</span>war<span class=nt>&lt;/type&gt;</span>
-                            <span class=nt>&lt;asWebapp&gt;</span>true<span class=nt>&lt;/asWebapp&gt;</span>
-                        <span class=nt>&lt;/webapp&gt;</span>
-                    <span class=nt>&lt;/webapps&gt;</span>
-                <span class=nt>&lt;/configuration&gt;</span>
-            <span class=nt>&lt;/plugin&gt;</span>
-        <span class=nt>&lt;/plugins&gt;</span>
-    <span class=nt>&lt;/build&gt;</span>
-<span class=nt>&lt;/project&gt;</span>
-</pre></div> <p>De volta à linha de comando:</p> <div class=highlight><pre><span></span>$ mvn tomcat7:run
-</pre></div> <p>O <em>Maven</em> "baixará toda a <em>internet</em>" novamente. Ao final do processo, ao acessar o endereço <code>http://localhost:8080</code>, será possível ver a página com <code>Hello World!</code>.</p> <p><img class=align-center-keep-size src=/images/blog/tomcat-example-browser.png width=640 height=420 title="Exemplo de acesso ao Tomcat via browser" alt="Exemplo de acesso ao Tomcat via browser"></p> <p>"Só" precisou de um <em>post</em> inteiro para chegarmos até aqui. Sucesso!</p> <h2>Considerações finais</h2> <p>Um monte de mágica aconteceu, e você (assim como eu no meu cotidiano) terá que confiar que as coisas simplesmente estão funcionando.</p> <p>Por enquanto, vamos abstrair os detalhes do <em>Maven</em>. Corremos um pouco aqui no final para ter algo prático como exemplo, mas com certeza abordaremos a ferramenta com frequência nos próximos <em>posts</em>.</p> <p>Por hora, é preciso "aceitar" que com o uso do <code>tomcat7-maven-plugin</code> ganhamos o utilitário de linha de comando <code>tomcat7:run</code>, do qual empacota e executa a aplicação. E embora tenhamos investido parágrafos falando de <em>Java EE</em>, e posteriormente de <em>Tomcat</em>, na prática nota-se que pouco precisamos nos importar com isso para ter um "hello world" <em>up and runnig</em> com "investimento modesto".</p> <p>No próximo artigo partiremos enfim para os <em>Servlets</em> e <em>Java ServerPages</em>.</p> <p>Até lá!</p> <h2>Referências</h2> <ul> <li><a href=https://www.caelum.com.br/apostila-java-web/o-que-e-java-ee/ >Caelum: Apostila Java para Desenvolvimento Web - O que é Java EE?</a></li> <li><a href=https://www.javatpoint.com/difference-between-jdk-jre-and-jvm>JavaTPoint: Difference between JDK, JRE, and JVM</a></li> <li><a href=https://docs.oracle.com/javaee/6/firstcup/doc/gkhoy.html>Oracle.com: Differences between Java EE and Java SE</a></li> <li><a href=https://spsarolkar.github.io/esp8266/2018/03/18/Run-webapplications-using-tomcat-maven-plugin.html>spsarolkar.github.io: Running web applications with tomcat maven plugin</a></li> <li><a href=https://stackoverflow.com/questions/1900673/can-javase-be-used-to-write-a-web-application#1900693>StackOverflow: Can JavaSE be used to write a web application?</a></li> <li><a href=https://stackoverflow.com/questions/2857376/difference-between-java-se-ee-me>StackOverflow: Difference between Java SE/EE/ME?</a></li> <li><a href=https://en.wikipedia.org/wiki/Java_%28programming_language%29>Wikipedia: Java</a></li> <li><a href=https://en.wikipedia.org/wiki/Apache_Maven>Wikipedia: Maven</a></li> <li><a href=https://en.wikipedia.org/wiki/Apache_Tomcat>Wikipedia: Tomcat</a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/java.html title="Leia mais sobre" class=Article-tagLink>java</a> <a href=https://klauslaube.com.br/tag/servlet.html title="Leia mais sobre" class=Article-tagLink>servlet</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
-        var disqus_shortname = "klauslaube";
-        var disqus_identifier = "2019/11/28/engatinhando-em-java-web-parte-1.html";
-
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-19657400-1');ga('send','pageview');
-    </script> </body> </html>
+    -DinteractiveMode=false</code></pre></div>
+<p>Onde:</p>
+<ul>
+<li><code class="language-text">-DgroupId</code>: O <em>namespace</em> utilizado para empacotamento</li>
+<li><code class="language-text">-DartifactId</code>: O nome do projeto</li>
+<li><code class="language-text">-DarchetypeArtifactId</code>: O nome do "template" usado como base para criar arquivos e diretórios</li>
+<li><code class="language-text">-DinteractiveMode</code>: Desabilitar o modo interativo</li>
+</ul>
+<p>Uma porção de pacotes serão baixados. Sente e relaxe... aproveite para ver mais informações sobre <a href="https://maven.apache.org/install.html" title="Installing Apache Maven">como instalar o <em>Maven</em></a>.</p>
+<p>Ainda falta "linkar" o <em>Tomcat</em> ao processo de <em>build</em>. Entre no diretório <code class="language-text">ola-mundo</code>, recém criado, e abra o arquivo <code class="language-text">pom.xml</code> (<em>Project Object Model</em>, arquivo utilizado pelo <em>Maven</em>). Altere-o para ficar parecido com o exemplo abaixo:</p>
+<div class="gatsby-highlight" data-language="xml"><pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>project</span> <span class="token attr-name">xmlns</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xsi</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://www.w3.org/2001/XMLSchema-instance<span class="token punctuation">"</span></span>
+<span class="token attr-name"><span class="token namespace">xsi:</span>schemaLocation</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>modelVersion</span><span class="token punctuation">></span></span>4.0.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>modelVersion</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.kplaube<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>ola-mundo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>packaging</span><span class="token punctuation">></span></span>war<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>packaging</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.0-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>ola-mundo Maven Webapp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>url</span><span class="token punctuation">></span></span>http://maven.apache.org<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>url</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>build</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>finalName</span><span class="token punctuation">></span></span>ola-mundo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>finalName</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugins</span><span class="token punctuation">></span></span>
+            <span class="token comment">&lt;!-- Tomcat plugin --></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>plugin</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.apache.tomcat.maven<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>tomcat7-maven-plugin<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path</span><span class="token punctuation">></span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>path</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>webapps</span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>webapp</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>contextPath</span><span class="token punctuation">></span></span>/<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>contextPath</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.kplaube<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>ola-mundo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.0-SNAPSHOT<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>type</span><span class="token punctuation">></span></span>war<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>type</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>asWebapp</span><span class="token punctuation">></span></span>true<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>asWebapp</span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>webapp</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>webapps</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugin</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>plugins</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>build</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">></span></span></code></pre></div>
+<p>De volta à linha de comando:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ mvn tomcat7:run</code></pre></div>
+<p>O <em>Maven</em> "baixará toda a <em>internet</em>" novamente. Ao final do processo, ao acessar o endereço <code class="language-text">http://localhost:8080</code>, será possível ver a página com <code class="language-text">Hello World!</code>.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2493c89bb2b1c864386792a80ffd0531/6af66/tomcat-example-browser.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAtklEQVQoz2PwsLB38jNTN7OxsPN3DUhy80+ydo0wsw8ydwy2dou0dAw0snDWN3XAihg8vMIs7T3MbH1cPMKt7HxtnQIc3UIt7fyMLdz1TZz0TZ31TJx1jZ2wIoZpM+dPnDxr+sz5k6bMnjV38YYtOzds3rF+044167euXrcFP2J4/vzZo0cP3717e+/unc+fPv0HgX//iQMMyJx///79+fuXeMTwDwb+/v37n0TA8J8CMKqZnpoBjziYr4QhBqsAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Exemplo de acesso ao Tomcat via browser"
+        title="Exemplo de acesso ao Tomcat via browser"
+        src="/static/2493c89bb2b1c864386792a80ffd0531/6af66/tomcat-example-browser.png"
+        srcset="/static/2493c89bb2b1c864386792a80ffd0531/8514f/tomcat-example-browser.png 192w,
+/static/2493c89bb2b1c864386792a80ffd0531/804b2/tomcat-example-browser.png 384w,
+/static/2493c89bb2b1c864386792a80ffd0531/6af66/tomcat-example-browser.png 640w"
+        sizes="(max-width: 640px) 100vw, 640px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Exemplo de acesso ao Tomcat via browser</figcaption>
+  </figure></p>
+<p>"Só" precisou de um <em>post</em> inteiro para chegarmos até aqui. Sucesso!</p>
+<h2>Considerações finais</h2>
+<p>Um monte de mágica aconteceu, e você (assim como eu no meu cotidiano) terá que confiar que as coisas simplesmente estão funcionando.</p>
+<p>Por enquanto, vamos abstrair os detalhes do <em>Maven</em>. Corremos um pouco aqui no final para ter algo prático como exemplo, mas com certeza abordaremos a ferramenta com frequência nos próximos <em>posts</em>.</p>
+<p>Por hora, é preciso "aceitar" que com o uso do <code class="language-text">tomcat7-maven-plugin</code> ganhamos o utilitário de linha de comando <code class="language-text">tomcat7:run</code>, do qual empacota e executa a aplicação. E embora tenhamos investido parágrafos falando de <em>Java EE</em>, e posteriormente de <em>Tomcat</em>, na prática nota-se que pouco precisamos nos importar com isso para ter um "hello world" <em>up and runnig</em> com "investimento modesto".</p>
+<p>No próximo artigo partiremos enfim para os <em>Servlets</em> e <em>Java ServerPages</em>.</p>
+<p>Até lá!</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="https://www.caelum.com.br/apostila-java-web/o-que-e-java-ee/">Caelum: Apostila Java para Desenvolvimento Web - O que é Java EE?</a></li>
+<li><a href="https://www.javatpoint.com/difference-between-jdk-jre-and-jvm">JavaTPoint: Difference between JDK, JRE, and JVM</a></li>
+<li><a href="https://docs.oracle.com/javaee/6/firstcup/doc/gkhoy.html">Oracle.com: Differences between Java EE and Java SE</a></li>
+<li><a href="https://spsarolkar.github.io/esp8266/2018/03/18/Run-webapplications-using-tomcat-maven-plugin.html">spsarolkar.github.io: Running web applications with tomcat maven plugin</a></li>
+<li><a href="https://stackoverflow.com/questions/1900673/can-javase-be-used-to-write-a-web-application#1900693">StackOverflow: Can JavaSE be used to write a web application?</a></li>
+<li><a href="https://stackoverflow.com/questions/2857376/difference-between-java-se-ee-me">StackOverflow: Difference between Java SE/EE/ME?</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Java_%28programming_language%29">Wikipedia: Java</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Apache_Maven">Wikipedia: Maven</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Apache_Tomcat">Wikipedia: Tomcat</a></li>
+</ul></div><div class="article-tags__Tags-lfitfk-0 gKRNvs"><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/desenvolvimento-web.html">desenvolvimento-web</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/java.html">java</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/servlet.html">servlet</a></div><div class="article__DiscussionWrapper-sc-1bof3w4-2 lhlkLZ"><div shortname="klauslaube" config="[object Object]" id="disqus_thread"></div></div></div></div><footer class="page-footer__Footer-sc-1jesc4c-0 eZHcyp"><div class="container-sc-1o2is99-0 bfwjqj"><p>O conteúdo desse blog está sob a licença<!-- --> <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Creative Commons Attribution</a>.</p><p><a href="https://github.com/kplaube/blog" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Fork me on Github</a>.</p></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2019/11/28/engatinhando-em-java-web-parte-1.html";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e7e259d06d29a943bae9.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-0712dae6686d19cfe871.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-37944ec4ec91a7d47898.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bf5e10cca5c03eb48f60.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js" async=""></script><script src="/commons-d19a5247b9c341fd9cf4.js" async=""></script><script src="/app-e7e259d06d29a943bae9.js" async=""></script><script src="/styles-72b9aca6a03bf971c27e.js" async=""></script><script src="/framework-15c64f04ece7e16d9319.js" async=""></script><script src="/webpack-runtime-74a6d0a7c3b7aca6f059.js" async=""></script></body></html>

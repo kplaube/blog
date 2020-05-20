@@ -1,6 +1,276 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - gunicorn</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 02 Nov 2012 15:09:19 -0200</lastBuildDate><item><title>Entendendo o CGI, FastCGI e WSGI</title><link>https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html</link><description>&lt;p&gt;Pelos vários anos que programei com o &lt;a href="https://klauslaube.com.br/tag/php.html" title="Conheça mais sobre o Hypertext PreProcessor"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;Apache&lt;/em&gt;,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - gunicorn]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Entendendo o CGI, FastCGI e WSGI]]></title><description><![CDATA[Pelos vários anos que programei com o PHP e Apache,
 nunca precisei me preocupar com o que acontecia entre esses dois. Para
 mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas
-&lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; de forma dinâmica. Era uma troca justa: Eles não me traziam
-preocupação, logo, eu não me …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 02 Nov 2012 15:09:19 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-11-02:/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html</guid><category>desenvolvimento</category><category>infraestrutura</category><category>web</category><category>python</category><category>cgi</category><category>fastcgi</category><category>wsgi</category><category>gunicorn</category></item></channel></rss>
+web de forma dinâmica. Era uma troca justa: Eles não me traziam
+preocupação, logo, eu não me preocupava…]]></description><link>https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 02 Nov 2012 15:09:19 GMT</pubDate><content:encoded>&lt;p&gt;Pelos vários anos que programei com o &lt;a href=&quot;/tag/php.html&quot; title=&quot;Conheça mais sobre o Hypertext PreProcessor&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;Apache&lt;/em&gt;,
+nunca precisei me preocupar com o que acontecia entre esses dois. Para
+mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas
+&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; de forma dinâmica. Era uma troca justa: Eles não me traziam
+preocupação, logo, eu não me preocupava.&lt;/p&gt;
+&lt;p&gt;Com o passar do tempo, o uso do &lt;a href=&quot;/2011/12/19/nginx-poderoso-rapido-facil.html&quot; title=&quot;Conheça o Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; e a necessidade de aprender
+&lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, comecei a me deparar com o famoso &lt;code class=&quot;language-text&quot;&gt;cgi-bin&lt;/code&gt;, e
+entender que os truques que o &lt;a href=&quot;http://stackoverflow.com/questions/2712825/what-is-mod-php&quot; title=&quot;Não conhece o módulo do PHP para o Apache?&quot;&gt;&lt;strong&gt;mod_php&lt;/strong&gt;&lt;/a&gt; ocultava iam muito além
+do que eu imaginava.&lt;/p&gt;
+&lt;h2&gt;O Common Gateway Interface&lt;/h2&gt;
+&lt;p&gt;De um modo bem simples, podemos dizer que o &lt;em&gt;Common Gateway Interface&lt;/em&gt; é
+um “acordo” entre os servidores &lt;a href=&quot;/tag/http.html&quot; title=&quot;Leia mais sobre HTTP&quot;&gt;&lt;em&gt;HTTP&lt;/em&gt;&lt;/a&gt; e as aplicações &lt;em&gt;web&lt;/em&gt;. Por
+baixo dos panos, o servidor &lt;em&gt;web&lt;/em&gt; vai informar uma série de parâmetros
+para o seu programa, e é dever do seu programa entregar uma resposta
+“bem formada” para o servidor &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Isso quer dizer que, para o &lt;em&gt;CGI&lt;/em&gt;, não importa qual linguagem ou banco
+de dados o seu programa está usando. Para ele, importa a passagem dos
+parâmetros e a resposta. Logo, é perfeitamente possível desenvolvermos
+nossas páginas até mesmo com a linguagem &lt;em&gt;C&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;#&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; argc&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;argv&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Content-type:text/html\n\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;html&gt;\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;body bgcolor=\&quot;%s\&quot;&gt;\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; argv&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;/body&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;/html&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Basta compilar o código acima, jogar no &lt;code class=&quot;language-text&quot;&gt;cgi-bin&lt;/code&gt; do seu &lt;em&gt;Apache&lt;/em&gt;, e
+você verá a flexibilidade do protocolo em ação. Neste exemplo, acessando
+nosso programa através da &lt;em&gt;URL&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;http://localhost/cgi-bin/exemplo?red&lt;/code&gt;
+(por exemplo), veremos apenas uma página com o fundo vermelho. Mas é
+importante reparar que, o parâmetro passado na URL (&lt;code class=&quot;language-text&quot;&gt;?red&lt;/code&gt;) está acessível através do
+&lt;code class=&quot;language-text&quot;&gt;argv&lt;/code&gt;, ou seja, o protocolo está passando para o nosso programa os
+parâmetros através da &lt;code class=&quot;language-text&quot;&gt;STDIN&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Através da &lt;code class=&quot;language-text&quot;&gt;STDOUT&lt;/code&gt;, estamos respondendo ao &lt;em&gt;Apache&lt;/em&gt; utilizando de
+artifícios do protocolo. A nossa mensagem é composta por um cabeçalho
+informando o tipo da mensagem e o conteúdo. Neste exemplo, trata-se de
+um &lt;em&gt;HTML&lt;/em&gt; extremamente simples, &lt;em&gt;James Marshall&lt;/em&gt; &lt;a href=&quot;http://www.jmarshall.com/easy/cgi/portuguese/getcgi.c.txt&quot; title=&quot;Veja outro exemplo de C com CGI&quot;&gt;escreveu um bom exemplo um pouco mais complexo utilizando a linguagem &lt;em&gt;C&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Outro comportamento fundamental do &lt;em&gt;CGI&lt;/em&gt; é a criação de variáveis de
+ambiente. Variáveis que você já deve ter usado, como &lt;code class=&quot;language-text&quot;&gt;REMOTE_HOST&lt;/code&gt;,
+&lt;code class=&quot;language-text&quot;&gt;REMOTE_ADDR&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;REQUEST_METHOD&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;QUERY_STRING&lt;/code&gt;, são
+preenchidas pelo servidor &lt;em&gt;Web&lt;/em&gt; e passadas ao seu programa através do
+protocolo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;c&quot;&gt;&lt;pre class=&quot;language-c&quot;&gt;&lt;code class=&quot;language-c&quot;&gt;&lt;span class=&quot;token macro property&quot;&gt;#&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;stdio.h&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token macro property&quot;&gt;#&lt;span class=&quot;token directive keyword&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&amp;lt;stdlib.h&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; argc&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;argv&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;addr&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;method&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;query_string&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    addr &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getenv&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;REMOTE_ADDR&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    method &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getenv&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;REQUEST_METHOD&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    query_string &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;getenv&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;QUERY_STRING&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Content-type:text/html\n\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Remote address: %s&amp;lt;br/&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; addr&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Method: %s&amp;lt;br/&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; method&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Query string: %s&amp;lt;br/&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; query_string&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;O FastCGI&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;FastCGI&lt;/em&gt; segue o mesmo princípio do &lt;em&gt;CGI&lt;/em&gt;, mas possui uma série de
+particularidades (e vantagens) em relação ao seu “primogênito”. Para
+compreender a diferença entre eles, vamos analisar o ciclo de vida de
+uma requisição utilizando o &lt;em&gt;CGI&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A cada requisição, o servidor &lt;em&gt;web&lt;/em&gt; &lt;strong&gt;cria um novo processo&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;Através deste processo, o servidor &lt;em&gt;web&lt;/em&gt; passa informações para o
+“programa &lt;em&gt;CGI&lt;/em&gt;“ utilizando &lt;strong&gt;variáveis de ambiente&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;O servidor &lt;em&gt;web&lt;/em&gt; também passa qualquer &lt;em&gt;input&lt;/em&gt; de dados do usuário
+através da &lt;strong&gt;&lt;em&gt;STDIN&lt;/em&gt;&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;O programa retorna uma saída ao servidor &lt;em&gt;web&lt;/em&gt; através do protocolo
+&lt;em&gt;CGI&lt;/em&gt; (utilizando a &lt;strong&gt;&lt;em&gt;STDOUT&lt;/em&gt;&lt;/strong&gt;);&lt;/li&gt;
+&lt;li&gt;Quando o &lt;strong&gt;programa acabar&lt;/strong&gt;, a requisição é finalizada.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Em um cenário com poucas requisições, este fluxo atende perfeitamente.
+Os problemas começam a aparecer quando temos que lidar com &lt;strong&gt;alto
+consumo&lt;/strong&gt; (algo comum hoje em dia, mas nem tão comum quando conceberam o
+protocolo &lt;em&gt;CGI&lt;/em&gt;). Dentre os principais problemas, temos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Criar e destruir um processo a cada requisição aumenta o &lt;em&gt;load&lt;/em&gt; do
+seu servidor, o que fatalmente degrada performance;&lt;/li&gt;
+&lt;li&gt;Não há reúso de recursos, como conexões com banco de dados e
+&lt;em&gt;caches&lt;/em&gt; em memória (já que a cada nova requisição é iniciado um
+novo processo);&lt;/li&gt;
+&lt;li&gt;Não é trivial separar a sua aplicação do seu servidor &lt;em&gt;Web&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Foi pensando em performance e escalabilidade que o &lt;em&gt;FastCGI&lt;/em&gt; foi criado.
+Ao contrário do &lt;em&gt;CGI&lt;/em&gt;, ele utiliza “processos persistentes”, onde o
+servidor &lt;em&gt;web&lt;/em&gt; é capaz de iniciar um processo que responde a uma série
+de requisições. Além disso, ele usa &lt;a href=&quot;http://pt.wikipedia.org/wiki/Multiplexador&quot; title=&quot;Leia mais sobre Multiplexadores na Wikipedia&quot;&gt;multiplexação&lt;/a&gt; para transmitir e
+receber informações dentro de uma única conexão, que pode ser um
+&lt;em&gt;socket&lt;/em&gt; ou uma conexão &lt;em&gt;TCP&lt;/em&gt;. Desse modo, você pode ter o seu servidor
+&lt;em&gt;web&lt;/em&gt; e o seu processo &lt;em&gt;FastCGI&lt;/em&gt; em máquinas diferentes.&lt;/p&gt;
+&lt;p&gt;O ciclo de vida de uma requisição &lt;em&gt;FastCGI&lt;/em&gt;, é basicamente composto por:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O servidor &lt;em&gt;web&lt;/em&gt; &lt;strong&gt;cria um processo &lt;em&gt;FastCGI&lt;/em&gt;&lt;/strong&gt; para receber
+requisições;&lt;/li&gt;
+&lt;li&gt;A sua aplicação é inicializada, e &lt;strong&gt;aguarda por uma nova conexão&lt;/strong&gt;
+vinda do servidor &lt;em&gt;web&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Quando o cliente envia uma requisição, o servidor &lt;em&gt;web&lt;/em&gt; abre uma
+&lt;strong&gt;conexão com o processo &lt;em&gt;FastCGI&lt;/em&gt;&lt;/strong&gt;. O servidor envia as variáveis
+de ambiente e entradas de dados através desta conexão;&lt;/li&gt;
+&lt;li&gt;O processo &lt;em&gt;FastCGI&lt;/em&gt; retorna a &lt;strong&gt;saída através desta mesma
+conexão&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;O processo &lt;em&gt;FastCGI&lt;/em&gt; fecha a conexão, e a &lt;strong&gt;requisição é
+concluída&lt;/strong&gt;, porém, o &lt;strong&gt;processo fica “vivo”&lt;/strong&gt;, esperando por outra
+requisição do servidor &lt;em&gt;web&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;É claro que para atingir este resultado, aplicações &lt;em&gt;FastCGI&lt;/em&gt; possuem
+uma arquitetura mais “rebuscada” que aplicações &lt;em&gt;CGI&lt;/em&gt;. Por exemplo, para
+suportar a &lt;a href=&quot;http://www.nongnu.org/fastcgi/#multiplexing&quot; title=&quot;The wonders of multiplexing&quot;&gt;multiplexação&lt;/a&gt;, o servidor &lt;em&gt;web&lt;/em&gt; e o processo &lt;em&gt;FastCGI&lt;/em&gt;
+se comunicam através de mensagens. Nestas mensagens (&lt;code class=&quot;language-text&quot;&gt;BEGIN_REQUEST&lt;/code&gt;,
+&lt;code class=&quot;language-text&quot;&gt;ABORT_REQUEST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;END_REQUEST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;PARAMS&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;STDIN&lt;/code&gt; e
+&lt;code class=&quot;language-text&quot;&gt;STDOUT&lt;/code&gt;) possuímos um cabeçalho chamado &lt;code class=&quot;language-text&quot;&gt;Request ID&lt;/code&gt;, que é
+responsável por identificar a qual requisição o pacote pertence.&lt;/p&gt;
+&lt;p&gt;Essa mudança de arquitetura acaba influenciando na escrita das
+aplicações &lt;em&gt;web&lt;/em&gt;, trazendo alterações marcantes em comparação aos
+programas escritos para o bom e velho &lt;em&gt;CGI&lt;/em&gt;. Por exemplo, você terá que
+&lt;a href=&quot;http://redmine.lighttpd.net/projects/1/wiki/Docs_ModFastCGI#FastCGI-and-Programming-Languages&quot; title=&quot;Lighttp - the FastCGI Interface&quot;&gt;recompilar o seu &lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; com a &lt;em&gt;flag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;—enable-fast-cgi&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O site oficial do &lt;em&gt;FastCGI&lt;/em&gt; possui um bom exemplo de implementação de
+uma &lt;a href=&quot;http://www.fastcgi.com/devkit/doc/fastcgi-prog-guide/ch2c.htm&quot; title=&quot;Developing FastCGI Applications in C&quot;&gt;aplicação em &lt;em&gt;C&lt;/em&gt; com &lt;em&gt;FastCGI&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;O Web Server Gateway Interface&lt;/h2&gt;
+&lt;p&gt;No universo &lt;em&gt;Python&lt;/em&gt; começaram a aparecer diferentes formas de
+comunicação entre servidor e aplicação, seja com &lt;em&gt;CGI&lt;/em&gt;, &lt;em&gt;FastCGI&lt;/em&gt;, &lt;a href=&quot;http://www.modpython.org/&quot; title=&quot;Leia mais sobre o mod_python&quot;&gt;&lt;em&gt;mod
+python&lt;/em&gt;&lt;/a&gt; ou até mesmo com &lt;em&gt;APIs&lt;/em&gt; próprias e não padronizadas. Isso
+acarretou no seguinte cenário: A escolha de um &lt;em&gt;framework&lt;/em&gt; influenciava
+diretamente na escolha do servidor &lt;em&gt;web&lt;/em&gt;, e geralmente o &lt;em&gt;framework&lt;/em&gt;
+escolhido era “incompatível” com os demais disponíveis para uso.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;WSGI&lt;/em&gt; é uma &lt;a href=&quot;http://www.python.org/dev/peps/pep-0333/&quot; title=&quot;Leia a PEP 333, especificação do WSGI&quot;&gt;especificação&lt;/a&gt; que tem por objetivo garantir que o
+desenvolvedor da aplicação não se preocupe com qual servidor &lt;em&gt;web&lt;/em&gt; será
+escolhido, bem como o profissional responsável pelo servidor &lt;em&gt;web&lt;/em&gt; não
+se preocupe com a arquitetura escolhida pela aplicação. Uma forma
+“universal” de proporcionar interoperabilidade entre servidores e
+aplicações escritas em &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Veja um exemplo de &lt;em&gt;script Python&lt;/em&gt; utilizando o protocolo &lt;em&gt;CGI&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#!/usr/bin/python&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; os &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; environ
+
+
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Content-Type: text/html\n\n&quot;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;html&gt;&amp;lt;body&gt;Hello %s!&amp;lt;/body&gt;&amp;lt;/html&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; environ&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;REMOTE_ADDR&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Seguindo a especificação do &lt;em&gt;WSGI&lt;/em&gt;, devemos servir nossa aplicação da
+seguinte maneira:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#!/usr/bin/python&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;environ&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; start_response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    start_response&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;200 OK&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Content-Type&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;text/html&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;&amp;lt;html&gt;&amp;lt;body&gt;Hello %s&amp;lt;/body&gt;&amp;lt;/html&gt;&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; environ&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;REMOTE_ADDR&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Encapsulamos a nossa entrega em uma função chamada &lt;code class=&quot;language-text&quot;&gt;application&lt;/code&gt;, e
+nela possuímos dois parâmetros: &lt;code class=&quot;language-text&quot;&gt;environ&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;start_response&lt;/code&gt;. O
+primeiro é responsável por informar quais as variáveis ambientais que
+temos à nossa disposição. O segundo, nomeado como &lt;code class=&quot;language-text&quot;&gt;start_response&lt;/code&gt;, é
+na verdade uma função de &lt;em&gt;callback&lt;/em&gt; onde informamos o &lt;em&gt;status code&lt;/em&gt; e
+demais cabeçalhos para resposta.&lt;/p&gt;
+&lt;p&gt;Por fim, retornamos ao servidor &lt;em&gt;web&lt;/em&gt; o nosso &lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt;. O servidor
+&lt;em&gt;web&lt;/em&gt; pode “iterar” sobre a aplicação, retornando conteúdo ao usuário
+conforme a aplicação for retornando conteúdo para ele. Neste caso,
+utilizamos na resposta um tipo &lt;a href=&quot;http://docs.python.org/2/library/stdtypes.html#sequence-types-str-unicode-list-tuple-bytearray-buffer-xrange&quot; title=&quot;Leia sobre tipos sequenciais no Python&quot;&gt;sequencial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Agora somos capazes de servir a aplicação através de &lt;em&gt;CGI&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; wsgiref&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;handlers &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; CGIHandler
+
+CGIHandler&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;run&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;application&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E até mesmo &lt;em&gt;FastCGI&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; flup&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;server&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fcgi &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; WSGIServer
+
+WSGIServer&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;application&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;run&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A biblioteca &lt;a href=&quot;http://docs.python.org/2/library/wsgiref.html&quot; title=&quot;Saiba mais direto da documentação do Python&quot;&gt;&lt;em&gt;wsgiref&lt;/em&gt;&lt;/a&gt; implementa as especificações do &lt;em&gt;WSGI&lt;/em&gt; e
+provê ferramentas para a comunicação entre servidores e aplicações. No
+segundo exemplo utilizamos a &lt;a href=&quot;http://trac.saddi.com/flup&quot; title=&quot;Saiba mais sobre&quot;&gt;&lt;em&gt;flup&lt;/em&gt;&lt;/a&gt;, uma biblioteca com algumas
+soluções &lt;em&gt;WSGI&lt;/em&gt;, incluindo a possibilidade de servir aplicações
+&lt;em&gt;FastCGI&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Com esse “código de cola”, basta &lt;a href=&quot;http://docs.python.org/2/howto/webservers.html&quot; title=&quot;HOWTO Use Python in the web&quot;&gt;configurar o seu servidor &lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;
+favorito para servir a sua aplicação.&lt;/p&gt;
+&lt;h3&gt;mod_wsgi&lt;/h3&gt;
+&lt;p&gt;Uma vez construída a interface para a sua aplicação através do padrão
+&lt;em&gt;WSGI&lt;/em&gt;, você pode serví-la em um servidor &lt;em&gt;Apache&lt;/em&gt; através do
+&lt;a href=&quot;http://code.google.com/p/modwsgi/&quot; title=&quot;Página do módulo no Google Code&quot;&gt;mod_wsgi&lt;/a&gt;. Existem soluções equivalentes para outros servidores,
+como por exemplo, no &lt;a href=&quot;http://klauslaube.com.br/tags/nginx/&quot; title=&quot;Leia mais sobre Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; temos o &lt;a href=&quot;http://wiki.nginx.org/NgxWSGIModule&quot; title=&quot;Veja mais na documentação do Nginx&quot;&gt;&lt;em&gt;NgxWSGIModule&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Com o &lt;em&gt;mod&lt;/em&gt;wsgi&lt;em&gt;, você não precisa de nenhum “código de cola” (como
+apresentado nos exemplos de _CGI&lt;/em&gt; e &lt;em&gt;FastCGI&lt;/em&gt;), basta &lt;a href=&quot;http://code.google.com/p/modwsgi/wiki/QuickConfigurationGuide&quot; title=&quot;Veja instruções para configurar o Apache com mod_wsgi&quot;&gt;configurar o seu &lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;
+e apontar o seu script &lt;em&gt;WSGI&lt;/em&gt; através da instrução &lt;code class=&quot;language-text&quot;&gt;WSGIScriptAlias&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;VirtualHost *:80&amp;gt;
+
+    ServerName www.example.com
+    ServerAlias example.com
+    ServerAdmin webmaster@example.com
+
+    DocumentRoot /usr/local/www/documents
+
+    Alias /robots.txt /usr/local/www/documents/robots.txt
+    Alias /favicon.ico /usr/local/www/documents/favicon.ico
+
+    Alias /media/ /usr/local/www/documents/media/
+
+    &amp;lt;Directory /usr/local/www/documents&amp;gt;
+    Order allow,deny
+    Allow from all
+    &amp;lt;/Directory&amp;gt;
+
+    WSGIScriptAlias / /usr/local/www/wsgi-scripts/wsgi.py
+
+    &amp;lt;Directory /usr/local/www/wsgi-scripts&amp;gt;
+    Order allow,deny
+    Allow from all
+    &amp;lt;/Directory&amp;gt;
+
+&amp;lt;/VirtualHost&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma particularidade do mod_wsgi é a escolha de execução no modo
+&lt;code class=&quot;language-text&quot;&gt;daemon&lt;/code&gt;, que opera de uma forma &lt;a href=&quot;http://code.google.com/p/modwsgi/#Server_Performance&quot; title=&quot;Leia mais sobre performance com mod_wsgi&quot;&gt;similar ao esquema utilizado pelo
+&lt;em&gt;FastCGI&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Servidores WSGI&lt;/h3&gt;
+&lt;p&gt;Você pode utilizar servidores especialmente escritos para servir as suas
+aplicações &lt;em&gt;WSGI&lt;/em&gt;, como por exemplo o &lt;a href=&quot;http://gunicorn.org/&quot; title=&quot;Veja mais sobre este servidor WSGI&quot;&gt;&lt;em&gt;Gunicorn&lt;/em&gt;&lt;/a&gt;, o &lt;a href=&quot;http://projects.unbit.it/uwsgi/&quot; title=&quot;Um rápido servidor WSGI escrito em C&quot;&gt;&lt;em&gt;uWSGI&lt;/em&gt;&lt;/a&gt; ou
+até mesmo o &lt;a href=&quot;http://www.tornadoweb.org/documentation/wsgi.html&quot; title=&quot;Saiba mais sobre o suporte do Tornado ao WSGI&quot;&gt;&lt;em&gt;Tornado&lt;/em&gt;&lt;/a&gt;. Além da versatilidade e performance, a
+facilidade é outra característica marcante em muitas dessas ferramentas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ gunicorn -w 4 -b 127.0.0.1:5000 wsgi:application&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No exemplo acima, levantamos o &lt;em&gt;Gunicorn&lt;/em&gt; na &lt;code class=&quot;language-text&quot;&gt;porta 5000&lt;/code&gt;, e
+reservamos &lt;code class=&quot;language-text&quot;&gt;4 workers&lt;/code&gt; para servir a nossa aplicação.&lt;/p&gt;
+&lt;p&gt;Além de diminuirmos a carga do servidor &lt;em&gt;web&lt;/em&gt;, e ganharmos um controle
+mais apurado de memória e processos, ganhamos também o uso de &lt;em&gt;workers&lt;/em&gt;.
+Por exemplo, o &lt;em&gt;Gunicorn&lt;/em&gt; trabalha com &lt;em&gt;pre-fork&lt;/em&gt; de &lt;em&gt;workers&lt;/em&gt;, onde um
+processo “master” gerencia um conjunto de processos que são de fato os
+responsáveis por servir a sua aplicação. Ganhamos mais uma ferramenta de
+baixo custo para lidar com concorrência.&lt;/p&gt;
+&lt;p&gt;Servidores &lt;em&gt;WSGI&lt;/em&gt; conseguem servir as aplicações sem o auxílio de um
+&lt;em&gt;Apache&lt;/em&gt; ou &lt;em&gt;Nginx&lt;/em&gt;, mas uma prática muito comum hoje em dia é, “na
+frente” de um &lt;em&gt;Gunicorn&lt;/em&gt; (por exemplo), termos um &lt;em&gt;Nginx&lt;/em&gt; servindo
+estáticos, fazendo &lt;em&gt;caching&lt;/em&gt; e “aguentando porrada”, enquanto que o
+servidor &lt;em&gt;WSGI&lt;/em&gt; está totalmente focado em servir o conteúdo dinâmico. O
+servidor &lt;em&gt;web&lt;/em&gt; acaba fazendo uma espécie de &lt;a href=&quot;http://pt.wikipedia.org/wiki/Proxy_reverso&quot; title=&quot;Leia mais sobre Proxy Reverso na Wikipedia&quot;&gt;&lt;em&gt;proxy&lt;/em&gt; reverso&lt;/a&gt; e até
+mesmo servindo como &lt;a href=&quot;http://wiki.nginx.org/LoadBalanceExample&quot; title=&quot;Veja exemplo de uso do Nginx como balanceador&quot;&gt;balanceador&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A comunicação entre servidores pode ser feita via &lt;em&gt;TCP&lt;/em&gt; ou &lt;em&gt;socket&lt;/em&gt;.
+Isso nos dá uma série de vantagens, que vão desde a facilidade em
+&lt;a href=&quot;http://docs.gunicorn.org/en/latest/design.html#how-many-workers&quot; title=&quot;Veja como utilizar workers com Gunicorn&quot;&gt;escalar&lt;/a&gt; e distribuir, até o &lt;em&gt;restart&lt;/em&gt; individual de serviços (por
+exemplo, se a sua aplicação travar, você pode reiniciar apenas o
+servidor &lt;em&gt;WSGI&lt;/em&gt; e não perder o &lt;em&gt;caching&lt;/em&gt; do servidor &lt;em&gt;web&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Um exemplo muito interessante de uso de servidores &lt;em&gt;WSGI&lt;/em&gt; é fazendo
+&lt;a href=&quot;https://devcenter.heroku.com/articles/python#using-a-different-wsgi-server&quot; title=&quot;Using a different WSGI server - Heroku&quot;&gt;&lt;em&gt;deploy&lt;/em&gt; de aplicações &lt;em&gt;Python&lt;/em&gt; para o &lt;em&gt;Heroku&lt;/em&gt;&lt;/a&gt;. Configurar um
+servidor &lt;a href=&quot;http://mirobetm.blogspot.com.br/2012/03/ive-been-lighttpd-fastcgi-django-user.html&quot; title=&quot;Gunicorn + Nginx - a much better way to deploy your Django website&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt; para se comunicar com servidores &lt;em&gt;WSGI&lt;/em&gt;&lt;/a&gt; também é
+relativamente simples.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Um assunto muito interessante e que pretendo explorar mais aqui no
+&lt;em&gt;blog&lt;/em&gt;, principalmente em relação a processos e &lt;em&gt;workers&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Servir aplicações &lt;em&gt;Python&lt;/em&gt; para a &lt;em&gt;web&lt;/em&gt; é algo relativamente simples,
+limpo e elegante. Através do &lt;em&gt;WSGI&lt;/em&gt;, escalar aplicações passou a ser
+algo quase trivial, que demanda pouco esforço. Combiná-los com o &lt;em&gt;Nginx&lt;/em&gt;
+dão mais fôlego a sua aplicação (principalmente se estivermos falando do
+&lt;em&gt;uWSGI&lt;/em&gt; ou &lt;a href=&quot;http://www.gevent.org/gevent.wsgi.html&quot; title=&quot;Servindo aplicações WSGI com gevent&quot;&gt;&lt;em&gt;gevent&lt;/em&gt;&lt;/a&gt;), e com um &lt;a href=&quot;http://puppetlabs.com/&quot; title=&quot;IT Automation Software for System Administrators&quot;&gt;sistema de provisionamento automático&lt;/a&gt;
+podem facilitar e muito o seu trabalho de infraestrutura quando o consumo se tornar um problema.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/dev/howto/deployment/fastcgi/&quot; title=&quot;Exemplo de uso do Django com FastCGI&quot;&gt;&lt;em&gt;Django Documentation – How to use Django with FastCGI, SCGI, or AJP&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.nongnu.org/fastcgi/&quot; title=&quot;Material muito interessante sobre o protocolo FastCGI e seu uso com C++&quot;&gt;&lt;em&gt;FastCGI – The Forgotten Treasure&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.fastcgi.com/drupal/node/6?q=node/15&quot; title=&quot;Um documento bem objetivo, detalhando os diferenciais em usar o FastCGI&quot;&gt;&lt;em&gt;FastCGI – A High-Performance Web Server Interface&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://gunicorn.org/&quot; title=&quot;Conheça o Gunicorn e descubra as vatangens de possuir um servidor WSGI&quot;&gt;&lt;em&gt;Gunicorn – Python WSGI HTTP Server for Unix&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.irt.org/articles/js172/&quot; title=&quot;Artigo de 1999 detalhando algumas características do CGI e do FastCGI&quot;&gt;&lt;em&gt;irt.org – Speed Thrills: CGI Please... and Fast!&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jmarshall.com/easy/cgi/portuguese/&quot; title=&quot;Bom artigo, resumindo muito bem o funcionamento do CGI&quot;&gt;&lt;em&gt;James Marshal&lt;/em&gt; – &lt;em&gt;CGI&lt;/em&gt; realmente fácil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://code.google.com/p/modwsgi/&quot; title=&quot;Veja a página oficial do projeto&quot;&gt;&lt;em&gt;modwsgi – Python WSGI adapter module for Apache&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/dev/peps/pep-0333/&quot; title=&quot;Leia a especificação direto do portal da linguagem Python&quot;&gt;&lt;em&gt;PEP 333 – Python Web Server Gateway Interface&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.python.org/howto/webservers.html&quot; title=&quot;Compreenda a diferença do uso do Python com CGI, FastCGI, mod_python, mod_wsgi e servidores WSGI&quot;&gt;&lt;em&gt;Python Documentation – HOWTO Use Python in the web&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.w3.org/CGI/&quot; title=&quot;Leia mais sobre a especificação do CGI&quot;&gt;&lt;em&gt;W3C – Common Gateway Interface&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Common_Gateway_Interface&quot; title=&quot;Leia mais no artigo da Wikipedia&quot;&gt;&lt;em&gt;Wikipedia – Common Gateway Interface&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/FastCGI&quot; title=&quot;Leia mais no artigo da Wikipedia&quot;&gt;&lt;em&gt;Wikipedia – FastCGI&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface&quot; title=&quot;Leia mais no artigo da Wikipedia&quot;&gt;&lt;em&gt;Wikipedia – Web Server Gateway Interface&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.xml.com/pub/a/2006/09/27/introducing-wsgi-pythons-secret-web-weapon.html&quot; title=&quot;Artigo de 2006 explicando os principais benefícios do uso do WSGI&quot;&gt;&lt;em&gt;XML.com – Introducing WSGI: Python’s Secret Web Weapon&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

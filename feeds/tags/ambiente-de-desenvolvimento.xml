@@ -1,148 +1,371 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - ambiente-de-desenvolvimento</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 21 Jan 2020 16:15:00 -0300</lastBuildDate><item><title>Assegure a qualidade do seu código Python - Prospector</title><link>https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</link><description>&lt;p&gt;Mais um ano, mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;a href="https://klauslaube.com.br/tag/qualidade.html" title="Leia mais sobre qualidade"&gt;ferramentas de qualidade de código&lt;/a&gt;. Opções não faltam quando o assunto é &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter "um anel para a todos governar"?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Tanto é interessante que um utilitário vem fazendo …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 21 Jan 2020 16:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-01-21:/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>prospector</category></item><item><title>Assegure a qualidade do seu código Python - Dodgy</title><link>https://klauslaube.com.br/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</link><description>&lt;p&gt;Ferramentas de &lt;a href="https://klauslaube.com.br/tag/qualidade.html" title="Leia mais sobre qualidade"&gt;qualidade de código&lt;/a&gt; parece um tópico com conteúdo infinito
-quando o assunto é &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. Hoje a dica é rápida e rasteira, de uma ferramenta
-extremamente simples, mas que pode ser muito útil para dar aquele "up" no quesito segurança do seu projeto. Apresento-lhe
-o &lt;a href="https://github.com/landscapeio/dodgy" title="Veja o repositório no Github"&gt;&lt;em&gt;Dodgy&lt;/em&gt;&lt;/a&gt;!&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;Talk is cheap …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 18 Dec 2019 08:10:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-12-18:/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>seguranca</category><category>dodgy</category></item><item><title>Assegure a qualidade do seu código Python - Bandit</title><link>https://klauslaube.com.br/2019/02/21/assegure-qualidade-seu-codigo-python-bandit.html</link><description>&lt;p&gt;Já falamos sobre algumas ferramentas de qualidade de código &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; aqui no &lt;em&gt;blog&lt;/em&gt;. De &lt;a href="https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html" title="Assegure a qualidade do seu código Python - pep8"&gt;&lt;em&gt;pycodestyle&lt;/em&gt;&lt;/a&gt; a &lt;a href="https://klauslaube.com.br/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html" title="Assegure a qualidade do seu código Python - Clone digger"&gt;&lt;em&gt;Clone Digger&lt;/em&gt;&lt;/a&gt;, passando por &lt;a href="https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html" title="Assegure a qualidade do seu código Python - Pyflakes"&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html" title="Assegure a qualidade do seu código Python - Pylint"&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt;. Além do &lt;em&gt;flake8&lt;/em&gt; (que acredito não precisar de apresentações), uma ferramenta que passei a ter sempre no meu &lt;em&gt;toolbelt&lt;/em&gt; foi o &lt;a href="https://github.com/PyCQA/bandit" title="Repositório do Bandit"&gt;&lt;em&gt;Bandit&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Na verdade, ele não é …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 21 Feb 2019 12:45:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-02-21:/2019/02/21/assegure-qualidade-seu-codigo-python-bandit.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>seguranca</category><category>bandit</category></item><item><title>Vim para desenvolvimento em Python</title><link>https://klauslaube.com.br/2017/10/15/vim-para-desenvolvimento-python.html</link><description>&lt;p&gt;Já mencionei as motivações de utilizar &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre Vim"&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;
-no &lt;a href="https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html" title="Leia o artigo completo"&gt;"Vim: O meu editor favorito"&lt;/a&gt;.
-E embora eu já tenha "caído em tentação" e utilizado &lt;a href="https://atom.io/" title="A hackable text editor"&gt;&lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt;
-e &lt;a href="http://spacemacs.org/" title="The best editor is neither Emacs nor Vim, it's Emacs and Vim!"&gt;&lt;em&gt;Spacemacs&lt;/em&gt;&lt;/a&gt;
-(esse último é simplesmente fantástico), acabo sempre retornando ao &lt;em&gt;Vim&lt;/em&gt;. Principalmente
-após o &lt;a href="https://www.reddit.com/r/linux/comments/52e4qo/vim_8_released/" title="Vim 8 released"&gt;lançamento da versão 8&lt;/a&gt;,
-onde processamento assíncrono foi adicionado ao editor …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 15 Oct 2017 19:20:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-10-15:/2017/10/15/vim-para-desenvolvimento-python.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>editores-de-texto</category><category>vim</category><category>python</category></item><item><title>Vim: O meu editor favorito</title><link>https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html</link><description>&lt;p&gt;Há um bom tempo que eu trabalho com o &lt;a href="http://www.vim.org/" title="Página oficial do Vim"&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;,
-tanto tempo que quando estou em qualquer outro editor escrevo &lt;code&gt;:wq&lt;/code&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - ambiente-de-desenvolvimento]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Vim: O meu editor favorito]]></title><description><![CDATA[Há um bom tempo que eu trabalho com o Vim,
+tanto tempo que quando estou em qualquer outro editor escrevo 
+para salvar e sair. Mas não comecei a utilizar o Vim por gostar de desafios… foi pura
+necessidade! Trabalhei em uma empresa onde desenvolvíamos em uma máquina
+remota, através de linha de comando…]]></description><link>https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html</link><guid isPermaLink="false">https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 04 Mar 2013 22:34:38 GMT</pubDate><content:encoded>&lt;p&gt;Há um bom tempo que eu trabalho com o &lt;a href=&quot;http://www.vim.org/&quot; title=&quot;Página oficial do Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;,
+tanto tempo que quando estou em qualquer outro editor escrevo &lt;code class=&quot;language-text&quot;&gt;:wq&lt;/code&gt;
 para salvar e sair.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Mas não comecei a utilizar o &lt;em&gt;Vim&lt;/em&gt; por gostar de desafios… foi pura
 necessidade! Trabalhei em uma empresa onde desenvolvíamos em uma máquina
-remota, através …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 04 Mar 2013 22:34:38 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2013-03-04:/2013/03/04/vim-o-meu-editor-favorito.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>editores-de-texto</category><category>vim</category></item><item><title>Uma ode ao PostgreSQL</title><link>https://klauslaube.com.br/2013/01/31/uma-ode-ao-postgresql.html</link><description>&lt;p&gt;O &lt;a href="http://www.mysql.com/" title="Leia mais sobre o MySQL na página oficial do projeto"&gt;&lt;em&gt;MySQL&lt;/em&gt;&lt;/a&gt; é um dos meus mais leais companheiros de
-projetos, desde os meus tempos de &lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; até projetos mais recentes
-com o &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. A sua agilidade e facilidade são indiscutivelmente
+remota, através de linha de comando. Logo, entre o &lt;em&gt;Vim&lt;/em&gt; e &lt;em&gt;Emacs&lt;/em&gt; (ou
+ficar subindo arquivos via &lt;em&gt;FTP&lt;/em&gt; ou &lt;em&gt;SSH&lt;/em&gt;), optei pelo mais fácil de
+usar. É claro que no início eu não conseguia encontrar facilidade de
+jeito nenhum. Navegar pelas teclas &lt;code class=&quot;language-text&quot;&gt;h&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;j&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;k&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;l&lt;/code&gt; não fazia
+sentido nenhum para mim, sem falar que (segundo os meus colegas de
+trabalho) utilizar o &lt;code class=&quot;language-text&quot;&gt;PageUp&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;PageDown&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Home&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;End&lt;/code&gt; era
+praticamente uma heresia.&lt;/p&gt;
+&lt;p&gt;Mas aos poucos o editor foi conquistando a minha simpatia, e foi me
+mostrando as suas principais virtudes em relação a outras aplicações. É
+fato que não sou nenhum “guru” no assunto, mas me sinto na obrigação de
+compartilhar alguns dos pontos que mais me chamaram a atenção com o uso
+do &lt;em&gt;Vim&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Todas as teclas ao alcance das mãos&lt;/h2&gt;
+&lt;p&gt;Não vou contar a &lt;a href=&quot;http://en.wikipedia.org/wiki/Vim_(text_editor)&quot; title=&quot;Leia mais sobre o Vim na Wikipedia&quot;&gt;história do &lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;, muito menos ficar explicando
+como &lt;a href=&quot;http://aurelio.net/vim/&quot; title=&quot;o site do Aurélio é um dos melhores locais para se aprender Vim&quot;&gt;utilizar a ferramenta&lt;/a&gt;. Eu vou simplesmente apresentar os
+motivos pelo qual eu gosto desse simpático editor de textos.&lt;/p&gt;
+&lt;p&gt;A principal vantagem em usar o &lt;em&gt;Vim&lt;/em&gt; é que você tem controle total sobre
+o conteúdo, sem necessitar movimentar muito as suas mãos. O uso de
+&lt;em&gt;mouse&lt;/em&gt; é totalmente dispensável, sem falar da interface gráfica. Hoje,
+com variações como o &lt;em&gt;Gvim&lt;/em&gt;, &lt;em&gt;MacVim&lt;/em&gt; e &lt;em&gt;Pida&lt;/em&gt;, temos algumas
+facilidades e melhorias na experiência de uso (principalmente pelo uso
+da &lt;em&gt;GUI&lt;/em&gt;), em relação ao “&lt;em&gt;Vim&lt;/em&gt; puro”, que tornam o dia-a-dia muito mais
+fácil e prático.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3af7977c8baba7c273413ef8410cdbd0/0a47e/vim-layout.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 33.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAACAUlEQVQoz62Rb2gScRzGv+fPQRu2ijXsFHGEZgOLGvSmFvQig73qVVQUjNaLhGqk+KJREbIF3sVMHBXEjLZCAq90+Wdbeu53k+n55+48L2RvZqc2Vm8jemu2d73vgefNA88HHh6oiHAJ/pMMuT4EqcVjTGZqYkbBlqeTrJUiuzYLFtqArb6TrJ3aW7XR91NHqCRvpfp5C02uW32Dq4cpwECDoPH1Yq3vKNcfPLF00LRL9cavxoQ43WTW3OpMxtNwYY/6jPOoc9jduMndUgN5l7qxPvW1/NnVfsG6mq+wp0EXbqinNkC1VVFjMNvXmH5+/MdoeN91EMAG3hAYeQzKSIwQYaUbrUGVWgaxmNgvXk7ckd2sXo7Hod6JEPWtFVBqeE+lFbTLwbxOvsAREuS7vQLIZmloy8k6f4JjbALVUhomugTKQgJVEhmtMM1qKzquV0iGzwmBeb18OgSbk6+1m9cYJNvjSFqODCizDPpy5i0hPc7eazqzt2fPF8+Snfed4d3ZYtLszaVHFZzqKdRZ4Ocw8MMlKPoCZOGu31j2viGUiyEkmxeR9NBPVh+91EtPgodExzuNPJQbiJE5s+OfdxbC3BWWrfzOYJ3KRg60Sv6RbTWN2uNpaMEq7HQY4ns5Suw8wGh77JPh2/wHU1v5aGqhOvoFEoz/ZZAlY08tWiP+AKKz6aUcm1uAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Teclas do VIM&amp;quot;&quot;
+        title=&quot;Teclas do VIM&quot;
+        src=&quot;/static/3af7977c8baba7c273413ef8410cdbd0/0a47e/vim-layout.png&quot;
+        srcset=&quot;/static/3af7977c8baba7c273413ef8410cdbd0/8514f/vim-layout.png 192w,
+/static/3af7977c8baba7c273413ef8410cdbd0/804b2/vim-layout.png 384w,
+/static/3af7977c8baba7c273413ef8410cdbd0/0a47e/vim-layout.png 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Teclas do VIM&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Outro ponto interessante é que seja no &lt;em&gt;Linux&lt;/em&gt;, &lt;em&gt;Mac&lt;/em&gt; ou &lt;em&gt;Windows&lt;/em&gt;, a
+experiência básica é a mesma. Você “sofre” menos com o &lt;em&gt;layout&lt;/em&gt; do
+teclado, principalmente pelo fato do editor “abolir” o uso de
+direcionais, e manter a experiência mais “uniforme” independentemente da
+plataforma.&lt;/p&gt;
+&lt;h2&gt;Customizações&lt;/h2&gt;
+&lt;p&gt;Outra característica muito importante do &lt;em&gt;Vim&lt;/em&gt; é a sua customização. É
+possível alterar desde comportamentos básicos como fonte de texto,
+cores, teclas de atalho e navegação, até comportamentos mais avançados
+como a &lt;a href=&quot;http://net.tutsplus.com/tutorials/other/vim-essential-plugin-nerdtree/&quot; title=&quot;Conheça o NerdTree&quot;&gt;exibição de uma árvore de arquivos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É possível criar &lt;em&gt;plugins&lt;/em&gt; utilizando &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Lua&lt;/em&gt;, &lt;em&gt;Perl&lt;/em&gt;,
+&lt;em&gt;Ruby&lt;/em&gt;, etc. O editor também possui uma linguagem própria de &lt;em&gt;scripts&lt;/em&gt;
+chamada &lt;a href=&quot;http://en.wikipedia.org/wiki/Vimscript&quot; title=&quot;Saiba mais sobre a Vimscript no Wikipedia&quot;&gt;&lt;em&gt;Vimscript&lt;/em&gt;&lt;/a&gt;. No &lt;em&gt;site&lt;/em&gt; do &lt;em&gt;Vim&lt;/em&gt; você pode conferir uma
+&lt;a href=&quot;http://www.vim.org/scripts/index.php&quot; title=&quot;Vim scripts&quot;&gt;extensa lista de &lt;em&gt;plugins&lt;/em&gt;&lt;/a&gt;. Também é possível acompanhar o
+desenvolvimento de &lt;a href=&quot;https://github.com/vim-scripts&quot; title=&quot;vim-scripts no GitHub&quot;&gt;extensões no &lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Um dos &lt;em&gt;plugins&lt;/em&gt; mais sensacionais é o &lt;a href=&quot;https://github.com/gmarik/vundle&quot; title=&quot;Repositório do Vundle no GitHub&quot;&gt;&lt;em&gt;Vundle&lt;/em&gt;&lt;/a&gt;. Trata-se de um
+gerenciador de extensões, onde de maneira muito simples é possível
+instalar e atualizar os mais variados tipos de soluções para o editor.
+Com ele, fica muito mais fácil &lt;a href=&quot;https://github.com/kplaube/vimfiles&quot; title=&quot;Veja o meu vimrc no GitHub&quot;&gt;versionar e distribuir o seu &lt;em&gt;vimrc&lt;/em&gt;&lt;/a&gt;
+para o seu grupo de trabalho.&lt;/p&gt;
+&lt;p&gt;Abaixo estão algumas extensões que não podem faltar no meu ambiente de
+trabalho:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kien/ctrlp.vim&quot; title=&quot;Ctrlp no GitHub&quot;&gt;&lt;em&gt;ctrlp.vim&lt;/em&gt;&lt;/a&gt; – Encontre arquivos e &lt;em&gt;tags&lt;/em&gt; em seus projetos&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/scrooloose/nerdtree&quot; title=&quot;Nerdtree no GitHub&quot;&gt;&lt;em&gt;nerdtree&lt;/em&gt;&lt;/a&gt; – Explore o seu projeto através de uma árvore de
+diretórios&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/scrooloose/syntastic&quot; title=&quot;Syntastic no GitHub&quot;&gt;&lt;em&gt;syntastic&lt;/em&gt;&lt;/a&gt; – Verificador de sintaxe que abrange &lt;em&gt;Python&lt;/em&gt;,
+&lt;em&gt;Ruby&lt;/em&gt;, &lt;em&gt;PHP&lt;/em&gt;, &lt;em&gt;Javascript&lt;/em&gt;, etc&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tpope/vim-fugitive&quot; title=&quot;Vim-fugitive no GitHub&quot;&gt;&lt;em&gt;vim-fugitive&lt;/em&gt;&lt;/a&gt; – Um &lt;em&gt;wrapper&lt;/em&gt; para utilizar o &lt;em&gt;Git&lt;/em&gt; sem sair do
+&lt;em&gt;Vim&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Lokaltog/vim-powerline&quot; title=&quot;Vim-powerline no GitHub&quot;&gt;&lt;em&gt;vim-powerline&lt;/em&gt;&lt;/a&gt; – Adicione uma &lt;em&gt;statusline&lt;/em&gt; mais eficiente ao
+seu &lt;em&gt;Vim&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vim-scripts/Wombat&quot; title=&quot;Wombat no GitHub&quot;&gt;&lt;em&gt;Wombat&lt;/em&gt;&lt;/a&gt; – Um excelente tema para o editor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Free e open source&lt;/h2&gt;
+&lt;p&gt;E por último mas não menos importante: O &lt;em&gt;Vim&lt;/em&gt; é livre, e de código
+aberto.&lt;/p&gt;
+&lt;p&gt;A sua licença de uso é peculiar, já que é compatível com a
+&lt;em&gt;GNU GPL&lt;/em&gt;, mas possui cláusulas que incentivam
+doações para &lt;a href=&quot;http://www.iccf.nl/news.html&quot; title=&quot;Leia os relatórios ICCF&quot;&gt;crianças em Uganda&lt;/a&gt;. Uma causa muito nobre do autor da
+ferramenta, &lt;em&gt;Bram Moolenaar&lt;/em&gt;, que além de manter o &lt;em&gt;Vim&lt;/em&gt; e fazer
+caridade, participa de outros tantos projetos de código aberto.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Algumas ferramentas acabam cativando os seus usuários de tal modo, que
+os pontos negativos acabam sendo (propositalmente) esquecidos. No meu
+caso o &lt;em&gt;Vim&lt;/em&gt; é uma dessas ferramentas, e embora eu entenda as críticas
+em relação a sua curva de aprendizado, ainda assim o acho mais prático
+que muita ferramenta moderna que tem “pipocado” recentemente.&lt;/p&gt;
+&lt;p&gt;Se você tem interesse, ou acha um desafio interessante utilizar o &lt;em&gt;Vim&lt;/em&gt;,
+eu recomendo que pule de cabeça agora mesmo. Não espere para acabar
+aquele manual (ou tutorial) que você vem “negligenciando” há meses. A
+maneira mais divertida é ir aprendendo de acordo com a necessidade.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Uma ode ao PostgreSQL]]></title><description><![CDATA[O MySQL é um dos meus mais leais companheiros de
+projetos, desde os meus tempos de PHP até projetos mais recentes
+com o Python. A sua agilidade e facilidade são indiscutivelmente
+boas, tanto que renderam ao projeto um “domínio global” no ramo. Hoje, sob “cuidados” da Oracle, o projeto tem causado…]]></description><link>https://klauslaube.com.br/2013/01/31/uma-ode-ao-postgresql.html</link><guid isPermaLink="false">https://klauslaube.com.br/2013/01/31/uma-ode-ao-postgresql.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 31 Jan 2013 20:39:21 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;http://www.mysql.com/&quot; title=&quot;Leia mais sobre o MySQL na página oficial do projeto&quot;&gt;&lt;em&gt;MySQL&lt;/em&gt;&lt;/a&gt; é um dos meus mais leais companheiros de
+projetos, desde os meus tempos de &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; até projetos mais recentes
+com o &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. A sua agilidade e facilidade são indiscutivelmente
 boas, tanto que renderam ao projeto um “domínio global” no ramo.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Hoje, sob “cuidados” da &lt;a href=&quot;http://www.oracle.com/&quot; title=&quot;Página oficial da Oracle&quot;&gt;&lt;em&gt;Oracle&lt;/em&gt;&lt;/a&gt;, o projeto tem causado &lt;a href=&quot;http://www.infoq.com/br/news/2012/08/oracle-mysql-preocupa#.UDfedu0QkJA.twitter&quot; title=&quot;MySQL será fechado?&quot;&gt;certas desconfianças&lt;/a&gt;.
+A criação de &lt;a href=&quot;https://mariadb.org/pt-br/&quot; title=&quot;Conheça o MariaDB&quot;&gt;um &lt;em&gt;fork&lt;/em&gt;&lt;/a&gt; pelo autor original não
+ajudou, e isso &lt;a href=&quot;http://br-linux.org/2013/mais-um-opensuse-confirma-que-vai-abandonar-mysql-e-adotar-mariadb/&quot; title=&quot;OpenSUSE deixa o MySQL&quot;&gt;abriu margem&lt;/a&gt; para um velho, confiável e simpático
+banco de dados: o &lt;a href=&quot;http://www.postgresql.org/&quot; title=&quot;Página oficial do projeto&quot;&gt;&lt;em&gt;Postgres&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Qual o motivo de começar um &lt;em&gt;post&lt;/em&gt; sobre o &lt;em&gt;Postgres&lt;/em&gt; falando do
+&lt;em&gt;MySQL&lt;/em&gt;? Eu sempre me apoiei na “facilidade de uso” na hora de escolher
+entre os dois, e só recentemente me “obriguei” a experimentar o
+&lt;em&gt;Postgres&lt;/em&gt; em alguns projetos. O resultado foi a total satisfação com a
+experiência, e a (surpreendente) conclusão que ele é tão fácil de mexer
+quanto o seu concorrente.&lt;/p&gt;
+&lt;h2&gt;O que há de especial no Postgres?&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Postgres&lt;/em&gt; está sob a licença &lt;a href=&quot;http://www.postgresql.org/about/licence/&quot; title=&quot;Leia mais sobre a licença PostgreSQL&quot;&gt;&lt;em&gt;PostgreSQL License&lt;/em&gt;&lt;/a&gt;, muito similar
+a &lt;em&gt;BSD&lt;/em&gt; e &lt;em&gt;MIT&lt;/em&gt;, que nos permite o livre uso, cópia, modificação e
+distribuição. Assumidamente o “banco de dados &lt;em&gt;open source&lt;/em&gt; mais
+avançado do mundo”, ele é conhecido pela sua estabilidade, servindo
+&lt;a href=&quot;http://www.postgresql.org/about/users/&quot; title=&quot;Conheça alguns projetos relevantes que utilizam o Postgres&quot;&gt;projetos de larga escala em todo o mundo&lt;/a&gt;. Embora eu nunca pude por à
+prova a sua confiabilidade e escalabilidade, o fato de ele ser usado
+como &lt;a href=&quot;https://postgres.heroku.com/postgres&quot; title=&quot;Why Postres&quot;&gt;banco relacional pelo &lt;em&gt;Heroku&lt;/em&gt;&lt;/a&gt; apresenta credenciais o
+suficiente.&lt;/p&gt;
+&lt;p&gt;Entre as &lt;a href=&quot;http://www.postgresql.org/about/featurematrix/&quot; title=&quot;Feature Matrix&quot;&gt;diversas funcionalidades do &lt;em&gt;Postgres&lt;/em&gt;&lt;/a&gt;, o suporte a
+operações assíncronas, o &lt;a href=&quot;http://www.postgresql.org/docs/9.2/static/textsearch.html&quot; title=&quot;Leia mais sobre na documentação do Postgres&quot;&gt;&lt;em&gt;Full Text Search&lt;/em&gt;&lt;/a&gt; e o &lt;a href=&quot;http://postgis.refractions.net/&quot; title=&quot;Leia mais sobre PostGIS&quot;&gt;&lt;em&gt;PostGIS&lt;/em&gt;&lt;/a&gt; se
+mostraram um bom diferencial para mim. Este último na verdade trata-se
+de uma extensão do &lt;em&gt;Postgres&lt;/em&gt; (comprovando outra característica valiosa
+do banco, a extensibilidade), e tive a oportunidade de utilizá-lo em um
+projeto recente com &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Embora a sua
+implantação não tenha sido tão trivial quanto o esperado, o resultado
+atendeu completamente as expectativas.&lt;/p&gt;
+&lt;p&gt;Outro ponto que acho muito bacana no projeto, é o seu &lt;a href=&quot;http://www.postgresql.org/docs/9.2/static/features.html&quot; title=&quot;SQL Conformance&quot;&gt;compromisso em seguir o padrão &lt;em&gt;SQL&lt;/em&gt;&lt;/a&gt;.
+Atualmente (versão 9.2), o &lt;em&gt;Postgres&lt;/em&gt; se
+compromete em atender o padrão &lt;em&gt;ANSI-SQL: 2008&lt;/em&gt;. Acho muito bacana esse
+compromisso, principalmente se formos levar em consideração a
+&lt;a href=&quot;http://en.wikibooks.org/wiki/SQL_dialects_reference&quot; title=&quot;SQL dialects&quot;&gt;quantidade de dialetos &lt;em&gt;SQL&lt;/em&gt;&lt;/a&gt; que temos hoje em dia.&lt;/p&gt;
+&lt;p&gt;Junte isso tudo a facilidade de uso, e temos uma excelente ferramenta à
+nossa disposição. Ainda não está satisfeito? Então vamos falar um pouco
+sobre uma das características mais marcantes (e discutidas) do
+&lt;em&gt;Postgres&lt;/em&gt;: O modelo objeto-relacional.&lt;/p&gt;
+&lt;h2&gt;Objeto-Relacional?&lt;/h2&gt;
+&lt;p&gt;A definição de banco de dados objeto-relacional da &lt;a href=&quot;http://pt.wikipedia.org/wiki/Banco_de_dados_objeto-relacional&quot; title=&quot;Leia mas sobre Objeto-Relacional na Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt; é a
+seguinte:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) é um sistema de gerenciamento de banco de dados
+(SGBD) semelhante a um banco de dados
+relacional, porém com um modelo de banco de dados orientado a objetos:
+objetos, classes e herança são suportados diretamente nos esquemas do
+banco de dados e na linguagem de consulta. Além disso, ele suporta
+extensão do modelo de dados com a personalização de tipos de dados e
+métodos.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Basicamente, um banco de dados objeto-relacional armazena os seus dados
+de forma “relacional”, mas é capaz de abstrair o seu acesso através de
+objetos, possibilitando assim a construção de operações mais complexas
+que podem envolver conceitos da orientação a objetos. No &lt;em&gt;Postgres&lt;/em&gt;,
+tabelas, relacionamentos, restrições e &lt;em&gt;triggers&lt;/em&gt; são considerados
+objetos.&lt;/p&gt;
+&lt;p&gt;Mas não são os “objetos” que vemos nas linguagens de programação. O
+termo “objeto” aqui é um pouco diferente (e eu diria até limitado),
+embora podemos encontrar &lt;a href=&quot;http://www.postgresql.org/docs/9.2/static/ddl-inherit.html&quot; title=&quot;Leia mais sobre herança de tabelas no Postgres&quot;&gt;heranças&lt;/a&gt;, &lt;a href=&quot;http://www.postgresql.org/docs/9.2/static/extend-type-system.html#EXTEND-TYPES-POLYMORPHIC&quot; title=&quot;Leia mais sobre tipos polimórficos no Postgres&quot;&gt;polimorfismo&lt;/a&gt; e &lt;a href=&quot;http://stackoverflow.com/questions/5625585/sql-postgres-oids-what-are-they-and-why-are-they-useful&quot; title=&quot;Saiba mais sobre os OIDs&quot;&gt;object ids&lt;/a&gt;.
+No caso do &lt;em&gt;Postgres&lt;/em&gt;, o “objeto” de “objeto-relacional” está
+ligado a todos os aspectos citados anteriormente, mais a organização dos
+“recursos”, como na utilização de &lt;a href=&quot;http://www.postgresql.org/docs/9.2/static/ddl-schemas.html&quot; title=&quot;Leia mais sobre Schemas no Postgres&quot;&gt;&lt;em&gt;schemas&lt;/em&gt;&lt;/a&gt;, e na criação de tipos e
+manipulação de dados complexos.&lt;/p&gt;
+&lt;p&gt;Ou seja, você não verá uma notação como essa em uma &lt;em&gt;query&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;NOW&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;to_char&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;HH12:MI:SS&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E sim, a notação utilizando funções:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; to_char&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;NOW&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;HH12:MI:SS&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas em compensação, você verá que &lt;strong&gt;to_char&lt;/strong&gt; é uma &lt;a href=&quot;http://www.postgresql.org/docs/8.3/static/xfunc-sql.html#AEN40446&quot; title=&quot;Leia mais sobre funções polimórficas no Postgres&quot;&gt;função polimórfica&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; to_char&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10.3333333&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;99.99&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se você não está satisfeito, e não se sente confortável com o termo
+“objeto” usado pelo &lt;em&gt;Postgres&lt;/em&gt;, fique tranquilo… &lt;a href=&quot;http://www.postgresql.org/message-id/1335420139.28653.59.camel@jdavis&quot; title=&quot;Devemos parar de usar o termo objeto no Postgres?&quot;&gt;mais pessoas carregam esta angústia&lt;/a&gt;.
+&lt;em&gt;Michael Stonebraker&lt;/em&gt; criou &lt;a href=&quot;http://www.service-architecture.com/object-oriented-databases/articles/stonebrakers_dbms_matrix.html&quot; title=&quot;Stonebraker&amp;#x27;s DBMS Matrix&quot;&gt;um esquema para identificar um &lt;em&gt;ORDBMS&lt;/em&gt;&lt;/a&gt;,
+e partindo dele sou obrigado a concordar que
+o &lt;em&gt;Postgres&lt;/em&gt; é de fato um banco objeto-relacional quando me deparo com o
+seguinte cenário:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;TYPE&lt;/span&gt; inventory_item &lt;span class=&quot;token keyword&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    name            &lt;span class=&quot;token keyword&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    supplier_id     &lt;span class=&quot;token keyword&quot;&gt;integer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    price             &lt;span class=&quot;token keyword&quot;&gt;numeric&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 
-&lt;p&gt;Hoje, sob “cuidados” da &lt;a href="http://www.oracle.com/" title="Página oficial da Oracle"&gt;&lt;em&gt;Oracle&lt;/em&gt;&lt;/a&gt;, o projeto tem …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 31 Jan 2013 20:39:21 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2013-01-31:/2013/01/31/uma-ode-ao-postgresql.html</guid><category>banco-de-dados</category><category>ambiente-de-desenvolvimento</category><category>postgres</category><category>objeto-relacional</category></item><item><title>Automatize o deploy dos seus projetos com Fabric</title><link>https://klauslaube.com.br/2012/02/26/automatize-o-deploy-dos-seus-projetos-com-fabric.html</link><description>&lt;p&gt;Durante a minha árdua trajetória com o &lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;,
-sempre fiz “subidas” de projetos utilizando um cliente &lt;a href="http://pt.wikipedia.org/wiki/File_Transfer_Protocol" title="Leia mais sobre File Transfer Protocol"&gt;&lt;em&gt;FTP&lt;/em&gt;&lt;/a&gt;. Um
-processo manual, extremamente repetitivo (e chato).&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;span class=&quot;token keyword&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;TABLE&lt;/span&gt; on_hand &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    item      inventory_item&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    count     &lt;span class=&quot;token keyword&quot;&gt;integer&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 
-&lt;p&gt;Já com &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, pude utilizar o &lt;a href="http://pt.wikipedia.org/wiki/SSH" title="Leia mais sobre Secure Shell"&gt;&lt;em&gt;SSH&lt;/em&gt;&lt;/a&gt;, que me proporcionou
-maior agilidade e liberdade dentro do ambiente de produção. Mas que não
-deixou de ser um …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 26 Feb 2012 19:40:13 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-02-26:/2012/02/26/automatize-o-deploy-dos-seus-projetos-com-fabric.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>fabric</category><category>deploy</category></item><item><title>Supervisor: Aumentando a disponibilidade das suas aplicações Web</title><link>https://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</link><description>&lt;p&gt;E se você pudesse controlar uma série de processos
-através de um comando? Ou de garantir que serviços “down” sejam
-reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder
-reiniciá-los com um simples comando de terminal?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;O &lt;strong&gt;&lt;em&gt;Supervisor&lt;/em&gt;&lt;/strong&gt; aparece para facilitar muito a vida de quem precisa
-administrar servidores &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web …&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 23 Jan 2012 21:28:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-01-23:/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</guid><category>infraestrutura</category><category>ambiente-de-desenvolvimento</category><category>web</category><category>supervisor</category><category>linux</category></item><item><title>Nginx: Poderoso, rápido e fácil</title><link>https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</link><description>&lt;p&gt;Para quem (assim como eu) começou com o &lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, uma das opções mais viáveis
-para servir projetos na &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sempre foi o &lt;a href="http://httpd.apache.org/" title="Página oficial do projeto Apache"&gt;&lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;. &lt;em&gt;Open source&lt;/em&gt;,
-prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
-padrão em quase toda distro &lt;a href="https://klauslaube.com.br/tag/linux.html" title="Leia mais sobre Linux"&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;), há anos que ele faz a …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 19 Dec 2011 20:41:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-12-19:/2011/12/19/nginx-poderoso-rapido-facil.html</guid><category>infraestrutura</category><category>ambiente-de-desenvolvimento</category><category>nginx</category><category>linux</category><category>slackware</category></item><item><title>Migrations em Django com South</title><link>https://klauslaube.com.br/2011/11/20/migrations-em-django-south.html</link><description>&lt;p&gt;E quem nunca precisou adicionar ou remover alguma
-coluna, nas tabelas do seu banco de dados, depois que a aplicação já
-estava em produção? Os riscos existem (e são altos), e podem ser
-diminuidos através de processos automatizados.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Em um mundo ideal, o procedimento de &lt;em&gt;deploy&lt;/em&gt; (para entregas contínuas)
-&lt;strong&gt;deve …&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 20 Nov 2011 21:35:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-11-20:/2011/11/20/migrations-em-django-south.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>migrations</category><category>south</category></item><item><title>Assegure a qualidade do seu código Python - Clone Digger</title><link>https://klauslaube.com.br/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html</link><description>&lt;p&gt;Mesmo que você possa verificar a qualidade do seu
-código com &lt;a href="https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html" title="Assegure a qualidade do seu código Python – pep8"&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, &lt;a href="https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html" title="Assegure a qualidade do seu código Python – Pylint"&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html" title="Assegure a qualidade do seu código Python – Pyflakes"&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;, uma das virtudes
-de um projeto de &lt;em&gt;software&lt;/em&gt; é não possuir código duplicado (leia mais
-sobre &lt;a href="http://pt.wikipedia.org/wiki/Don%27t_repeat_yourself" title="Leia mais sobre Don't Repeat Yourself no Wikipedia"&gt;&lt;em&gt;DRY&lt;/em&gt;&lt;/a&gt;). O fato é que tanto intencionalmente como
-propositalmente, podemos duplicar um trecho de código e acabar
-prejudicando manutenções …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 16 Oct 2011 22:10:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-10-16:/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>clone-digger</category></item><item><title>Assegure a qualidade do seu código Python - Pyflakes</title><link>https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html</link><description>&lt;p&gt;Depois da dar uma pincelada na &lt;a href="https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html" title="Assegura a qualidade do seu código Python com a pep8"&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt; e no &lt;a href="https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html" title="Assegure a qualidade do seu código Python com o Pylint"&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt;, chegou a hora de
-falarmos um pouco sobre o &lt;strong&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Resumidamente, o &lt;a href="https://launchpad.net/pyflakes" title="Pyflakes no Launchpad"&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt; é uma ferramenta de qualidade que
-analisa o seu código &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; atrás de erros (de sintaxe e
-importação, por exemplo), retornando um relatório muito objetivo com o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 02 Oct 2011 17:58:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-10-02:/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>pyflakes</category><category>qualidade</category></item><item><title>Assegure a qualidade do seu código Python - Pylint</title><link>https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</link><description>&lt;p&gt;Se você precisa de uma ferramenta mais poderosa que o &lt;a href="https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html" title="Assegure a qualidade do seu código Python – pep8"&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, talvez você
-precise do &lt;em&gt;Pylint&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;De forma (bem) resumida, o &lt;em&gt;Pylint&lt;/em&gt; analisa de forma minuciosa o código
-do seu projeto &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, lhe retornando uma variedade de relatórios
-(as vezes, detalhistas até demais) sobre todo o tipo de problema que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 06 Sep 2011 17:48:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-09-06:/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>pylint</category><category>qualidade</category></item><item><title>Assegure a qualidade do seu código Python - pep8</title><link>https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html</link><description>&lt;p&gt;Convenções de código! Já tive a oportunidade de &lt;a href="http://www.profissionaisti.com.br/2009/06/codifique-como-um-verdadeiro-pythonista/" title="Codifique como um verdadeiro Pythonista"&gt;escrever sobre elas no &lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;. Benção ou
-maldição? Há quem goste, há quem ache uma perda de tempo…&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Acredito muito que a organização e a qualidade do código são benéficas
-para qualquer projeto, principalmente para aqueles que possuem alta
-rotatividade de …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 26 Aug 2011 13:51:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-08-26:/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>pep8</category></item><item><title>Ferramentas de testes em Django - Parte 2</title><link>https://klauslaube.com.br/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html" title="Ferramentas de testes em Django - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
-conhecemos as ferramentas &lt;em&gt;default&lt;/em&gt; para construção de testes
-automatizados em &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Acontece que você pode “sair um pouco da
-caixa” e usufruir de ferramentas “third-party“, que enriquecerão o seu
-ambiente de desenvolvimento e lhe trarão maior segurança em seus &lt;a href="https://klauslaube.com.br/tag/testes.html" title="Leia mais sobre testes"&gt;testes
-de &lt;em&gt;software&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;splinter – Testando a sua aplicação …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 23 Jul 2011 18:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-07-23:/2011/07/23/ferramentas-de-testes-em-django-parte-2.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>bdd</category><category>tdd</category><category>testes</category></item><item><title>Ferramentas de testes em Django - Parte 1</title><link>https://klauslaube.com.br/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</link><description>&lt;p&gt;Dando continuidade à série
-“&lt;a href="{filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md" title="Veja outros posts desta série"&gt;Montando seu ambiente de desenvolvimento &lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;“, vou
-indicar algumas ferramentas de testes para que você também possa deixar
-com que os &lt;a href="https://klauslaube.com.br/2011/01/27/tdd-desenvolvimento-orientado-testes.html" title="TDD: Desenvolvimento Orientado a Testes"&gt;testes guiem o desenvolvimento de suas aplicações&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Afinal, testar é preciso ;)&lt;/p&gt;
-&lt;h2&gt;Testar em Django é possível?&lt;/h2&gt;
-&lt;p&gt;Sem dúvida nenhuma! Mas não espere que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 18 Jul 2011 22:06:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-07-18:/2011/07/18/ferramentas-de-testes-em-django-parte-1.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>testes</category><category>bdd</category><category>tdd</category></item><item><title>Como versionar projetos Django com o Mercurial - Parte 3</title><link>https://klauslaube.com.br/2011/06/04/como-versionar-projetos-django-mercurial-parte-3.html</link><description>&lt;p&gt;Dando continuidade a micro-série &lt;em&gt;Como versionar projetos _Django&lt;/em&gt; com o
-&lt;em&gt;Mercurial&lt;/em&gt; (confira a &lt;a href="https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html"&gt;parte 1&lt;/a&gt; e a &lt;a href="https://klauslaube.com.br/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html" title="Como versionar projetos Django com o Mercurial - Parte 2"&gt;parte 2&lt;/a&gt;), vamos finalizar com
-um exemplo prático de um projeto &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; usando o &lt;a href="https://klauslaube.com.br/tag/mercurial.html" title="Leia mais sobre Mercurial"&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;Começando…&lt;/h2&gt;
-&lt;p&gt;Vamos reutilizar a estrutura dos &lt;em&gt;posts&lt;/em&gt; anteriores. Para isso, inicie
-um projeto com o &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; ~/Projetos …&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 04 Jun 2011 12:27:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-06-04:/2011/06/04/como-versionar-projetos-django-mercurial-parte-3.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>virtualenv</category><category>mercurial</category><category>pip</category></item><item><title>Como versionar projetos Django com o Mercurial - Parte 2</title><link>https://klauslaube.com.br/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html</link><description>&lt;p&gt;Dando continuidade ao &lt;em&gt;post&lt;/em&gt; &lt;a href="https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html" title="Leia a primeira parte deste post"&gt;Como versionar
-projetos &lt;em&gt;Django&lt;/em&gt; com o &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;, e a série &lt;a href="{filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md" title="Tá começando com Django? É usuário Linux? Este post pode te interessar"&gt;Montando seu ambiente
+&lt;span class=&quot;token keyword&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;INTO&lt;/span&gt; on_hand &lt;span class=&quot;token keyword&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;ROW&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;fuzzy dice&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1.99&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;INTO&lt;/span&gt; on_hand &lt;span class=&quot;token keyword&quot;&gt;VALUES&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;ROW&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;cards&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6.99&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;::inventory_item&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma manipulação complexa, com tipos criados pelo próprio usuário,
+utilizando &lt;em&gt;queries&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Postgres&lt;/em&gt; é poderoso! Disso eu não tinha dúvidas. Mas ficar mais
+próximo do banco me fez perceber o quanto ele pode agregar ao projeto.
+Se em um próximo projeto você estiver em dúvida, e achar que a
+utilização dele pode ser complicada, eu recomendo que experimente.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://ledgersmbdev.blogspot.com.br/2012/08/intro-to-postgresql-as-object.html&quot; title=&quot;Leia mais sobre o modelo objeto-relacional do Postgres&quot;&gt;&lt;em&gt;Perspectives on LedgerSMB – O/R Modelling Part 1: Intro to PostgreSQL as Object-Relational Database Management System&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://ledgersmbdev.blogspot.com.br/2012/10/three-approaches-to-object-relational.html&quot; title=&quot;Leia o comparativo do approach de Postgres e Oracle em relação ao termo Object-Relational&quot;&gt;&lt;em&gt;Perspectives on LedgerSMB – Three Approaches to Object-Relational Databases: PostgreSQL, Oracle, and Informix&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.postgresql.org/about/&quot; title=&quot;Leia tudo sobre o Postgres&quot;&gt;&lt;em&gt;PostgreSQL – About&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.service-architecture.com/object-oriented-databases/articles/stonebrakers_dbms_matrix.html&quot; title=&quot;Conheça a linha tênue que separa um ORDBMS de um ODBMS&quot;&gt;&lt;em&gt;Web Services and Service-Oriented Architectures – Stonebraker’s DBMS Matrix&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.wikivs.com/wiki/MySQL_vs_PostgreSQL&quot; title=&quot;Veja um comparativo entre MySQL e PostgreSQL&quot;&gt;&lt;em&gt;WikiVS – MySQL vs. PostgreSQL&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Como versionar projetos Django com o Mercurial - Parte 2]]></title><description><![CDATA[Dando continuidade ao post Como versionar
+projetos Django com o Mercurial, e a série Montando seu ambiente
+de desenvolvimento Django no Linux, vamos dar uma pincelada nos
+funcionamentos básicos do Mercurial. hg? Mas não era Mercurial? Mercury em português significa mercúrio (nenhuma novidade até…]]></description><link>https://klauslaube.com.br/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 22 May 2011 09:04:00 GMT</pubDate><content:encoded>&lt;p&gt;Dando continuidade ao &lt;em&gt;post&lt;/em&gt; &lt;a href=&quot;/2011/05/10/como-versionar-projetos-django-mercurial-parte.html&quot; title=&quot;Leia a primeira parte deste post&quot;&gt;Como versionar
+projetos &lt;em&gt;Django&lt;/em&gt; com o &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;, e a série &lt;a href=&quot;/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html&quot; title=&quot;Tá começando com Django? É usuário Linux? Este post pode te interessar&quot;&gt;Montando seu ambiente
 de desenvolvimento &lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;, vamos dar uma pincelada nos
-funcionamentos básicos do &lt;a href="https://klauslaube.com.br/tag/mercurial.html" title="Leia mais sobre Mercurial"&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+funcionamentos básicos do &lt;a href=&quot;/tag/mercurial.html&quot; title=&quot;Leia mais sobre Mercurial&quot;&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;hg? Mas não era Mercurial?&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;Mercury&lt;/em&gt; em português significa mercúrio (nenhuma novidade até aqui),
-que é um elemento químico …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 22 May 2011 11:04:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-05-22:/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>mercurial</category></item><item><title>Como versionar projetos Django com o Mercurial - Parte 1</title><link>https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html</link><description>&lt;p&gt;Se você está começando em &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, e nunca utilizou uma ferramenta
-de controle de versão (as vezes por trauma do &lt;a href="http://akitaonrails.com/2007/09/22/jogar-pedra-em-gato-morto-por-que-subversion-no-presta" title="Jogar Pedra em Gato Morto: por que Subversion não presta"&gt;&lt;em&gt;SVN&lt;/em&gt;&lt;/a&gt; ou por &lt;a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o" title="Wikipedia, Sistema de Controle de Versão"&gt;simples
-desinteresse&lt;/a&gt;) esta será uma grande oportunidade para você conhecer o
-&lt;a href="http://www.profissionaisti.com.br/2009/06/bitbucket-hospede-e-versione-softwares-com-mercurial/" title="Bitbucket: Hospede e versione softwares com Mercurial"&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;, e saber a forma que venho utilizando para versionar
-meus projetos Django.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+que é um elemento químico com o símbolo &lt;code class=&quot;language-text&quot;&gt;Hg&lt;/code&gt; e o número atômico 80
+(assim disse a &lt;a href=&quot;http://en.wikipedia.org/wiki/Mercury_(element)&quot; title=&quot;Leia mais sobre o elemento químico Mercúrio&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt; (: ). É devido a isso que você utilizará
+o &lt;em&gt;Mercurial&lt;/em&gt; em linha de comando através de comandos iniciados por
+&lt;code class=&quot;language-text&quot;&gt;hg&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Antes de iniciarmos, vamos dizer ao &lt;em&gt;Mercurial&lt;/em&gt; quem nós somos. Abra o
+arquivo &lt;code class=&quot;language-text&quot;&gt;.hgrc&lt;/code&gt; do seu &lt;code class=&quot;language-text&quot;&gt;home&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ vim ~/.hgrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É fundamental que nossos &lt;em&gt;commits&lt;/em&gt; estejam marcados com nosso nome, e um
+e-mail para contato. Vamos escrever estas duas informações neste
+arquivo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;[ui]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; seu nome &amp;lt; seuemail@provedor.com &gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Salve o arquivo, e estamos prontos para iniciar.&lt;/p&gt;
+&lt;h2&gt;Primeiros passos&lt;/h2&gt;
+&lt;p&gt;Os passos que vou exemplificar aqui não são muito diferentes dos que
+você encontrará na &lt;a href=&quot;http://mercurial.selenic.com/&quot; title=&quot;Visite a página oficial do projeto Mercurial&quot;&gt;página oficial do &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;. Preguiça minha?
+Talvez… mas você verá que usar o &lt;em&gt;Mercurial&lt;/em&gt; é extremamente simples! As
+dificuldades são as exceções do dia a dia.&lt;/p&gt;
+&lt;p&gt;Para deixar o exemplo mais interessante, vamos utilizar o &lt;em&gt;virtualenv&lt;/em&gt;.
+Dúvidas? Confira o &lt;em&gt;post&lt;/em&gt; &lt;a href=&quot;/2011/03/18/python-django-virtualenv.html&quot; title=&quot;Construa projetos isolados do seu sistema com virtualenv&quot;&gt;&lt;em&gt;Python&lt;/em&gt;, &lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e
+visualize aonde pretendemos chegar:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ˜/Projetos/
+$ virtualenv DjangoComHG --no-site-packages
 
-&lt;h2&gt;Peraí! Por que …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 10 May 2011 23:34:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-05-10:/2011/05/10/como-versionar-projetos-django-mercurial-parte.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>git</category><category>mercurial</category></item><item><title>Como organizar seus projetos Django</title><link>https://klauslaube.com.br/2011/04/11/como-organizar-seus-projetos-django.html</link><description>&lt;p&gt;Pretendo compartilhar com vocês a forma que venho utilizando para
-organizar meus projetos &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; com o uso do &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.
-Não entrarei em muitos detalhes, até porque você verá que é um
-procedimento muito simples, mas que poderá garantir melhor organização
-dos seus projetos e dos seus ambientes de desenvolvimento.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+$ cd DjangoComHG&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora sim, vamos criar um projeto através da seguinte expressão:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg init django-com-hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Projeto criado… vamos partir para as tarefas mais comuns no &lt;em&gt;Mercurial&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Altere, adicione e “comite”&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Mercurial&lt;/em&gt; é &lt;a href=&quot;http://en.wikipedia.org/wiki/Distributed_revision_control&quot; title=&quot;Leia mais sobre Distributed Version Control System&quot;&gt;&lt;em&gt;DVCS&lt;/em&gt;&lt;/a&gt;, isto quer dizer que, quando você clonar um
+repositório remoto você terá uma cópia exata dele em seu computador.
+Logo, as alterações que você “persistir” estarão disponíveis apenas na
+sua cópia local. Pode parecer um pouco confuso, mas com o tempo faz todo
+o sentido.&lt;/p&gt;
+&lt;p&gt;Para o primeiro &lt;em&gt;commit&lt;/em&gt; (persistir nossas alterações localmente)
+escreva um arquivo &lt;code class=&quot;language-text&quot;&gt;.hgignore&lt;/code&gt; (&lt;a href=&quot;http://mercurial.selenic.com/wiki/.hgignore&quot; title=&quot;Entenda para que serve o arquivo .hgignore&quot;&gt;saiba mais do que se trata&lt;/a&gt;) e um
+arquivo &lt;code class=&quot;language-text&quot;&gt;README&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd django-com-hg/
+$ ls -a
 
-&lt;p&gt;É …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 11 Apr 2011 20:11:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-04-11:/2011/04/11/como-organizar-seus-projetos-django.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>virtualenv</category></item><item><title>Python, Django e virtualenv</title><link>https://klauslaube.com.br/2011/03/18/python-django-virtualenv.html</link><description>&lt;p&gt;Dando continuidade a série “&lt;a href="{filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md" title="Montando seu ambiente de desenvolvimento Django em Linux"&gt;Montando seu ambiente de desenvolvimento
-&lt;em&gt;Django&lt;/em&gt; em &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;”, vamos dar uma pincelada na tríade &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre Virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;Python&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/" title="10 motivos para se usar Python"&gt;Conheça alguns motivos que lhe convencerão a usar &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;O &lt;em&gt;Python&lt;/em&gt; já vem instalado na maioria das distribuições &lt;a href="https://klauslaube.com.br/tag/linux.html" title="Leia mais sobre Linux"&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;. Na
-verdade, até hoje nunca usei uma distro …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 18 Mar 2011 20:24:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-03-18:/2011/03/18/python-django-virtualenv.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>slackware</category><category>virtualenv</category></item><item><title>Diferentes ambientes: Development, Testing, Staging e Production</title><link>https://klauslaube.com.br/2011/03/07/diferentes-ambientes.html</link><description>&lt;p&gt;Uma das práticas mais interessantes nessa
-“nova onda” de qualidade que está “encrostada” nas práticas &lt;a href="https://klauslaube.com.br/tag/agile.html" title="Leia mais sobre Agile"&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt;
-de desenvolvimento de &lt;em&gt;software&lt;/em&gt;, é o uso de diferentes ambientes para
-diferentes estágios do ciclo de vida de uma aplicação.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Com auxílio da &lt;a href="{virtualbox-uma-maneira-interessante-de-possuir-varios-sos-em-uma-maquina-so.md" title="Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só"&gt;virtualização&lt;/a&gt;, podemos implementar (sem dificuldades)
-estes ambientes em qualquer empresa que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 07 Mar 2011 12:37:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-03-07:/2011/03/07/diferentes-ambientes.html</guid><category>desenvolvimento</category><category>infraestrutura</category><category>agile</category><category>ambiente-de-desenvolvimento</category><category>qualidade</category><category>testes</category></item><item><title>Montando seu ambiente de desenvolvimento Django no Linux</title><link>https://klauslaube.com.br/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html</link><description>&lt;p&gt;Vou iniciar uma série de publicações mostrando na prática como montar o
-seu ambiente de desenvolvimento para trabalhar com &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;O objetivo é ilustrar como você pode facilmente ingressar no &lt;em&gt;Django&lt;/em&gt; e
-ter um conjunto de ferramentas simples e eficientes que lhe ajudarão a
-desenvolver de forma produtiva …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 03 Mar 2011 21:16:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-03-03:/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>ambiente-de-desenvolvimento</category><category>linux</category></item></channel></rss>
+.hg     .hgignore     README&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A pasta &lt;code class=&quot;language-text&quot;&gt;.hg&lt;/code&gt; na verdade é quem vai identificar e armazenar todas as
+informações do nosso projeto. Sem ela, você deixa de ter o controle
+sobre as versões dos arquivos e subpastas do projeto.&lt;/p&gt;
+&lt;p&gt;Execute o comando &lt;code class=&quot;language-text&quot;&gt;hg status&lt;/code&gt; e veja o que aparece… acredito que o
+resultado seja auto-sugestivo. O &lt;em&gt;Mercurial&lt;/em&gt; ainda não sabe o que fazer
+com os arquivos no projeto, portanto diremos a ele que queremos
+versionar estes arquivos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg add .hgignore README&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma nova execução do &lt;code class=&quot;language-text&quot;&gt;hg status&lt;/code&gt; vai apontar que os arquivos foram
+marcados para adição, porém, ainda não foram adicionados. Você vai
+confirmar está operação através do comando &lt;code class=&quot;language-text&quot;&gt;commit&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg commit -m &amp;quot;Primeiro commit com .hgignore&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O parâmetro &lt;code class=&quot;language-text&quot;&gt;-m&lt;/code&gt; serve para passarmos uma mensagem de descrição do
+&lt;code class=&quot;language-text&quot;&gt;commit&lt;/code&gt; que estamos fazendo. Isto facilita na leitura do &lt;em&gt;log&lt;/em&gt; de
+&lt;em&gt;commits&lt;/em&gt; realizados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg log&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Estes serão os comandos que provavelmente você usará constantemente
+enquanto desenvolve.&lt;/p&gt;
+&lt;h2&gt;Compartilhando as suas produções&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ce36d314697154285d961d7076a96e53/e9ff0/bitbucket-logo.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAADvklEQVQ4y41Ue0xXZRj+kHKtZn8009FGKxEvBVYKpevyhzHbvGYuHHIVrZ+ylIEyu+CSzaUzL1PQZm3eVhvegI2W1hQQm13hR2oCGlNRBoqZXILf5Zz36X3fcw5iWvNs775zvvN9z/e8z/t8ryGiHo4QgKBt28GwZQXl/X4ibNlBi/fIO2NI9BsXDDzCe0JhC02X2lFZ+xt2HKzB+j1HsW73ERTvr0JZVT3O/NGGvkBoYL23l0cyysyZoIttnbT801J6auYHFJnoo+Gv51Psm4UUl7yG4uevodi5hTQiaQUNSfDRyGkrKevj3dTQ3CqbybYVwzK2QxkXWq/R40n5ME/Mw5z87ei82Y3/erp7+5Gz/iuY6GQMSfShtv68g8b5G9FBPo79dI7MM5mImPQumBVWbTuML8pPoqKmAcd+bkTVL034+uRp7Kk8haLPKzEpbS0iE5fAjE7FzrJacqWyBxi2XL1Oj762HOaFxTATsmFiFsCMSYOJXwgz8R0nZH5sOsyoFJhns2D4cFl/YjBDqY58BEJhipnzEUxcFp/s09MfeJEZPL9YWZjRCxRQ5iI5JFXz3CIMe3UZrnTcVEDW0QF0q0RJOVtgxmXo4ogEPj0+G1wYp8KlVRg1+0M9MCLBp2HiFmLM3NXgTMmtsgPofedu3K9pKjNOZejkpWhovoLGi+348UwL2m90IWraygGmZlw6ZuWV6F5xym1Ay9bJnYdrYWLTGChHtZqRW4xbPX2OjlFvic7I33xA9X1oSo5KUbD1kO5llg6g+NBjeJyrKbo8+NJSFX3C/CIEQ2HMK/gMkzPXIRAMYzZbSg5TwPEZ6gQPUGR0NXSM3vFnFx55ZRmzTHVAObX3i8sUiK8kSg5Ua7U1XbaY6OlvaoVn7AGGboUU9kTdeUxMXcunZzr2iH5b2ailnkyGeTpFGYojDh2vUya2V9V7Af7e0ob6xsuo49j05XfILtoLqf7UJZuQvnoXPtn1Db5vuICzfJ9/PXcJg/dqyh5gOGzpZAk3ALGMpPrD6RZ0cGUDwZBq2flXD+qbLnOzOIKHX34PuRtLMXjvHYCWe7v9za1s5kWqo3hSNka9UaAxTNIW7eQGcVRU+x1At6p3AHo6dP/dr2YWDYdKYeR6yQESXBCvWOJTbihuyvcAlF7m/qDyaj9FT19FbB3iAhAz5Uh33sdn0GNT84j7pNe29LkL8N/NsrcvgKOnzmLDvm+xYstB5LGhpSAVNX7cuNXjrL27sylgv0vQEpIyKV1Dxv8LWeOt90aR8x/zr7dAhtYdeAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Logotipo do BitBucket&amp;quot;&quot;
+        title=&quot;Logotipo do BitBucket&quot;
+        src=&quot;/static/ce36d314697154285d961d7076a96e53/e9ff0/bitbucket-logo.png&quot;
+        srcset=&quot;/static/ce36d314697154285d961d7076a96e53/e9ff0/bitbucket-logo.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Logotipo do BitBucket&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Se você ainda não tem uma conta no
+&lt;a href=&quot;http://bitbucket.org/&quot; title=&quot;Bitbucket, compartilhe o seu código&quot;&gt;&lt;em&gt;Bitbucket&lt;/em&gt;&lt;/a&gt;, essa é uma grande oportunidade para fazer uma.&lt;/p&gt;
+&lt;p&gt;Vamos criar um repositório para praticarmos o comando &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt;. No
+&lt;em&gt;Bitbucket&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Eu vou dar o nome de “post-django-com-hg” ao repositório, fique a
+vontade para dar o nome que você desejar;&lt;/li&gt;
+&lt;li&gt;Escolha o &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; como linguagem;&lt;/li&gt;
+&lt;li&gt;Coloque uma pequena descrição;&lt;/li&gt;
+&lt;li&gt;Eu vou marcar a opção &quot;Issue tracking&quot;, caso haja algum problema com
+o código e vocês queiram sugerir melhorias.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/kplaube/post-django-com-hg&quot; title=&quot;Confira o repositório criado no Bitbucket&quot;&gt;Confira o resultado&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No repositório local vamos utilizar o comando &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt; com o endereço do
+repositório no &lt;em&gt;Bitbucket&lt;/em&gt;. Isso enviará todas as alterações que
+persistidas em nosso repositório local para o repositório remoto,
+mesclando-as com as contribuições de outros usuários envolvidos no
+projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg push https://bitbucket.org/kplaube/post-django-com-hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Lembre-se&lt;/strong&gt; de mudar o endereço acima para o endereço do seu
+repositório no &lt;em&gt;Bitbucket&lt;/em&gt;. Visite a página do seu repositório e veja o
+que aconteceu… bacana, não?&lt;/p&gt;
+&lt;p&gt;Mas dessa forma, teremos que sempre executar o comando &lt;code class=&quot;language-text&quot;&gt;pus&lt;/code&gt;h
+informando o endereço do repositório. Vamos deixar esta tarefa mais
+simples editando o arquivo &lt;code class=&quot;language-text&quot;&gt;hgrc&lt;/code&gt; dentro da pasta &lt;code class=&quot;language-text&quot;&gt;.hg&lt;/code&gt; do projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Projetos/DjangoComHG/django-com-hg/
+$ vim .hg/hgrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Coloque o seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;[paths]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; https://kplaube@bitbucket.org/kplaube/post-django-com-hg&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Lembre-se&lt;/strong&gt; de mudar o endereço acima para o endereço do seu
+repositório no &lt;em&gt;Bitbucket&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Pronto! Quando você for “pushear” não precisará mais informar o endereço
+do repositório remoto.&lt;/p&gt;
+&lt;p&gt;Altere alguns arquivos… &lt;code class=&quot;language-text&quot;&gt;commit&lt;/code&gt;. Adicione alguns arquivos…
+&lt;code class=&quot;language-text&quot;&gt;commit&lt;/code&gt;. Ao final do dia, dê um &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt; e deixe o resto da equipe
+saber o que você fez ;)&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://mercurial.selenic.com/&quot; title=&quot;Mercurial, work easier, work faster&quot;&gt;Site oficial do projeto &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Mercurial&quot; title=&quot;Leia mais sobre Mercurial na Wikipedia&quot;&gt;Artigo na &lt;em&gt;Wikipedia&lt;/em&gt; sobre &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Mercury_(element)&quot; title=&quot;Leia mais sobre Mercúrio no Wikipedia&quot;&gt;Artigo na &lt;em&gt;Wikipedia&lt;/em&gt; sobre Mercúrio (o elemento químico)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tocadoelfo.blogspot.com/2011/03/mercurial-hg-controlando-as-versoes-do.html&quot; title=&quot;Excelente post sobre Mercurial, TI e gerência de projetos&quot;&gt;&lt;em&gt;Mercurial Hg&lt;/em&gt; – Controlando as Versões do seu &lt;em&gt;Software&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://hgbook.red-bean.com/read/&quot; title=&quot;Excelente e-book de Bryan O&amp;#x27;Sullivan sobre Mercurial&quot;&gt;&lt;em&gt;Mercurial&lt;/em&gt;: &lt;em&gt;The Definitive Guide&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No próximo &lt;em&gt;post&lt;/em&gt;, vamos concluir a trilogia mostrando uma forma bacana
+de utilizar o &lt;em&gt;Mercurial&lt;/em&gt; para versionar seus projetos &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

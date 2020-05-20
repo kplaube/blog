@@ -1,22 +1,180 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - padroes-web</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 05 Sep 2012 09:42:49 -0300</lastBuildDate><item><title>As pseudo-classes e os pseudo-elementos</title><link>https://klauslaube.com.br/2012/09/05/pseudo-classes-e-os-pseudo-elementos.html</link><description>&lt;p&gt;O &lt;a href="https://klauslaube.com.br/tag/css3.html" title="Leia mais sobre CSS"&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt; tem diversas coisas legais. Uma quantidade
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - padroes-web]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[As pseudo-classes e os pseudo-elementos]]></title><description><![CDATA[O CSS tem diversas coisas legais. Uma quantidade
+de propriedades, valores e funcionalidades, que por inúmeras vezes me
+fogem da memória. Uma das coisas mais interessantes do CSS, mas que
+geralmente me confunde, são as pseudo-classes e os
+pseudo-elementos. Então eu resolvi escrever este post, e nele…]]></description><link>https://klauslaube.com.br/2012/09/05/pseudo-classes-e-os-pseudo-elementos.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/09/05/pseudo-classes-e-os-pseudo-elementos.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 05 Sep 2012 09:42:49 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS&quot;&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt; tem diversas coisas legais. Uma quantidade
 de propriedades, valores e funcionalidades, que por inúmeras vezes me
 fogem da memória. Uma das coisas mais interessantes do &lt;em&gt;CSS&lt;/em&gt;, mas que
 geralmente me confunde, são as &lt;strong&gt;pseudo-classes&lt;/strong&gt; e os
 &lt;strong&gt;pseudo-elementos&lt;/strong&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Então eu resolvi escrever este &lt;em&gt;post&lt;/em&gt;, e nele vou explicar a diferença e
+aplicabilidade dos dois. Espero colaborar com outras mentes tão
+preguiçosas na arte da lembrança, quanto a minha :)&lt;/p&gt;
+&lt;h2&gt;Pseudo-classes&lt;/h2&gt;
+&lt;p&gt;As pseudo-classes são muito úteis para fazermos manipulações
+estruturais, ou alterações de estilos de forma dinâmica. Uma forma
+interessante de pensarmos sobre pseudo-classes é que o seu resultado
+pode ser obtido com &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, através de eventos ou de seletores
+(como o &lt;code class=&quot;language-text&quot;&gt;:eq&lt;/code&gt;). Com a ajuda deste artifício, conseguimos entregar uma
+solução muito simples e funcional. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;#menu a&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; blue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
-&lt;p&gt;Então eu resolvi escrever este &lt;em&gt;post&lt;/em&gt;, e nele vou explicar a …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 05 Sep 2012 09:42:49 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-09-05:/2012/09/05/pseudo-classes-e-os-pseudo-elementos.html</guid><category>desenvolvimento</category><category>web</category><category>padroes-web</category><category>css3</category></item><item><title>Gráficos estatísticos em Canvas com RGraph</title><link>https://klauslaube.com.br/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</link><description>&lt;p&gt;O &lt;a href="http://www.rgraph.net/" title="RGraph: HTML5 canvas graph library based on the HTML5 canvas tag"&gt;&lt;em&gt;RGraph&lt;/em&gt;&lt;/a&gt; é uma fantástica &lt;em&gt;lib&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, que gera
-gráficos estatísticos em &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;Canvas&lt;/em&gt;&lt;/a&gt; de uma forma extremamente simples
+&lt;span class=&quot;token selector&quot;&gt;#menu a:hover&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; red&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja o exemplo no &lt;a href=&quot;http://jsfiddle.net/kplaube/vv7Yu/&quot; title=&quot;Exemplo de utilização de pseudo-classes&quot;&gt;&lt;em&gt;jsFiddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Na demonstração acima, utilizamos a pseudo-classe &lt;code class=&quot;language-text&quot;&gt;:hover&lt;/code&gt; para
+alterar a cor do &lt;em&gt;link&lt;/em&gt; de azul para vermelho. O evento “hover” acontece
+quando estamos com o mouse sobre o elemento. Outros eventos podem
+acontecer, como o &lt;code class=&quot;language-text&quot;&gt;:active&lt;/code&gt; (quando pressionamos o botão do mouse
+sobre o &lt;em&gt;link&lt;/em&gt;), e &lt;code class=&quot;language-text&quot;&gt;:visited&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Outro exemplo muito bom, é se precisássemos que apenas o primeiro item
+fosse de cor laranja:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;#menu li:first-child a&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; orange&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja o exemplo no &lt;a href=&quot;http://jsfiddle.net/kplaube/vv7Yu/3/embedded/result/&quot; title=&quot;Exemplo de uso do first-child&quot;&gt;&lt;em&gt;jsFiddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note que o caso poderia ser resolvido adicionando uma classe “first” ao
+primeiro elemento da lista, e atribuindo a propriedade &lt;strong&gt;color&lt;/strong&gt; à esta
+classe. Mas com o uso de pseudo-classes, é possível economizar todo esse
+esforço.&lt;/p&gt;
+&lt;h2&gt;Pseudo-elementos&lt;/h2&gt;
+&lt;p&gt;Os pseudo-elementos, assim como as pseudo-classes, levam à economia de
+esforço, de interpretação de &lt;em&gt;Javascript&lt;/em&gt;, e de elementos
+“não-semânticos”. Por exemplo, queremos que a primeira letra de um
+parágrafo ganhe destaque:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;L&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;orem ipsum dolor sit amet, consectetur adipiscing elit.
+  Pellentesque in scelerisque quam...
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;CSS&lt;/em&gt; ficaria mais ou menos assim:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 14px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;p span&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; bold&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;letter-spacing&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 3px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja exemplo no &lt;a href=&quot;http://jsfiddle.net/kplaube/MW5p9/&quot; title=&quot;Exemplo com elemento não-semântico&quot;&gt;&lt;em&gt;jsFiddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Podemos alcançar o mesmo resultado, sem necessitar do &lt;code class=&quot;language-text&quot;&gt;span&lt;/code&gt;, através
+do pseudo-elemento &lt;code class=&quot;language-text&quot;&gt;first-letter&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 14px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;p::first-letter&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; bold&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;letter-spacing&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 3px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja o exemplo no &lt;a href=&quot;http://jsfiddle.net/kplaube/MW5p9/1/&quot; title=&quot;Exemplo com pseudo-elemento&quot;&gt;&lt;em&gt;jsFiddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Outros pseudo-elementos interessantes são os clássicos &lt;code class=&quot;language-text&quot;&gt;after&lt;/code&gt; e
+&lt;code class=&quot;language-text&quot;&gt;before&lt;/code&gt;, o &lt;code class=&quot;language-text&quot;&gt;first-line&lt;/code&gt; e o &lt;code class=&quot;language-text&quot;&gt;selection&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Os pseudo-elementos e pseudo-classes não são nenhum “bicho de sete
+cabeças”, e podem economizar preciosas linhas de código (e tempo de
+processamento do usuário).&lt;/p&gt;
+&lt;p&gt;Quando bater aquela dúvida sobre qual utilizar, lembre-se: Quando o
+resultado pode ser obtido através de uma classe, use pseudo-classes;
+Quando o resultado pode ser obtido através de elementos não-semânticos,
+use pseudo-elementos.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/CSS/Pseudo-classes&quot; title=&quot;Página sobre pseudo-classes na MDN&quot;&gt;&lt;em&gt;Mozilla Developer Network: CSS – Pseudo-classes&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/CSS/Pseudo-elements&quot; title=&quot;Página sobre pseudo-elementos na MDN&quot;&gt;&lt;em&gt;Mozilla Developer Network: CSS – Pseudo-elements&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tableless.com.br/pseudo-classes-css/&quot; title=&quot;Artigo no Tableless sobre pseudo-classes no CSS&quot;&gt;&lt;em&gt;Tableless&lt;/em&gt;: Seletor do &lt;em&gt;CSS&lt;/em&gt; – Pseudo-classes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Gráficos estatísticos em Canvas com RGraph]]></title><description><![CDATA[O RGraph é uma fantástica lib Javascript, que gera
+gráficos estatísticos em Canvas de uma forma extremamente simples
+e direta. Sinceramente, foi uma das libs mais eficazes que já usei
+para criar representações visuais de relatórios. Por criar gráficos em Canvas, podemos interagir com os elementos…]]></description><link>https://klauslaube.com.br/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 12 Jun 2011 21:38:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;http://www.rgraph.net/&quot; title=&quot;RGraph: HTML5 canvas graph library based on the HTML5 canvas tag&quot;&gt;&lt;em&gt;RGraph&lt;/em&gt;&lt;/a&gt; é uma fantástica &lt;em&gt;lib&lt;/em&gt; &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, que gera
+gráficos estatísticos em &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;Canvas&lt;/em&gt;&lt;/a&gt; de uma forma extremamente simples
 e direta. Sinceramente, foi uma das &lt;em&gt;libs&lt;/em&gt; mais eficazes que já usei
 para criar representações visuais de relatórios.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Por criar gráficos em &lt;em&gt;Canvas&lt;/em&gt;, podemos interagir com os elementos
-através do &lt;em&gt;Javascript&lt;/em&gt;. Isso …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 12 Jun 2011 21:38:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-06-12:/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</guid><category>desenvolvimento</category><category>web</category><category>html5</category><category>rgraph</category><category>padroes-web</category></item><item><title>CSS3: Cantos arredondados, sombras e degradês até no IE</title><link>https://klauslaube.com.br/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</link><description>&lt;p&gt;Enquanto o &lt;a href="https://klauslaube.com.br/2010/11/13/usando-html5-sem-medo.html" title="Usando o HTML5 sem medo"&gt;movimento em prol do HTML5 ganha cada vez mais força&lt;/a&gt;, o
-que podemos falar do &lt;a href="https://klauslaube.com.br/tag/css3.html" title="Leia mais sobre CSS3"&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+através do &lt;em&gt;Javascript&lt;/em&gt;. Isso permite que nossos sistemas fiquem muito
+mais dinâmicos (e ainda por cima, garante que nossos clientes vejam
+representações visuais dos números da sua empresa em seu &lt;em&gt;iPad&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Contamos com os seguintes tipos de gráficos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Barra (&lt;a href=&quot;http://www.rgraph.net/examples/hbar.html&quot; title=&quot;Veja exemplo de gráfico de barra horizontal&quot;&gt;horizontal&lt;/a&gt; e &lt;a href=&quot;http://www.rgraph.net/examples/bar.html&quot; title=&quot;Veja exemplo de gráfico de barra vertical&quot;&gt;vertical&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Barra de progresso (&lt;a href=&quot;http://www.rgraph.net/examples/hprogress.html&quot; title=&quot;Veja exemplo de barra de progresso horizontal&quot;&gt;horizontal&lt;/a&gt; e &lt;a href=&quot;http://www.rgraph.net/examples/vprogress.html&quot; title=&quot;Veja exemplo de barra de progresso vertical&quot;&gt;vertical&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/bipolar.html&quot; title=&quot;Veja exemplo de gráfico bipolar&quot;&gt;Bi-polar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/donut.html&quot; title=&quot;Veja exemplo de gráfico de donut&quot;&gt;&lt;em&gt;Donut&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/funnel.html&quot; title=&quot;Veja exemplo de gráfico de funil&quot;&gt;Funil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/line.html&quot; title=&quot;Veja exemplo de gráfico de linha&quot;&gt;Linha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/odo.html&quot; title=&quot;Veja exemplo de gráfico de odômetro&quot;&gt;Odômetro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/pie.html&quot; title=&quot;Veja exemplo de gráfico em pizza&quot;&gt;&lt;em&gt;Pizza&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/tradar.html&quot; title=&quot;Veja exemplo de gráfico em forma de radar&quot;&gt;Radar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/rose.html&quot; title=&quot;Veja exemplo de gráfico de rosa&quot;&gt;Rosa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rgraph.net/examples/thermometer.html&quot; title=&quot;Veja exemplo de gráfico em forma de termometro&quot;&gt;Termometro&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Entre outros…&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;RGraph&lt;/em&gt; é gratuito para uso não comercial. Se você está disposto a
+utilizá-lo em uma aplicação comercial, eu recomendo a sua compra.
+Utilizamos na &lt;a href=&quot;http://www.setinet.com.br/&quot; title=&quot;Seti - Internet Controlada&quot;&gt;&lt;em&gt;Seti&lt;/em&gt;&lt;/a&gt; com muito sucesso esta poderosa ferramenta.&lt;/p&gt;
+&lt;p&gt;E você? Conhece alguma outra &lt;em&gt;lib&lt;/em&gt; para criar dados estatísticos?
+Conte-nos através dos comentários abaixo.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[CSS3: Cantos arredondados, sombras e degradês até no IE]]></title><description><![CDATA[Enquanto o movimento em prol do HTML5 ganha cada vez mais força, o
+que podemos falar do CSS3? Para a nossa felicidade, Opera, Safari, Google Chrome, Firefox e
+(o polêmico) IE9 já apresentam (ou apresentarão, no caso do IE) bom
+suporte às principais propriedades do CSS3. Mas vale ressaltar que,
+assim…]]></description><link>https://klauslaube.com.br/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 27 Dec 2010 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Enquanto o &lt;a href=&quot;/2010/11/13/usando-html5-sem-medo.html&quot; title=&quot;Usando o HTML5 sem medo&quot;&gt;movimento em prol do HTML5 ganha cada vez mais força&lt;/a&gt;, o
+que podemos falar do &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS3&quot;&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;?&lt;/p&gt;
 &lt;p&gt;Para a nossa felicidade, &lt;em&gt;Opera&lt;/em&gt;, &lt;em&gt;Safari&lt;/em&gt;, &lt;em&gt;Google Chrome&lt;/em&gt;, &lt;em&gt;Firefox&lt;/em&gt; e
 (o polêmico) &lt;em&gt;IE9&lt;/em&gt; já apresentam (ou apresentarão, no caso do &lt;em&gt;IE&lt;/em&gt;) bom
-suporte às principais propriedades do &lt;em&gt;CSS3&lt;/em&gt;. Mas vale ressaltar que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 27 Dec 2010 13:00:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-12-27:/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</guid><category>desenvolvimento</category><category>web</category><category>padroes-web</category><category>css3</category><category>graceful-degradation</category><category>html5</category></item></channel></rss>
+suporte às principais propriedades do &lt;em&gt;CSS3&lt;/em&gt;. Mas vale ressaltar que,
+assim como o &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; o &lt;em&gt;CSS3&lt;/em&gt; é apenas um “draft“… os navegadores
+suportam algumas características através de expressões proprietárias
+(então a cautela neste caso também é necessária).&lt;/p&gt;
+&lt;p&gt;Isto pode (e deve) ser encarado de uma forma muito negativa. Mas temos
+que entender que estas expressões proprietárias estão calcadas em
+especificações do &lt;em&gt;W3C&lt;/em&gt;, ou seja, é bem provável que o &lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt;
+do &lt;em&gt;Firefox&lt;/em&gt; (realizado através da expressão &lt;code class=&quot;language-text&quot;&gt;-moz-border-radius&lt;/code&gt;) irá
+reproduzir um efeito similar ao &lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt; do &lt;em&gt;Chrome&lt;/em&gt; (que já
+segue a especificação do &lt;em&gt;W3C&lt;/em&gt;). A dica que eu dou é a seguinte: Utilize
+&lt;a href=&quot;http://www.tableless.com.br/graceful-degradation-e-tudo-sobre-acessibilidade&quot; title=&quot;Graceful degradation é tudo sobre Acessibilidade&quot;&gt;&lt;em&gt;Graceful Degradation&lt;/em&gt;&lt;/a&gt;, ou seja, &lt;strong&gt;escreva seus estilos com
+&lt;em&gt;CSS3&lt;/em&gt;&lt;/strong&gt;, e vá &lt;strong&gt;adicionando exceções para suportar os demais
+navegadores&lt;/strong&gt; que não suportam certas propriedades.&lt;/p&gt;
+&lt;p&gt;Vamos ao que interessa?!&lt;/p&gt;
+&lt;h2&gt;CSS3 Please!&lt;/h2&gt;
+&lt;p&gt;O site &lt;a href=&quot;http://css3please.com/&quot; title=&quot;Saiba como fazer CSS3 Cross-Browser&quot;&gt;&lt;em&gt;CSS3 Please! The Cross-Browser CSS3 Rule Generator&lt;/em&gt;&lt;/a&gt; nos
+ensina como fazer &lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;box-shadow&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;transform&lt;/code&gt;,
+&lt;code class=&quot;language-text&quot;&gt;transition&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;text-shadow&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;font-face&lt;/code&gt;; de forma muito simples
+e prática, e que funcione no &lt;em&gt;Safari&lt;/em&gt;, &lt;em&gt;Chrome&lt;/em&gt;, &lt;em&gt;Opera&lt;/em&gt; e &lt;em&gt;Firefox&lt;/em&gt; (e
+algumas propriedades até no &lt;em&gt;IE&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;É uma referência muito interessante que deve estar sempre disponível
+para quando bater aquela dúvida. Podemos reparar que são (na maioria dos
+casos) expressões proprietárias, mas que atingem a experiência obtida
+utilizando uma expressão &lt;em&gt;standard&lt;/em&gt; (como no caso do &lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt;).&lt;/p&gt;
+&lt;h2&gt;CSS3 PIE&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;CSS3 Please!&lt;/em&gt; já quebra um bom galho na utilização de alguns recursos
+do &lt;em&gt;CSS3&lt;/em&gt;. Mas no caso do &lt;em&gt;IE&lt;/em&gt;, algumas propriedades como
+&lt;code class=&quot;language-text&quot;&gt;border-radius&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;box-shadow&lt;/code&gt; (que no meu caso são as propriedades
+mais “salva-vidas” da linguagem) não possuem alternativas.&lt;/p&gt;
+&lt;p&gt;O site &lt;a href=&quot;http://css3pie.com/&quot; title=&quot;CSS3 decorations for IE&quot;&gt;&lt;em&gt;CSS3 PIE&lt;/em&gt;&lt;/a&gt; apresenta uma forma de utilizar estas propriedades
+sem precisar utilizar &lt;em&gt;PNGs&lt;/em&gt; com transparência. Através de um arquivo
+&lt;strong&gt;.htc&lt;/strong&gt; importado na folha de estilo, podemos fazer com que o &lt;em&gt;IE&lt;/em&gt; (do
+6 ao 8 ) possa compreender as seguintes propriedades:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;border-radius&lt;/li&gt;
+&lt;li&gt;box-shadow&lt;/li&gt;
+&lt;li&gt;border-image&lt;/li&gt;
+&lt;li&gt;Múltiplas imagens de fundo (background images)&lt;/li&gt;
+&lt;li&gt;Gradiente como fundo (linear-gradient as background image)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Já é uma boa economia de trabalho, não?&lt;/p&gt;
+&lt;h2&gt;jQuery e Graceful Degradation&lt;/h2&gt;
+&lt;p&gt;Recentemente o &lt;em&gt;Tableless&lt;/em&gt; fez um &lt;a href=&quot;http://www.tableless.com.br/jquery-para-layouts&quot; title=&quot;jQuery para produção de layouts&quot;&gt;excelente &lt;em&gt;post&lt;/em&gt;&lt;/a&gt; sobre como usar a
+&lt;a href=&quot;/tag/jquery.html&quot;&gt;&lt;em&gt;jQuery&lt;/em&gt;&lt;/a&gt; como meio de fazer alguns navegadores lidarem da melhor
+forma possível com novos recursos do &lt;em&gt;CSS3&lt;/em&gt; e &lt;em&gt;HTML5&lt;/em&gt;. Sempre fui muito
+a favor da visão deles e dessa vez não será diferente.&lt;/p&gt;
+&lt;p&gt;Nivelar por baixo pode ser uma excelente forma de garantir
+acessibilidade. Mas não é pecado “vendermos” um pouco de “boa
+experiência” para nossos usuários.&lt;/p&gt;
+&lt;p&gt;Enriquecer a experiência do usuário não é crime… esquecer da
+acessibilidade sim.&lt;/p&gt;</content:encoded></item></channel></rss>

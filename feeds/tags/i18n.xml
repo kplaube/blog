@@ -1,10 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - i18n</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 01 Jun 2011 09:41:00 -0300</lastBuildDate><item><title>Quando usar gettext e gettext_lazy?</title><link>https://klauslaube.com.br/2011/06/01/quando-usar-gettext-gettext_lazy.html</link><description>&lt;p&gt;Para vocês que desenvolvem em &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; preocupando-se
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - i18n]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Quando usar gettext e gettext_lazy?]]></title><description><![CDATA[Para vocês que desenvolvem em Python e Django preocupando-se
 com internacionalização, já devem ter feito a seguinte pergunta: Quando
-usar &lt;code&gt;gettext&lt;/code&gt; e &lt;code&gt;gettext_lazy&lt;/code&gt;?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+usar  e ? Acredito que antes de responder esta pergunta, temos que responder outra
+questão pertinente: Devo utilizar  ou ? gettext vs ugettext Essas duas funções…]]></description><link>https://klauslaube.com.br/2011/06/01/quando-usar-gettext-gettext_lazy.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/06/01/quando-usar-gettext-gettext_lazy.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 01 Jun 2011 09:41:00 GMT</pubDate><content:encoded>&lt;p&gt;Para vocês que desenvolvem em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; preocupando-se
+com internacionalização, já devem ter feito a seguinte pergunta: Quando
+usar &lt;code class=&quot;language-text&quot;&gt;gettext&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;gettext_lazy&lt;/code&gt;?&lt;/p&gt;
 &lt;p&gt;Acredito que antes de responder esta pergunta, temos que responder outra
-questão pertinente: Devo utilizar &lt;code&gt;gettext&lt;/code&gt; ou &lt;code&gt;ugettext&lt;/code&gt;?&lt;/p&gt;
+questão pertinente: Devo utilizar &lt;code class=&quot;language-text&quot;&gt;gettext&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;ugettext&lt;/code&gt;?&lt;/p&gt;
 &lt;h2&gt;gettext vs ugettext&lt;/h2&gt;
-&lt;p&gt;Essas duas funções seguem o mesmo …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 01 Jun 2011 09:41:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-06-01:/2011/06/01/quando-usar-gettext-gettext_lazy.html</guid><category>desenvolvimento</category><category>python</category><category>django</category><category>i18n</category></item></channel></rss>
+&lt;p&gt;Essas duas funções seguem o mesmo princípio dos métodos mágicos
+&lt;code class=&quot;language-text&quot;&gt;__str__&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;__unicode__&lt;/code&gt;. Onde &lt;code class=&quot;language-text&quot;&gt;gettext&lt;/code&gt; retornará um texto traduzido
+como uma &lt;em&gt;string&lt;/em&gt; “comum”, e &lt;code class=&quot;language-text&quot;&gt;ugettext&lt;/code&gt; retornará um texto traduzido
+como uma &lt;em&gt;string&lt;/em&gt; &lt;em&gt;Unicode&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Como nosso idioma nativo abusa do uso de caracteres especiais, aconselho
+sempre que possível a utilização do &lt;code class=&quot;language-text&quot;&gt;ugettext&lt;/code&gt;. Na verdade, é uma
+forma de garantir sucesso na tradução de qualquer idioma sem quebrar a
+cabeça com &lt;em&gt;encoding&lt;/em&gt; (já que o &lt;em&gt;Unicode&lt;/em&gt; tem uma ampla tabela de
+caracteres).&lt;/p&gt;
+&lt;p&gt;Além disso, passe a mensagem como &lt;em&gt;Unicode&lt;/em&gt; para a função sempre que
+necessário:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;texto_traduzido &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ugettext&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;u&apos;Descrição do produto em estoque&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;ugettext vs ugettext_lazy&lt;/h2&gt;
+&lt;p&gt;A principal diferença entre &lt;code class=&quot;language-text&quot;&gt;ugettext&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;ugettext_lazy&lt;/code&gt; é que o
+último é literalmente um preguiçoso. Ele faz uma referência para a
+&lt;em&gt;string&lt;/em&gt; (e não necessariamente para a tradução), fazendo com que a
+operação seja executada apenas quando a renderização da &lt;em&gt;string&lt;/em&gt; é
+necessária (ao contrário de &lt;code class=&quot;language-text&quot;&gt;ugettext&lt;/code&gt; que é processado assim que a
+expressão é interpretada).&lt;/p&gt;
+&lt;p&gt;Confuso? Talvez o &lt;a href=&quot;http://www.aprendendodjango.com/o-mesmo-site-em-varios-idiomas/&quot; title=&quot;Aprendendo Django no Planeta Terra - O mesmo site em vários idiomas&quot;&gt;&lt;em&gt;Marinho Brandão&lt;/em&gt;&lt;/a&gt; possa ser mais claro:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A função “&lt;strong&gt;ugettext_lazy()&lt;/strong&gt;“ é &lt;strong&gt;preguiçosa&lt;/strong&gt;. Isso significa que a
+tradução é feita somente quando ela é requisitada, o que é&lt;br&gt;
+relativamente melhor para o caso de classes de modelo, pois elas&lt;br&gt;
+são constantemente utilizadas sem que a tradução de um termo seja&lt;br&gt;
+necessário de fato.&lt;/p&gt;
+&lt;p&gt;Por outro lado a função “&lt;strong&gt;ugettext()&lt;/strong&gt;“ traduz a string&lt;br&gt;
+&lt;strong&gt;instantaneamente&lt;/strong&gt;, o que é melhor para casos como o de formulários&lt;br&gt;
+dinâmicos e views, pois eles não são usados de maneira tão constante&lt;br&gt;
+quanto classes de modelo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Então… utilize &lt;code class=&quot;language-text&quot;&gt;ugettext_lazy&lt;/code&gt; nos campos e meta-informações dos
+modelos (onde a tradução pode ser feita sob demanda), e &lt;code class=&quot;language-text&quot;&gt;ugettext&lt;/code&gt; em
+métodos, funções e views (onde a tradução tem quer ser “instantânea”).&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.python.org/library/gettext.html&quot; title=&quot;gettext - Multilingual internationalization services&quot;&gt;&lt;em&gt;Python Documentation – gettext&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/i18n/internationalization/#lazy-translation&quot; title=&quot;Django Docs - Lazy Translation&quot;&gt;&lt;em&gt;Django Documentation – Internationalization&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.djangobook.com/en/1.0/chapter18/&quot; title=&quot;The Django Book - i18n&quot;&gt;&lt;em&gt;The Django Book – Internationalization&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.aprendendodjango.com/o-mesmo-site-em-varios-idiomas/&quot; title=&quot;Aprendendo Django - O mesmo site em vários idiomas&quot;&gt;Aprendendo &lt;em&gt;Django&lt;/em&gt; no Planeta Terra – O mesmo &lt;em&gt;site&lt;/em&gt; em vários idiomas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

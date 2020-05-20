@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - vcs]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Como versionar projetos Django com o Mercurial - Parte 3]]></title><description><![CDATA[Dando continuidade a micro-série Como versionar projetos \Django_ com o
+Mercurial (confira a parte 1 e a parte 2), vamos finalizar com
+um exemplo prático de um projeto Django usando o Mercurial. Começando… Vamos reutilizar a estrutura dos posts anteriores. Para isso, inicie
+um projeto com o…]]></description><link>https://klauslaube.com.br/2011/06/04/como-versionar-projetos-django-mercurial-parte-3.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/06/04/como-versionar-projetos-django-mercurial-parte-3.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 04 Jun 2011 10:27:00 GMT</pubDate><content:encoded>&lt;p&gt;Dando continuidade a micro-série &lt;em&gt;Como versionar projetos \&lt;/em&gt;Django_ com o
+&lt;em&gt;Mercurial&lt;/em&gt; (confira a &lt;a href=&quot;/2011/05/10/como-versionar-projetos-django-mercurial-parte.html&quot;&gt;parte 1&lt;/a&gt; e a &lt;a href=&quot;/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html&quot; title=&quot;Como versionar projetos Django com o Mercurial - Parte 2&quot;&gt;parte 2&lt;/a&gt;), vamos finalizar com
+um exemplo prático de um projeto &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; usando o &lt;a href=&quot;/tag/mercurial.html&quot; title=&quot;Leia mais sobre Mercurial&quot;&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Começando…&lt;/h2&gt;
+&lt;p&gt;Vamos reutilizar a estrutura dos &lt;em&gt;posts&lt;/em&gt; anteriores. Para isso, inicie
+um projeto com o &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Projetos/
+$ virtualenv DjangoComHG --no-site-packages
+$ cd DjangoComHG/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos aproveitar os procedimentos descritos na [parte 2][1] deste
+&lt;em&gt;post&lt;/em&gt;. Caso você ainda não tenha criado um repositório no
+&lt;a href=&quot;http://www.bitbucket.org/&quot; title=&quot;Versione e compartilhe código com o Mercurial&quot;&gt;&lt;em&gt;Bitbucket&lt;/em&gt;&lt;/a&gt;, essa é uma boa oportunidade.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg clone &amp;lt;caminho&amp;gt; django_com_hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não esqueça de mudar o &lt;strong&gt;caminho&lt;/strong&gt; para o &lt;strong&gt;endereço do seu
+repositório&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalando o Django&lt;/h2&gt;
+&lt;p&gt;Com o &lt;em&gt;virtualenv&lt;/em&gt; ativado, vamos instalar o &lt;em&gt;Django&lt;/em&gt; apenas para o
+nosso ambiente &lt;em&gt;virtual&lt;/em&gt; através do &lt;em&gt;pip&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ source bin/activate
+$ pip install django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Só para ter certeza que ele instalou o &lt;em&gt;Django&lt;/em&gt; dentro do nosso ambiente
+virtual, vamos abrir o terminal do &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e digitar as seguintes
+instruções:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; django
+django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;__path__&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Você deverá obter como resposta uma &lt;em&gt;string&lt;/em&gt; semelhante a esta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$HOME/Projetos/DjangoComHG/lib/python2.6/site-packages/django/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Iniciando um projeto&lt;/h2&gt;
+&lt;p&gt;Vamos fazer uma pequena brincadeira de troca de nomes de pastas, para
+que possamos criar o nosso projeto &lt;em&gt;Django&lt;/em&gt; com o mesmo nome do
+repositório &lt;em&gt;Mercurial&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mv post_django_com_hg post_django_com_hg.bk&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora mandamos o &lt;code class=&quot;language-text&quot;&gt;django-admin.py&lt;/code&gt; iniciar o projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ django-admin.py startproject post_django_com_hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Movemos os arquivos do nosso repositório para dentro de
+&lt;code class=&quot;language-text&quot;&gt;post_django_com_hg&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mv post_django_com_hg.bk/* post_django_com_hg/
+$ mv post_django_com_hg.bk/.hg post_django_com_hg/
+$ mv post_django_com_hg.bk/.hgignore post_django_com_hg/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Entre no diretório &lt;code class=&quot;language-text&quot;&gt;post_django_com_hg&lt;/code&gt; e dê um &lt;code class=&quot;language-text&quot;&gt;hg status&lt;/code&gt;. Os
+arquivos base do &lt;em&gt;Django&lt;/em&gt; não estão no projeto. Vamos adicioná-los,
+comitá-los e dar um &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt; deles para o repositório &lt;em&gt;Mercurial&lt;/em&gt; no
+&lt;em&gt;Bitbucket&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg add .
+$ hg commit -m &amp;quot;Projeto Django iniciado&amp;quot;
+$ hg push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nos &lt;em&gt;changesets&lt;/em&gt; do repositório, veremos a contribuição enviada:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 568px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c95e7c18e4f018ee5ab9d63faa63a129/10e91/changesets-no-bitbucket.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 29.166666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsSAAALEgHS3X78AAAA0klEQVQY04WQ3W7DIAyF8/4vt7vdtE2TogUCBAj/4EDmSrvYqkr75Jtjyz62h4nQj8/bsm4HQKmvQIUGHWorpVSMCgD1OACj9z4wrh5fq3XOWhv+EkM0Ts/bxezEWR283/ddaU1XIZU+sXm6jZRxypWx4Twxc/4GLWWmcBisoEwp+hCpMMZFlMN4n+8zMcb4dwQfcszBpx+J68SQMw6JrbVhoYIsXGyGCZVSxmNeeN4NtZaMFVxbym0kjEn1dJ6uV875pveYcv8PnIWfCzHnUrH5G5eaWLw77kfRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Changeset no BitBucket&amp;quot;&quot;
+        title=&quot;Changeset no BitBucket&quot;
+        src=&quot;/static/c95e7c18e4f018ee5ab9d63faa63a129/10e91/changesets-no-bitbucket.png&quot;
+        srcset=&quot;/static/c95e7c18e4f018ee5ab9d63faa63a129/8514f/changesets-no-bitbucket.png 192w,
+/static/c95e7c18e4f018ee5ab9d63faa63a129/804b2/changesets-no-bitbucket.png 384w,
+/static/c95e7c18e4f018ee5ab9d63faa63a129/10e91/changesets-no-bitbucket.png 568w&quot;
+        sizes=&quot;(max-width: 568px) 100vw, 568px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Changeset no BitBucket&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Pronto!&lt;/strong&gt; Basicamente, para termos o &lt;em&gt;Mercurial&lt;/em&gt; versionando um
+projeto &lt;em&gt;Django&lt;/em&gt;, são estes os procedimentos… mas eu sei como deixar a
+coisa ainda mais interessante&lt;/p&gt;
+&lt;h2&gt;Hora de congelar!&lt;/h2&gt;
+&lt;p&gt;Digamos que você tenha um colaborador envolvido com o projeto. Quer
+dizer que ele vai ter que criar um &lt;em&gt;virtualenv&lt;/em&gt;, clonar o repositório e
+instalar as dependências do projeto? A resposta é “sim” – Mas podemos
+facilitar esta última parte através do &lt;em&gt;pip&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip freeze
+
+Django==1.3
+wsgiref==0.1.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O comando &lt;code class=&quot;language-text&quot;&gt;pip freeze&lt;/code&gt; vai coletar os pacotes &lt;em&gt;Python&lt;/em&gt; instalados
+(nesse nosso caso, dentro do nosso ambiente virtual através do
+&lt;em&gt;virtualenv&lt;/em&gt;) e exibir para a gente em formato de lista. Com isso,
+podemos criar um arquivo que armazene as dependências do nosso projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip freeze &amp;gt; requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos desativar o ambiente atual, criar um novo e instalar as
+dependências listadas nesta arquivo &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; neste novo
+ambiente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ deactivate
+$ cd ~/Projetos/
+$ virtualenv DjangoComHG-2 --no-site-packages
+$ source DjangoComHG-2/bin/activate
+$ pip install -r DjangoComHG/post_django_com_hg/requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja a mágica acontecendo… o &lt;em&gt;pip&lt;/em&gt; instalará todas as dependências
+contidas em &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; em nosso novo ambiente virtual.&lt;/p&gt;
+&lt;p&gt;Podemos resumir os comandos acima em:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install -E DjangoComHG-2 -r DjangoComHG/post_django_com_hg/requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A instrução acima deverá ser escrita em um linha só.&lt;/p&gt;
+&lt;h2&gt;Versionando dependências do projeto&lt;/h2&gt;
+&lt;p&gt;Logo o &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; sendo um arquivo de texto, pode ser
+facilmente versionado pelo &lt;em&gt;Mercurial&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Projetos/DjangoComHG/post_django_com_hg
+$ hg add requirements.txt
+$ hg commit -m &amp;quot;Adicionado arquivo de dependências do pip&amp;quot;
+$ hg push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Finalmente, temos um projeto &lt;em&gt;Django&lt;/em&gt; versionado com &lt;em&gt;Mercurial&lt;/em&gt;,
+disponível no &lt;em&gt;Bitbucket&lt;/em&gt;, e com dependências facilmente gerenciáveis
+através do &lt;em&gt;pip&lt;/em&gt; em conjunto com o &lt;em&gt;virtualenv&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E você… utiliza controle de versão com o &lt;em&gt;Django&lt;/em&gt; de uma outra forma?
+Conte-nos através dos comentários abaixo.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Como versionar projetos Django com o Mercurial - Parte 2]]></title><description><![CDATA[Dando continuidade ao post Como versionar
+projetos Django com o Mercurial, e a série Montando seu ambiente
+de desenvolvimento Django no Linux, vamos dar uma pincelada nos
+funcionamentos básicos do Mercurial. hg? Mas não era Mercurial? Mercury em português significa mercúrio (nenhuma novidade até…]]></description><link>https://klauslaube.com.br/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/05/22/como-versionar-projetos-django-mercurial-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 22 May 2011 09:04:00 GMT</pubDate><content:encoded>&lt;p&gt;Dando continuidade ao &lt;em&gt;post&lt;/em&gt; &lt;a href=&quot;/2011/05/10/como-versionar-projetos-django-mercurial-parte.html&quot; title=&quot;Leia a primeira parte deste post&quot;&gt;Como versionar
+projetos &lt;em&gt;Django&lt;/em&gt; com o &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;, e a série &lt;a href=&quot;/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html&quot; title=&quot;Tá começando com Django? É usuário Linux? Este post pode te interessar&quot;&gt;Montando seu ambiente
+de desenvolvimento &lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;, vamos dar uma pincelada nos
+funcionamentos básicos do &lt;a href=&quot;/tag/mercurial.html&quot; title=&quot;Leia mais sobre Mercurial&quot;&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;hg? Mas não era Mercurial?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Mercury&lt;/em&gt; em português significa mercúrio (nenhuma novidade até aqui),
+que é um elemento químico com o símbolo &lt;code class=&quot;language-text&quot;&gt;Hg&lt;/code&gt; e o número atômico 80
+(assim disse a &lt;a href=&quot;http://en.wikipedia.org/wiki/Mercury_(element)&quot; title=&quot;Leia mais sobre o elemento químico Mercúrio&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt; (: ). É devido a isso que você utilizará
+o &lt;em&gt;Mercurial&lt;/em&gt; em linha de comando através de comandos iniciados por
+&lt;code class=&quot;language-text&quot;&gt;hg&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Antes de iniciarmos, vamos dizer ao &lt;em&gt;Mercurial&lt;/em&gt; quem nós somos. Abra o
+arquivo &lt;code class=&quot;language-text&quot;&gt;.hgrc&lt;/code&gt; do seu &lt;code class=&quot;language-text&quot;&gt;home&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ vim ~/.hgrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É fundamental que nossos &lt;em&gt;commits&lt;/em&gt; estejam marcados com nosso nome, e um
+e-mail para contato. Vamos escrever estas duas informações neste
+arquivo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;[ui]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; seu nome &amp;lt; seuemail@provedor.com &gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Salve o arquivo, e estamos prontos para iniciar.&lt;/p&gt;
+&lt;h2&gt;Primeiros passos&lt;/h2&gt;
+&lt;p&gt;Os passos que vou exemplificar aqui não são muito diferentes dos que
+você encontrará na &lt;a href=&quot;http://mercurial.selenic.com/&quot; title=&quot;Visite a página oficial do projeto Mercurial&quot;&gt;página oficial do &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;. Preguiça minha?
+Talvez… mas você verá que usar o &lt;em&gt;Mercurial&lt;/em&gt; é extremamente simples! As
+dificuldades são as exceções do dia a dia.&lt;/p&gt;
+&lt;p&gt;Para deixar o exemplo mais interessante, vamos utilizar o &lt;em&gt;virtualenv&lt;/em&gt;.
+Dúvidas? Confira o &lt;em&gt;post&lt;/em&gt; &lt;a href=&quot;/2011/03/18/python-django-virtualenv.html&quot; title=&quot;Construa projetos isolados do seu sistema com virtualenv&quot;&gt;&lt;em&gt;Python&lt;/em&gt;, &lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e
+visualize aonde pretendemos chegar:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ˜/Projetos/
+$ virtualenv DjangoComHG --no-site-packages
+
+$ cd DjangoComHG&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora sim, vamos criar um projeto através da seguinte expressão:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg init django-com-hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Projeto criado… vamos partir para as tarefas mais comuns no &lt;em&gt;Mercurial&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Altere, adicione e “comite”&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Mercurial&lt;/em&gt; é &lt;a href=&quot;http://en.wikipedia.org/wiki/Distributed_revision_control&quot; title=&quot;Leia mais sobre Distributed Version Control System&quot;&gt;&lt;em&gt;DVCS&lt;/em&gt;&lt;/a&gt;, isto quer dizer que, quando você clonar um
+repositório remoto você terá uma cópia exata dele em seu computador.
+Logo, as alterações que você “persistir” estarão disponíveis apenas na
+sua cópia local. Pode parecer um pouco confuso, mas com o tempo faz todo
+o sentido.&lt;/p&gt;
+&lt;p&gt;Para o primeiro &lt;em&gt;commit&lt;/em&gt; (persistir nossas alterações localmente)
+escreva um arquivo &lt;code class=&quot;language-text&quot;&gt;.hgignore&lt;/code&gt; (&lt;a href=&quot;http://mercurial.selenic.com/wiki/.hgignore&quot; title=&quot;Entenda para que serve o arquivo .hgignore&quot;&gt;saiba mais do que se trata&lt;/a&gt;) e um
+arquivo &lt;code class=&quot;language-text&quot;&gt;README&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd django-com-hg/
+$ ls -a
+
+.hg     .hgignore     README&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A pasta &lt;code class=&quot;language-text&quot;&gt;.hg&lt;/code&gt; na verdade é quem vai identificar e armazenar todas as
+informações do nosso projeto. Sem ela, você deixa de ter o controle
+sobre as versões dos arquivos e subpastas do projeto.&lt;/p&gt;
+&lt;p&gt;Execute o comando &lt;code class=&quot;language-text&quot;&gt;hg status&lt;/code&gt; e veja o que aparece… acredito que o
+resultado seja auto-sugestivo. O &lt;em&gt;Mercurial&lt;/em&gt; ainda não sabe o que fazer
+com os arquivos no projeto, portanto diremos a ele que queremos
+versionar estes arquivos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg add .hgignore README&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma nova execução do &lt;code class=&quot;language-text&quot;&gt;hg status&lt;/code&gt; vai apontar que os arquivos foram
+marcados para adição, porém, ainda não foram adicionados. Você vai
+confirmar está operação através do comando &lt;code class=&quot;language-text&quot;&gt;commit&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg commit -m &amp;quot;Primeiro commit com .hgignore&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O parâmetro &lt;code class=&quot;language-text&quot;&gt;-m&lt;/code&gt; serve para passarmos uma mensagem de descrição do
+&lt;code class=&quot;language-text&quot;&gt;commit&lt;/code&gt; que estamos fazendo. Isto facilita na leitura do &lt;em&gt;log&lt;/em&gt; de
+&lt;em&gt;commits&lt;/em&gt; realizados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg log&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Estes serão os comandos que provavelmente você usará constantemente
+enquanto desenvolve.&lt;/p&gt;
+&lt;h2&gt;Compartilhando as suas produções&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ce36d314697154285d961d7076a96e53/e9ff0/bitbucket-logo.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAADvklEQVQ4y41Ue0xXZRj+kHKtZn8009FGKxEvBVYKpevyhzHbvGYuHHIVrZ+ylIEyu+CSzaUzL1PQZm3eVhvegI2W1hQQm13hR2oCGlNRBoqZXILf5Zz36X3fcw5iWvNs775zvvN9z/e8z/t8ryGiHo4QgKBt28GwZQXl/X4ibNlBi/fIO2NI9BsXDDzCe0JhC02X2lFZ+xt2HKzB+j1HsW73ERTvr0JZVT3O/NGGvkBoYL23l0cyysyZoIttnbT801J6auYHFJnoo+Gv51Psm4UUl7yG4uevodi5hTQiaQUNSfDRyGkrKevj3dTQ3CqbybYVwzK2QxkXWq/R40n5ME/Mw5z87ei82Y3/erp7+5Gz/iuY6GQMSfShtv68g8b5G9FBPo79dI7MM5mImPQumBVWbTuML8pPoqKmAcd+bkTVL034+uRp7Kk8haLPKzEpbS0iE5fAjE7FzrJacqWyBxi2XL1Oj762HOaFxTATsmFiFsCMSYOJXwgz8R0nZH5sOsyoFJhns2D4cFl/YjBDqY58BEJhipnzEUxcFp/s09MfeJEZPL9YWZjRCxRQ5iI5JFXz3CIMe3UZrnTcVEDW0QF0q0RJOVtgxmXo4ogEPj0+G1wYp8KlVRg1+0M9MCLBp2HiFmLM3NXgTMmtsgPofedu3K9pKjNOZejkpWhovoLGi+348UwL2m90IWraygGmZlw6ZuWV6F5xym1Ay9bJnYdrYWLTGChHtZqRW4xbPX2OjlFvic7I33xA9X1oSo5KUbD1kO5llg6g+NBjeJyrKbo8+NJSFX3C/CIEQ2HMK/gMkzPXIRAMYzZbSg5TwPEZ6gQPUGR0NXSM3vFnFx55ZRmzTHVAObX3i8sUiK8kSg5Ua7U1XbaY6OlvaoVn7AGGboUU9kTdeUxMXcunZzr2iH5b2ailnkyGeTpFGYojDh2vUya2V9V7Af7e0ob6xsuo49j05XfILtoLqf7UJZuQvnoXPtn1Db5vuICzfJ9/PXcJg/dqyh5gOGzpZAk3ALGMpPrD6RZ0cGUDwZBq2flXD+qbLnOzOIKHX34PuRtLMXjvHYCWe7v9za1s5kWqo3hSNka9UaAxTNIW7eQGcVRU+x1At6p3AHo6dP/dr2YWDYdKYeR6yQESXBCvWOJTbihuyvcAlF7m/qDyaj9FT19FbB3iAhAz5Uh33sdn0GNT84j7pNe29LkL8N/NsrcvgKOnzmLDvm+xYstB5LGhpSAVNX7cuNXjrL27sylgv0vQEpIyKV1Dxv8LWeOt90aR8x/zr7dAhtYdeAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Logotipo do BitBucket&amp;quot;&quot;
+        title=&quot;Logotipo do BitBucket&quot;
+        src=&quot;/static/ce36d314697154285d961d7076a96e53/e9ff0/bitbucket-logo.png&quot;
+        srcset=&quot;/static/ce36d314697154285d961d7076a96e53/e9ff0/bitbucket-logo.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Logotipo do BitBucket&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Se você ainda não tem uma conta no
+&lt;a href=&quot;http://bitbucket.org/&quot; title=&quot;Bitbucket, compartilhe o seu código&quot;&gt;&lt;em&gt;Bitbucket&lt;/em&gt;&lt;/a&gt;, essa é uma grande oportunidade para fazer uma.&lt;/p&gt;
+&lt;p&gt;Vamos criar um repositório para praticarmos o comando &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt;. No
+&lt;em&gt;Bitbucket&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Eu vou dar o nome de “post-django-com-hg” ao repositório, fique a
+vontade para dar o nome que você desejar;&lt;/li&gt;
+&lt;li&gt;Escolha o &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; como linguagem;&lt;/li&gt;
+&lt;li&gt;Coloque uma pequena descrição;&lt;/li&gt;
+&lt;li&gt;Eu vou marcar a opção &quot;Issue tracking&quot;, caso haja algum problema com
+o código e vocês queiram sugerir melhorias.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://bitbucket.org/kplaube/post-django-com-hg&quot; title=&quot;Confira o repositório criado no Bitbucket&quot;&gt;Confira o resultado&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No repositório local vamos utilizar o comando &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt; com o endereço do
+repositório no &lt;em&gt;Bitbucket&lt;/em&gt;. Isso enviará todas as alterações que
+persistidas em nosso repositório local para o repositório remoto,
+mesclando-as com as contribuições de outros usuários envolvidos no
+projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg push https://bitbucket.org/kplaube/post-django-com-hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Lembre-se&lt;/strong&gt; de mudar o endereço acima para o endereço do seu
+repositório no &lt;em&gt;Bitbucket&lt;/em&gt;. Visite a página do seu repositório e veja o
+que aconteceu… bacana, não?&lt;/p&gt;
+&lt;p&gt;Mas dessa forma, teremos que sempre executar o comando &lt;code class=&quot;language-text&quot;&gt;pus&lt;/code&gt;h
+informando o endereço do repositório. Vamos deixar esta tarefa mais
+simples editando o arquivo &lt;code class=&quot;language-text&quot;&gt;hgrc&lt;/code&gt; dentro da pasta &lt;code class=&quot;language-text&quot;&gt;.hg&lt;/code&gt; do projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Projetos/DjangoComHG/django-com-hg/
+$ vim .hg/hgrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Coloque o seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;[paths]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; https://kplaube@bitbucket.org/kplaube/post-django-com-hg&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Lembre-se&lt;/strong&gt; de mudar o endereço acima para o endereço do seu
+repositório no &lt;em&gt;Bitbucket&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Pronto! Quando você for “pushear” não precisará mais informar o endereço
+do repositório remoto.&lt;/p&gt;
+&lt;p&gt;Altere alguns arquivos… &lt;code class=&quot;language-text&quot;&gt;commit&lt;/code&gt;. Adicione alguns arquivos…
+&lt;code class=&quot;language-text&quot;&gt;commit&lt;/code&gt;. Ao final do dia, dê um &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt; e deixe o resto da equipe
+saber o que você fez ;)&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://mercurial.selenic.com/&quot; title=&quot;Mercurial, work easier, work faster&quot;&gt;Site oficial do projeto &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Mercurial&quot; title=&quot;Leia mais sobre Mercurial na Wikipedia&quot;&gt;Artigo na &lt;em&gt;Wikipedia&lt;/em&gt; sobre &lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Mercury_(element)&quot; title=&quot;Leia mais sobre Mercúrio no Wikipedia&quot;&gt;Artigo na &lt;em&gt;Wikipedia&lt;/em&gt; sobre Mercúrio (o elemento químico)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tocadoelfo.blogspot.com/2011/03/mercurial-hg-controlando-as-versoes-do.html&quot; title=&quot;Excelente post sobre Mercurial, TI e gerência de projetos&quot;&gt;&lt;em&gt;Mercurial Hg&lt;/em&gt; – Controlando as Versões do seu &lt;em&gt;Software&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://hgbook.red-bean.com/read/&quot; title=&quot;Excelente e-book de Bryan O&amp;#x27;Sullivan sobre Mercurial&quot;&gt;&lt;em&gt;Mercurial&lt;/em&gt;: &lt;em&gt;The Definitive Guide&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No próximo &lt;em&gt;post&lt;/em&gt;, vamos concluir a trilogia mostrando uma forma bacana
+de utilizar o &lt;em&gt;Mercurial&lt;/em&gt; para versionar seus projetos &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Como versionar projetos Django com o Mercurial - Parte 1]]></title><description><![CDATA[Se você está começando em Django, e nunca utilizou uma ferramenta
+de controle de versão (as vezes por trauma do SVN ou por simples
+desinteresse) esta será uma grande oportunidade para você conhecer o
+Mercurial, e saber a forma que venho utilizando para versionar
+meus projetos Django. Peraí! Por que…]]></description><link>https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 10 May 2011 21:34:00 GMT</pubDate><content:encoded>&lt;p&gt;Se você está começando em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, e nunca utilizou uma ferramenta
+de controle de versão (as vezes por trauma do &lt;a href=&quot;http://akitaonrails.com/2007/09/22/jogar-pedra-em-gato-morto-por-que-subversion-no-presta&quot; title=&quot;Jogar Pedra em Gato Morto: por que Subversion não presta&quot;&gt;&lt;em&gt;SVN&lt;/em&gt;&lt;/a&gt; ou por &lt;a href=&quot;http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o&quot; title=&quot;Wikipedia, Sistema de Controle de Versão&quot;&gt;simples
+desinteresse&lt;/a&gt;) esta será uma grande oportunidade para você conhecer o
+&lt;a href=&quot;http://www.profissionaisti.com.br/2009/06/bitbucket-hospede-e-versione-softwares-com-mercurial/&quot; title=&quot;Bitbucket: Hospede e versione softwares com Mercurial&quot;&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;, e saber a forma que venho utilizando para versionar
+meus projetos Django.&lt;/p&gt;
+&lt;h2&gt;Peraí! Por que não Git?&lt;/h2&gt;
+&lt;p&gt;Sem dúvida o &lt;a href=&quot;http://git-scm.com/&quot; title=&quot;Git é a estrela do momento tratando-se de DVCS&quot;&gt;&lt;em&gt;Git&lt;/em&gt;&lt;/a&gt; é a ferramenta do momento em
+se tratando de controle de versões, e vem sendo muito utilizada por
+rubistas e pythonistas (eu incluso nessa última galera).&lt;/p&gt;
+&lt;p&gt;Por que não falar de &lt;em&gt;Git&lt;/em&gt; aqui? Simples! &lt;strong&gt;Você vai ouvir falar sobre
+&lt;em&gt;Git&lt;/em&gt; em todo o lugar&lt;/strong&gt;. O &lt;em&gt;Google&lt;/em&gt; vai te trazer toneladas de
+informações sobre &lt;em&gt;Git&lt;/em&gt;. Você vai “ouvir” o pessoal falando que &lt;a href=&quot;http://pt.whygitisbetterthanx.com/&quot; title=&quot;Por que Git é Melhor que X&quot;&gt;&lt;em&gt;Git&lt;/em&gt; é melhor do que qualquer outra ferramenta&lt;/a&gt;.
+Você vai até enjoar de tanto ouvir falar sobre &lt;em&gt;Git&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Mercurial&lt;/em&gt; foi o primeiro &lt;a href=&quot;http://en.wikipedia.org/wiki/Distributed_revision_control&quot; title=&quot;DVCS - Distributed Version Control System&quot;&gt;&lt;em&gt;DVCS&lt;/em&gt;&lt;/a&gt; que utilizei (de verdade). &lt;strong&gt;Na
+minha opinião&lt;/strong&gt;, ele é mais simples que o &lt;em&gt;Git&lt;/em&gt;, é feito em
+&lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, e me atende no desenvolvimento dos meus projetos pessoais.&lt;/p&gt;
+&lt;p&gt;Concordo com o pessoal que diz que o &lt;em&gt;Git&lt;/em&gt; é bom, e concordo com o
+pessoal que fala que o &lt;em&gt;Mercurial&lt;/em&gt; é bom. É perfeitamente possível
+utilizar estas duas ferramentas, não precisamos ser radicais e iniciar
+um &lt;em&gt;flame&lt;/em&gt; em cima deste assunto. A opção é melhor que não ter opção…&lt;/p&gt;
+&lt;h2&gt;GitHub x Bitbucket&lt;/h2&gt;
+&lt;p&gt;Agora uma coisa eu não posso deixar de concordar: O &lt;a href=&quot;https://github.com/&quot; title=&quot;GitHub, Social coding&quot;&gt;&lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt; é (na minha opinião) melhor que o
+&lt;a href=&quot;https://bitbucket.org/&quot; title=&quot;Alternativa com Mercurial ao GitHub&quot;&gt;&lt;em&gt;Bitbucket&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ambos são repositórios de código na nuvem, o primeiro usando &lt;em&gt;Git&lt;/em&gt; e o
+segundo usando &lt;em&gt;Mercurial&lt;/em&gt;. O detalhe é que o &lt;em&gt;GitHub&lt;/em&gt; tem algumas
+funções mais apuradas que o &lt;em&gt;Bitbucket&lt;/em&gt;, principalmente as
+funcionalidades que tornam a ferramenta muito mais “social”.&lt;/p&gt;
+&lt;p&gt;Embora o &lt;em&gt;Bitbucket&lt;/em&gt; recentemente tenha sido adquirido pela
+&lt;strong&gt;&lt;em&gt;Atlassian&lt;/em&gt;&lt;/strong&gt; e tenha recebido uma forte injencão de melhorias… o
+&lt;em&gt;GitHub&lt;/em&gt; ainda é, para mim, a melhor forma de compartilhar código que
+existe no momento.&lt;/p&gt;
+&lt;p&gt;Venho utilizando o &lt;em&gt;Bitbucket&lt;/em&gt; pela opção de poder manter &lt;strong&gt;repositórios
+de código “fechados”&lt;/strong&gt;. Coisa que com o “rival” só é possível através de
+uma conta paga.&lt;/p&gt;
+&lt;p&gt;Mais uma vez… é perfeitamente possível viver utilizando as duas
+ferramentas.&lt;/p&gt;
+&lt;p&gt;Na próxima parte deste &lt;em&gt;post&lt;/em&gt; vamos abordar o básico do &lt;em&gt;Mercurial&lt;/em&gt;, e
+também pretendo mostrar como organizo os meus projetos &lt;em&gt;Django&lt;/em&gt;
+“versionando-os” com o &lt;em&gt;Mercurial&lt;/em&gt; e &lt;em&gt;Bitbucket&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

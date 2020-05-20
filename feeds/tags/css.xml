@@ -1,36 +1,815 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - css</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 12 Jan 2019 10:55:00 -0200</lastBuildDate><item><title>Deixe darem pitaco no seu código com Prettier</title><link>https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</link><description>&lt;p&gt;&lt;em&gt;Code formatters&lt;/em&gt; são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
-mas depois de alguns "Hello world" em &lt;a href="https://golang.org/" title="Leia mais sobre Golang"&gt;&lt;em&gt;Go&lt;/em&gt;&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - css]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+mas depois de alguns "Hello world" em Go
+admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
+programador para isso, é uma ideia excelente. Em Go temos o , que
+poupa um tempo absurdo tornando o…]]></description><link>https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 12 Jan 2019 10:55:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Code formatters&lt;/em&gt; são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+mas depois de alguns &quot;Hello world&quot; em &lt;a href=&quot;https://golang.org/&quot; title=&quot;Leia mais sobre Golang&quot;&gt;&lt;em&gt;Go&lt;/em&gt;&lt;/a&gt;
 admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
 programador para isso, é uma ideia excelente.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Em &lt;em&gt;Go&lt;/em&gt; temos o &lt;code class=&quot;language-text&quot;&gt;go fmt&lt;/code&gt;, que
+poupa um tempo absurdo tornando o seu código &quot;go-like&quot; com pouco esforço.
+Já para &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, temos o &lt;a href=&quot;https://prettier.io/&quot; title=&quot;Opiniated Code Formatter&quot;&gt;&lt;em&gt;Prettier&lt;/em&gt;&lt;/a&gt;.
+E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
+&lt;h2&gt;Mais bonito&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Prettier&lt;/em&gt; é um &lt;em&gt;code formatter&lt;/em&gt; livre (&lt;a href=&quot;https://github.com/prettier/prettier/blob/master/LICENSE&quot; title=&quot;Leia o documento completo&quot;&gt;&lt;em&gt;MIT&lt;/em&gt;&lt;/a&gt;) e de código aberto, que tem por finalidade &quot;forçar&quot; um padrão de código. Ele realiza isso analisando o seu código e alterando-o de acordo com regras pré-definidas.&lt;/p&gt;
+&lt;p&gt;Todos nós temos algum vício na forma como escrevemos nosso código. A ideia de ferramentas como o &lt;em&gt;Prettier&lt;/em&gt; é fazer com que todos os integrantes de um projeto tenham um estilo comum de escrita. Tornando a leitura do código consistente, não importando o seu autor (ou editor).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAHnzfONFxgP/8QAGxAAAQQDAAAAAAAAAAAAAAAAAAECAxExMjP/2gAIAQEAAQUCk3fRSjui4P/EABcRAQADAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8BnVP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFX/8QAGRAAAwADAAAAAAAAAAAAAAAAABARAiGB/9oACAEBAAY/AjGaXCr/xAAaEAADAAMBAAAAAAAAAAAAAAAAASERQXFR/9oACAEBAAE/IUjgueOkLQWE+ht9P//aAAwDAQACAAMAAAAQ1+//xAAWEQADAAAAAAAAAAAAAAAAAAABECH/2gAIAQMBAT8Qkl//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QET//xAAbEAEAAwEAAwAAAAAAAAAAAAABABFBIWFxkf/aAAgBAQABPxCrywxypqj1XYexbCAIc4+wFIxV5Kr2J//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Imagem do Sr. Bennet, personagem de The Ranch&amp;quot;&quot;
+        title=&quot;Prettier é como trabalhar para o Sr. Bennett, de The Ranch. Na dúvida, você está errado (heighline)&quot;
+        src=&quot;/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg&quot;
+        srcset=&quot;/static/2f948d5b80c9977df2afe786c68ddade/7809d/sam-elliot-prettier.jpg 192w,
+/static/2f948d5b80c9977df2afe786c68ddade/4ecad/sam-elliot-prettier.jpg 384w,
+/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Prettier é como trabalhar para o Sr. Bennett, de The Ranch. Na dúvida, você está errado (heighline)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Com &quot;estilo comum de escrita&quot; não estamos falando necessariamente de qualidade de código. Por exemplo, o &lt;em&gt;Prettier&lt;/em&gt; não está preocupado com variáveis sendo usadas antes de serem declaradas. Para isso existe os &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade de código&quot;&gt;&lt;em&gt;linters&lt;/em&gt;&lt;/a&gt;, e no caso do &lt;em&gt;Javascript&lt;/em&gt; o &lt;a href=&quot;https://eslint.org/&quot; title=&quot;The pluggable linting utility for JavaScript and JSX&quot;&gt;&lt;em&gt;ESLint&lt;/em&gt;&lt;/a&gt; é (provavelmente) a opção mais famosa. Por outro lado, ele estará preocupado com a quantidade de espaços em branco, quantidade de caracteres por linha, uso de vírgulas, etc. Tópicos que geralmente demandam energia durante um &lt;em&gt;code review&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E talvez esse seja o ponto marcante por trás do &lt;em&gt;Prettier&lt;/em&gt;. Diretamente da &lt;a href=&quot;https://prettier.io/docs/en/option-philosophy.html&quot; title=&quot;Option Philosophy&quot;&gt;página que fala sobre a filosofia da ferramenta&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;By far the biggest reason for adopting Prettier is to stop all the on-going debates over styles.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;A ferramenta é escrita em &lt;em&gt;Node.js&lt;/em&gt;, portanto, um &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt; é o suficiente para tê-la em seu ambiente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm install --global prettier&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A documentação da ferramenta sugere &quot;pinnar&quot; a versão exata no &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; do seu projeto, uma vez que diferentes versões podem ter diferentes sugestões de escrita.&lt;/p&gt;
+&lt;p&gt;Com o utilitário de linha de comando, basta executarmos passando o arquivo &lt;em&gt;JS&lt;/em&gt; desejado como parâmetro:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prettier file.js
 
-&lt;p&gt;Em &lt;em&gt;Go&lt;/em&gt; temos o &lt;code&gt;go fmt …&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 12 Jan 2019 10:55:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-01-12:/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</guid><category>desenvolvimento</category><category>web</category><category>formatters</category><category>editores</category><category>prettier</category><category>javascript</category><category>html</category><category>css</category></item><item><title>Eu me rendo: VS Code</title><link>https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</link><description>&lt;p&gt;É, caro leitor... chegou o dia de admitir que tenho usado outro editor
-além do &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre o melhor editor do universo"&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;. Pode
+function HelloWorld({
+    greeting = &amp;quot;hello&amp;quot;,
+    greeted = &amp;#39;&amp;quot;World&amp;quot;&amp;#39;,
+    silent = false,
+onMouseOver
+}) {
+    if (!greeting) {
+        return null;
+    }
+
+    // TODO: Don&amp;#39;t use random in render
+    let num = Math.floor(Math.random() * 1e7)
+        .toString()
+        .replace(/\.\d+/gi, &amp;quot;&amp;quot;);
+
+    return (
+        &amp;lt;div
+        className=&amp;quot;HelloWorld&amp;quot;
+        title={`You are visitor number ${num}`}
+        onMouseOver={onMouseOver}
+        &amp;gt;
+        &amp;lt;strong&amp;gt;
+            {greeting.slice(0, 1).toUpperCase() + greeting.slice(1).toLowerCase()}
+        &amp;lt;/strong&amp;gt;
+        {greeting.endsWith(&amp;quot;,&amp;quot;) ? (
+            &amp;quot; &amp;quot;
+        ) : (
+            &amp;lt;span style={{ color: &amp;quot;grey&amp;quot; }}&amp;gt;&amp;quot;, &amp;quot;&amp;lt;/span&amp;gt;
+        )}
+        &amp;lt;em&amp;gt;{greeted}&amp;lt;/em&amp;gt;
+        {silent ? &amp;quot;.&amp;quot; : &amp;quot;!&amp;quot;}
+        &amp;lt;/div&amp;gt;
+    );
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;output&lt;/em&gt; é o conteúdo do seu arquivo já formatado. Se quiser a alteração &quot;in-place&quot;, temos a opção &lt;code class=&quot;language-text&quot;&gt;--write&lt;/code&gt; disponível.&lt;/p&gt;
+&lt;p&gt;É possível customizar a ferramenta de acordo com as suas escolhas &lt;a href=&quot;https://prettier.io/docs/en/options.html&quot; title=&quot;Options&quot;&gt;passando argumentos durante sua chamada&lt;/a&gt;. No exemplo abaixo, queremos formatar o arquivo &lt;code class=&quot;language-text&quot;&gt;file.js&lt;/code&gt; sem &lt;em&gt;semicolons&lt;/em&gt; no final das linhas, e com &lt;em&gt;single quotes&lt;/em&gt; ao invés de &lt;em&gt;double quotes&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prettier --no-semi --single-quote file.js&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O mais recomendado é a criação de um &lt;a href=&quot;https://prettier.io/docs/en/configuration.html&quot; title=&quot;Configuration file&quot;&gt;arquivo de configuração&lt;/a&gt; (geralmente chamado de &lt;code class=&quot;language-text&quot;&gt;.prettierrc&lt;/code&gt;), com todas a regras explícitas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;trailingComma&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;es5&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;tabWidth&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;semi&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;singleQuote&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Na prática (de verdade)&lt;/h2&gt;
+&lt;p&gt;É inviável ir na linha de comando e executar a ferramenta toda a vez que você alterar o seu código. Uma opção mais eficiente é deixar com que o seu editor ou &lt;em&gt;IDE&lt;/em&gt; tome conta desse processo.&lt;/p&gt;
+&lt;p&gt;Os principais editores do mercado possuem suporte ao &lt;em&gt;Prettier&lt;/em&gt;, como pode ser visto em &lt;a href=&quot;https://prettier.io/docs/en/editors.html&quot; title=&quot;Leia na documentação da ferramenta&quot;&gt;Editor Integration&lt;/a&gt;. Para o &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;, recomendo o uso com o &lt;em&gt;plugin&lt;/em&gt; &lt;a href=&quot;https://github.com/w0rp/ale&quot; title=&quot;Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration&quot;&gt;&lt;em&gt;Ale&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É esperado que nem todo membro do seu projeto configurará o editor apropriadamente na primeira interação. Portanto, uma &quot;salvaguarda&quot; pode ser habilitar um &lt;em&gt;pre-commit hook&lt;/em&gt;. Com isso, ao executar &lt;code class=&quot;language-text&quot;&gt;git add&lt;/code&gt;, o &lt;em&gt;Prettier&lt;/em&gt; será executado automaticamente nos arquivos alterados pelo desenvolvedor. O capítulo &lt;a href=&quot;https://prettier.io/docs/en/precommit.html&quot; title=&quot;Leia na documentação oficial&quot;&gt;Pre-commit Hook&lt;/a&gt; da documentação oficial dá várias sugestões de uso. Para esse caso, simpatizo bastante com o &lt;a href=&quot;https://pre-commit.com/&quot; title=&quot;A framework for managing and maintaining multi-language pre-commit hooks&quot;&gt;pre-commit&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;ESLint vs Prettier? ESLint + Prettier!&lt;/h2&gt;
+&lt;p&gt;Sabe o que é melhor que usar o &lt;em&gt;Prettier&lt;/em&gt;? É usar o &lt;em&gt;Prettier&lt;/em&gt; integrado com as regras que você já conhece do &lt;em&gt;ESlint&lt;/em&gt;. Obviamente que executar os dois em paralelo pode resultar em comportamentos inesperados. Existe inúmeros tutoriais na internet recomendando como fazer essas duas ferramentas funcionarem em conjunto.&lt;/p&gt;
+&lt;p&gt;Recomendo o &lt;a href=&quot;https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a&quot; title=&quot;Leia o artigo original&quot;&gt;Integrating Prettier + ESLint + Airbnb Style Guide in VSCode&lt;/a&gt;, do &lt;em&gt;Echobind&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Não perca tempo tentando controlar &quot;na conversa&quot; o estilo de código do seu time ou projeto. Já passei por isso e não compensa o estresse e tempo investido. Adote uma ferramenta como o &lt;em&gt;Prettier&lt;/em&gt;, e reserve tempo e energia para coisas mais importantes, relacionados ao seu negócio ou produto.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a&quot;&gt;Echobind - Integrating Prettier + ESLint + Airbnb Style Guide in VSCode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.futurehosting.com/blog/prettier-vs-eslint-whats-the-difference/&quot;&gt;Future Hosting - Prettier vs Eslint: What&apos;s the difference?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@joshuacrass/javascript-linting-and-formatting-with-eslint-prettier-and-airbnb-30eb746db862&quot;&gt;Joshua Crass - Javascript Linting and Formatting with ESLint, Prettier, and Airbnb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Eu me rendo: VS Code]]></title><description><![CDATA[É, caro leitor... chegou o dia de admitir que tenho usado outro editor
+além do Vim. Pode
 me julgar, me chamar de "poser" ou de "vendido", mas acontece que tenho descoberto no
-&lt;a href="https://code.visualstudio.com/" title="Conheça o VS Code"&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, da &lt;em&gt;Microsoft&lt;/em&gt;,
-uma excelente ferramenta para desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Piadas à parte, ainda acho o &lt;em&gt;Vim&lt;/em&gt; uma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 04 Jun 2018 16:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-06-04:/2018/06/04/eu-me-rendo-vscode.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>vscode</category><category>vim</category><category>python</category><category>css</category><category>javascript</category><category>eu-me-rendo</category></item><item><title>Eu me rendo: Material Design</title><link>https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</link><description>&lt;p&gt;Lembro como se fosse hoje de um camarada dos tempos de &lt;em&gt;Globo.com&lt;/em&gt; me falando de
+VS Code, da Microsoft,
+uma excelente ferramenta para desenvolvimento web. Piadas à parte, ainda acho o Vim uma ferramenta…]]></description><link>https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 04 Jun 2018 16:30:00 GMT</pubDate><content:encoded>&lt;p&gt;É, caro leitor... chegou o dia de admitir que tenho usado outro editor
+além do &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre o melhor editor do universo&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;. Pode
+me julgar, me chamar de &quot;poser&quot; ou de &quot;vendido&quot;, mas acontece que tenho descoberto no
+&lt;a href=&quot;https://code.visualstudio.com/&quot; title=&quot;Conheça o VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, da &lt;em&gt;Microsoft&lt;/em&gt;,
+uma excelente ferramenta para desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Piadas à parte, ainda acho o &lt;em&gt;Vim&lt;/em&gt; uma ferramenta fantástica. Mas também
+reconheço que há uma curva de aprendizagem, e que montar um set de &lt;em&gt;plugins&lt;/em&gt; para
+um determinado ambiente de desenvolvimento pode ser uma tarefa maçante (sim,
+eu estou olhando para você, &lt;code class=&quot;language-text&quot;&gt;python-mode&lt;/code&gt;). Nisso, tenho que reconhecer
+que o &lt;em&gt;Visual Studio Code&lt;/em&gt; faz um trabalho primoroso.&lt;/p&gt;
+&lt;h2&gt;Motivação&lt;/h2&gt;
+&lt;p&gt;Tenho &quot;advogado&quot; contra o uso de &lt;em&gt;IDEs&lt;/em&gt; &lt;a href=&quot;https://www.profissionaisti.com.br/2009/01/produtividade-x-programacao-voce-realmente-precisa-de-uma-ide/&quot; title=&quot;Produtividade x Programação: Você realmente precisa de uma IDE?&quot;&gt;desde 2009&lt;/a&gt;.
+De lá para cá, geralmente trabalhei com ambientes relativamente fáceis de lidar, como
+&lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.
+Essa opinião mudou a partir do momento que comecei a desenvolver para &lt;em&gt;Android&lt;/em&gt;. Não digo
+que usar editores de texto (como o &lt;em&gt;Vim&lt;/em&gt; ou &lt;em&gt;Emacs&lt;/em&gt;) para desenvolver &lt;em&gt;Java/Android&lt;/em&gt; seja
+impossível, mas (IMO) beira o masoquismo. Com o &lt;em&gt;Android Studio&lt;/em&gt;, por exemplo, muitas barreiras
+de &lt;em&gt;setup&lt;/em&gt; de ambiente são derrubadas pela ferramenta, aumentando produtividade e diminuindo
+o tempo necessário para ter a sua solução funcionando no dispositivo do seu usuário.&lt;/p&gt;
+&lt;h2&gt;IDE pero no mucho&lt;/h2&gt;
+&lt;p&gt;Além de ser livre e de código-aberto, o &lt;em&gt;Visual Studio Code&lt;/em&gt; é leve, extensível e &lt;a href=&quot;https://github.com/Microsoft/vscode&quot; title=&quot;Veja o repositório do vscode no Github&quot;&gt;construído
+em &lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;. Ele funciona &quot;out of the box&quot; para linguagens como &lt;a href=&quot;/tag/css.html&quot; title=&quot;Leia mais sobre CSS&quot;&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Javascript&lt;/em&gt; e &lt;em&gt;HTML&lt;/em&gt;,
+inclusive, é impressionante como o &lt;em&gt;autocomplete&lt;/em&gt; (através do
+&lt;a href=&quot;https://code.visualstudio.com/docs/editor/intellisense&quot; title=&quot;Leia mais sobre o IntelliSense&quot;&gt;&lt;em&gt;IntelliSense&lt;/em&gt;&lt;/a&gt;) funciona
+&quot;smoothly&quot; para as mesmas.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.22916666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAP/2gAMAwEAAhADEAAAAc9imSgWh5//xAAcEAACAAcAAAAAAAAAAAAAAAAAAQIDEiIxMkL/2gAIAQEAAQUChuMlLZK27P/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAICAwAAAAAAAAAAAAAAAAABEBECEkH/2gAIAQEABj8CpUPU7GEf/8QAGxABAAICAwAAAAAAAAAAAAAAAQARMUFxobH/2gAIAQEAAT8hSmoZWoGhuhjsKZ+D2PdGf//aAAwDAQACAAMAAAAQQC//xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QwBn/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAECAQE/EK8If//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESFBMVGhsfD/2gAIAQEAAT8QMtRweDZFAAW9IKsFI8Li1az6XSeV9TSf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Lando em Star Wars&amp;quot;&quot;
+        title=&quot;Tô traindo o movimento tipo o Lando (theplaylist.net)&quot;
+        src=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg&quot;
+        srcset=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/7809d/lando-traidor.jpg 192w,
+/static/85acfc9ae4d6d6e9fd906e6ea957e446/4ecad/lando-traidor.jpg 384w,
+/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Tô traindo o movimento tipo o Lando (theplaylist.net)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O seu &lt;em&gt;marketplace&lt;/em&gt; de &lt;em&gt;plugins&lt;/em&gt; é rico, e é sem dúvida um dos seus
+pontos fortes. Adicionar &lt;em&gt;code formatters&lt;/em&gt;, &lt;em&gt;autocomplete&lt;/em&gt;, ou integrações com ferramentas
+externas nunca foi tão fácil. Além disso, a opção de customizar o editor
+globalmente ou por &lt;em&gt;workspace&lt;/em&gt; é uma mão na roda para quem trabalha com mais de um projeto no cotidiano.&lt;/p&gt;
+&lt;p&gt;Utilitários de &lt;em&gt;refactoring&lt;/em&gt;, &lt;em&gt;debugging&lt;/em&gt;, controle de versão, além dos inúmeros &lt;em&gt;plugins&lt;/em&gt; para &lt;em&gt;tests&lt;/em&gt;, só aumentam
+ainda mais o poderio do editor, e dão a ele esse &quot;jeitão&quot; de &lt;em&gt;IDE&lt;/em&gt;, sem perder
+a simplicidade peculiar dos editores de texto.&lt;/p&gt;
+&lt;h2&gt;Python&lt;/h2&gt;
+&lt;p&gt;Para usar o editor com &lt;em&gt;Python&lt;/em&gt;, a &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-python.python&quot; title=&quot;Python for VS Code&quot;&gt;extensão criada pela própria &lt;em&gt;Microsoft&lt;/em&gt;&lt;/a&gt;
+deve ser o suficiente. Ela é simples de configurar e muito rica, trazendo comandos interessantes como
+&lt;code class=&quot;language-text&quot;&gt;Start REPL&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;Run all unit tests&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAA7CAAAOwgEVKEqAAAABUUlEQVQoz4WSaW7CMBBGc42WNgl4zeI1TgwkKVSEELFDS3v/m9QIiVIhUen9sKV5mm/G9mabT16UeaaFEFEcM8YIIRAhFCXGGEopAoBiQjCGEF0AALriOE48O2mq9/bw8XU8ntar7Xqzr+upLUaB71NKjJFWiRTDCPQD//VKGPhhEHh1VZZl1XarupoUxTDLcmtHWWb9PgAkognzAXoOBo6X8BYQDAZOrrhUUhvOmIuEMYEQpKoqum89P4Z588TfenLqeL4iJr184UfKa9tWSdUPB/A8KHYACI0adYt1nts0FYzJezjXGFOv6zoplduB6/kry+GiXRpT/CPvdjulzvLFRIi4s+u8WR9ms7kQ+pGstU6S5Jr5IudqvFpu7XDMuXokW+sGS//KoNDlYX+aTmdKZc6/R4iMEOo1TSOlvIl9/gwsEe6pU8bd1RXdQ2nklB/snmwWSfoFyAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;VS Code com Python&amp;quot;&quot;
+        title=&quot;VS Code com Python&quot;
+        src=&quot;/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png&quot;
+        srcset=&quot;/static/242f57ae87264056e1abda47eef7e913/8514f/vscode-python-example.png 192w,
+/static/242f57ae87264056e1abda47eef7e913/804b2/vscode-python-example.png 384w,
+/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;VS Code com Python&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A configuração granular do editor permite que você tenha um determinado conjunto de regras para
+cada projeto que esteja envolvido. Por exemplo, em um projeto pessoal você usa &lt;code class=&quot;language-text&quot;&gt;nose&lt;/code&gt; como
+&lt;em&gt;test runner&lt;/em&gt;, além de &lt;code class=&quot;language-text&quot;&gt;pylamas&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;mypy&lt;/code&gt;. Mas no projeto da sua empresa o padrão é
+&lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;isort&lt;/code&gt;, e a única ferramenta de &lt;em&gt;lint&lt;/em&gt; é o &lt;code class=&quot;language-text&quot;&gt;flake8&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.flake8Path&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/flake8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.pythonPath&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/python&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.sortImports.path&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/isort&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.pylintEnabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notou o &lt;em&gt;path&lt;/em&gt; com &lt;code class=&quot;language-text&quot;&gt;pyenv&lt;/code&gt;? Com a opção &lt;code class=&quot;language-text&quot;&gt;python.venvPath&lt;/code&gt; apontando para o diretório do &lt;em&gt;pyenv&lt;/em&gt;,
+fica muito mais conveniente configurar qual interpretador e ferramentas de &lt;em&gt;lint&lt;/em&gt; utilizar. Ao
+executar o comando &lt;code class=&quot;language-text&quot;&gt;Python: Select interpreter&lt;/code&gt; o &lt;em&gt;plugin&lt;/em&gt; levará em consideração os seus
+ambientes virtuais e irá sugerí-los.&lt;/p&gt;
+&lt;h2&gt;Vim bindings&lt;/h2&gt;
+&lt;p&gt;É claro que você pode trazer umas das melhores coisas do &lt;em&gt;Vim&lt;/em&gt; para o &lt;em&gt;VS Code&lt;/em&gt;! Os &lt;em&gt;keys bindings&lt;/em&gt;
+vão te dar a velocidade de escrita que você já está acostumado, e o &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscodevim.vim&quot; title=&quot;Vim emulation for Visual Studio Code&quot;&gt;&lt;em&gt;VSCodeVim&lt;/em&gt;&lt;/a&gt; é uma excelente escolha como extensão.&lt;/p&gt;
+&lt;p&gt;Obviamente que, por tratar-se de um emulador, não temos toda a experiência do &lt;em&gt;Vim&lt;/em&gt;. Para compensar a extensão já traz
+algumas funcionalidades embutidas, como &lt;em&gt;easymotion&lt;/em&gt;, &lt;em&gt;surround&lt;/em&gt;, &lt;em&gt;commentary&lt;/em&gt; e &lt;em&gt;sneak&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Um dos maiores desafios que enfrentei com a adoção do &lt;em&gt;VS Code&lt;/em&gt; foi quebrar esse preconceito
+bobo que todo &quot;fanboy&quot; tem com tecnologias que rivalizam com a sua. Na verdade, testar novas
+ferramentas (como o &lt;em&gt;VS Code&lt;/em&gt;), tecnologias (como o &lt;em&gt;iOS&lt;/em&gt;) e até outras linguagens (como &lt;em&gt;Java&lt;/em&gt; e &lt;em&gt;Scala&lt;/em&gt;),
+tem agregado muito ao meu crescimento profissional.&lt;/p&gt;
+&lt;p&gt;E se você está torcendo o nariz para o fato do editor ser da &lt;em&gt;Microsoft&lt;/em&gt;, lembre-se:
+&lt;a href=&quot;https://g1.globo.com/economia/tecnologia/noticia/microsoft-compra-github-por-us-75-bilhoes.ghtml&quot; title=&quot;Microsoft compra GitHub por US$ 7,5 bilhões e anuncia mudanças&quot;&gt;&lt;em&gt;Github&lt;/em&gt; também é dela&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Eu me rendo: Material Design]]></title><description><![CDATA[Lembro como se fosse hoje de um camarada dos tempos de Globo.com me falando de
+modo efusivo: Você deveria experimentar o MaterializeCSS, vai te poupar muito
+tempo e te entregar uma interface elegante; Na época eu estava munido da minha
+ignorância, e acabei não seguindo o conselho do nobre amigo…]]></description><link>https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 19 Apr 2017 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Lembro como se fosse hoje de um camarada dos tempos de &lt;em&gt;Globo.com&lt;/em&gt; me falando de
 modo efusivo: Você deveria experimentar o &lt;em&gt;MaterializeCSS&lt;/em&gt;, vai te poupar muito
 tempo e te entregar uma interface elegante; Na época eu estava munido da minha
-ignorância, e acabei não seguindo o conselho do nobre …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 19 Apr 2017 12:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-04-19:/2017/04/19/eu-me-rendo-material-design.html</guid><category>desenvolvimento</category><category>web</category><category>mobile</category><category>android</category><category>css</category><category>material-design</category><category>materializecss</category><category>material-design-lite</category><category>eu-me-rendo</category></item><item><title>Django, Sass e ES6 no Heroku com Multiple Buildpacks</title><link>https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</link><description>&lt;p&gt;Anteriormente, falamos sobre como utilizar o &lt;code&gt;django-compressor&lt;/code&gt; com &lt;a href="https://klauslaube.com.br/tag/sass.html" title="Leia mais sobre Sass"&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
-e &lt;a href="https://klauslaube.com.br/tag/es6.html" title="Leia mais sobre ES6"&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Se você quisesse utilizar o &lt;em&gt;Heroku&lt;/em&gt;,
-com uma aplicação &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; executando operações de &lt;em&gt;build&lt;/em&gt;
-em &lt;a href="https://klauslaube.com.br/tag/node.html" title="Leia mais sobre Node.JS"&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;, seria uma tarefa um tanto árdua,
+ignorância, e acabei não seguindo o conselho do nobre amigo.&lt;/p&gt;
+&lt;p&gt;Pouco tempo se passou, e entrei em um projeto muito importante da empresa. Nele,
+houve um complexo trabalho por parte do time de estratégia e de &lt;em&gt;UX&lt;/em&gt; para determinar
+a arquitetura da informação e &lt;em&gt;design&lt;/em&gt;. Imagine a minha surpresa quando descobri que o
+&lt;em&gt;Material Design&lt;/em&gt; foi usado como base para uma série de decisões tomadas. Uma luz amarela
+acendeu-se em minha cabeça, mas ainda não tinha sido o suficiente para saber mais.&lt;/p&gt;
+&lt;p&gt;Finalmente, ao inscrever-me no &lt;a href=&quot;https://br.udacity.com/course/android-basics-nanodegree-by-google--nd803/&quot; title=&quot;Android Basics&quot;&gt;&lt;em&gt;Nanodegree&lt;/em&gt; de &lt;em&gt;Android&lt;/em&gt; do &lt;em&gt;Udacity&lt;/em&gt;&lt;/a&gt;,
+que eu desisti e me rendi ao &lt;em&gt;Material Design&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O Material Design&lt;/h2&gt;
+&lt;p&gt;Diretamente do &lt;a href=&quot;http://material.io&quot; title=&quot;Visite o site oficial&quot;&gt;material.io&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Material Design is a unified system that combines theory, resources, and tools for crafting digital experiences.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em uma definição mais descritiva, podemos dizer que o &lt;em&gt;Material Design&lt;/em&gt; é
+uma completíssima &quot;linguagem de design&quot;. Criado a partir de um profundo estudo de
+&lt;em&gt;branding&lt;/em&gt;, &lt;em&gt;interaction&lt;/em&gt; e &lt;em&gt;motion&lt;/em&gt;, o &lt;em&gt;Material&lt;/em&gt; é uma compilação de estilos
+e princípios que funcionam consistentemente em diferentes soluções.&lt;/p&gt;
+&lt;p&gt;Com sua origem no universo &lt;em&gt;Mobile&lt;/em&gt; da &lt;em&gt;Google&lt;/em&gt;, a partir da versão 2.1 do
+&lt;em&gt;Android&lt;/em&gt;, hoje é possível apreciarmos o &lt;em&gt;Material Design&lt;/em&gt; sendo utilizado
+também em soluções &lt;em&gt;web&lt;/em&gt;. Existem duas bibliotecas bem-quistas em &quot;traduzir&quot;
+a especificação para os &lt;em&gt;browsers&lt;/em&gt;: &lt;a href=&quot;http://materializecss.com/&quot; title=&quot;Leia mais sobre o Materialize&quot;&gt;&lt;em&gt;MaterializeCSS&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://getmdl.io/index.html&quot; title=&quot;Leia mais sobre o MDL&quot;&gt;&lt;em&gt;Material Design Lite&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;MaterializeCSS ou Material Design Lite?&lt;/h2&gt;
+&lt;p&gt;Sem rodeios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MaterializeCSS&lt;/strong&gt;: Iniciativa &lt;em&gt;open source&lt;/em&gt;, com mais de 25 mil &lt;em&gt;stars&lt;/em&gt; no
+&lt;a href=&quot;https://github.com/dogfalo/materialize/&quot; title=&quot;Veja o repositório&quot;&gt;&lt;em&gt;Github&lt;/em&gt;&lt;/a&gt;. Possui como dependência o &lt;em&gt;jQuery&lt;/em&gt;,
+tornando-a uma opção ligeiramente &quot;pesada&quot;. Possui uma documentação fácil de ler, mas
+infelizmente o seu &lt;em&gt;showcase&lt;/em&gt; está desatualizado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MDL&lt;/strong&gt;: A biblioteca &quot;oficial&quot; da &lt;em&gt;Google&lt;/em&gt;. Também &lt;em&gt;open source&lt;/em&gt;, com cerca de 26 mil &lt;em&gt;stars&lt;/em&gt; no
+&lt;a href=&quot;https://github.com/google/material-design-lite&quot;&gt;&lt;em&gt;Github&lt;/em&gt;&lt;/a&gt;, não possui dependência de outras bibliotecas e é
+declarada como opção mais fiel às especificações do &lt;em&gt;Material Design&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Não vou fazer uma análise profunda entre os dois, pois para ser sincero, só tive
+um contato mais íntimo com o &lt;em&gt;MaterializeCSS&lt;/em&gt;. O que posso dizer é que ambos
+cumprem bem a sua proposta (e possuem uma boa camada de customização através de &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;),
+e (na minha opinião) a biblioteca do &lt;em&gt;Google&lt;/em&gt; leva certa vantagem por ser ligeiramente
+mais leve, não ter o &lt;em&gt;jQuery&lt;/em&gt; como dependência, e ainda por cima usar
+&lt;a href=&quot;http://getbem.com/&quot; title=&quot;Saiba o que é o BEM e como ele pode te ajudar a escrever CSS&quot;&gt;&lt;em&gt;BEM&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABSJp6z1zPB//EABsQAAIDAAMAAAAAAAAAAAAAAAECAAMREiIj/9oACAEBAAEFAidrZjtR62+bLA/Gf//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAABAAIQMRMhQf/aAAgBAQAGPwIsFlVrkY2kz//EABwQAQADAAIDAAAAAAAAAAAAAAEAESExQVFxgf/aAAgBAQABPyHaHlDCLwd1Ac059zqB23zKiOv2VqCf/9oADAMBAAIAAwAAABCX7//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QiaRn/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/EK1//8QAHBABAQACAwEBAAAAAAAAAAAAAREAMSFBUWHh/9oACAEBAAE/EN8gxqBK01+5GhI0cw9+y4Vnkc6Q7xrglObW9uF6UUB0xI8LWPef/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ao contrário do Batman, eu me rendi&amp;quot;&quot;
+        title=&quot;Ao contrário do Batman, eu me rendi&quot;
+        src=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg&quot;
+        srcset=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/7809d/batman-fear-face.jpg 192w,
+/static/d3b12e92557b0a1f6834bdaa10f190a7/4ecad/batman-fear-face.jpg 384w,
+/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ao contrário do Batman, eu me rendi&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Em defesa do &lt;em&gt;Materialize&lt;/em&gt;, acho a curva de aprendizagem menor que a do concorrente,
+e uma rápida leitura do seu &lt;em&gt;getting started&lt;/em&gt; já te dá conteúdo o suficiente para ter
+as suas primeiras páginas escritas.&lt;/p&gt;
+&lt;p&gt;Se você deseja uma análise mais completa, recomendo o &lt;a href=&quot;https://andreapaiola.name/2015-07-materialize-css-vs-material-design-lite/&quot;&gt;&lt;em&gt;Google release Material Design Lite, time to switch?&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Acredito que ter qualquer uma das duas bibliotecas no seu &lt;em&gt;toolbox&lt;/em&gt; é recomendado, principalmente
+se a sua solução for flertar com o ambiente &lt;em&gt;Mobile&lt;/em&gt;. Então, no seu próximo projeto, antes
+de ir &quot;por padrão&quot; no &lt;em&gt;Bootstrap&lt;/em&gt; ou &lt;em&gt;Foundation&lt;/em&gt;, dê uma chance ao &lt;em&gt;Material&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se você estiver usando &lt;em&gt;React&lt;/em&gt;, o &lt;a href=&quot;http://www.material-ui.com/&quot;&gt;&lt;em&gt;Material-UI&lt;/em&gt;&lt;/a&gt; pode
+ser uma boa pedida. Para a galera do &lt;em&gt;Angular&lt;/em&gt;, existe o &lt;a href=&quot;https://material.angular.io/&quot;&gt;&lt;em&gt;Angular Material&lt;/em&gt;&lt;/a&gt;
+que cumpre bem o seu papel. O &lt;em&gt;Vue&lt;/em&gt; não fica de fora com o &lt;a href=&quot;https://vuematerial.github.io/&quot;&gt;&lt;em&gt;Vue Material&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://material.io/&quot;&gt;&lt;em&gt;Material Design.io&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://getmdl.io/&quot;&gt;&lt;em&gt;Material Design Lite&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://materializecss.com/&quot;&gt;&lt;em&gt;Materialize&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.myway.com.br/material-design-o-que-e-e-sua-aplicacao/&quot;&gt;&lt;em&gt;MyWay&lt;/em&gt; - &lt;em&gt;Material Design&lt;/em&gt;: O que é e sua aplicação&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Material_Design&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - &lt;em&gt;Material Design&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
+e ES6. Se você quisesse utilizar o Heroku,
+com uma aplicação Python executando operações de build
+em Node.js, seria uma tarefa um tanto árdua,
 que exigiria um certo nível de paciência na
-construção do seu próprio &lt;em&gt;Buildpack&lt;/em&gt;. Hoje, com o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 27 Aug 2016 16:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-08-27:/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>sass</category><category>es6</category><category>css</category><category>js</category><category>heroku</category><category>buildpack</category></item><item><title>Django e Sass com django-compressor</title><link>https://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html</link><description>&lt;p&gt;Eu sempre gostei da proposta do &lt;code&gt;django-compressor&lt;/code&gt;: Concatenar e comprimir
-estáticos, utilizando como agrupadores os blocos da &lt;em&gt;engine&lt;/em&gt; de &lt;em&gt;templates&lt;/em&gt;
-do &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.
-Além de manter a declaração dos &lt;em&gt;assets&lt;/em&gt; no &lt;a href="https://klauslaube.com.br/tag/html.html" title="Leia mais sobre HTML"&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt;,
+construção do seu próprio Buildpack. Hoje, com o Multiple…]]></description><link>https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 27 Aug 2016 16:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Anteriormente, falamos sobre como utilizar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; com &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;/tag/es6.html&quot; title=&quot;Leia mais sobre ES6&quot;&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Se você quisesse utilizar o &lt;em&gt;Heroku&lt;/em&gt;,
+com uma aplicação &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; executando operações de &lt;em&gt;build&lt;/em&gt;
+em &lt;a href=&quot;/tag/node.html&quot; title=&quot;Leia mais sobre Node.JS&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;, seria uma tarefa um tanto árdua,
+que exigiria um certo nível de paciência na
+construção do seu próprio &lt;em&gt;Buildpack&lt;/em&gt;. Hoje, com o &lt;em&gt;Multiple Buildpacks&lt;/em&gt;, isso não é mais necessário.&lt;/p&gt;
+&lt;h2&gt;Build o quê?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Buildpack&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;São conjuntos de scripts que, dependendo da linguagem de programação que você escolher,
+resolverão dependências, geração de &lt;em&gt;assets&lt;/em&gt; e até mesmo compilação arquivos, dentro da plataforma &lt;em&gt;Heroku&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ou seja, eles são uma espécie de &quot;provisionamento&quot;, onde você escreverá uma série de
+instruções que deixarão o ambiente preparado para receber o seu projeto.&lt;/p&gt;
+&lt;p&gt;Antigamente, para você trabalhar com compilação/transpilação de &lt;em&gt;assets&lt;/em&gt; em um projeto
+&lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;, você tinha duas opções:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilizar (ou construir) um &lt;em&gt;Buildpack&lt;/em&gt; customizado que realizasse o procedimento de instalação das dependências e build (como o &lt;a href=&quot;https://github.com/jiaaro/heroku-buildpack-django&quot; title=&quot;Veja o repositório no GitHub&quot;&gt;heroku-buildpack-django&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;&quot;Commitar&quot; os arquivos &quot;buildados&quot; e utilizar o &lt;em&gt;Buildpack Python&lt;/em&gt; padrão.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Eu nunca tive muita paciência com a questão de provisionamento no &lt;em&gt;Heroku&lt;/em&gt;,
+então geralmente eu partia para a ignorância e vivia &quot;commitando&quot; &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; compilados.&lt;/p&gt;
+&lt;h2&gt;Repita comigo: Nunca mais vou commitar arquivos compilados&lt;/h2&gt;
+&lt;p&gt;É uma péssima ideia! Principalmente quando você está trabalhando em uma equipe grande.
+A quantidade de &lt;em&gt;merge hells&lt;/em&gt; envolvendo arquivos compilados é aquele tipo de dor de
+cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHISawFD//EABoQAAICAwAAAAAAAAAAAAAAAAECABEQEjH/2gAIAQEAAQUCAXVas9WLj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAQAGPwLWv//EABkQAQADAQEAAAAAAAAAAAAAAAEAESFRYf/aAAgBAQABPyG4eK3sKQsziDD5FTnGKrs//9oADAMBAAIAAwAAABD7H//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0oaJu+D2KDaGsdgsFnNgLgQsD8yM6kRMeS5K2f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Não dá pra pilotar um Jaeger sozinho (deadline.com)&amp;quot;&quot;
+        title=&quot;Não dá pra pilotar um Jaeger sozinho (deadline.com)&quot;
+        src=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg&quot;
+        srcset=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/7809d/multipack-pacific-rim.jpg 192w,
+/static/a5e7fde62eb0da75c7d6193857640faa/4ecad/multipack-pacific-rim.jpg 384w,
+/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não dá pra pilotar um Jaeger sozinho (deadline.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;De forma bem resumida, vamos ilustrar como funcionaria o fluxo de &lt;em&gt;build&lt;/em&gt; de estáticos com
+múltiplos &lt;em&gt;Buildpacks&lt;/em&gt;. Para começar, vamos criar um novo &lt;em&gt;app&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku create&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você tenha dúvidas sobre como criar um projeto &lt;em&gt;Python&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;,
+o &quot;&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-python#introduction&quot; title=&quot;Leia documentação oficial&quot;&gt;Getting started&lt;/a&gt;&quot; deles é muito bacana e fácil de seguir.&lt;/p&gt;
+&lt;p&gt;Supondo que já instalamos o &lt;em&gt;Django&lt;/em&gt;, e que criamos os arquivos &lt;code class=&quot;language-text&quot;&gt;runtime.txt&lt;/code&gt;,
+determinando qual a versão do &lt;em&gt;Python&lt;/em&gt; que usaremos, e &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;,
+para resolução de dependências, automaticamente o &lt;em&gt;Heroku&lt;/em&gt; saberá preparar
+o ambiente para o nosso projeto.&lt;/p&gt;
+&lt;p&gt;Mas caso você queira ter certeza disso, podemos usar o comando &lt;code class=&quot;language-text&quot;&gt;buildpacks:set&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku buildpacks:set heroku/python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como no &lt;a href=&quot;/2016/06/04/django-e-sass-com-django-compressor.html&quot; title=&quot;Django e Sass com django-compressor&quot;&gt;&lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;,
+utilizaremos a biblioteca &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;libsass&lt;/code&gt;. Logo, vamos adicioná-la ao &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django
+django-compressor
+libsass&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos deixar de configurar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/x-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sassc {infile} {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas e o &lt;em&gt;ES6&lt;/em&gt;? Precisaremos do &lt;a href=&quot;/tag/babel.html&quot; title=&quot;Leia mais sobre BabelJS&quot;&gt;BabelJS&lt;/a&gt;,
+e consequentemente do &lt;em&gt;Node.js&lt;/em&gt;, para realizar o &lt;em&gt;transpiling&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Python + Node.js em uma mesma instância Heroku&lt;/h2&gt;
+&lt;p&gt;Para adicionar um novo &lt;em&gt;Buildpack&lt;/em&gt;, temos o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku buildpacks:add --index 1 heroku/nodejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Onde &lt;code class=&quot;language-text&quot;&gt;--index&lt;/code&gt; determina qual será a ordem de execução do &lt;em&gt;Buildpack&lt;/em&gt;.
+Nesse caso, opto por ele ser o primeiro e o do &lt;em&gt;Python&lt;/em&gt; segundo,
+somente para garantir que todas as dependências estejam sanadas quando
+a resolução de estáticos do &lt;em&gt;Django&lt;/em&gt; acontecer.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Buildpack Python&lt;/em&gt; executa operações dependendo de alguns arquivos
+do nosso projeto. Por exemplo, como mencionado acima, precisamos especificar
+a versão da linguagem (&lt;code class=&quot;language-text&quot;&gt;runtime.txt&lt;/code&gt;), instalar as dependências do projeto
+(&lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;) e no caso do &lt;em&gt;Django&lt;/em&gt;, executar a operação de
+&lt;code class=&quot;language-text&quot;&gt;collectstatic&lt;/code&gt; após o deploy (&lt;code class=&quot;language-text&quot;&gt;manage.py&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;No caso do &lt;em&gt;Node.js&lt;/em&gt;, precisaremos ter um arquivo &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; na raíz do
+projeto, contendo todas as bibliotecas que o projeto usa, para essa linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm init .
+$ npm install --save babelify babel-preset-es2015&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos esquecer do &lt;code class=&quot;language-text&quot;&gt;.babelrc&lt;/code&gt;, essencial para a execução do &lt;em&gt;Babel&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// .babelrc&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E por fim, falta adicionar o pré-compilador ao &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/x-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sassc {infile} {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/es6&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./node_modules/.bin/browserify {infile} -t babelify --outfile {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Ao dar o &lt;code class=&quot;language-text&quot;&gt;git push heroku master&lt;/code&gt;, a plataforma executará primeiro o
+&lt;em&gt;Buildback Node.js&lt;/em&gt;, e na sequência o &lt;em&gt;Buildpack Python&lt;/em&gt;. No momento de entrega das
+páginas, teremos os binários &lt;code class=&quot;language-text&quot;&gt;browserify&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;sassc&lt;/code&gt; instalados em nossa instância,
+e poderemos entregar nossas páginas com &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; compilados sem a necessidade de &quot;commitá-los&quot;.&lt;/p&gt;
+&lt;h2&gt;Comprimindo no momento do deploy&lt;/h2&gt;
+&lt;p&gt;Comprimir/compilar &lt;em&gt;assets&lt;/em&gt; no momento da requisição também é algo que deve ser evitado.
+Embora o &lt;em&gt;Django Compressor&lt;/em&gt; faça um excelente trabalho nesse quesito, se estivermos usando
+uma &lt;em&gt;CDN&lt;/em&gt; para a entrega desses estáticos, esse procedimento não deve acontecer durante a requisição de um usuário.&lt;/p&gt;
+&lt;p&gt;Para executar o comando &lt;code class=&quot;language-text&quot;&gt;compress&lt;/code&gt; da biblioteca &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; em tempo de &lt;em&gt;deploy&lt;/em&gt;,
+basta fazermos duas coisas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Garantir que &lt;code class=&quot;language-text&quot;&gt;COMPRESS_OFFLINE&lt;/code&gt;, na configuração do seu projeto, esteja setado como &lt;code class=&quot;language-text&quot;&gt;True&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Criar um diretório &lt;code class=&quot;language-text&quot;&gt;bin&lt;/code&gt;, e dentro dele um arquivo &lt;code class=&quot;language-text&quot;&gt;post_compile&lt;/code&gt;, com a instrução de &lt;code class=&quot;language-text&quot;&gt;compress&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+python manage.py compress&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Feito! Agora a cada &lt;em&gt;deploy&lt;/em&gt; da sua aplicação, o &lt;em&gt;build&lt;/em&gt; dos &lt;em&gt;assets&lt;/em&gt; acontecerá
+automaticamente, dispensando assim a necessidade de ficar enviando &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; &quot;buildados&quot;
+através de &lt;code class=&quot;language-text&quot;&gt;git push&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Dúvidas sobre a relação entre Django, Sass e ES6? Eu a detalho um pouco melhor nesses dois posts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html&quot;&gt;Django e ES6 com django-compressor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html&quot;&gt;Django e Sass com django-compressor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app&quot;&gt;Heroku Dev Center: Using Multiple Buildpacks for an App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Django e Sass com django-compressor]]></title><description><![CDATA[Eu sempre gostei da proposta do : Concatenar e comprimir
+estáticos, utilizando como agrupadores os blocos da engine de templates
+do Django.
+Além de manter a declaração dos assets no HTML,
 ele ainda abre uma margem interessante para quando você precisa customizar um grupo
-de estáticos para uma determinada página …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 04 Jun 2016 16:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-06-04:/2016/06/04/django-e-sass-com-django-compressor.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>sass</category><category>css</category></item><item><title>As camadas do desenvolvimento Web</title><link>https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</link><description>&lt;p&gt;Se eu aprendi alguma coisa com o &lt;em&gt;xHTML&lt;/em&gt;, foi:
+de estáticos para uma…]]></description><link>https://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 04 Jun 2016 16:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Eu sempre gostei da proposta do &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;: Concatenar e comprimir
+estáticos, utilizando como agrupadores os blocos da &lt;em&gt;engine&lt;/em&gt; de &lt;em&gt;templates&lt;/em&gt;
+do &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.
+Além de manter a declaração dos &lt;em&gt;assets&lt;/em&gt; no &lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt;,
+ele ainda abre uma margem interessante para quando você precisa customizar um grupo
+de estáticos para uma determinada página.&lt;/p&gt;
+&lt;p&gt;Com a chegada dos pré-processadores, como &lt;a href=&quot;http://sass-lang.com/&quot; title=&quot;CSS with superpower&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;http://coffeescript.org/&quot; title=&quot;CoffeeScript is a little language that compiles into JavaScript&quot;&gt;&lt;em&gt;CoffeeScript&lt;/em&gt;&lt;/a&gt;,
+e fatalmente com o advento das ferramentas de &lt;em&gt;build&lt;/em&gt;, deixar esse processo
+para o &lt;em&gt;Django&lt;/em&gt; passou a ser questionável. É extremamente razoável passar toda
+essa responsabilidade para o &lt;a href=&quot;/tag/grunt.html&quot; title=&quot;Leia mais sobre Grunt&quot;&gt;&lt;em&gt;Grunt&lt;/em&gt;&lt;/a&gt;,
+e colocar apenas no seu &lt;em&gt;template&lt;/em&gt; &lt;em&gt;Django&lt;/em&gt; a &lt;em&gt;URL&lt;/em&gt; do estático já &quot;buildado&quot;.&lt;/p&gt;
+&lt;p&gt;Na minha opinião, isso tira um pouco da vantagem descrita no primeiro parágrafo,
+e adiciona certa complexidade à nossa &lt;em&gt;stack&lt;/em&gt; de desenvolvimento. Baseado nisso,
+e indo na &lt;a href=&quot;/2016/02/22/vivendo-sem-o-grunt.html&quot; title=&quot;Vivendo sem o Grunt&quot;&gt;onda da simplificação de &lt;em&gt;build&lt;/em&gt;&lt;/a&gt;,
+que eu resolvi devolver esse poder ao &lt;em&gt;Django&lt;/em&gt;.
+E já te adianto: Estou relativamente satisfeito com o resultado!&lt;/p&gt;
+&lt;h2&gt;Concat e minify sem Node.js&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Django Compressor&lt;/em&gt; é um &lt;em&gt;app&lt;/em&gt; &lt;em&gt;Django&lt;/em&gt; que comprime &lt;em&gt;Javascript&lt;/em&gt;
+ou &lt;em&gt;CSS&lt;/em&gt;, em um único arquivo cacheável.&lt;/p&gt;
+&lt;p&gt;Para usá-lo, começamos instalando através do &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::shell
+$ pip install django-compressor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Na sequência, precisamos adicioná-lo ao arquivo de configuração do seu projeto &lt;em&gt;Django&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::python
+# settings.py
+INSTALLED_APPS = (
+    ...
+    &amp;#39;compressor&amp;#39;,
+    ...
+)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não esqueça de adicioná-lo ao &lt;code class=&quot;language-text&quot;&gt;STATICFILES_FINDERS&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::python
+# settings.py
+STATICFILES_FINDERS = (
+    &amp;#39;django.contrib.staticfiles.finders.FileSystemFinder&amp;#39;,
+    &amp;#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&amp;#39;,
+    ...
+    &amp;#39;compressor.finders.CompressorFinder&amp;#39;,
+)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E no seu &lt;em&gt;template&lt;/em&gt; &lt;em&gt;Django&lt;/em&gt;, utilizamos a &lt;code class=&quot;language-text&quot;&gt;templatetag&lt;/code&gt; de compressão
+para &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::html
+&amp;lt;!-- index.html --&amp;gt;
+
+{% load compress %}
+{% load staticfiles %}
+
+{% compress css %}
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/normalize.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/skeleton.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
+{% endcompress %}
+
+{% compress js %}
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;vendor/jquery/jquery.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;js/app.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+{% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quando o internauta acessar a sua página, o resultado final será parecido com esse:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
+
+&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/static/CACHE/css/0fb9d388202c.css&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/static/CACHE/js/82f4dc99bcc1.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Bacana, não? Como a opção &lt;code class=&quot;language-text&quot;&gt;COMPRESS_ENABLED&lt;/code&gt; é por padrão o inverso de &lt;code class=&quot;language-text&quot;&gt;DEBUG&lt;/code&gt;,
+em tempo de desenvolvimento você não verá os &lt;em&gt;assets&lt;/em&gt; comprimidos,
+mas em tempo de &lt;em&gt;QA&lt;/em&gt; e produção, se o seu &lt;em&gt;Django&lt;/em&gt; estiver corretamente configurado,
+sim.&lt;/p&gt;
+&lt;h2&gt;Pré-compiladores&lt;/h2&gt;
+&lt;p&gt;Você não precisa do &lt;em&gt;Ruby&lt;/em&gt; para utilizar &lt;em&gt;Sass&lt;/em&gt;. Hoje, com o advento da especificação
+do &lt;em&gt;libsass&lt;/em&gt;, é possível ter a ferramenta em diferentes linguagens, como
+&lt;a href=&quot;/tag/node.html&quot; title=&quot;Leia mais sobre Node.js&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::shell
+$ pip install libsass&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; dá suporte a execução de compiladores/transpiladores dado um
+determinado &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;. Vamos ilustrar esse cenário com o uso de &lt;em&gt;Sass&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::python
+# settings.py
+COMPRESS_PRECOMPILERS = (
+    (&amp;#39;text/x-sass&amp;#39;, &amp;#39;sassc {infile} {outfile}&amp;#39;),
+)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O binário &lt;code class=&quot;language-text&quot;&gt;sassc&lt;/code&gt; foi instalado no comando &lt;code class=&quot;language-text&quot;&gt;pip install&lt;/code&gt; acima. O parâmetro &lt;code class=&quot;language-text&quot;&gt;infile&lt;/code&gt;
+será o próprio arquivo &lt;code class=&quot;language-text&quot;&gt;scss&lt;/code&gt;, e &lt;code class=&quot;language-text&quot;&gt;outfile&lt;/code&gt; será a saída do arquivo, já compilado para &lt;em&gt;CSS&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4911baf4d5081e0d229de140f03d2a02/935bc/django-style.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.14583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwH/2gAMAwEAAhADEAAAAc+wTSFP/8QAGBABAAMBAAAAAAAAAAAAAAAAAQACEhP/2gAIAQEAAQUCwESpfkT/xAAXEQADAQAAAAAAAAAAAAAAAAAAARIR/9oACAEDAQE/AZWEo//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEv/aAAgBAgEBPwEW03//xAAWEAEBAQAAAAAAAAAAAAAAAAAAITH/2gAIAQEABj8CVr//xAAaEAACAgMAAAAAAAAAAAAAAAAAASExEUFR/9oACAEBAAE/IVPddZgjTSkbNj//2gAMAwEAAgADAAAAEA//AP/EABcRAQADAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QjIof/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQBh/9oACAECAQE/EFI21//EABsQAQACAwEBAAAAAAAAAAAAAAERIQBBcTFh/9oACAEBAAE/EAteaGJ+G8RR0UBDte4rMfS8/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Django com estilo!&amp;quot;&quot;
+        title=&quot;Django com estilo!&quot;
+        src=&quot;/static/4911baf4d5081e0d229de140f03d2a02/935bc/django-style.jpg&quot;
+        srcset=&quot;/static/4911baf4d5081e0d229de140f03d2a02/7809d/django-style.jpg 192w,
+/static/4911baf4d5081e0d229de140f03d2a02/4ecad/django-style.jpg 384w,
+/static/4911baf4d5081e0d229de140f03d2a02/935bc/django-style.jpg 620w&quot;
+        sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Django com estilo!&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Agora, a jogada será declarar em nosso &lt;em&gt;template&lt;/em&gt; que todas as folhas de estilo escritas
+em &lt;em&gt;Sass&lt;/em&gt;, terão como &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt; o valor &lt;code class=&quot;language-text&quot;&gt;text/x-sass&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::html
+&amp;lt;!-- index.html --&amp;gt;
+
+{% compress css %}
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/normalize.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/skeleton.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
+    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;scss/app.scss&amp;#39; %}&amp;quot; type=&amp;quot;text/x-sass&amp;quot;&amp;gt;
+{% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A partir de agora, no momento de execução do &lt;em&gt;Compressor&lt;/em&gt;, além de minificar e concatenar
+as folhas de estilo, também interpretará arquivos &lt;em&gt;Sass&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;E com isso, mais uma vez, mostramos que é possível ter um projeto &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
+utilizando ferramentas bacanas (como o &lt;em&gt;Sass&lt;/em&gt;), sem necessariamente
+adicionar uma linguagem diferente à sua &lt;em&gt;stack&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O ideal é que o processo de &lt;em&gt;build&lt;/em&gt; seja executado durante o procedimento
+de &lt;em&gt;deploy&lt;/em&gt; do seu projeto (através do comando &lt;code class=&quot;language-text&quot;&gt;python manage.py compress&lt;/code&gt;). Para isso,
+é necessário ativar o
+&lt;a href=&quot;http://django-compressor.readthedocs.io/en/latest/scenarios/#offline-compression&quot; title=&quot;Offline compression&quot;&gt;&lt;em&gt;offline compression&lt;/em&gt; do &lt;em&gt;Django Compressor&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No próximo &lt;em&gt;post&lt;/em&gt; vamos falar sobre &lt;em&gt;Django&lt;/em&gt; + &lt;em&gt;ES6&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima...&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://django-compressor.readthedocs.io/en/latest/&quot;&gt;&lt;em&gt;Django Compressor - Compresses linked and inline JavaScript or CSS into a single cached file&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://hongminhee.org/libsass-python/&quot;&gt;&lt;em&gt;libsass - Sass/SCSS for Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[As camadas do desenvolvimento Web]]></title><description><![CDATA[Se eu aprendi alguma coisa com o xHTML, foi:
+Separar marcação, estilos e comportamento tornam a sua vida muito mais
+feliz. Assim como tratando-se de acessibilidade, quando falamos em “camadas
+de desenvolvimento web“, estamos (a grosso modo) falando de
+semântica. E nisso, o HTML5 vem nos presenteando…]]></description><link>https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 16 Feb 2011 15:09:00 GMT</pubDate><content:encoded>&lt;p&gt;Se eu aprendi alguma coisa com o &lt;em&gt;xHTML&lt;/em&gt;, foi:
 Separar marcação, estilos e comportamento tornam a sua vida muito mais
 feliz.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Assim como tratando-se de &lt;a href="https://klauslaube.com.br/tag/acessibilidade.html" title="Leia mais sobre Acessibilidade"&gt;acessibilidade&lt;/a&gt;, quando falamos em “camadas
-de desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
-semântica. E nisso, o &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; vem nos presenteando com &lt;em&gt;tags&lt;/em&gt;
-supimpas …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 16 Feb 2011 16:09:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-02-16:/2011/02/16/camadas-desenvolvimento-web.html</guid><category>desenvolvimento</category><category>web</category><category>html</category><category>css</category><category>javascript</category><category>acessibilidade</category></item></channel></rss>
+&lt;p&gt;Assim como tratando-se de &lt;a href=&quot;/tag/acessibilidade.html&quot; title=&quot;Leia mais sobre Acessibilidade&quot;&gt;acessibilidade&lt;/a&gt;, quando falamos em “camadas
+de desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
+semântica. E nisso, o &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; vem nos presenteando com &lt;em&gt;tags&lt;/em&gt;
+supimpas como a &lt;code class=&quot;language-text&quot;&gt;section&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;article&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos conhecer um pouco mais sobre desenvolvimento e padrões &lt;em&gt;web&lt;/em&gt;?&lt;/p&gt;
+&lt;h2&gt;Marcação com uma boa dose de semântica&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEYUlEQVQ4y6XUXWzbVBQHcHe8gZBASLyDBOJlL0hISLwg4GESQiBe9oIEPKAB0wSFjW1iA6pV7WBibOrKxtpuY526Qjdg7aouW5esXdcuafPZfDVxPpzacRwncRIndhKn9499s88nQFzp6Nj36vx0rn1thrkzAHQx/3G4I+lNVubEEuNwRzuTs8shptVuUyyVld8qVGojhbJ61IyBuyGVqgNZuTKQNzMnyoP228Gdh85eftSqCcT5R6ysVHTm6u0gY8oRqzs6KSvqUfyLkS3U4QoknOtK7WmrbpUVaKcXrjoZxv4AmC+pfVZBy9jQm622YV4ajWbbWPSJhm2JN4S8Rudycrkp5FWsS2VuJcpttmp9a5lNnS2vhO+BYrF60AK1Now2QDJihRwcdpEzkzEyuyySdalOlGqT1LQWchW9xcs1zLnC6eHJ+ces+pkF/8OgICn9FqimeaOZy+P8VRZHxoJQ6u17241nymQ5lCetOEvM54Z0rty44Vx9wapfCae6zJfyAFht9jd5CaVr140sr4DL1XDTm0OAVRDnVWi6AX9UxuC4jzTYJJFsdsiFaj0oFJ+z6iNcrot2uLHRAbMN9EmLK1izXTMCXA2/jPspMPRHFO/stGP/oBOvvz+G3T9eh6JUifvkaYgZSYtUjOcpmL4DNtsdMCkU+4jZrmdm1vDOOdE77MHxMT/e/XwKT70yiGe2DOHJlw/hoi0I31+TJJOWUKgTzb0ao2DYAq+7w4yqd8CEoPTqpiipxJCKGt3mjt5ZPPHSD3h2y894cesw+kcWICs6RKVJzNMDQa5rPlagYChlgnYTVGodMM4rB6rmwTCfncHlNYglHf64jBMTbvx0zgXbUhI5pYGMucaZb5wv0GvNG1unYDApdtGDnS9vUDC2XuopaICXLRoeE/Iny4gKdaQLTSQkDWtCzVpDIFUx1xQSSCpIZFXNz/IUDCTugEKx3ekwq37HyQ14o7wRW6/AsejDlG0ek1fmYb/lw8JKFJ5whs4veWKEFVSw2ZrmjnIU9LMmOOcJM+m8QcFMaeMbZyCF3oOHjYETZzAyegHHTv6Kk2fGMXx2Al/s2ovvDw9iz74eHDpynPhiElhR15zBFAW9cQpGmITYoiBfwf7ZxSDe++Aj49PPduL4qd9x4vQETo1NYXTiCl597Q1sefNtdO/+Ftu2f0kWPElE+brmDKUp6IllTdAbYWJCg4LpEtnncK1h6NwlY/LaMk6PT2P0gg3nLznw55Ul7Pr6AL7a34djw7+he08P2d69Fxdnbmk6cB+86YsykYxOQX+iuJfNA7cjBX0pLBuuaMlwRov3YiVeMdxs1XCtlaxoLayKxBMvqd54ln4p7jUTXDDBEKfdBXukBuBOqPBzjYcjY2XzGKV1eu8zczi7gVBGg7ll+i0vR/hNzMyil7nhTtEfrMPNbp6e9++47PBsm77h/fgfYtuUw/PJ5Tn/h7alwONW/fRN7/3feZirMf9n2F0hmv8GnZcHrspkuVkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Representação de documentos HTML&amp;quot;&quot;
+        title=&quot;Representação de documentos HTML&quot;
+        src=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png&quot;
+        srcset=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Representação de documentos HTML&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Algumas referências vão chamar esta camada de “marcação”, outras vão direto ao
+ponto chamando-a de “informação”. Eu gosto de pensar que é através da marcação
+que damos significado a informação.&lt;/p&gt;
+&lt;p&gt;Este conceito foi fortemente utilizado no &lt;em&gt;xHTML&lt;/em&gt; (devido ao seu vínculo
+com o próprio &lt;em&gt;XML&lt;/em&gt;). Para dar significado a nossa informação através de
+hipertexto, utilizamos o &lt;em&gt;HTML&lt;/em&gt; … e nada mais!&lt;/p&gt;
+&lt;p&gt;É nesta camada que “diremos” às máquinas que determinada parte da nossa
+informação é mais relevante que a outra, que determinado bloco na
+verdade é um conjunto de meta-informação ou que o bloco no fim do
+arquivo contém informações menos relevantes. Sendo mais minucioso, é
+nesta camada que diremos o que é um parágrafo, o que é um título, um
+vínculo com outro documento, um trecho de código que mereça ênfase, uma
+lista não-ordenada que servirá como menu de navegação, etc.&lt;/p&gt;
+&lt;p&gt;Não importando qual o tipo de sistema que interpretará esta informação
+(&lt;em&gt;crawlers&lt;/em&gt;, navegadores, leitores de e-mail ou leitores &lt;em&gt;RSS&lt;/em&gt;), eles
+sabem (através do padrão &lt;em&gt;HTML&lt;/em&gt;) do que aquela informação se trata e
+como eles devem lidar com ela.&lt;/p&gt;
+&lt;h2&gt;Embelezando com estilos&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADzElEQVQ4y4VU62uTdxTun7L9A/tShA3ch8GQug8yhyhuDOZKQelCly1aEWspOjYKVbSo7IMDPy2idjT2tjRCt1nXVk3apAlJk7y5Nff7pXkvSfPs+b2paWu3+YOT933J7zznOec553S1Wi2II57/Zm87+p3W7nvXXrD/cmg2m2g0GlBVFfV6HZVKRX/qftvbbdvx79oL9NpZ0zTIsqw7VatVlEol5HI5xONxRKNRSJKEdDqtB9H99vh3ABVFQbFYRD6f1y+nUikEAgG43W44HA4sLCzAbrfD5/PB5XIhFotBI2BTCqPh9qKltcE7KZfLZZ1BKBTC5uYmlpaWYLPZMDMzg9nZWVgsFkxPT8PpdGJxcVEHTjPoC8sUwuM/ozz1+0HARCKhsxLRBYju6PXCbDbDarViYmICHo9HZxzhnZmpKTx5+hSjY2NY/ePP/TUUtRKpivqEyTLo98M6P48Vprm2ugo/vwX7cDjcLsX6OpaNBmyMXMKN741Ik9A+wK2tLWQzGUTpIEATFCLJ1FMEiyeTiO2I4VpbgzsYxN+/3EP2ohHFL47DdesGFAFCQXdFoaJ5iiKJtFmfHGtXMxpRPXkSXqYuETBIZh4yc/o2sDZogvzjMDyffIwYAxxQWWiUoyi5uTnUrl5FY3AQ2uXL0Hp6kBoehkQBwiLVjQ28YLDIwDlUz30F25efo8Q+xE4vt0Wp1aBSVXl8HBqdhanXr0M+cwbK6dOoHz6MGIsfZY0DDOoc/Qm1ofPwffQBnty+Da1Nb4ch32tsD+3uXWh37kAdGYFiMkG7fx/a6ChkMpQPHUKRwFGCedmD0ncGqBcMmPvwfTy3O6CpSmfadIYF1mxLRKKprJs6MAC5t1dn2TxyBI3ubqTfeRfhl6/gfPAr8he/RfLTHpi/6YefNa9QwM7oiZ861cnfvIkGayYbDFCuXMH20BAaR48iRrCVr3v1uklU3X3hPBqXTHje/R4s7Mso+zGbzeoj2wYUg82X7LwNSn8/mmfPQj12DIkTJ9hnRlgfP4Y94EcyX4DX6cDyLRNTPgXzqc/gkkKIE1D0rxjdfX1YKRRQ6OtDnLV6de0aljm7PvbfJtWVqGwqlYF3/SXiyz/g0dhxTE7+1lkYYlRFH+8C0ig80mxaHy3O9RTlpSCBREOLhi8US7Cv/IWH432YfHAPwVAUyWQCGf4nxnY3ZaHO60XJU+YIZsgsEonokQUDMdsFZvDs2SIePprgWlP01bX9xg7tNHZnwdLqpC5qItaYWKRiLwrnfQv4jR26d0EfWLD/t+rfZuL8A95kjBNdjIKHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ícone representando documento CSS&amp;quot;&quot;
+        title=&quot;Ícone representando documento CSS&quot;
+        src=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png&quot;
+        srcset=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ícone representando documento CSS&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Antes de fazer minha primeira
+aula de &lt;em&gt;Tableless&lt;/em&gt;, eu nem fazia ideia de quão importante são as folhas
+de estilos. Você já deve imaginar como eu desenvolvia para a &lt;em&gt;web&lt;/em&gt;:
+&lt;em&gt;WYSIWYG&lt;/em&gt; cuspindo tabelas e mais tabelas, com milhares de atributos
+“font” e “color” espalhados por dezenas de arquivos.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Um trecho de informação ser da cor verde ou azul irá afetar a
+semântica? Salvo exceções… &lt;strong&gt;não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Um título &lt;code class=&quot;language-text&quot;&gt;h1&lt;/code&gt; ser de tamanho 38px vai afetar a semântica?
+&lt;strong&gt;Não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;A imagem de fundo utilizada no topo deste &lt;em&gt;blog&lt;/em&gt; altera o
+siginifcado deste &lt;em&gt;post&lt;/em&gt;? &lt;strong&gt;Não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Tabelas posicionarem elementos na tela é algo semântico? &lt;strong&gt;Não!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O &lt;em&gt;Tableless&lt;/em&gt;, além de defender que as tabelas devem ser usadas apenas
+para dados tabulares, prega que a informação deve estar separada da
+formatação. Levando em conta que hoje possuímos vários tipos de
+navegadores (&lt;em&gt;desktop&lt;/em&gt;, &lt;em&gt;mobile&lt;/em&gt;, &lt;em&gt;embed&lt;/em&gt;, leitores de tela, etc), a
+informação deveria ser a mesma para todos os navegadores, mas a
+formatação não.&lt;/p&gt;
+&lt;p&gt;Com o &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS3&quot;&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt; e as folhas de estilos, aplicar diferentes formatações
+para um mesmo conteúdo passou a ser trivial. Antes, quando você tinha a
+formatação mesclada a informação, você era obrigado a reescrever a
+informação para diferentes formatos.&lt;/p&gt;
+&lt;p&gt;Outro exemplo, meu leitor &lt;a href=&quot;/2010/11/12/o-que-e-rss.html&quot; title=&quot;O que é RSS?&quot;&gt;&lt;em&gt;RSS&lt;/em&gt;&lt;/a&gt; não utiliza a formatação que eu
+escrevi para o meu &lt;em&gt;site&lt;/em&gt; … ele utiliza uma formatação própria. Estamos
+permitindo que nossa informação seja propagada em uma espécie de
+“acoplamento fraco”. Para o pessoal que curte uma &lt;em&gt;buzzword&lt;/em&gt;, essa é a
+premissa da &lt;em&gt;Web 3.0&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Interação e comportamento&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEIElEQVQ4y5WUa0ybVRjHO2fMMtiYGhMIZHPGRCdWp5lxZgi6za0tAzcKFDa8xWiyjGWJfnDTePlgnM5Lohm7ZBPGxhDmNmGAW8JuAuFWboWWXmhLLy+lfXsvLZfSc/6eImAZjsST/HOec55zfud53uecVyCIaXK5PNrFMa1iiv8PrZr1C9IzMpYJlmhzzoTExMQ+sVhs2ykSmUQikTlWYonE9HSq0M7WHYguflYofGARKVuWGDtcIZXu8WGmESY6KzIzE56eRlOPCvveeQ9zUKFQuHwR9JWMNWzy4bXMfCk9Q+QKjkc3I8JEIhEQQmaIZCocJh0DukhwahoHDxbPQzc8k7oIujopZYV6T0EyOXRke6Sx8wTu9pyirQOl6B2qRr/xIjheRdkBtFejh8PjY2eAvv/Bh/PQ117fugCYsGlLgtno+QFq7jhRmU5Rg60KOu4i+vQ/oUX5Ebq1lZgKA0MWjtp4F+xuL+H9obn0i6OQ+Pj4+UKtTt24Ul9Wk4ZfL28lnQMn0dl/mmqH63GhNhMllRvR1FWO8UnAyNmo2mihnQNaNPeoIre7lBC+uCnEGMkLInzyqYdGP/02Dt/8/Bw5V/UuPVayGZVXD+CTrx9D8WcC1N8qwdg4hdPrgcPto3aXh3J2nvhCUygsesvDGOtjgfEr45Y3PPKoQPPqtuenzl05g9+unafV9eVouFOLxpZ6KDRK8J4AnB4/672s91GH20MmIhSFe/d5GWPdPO3ltAfncl8jkux2ekMEvHec8N4J9q0CrAhB2Jw+mEdHYLKZYbXzTE6YbQ7inwhD9g/w8RkCIFxwscWZmU4L++h6K0f01hGY7QEYRxwM5kd988do6SvDqAswcDYMma3EHZyErDAGeM9LYRHucprY6QbOQ/ScG41tJ9GqqIPOYkPpH9txs/04bneUsrGdVdxN7P4g8pcAJuwQSxjQh9a+G6T0ihQlFS9ArryDlt4GnL0kQZeqCaertjB7F+7KrxJHIIzcgsL7A98QiZxmfhIVtfvJ4aMCXG86geHRMCqvHUJFzX5mT+Nm2wUc+W4ZzlYXEH4MkMpkSwElTi3Ho0+nJjWNR/Hl90n4868y/FKWyUC/s3Tr8NWPKbh8/XN0DSqIxR1kwIL7A7cz4KB5FAo9RwbNXnSr+1F36wy+OLaB2Rq0D8jR3t8GtcWHXp2FDPM+5OQvkfK2nWJeYbBCrjZEOlQaqjC46I3mGlp+6TDtHRqh3RoT7dFaaeegjnYodRGtzYXdeTLPgnsYW+UdkiyP0TmGQSvP3rWLiYfW5oHeEWK2c1bMN+KC0myHLRRBbmFR4N4I559gUnLK8Ju5+RPZ0jw/UyBbmh+I9lk5ubP2v8rKyfPnFOwNrVv/hJXtXbuIll/0djTSlFnn/1HK5rT0mX/i35TJ+EshQbldAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ícone representando documento Javascript&amp;quot;&quot;
+        title=&quot;Ícone representando documento Javascript&quot;
+        src=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png&quot;
+        srcset=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ícone representando documento Javascript&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; é interpretado pelo navegador. Com ele, nossas aplicações &lt;em&gt;web&lt;/em&gt; podem
+fazer com que o navegador tenha um comportamento (ou interaja com os
+elementos) de uma maneira diferente da usual.&lt;/p&gt;
+&lt;p&gt;Por exemplo, podemos fazer uma página inteira ser aberta de forma
+assíncrona através de &lt;em&gt;Ajax&lt;/em&gt;, ou podemos fazer com que nossos
+formulários sejam validados antes mesmo da informação ser enviada ao
+servidor. Você pode notar que fazemos com que o navegador interaja com
+nossa informação de uma forma “fora do padrão”… já ouvi pessoas chamando
+esta camada de “interação”, outras de “comportamento”. Na minha opinião,
+a última opção faz mais sentido.&lt;/p&gt;
+&lt;p&gt;Os seus &lt;em&gt;scripts&lt;/em&gt;, assim como os seus estilos, não devem estar
+“mesclados” com a informação. Pense comigo, se a informação pode ser
+acessada por leitores &lt;em&gt;RSS&lt;/em&gt;, é bem provável que eles não entendam
+&lt;em&gt;Javascript&lt;/em&gt; (ou que não entendam na plenitude de um navegador Web).
+Certo?&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Mas afinal de contas, como separo as camadas de desenvolvimento? Muito
+simples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Informação deve ser sempre acessível, indiferente do estilo ou
+comportamento da sua aplicação (ou seja, só &lt;em&gt;HTML&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Qualquer espécie de formato que você irá aplicar deve estar contido
+em folhas de estilo &lt;em&gt;CSS&lt;/em&gt; (ou seja, fontes, tamanhos, cores)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Javascript&lt;/em&gt; não devem estar misturados com &lt;em&gt;HTML&lt;/em&gt;! Nem mesmo em
+atributos como &lt;em&gt;onClick&lt;/em&gt; (com a &lt;em&gt;jQuery&lt;/em&gt; isso se torna muito fácil)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sei muito bem que na prática a coisa pode não ser bem assim. Os
+navegadores estão preparados para lidar com esse tipo de situação, mas
+não caia nessa! Separar o seu desenvolvimento em camadas só faz bem para
+você, para o seu cliente e para a sociedade.&lt;/p&gt;</content:encoded></item></channel></rss>

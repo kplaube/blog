@@ -1,22 +1,436 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - es6</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 27 Aug 2016 16:00:00 -0300</lastBuildDate><item><title>Django, Sass e ES6 no Heroku com Multiple Buildpacks</title><link>https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</link><description>&lt;p&gt;Anteriormente, falamos sobre como utilizar o &lt;code&gt;django-compressor&lt;/code&gt; com &lt;a href="https://klauslaube.com.br/tag/sass.html" title="Leia mais sobre Sass"&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
-e &lt;a href="https://klauslaube.com.br/tag/es6.html" title="Leia mais sobre ES6"&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Se você quisesse utilizar o &lt;em&gt;Heroku&lt;/em&gt;,
-com uma aplicação &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; executando operações de &lt;em&gt;build&lt;/em&gt;
-em &lt;a href="https://klauslaube.com.br/tag/node.html" title="Leia mais sobre Node.JS"&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;, seria uma tarefa um tanto árdua,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - es6]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
+e ES6. Se você quisesse utilizar o Heroku,
+com uma aplicação Python executando operações de build
+em Node.js, seria uma tarefa um tanto árdua,
 que exigiria um certo nível de paciência na
-construção do seu próprio &lt;em&gt;Buildpack&lt;/em&gt;. Hoje, com o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 27 Aug 2016 16:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-08-27:/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>sass</category><category>es6</category><category>css</category><category>js</category><category>heroku</category><category>buildpack</category></item><item><title>Django e ES6 com django-compressor</title><link>https://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html" title="Django e Sass com django-compressor"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
-falamos sobre como utilizar o &lt;a href="https://klauslaube.com.br/tag/sass.html" title="Leia mais sobre Sass"&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
-com o &lt;em&gt;framework&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;
+construção do seu próprio Buildpack. Hoje, com o Multiple…]]></description><link>https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 27 Aug 2016 16:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Anteriormente, falamos sobre como utilizar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; com &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;/tag/es6.html&quot; title=&quot;Leia mais sobre ES6&quot;&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Se você quisesse utilizar o &lt;em&gt;Heroku&lt;/em&gt;,
+com uma aplicação &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; executando operações de &lt;em&gt;build&lt;/em&gt;
+em &lt;a href=&quot;/tag/node.html&quot; title=&quot;Leia mais sobre Node.JS&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;, seria uma tarefa um tanto árdua,
+que exigiria um certo nível de paciência na
+construção do seu próprio &lt;em&gt;Buildpack&lt;/em&gt;. Hoje, com o &lt;em&gt;Multiple Buildpacks&lt;/em&gt;, isso não é mais necessário.&lt;/p&gt;
+&lt;h2&gt;Build o quê?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Buildpack&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;São conjuntos de scripts que, dependendo da linguagem de programação que você escolher,
+resolverão dependências, geração de &lt;em&gt;assets&lt;/em&gt; e até mesmo compilação arquivos, dentro da plataforma &lt;em&gt;Heroku&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ou seja, eles são uma espécie de &quot;provisionamento&quot;, onde você escreverá uma série de
+instruções que deixarão o ambiente preparado para receber o seu projeto.&lt;/p&gt;
+&lt;p&gt;Antigamente, para você trabalhar com compilação/transpilação de &lt;em&gt;assets&lt;/em&gt; em um projeto
+&lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;, você tinha duas opções:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilizar (ou construir) um &lt;em&gt;Buildpack&lt;/em&gt; customizado que realizasse o procedimento de instalação das dependências e build (como o &lt;a href=&quot;https://github.com/jiaaro/heroku-buildpack-django&quot; title=&quot;Veja o repositório no GitHub&quot;&gt;heroku-buildpack-django&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;&quot;Commitar&quot; os arquivos &quot;buildados&quot; e utilizar o &lt;em&gt;Buildpack Python&lt;/em&gt; padrão.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Eu nunca tive muita paciência com a questão de provisionamento no &lt;em&gt;Heroku&lt;/em&gt;,
+então geralmente eu partia para a ignorância e vivia &quot;commitando&quot; &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; compilados.&lt;/p&gt;
+&lt;h2&gt;Repita comigo: Nunca mais vou commitar arquivos compilados&lt;/h2&gt;
+&lt;p&gt;É uma péssima ideia! Principalmente quando você está trabalhando em uma equipe grande.
+A quantidade de &lt;em&gt;merge hells&lt;/em&gt; envolvendo arquivos compilados é aquele tipo de dor de
+cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHISawFD//EABoQAAICAwAAAAAAAAAAAAAAAAECABEQEjH/2gAIAQEAAQUCAXVas9WLj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAQAGPwLWv//EABkQAQADAQEAAAAAAAAAAAAAAAEAESFRYf/aAAgBAQABPyG4eK3sKQsziDD5FTnGKrs//9oADAMBAAIAAwAAABD7H//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0oaJu+D2KDaGsdgsFnNgLgQsD8yM6kRMeS5K2f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Não dá pra pilotar um Jaeger sozinho (deadline.com)&amp;quot;&quot;
+        title=&quot;Não dá pra pilotar um Jaeger sozinho (deadline.com)&quot;
+        src=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg&quot;
+        srcset=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/7809d/multipack-pacific-rim.jpg 192w,
+/static/a5e7fde62eb0da75c7d6193857640faa/4ecad/multipack-pacific-rim.jpg 384w,
+/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não dá pra pilotar um Jaeger sozinho (deadline.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;De forma bem resumida, vamos ilustrar como funcionaria o fluxo de &lt;em&gt;build&lt;/em&gt; de estáticos com
+múltiplos &lt;em&gt;Buildpacks&lt;/em&gt;. Para começar, vamos criar um novo &lt;em&gt;app&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku create&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você tenha dúvidas sobre como criar um projeto &lt;em&gt;Python&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;,
+o &quot;&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-python#introduction&quot; title=&quot;Leia documentação oficial&quot;&gt;Getting started&lt;/a&gt;&quot; deles é muito bacana e fácil de seguir.&lt;/p&gt;
+&lt;p&gt;Supondo que já instalamos o &lt;em&gt;Django&lt;/em&gt;, e que criamos os arquivos &lt;code class=&quot;language-text&quot;&gt;runtime.txt&lt;/code&gt;,
+determinando qual a versão do &lt;em&gt;Python&lt;/em&gt; que usaremos, e &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;,
+para resolução de dependências, automaticamente o &lt;em&gt;Heroku&lt;/em&gt; saberá preparar
+o ambiente para o nosso projeto.&lt;/p&gt;
+&lt;p&gt;Mas caso você queira ter certeza disso, podemos usar o comando &lt;code class=&quot;language-text&quot;&gt;buildpacks:set&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku buildpacks:set heroku/python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como no &lt;a href=&quot;/2016/06/04/django-e-sass-com-django-compressor.html&quot; title=&quot;Django e Sass com django-compressor&quot;&gt;&lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;,
+utilizaremos a biblioteca &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;libsass&lt;/code&gt;. Logo, vamos adicioná-la ao &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django
+django-compressor
+libsass&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos deixar de configurar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/x-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sassc {infile} {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas e o &lt;em&gt;ES6&lt;/em&gt;? Precisaremos do &lt;a href=&quot;/tag/babel.html&quot; title=&quot;Leia mais sobre BabelJS&quot;&gt;BabelJS&lt;/a&gt;,
+e consequentemente do &lt;em&gt;Node.js&lt;/em&gt;, para realizar o &lt;em&gt;transpiling&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Python + Node.js em uma mesma instância Heroku&lt;/h2&gt;
+&lt;p&gt;Para adicionar um novo &lt;em&gt;Buildpack&lt;/em&gt;, temos o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku buildpacks:add --index 1 heroku/nodejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Onde &lt;code class=&quot;language-text&quot;&gt;--index&lt;/code&gt; determina qual será a ordem de execução do &lt;em&gt;Buildpack&lt;/em&gt;.
+Nesse caso, opto por ele ser o primeiro e o do &lt;em&gt;Python&lt;/em&gt; segundo,
+somente para garantir que todas as dependências estejam sanadas quando
+a resolução de estáticos do &lt;em&gt;Django&lt;/em&gt; acontecer.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Buildpack Python&lt;/em&gt; executa operações dependendo de alguns arquivos
+do nosso projeto. Por exemplo, como mencionado acima, precisamos especificar
+a versão da linguagem (&lt;code class=&quot;language-text&quot;&gt;runtime.txt&lt;/code&gt;), instalar as dependências do projeto
+(&lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;) e no caso do &lt;em&gt;Django&lt;/em&gt;, executar a operação de
+&lt;code class=&quot;language-text&quot;&gt;collectstatic&lt;/code&gt; após o deploy (&lt;code class=&quot;language-text&quot;&gt;manage.py&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;No caso do &lt;em&gt;Node.js&lt;/em&gt;, precisaremos ter um arquivo &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; na raíz do
+projeto, contendo todas as bibliotecas que o projeto usa, para essa linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm init .
+$ npm install --save babelify babel-preset-es2015&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos esquecer do &lt;code class=&quot;language-text&quot;&gt;.babelrc&lt;/code&gt;, essencial para a execução do &lt;em&gt;Babel&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// .babelrc&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E por fim, falta adicionar o pré-compilador ao &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/x-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sassc {infile} {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/es6&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./node_modules/.bin/browserify {infile} -t babelify --outfile {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Ao dar o &lt;code class=&quot;language-text&quot;&gt;git push heroku master&lt;/code&gt;, a plataforma executará primeiro o
+&lt;em&gt;Buildback Node.js&lt;/em&gt;, e na sequência o &lt;em&gt;Buildpack Python&lt;/em&gt;. No momento de entrega das
+páginas, teremos os binários &lt;code class=&quot;language-text&quot;&gt;browserify&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;sassc&lt;/code&gt; instalados em nossa instância,
+e poderemos entregar nossas páginas com &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; compilados sem a necessidade de &quot;commitá-los&quot;.&lt;/p&gt;
+&lt;h2&gt;Comprimindo no momento do deploy&lt;/h2&gt;
+&lt;p&gt;Comprimir/compilar &lt;em&gt;assets&lt;/em&gt; no momento da requisição também é algo que deve ser evitado.
+Embora o &lt;em&gt;Django Compressor&lt;/em&gt; faça um excelente trabalho nesse quesito, se estivermos usando
+uma &lt;em&gt;CDN&lt;/em&gt; para a entrega desses estáticos, esse procedimento não deve acontecer durante a requisição de um usuário.&lt;/p&gt;
+&lt;p&gt;Para executar o comando &lt;code class=&quot;language-text&quot;&gt;compress&lt;/code&gt; da biblioteca &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; em tempo de &lt;em&gt;deploy&lt;/em&gt;,
+basta fazermos duas coisas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Garantir que &lt;code class=&quot;language-text&quot;&gt;COMPRESS_OFFLINE&lt;/code&gt;, na configuração do seu projeto, esteja setado como &lt;code class=&quot;language-text&quot;&gt;True&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Criar um diretório &lt;code class=&quot;language-text&quot;&gt;bin&lt;/code&gt;, e dentro dele um arquivo &lt;code class=&quot;language-text&quot;&gt;post_compile&lt;/code&gt;, com a instrução de &lt;code class=&quot;language-text&quot;&gt;compress&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+python manage.py compress&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Feito! Agora a cada &lt;em&gt;deploy&lt;/em&gt; da sua aplicação, o &lt;em&gt;build&lt;/em&gt; dos &lt;em&gt;assets&lt;/em&gt; acontecerá
+automaticamente, dispensando assim a necessidade de ficar enviando &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; &quot;buildados&quot;
+através de &lt;code class=&quot;language-text&quot;&gt;git push&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Dúvidas sobre a relação entre Django, Sass e ES6? Eu a detalho um pouco melhor nesses dois posts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html&quot;&gt;Django e ES6 com django-compressor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html&quot;&gt;Django e Sass com django-compressor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app&quot;&gt;Heroku Dev Center: Using Multiple Buildpacks for an App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Django e ES6 com django-compressor]]></title><description><![CDATA[No post anterior,
+falamos sobre como utilizar o Sass
+com o framework Django
+através da biblioteca Compressor (e sem necessitar de uma
+ferramenta intermediária para build). Nesse artigo, vamos utilizar
+o mesmo conceito e apresentar uma forma diferente de utilizar
+a nova versão do Javascript
+com o…]]></description><link>https://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 20 Jun 2016 23:04:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2016/06/04/django-e-sass-com-django-compressor.html&quot; title=&quot;Django e Sass com django-compressor&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
+falamos sobre como utilizar o &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
+com o &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;
 através da biblioteca &lt;em&gt;Compressor&lt;/em&gt; (e sem necessitar de uma
 ferramenta intermediária para &lt;em&gt;build&lt;/em&gt;). Nesse artigo, vamos utilizar
 o mesmo conceito e apresentar uma forma diferente de utilizar
-a nova versão do &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;
-com o &lt;code&gt;django-compressor&lt;/code&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+a nova versão do &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;
+com o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalando e configurando o Compressor&lt;/h2&gt;
+&lt;p&gt;Vamos recaptular o processo de instalação do &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install django-compressor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos esquecer de adicionar a &lt;em&gt;app&lt;/em&gt; ao &lt;code class=&quot;language-text&quot;&gt;INSTALLED_APPS&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+INSTALLED_APPS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;compressor&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E para finalizar, precisamos fazer os estáticos serem &quot;encontráveis&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+STATICFILES_FINDERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.staticfiles.finders.FileSystemFinder&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.staticfiles.finders.AppDirectoriesFinder&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;compressor.finders.CompressorFinder&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para simplificar o nosso exemplo, vou reaproveitar o cenário criado no &lt;em&gt;post&lt;/em&gt;
+anterior:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;django-html&quot;&gt;&lt;pre class=&quot;language-django-html&quot;&gt;&lt;code class=&quot;language-django-html&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
 
-&lt;h2&gt;Instalando e …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 20 Jun 2016 23:04:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-06-20:/2016/06/20/django-e-es6-com-django-compressor.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>es6</category><category>javascript</category><category>babel</category><category>browserify</category></item><item><title>Fazendo Javascript OO de forma fácil - Parte 2</title><link>https://klauslaube.com.br/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</link><description>&lt;p&gt;Há cerca de 5 anos, fiz um &lt;em&gt;post&lt;/em&gt; sobre como escrever
-&lt;a href="https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html" title="Leia o artigo completo"&gt;Javascript OO de forma fácil&lt;/a&gt;
+{% load compress %}
+{% load staticfiles %}
+
+{% compress js %}
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;vendor/jquery/jquery.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;js/app.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+{% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Imagine que o nosso arquivo &lt;code class=&quot;language-text&quot;&gt;js/app.js&lt;/code&gt; é um &lt;em&gt;Javascript&lt;/em&gt;, mas escrito seguindo as
+especificações do &lt;a href=&quot;/tag/es6.html&quot; title=&quot;Leia mais sobre ES6&quot;&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Podendo ser algo
+semelhante ao exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; createStore &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;redux&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; rootReducer &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./reducers&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; App &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./components/app&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; store &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createStore&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rootReducer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;subscriber&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O bloco de &lt;code class=&quot;language-text&quot;&gt;{% compress js %}&lt;/code&gt; será responsável por minificar e concatenar os nossos &lt;em&gt;scripts&lt;/em&gt;.
+Se executarmos o comando &lt;code class=&quot;language-text&quot;&gt;manage.py compress&lt;/code&gt;, provavelmente não teremos nenhum problema,
+e o &lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt; de resposta será algo parecido com isso:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- index.html --&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text/javascript&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/static/CACHE/js/3ffb288f8747.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas o &lt;em&gt;ES6&lt;/em&gt; ainda não é amplamente suportado pelos navegadores... logo, teremos
+que usar &quot;transpiladores&quot; para que o código seja traduzido em algo &quot;entendível&quot; pelos &lt;em&gt;browsers&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Hello NPM my old friend&lt;/h2&gt;
+&lt;p&gt;Eu sinceramente desconheço uma ferramenta que faça &lt;a href=&quot;https://www.stevefenton.co.uk/2012/11/compiling-vs-transpiling/&quot; title=&quot;Compiling vs Transpiling&quot;&gt;&lt;em&gt;transpiling&lt;/em&gt;&lt;/a&gt;
+de &lt;em&gt;ES6&lt;/em&gt; para &lt;em&gt;ES5&lt;/em&gt; melhor que o &lt;a href=&quot;https://babeljs.io/&quot; title=&quot;Use next generation JavaScript, today&quot;&gt;&lt;em&gt;Babel&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;E embora a gente &quot;torça o nariz&quot; para a necessidade de adicionar &lt;a href=&quot;/tag/node.html&quot; title=&quot;Leia mais sobre Node&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;
+à nossa &lt;em&gt;stack&lt;/em&gt; &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, o uso do &lt;em&gt;Babel&lt;/em&gt; nessas condições faz
+certo sentido. Primeiro, por nos permitir escrever &lt;em&gt;Javascript&lt;/em&gt;
+numa versão mais prática, legível e divertida. Segundo, que com o auxílio do
+&lt;a href=&quot;http://browserify.org/&quot; title=&quot;Browserify lets you require modules in the browser&quot;&gt;&lt;em&gt;Browserify&lt;/em&gt;&lt;/a&gt; (por exemplo),
+podemos deixar a resolução de &lt;em&gt;path&lt;/em&gt; do &lt;em&gt;JS&lt;/em&gt; nas mãos da tríade &lt;em&gt;NPM/Browserify/Babel&lt;/em&gt;
+(ou você achou que aquele &lt;code class=&quot;language-text&quot;&gt;import &amp;#39;redux&amp;#39;&lt;/code&gt; veio de graça?).&lt;/p&gt;
+&lt;p&gt;Isso nos permite escrever &lt;em&gt;Javascript&lt;/em&gt; modular, utilizando recursos que já são &lt;em&gt;built-in&lt;/em&gt;
+(na especificação) da linguagem, sem necessariamente nos preocuparmos em como resolveremos as
+questões de importação (como por exemplo, se usaremos &lt;a href=&quot;http://requirejs.org/&quot; title=&quot;RequireJS is a JavaScript file and module loader&quot;&gt;&lt;em&gt;RequireJS&lt;/em&gt;&lt;/a&gt;
+ou &lt;a href=&quot;https://github.com/cujojs/curl&quot; title=&quot;curl.js is small, fast, extensible module loader&quot;&gt;&lt;em&gt;curl.js&lt;/em&gt;&lt;/a&gt;)
+e deixamos toda essa responsabilidade nas mãos da ferramenta de &lt;em&gt;bundling&lt;/em&gt; de sua escolha.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dc950275e2c6d590b83a54d5a867fdc3/2a195/django-babel-auf-wiedersehen.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABqElEQVQY00VQW0sbQRSey5mdnZ3d7G5izEZysQGVavGGSL1D+54SsGpSMSiojQ/SKFITqUalGMGoiOCDDyL4WihtH/rU39azKW0PB+Yb5rucM4RSKgAiyvIsHXPsVNSPKOVpXZiZblbenxQL80O5npivhNnbFXMtC7jBGKftIoQSCcJVOqqdwPUyMT+qrYTrflpb+XF5/lSrtor58ssRTyolTcYYpX+6LaYhZJwDcBBgmEJyJuKO3n6b/3lzeTD/5nR5KT86nPXcdiZy2f9kRjlesMNiILhBGXTa6rhc+nV3+1Dd+XJ8tPl69kWHL4XJwxiB7v+SUQo8NMMDDIH2kPQijfLS96uLr6eN85Xi5LNsrjNhWzbS2+S/YuDCAOlqJ+75jEK4BGGM0P5M6np//6yysf5qsjAykIonkEkIvqGSIwjFOCyioMPvz6UJ4Yl40BWkp8bGt0vLd81WY7f2YXWjsrCYCZKGtKRUuKGBn8Mxn5FwWwamEHPjE9Wtvd2t+vXB52+tZv1d6XCn9nj/+LFaHxwYNZWd7e7r6R163jecTqY97bim/g2WwkJ29mDhJgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Django + Babel é como dar um Auf Wiedersehen para o ES5 (fallsdownz.blogspot.com.br)&amp;quot;&quot;
+        title=&quot;Django + Babel é como dar um Auf Wiedersehen para o ES5 (fallsdownz.blogspot.com.br)&quot;
+        src=&quot;/static/dc950275e2c6d590b83a54d5a867fdc3/2a195/django-babel-auf-wiedersehen.png&quot;
+        srcset=&quot;/static/dc950275e2c6d590b83a54d5a867fdc3/8514f/django-babel-auf-wiedersehen.png 192w,
+/static/dc950275e2c6d590b83a54d5a867fdc3/804b2/django-babel-auf-wiedersehen.png 384w,
+/static/dc950275e2c6d590b83a54d5a867fdc3/2a195/django-babel-auf-wiedersehen.png 620w&quot;
+        sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Django + Babel é como dar um Auf Wiedersehen para o ES5 (fallsdownz.blogspot.com.br)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Sem mais delongas, vamos instalar as dependências que precisaremos para o nosso exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save-dev babelify babel-preset-es2015 redux&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dos pacotes acima, os mais fundamentais são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;babelify&lt;/code&gt;: Um &lt;a href=&quot;http://babeljs.io/docs/plugins/#transform&quot; title=&quot;Babel plugins&quot;&gt;&lt;em&gt;transform&lt;/em&gt;&lt;/a&gt; de &lt;em&gt;Babel&lt;/em&gt; para o &lt;em&gt;Browserify&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;babel-preset-es2015&lt;/code&gt;: Um &lt;em&gt;preset&lt;/em&gt; com um apanhado de &lt;em&gt;plugins&lt;/em&gt; necessários para compilar &lt;em&gt;ES2015&lt;/em&gt; para &lt;em&gt;ES5&lt;/em&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O pacote &lt;code class=&quot;language-text&quot;&gt;redux&lt;/code&gt; é apenas uma dependência utilizada pelo exemplo, e não
+influencia diretamente no processo de &lt;em&gt;build&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para facilitar a comunicação entre o &lt;em&gt;Django&lt;/em&gt; e o &lt;em&gt;Babel&lt;/em&gt;, vamos criar um arquivo de configuração
+&lt;code class=&quot;language-text&quot;&gt;.babelrc&lt;/code&gt;, na raíz do nosso projeto, com a seguinte configuração:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Voltamos ao &lt;em&gt;Django&lt;/em&gt;, para terminar de configurar o nosso projeto.&lt;/p&gt;
+&lt;h2&gt;Back to the Django&lt;/h2&gt;
+&lt;p&gt;Como no exemplo do &lt;em&gt;post&lt;/em&gt; anterior, vamos utilizar a capacidade de setarmos
+compiladores/transpiladores, no &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;, e passaremos a interpretar
+os arquivos &lt;em&gt;Javascript&lt;/em&gt; utilizando o &lt;em&gt;Babel&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/es6&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./node_modules/.bin/browserify {infile} -t babelify --outfile {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;./node_modules/.bin/browserify&lt;/code&gt; é onde está o binário após ser instalado
+via &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt;. Os parâmetros &lt;code class=&quot;language-text&quot;&gt;infile&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;outfile&lt;/code&gt; dizem respeito ao arquivo de entrada e
+de saída, respectivamente.&lt;/p&gt;
+&lt;p&gt;Agora basta voltarmos ao nosso &lt;em&gt;template&lt;/em&gt;, e adicionarmos o atributo &lt;code class=&quot;language-text&quot;&gt;type=&amp;quot;text/es6&lt;/code&gt; à
+nossa &lt;em&gt;tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;django-html&quot;&gt;&lt;pre class=&quot;language-django-html&quot;&gt;&lt;code class=&quot;language-django-html&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
+
+{% load compress %}
+{% load staticfiles %}
+
+{% compress js %}
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;vendor/jquery/jquery.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;js/app.js&amp;#39; %}&amp;quot; type=&amp;quot;text/es6&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+{% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Agora é só ver o resultado através do comando &lt;code class=&quot;language-text&quot;&gt;python manage.py compress&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Tratando-se de uma aplicação em produção, onde é recomendado utilizar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;
+com &lt;a href=&quot;http://django-compressor.readthedocs.io/en/latest/scenarios/#offline-compression&quot; title=&quot;Offline compression&quot;&gt;&lt;em&gt;offline compression&lt;/em&gt;&lt;/a&gt;,
+a adição do &lt;em&gt;Browserify&lt;/em&gt; não impactará no tempo de resposta
+do seu servidor. No entanto, é certo que o servidor local, levantado através do
+&lt;code class=&quot;language-text&quot;&gt;manage.py runserver&lt;/code&gt;, leve um tempo maior para responder depois dessa adição.&lt;/p&gt;
+&lt;p&gt;Na dúvida, não custa testar...&lt;/p&gt;
+&lt;p&gt;Inicie utilizando o &lt;em&gt;Django&lt;/em&gt; com &lt;em&gt;Compressor&lt;/em&gt;. A partir do momento onde os
+tempos de resposta tornem-se muito altos, opte por uma ferramenta que
+&lt;a href=&quot;/2016/02/22/vivendo-sem-o-grunt.html&quot; title=&quot;Vivendo sem o Grunt&quot;&gt;execute o &lt;em&gt;build&lt;/em&gt; em paralelo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/babel/babelify&quot;&gt;&lt;em&gt;Babelify - Browserify transform for Babel&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://django-compressor.readthedocs.io/en/latest/&quot;&gt;&lt;em&gt;Django Compressor - Compresses linked and inline JavaScript or CSS into a single cached file&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Fazendo Javascript OO de forma fácil - Parte 2]]></title><description><![CDATA[Há cerca de 5 anos, fiz um post sobre como escrever
+Javascript OO de forma fácil
 utilizando a orientação a objetos da linguagem através de
-&lt;a href="https://klauslaube.com.br/2011/10/23/javascript-constructor-function-object-literal.html" title="Diferença entre Constructor Function e Object Literal"&gt;&lt;em&gt;Constructor Functions&lt;/em&gt; e &lt;em&gt;Object Literal&lt;/em&gt;&lt;/a&gt;.
+Constructor Functions e Object Literal.
+Hoje, com o ES6, o esquema de Prototype ainda continua,
+mas a sintaxe ficou muito mais fácil e intuitiva, valendo a pena…]]></description><link>https://klauslaube.com.br/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 15 Mar 2016 12:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Há cerca de 5 anos, fiz um &lt;em&gt;post&lt;/em&gt; sobre como escrever
+&lt;a href=&quot;/2011/05/16/fazendo-javascript-oo-de-forma-facil.html&quot; title=&quot;Leia o artigo completo&quot;&gt;Javascript OO de forma fácil&lt;/a&gt;
+utilizando a orientação a objetos da linguagem através de
+&lt;a href=&quot;/2011/10/23/javascript-constructor-function-object-literal.html&quot; title=&quot;Diferença entre Constructor Function e Object Literal&quot;&gt;&lt;em&gt;Constructor Functions&lt;/em&gt; e &lt;em&gt;Object Literal&lt;/em&gt;&lt;/a&gt;.
 Hoje, com o &lt;em&gt;ES6&lt;/em&gt;, o esquema de &lt;em&gt;Prototype&lt;/em&gt; ainda continua,
-mas a sintaxe ficou muito mais fácil e intuitiva, valendo …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 15 Mar 2016 13:20:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-03-15:/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>es6</category><category>oop</category></item></channel></rss>
+mas a sintaxe ficou muito mais fácil e intuitiva, valendo a pena dar um &lt;em&gt;revival&lt;/em&gt;
+no tema para explorar um pouquinho mais das novas funcionalidades.&lt;/p&gt;
+&lt;p&gt;Então, nobre leitor, prepare o seu &lt;a href=&quot;https://babeljs.io/&quot; title=&quot;Javascript compiler&quot;&gt;&lt;em&gt;Babel&lt;/em&gt;&lt;/a&gt; e vamos escrever algumas classes
+na nova sintaxe do &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Açúcares sintáticos&lt;/h2&gt;
+&lt;p&gt;Sim! A sintaxe apresentada no &lt;em&gt;ECMAScript 6&lt;/em&gt; não passa de açúcar sintático!&lt;/p&gt;
+&lt;p&gt;Na prática, o &lt;em&gt;Javascript&lt;/em&gt; continua utilizando a orientação a objetos através de
+&lt;em&gt;Prototype&lt;/em&gt;. Mas isso não diminui em nada o valor desse &lt;em&gt;approach&lt;/em&gt; para com a
+linguagem. Fazer &lt;em&gt;Javascript&lt;/em&gt; OOP é a realidade de muitas aplicações
+(complexas ou não), e caso você queira escrever componentes utilizando &lt;em&gt;React&lt;/em&gt;,
+verá que a dupla &lt;em&gt;ES6&lt;/em&gt; + &lt;em&gt;React&lt;/em&gt; é capaz de produzir componentes com código
+extremamente legível e elegante.&lt;/p&gt;
+&lt;p&gt;Vamos começar escrevendo nossa classe &lt;code class=&quot;language-text&quot;&gt;Pessoa&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pessoa&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; idade &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;idade &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; idade&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token function&quot;&gt;sayTheName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; pessoa &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; idade&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Guido&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+pessoa&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;sayTheName&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Guido&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;pessoa&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;__proto__&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sayTheName&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// function sayTheName&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora possuímos a palavra reservada &lt;code class=&quot;language-text&quot;&gt;class&lt;/code&gt; para a construção de classes. Além
+disso, temos a inserção do método &lt;code class=&quot;language-text&quot;&gt;constructor&lt;/code&gt;, que será executado no momento em que
+a instância for criada.&lt;/p&gt;
+&lt;p&gt;Não precisamos mais da assinatura &lt;code class=&quot;language-text&quot;&gt;Pessoa.prototype.method = function&lt;/code&gt;
+para adicionarmos um método. Agora há uma sintaxe específica, muito mais clara
+e fácil de lembrar.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1fe8dac458a469ed60158d951d6edef8/b4294/stay-classy.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAFOYWWVkBR//8QAGBABAQEBAQAAAAAAAAAAAAAAAQACERL/2gAIAQEAAQUCdGQc5m72S9N//8QAFhEBAQEAAAAAAAAAAAAAAAAAABES/9oACAEDAQE/AYy//8QAGBEBAQADAAAAAAAAAAAAAAAAAQADERP/2gAIAQIBAT8Bcou7sX//xAAbEAACAQUAAAAAAAAAAAAAAAAAARARITFhcf/aAAgBAQAGPwKrFtRcXDJ//8QAGhAAAwADAQAAAAAAAAAAAAAAAAERITFR4f/aAAgBAQABPyGgMHE6vRslSmqFJNwM3//aAAwDAQACAAMAAAAQKD//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQMBAT8QECWr/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERMWH/2gAIAQIBAT8QUIUYs//EABwQAQEBAQACAwAAAAAAAAAAAAERIQAxUWGB0f/aAAgBAQABPxClBUzzf3myojg26x+XaIP0dOsGx4BEaD6d5Lq7/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Stay classy San Diego! (sandiegouniontribune.com)&amp;quot;&quot;
+        title=&quot;Stay classy San Diego! (sandiegouniontribune.com)&quot;
+        src=&quot;/static/1fe8dac458a469ed60158d951d6edef8/b4294/stay-classy.jpg&quot;
+        srcset=&quot;/static/1fe8dac458a469ed60158d951d6edef8/7809d/stay-classy.jpg 192w,
+/static/1fe8dac458a469ed60158d951d6edef8/4ecad/stay-classy.jpg 384w,
+/static/1fe8dac458a469ed60158d951d6edef8/b4294/stay-classy.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Stay classy San Diego! (sandiegouniontribune.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Note que no momento de instanciar a classe, nada muda em relação à versão atual.
+O que temos de mais &quot;exótico&quot; é a capacidade de nomearmos parâmetros
+(como os &lt;code class=&quot;language-text&quot;&gt;**kwargs&lt;/code&gt; do &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;),
+na definição do construtor.&lt;/p&gt;
+&lt;p&gt;Esse conceito, apresentado na linha &lt;code class=&quot;language-text&quot;&gt;constructor({nome, idade})&lt;/code&gt;, é chamado de
+&lt;a href=&quot;https://github.com/lukehoban/es6features#destructuring&quot;&gt;&lt;em&gt;destructuring&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para chegarmos a um resultado parecido no &lt;em&gt;ES5&lt;/em&gt;, precisaríamos fazer o seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;Pessoa&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; idade &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; options&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;idade&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;idade &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; idade&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Herança&lt;/h2&gt;
+&lt;p&gt;Lembra da confusão que era fazer heranças no &lt;em&gt;Javascript&lt;/em&gt;? Pois bem, ganhamos
+nessa nova versão da linguagem a palavra reservada &lt;code class=&quot;language-text&quot;&gt;extends&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Atleta&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pessoa&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token function&quot;&gt;constructor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; idade&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; esporte &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Basquete&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; nome&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; idade&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; idade &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;esporte &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; esporte&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; jogador &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Atleta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; idade&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Fulano&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; esporte&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Futebol&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jogador&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Fulano&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jogador&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;esporte&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Futebol&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; jogador2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Atleta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; idade&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; nome&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Beltrano&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jogador2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;nome&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Beltrano&lt;/span&gt;
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;jogador2&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;esporte&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// Basquete&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E para tornar ainda mais fácil essa prática, também ganhamos a função reservada
+&lt;code class=&quot;language-text&quot;&gt;super&lt;/code&gt;, que é responsável por executar o método pai, dada a chamada em um
+determinado método de uma classe filha.&lt;/p&gt;
+&lt;p&gt;Para finalizar o nosso exemplo, na linha &lt;code class=&quot;language-text&quot;&gt;constructor({nome, idade, esporte=&amp;#39;Basquete&amp;#39;})&lt;/code&gt;
+temos a apresentação do recurso &lt;a href=&quot;https://github.com/lukehoban/es6features#default--rest--spread&quot; title=&quot;Leia mais sobre default, rest e spread&quot;&gt;&lt;em&gt;default&lt;/em&gt;&lt;/a&gt;.
+Com ele, somos capazes de definir valores padrões caso a passagem de determinado
+parâmetro seja omitida.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Se tem algo que chama a atenção com o advento do &lt;em&gt;ECMAScript 6&lt;/em&gt; é a facilidade
+na construção de classes e objetos, uma coisa que sempre foi muito confusa
+(mas não menos eficiente) em &lt;em&gt;Javascript&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Bibliotecas como o &lt;em&gt;React&lt;/em&gt; tem feito um bom uso desse recurso, proporcionando
+soluções limpas e legíveis, fáceis de estender e customizar.&lt;/p&gt;
+&lt;p&gt;O suporte pelos &lt;em&gt;browsers&lt;/em&gt; ainda não é dos melhores, se fazendo necessário
+o uso do &lt;em&gt;Babel&lt;/em&gt; para o &lt;em&gt;transpiling&lt;/em&gt; de &lt;em&gt;ES6&lt;/em&gt; para &lt;em&gt;ES5&lt;/em&gt;. Mesmo assim, nada
+que impeça o uso de sintaxe &lt;em&gt;ES6&lt;/em&gt; nos seus próximos projetos.&lt;/p&gt;
+&lt;p&gt;Confira a &lt;a href=&quot;https://babeljs.io/repl/#?evaluate=true&amp;#x26;presets=es2015%2Cstage-2&amp;#x26;code=class%20Pessoa%20%7B%0A%20%20constructor(%7Bnome%2C%20idade%7D)%20%7B%0A%20%20%20%20this.nome%20%3D%20nome%0A%20%20%20%20this.idade%20%3D%20idade%0A%20%20%7D%0A%20%20%0A%20%20sayTheName()%20%7B%0A%20%20%20%20console.log(this.nome)%3B%0A%20%20%7D%0A%7D%0A%0Alet%20pessoa%20%3D%20new%20Pessoa(%7Bidade%3A18%2C%20nome%3A&amp;#x27;Guido&amp;#x27;%7D)%3B%0Apessoa.sayTheName()%3B%20%2F%2F%20Guido%0Aconsole.log(pessoa.__proto__.sayTheName)%3B%20%2F%2F%20function%20sayTheName%0A%0Aclass%20Atleta%20extends%20Pessoa%20%7B%0A%20%20constructor(%7Bnome%2C%20idade%2C%20esporte%3D%22Basquete%22%7D)%20%7B%0A%20%20%20%20super(%7Bnome%2C%20idade%7D)%0A%0A%20%20%20%20this.esporte%20%3D%20esporte%0A%20%20%7D%0A%7D%0A%0Alet%20jogador%20%3D%20new%20Atleta(%7Bidade%3A%2022%2C%20nome%3A&amp;#x27;Fulano&amp;#x27;%2C%20esporte%3A&amp;#x27;Futebol&amp;#x27;%7D)%0Aconsole.log(jogador.nome)%3B%20%2F%2F%20Fulano%0Aconsole.log(jogador.esporte)%3B%20%2F%2F%20Futebol%0A%0Alet%20jogador2%20%3D%20new%20Atleta(%7Bidade%3A%2028%2C%20nome%3A%20&amp;#x27;Beltrano&amp;#x27;%7D)%3B%0Aconsole.log(jogador2.nome)%3B%20%2F%2F%20Beltrano%0Aconsole.log(jogador2.esporte)%3B%20%2F%2F%20Basquete&quot; title=&quot;Veja o código transpilado no Babel&quot;&gt;versão &quot;transpilada&quot; no &lt;em&gt;Babel&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.2ality.com/2015/08/getting-started-es6.html&quot;&gt;&lt;em&gt;2ality - Getting started with ECMAScript 6&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/lukehoban/es6features&quot;&gt;&lt;em&gt;lukehoban - Overview of ECMAScript 6 features&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

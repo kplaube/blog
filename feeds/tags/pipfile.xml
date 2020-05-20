@@ -1,2 +1,144 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - pipfile</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 11 Jun 2018 16:40:00 -0300</lastBuildDate><item><title>Tchau, requirements. Olá, Pipfile!</title><link>https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</link><description>&lt;p&gt;Admito que no começo fui cético em relação ao &lt;a href="https://github.com/pypa/pipfile" title="The replacement for requirements.txt"&gt;&lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt;. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o &lt;a href="https://klauslaube.com.br/tag/pip.html" title="Leia mais sobre pip"&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt;, o &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e até mesmo o &lt;a href="https://klauslaube.com.br/tag/.html" title="Leia mais sobre Pyenv"&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Hoje, após ler alguns artigos e debater com alguns colegas, fico até …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 11 Jun 2018 16:40:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-06-11:/2018/06/11/tchau-requirements-ola-pipfile.html</guid><category>desenvolvimento</category><category>python</category><category>pip</category><category>virtualenv</category><category>pipfile</category><category>pipenv</category></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pipfile]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Tchau, requirements. Olá, Pipfile!]]></title><description><![CDATA[Admito que no começo fui cético em relação ao Pipfile. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o pip, o virtualenv e até mesmo o pyenv. Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o…]]></description><link>https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 11 Jun 2018 16:40:00 GMT</pubDate><content:encoded>&lt;p&gt;Admito que no começo fui cético em relação ao &lt;a href=&quot;https://github.com/pypa/pipfile&quot; title=&quot;The replacement for requirements.txt&quot;&gt;&lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt;. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o &lt;a href=&quot;/tag/pip.html&quot; title=&quot;Leia mais sobre pip&quot;&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt;, o &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e até mesmo o &lt;a href=&quot;%7Btag%7D&quot; title=&quot;Leia mais sobre Pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o potencial da ferramenta no seu primeiro momento.&lt;/p&gt;
+&lt;p&gt;Se você está na dúvida, assim como eu estive, vem comigo que te mostro as principais vantagens do &lt;em&gt;Pipfile&lt;/em&gt; (e do &lt;em&gt;Pipenv&lt;/em&gt;).&lt;/p&gt;
+&lt;h2&gt;O que há de errado com o requirements.txt?&lt;/h2&gt;
+&lt;p&gt;Esse foi o meu &quot;turning point&quot; em relação ao &lt;em&gt;Pipfile&lt;/em&gt;. E foi o &lt;a href=&quot;https://twitter.com/rcmachado&quot; title=&quot;Perfil no Twitter&quot;&gt;&lt;em&gt;@rcmachado&lt;/em&gt;&lt;/a&gt; quem respondeu essa pergunta:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;O build não é determinístico.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Vamos supor que estamos desenvolvendo um projeto em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Instalamos via &lt;code class=&quot;language-text&quot;&gt;pip install Django&lt;/code&gt;, e jogamos a dependência no &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como você garante que a mesma versão do &lt;em&gt;Django&lt;/em&gt; está instalada nos diferentes ambientes do projeto (dev, qa, staging, production, etc)? Da forma acima, você não garante. O &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; instalará a última versão do pacote disponível no &lt;a href=&quot;https://pypi.org/&quot; title=&quot;The Python Package Index&quot;&gt;&lt;em&gt;PyPI&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para minimizar esse problema, podemos &quot;pinar&quot; a versão do &lt;em&gt;Django&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django==2.0.6&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora garantimos a versão do &lt;em&gt;framework&lt;/em&gt; em todos os ambientes do projeto. Sabemos que o &lt;em&gt;Django&lt;/em&gt; tem uma dependência, o &lt;a href=&quot;http://pytz.sourceforge.net/&quot; title=&quot;World Timezone Definitions for Python&quot;&gt;&lt;em&gt;pytz&lt;/em&gt;&lt;/a&gt;, o que acontece com ela?&lt;/p&gt;
+&lt;p&gt;Bem... se o &lt;em&gt;framework&lt;/em&gt; estabelecer exatamente qual versão da dependência ele utiliza, não será um problema. Mas &lt;a href=&quot;https://github.com/django/django/blob/master/setup.py#L86&quot;&gt;nem sempre isso acontece&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# django/setup.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+setup&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    install_requires&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;pytz&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para garantir que a mesma versão do &lt;em&gt;pytz&lt;/em&gt; está sendo instalada nos diferentes ambientes do projeto, podemos &quot;pinar&quot; a sua versão no &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django==2.0.6
+pytz==2018.4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E por fim, adicionar um &lt;code class=&quot;language-text&quot;&gt;--no-deps&lt;/code&gt; ao comando &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;, assim ele se manterá fiel às dependências descritas no &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install -r requirements.txt --no-deps&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note que você virou responsável por uma função que deveria ser desempenhada pelo &lt;em&gt;package manager&lt;/em&gt;. Com o passar do tempo, esse tipo de gestão passa a ser árdua e suscetível a erros.&lt;/p&gt;
+&lt;h2&gt;Pipfile to the rescue&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://github.com/pypa/pipfile&quot; title=&quot;the replacement for requirements.txt&quot;&gt;repositório oficial&lt;/a&gt;, o &lt;em&gt;Pipfile&lt;/em&gt; é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a replacement for the existing standard pip&apos;s requirements.txt file.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Como esperado, o padrão traz melhorias em relação ao &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;. O já citado &quot;ambientes determinísticos&quot; é alcançado através do &lt;code class=&quot;language-text&quot;&gt;Pipfile.lock&lt;/code&gt;, um conceito usado em gerenciadores de pacotes de outras linguagens, como &lt;a href=&quot;http://bundler.io/&quot; title=&quot;Package manager do Ruby&quot;&gt;&lt;em&gt;Bundler&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://crates.io/&quot; title=&quot;Package manager do Rust&quot;&gt;&lt;em&gt;Cargo&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;https://yarnpkg.com/en/&quot; title=&quot;Package manager do Node&quot;&gt;&lt;em&gt;Yarn&lt;/em&gt;&lt;/a&gt;, onde as versões das dependências são &quot;congeladas&quot;, garantindo que você obtenha o mesmo resultado em qualquer ambiente, e executando quantas vezes quiser.&lt;/p&gt;
+&lt;p&gt;Outra vantagem é o uso de um único arquivo para diferentes ambientes. Com o uso de &lt;em&gt;requirements&lt;/em&gt;, geralmente acabamos com um arquivo de texto específico para cada ambiente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
+
+Django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mais um para dependências exclusivas do ambiente de desenvolvimento:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements-dev.txt
+
+-r requirements.txt
+
+django-debug-toolbar
+pytest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;em&gt;Pipfile&lt;/em&gt;, é possível utilizar o mesmo arquivo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Pipfile&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[[source]&lt;/span&gt;]
+&lt;span class=&quot;token constant&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;https://pypi.org/simple&quot;&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;verify_ssl&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; true&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;pypi&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[dev-packages]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;pytest&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;*&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[packages]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;Django&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;*&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token selector&quot;&gt;[requires]&lt;/span&gt;
+&lt;span class=&quot;token constant&quot;&gt;python_version&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;3.6&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Pipfile != Pipenv&lt;/h2&gt;
+&lt;p&gt;Grande parte dos artigos que lí sobre &lt;em&gt;Pipfile&lt;/em&gt; começavam com algum comando como o abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv install django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma coisa que tem que ficar clara é: O &lt;em&gt;Pipenv&lt;/em&gt; está para o &lt;em&gt;pip&lt;/em&gt;, assim como o &lt;em&gt;Pipfile&lt;/em&gt; está para o &lt;em&gt;requirements&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ecdabcffb739710e8a9a1ab2a1eae89a/c08c5/rambo-knife.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAwQG/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAAV984JdEKBP/xAAaEAACAgMAAAAAAAAAAAAAAAABAgMQISND/9oACAEBAAEFAshlYhYjr4LX/8QAFREBAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQMBAT8Bh//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AVf/xAAZEAEAAgMAAAAAAAAAAAAAAAABABAhQYH/2gAIAQEABj8CHcV7DNFf/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERMVFBcYH/2gAIAQEAAT8h7YGCXimX0lCylnY99FcR/9oADAMBAAIAAwAAABBkH//EABYRAQEBAAAAAAAAAAAAAAAAAAEQMf/aAAgBAwEBPxANz//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/ECP/xAAcEAEAAwEAAwEAAAAAAAAAAAABABExIVFhgaH/2gAIAQEAAT8QDZLi6V+ROOmstptPXfyLWqYFgrJLPG5GRVR7F3YgAtV5n//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Rambo segurando sua faca&amp;quot;&quot;
+        title=&quot;Pipenv é tipo a faca do Rambo. Resolve qualquer parada (mann.tv)&quot;
+        src=&quot;/static/ecdabcffb739710e8a9a1ab2a1eae89a/c08c5/rambo-knife.jpg&quot;
+        srcset=&quot;/static/ecdabcffb739710e8a9a1ab2a1eae89a/7809d/rambo-knife.jpg 192w,
+/static/ecdabcffb739710e8a9a1ab2a1eae89a/4ecad/rambo-knife.jpg 384w,
+/static/ecdabcffb739710e8a9a1ab2a1eae89a/c08c5/rambo-knife.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Pipenv é tipo a faca do Rambo. Resolve qualquer parada (mann.tv)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Até o momento da publicação desse artigo, o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; não suporta o formato do &lt;em&gt;Pipfile&lt;/em&gt; (ou pelo menos a versão que tenho instalada aqui). Portanto, a maneira mais conveniente de utilizar o &lt;em&gt;Pipfile&lt;/em&gt; hoje é através do utilitário de linha de comando &lt;code class=&quot;language-text&quot;&gt;pipenv&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://github.com/pypa/pipenv&quot; title=&quot;Python Development Workflow for Humans&quot;&gt;repositório oficial&lt;/a&gt;, o &lt;em&gt;Pipenv&lt;/em&gt; é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a tool that aims to bring the best of all packaging worlds (bundler, composer, npm, cargo, yarn, etc.) to the Python world. Windows is a first–class citizen, in our world.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Através do &lt;em&gt;parsing&lt;/em&gt; do &lt;em&gt;Pipfile&lt;/em&gt;, a ferramenta resolve dependências do projeto (através dos parâmetros &lt;code class=&quot;language-text&quot;&gt;install&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;uninstall&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;update&lt;/code&gt;), exibe a árvore de dependências (através do parâmetro &lt;code class=&quot;language-text&quot;&gt;graph&lt;/code&gt;) e analisa as mesmas (através do &lt;code class=&quot;language-text&quot;&gt;check&lt;/code&gt;). Mas além de atuar como um gerenciador de pacotes, o &lt;em&gt;Pipenv&lt;/em&gt; tem uma funcionalidade fantástica: Cria e gerencia &lt;em&gt;virtualenvs&lt;/em&gt; de forma automática.&lt;/p&gt;
+&lt;h2&gt;Virtualização out of the box&lt;/h2&gt;
+&lt;p&gt;Já escrevi sobre virtualização com &lt;a href=&quot;/2015/07/23/virtualenvwrapper-o-basico-para-um-bom-ambiente-de-desenvolvimento-python.html&quot; title=&quot;Artigo sobre Virtualenvwrapper&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/2016/04/26/o-simples-e-poderoso-pyenv.html&quot; title=&quot;Artigo sobre pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Com o &lt;em&gt;Pipenv&lt;/em&gt;, a coisa fica significativamente mais simples.&lt;/p&gt;
+&lt;p&gt;Ao executar o comando &lt;code class=&quot;language-text&quot;&gt;pipenv install&lt;/code&gt;, por exemplo, a ferramenta automaticamente criará um &lt;em&gt;virtualenv&lt;/em&gt; (caso não exista) para o projeto no qual você está trabalhando. Por exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mkdir -p ~/workspace/test-pipenv
+$ cd ~/workspace/test-pipenv/
+$ pipenv install django
+
+Creating a virtualenv for this project…
+Using /home/klaus/.pyenv/versions/2.7.14/bin/python2.7 (2.7.14) to create virtualenv…&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você esteja curioso para saber aonde o seu &lt;em&gt;virtualenv&lt;/em&gt; foi parar, o comando abaixo pode ajudar:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv --venv
+
+/home/klaus/.local/share/virtualenvs/test-pipenv-BzNa0eOE&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas você não precisa se preocupar em saber onde o &lt;code class=&quot;language-text&quot;&gt;activate.sh&lt;/code&gt; está. Para ativar o &lt;em&gt;virtualenv&lt;/em&gt; criado, o parâmetro &lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt; é a melhor saída:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv shell
+
+Spawning environment shell (/bin/zsh). Use &amp;#39;exit&amp;#39; to leave.
+. /home/klaus/.local/share/virtualenvs/test-pipenv-BzNa0eOE/bin/activate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Frustrado com o &lt;em&gt;Python 2.7&lt;/em&gt;? Sem problemas! Vamos transformar o projeto em &lt;em&gt;Python 3&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv install --three&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O comando criará um novo &lt;em&gt;virtualenv&lt;/em&gt;, dessa vez com a versão mais recente da linguagem. Não esqueça de atualizar o &lt;code class=&quot;language-text&quot;&gt;python_version&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;Pipfile&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Com o &lt;a href=&quot;https://devcenter.heroku.com/articles/python-support&quot; title=&quot;Python Support - Heroku&quot;&gt;&lt;em&gt;Heroku&lt;/em&gt; adotando &lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt;, me senti mais motivado a migrar alguns projetos para o padrão.&lt;/p&gt;
+&lt;p&gt;Como resultado, tenho simplificado a &lt;em&gt;stack&lt;/em&gt; dos mesmos. Antes, eu gerenciava os ambientes virtuais com um &lt;em&gt;mix&lt;/em&gt; de &lt;em&gt;virtualenvwrapper&lt;/em&gt; e &lt;em&gt;pyenv&lt;/em&gt;. Hoje, com apenas um utilitário de linha de comando, sou capaz de gerenciar dependências e virtualização. Além disso, acredito que o &lt;em&gt;setup&lt;/em&gt; de um projeto &lt;em&gt;Python&lt;/em&gt; fique mais homogêneo, uma vez que não há necessidade de um combo &lt;code class=&quot;language-text&quot;&gt;pip + {virtualenv,virtualenvwrapper,pyenv}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mattlayman.com/2017/using-pipfile-for-fun-and-profit.html&quot;&gt;mattlayman - Using Pipfile for fun and profit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/grupy-rn/gerenciando-suas-depend%C3%AAncias-e-ambientes-python-com-pipenv-9e5413513fa6&quot;&gt;Medium - Gerenciando suas dependências e ambientes python com pipenv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.pipenv.org&quot;&gt;Pipenv - Python Dev Workflow for Humans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://realpython.com/pipenv-guide/&quot;&gt;Real Python - Pipenv: A Guide to the New Python Packaging Tool&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

@@ -1,22 +1,599 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - containerizacao</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 11 Aug 2017 18:00:00 -0300</lastBuildDate><item><title>Uma ode ao Docker - Parte 3</title><link>https://klauslaube.com.br/2017/08/11/uma-ode-ao-docker-parte-3.html</link><description>&lt;p&gt;Nos &lt;a href="https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html" title="Uma ode ao Docker - Parte 1"&gt;&lt;em&gt;posts&lt;/em&gt;&lt;/a&gt;
-&lt;a href="https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html" title="Uma ode ao Docker - Parte 2"&gt;anteriores&lt;/a&gt;
-arranhamos um pouco o conceito por trás do &lt;a href="https://klauslaube.com.br/tag/docker.html" title="Leia mais sobre Docker"&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;,
-bem como introduzimos o utilitário de linha de comando &lt;code&gt;docker&lt;/code&gt;. Nesse último artigo da série, vamos
-explorar como usar o &lt;em&gt;Dockerfile&lt;/em&gt; no empacotamento de uma aplicação &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - containerizacao]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
+anteriores
+arranhamos um pouco o conceito por trás do Docker,
+bem como introduzimos o utilitário de linha de comando . Nesse último artigo da série, vamos
+explorar como usar o Dockerfile no empacotamento de uma aplicação Django. Se você ainda tem dúvidas em como "encaixar" o Docker no seu…]]></description><link>https://klauslaube.com.br/2017/08/11/uma-ode-ao-docker-parte-3.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/08/11/uma-ode-ao-docker-parte-3.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 11 Aug 2017 18:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Nos &lt;a href=&quot;/2017/01/14/uma-ode-ao-docker-parte-1.html&quot; title=&quot;Uma ode ao Docker - Parte 1&quot;&gt;&lt;em&gt;posts&lt;/em&gt;&lt;/a&gt;
+&lt;a href=&quot;/2017/05/01/uma-ode-ao-docker-parte-2.html&quot; title=&quot;Uma ode ao Docker - Parte 2&quot;&gt;anteriores&lt;/a&gt;
+arranhamos um pouco o conceito por trás do &lt;a href=&quot;/tag/docker.html&quot; title=&quot;Leia mais sobre Docker&quot;&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;,
+bem como introduzimos o utilitário de linha de comando &lt;code class=&quot;language-text&quot;&gt;docker&lt;/code&gt;. Nesse último artigo da série, vamos
+explorar como usar o &lt;em&gt;Dockerfile&lt;/em&gt; no empacotamento de uma aplicação &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Se você ainda tem dúvidas em como &quot;encaixar&quot; o &lt;em&gt;Docker&lt;/em&gt; no seu fluxo de desenvolvimento,
+o artigo &lt;a href=&quot;http://www.patricksoftwareblog.com/why-i-switched-from-a-traditional-deployment-to-using-docker/&quot; title=&quot;Leia na íntegra&quot;&gt;&quot;Why I Switched from a Traditional Deployment to Using Docker&quot;&lt;/a&gt;
+pode ser uma boa leitura.&lt;/p&gt;
+&lt;h2&gt;Configurando a aplicação Django&lt;/h2&gt;
+&lt;p&gt;Vamos configurar uma aplicação de exemplo para sermos capazes de dar os passos necessários
+na criação do &lt;code class=&quot;language-text&quot;&gt;Dockerfile&lt;/code&gt;. Primeiramente, vamos criar
+&lt;em&gt;&lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;virtualenv&lt;/a&gt; Python&lt;/em&gt; com &lt;a href=&quot;/tag/pyenv.html&quot; title=&quot;Leia mais sobre Pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv virtualenv 3.6.1 helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Criamos o diretório para o projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mkdir ~/Workspace/helloworld
+$ cd ~/Workspace/helloworld/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ativamos o &lt;em&gt;virtualenv&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv activate helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Instalamos as dependências &lt;em&gt;Django&lt;/em&gt; e iniciamos o projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install django gunicorn
+(...)
 
-&lt;p&gt;Se você ainda tem dúvidas em como "encaixar" o &lt;em&gt;Docker&lt;/em&gt; no …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 11 Aug 2017 18:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-08-11:/2017/08/11/uma-ode-ao-docker-parte-3.html</guid><category>infraestrutura</category><category>virtualizacao</category><category>containerizacao</category><category>docker</category><category>nginx</category><category>python</category><category>django</category></item><item><title>Uma ode ao Docker - Parte 2</title><link>https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html" title="Uma ode ao Docker - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;
+$ pip freeze &amp;gt; requirements.txt
+$ django-admin startproject helloworld ~/Workspace/helloworld&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Rodamos o &lt;code class=&quot;language-text&quot;&gt;python manage.py runserver&lt;/code&gt; só para termos certeza que está tudo ok:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 680px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5a7440d2ea5c9d929abc9e6b2ea893c9/c5bb3/django-it-worked.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 19.270833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAq0lEQVQI13WKyw6CMBQF+f8/Mu6MKzcGLuVxKwIWKrQgyEOBKFirGxcmk5PJ5Bjrrb3awB7lMX9SPv6QDkH2iOTyD2MHbAcJBBc37pyogaBSrrcyaYHJPS6WUGjkHIpZy7cYCS8yUbFUJFwyLnNZp1mpylnDs7Juh7afmn5sb9NHmk6V8doNBlimQ2wCYClxiOe5vufGUUgR390G1yHKKfqUojocKCoQfcZOL97B1oafqCcPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;It worked&amp;quot;&quot;
+        title=&quot;It worked&quot;
+        src=&quot;/static/5a7440d2ea5c9d929abc9e6b2ea893c9/c5bb3/django-it-worked.png&quot;
+        srcset=&quot;/static/5a7440d2ea5c9d929abc9e6b2ea893c9/8514f/django-it-worked.png 192w,
+/static/5a7440d2ea5c9d929abc9e6b2ea893c9/804b2/django-it-worked.png 384w,
+/static/5a7440d2ea5c9d929abc9e6b2ea893c9/c5bb3/django-it-worked.png 680w&quot;
+        sizes=&quot;(max-width: 680px) 100vw, 680px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;It worked&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Além disso, garantimos que o &lt;code class=&quot;language-text&quot;&gt;gunicorn&lt;/code&gt; rodará sem maiores problemas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ gunicorn helloworld.wsgi:application \
+    --bind 0.0.0.0:8000 \
+    --workers 3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para saber mais sobre o &lt;em&gt;Gunicorn&lt;/em&gt;, leia a &lt;a href=&quot;http://docs.gunicorn.org/en/stable/design.html&quot; title=&quot;Documentação do Gunicorn&quot;&gt;documentação oficial&lt;/a&gt; do projeto.&lt;/p&gt;
+&lt;h2&gt;Entra o Dockerfile&lt;/h2&gt;
+&lt;p&gt;Com o &lt;a href=&quot;https://docs.docker.com/engine/installation/&quot; title=&quot;Instalando o Docker&quot;&gt;&lt;em&gt;Docker&lt;/em&gt; instalado&lt;/a&gt;,
+vamos começar a escrever o &lt;code class=&quot;language-text&quot;&gt;Dockerfile&lt;/code&gt;. O &lt;a href=&quot;http://www.mundodocker.com.br/o-que-e-dockerfile/&quot; title=&quot;O que é o Dockerfile&quot;&gt;&lt;em&gt;Mundo Docker&lt;/em&gt;&lt;/a&gt; define o arquivo como:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) um arquivo de definição onde é possível realizar ou preparar todo ambiente a
+partir de um script de execução. Em resumo, o Dockerfile é um arquivo texto
+com instruções, comandos e passos que você executaria manualmente, basicamente
+o Docker executa uma receita de bolo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É nesse arquivo que escreveremos todos os procedimentos que o &lt;em&gt;Docker&lt;/em&gt; executará para criar
+a imagem da nossa aplicação.&lt;/p&gt;
+&lt;h3&gt;Por partes, como diria Jack&lt;/h3&gt;
+&lt;p&gt;Começamos especificando qual será a &quot;imagem base&quot; da nossa imagem/&lt;em&gt;container&lt;/em&gt;. Faremos isso
+através da expressão &lt;code class=&quot;language-text&quot;&gt;FROM&lt;/code&gt;. Poderíamos dizer aqui que queremos estender a imagem &lt;a href=&quot;https://hub.docker.com/_/debian/&quot; title=&quot;Imagem Debian no Dockerhub&quot;&gt;_/debian&lt;/a&gt;
+e realizar toda a instalação do &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.
+Mas felizmente já existem imagens prontas com a linguagem no &lt;em&gt;Docker Hub&lt;/em&gt;.
+Vamos com a &lt;a href=&quot;https://hub.docker.com/_/python/&quot; title=&quot;Imagem Python no Docker Hub&quot;&gt;imagem oficial&lt;/a&gt; como base:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Dockerfile&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quando &quot;buildarmos&quot;, o &lt;em&gt;Docker&lt;/em&gt; baixará a imagem do &lt;em&gt;Python&lt;/em&gt; do repositório (se ela já não existir localmente
+em sua máquina), e dará sequência às instruções encontradas no &lt;code class=&quot;language-text&quot;&gt;Dockerfile&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Uma boa prática é &quot;fecharmos o escopo&quot; de trabalho ao setar explicitamente qual será o
+diretório no qual iremos realizar demais operações como cópia de arquivos ou execução de binários. Para isso
+temos o comando &lt;code class=&quot;language-text&quot;&gt;WORKDIR&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+
+&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora podemos instalar o &lt;em&gt;Django&lt;/em&gt; e o &lt;em&gt;Gunicorn&lt;/em&gt;, assim como fizemos no início desse artigo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+
+&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app
+
+&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./
+&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;r requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Você já deve ter reparado um padrão na escrita do &lt;code class=&quot;language-text&quot;&gt;Dockerfile&lt;/code&gt;, certo? Os comandos (em maiúsculo)
+determinam qual operação será realizada. Os parâmetros (em minúsculo) determinam como isso irá ocorrer.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f70d10e197bf514f40c7912e834b89cb/c08c5/docker-dory-whale.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//aAAwDAQACEAMQAAABlXpNZ9IjEP/EABsQAAIBBQAAAAAAAAAAAAAAAAECAxAREiEy/9oACAEBAAEFAncscjZZNDmn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxAAAwEAAAAAAAAAAAAAAAAAAAIQMf/aAAgBAQAGPwI2Nf/EABoQAQEAAgMAAAAAAAAAAAAAAAEAEXExocH/2gAIAQEAAT8hwUcG4LIepEt0PYji/9oADAMBAAIAAwAAABB4/wD/xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQMBAT8QACy//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAECAQE/EHWf/8QAHBABAAMAAgMAAAAAAAAAAAAAAQARITFBUWHB/9oACAEBAAE/ELGRLDF19hoZXtbFc7W+4C2tBT4xOUaCln//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Escrever Dockerfile é tipo falar baleiês (insidethemagic.net)&amp;quot;&quot;
+        title=&quot;Escrever Dockerfile é tipo falar baleiês (insidethemagic.net)&quot;
+        src=&quot;/static/f70d10e197bf514f40c7912e834b89cb/c08c5/docker-dory-whale.jpg&quot;
+        srcset=&quot;/static/f70d10e197bf514f40c7912e834b89cb/7809d/docker-dory-whale.jpg 192w,
+/static/f70d10e197bf514f40c7912e834b89cb/4ecad/docker-dory-whale.jpg 384w,
+/static/f70d10e197bf514f40c7912e834b89cb/c08c5/docker-dory-whale.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Escrever Dockerfile é tipo falar baleiês (insidethemagic.net)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;No caso do comando &lt;code class=&quot;language-text&quot;&gt;COPY&lt;/code&gt;, passamos o arquivo &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; da nossa &quot;máquina local&quot; para
+o &lt;em&gt;container&lt;/em&gt;, assim o &lt;em&gt;Docker&lt;/em&gt; será capaz de encontrar o arquivo e realizar a instalação das dependências
+através do comando &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Para finalizar, podemos copiar o resto do projeto e executar o servidor &lt;em&gt;WSGI&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+
+&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app
+
+&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./
+&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;r requirements.txt
+
+&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; . .
+
+&lt;span class=&quot;token keyword&quot;&gt;CMD&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;gunicorn&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;helloworld.wsgi:application&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--bind=0.0.0.0:8000&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--workers=3&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Comandos &lt;code class=&quot;language-text&quot;&gt;RUN&lt;/code&gt; serão executados em tempo de &lt;em&gt;build&lt;/em&gt;. São essenciais para a construção do ambiente,
+e são responsáveis pelos &quot;layers&quot; discutidos nos &lt;em&gt;posts&lt;/em&gt; anteriores. Portanto é bem comum
+vermos comandos como &lt;code class=&quot;language-text&quot;&gt;RUN apt-get dist-upgrade -y&lt;/code&gt;. Já o &lt;code class=&quot;language-text&quot;&gt;CMD&lt;/code&gt; será executado no momento que a sua
+imagem for executada.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/&quot; title=&quot;Docker RUN vs CMD vs ENTRYPOINT&quot;&gt;Diferença entre &lt;code class=&quot;language-text&quot;&gt;RUN&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;CMD&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;ENTRYPONT&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;E se você está se perguntando o motivo de termos dois &lt;code class=&quot;language-text&quot;&gt;COPY&lt;/code&gt;, essa prática é útil para o mecanismo de &lt;em&gt;caching&lt;/em&gt;
+do &lt;em&gt;Docker&lt;/em&gt; e invalidação do mesmo, como pode ser visto no &lt;a href=&quot;https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy&quot; title=&quot;Dockerfile best practices&quot;&gt;guia de boas práticas&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;&quot;Build&quot; é quase BIRL!&lt;/h3&gt;
+&lt;p&gt;Hora de &quot;buildar&quot;! Execute o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker build -t &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Onde:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt;: É o comando para criar uma imagem &lt;em&gt;Docker&lt;/em&gt; a partir de um &lt;em&gt;Dockerfile&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt;: O parâmetro &lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt; é utilizado para nomear e tagear a imagem em questão.
+É interessante usar o padrão &lt;code class=&quot;language-text&quot;&gt;&amp;lt;usuario-ou-repositorio&amp;gt;/nome-da-imagem&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;.&lt;/code&gt;: O caminho onde encontra-se o &lt;em&gt;Dockerfile&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Se tudo der certo, será possível listar a imagem recém criada:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker images
+
+REPOSITORY                         TAG    IMAGE ID
+kplaube/helloworld-django-docker   latest b8d3b0c234a9&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora sim seremos capazes de executar a aplicação &lt;em&gt;Django&lt;/em&gt; através de um &lt;em&gt;container&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run -it -p 8000:8000 &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E mais uma vez seremos capazes de ver o &quot;It worked!&quot; em &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Belezura! Uma vez que a imagem esteja ok, podemos publicá-la no &lt;em&gt;Docker Hub&lt;/em&gt; (afinal,
+propaganda é a alma do negócio):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker push &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E... &lt;em&gt;voilá&lt;/em&gt;! A imagem foi publicada no &lt;a href=&quot;https://hub.docker.com/r/kplaube/helloworld-django-docker/&quot;&gt;&lt;em&gt;Docker Hub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Antes de ir: Efêmero&lt;/h3&gt;
+&lt;p&gt;Nos &lt;em&gt;posts&lt;/em&gt; anteriores demos uma pincelada numa das características dos &lt;em&gt;containers&lt;/em&gt;
+que é a sua &quot;efemeridade&quot;. Isso significa que, a cada nova versão da sua &lt;em&gt;app Django&lt;/em&gt;
+você terá que &quot;buildar&quot; uma nova versão da imagem &lt;em&gt;Docker&lt;/em&gt;. A boa notícia é que com
+o mecanismo de &lt;em&gt;caching&lt;/em&gt; do &lt;em&gt;Docker&lt;/em&gt; essa operação deverá ser ligeiramente mais
+rápida do que da primeira vez.&lt;/p&gt;
+&lt;p&gt;Além disso, mesmo que você tenha uma leve camada de escrita ao executar um &lt;em&gt;container&lt;/em&gt;,
+a informação será perdida ao parar/reiniciar o mesmo. Portanto, o uso de &lt;a href=&quot;https://docs.docker.com/engine/admin/volumes/volumes/&quot; title=&quot;Use volumes&quot;&gt;&lt;em&gt;Docker Volumes&lt;/em&gt;&lt;/a&gt;
+é essencial quando se faz necessária a persistência de dados.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Com esse &lt;em&gt;post&lt;/em&gt; fechamos essa pequena ode ao &lt;em&gt;Docker&lt;/em&gt;. Sem dúvida, uma ferramenta que vem mudando
+paradigmas (o mais recente deles com o &lt;a href=&quot;https://www.opencontainers.org/announcement/2017/07/19/open-container-initiative-oci-releases-v1-0-of-container-standards&quot; title=&quot;Open Container Initiative (OCI) Releases v1.0 of Container Standards&quot;&gt;lançamento da versão 1.0&lt;/a&gt; do &lt;em&gt;Container Standards&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Pretendo abordar mais sobre &lt;em&gt;Docker&lt;/em&gt; aqui no &lt;em&gt;blog&lt;/em&gt;, principalmente detalhando melhor
+o uso do mesmo no &lt;a href=&quot;/tag/deploy.html&quot; title=&quot;Leia mais sobre deploy&quot;&gt;&lt;em&gt;deploy&lt;/em&gt;&lt;/a&gt; de aplicações &lt;em&gt;Django&lt;/em&gt;.
+Com a adoção de conteinerização por serviços &lt;em&gt;PaaS&lt;/em&gt; como &lt;em&gt;Heroku&lt;/em&gt; e &lt;em&gt;Openshift&lt;/em&gt;,
+há muito assunto a ser explorado nessa seara.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/&quot;&gt;Docker Docs - Best practices for writing Dockerfiles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://flaviosilveira.com/2017/criando-seu-container-com-dockerfile/&quot;&gt;Flavio Silveira - Criando Seu Container Com Dockerfile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.mundodocker.com.br/o-que-e-dockerfile/&quot;&gt;Mundo Docker - O que é Dockerfile&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.patricksoftwareblog.com/how-to-use-docker-and-docker-compose-to-create-a-flask-application/&quot;&gt;Patrick&apos;s Software Blog - How to use Docker and Docker Compose to Create a Flask Application&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application&quot;&gt;Semaphore - Dockerizing a Python Django web Application&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Uma ode ao Docker - Parte 2]]></title><description><![CDATA[No post anterior
+falamos sobre o Docker, e arranhamos um pouco sobre a diferença entre
+virtualização com Hypervisor e Container. Nesse post,
+vamos explorar um pouquinho mais alguns conceitos, mostrando como funciona essa
+ferramenta que é sensação quando o assunto é virtual machines. Mas antes, vamos…]]></description><link>https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 01 May 2017 22:25:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2017/01/14/uma-ode-ao-docker-parte-1.html&quot; title=&quot;Uma ode ao Docker - Parte 1&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;
 falamos sobre o &lt;em&gt;Docker&lt;/em&gt;, e arranhamos um pouco sobre a diferença entre
 virtualização com &lt;em&gt;Hypervisor&lt;/em&gt; e &lt;em&gt;Container&lt;/em&gt;. Nesse &lt;em&gt;post&lt;/em&gt;,
 vamos explorar um pouquinho mais alguns conceitos, mostrando como funciona essa
 ferramenta que é sensação quando o assunto é &lt;em&gt;virtual machines&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Mas antes, vamos relembrar o que é o &lt;em&gt;Docker&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&quot;Docker is an open platform for building, shipping and running distributed
+applications. It gives programmers, development teams, and operations engineers
+the common toolbox they need to take advantage of the distributed and networked
+nature of modern applications.&quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em uma linguagem mais simples, &lt;em&gt;Docker&lt;/em&gt; lhe dá a habilidade de executar
+aplicações dentro de um ambiente controlado, conhecido como &lt;em&gt;Container&lt;/em&gt;.
+&lt;em&gt;Containers&lt;/em&gt; são similares às tradicionais máquinas virtuais, contudo, eles
+compartilham o mesmo sistema operacional e provém um conjunto de comandos
+que permitem a execução e controle da sua aplicação ou processo.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=pGYAg7TMmp0&quot; title=&quot;Docker Tutorial - What is Docker &amp;#x26; Docker Containers, Images, etc?&quot;&gt;Veja a diferença entre &lt;em&gt;Vagrant&lt;/em&gt; e &lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalando&lt;/h2&gt;
+&lt;p&gt;Talvez você se depare com alguns artigos na &lt;em&gt;Internet&lt;/em&gt;, que ao falar sobre a
+instalação do &lt;em&gt;Docker&lt;/em&gt;, também mencionem &lt;strong&gt;boot2docker&lt;/strong&gt; ou a necessidade do
+&lt;strong&gt;docker-machine&lt;/strong&gt;. Houve um tempo onde utilizar &lt;em&gt;Docker&lt;/em&gt; em máquinas
+&lt;em&gt;Windows&lt;/em&gt; ou &lt;em&gt;OSX&lt;/em&gt; não era tão trivial assim... mas esse tempo ficou para trás.&lt;/p&gt;
+&lt;p&gt;Hoje, basta acessar a &lt;a href=&quot;https://www.docker.com/community-edition#/download&quot; title=&quot;Baixe o Docker Community Edition&quot;&gt;página de &lt;em&gt;download&lt;/em&gt;&lt;/a&gt;,
+selecionar o seu sistema operacional, e seguir o passo a passo
+(que geralmente consiste em uma série de &quot;next-next-finish&quot;).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.docker.com/docker-for-mac/docker-toolbox/&quot; title=&quot;Docker for Mac vs. Docker Toolbox&quot;&gt;Entenda a diferença entre o Docker Toolbox e Docker for Mac&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Uma vez instalado, através do terminal execute o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker images
 
-&lt;p&gt;Mas antes, vamos relembrar o que é …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 01 May 2017 22:25:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-05-01:/2017/05/01/uma-ode-ao-docker-parte-2.html</guid><category>infraestrutura</category><category>virtualizacao</category><category>containerizacao</category><category>docker</category><category>nginx</category></item><item><title>Uma ode ao Docker - Parte 1</title><link>https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html</link><description>&lt;p&gt;Virtualização é um dos assuntos que mais evoluiu nesses últimos anos de TI. Mas
+REPOSITORY   TAG   IMAGE  ID   CREATED   SIZE&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esse é o momento ideal para falarmos de outro conceito muito importante dentro
+do &lt;em&gt;Docker&lt;/em&gt;: &lt;strong&gt;Images&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2&gt;Imagens&lt;/h2&gt;
+&lt;p&gt;Segundo a documentação oficial:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;An image is a lightweight, stand-alone, executable package that includes
+everything needed to run a piece of software, including the code, a runtime,
+libraries, environment variables, and config files.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ou seja, um &lt;em&gt;Docker Image&lt;/em&gt; é um binário que inclui todos os requisitos
+necessários para rodar um &lt;em&gt;Container&lt;/em&gt;. Podemos pensar sobre esse
+conceito como uma tecnologia para empacotamento (ou até mesmo como uma espécie &lt;em&gt;snapshot&lt;/em&gt;),
+onde não só definimos nossa distribuição &lt;em&gt;Linux&lt;/em&gt; ou serviços utilizados
+(como &lt;em&gt;Postgres&lt;/em&gt; ou &lt;em&gt;Nginx&lt;/em&gt;, por exemplo), como também adicionamos a nossa própria aplicação
+ao pacote.&lt;/p&gt;
+&lt;p&gt;Uma imagem é imutável, ou seja, &lt;em&gt;read only&lt;/em&gt;. Imagens
+geralmente são compostas por outras camadas de imagens (&lt;em&gt;image layers&lt;/em&gt;). Isso é um
+&lt;em&gt;approach&lt;/em&gt; interessante, já que uma vez que uma camada seja baixada ela não precisará ser
+baixada novamente, mesmo se outras imagens utilizarem da mesma camada:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8e197844bf74ca6668d7b39d88ad54d5/073a0/docker-image-container.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.27083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHZV1YuML//xAAZEAADAQEBAAAAAAAAAAAAAAABAgMAESH/2gAIAQEAAQUCardlQs3maI05hTv/xAAVEQEBAAAAAAAAAAAAAAAAAAAQIf/aAAgBAwEBPwGn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQETFB/9oACAEBAAY/AuFONZacf//EABoQAAIDAQEAAAAAAAAAAAAAAAERACFREEH/2gAIAQEAAT8hDIayVZSyMIyTcbjUD5fP/9oADAMBAAIAAwAAABDnz//EABcRAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQMBAT8QC2x//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EFMn/8QAHRABAQABBAMAAAAAAAAAAAAAAREAECExwUFRcf/aAAgBAQABPxABMCCn39xavMJHeBIJl0ocA8uXkpsB1p//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Esquema representando o Sistema de Arquivo (docs.docker.com)&amp;quot;&quot;
+        title=&quot;Esquema representando o Sistema de Arquivo (docs.docker.com)&quot;
+        src=&quot;/static/8e197844bf74ca6668d7b39d88ad54d5/073a0/docker-image-container.jpg&quot;
+        srcset=&quot;/static/8e197844bf74ca6668d7b39d88ad54d5/7809d/docker-image-container.jpg 192w,
+/static/8e197844bf74ca6668d7b39d88ad54d5/4ecad/docker-image-container.jpg 384w,
+/static/8e197844bf74ca6668d7b39d88ad54d5/073a0/docker-image-container.jpg 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Esquema representando o Sistema de Arquivo (docs.docker.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Um &lt;em&gt;Docker Container&lt;/em&gt; em vias práticas é uma &quot;instância&quot; da imagem... é o que a imagem se torna em memória
+ao ser executada. De forma preguiçosa, podemos fazer a analogia com a &lt;a href=&quot;/tag/oop.html&quot; title=&quot;Leia mais sobre OOP&quot;&gt;Orientação a Objetos&lt;/a&gt;,
+onde a imagem pode ser comparada com uma classe, e a instância com um &lt;em&gt;Container&lt;/em&gt;. Podemos ter
+tantos &lt;em&gt;containers&lt;/em&gt; quanto necessário para uma mesma imagem.&lt;/p&gt;
+&lt;h2&gt;Um pouco de prática&lt;/h2&gt;
+&lt;p&gt;Vamos baixar a nossa primeira imagem &lt;em&gt;Docker&lt;/em&gt;. Para isso, execute o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker pull docker/whalesay&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O comando &lt;code class=&quot;language-text&quot;&gt;docker pull&lt;/code&gt; fará o &lt;em&gt;download&lt;/em&gt; da imagem &lt;code class=&quot;language-text&quot;&gt;docker/whalesay&lt;/code&gt;
+para o seu computador. Essa imagem está hospedada (por padrão) no &lt;a href=&quot;https://hub.docker.com/r/docker/whalesay/&quot;&gt;&lt;em&gt;Docker Hub&lt;/em&gt;&lt;/a&gt;,
+uma espécie de &quot;Github para imagens Docker&quot;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://hub.docker.com/&quot; title=&quot;Docker Hub&quot;&gt;Leia mais sobre o &lt;em&gt;Docker Hub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É possível visualizarmos a imagem através do comando &lt;code class=&quot;language-text&quot;&gt;docker images&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker images
+
+REPOSITORY         TAG       IMAGE ID        CREATED          SIZE
+docker/whalesay    latest    6b362a9f73eb    23 months ago    247 MB&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É uma prática comum o repositório/nome da imagem ser chamado de
+&lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&amp;gt;/&amp;lt;nome de imagem&amp;gt;&lt;/code&gt;. Isso evita que haja duplicidade no &lt;em&gt;Docker Hub&lt;/em&gt;. Para
+executar a imagem (e por consequência criar um &lt;em&gt;Container&lt;/em&gt;), temos o comando &lt;code class=&quot;language-text&quot;&gt;docker run&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run docker/whalesay cowsay boo
+ _____
+&amp;lt; boo &amp;gt;
+ -----
+    \
+     \
+      \
+                    ##        .
+              ## ## ##       ==
+           ## ## ## ##      ===
+       /&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;___/ ===
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+       \______ o          __/
+        \    \        __/
+          \____\______/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Também é possível executarmos através do &lt;code class=&quot;language-text&quot;&gt;ID&lt;/code&gt; da imagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run 6b362a9f73eb cowsay boo2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Welcome to Nginx!&lt;/h2&gt;
+&lt;p&gt;É claro que o &lt;em&gt;Docker&lt;/em&gt; é muito mais poderoso do que isso. Por exemplo, vamos baixar o
+&lt;a href=&quot;/tag/nginx.html&quot; title=&quot;Leia mais sobre o Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; e ver como podemos receber uma simpática tela de &quot;It&apos;s working&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker pull nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notou a ausência do &lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&amp;gt;/&lt;/code&gt;? Repositórios oficiais no &lt;em&gt;Docker Hub&lt;/em&gt; não necessitam
+de um prefixo, e você pode encontrá-los na interface &lt;em&gt;web&lt;/em&gt; através do &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;_/&amp;lt;nome da imagem&amp;gt;&lt;/code&gt;.
+Por exemplo, o endereço do &lt;em&gt;Nginx&lt;/em&gt; no &lt;em&gt;Docker Hub&lt;/em&gt; é &lt;a href=&quot;https://hub.docker.com/_/nginx/&quot;&gt;https://hub.docker.com/_/nginx/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fb8a561d8561fc395633a751c6b93aa5/5aae9/memento-docker.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAADnklEQVQozwGTA2z8AFhYVGdqaYaFh5iVl4+NjtXKx8nDwezr3eTj1ePh0+Xj1+Hc1NbPztTQ0crFyMbBwtHKzMrEx8e+wsO6vwDU1duvs7ucoa6NlaB4f4W0vMeSmqWiq7DY2tPZ08rSy8jSzMvHtrOXfHObh4bHwcTJxcrNyMu6tLikm6UA1dDRtLK0x8fKzNDQwMTC197eq7KztLu829/X5+vg5uzl2NjTsIyLmGJff1JIqp6Yu8DNq663zNHYpKayAGNiboJ8hYh/gZKSkl9iXrWyr9/b2tjV083My9TS0qWopmxiXI5kZpBjZYxgXWlNP35/gWJqdXB0eYKFigAWGRRTVFQxLyYmLSBUW1kxNTNycnNSUlE6Ojg0NDJpbnCHfICCU1WRX2KPX11gQjVfXFxub3JISUlHSksAUVNPcG1rTEtDOUAxWlpNZVpMYFtSRkg8PUA3ODs0YGVhdWdhgFZRek9IbkM6cU5Jem9nf3VzdXN0cnFwAGRmZGRiXXFtaHx4dnZwa29oXmllXGxpX21uZm5vaV5dUUBCPUlHR2lkXkoyJ11WUWFfV1pVSVlYS1VXUQBcXlpWVEtcVEiOhIOUh4Z+c2tPU0hhX1FoY1RjW0tcV0csMDNHREQvLi5wTkl1aWdpZmJyYlNxYE9vXlMAd2plfGxlhG9pgXFukYB/l4B6d2leeW5khnJilHxvjXFrODI1ISYpLCssVExWh3p/oYWDk3p0l3t3j3t/AH9wdIN1d4t7fYt6fI17fpeDhp6JjZ2JjJuJjKSEgn9bUzk0NS4tLxQSEEpHT42Bh5iIjZuLkJqHjYt4fwCBfYRmaXJucHdscXlqb3dscHdscXZzdXqYkpWAamI7JhovHhQ3IRg7IRplS0N2bm1oY2N6cnOIe31/dnoAu62wiISLVF1lXWZtXmhuXmhtWmVqZGtvfX6BVElDPTIoSkM6UjQkdEk7bE5AUlNKXFxXamdmZmNea2doAHl4fdjMyqilpmFpb2FqbmJqbl1ma319gXh6fSgtOjI2MTlFQS4lI1Q2JXRRRV1aU0tPR1BTS1JRSGRiYgBVXGF2eXuXlZZrcXRdZmphaWxtcHNscGxOWE0sMiwnLSUqMCgZIy0tKSVPRjxpaGRYWFFBRTxQT0hVVVIAUVpdS1ZaS1ZaVGBjVWFlX2doV11WPkc7LC8iIiMWISQYICEaHCYsLDQvPUU8SVBIYWFbWltWVVVPVFVTJc2TKg08qrQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br)&amp;quot;&quot;
+        title=&quot;Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br)&quot;
+        src=&quot;/static/fb8a561d8561fc395633a751c6b93aa5/5aae9/memento-docker.png&quot;
+        srcset=&quot;/static/fb8a561d8561fc395633a751c6b93aa5/8514f/memento-docker.png 192w,
+/static/fb8a561d8561fc395633a751c6b93aa5/804b2/memento-docker.png 384w,
+/static/fb8a561d8561fc395633a751c6b93aa5/5aae9/memento-docker.png 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Vamos executar o &lt;em&gt;Nginx&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run -p 5000:80 nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mapemos a porta &lt;code class=&quot;language-text&quot;&gt;5000&lt;/code&gt; da nossa máquina para apontar para a porta &lt;code class=&quot;language-text&quot;&gt;80&lt;/code&gt; do &lt;em&gt;Container&lt;/em&gt;. Logo, ao acessarmos
+o &lt;code class=&quot;language-text&quot;&gt;http://localhost:5000&lt;/code&gt;, recebemos a simpática tela de boas vindas ao &lt;em&gt;Nginx&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Podemos dar um nome ao processo, e ainda executá-lo em modo &lt;em&gt;daemon&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run --name docker-nginx -p 5000:80 -d nginx
+
+796ab2f0a662c045d0cfc99ff836a364a384406b8c6eaf03bcfb65e6cfd87751&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O valor de retorno é o &lt;em&gt;ID&lt;/em&gt; do &lt;em&gt;Container&lt;/em&gt;. Note a presença dos parâmetros &lt;code class=&quot;language-text&quot;&gt;--name&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;-d&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Para listar os &lt;em&gt;Containers&lt;/em&gt; ativos, usamos o comando &lt;code class=&quot;language-text&quot;&gt;ps&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker ps
+
+CONTAINER ID    IMAGE    COMMAND
+796ab2f0a662    nginx    &amp;quot;nginx -g &amp;#39;daemon ...&amp;quot;
+CREATED           STATUS           PORTS                  NAMES
+12 seconds ago    Up 11 seconds    0.0.0.0:5000-&amp;gt;80/tcp   docker-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para parar o serviço:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker stop docker-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Simples como as melhores coisas da vida.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Lembro até hoje do momento em que ouvi falar sobre &lt;em&gt;Docker&lt;/em&gt; pela primeira vez,
+e me questionei: Onde é que eu encaixo a minha ferramenta de provisionamento?&lt;/p&gt;
+&lt;p&gt;Pois bem, não se faz necessário ter uma ferramenta de provisionamento uma vez que a sua
+aplicação seja empacotada em uma imagem &lt;em&gt;Docker&lt;/em&gt;. A forma de pensar no &lt;em&gt;deploy&lt;/em&gt; da
+aplicação muda, uma vez que ela esteja &quot;containerizada&quot;.&lt;/p&gt;
+&lt;p&gt;No próximo &lt;em&gt;post&lt;/em&gt; da série vamos utilizar &lt;em&gt;Docker&lt;/em&gt; em uma aplicação &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, e nos deparar com
+algumas peculiaridades de ambientes &lt;em&gt;Docker&lt;/em&gt; (como por exemplo, os ambiente efêmeros).&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.docker.com/get-started/&quot;&gt;&lt;em&gt;Docker Docs&lt;/em&gt; - &lt;em&gt;Get started, Part 1: Orientation and Setup&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.mundodocker.com.br/o-que-e-uma-imagem/&quot;&gt;&lt;em&gt;MundoDocker&lt;/em&gt; - O que é uma imagem?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.openshift.com/enterprise/3.0/architecture/core_concepts/containers_and_images.html#docker-images&quot;&gt;&lt;em&gt;Openshift&lt;/em&gt; - &lt;em&gt;Docker images&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application&quot;&gt;&lt;em&gt;Semaphore&lt;/em&gt; - &lt;em&gt;Dockerizing a Python Django web Application&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/23735149/docker-image-vs-container&quot;&gt;&lt;em&gt;Stackoverflow&lt;/em&gt; - &lt;em&gt;Docker image vs container&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Uma ode ao Docker - Parte 1]]></title><description><![CDATA[Virtualização é um dos assuntos que mais evoluiu nesses últimos anos de TI. Mas
 foi o termo "containerização" que teve um "boom" de popularidade recentemente. Isso graças
-ao &lt;a href="https://www.docker.com/" title="Build, ship, run"&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;, popular ferramenta que tem
+ao Docker, popular ferramenta que tem
+tornado a virtualização/containerização em uma commodity no universo de desenvolvimento de…]]></description><link>https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 14 Jan 2017 18:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Virtualização é um dos assuntos que mais evoluiu nesses últimos anos de TI. Mas
+foi o termo &quot;containerização&quot; que teve um &quot;boom&quot; de popularidade recentemente. Isso graças
+ao &lt;a href=&quot;https://www.docker.com/&quot; title=&quot;Build, ship, run&quot;&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;, popular ferramenta que tem
 tornado a virtualização/containerização em uma &lt;em&gt;commodity&lt;/em&gt; no universo de desenvolvimento de &lt;em&gt;Software&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Para ser sincero, eu …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 14 Jan 2017 18:20:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-01-14:/2017/01/14/uma-ode-ao-docker-parte-1.html</guid><category>infraestrutura</category><category>virtualizacao</category><category>containerizacao</category><category>docker</category></item></channel></rss>
+&lt;p&gt;Para ser sincero, eu só &quot;parei para olhar&quot; o &lt;em&gt;Docker&lt;/em&gt; no final do ano passado,
+através de um
+&lt;a href=&quot;https://www.udemy.com/docker-tutorial-for-devops-run-docker-containers/learn/v4/overview&quot; title=&quot;The Complete Docker Course for DevOps and Developers&quot;&gt;excelente curso do &lt;em&gt;Udemy&lt;/em&gt;&lt;/a&gt;.
+Se você assim como eu ainda não teve tempo para ver &quot;qualé&quot;, vem comigo que eu te mostro :)&lt;/p&gt;
+&lt;h2&gt;Antes do Docker: Containers&lt;/h2&gt;
+&lt;p&gt;Eu só comecei a entender realmente o que era o &lt;em&gt;Docker&lt;/em&gt; a partir do momento
+que compreendi o que é um container.&lt;/p&gt;
+&lt;p&gt;No mundo &quot;pré-virtualização&quot;, quando lidávamos com problemas como escalabilidade ou isolamento,
+precisávamos adquirir uma nova máquina física, instalar e configurar o Sistema Operacional,
+bem como instalar e configurar a própria aplicação:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 400px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d425cc1d35536371cd50cb1ee29f083f/e17e5/docker-pre-virtualization.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.91666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAACxklEQVQoz2WM2VOSYRTGv/+hy5qsbiprqskcN8q13BFFcSmRAIEIkEwKxQ8BxS02TVn8gGQVN5CtG8ZlRCsSFdRmlJtu+ju0Q0wzqO/85pnznud5DhL5Y1s+fudL9HkTwgt4TnqWj7tWTj5ctgBfohdxHjJ6N65IwrcGwhlp3EA3r6p/FJmj5OHtB+LNa7A5H7guCd9EgsdDmm8l2kjtdKQ6nalIlXm3Y2FfMLNDmopUXnCnI1VQQcK/TbYYY/6A7zrgpeOMs20xujVGtccZzjjngus64EIFmT/iiTcz5Nv3h7Yz/3NvcOu2YYcI6H4STNGXiu95g1t3YJ+WuQsVxJcQKqKPJvdwE3v5SXZBCzS7ObZDiuuI5TikLvziYDG8ejcH9v/cFHlQQTajG188RkfAavdbQOe+2p1BG6gtYLIGMHvQbPVjjuAsLFNALAWEkaWVVeHAlHQUQ4cMIyqL0eLTmdyT+gWTJTBj9ia/mEeLufVmNzbrNZg9sjGTWG4YGJ6RjGDIvDf0XqJBR3WiES2Ajun7R3VSBSZVYuJxg0xplKmMsBSP61NWKgbAjAwosIdl7TgCKx/PyKvtzK2mZZVT8BSBQDbBR1Vs4RgAQxmJm11JLahjQiyVhAoiVZmyyjuKieynBObzZm4DTQhUtPGLG9+SmH0tb1AivRes0iZODbmnAM+A+Vk9C7SIyEYG1WY4WUri4uqYRHqyWd7a1cwUVb/q5ovVHJGyC1XBrXaehMQUtbHF0AEKG9glTRxENKbPLGzJraE9fkGup34k86RtbLSZ1Y8jMKndcnrPcAdPlo/vrKMIKlr5jfReSD6poGRXvs6ppiGB0JZ8Ylapdyp0Dg3m0lqWdVa3Uu8ARqcsGmxeaXCOfLaoDHPTs0uQ+aS1J1UHASdydv6dnp6CHsb319fW1ldDfp836PcvLy6uhkJnl95fsD3tTyVDuwwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama de era pré-virtualização (udemy.com)&amp;quot;&quot;
+        title=&quot;Diagrama de era pré-virtualização (udemy.com)&quot;
+        src=&quot;/static/d425cc1d35536371cd50cb1ee29f083f/e17e5/docker-pre-virtualization.png&quot;
+        srcset=&quot;/static/d425cc1d35536371cd50cb1ee29f083f/8514f/docker-pre-virtualization.png 192w,
+/static/d425cc1d35536371cd50cb1ee29f083f/804b2/docker-pre-virtualization.png 384w,
+/static/d425cc1d35536371cd50cb1ee29f083f/e17e5/docker-pre-virtualization.png 400w&quot;
+        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Diagrama de era pré-virtualização (udemy.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Além do custo altíssimo para replicar a arquitetura acima, o tempo para solicitar uma
+nova máquina e realizar uma possível migração eram absurdamente altos. Além disso,
+há um incrível desperdício de recursos, já que não é necessário um &lt;em&gt;hardware&lt;/em&gt;
+exclusivo para servir uma aplicação &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; simples.&lt;/p&gt;
+&lt;h3&gt;Hypervisor&lt;/h3&gt;
+&lt;p&gt;O conceito de &lt;a href=&quot;/tag/virtualizacao.html&quot; title=&quot;Leia mais sobre virtualização&quot;&gt;máquina virtual&lt;/a&gt; vem bem a calhar para sanar o problema acima: Através de uma
+configuração de &lt;em&gt;hardware&lt;/em&gt;, ser possível servir de forma isolada diferentes aplicações.&lt;/p&gt;
+&lt;p&gt;Quando falamos de máquinas virtuais &lt;a href=&quot;/tag/virtualbox.html&quot; title=&quot;Leia mais sobre Virtualbox&quot;&gt;&lt;em&gt;Virtualbox&lt;/em&gt;&lt;/a&gt; ou &lt;em&gt;VMWare&lt;/em&gt;,
+estamos nos referindo ao &lt;em&gt;Hypervisor-based Virtualization&lt;/em&gt;. Nessa modalidade temos uma ferramenta responsável
+por abstrair diferentes Sistemas Operacionais funcionando dentro de um mesmo &lt;em&gt;hardware&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 400px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b7427364000354866ddc3d4a700b811d/e17e5/docker-hypervisor-virtualization.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAIAAAC+dZmEAAAACXBIWXMAAAsSAAALEgHS3X78AAAFrUlEQVQ4yzWSB1BTdxzH37W9a3tnXe31zqtVvKtnbT0VRK0sFVuGMsNGZUPYBBURZFREIDLUJCQyBAkpOyArO2SSAGYAkZF6Dk7AQs0Aw8pLeP2Hs+8+97vf+73f9zf+7w8trKjHFp6NL3YDq1rsG1/sXYF1yKzENN1inm41q9stvGVtri5viKkbvKZ1LnlD0LzOo8ATYkj0jpQnsHoyGkiUu5dKTxYID86vvUJ6go3E743tbjDlFEz6wdRsZ9bOaQK266IO6DGndPGHNZ6fG0qvQKrFnrqxQOp0OnUaQ1FFUlThH9ZnEWkR3OEKs9AwPdLUecnES9tcWly+672U775cHrZcHLCU6bjaXgyNLXQ1T6JbJxObJmLap1IaVRELq68QabGxNxDuCTL1BMDd/iZOolnz7iM2BMiW73gsF/os57mtUvKh4XkyUe5WPxZaq/SrHw8lyd3nVtQIP8vY/jvc7Qd3egJM9DDzh7f69NP662f0Gfb663a6FGsDKQUaXaBWylxrlagapW+VwhuUWFybQWQ4uBtlol010cJMoLM4x7y0sJTlrE8+psfY6q9Z1rZ0ls4+uSM6iJWeKJFYl0iOYyXW82uvkf5I48OvYNIeC7jtpnZncGC68B+1qK+1gTu0QTs1np8ZcLHQ0Fw9EN+XngCyksFjwL5fe4Mw0Eb8Drh6vwXCbhPV1ax7r4vcZxEH7NAG79Z4QIbKeGh4rqFi2JEov1gpd3us8CDK3OZXXyKcVGPdYZjyG0w5DTeeNPWHmv99q0+z1aEP6RKP6BJ+0aF/NhCTLOJKuTt5PKxG6VetRFUrvLbEmI0mO7jTC251hpscTIwI8+IbfYbDUqaT/tY5fYq1PtXGQEreGlv4E3Zr4WLJUezg8a2xY424bXDVXgv4nSaqi1k3r4vYp/X5Uuv/jTZol+YSZCDEgwOrKxAdKpWewkosZ4aV2MyB/0yL3cDvNFZbGav2GwnfgQtj0sxqI600fts0YOHgbz94ffERj4ZkC5Sy5zZ45VmcwgmncMArHBeMMwi4UrV7kcYjSOOvSN0BpB+FLP2zknzEEL7HEL3PEGP1MXTXeg0GevXu5eDowLBKNKQSbiF4oVa/HB9Ry7jTMp5awVfLBtRKsXrq7ykxb0rEmRJxp0QDEwLWzLgCGh5RNbcxqM+4HV0cALWL20pl9LMHuSIFRyRn8ka4InlnH7+VSm/rGQC09nDberlNXewBsQwan1T3MXnMATGDKwLQ2AI6R8zkiFlcEZMDEDLYQuDQ2WI6U8BgCZlsC3Qmf2hkFOrsG7iRW5FXTMq+iy95WF9NpuJrmgFVTztIdW3AEmpaCLUtj+vbgX8f//R2ISG3iHirAEd80gbROIMFZTWlleQSfAOwuJqWCtJfWIvfWEoglxHI5UQKlkB+VN2Mq24uJzaCT/cJ5KKHdQ0tfVB5VbO9N9r98jWXEIxLSNp5vySv8IysQsK1/Acpt8tSc8rTcirScx+A4IXAFJAA0lxD08/7Jydll0H3cA1HL1x19Im384pz8Eaf80t0CU4NSciJTi+Mu1EUibkbnvoneHXyTTh9MdreKw6kgWa27lFR6fegEgLZxiX8vH+SvVcsKjozCH3bPzb7j6BU15C0sNSCuIwSj7AbZzxiQhLzUNG3HLzjnHzjz6ISQCTmetEnsbN/kp1nbGhirk/UTe+IDFAlEJ2dUUjIuV91OSk/0FIxKzK90D8u284zBkz3SXzv0dOjzlccvdGOvvHBCbnom1h0JtYvJsstFBOBKYy7ifWKyABzgQgqJgvs7OCDBv1t3SJBLej1zJxEppKNTdNYgl4mv4/F7+rj0DlCi8+0+F19LBpb2MvgddM4ABZPMqKcHFZMvFC/hhAE2dzcBFY1qqB2tEslUpGQ/3xkeEgi4bAYksHBUaVCwOcJBXwum82g0xRyGfL/8x/TepHl+78bEwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama de virtualização por hypervisor (udemy.com)&amp;quot;&quot;
+        title=&quot;Diagrama de virtualização por hypervisor (udemy.com)&quot;
+        src=&quot;/static/b7427364000354866ddc3d4a700b811d/e17e5/docker-hypervisor-virtualization.png&quot;
+        srcset=&quot;/static/b7427364000354866ddc3d4a700b811d/8514f/docker-hypervisor-virtualization.png 192w,
+/static/b7427364000354866ddc3d4a700b811d/804b2/docker-hypervisor-virtualization.png 384w,
+/static/b7427364000354866ddc3d4a700b811d/e17e5/docker-hypervisor-virtualization.png 400w&quot;
+        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Diagrama de virtualização por hypervisor (udemy.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Para cada máquina virtual, é necessário um Sistema Operacional instalado e configurado, bem como
+a própria aplicação.&lt;/p&gt;
+&lt;p&gt;Agora somos capazes de reaproveitar o processador, memória e banda de rede, reduzindo consideravelmente o custo.
+Essa &quot;abstração&quot; que há entre a aplicação e o &lt;em&gt;hardware&lt;/em&gt; permite maior flexibilidade quando houver a necessidade
+de escalar ou migrar a aplicação para outra máquina física.&lt;/p&gt;
+&lt;p&gt;Bom! Mas e se pudéssemos compartilhar o mesmo Sistema Operacional para as 3 &lt;em&gt;apps&lt;/em&gt; ilustradas acima, mas ainda assim
+mantê-las isoladas?&lt;/p&gt;
+&lt;h3&gt;Containers&lt;/h3&gt;
+&lt;p&gt;Segundo o &lt;em&gt;ZDNet&lt;/em&gt;, &lt;em&gt;containers&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) use shared operating systems. That means they are much more efficient than hypervisors
+in system resource terms. Instead of virtualizing hardware, containers rest on top of a single
+Linux instance. This in turn means you can leave behind the useless 99.9% VM junk, leaving you
+with a small, neat capsule containing your application.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Através de &lt;em&gt;Containers&lt;/em&gt; é possível utilizar o conceito de virtualização, só que de uma
+maneira diferente: Não temos mais um Sistema Operacional por ambiente virtualizado,
+e sim compartilhamos os mesmos recursos do Sistema Operacional da máquina hospedeira:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 400px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9ea3fb8893942fb7fe069f2b415bf160/e17e5/docker-containers.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAACm0lEQVQoz11Qa09SARjmr/SpvrXVZrU+5OxiossKFZRSAUUQuZhoKAKCJYIiKpbzgHmp5qWNRE28gKbJUryhHlFwmhiX1KPLLTE4nHM6s9aiZ8+e7d37Pu+NgJ0BRVFcA4GAxa2z7KisO9oBd9nm8QzmMoYniyMzyshHIbrdF5oz/2jmnLyRneifnPZWEdxu9+LCgmNpCQTBtTVn23wW4EjuXKWpP1+ePTBituc/Oy6G+9NChvPIvCrYpzuin/suSzzKu3AsIxIgCPL7fX6fD4IOnc41E1jWs07vdea+XiGvHA5gywBiJGIDqRiuqy/Cls6gOC6oSArKEk61WYR/1z6ADnrAunZQ0gHK9cvCqcAE5Oj1DvF9Y2L/kCAAvtsdN26paNsN3C1NnsdQTkDPgOBmFA0haKkTzV1EOA6E7UC5jpB4PSxzYVIXKt7AFBuw1AUzQSwXRBkgyl9H/0z+DRhBXloWnr2fru63KU02zZC9cXhONzLXaLbXm+1No/MNZnu1yYZT2Tdd/2E2yhyJRPSt3Up1c02dXl3bAhi6DG09uAKt3XpDl/5VdzPwVl0LqDWAqralsan9781nk+FIoaw+hVmWwZGRWZI0VnmBWFOk0HHL63gSLV+qJbMl6flSnHiWIayKelgYhlOZpZfiM68l5cSlchKogngKL5lWks6W3MsW3qHwYkn5MUT61SRGDJF2m8z934zXXSHSY0lsCltCyhElPi6isCTFlbpMvpxILczkye/TSq4nM3HiYZQZhuFsQeUNEvsuVZDFV7BE6oyCCnxJtqjmEVeOn0PlVDzMEd0ic2+mcR8wnkY9DG/h34M83m9f/fub255R6+SgedQyPmWd+DQ8Nm4aHB6xTn7Z9e/69jzePW9g/xfuBPA5oX/fsgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama de containerização (udemy.com)&amp;quot;&quot;
+        title=&quot;Diagrama de containerização (udemy.com)&quot;
+        src=&quot;/static/9ea3fb8893942fb7fe069f2b415bf160/e17e5/docker-containers.png&quot;
+        srcset=&quot;/static/9ea3fb8893942fb7fe069f2b415bf160/8514f/docker-containers.png 192w,
+/static/9ea3fb8893942fb7fe069f2b415bf160/804b2/docker-containers.png 384w,
+/static/9ea3fb8893942fb7fe069f2b415bf160/e17e5/docker-containers.png 400w&quot;
+        sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Diagrama de containerização (udemy.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Com isso reduzimos ainda mais os custos de operação, além de proporcionar um tempo ainda menor
+de &lt;em&gt;deployment&lt;/em&gt; de uma nova aplicação. Agora, do ponto de vista da aplicação, precisamos apenas
+do &lt;em&gt;app&lt;/em&gt; instalado e configurado.&lt;/p&gt;
+&lt;h2&gt;Enfim: O que é Docker?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Docker&lt;/em&gt; é uma ferramenta &lt;em&gt;open source&lt;/em&gt;, responsável por tornar fácil a criação, &lt;em&gt;deploy&lt;/em&gt; e execução
+de aplicações através do uso de &lt;em&gt;containers&lt;/em&gt;. Com a containerização &lt;em&gt;Docker&lt;/em&gt;, o desenvolver pode
+empacotar a aplicação com todas as suas dependências, e distribuí-la através de um pacote único. Esse
+pacote único executará em qualquer máquina &lt;em&gt;Linux&lt;/em&gt; (com &lt;em&gt;Docker&lt;/em&gt;, claro), podendo ser o seu ambiente
+de desenvolvimento local, seu &lt;a href=&quot;/2011/03/07/diferentes-ambientes.html&quot; title=&quot;Development, staging e production&quot;&gt;ambiente de testes e homologação&lt;/a&gt;,
+ou até mesmo o ambiente de produção.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5d152fc2a3973376025d04527b1dd2ac/6af66/iron-man-containers.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.645833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAACNklEQVQoz1WQS2/TQBSFLRrb47fj5zi2xzOe8diTOI82SZu0paFVJFqVImgkFlVZsEEIJLawROxgC38B/gf/DMMCCenT1dXROVc6V9oDdg84subK3QRO7y9/FtV6oBiy5gDD00xP1R1ZNWRV/0dP0STVDk0nkHVX1vsdit5XDV81AtvPfIg1K1J1H3SK9l9YATrQTWm2v6wo7Wl9xQw7VDPSLbgHwrI5WJ1eaDaUgat0p4ElA7PLK8BUgGWYduD70kgInMWWaQErVsyoc+tO7MWYiOPp6saNqN2HimYD3VE1u0MzXMPyLavv2o5083iDB2HkGiWldoANJ+lwQ3T5/O3nLz8yOne9WO9q665mOJ4XVIxFUZLAQRrHUpeEnu07ZoliOCC2h7yIFM1yef5svdkh0gZhZrsxoVUUBHma1awa1sMhrxnKpQL6eBAkQT+NfFY1acZ5Kfh4QccL1x8gRPIUwShteEWLjJeFYGzciGFV1SWReA45gjhNcgiHFb+/evTh7no1mdFSBD7sHK+uTl5slgKjtqZjUY1FPeScFZgVhcRyWBeDEmU1JQdt+/X9y1/fP96cHOYZsU2nrfDPT6+/vdvtc7Kctav59Gg+G3GOkoQiJE1r3LK8LvNJww6mi93Z6s3l+mjEK4JhGJI0vT5eXC4nDS1Pjubb84dPrraTrjLGDSmk69NmPSGCoobi9VQsGnY2bUZlLhjJkhgjwgoiumfwenux2d0+vb+7XS/2p0IcTtrfFaVSbY4zWZ8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Vim falar de Docker mas só encontrei containers (marvelcinematicuniverse.wikia.com)&amp;quot;&quot;
+        title=&quot;Vim falar de Docker mas só encontrei containers (marvelcinematicuniverse.wikia.com)&quot;
+        src=&quot;/static/5d152fc2a3973376025d04527b1dd2ac/6af66/iron-man-containers.png&quot;
+        srcset=&quot;/static/5d152fc2a3973376025d04527b1dd2ac/8514f/iron-man-containers.png 192w,
+/static/5d152fc2a3973376025d04527b1dd2ac/804b2/iron-man-containers.png 384w,
+/static/5d152fc2a3973376025d04527b1dd2ac/6af66/iron-man-containers.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Vim falar de Docker mas só encontrei containers (marvelcinematicuniverse.wikia.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Se até aqui você achou o &lt;em&gt;Docker&lt;/em&gt; semelhante ao &lt;a href=&quot;/2015/10/03/esse-e-mais-um-post-sobre-vagrant.html&quot; title=&quot;Esse é mais um post sobre Vagrant&quot;&gt;&lt;em&gt;Vagrant&lt;/em&gt;&lt;/a&gt;,
+você não está de todo errado. A principal diferença é justamente o conceito de &lt;em&gt;containers&lt;/em&gt;: &lt;em&gt;Docker&lt;/em&gt; permite
+que aplicações utilizem o mesmo &lt;em&gt;kernel&lt;/em&gt; &lt;em&gt;Linux&lt;/em&gt; da máquina hospedeira, reduzindo drasticamente o
+tamanho da aplicação e reduzindo o consumo de recursos da máquina hospedeira.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Docker&lt;/em&gt; é no fim das contas uma ferramenta extremamente útil, e que possui umas das comunidades mais
+ativas e empenhadas no momento. Ferramentas de &lt;em&gt;PaaS&lt;/em&gt; como o &lt;a href=&quot;https://tsuru.io/&quot; title=&quot;Extensible and open source Platform as a Service&quot;&gt;&lt;em&gt;Tsuru&lt;/em&gt;&lt;/a&gt;
+utilizam &lt;em&gt;Docker&lt;/em&gt; ativamente e servem inúmeros serviços e aplicações nesse exato momento.&lt;/p&gt;
+&lt;p&gt;Se até aqui você não está bem certo sobre o que é de fato o &lt;em&gt;Docker&lt;/em&gt;, não se preocupe! Na parte 2 falaremos mais
+sobre a ferramenta (e menos sobre o conceito) de uma forma bem prática.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://opensource.com/resources/what-docker&quot;&gt;&lt;em&gt;Opensource.com - What is Docker?&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://searchservervirtualization.techtarget.com/definition/hypervisor&quot;&gt;&lt;em&gt;TechTarget - Hypervisor definition&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.zdnet.com/article/what-is-docker-and-why-is-it-so-darn-popular/&quot;&gt;&lt;em&gt;ZDNet - What is Docker and why is it so darn popular?&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

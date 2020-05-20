@@ -1,13 +1,912 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - drf</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 02 Mar 2020 10:15:00 -0300</lastBuildDate><item><title>API-First: Processo e ferramentas</title><link>https://klauslaube.com.br/2020/03/02/api-first-processo-e-ferramentas.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2020/02/21/o-api-first.html" title="O API-First"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; tive a oportunidade de falar
-de uma forma mais abrangente sobre o &lt;a href="https://klauslaube.com.br/tag/api-first.html" title="Leia mais sobre API-First"&gt;&lt;em&gt;API-First&lt;/em&gt;&lt;/a&gt;.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - drf]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API-First: Processo e ferramentas]]></title><description><![CDATA[No post anterior tive a oportunidade de falar
+de uma forma mais abrangente sobre o API-First.
 O exercício é interessante, uma vez que é possível focar no conceito,
 ao invés de ferramentas e processos. Mas o objetivo
-desse artigo é cairmos de cabeça em como exercitar a ideia de forma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 02 Mar 2020 10:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-03-02:/2020/03/02/api-first-processo-e-ferramentas.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>prism</category><category>dredd</category><category>apis</category><category>api-first</category><category>swagger</category><category>drf</category><category>oai</category></item><item><title>Construindo APIs em Django com Django REST Framework</title><link>https://klauslaube.com.br/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html" title="Leia o meu depoimento sobre a rendição ao DRF"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;
-tive a oportunidade de "destilar" a minha simpatia pelo &lt;a href="https://klauslaube.com.br/tag/drf.html" title="Leia mais sobre o Django REST Framework"&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;,
+desse artigo é cairmos de cabeça em como exercitar a ideia de forma prática. O…]]></description><link>https://klauslaube.com.br/2020/03/02/api-first-processo-e-ferramentas.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/03/02/api-first-processo-e-ferramentas.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 02 Mar 2020 10:15:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2020/02/21/o-api-first.html&quot; title=&quot;O API-First&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; tive a oportunidade de falar
+de uma forma mais abrangente sobre o &lt;a href=&quot;/tag/api-first.html&quot; title=&quot;Leia mais sobre API-First&quot;&gt;&lt;em&gt;API-First&lt;/em&gt;&lt;/a&gt;.
+O exercício é interessante, uma vez que é possível focar no conceito,
+ao invés de ferramentas e processos. Mas o objetivo
+desse artigo é cairmos de cabeça em como exercitar a ideia de forma prática.&lt;/p&gt;
+&lt;p&gt;O problema a ser solucionado será explicado mais abaixo, mas antes de cairmos na tentação
+de pensar no &lt;em&gt;framework &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;web&lt;/a&gt;&lt;/em&gt;, na modelagem de dados,
+em qual servidor de aplicação usar, ou em virtualizar com &lt;a href=&quot;/tag/docker.html&quot; title=&quot;Leia mais sobre Docker&quot;&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;
+e &lt;em&gt;Kubernetes&lt;/em&gt;, vamos focar primeiro na especificação.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 422px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2c76901b9a39788658f276bc3fdc012a/fa5c1/api-first-flow.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsSAAALEgHS3X78AAACE0lEQVQoz6WTXUvbUBjH++H8AAoFL0T03m8giNbBeqFChnSInTDohXdjY4jTrTYtXaxual/WrmkS0qYnabo2aZs0zes5Z4m2pLLdjD38eC7+PD8C/0Mi+D8mEiyEMIQhCHmOU6/VGJqWRFECALruUx4Syr4+hz8QIRYAThRFRWnKMpxdh/OYBLJ3TaHDQ3xygpJJnEy6b5L22RnOZgNI0t/o4sIkM5MGbTcaVv2n3e2GX7ZSqdbCghCNdqJRfmlpsrwMNzb0vb3mzo4Qi/Hb2714HBOvzPfvFCo/yOfM24Ld+zWV3dNTdXGxv7Y2WF3tr6xY6+ve1paTSKgHBz79/X2dILzj40kmrX+70QuUWSl5hjGVYa+HaBpzHGIYzLIeyzqiCCUJy3JAp4MAsOWOMxq6quqqimdZzwqDczyVY7ruyDJ1y7LxH3XNCo9Mu56zEQwyjmHr1Vrp/oFnucd79Pd3HsJBGwkSFkUE2p4gOUA3RrqtjR3N8Mb+Hju67mh+olnD4US1PTuU804uPnxJDAhCI47w0WuY+Kh8qEjlslQsMBRV/3pN+1C3bKEEipVOud6tTpxZYaSd2QSbMX53F7xI4ASBiZT+1jf9u893l+eF8083AVfF9F3re1X+URTvVaM3lRmX/oIuczhLokzaTZPWFac0BLXVUnlx1Jb0tqgFAE0QBk1e4RSj/6ztaWfo336M3/Cz8WcA9s4KAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diferença de fluxos&quot;
+        title=&quot;Diferença de fluxos&quot;
+        src=&quot;/static/2c76901b9a39788658f276bc3fdc012a/fa5c1/api-first-flow.png&quot;
+        srcset=&quot;/static/2c76901b9a39788658f276bc3fdc012a/8514f/api-first-flow.png 192w,
+/static/2c76901b9a39788658f276bc3fdc012a/804b2/api-first-flow.png 384w,
+/static/2c76901b9a39788658f276bc3fdc012a/fa5c1/api-first-flow.png 422w&quot;
+        sizes=&quot;(max-width: 422px) 100vw, 422px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Diferença de fluxos&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Com sorte seremos capazes de produzir uma &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;
+que atenda a necessidade dos nossos &lt;em&gt;stakeholders&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O problema&lt;/h2&gt;
+&lt;p&gt;Vamos &quot;reciclar&quot; o problema proposto no &lt;em&gt;post&lt;/em&gt; sobre &lt;a href=&quot;/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html&quot; title=&quot;Construindo APIs em Django com DRF&quot;&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;
+e construir um &quot;Feedly-clone&quot;. Então, partiremos da análise do seguinte requisito funcional:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Eu como usuário,
+Quero poder visualizar notícias recentes de websites que me cadastrei,
+Para que assim eu fique atualizado sobre assuntos de meu interesse&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Com essa &lt;em&gt;user story&lt;/em&gt;, podemos pensar no processo que envolve a prática do &lt;em&gt;API-First&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O processo&lt;/h2&gt;
+&lt;p&gt;No &lt;a href=&quot;/2020/02/21/o-api-first.html&quot; title=&quot;O API-First&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; mencionei alguns passos
+que não podem faltar em um contexto de &lt;em&gt;API-First&lt;/em&gt;. &lt;em&gt;Jennifer Riggins&lt;/em&gt;, no &lt;a href=&quot;https://www.programmableweb.com/news/how-to-design-great-apis-api-first-design-and-raml/how-to/2015/07/10&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;How to Design Great APIs with Api-First Design&quot;&lt;/a&gt; traz uma visão mais prática sobre como o processo pode ser definido:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Planeje:&lt;/strong&gt; Mesmo antes de começar, decida o propósito do produto e comece a esboçar a &lt;em&gt;API&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Projete e valide:&lt;/strong&gt; Debata o conceito com outros &lt;em&gt;stakeholders&lt;/em&gt; e progrida com o &lt;em&gt;design&lt;/em&gt; da &lt;em&gt;API&lt;/em&gt;. Prove o conceito através de &lt;em&gt;mocks&lt;/em&gt; (mais a seguir) e compreenda como a &lt;em&gt;API&lt;/em&gt; será utilizada;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Oficialize a especificação:&lt;/strong&gt; Construa a especificação de acordo com o planejamento e &lt;em&gt;design&lt;/em&gt;. Gere
+a documentação baseada na &lt;em&gt;spec&lt;/em&gt;, enriqueça o &lt;em&gt;mock&lt;/em&gt; com os casos de uso e faça o &lt;em&gt;release&lt;/em&gt; da mesma;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Teste:&lt;/strong&gt; Teste para garantir que a &lt;em&gt;API&lt;/em&gt; funcione. Teste para garantir que os casos de uso são atendidos.
+Teste para se assegurar que nenhuma nova alteração quebrou o contrato estabelecido. E considere testes automatizados sempre que possível;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implemente:&lt;/strong&gt; Não apenas você (&lt;em&gt;backend&lt;/em&gt;), é hora de outros &lt;em&gt;stakeholders&lt;/em&gt; (&lt;em&gt;mobile&lt;/em&gt;, por exemplo) fazerem
+parte do processo de concepção. Quanto antes interagirem, mais cedo e (teoricamente) mais fácil será a reação
+à mudança;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Opere e engage:&lt;/strong&gt; Publique-a! Interaja com seus clientes, aprenda com necessidades que ainda precisam ser atendidas,
+e repita o processo. &lt;em&gt;API-First&lt;/em&gt; é tão sobre negócios quanto é sobre tecnologia.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/827853de225882069665ab727698912b/50383/api-first-processo.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.229166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAmklEQVQI13WK2QrCMBBF8/+/VvRFcCnYkmaxLRXUbJPJotP63OEwHC6HfffPOWeMqbXuBSyXEiEgRojZOLAOEDNAoHGeJyVFxOQ8YqKMZo8xWb9mAZANkxmklo+5Fe/mog/XsVMvPsierwipKTi2SzdaLnTPRa+eh9vYnNXpvrCPTxbKRvZYXawmkNc/BooJeRszNSSU0d+k/AD1l+RzfKFz7gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de processo com o API-First&quot;
+        title=&quot;Exemplo de processo com o API-First&quot;
+        src=&quot;/static/827853de225882069665ab727698912b/50383/api-first-processo.png&quot;
+        srcset=&quot;/static/827853de225882069665ab727698912b/8514f/api-first-processo.png 192w,
+/static/827853de225882069665ab727698912b/804b2/api-first-processo.png 384w,
+/static/827853de225882069665ab727698912b/50383/api-first-processo.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de processo com o API-First&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Vamos esmiuçar de forma prática cada um dos passos acima.&lt;/p&gt;
+&lt;h3&gt;Antes de ir: Single source of truth&lt;/h3&gt;
+&lt;p&gt;A abordagem adotada nesse &lt;em&gt;post&lt;/em&gt; seguirá valores apresentados no
+&lt;a href=&quot;https://medium.com/adobetech/three-principles-of-api-first-design-fa6666d9f694&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;Three Principles of API First Design&quot;&lt;/a&gt;. Mais especificamente:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Your API comes first, then the implementation&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;E nesse exemplo vamos separar especificação da implementação de forma &quot;concreta&quot;. Ou seja, serão dois artefatos
+independentes.&lt;/p&gt;
+&lt;p&gt;Existem alternativas a esse &lt;em&gt;approach&lt;/em&gt;, por exemplo, o uso do &lt;a href=&quot;https://github.com/axnsan12/drf-yasg&quot; title=&quot;Yet another Swagger generator&quot;&gt;&lt;em&gt;drf-yasg&lt;/em&gt;&lt;/a&gt;. Esta é uma ferramenta que gera a especificação (&lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;/tag/oai.html&quot; title=&quot;Leia mais sobre OpenApi&quot;&gt;&lt;em&gt;OpenAPI Spec&lt;/em&gt;&lt;/a&gt;) automaticamente de acordo com
+o código fonte do seu projeto &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; (com &lt;em&gt;REST Framework&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Algo deve ser muito claro independente do que optar: Só deve haver uma verdade absoluta; No caso desse artigo,
+será a especificação escrita à parte.&lt;/p&gt;
+&lt;h2&gt;1: Planeje&lt;/h2&gt;
+&lt;p&gt;Vamos usar &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt; como padrão de comunicação entre o nosso servidor e os clientes. Portanto, poderemos utilizar &lt;em&gt;Open API Spec&lt;/em&gt;
+para especificar a &lt;em&gt;API&lt;/em&gt;. Caso a solução fosse a adoção de outra tecnologia (por exemplo, &lt;em&gt;GraphQL&lt;/em&gt; ou &lt;em&gt;gRPC&lt;/em&gt;), alternativas para o passo de descrição e documentação da interface devem ser aplicadas.&lt;/p&gt;
+&lt;p&gt;Além disso, seremos o mais &quot;compliant&quot; possível com o &lt;em&gt;RESTful&lt;/em&gt;, ou seja, seguiremos à risca recomendações
+em relação a &lt;em&gt;path&lt;/em&gt;, &lt;em&gt;status codes&lt;/em&gt; e verbos. O versionamento da &lt;em&gt;API&lt;/em&gt; acontecerá via fragmento no &lt;em&gt;path&lt;/em&gt; (ex.: &lt;code class=&quot;language-text&quot;&gt;/v1/&lt;/code&gt;),
+e a princípio apresentaremos apenas respostas em &lt;em&gt;JSON&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Imaginemos que depois de ponderar com outros &lt;em&gt;stakeholders&lt;/em&gt;, chegamos à seguinte conclusão:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Título do artigo publicado no canal ABC&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;pub_date&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;data-com-timezone-incluso&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;summary&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Resumo do artigo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Conteúdo completo do artigo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;image&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;imagem-principal-do-artigo.png&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;channel&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ABC&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;http://article-1.html&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Título do artigo publicado no canal XYZ&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;pub_date&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;data-com-timezone-incluso&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;summary&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Resumo do artigo (2)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Conteúdo completo do artigo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;image&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;imagem-principal-do-artigo-2.png&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;channel&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;XYZ&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;http://article-2.html&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Além disso, esboçamos as seguintes rotas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/channels/&amp;lt;id-do-channel&amp;gt;&lt;/code&gt;: Pega a lista de artigos&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/articles/&amp;lt;id-do-artigo&amp;gt;&lt;/code&gt;: Pega o artigo completo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vamos ocultar complexidades fora do escopo da &lt;em&gt;user story&lt;/em&gt; apresentada (como por exemplo, paginação e
+autenticação). Além disso, propositalmente não definimos um formato &quot;oficial&quot; para &lt;code class=&quot;language-text&quot;&gt;pub_date&lt;/code&gt;, apenas
+determinamos que deverá ser uma data em &lt;em&gt;UTC&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Por tratar-se de um esboço inicial que gerará material para a definição do &lt;em&gt;style guide&lt;/em&gt; da &lt;em&gt;API&lt;/em&gt; e dos &lt;em&gt;endpoints&lt;/em&gt;
+em si, é natural deixarmos passar alguns detalhes que podem gerar problemas de integração.&lt;/p&gt;
+&lt;h2&gt;2: Projete e valide&lt;/h2&gt;
+&lt;p&gt;Abaixo, o documento representando exatamente o que foi acordado na seção anterior, com &lt;em&gt;OpenApi Specification&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;openapi&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;3.0.2&quot;&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Feedly&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;clone
+  &lt;span class=&quot;token key atrule&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; v1
+&lt;span class=&quot;token key atrule&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;/channels&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set of channels&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; e.g. blogs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; websites or podcasts
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; List of channels
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; array
+                &lt;span class=&quot;token key atrule&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                  &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/schemas/Channel&quot;&lt;/span&gt;
+
+  /channels/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/parameters/id&quot;&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Details of a channel
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Channel detail response
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/schemas/Channel&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;token key atrule&quot;&gt;/articles&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set of items
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; List of articles
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; array
+                &lt;span class=&quot;token key atrule&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                  &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/schemas/Article&quot;&lt;/span&gt;
+
+  /articles/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/parameters/id&quot;&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Details of an article
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Article detail response
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/schemas/Article&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token key atrule&quot;&gt;components&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; id
+      &lt;span class=&quot;token key atrule&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; path
+      &lt;span class=&quot;token key atrule&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; integer
+  &lt;span class=&quot;token key atrule&quot;&gt;schemas&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;Channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; integer
+        &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+
+    &lt;span class=&quot;token key atrule&quot;&gt;Article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; integer
+        &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;pub_date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O artigo &lt;a href=&quot;/2018/03/15/swagger-na-pratica.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;Swagger na prática&quot;&lt;/a&gt; pode ser de ajuda caso você não esteja familiarizado com a
+síntaxe acima.&lt;/p&gt;
+&lt;h3&gt;Projete&lt;/h3&gt;
+&lt;p&gt;A partir daqui podemos pensar sob a ótica de casos de uso.
+&lt;a href=&quot;/2020/01/07/software-design-software-architecture.html&quot; title=&quot;Software Design x Software Architecture&quot;&gt;Práticas e ferramentas podem variar&lt;/a&gt;
+dependendo da sua criatividade e do seu time. Para fins didáticos vamos manter esse passo o mais simples possível.&lt;/p&gt;
+&lt;p&gt;Para início de conversa o &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;articles/&lt;/code&gt; não está alinhado o suficiente com a semântica por trás do problema. O formato &lt;em&gt;RSS&lt;/em&gt; chama o que estamos chamando de &lt;code class=&quot;language-text&quot;&gt;Article&lt;/code&gt; de &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt;, logo,
+se quisermos manter uma linguagem ubíqua é fundamental renomearmos esse elemento.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7ydaX4mWf8A/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAEQMSEyH/2gAIAQEAAQUCxlL6rS+gRZsZ/8QAFhEAAwAAAAAAAAAAAAAAAAAAAhAx/9oACAEDAQE/ASi//8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEQISIx/9oACAEBAAY/AulYow0i8+n/xAAaEAEBAAIDAAAAAAAAAAAAAAABABExIUFR/9oACAEBAAE/ISc8RjD0mMnbbXdkdK//2gAMAwEAAgADAAAAEBQv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEx/9oACAEDAQE/ENEj/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQIBAT8Qo//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExQWH/2gAIAQEAAT8QZPJAefYb2oA7Kklzp2LRMUdlQAAMGf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Projetar é uma arte, desconhecida pelo Império (movieweb.com)&quot;
+        title=&quot;Projetar é uma arte, desconhecida pelo Império (movieweb.com)&quot;
+        src=&quot;/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg&quot;
+        srcset=&quot;/static/4e027daa42357f668194d325afbcf154/7809d/deathstar.jpg 192w,
+/static/4e027daa42357f668194d325afbcf154/4ecad/deathstar.jpg 384w,
+/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Projetar é uma arte, desconhecida pelo Império (movieweb.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Outro ponto de controvérsia em nosso esboço é que o recurso &lt;code class=&quot;language-text&quot;&gt;articles/&lt;/code&gt; poderia ser um &lt;em&gt;nested resource&lt;/em&gt; de &lt;code class=&quot;language-text&quot;&gt;channels/{id}/&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;channels/{id}&lt;/code&gt;: Detalhes do &lt;em&gt;channel&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;channels/{id}/items&lt;/code&gt;: Lista de &lt;em&gt;items&lt;/em&gt; daquele &lt;em&gt;channel&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;channels/{channel-id}/items/{item-id}&lt;/code&gt;: Detalhes do &lt;em&gt;item&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Digamos que após consultar os &lt;em&gt;stakeholders&lt;/em&gt; de &lt;em&gt;mobile&lt;/em&gt; e &lt;em&gt;web&lt;/em&gt;, eles concordem com a alteração. É exatamente esse tipo
+de questionamento que esse passo deve trazer, além de instigar a discussão com demais interessados.&lt;/p&gt;
+&lt;p&gt;Por último, mas não menos importante, vamos supor que nossos possíveis clientes não estejam propensos a mostrar
+o conteúdo completo dos artigos em sua listagem. Logo, eles estariam fazendo &quot;over-fetching&quot; de informação. Podemos
+remover esse campo (&lt;code class=&quot;language-text&quot;&gt;content&lt;/code&gt;) de &lt;code class=&quot;language-text&quot;&gt;channels/{id}/items/{id}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A especificação final você pode &lt;a href=&quot;https://gist.github.com/kplaube/d9c16eec70895349c48f9e8ec9e3e5be&quot; title=&quot;Veja mais no Gist&quot;&gt;conferir aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Antes de ir: Over-fetching e Under-fetching&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;Over-fetching&lt;/em&gt; (trazer mais conteúdo do que o necessário em um &lt;em&gt;request&lt;/em&gt;) e &lt;em&gt;under-fetching&lt;/em&gt; (trazer menos conteúdo do
+que o necessário) são problemas comuns em &lt;em&gt;APIs&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt; que possuem pluralidade de clientes.&lt;/p&gt;
+&lt;p&gt;Soluções variam, das mais ingênuas (criar um &lt;em&gt;endpoint&lt;/em&gt; para &lt;em&gt;mobile&lt;/em&gt; e um para &lt;em&gt;web&lt;/em&gt;, por exemplo) até as mais rebuscadas
+(como deixar o &lt;em&gt;REST&lt;/em&gt; de lado e adotar &lt;em&gt;GraphQL&lt;/em&gt;). O &quot;meio-termo&quot; seria a adoção de algum mecanismo que permita ao cliente
+especificar quais campos ele deseja carregar na requisição.&lt;/p&gt;
+&lt;p&gt;E é exatamente isso que o &lt;a href=&quot;https://github.com/rsinger86/drf-flex-fields&quot; title=&quot;Veja o repositório no Github&quot;&gt;&lt;em&gt;FlexFields&lt;/em&gt;&lt;/a&gt; faz
+para soluções escritas em &lt;em&gt;REST Framework&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Valide&lt;/h3&gt;
+&lt;p&gt;É hora de validarmos o contrato.&lt;/p&gt;
+&lt;p&gt;Poderíamos escrever &lt;em&gt;views&lt;/em&gt; muito simples em &lt;em&gt;Django&lt;/em&gt; (por exemplo) que atendam a especificação ao responder conteúdo estático. Mas possivelmente a melhor forma de executarmos esse passo seja através de ferramentas chamadas &lt;a href=&quot;https://openapi.tools/#mock&quot; title=&quot;Veja uma lista de mock servers&quot;&gt;&lt;em&gt;mock servers&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As opções são as mais variadas, em diferentes linguagens. A minha sugestão é o &lt;a href=&quot;https://github.com/stoplightio/prism&quot; title=&quot;Veja o repositório no Github&quot;&gt;&lt;em&gt;Prism&lt;/em&gt;&lt;/a&gt;,
+uma ferramenta escrita em &lt;em&gt;Javascript&lt;/em&gt;, fácil de instalar e usar.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://stoplight.io/p/docs/gh/stoplightio/prism/docs/getting-started/01-installation.md?srn=gh/stoplightio/prism/docs/getting-started/01-installation.md&quot; title=&quot;Documentação oficial do Prism&quot;&gt;Veja como instalar o &lt;em&gt;Prism&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Executando o &lt;em&gt;Prism&lt;/em&gt; com a especificação passada como argumento, temos um servidor fornecendo o contrato via &lt;em&gt;REST&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prism mock openapi.yml
+
+› [CLI] …  awaiting  Starting Prism…
+› [CLI] ℹ  info      GET        http://127.0.0.1:4010/channels
+› [CLI] ℹ  info      GET        http://127.0.0.1:4010/channels/869
+› [CLI] ℹ  info      GET        http://127.0.0.1:4010/channels/857/items
+› [CLI] ℹ  info      GET        http://127.0.0.1:4010/channels/226/items/12
+› [CLI] ▶  start     Prism is listening on http://127.0.0.1:4010
+
+$ curl http://127.0.0.1:4010/channels/1/items/1
+
+{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Anthony Mackie fala sobre se tornar o Capitão América&amp;quot;,&amp;quot;pub_date&amp;quot;:&amp;quot;Sat, 29 Feb 2020 19:21:37 +0000&amp;quot;,&amp;quot;summary&amp;quot;:&amp;quot;Quero que o meu Capitão América represente todo mundo, não só um grupo específico de pessoas&amp;quot;,&amp;quot;image&amp;quot;:&amp;quot;https://uploads.jovemnerd.com.br/wp-content/uploads/2020/02/anthony-mackie-capitao-america.jpg&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;Conteúdo completo&amp;quot;,&amp;quot;url&amp;quot;:&amp;quot;https://jovemnerd.com.br/nerdbunker/anthony-mackie-fala-sobre-se-tornar-o-capitao-america/&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Isso permite que novas avaliações sejam realizadas, modificações aconteçam com antecedência, casos de uso sejam testados,
+e até mesmo que outros &lt;em&gt;stakeholders&lt;/em&gt; comecem a desenvolver a parte deles sem precisar esperar pelo &lt;em&gt;backend&lt;/em&gt; todo estar pronto.&lt;/p&gt;
+&lt;h2&gt;3: Oficialize a especificação&lt;/h2&gt;
+&lt;p&gt;Nesse passo estruturamos o &lt;em&gt;release&lt;/em&gt; da especificação, gerenciamos o processo e futuras iterações, e (claro) versionamos o arquivo.&lt;/p&gt;
+&lt;p&gt;Enquanto trabalhei na &lt;a href=&quot;https://loadsmart.com/&quot; title=&quot;Book a truck in seconds&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;, mantínhamos a especificação em um repositório &lt;em&gt;Git&lt;/em&gt; e tínhamos
+um &lt;em&gt;build&lt;/em&gt; no &lt;em&gt;CI&lt;/em&gt; para publicar a documentação baseada na versão do arquivo que encontrava-se no &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Possuímos várias opções para esse passo. Talvez o &lt;a href=&quot;https://github.com/Redocly/redoc&quot; title=&quot;Visite o repositório no Github&quot;&gt;&lt;em&gt;ReDoc&lt;/em&gt;&lt;/a&gt;
+seja a ferramenta mais estilosa para gerar documentação a partir do &lt;em&gt;OpenAPI&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para fins didáticos vou usar a ferramenta do &lt;em&gt;Swagger&lt;/em&gt; e expor a documentação no
+&lt;a href=&quot;https://swagger.io/tools/swagger-ui/&quot; title=&quot;Teste na nuvem&quot;&gt;&lt;em&gt;SwaggerHub&lt;/em&gt;&lt;/a&gt;: &lt;a href=&quot;https://app.swaggerhub.com/apis-docs/kplaube/feedly-clone/v1&quot;&gt;https://app.swaggerhub.com/apis-docs/kplaube/feedly-clone/v1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ddb96499d70516f24ee6d2c5389d5b70/50383/api-first-swagger-ui.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAwUlEQVQY05XNzQ7BQBSG4d4rTUisxV/EApWwsRBX4iaEsJciBJ1qzOi002nn9AztyqqpL89y3jNG01rU+1Oza5mdcbU9KqPSGtZ6k8ZgZogo8ug9ljEA6D9n8IA/XgelFECKf0zjN/45hLky+6bZS4P4yf7KwxgihSWJJJUqzeKNo+drOD3YxQsdHzyh3RCLkQBZlP+8I3q5hbPztu/s6Pg3Kl2ePgMs4HJkIo9tqlcHcFlIqCAsQwW8JRZgEoMkiz9eRbKeMkZCywAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Documentação publicada no Swagger UI&quot;
+        title=&quot;Documentação publicada no Swagger UI&quot;
+        src=&quot;/static/ddb96499d70516f24ee6d2c5389d5b70/50383/api-first-swagger-ui.png&quot;
+        srcset=&quot;/static/ddb96499d70516f24ee6d2c5389d5b70/8514f/api-first-swagger-ui.png 192w,
+/static/ddb96499d70516f24ee6d2c5389d5b70/804b2/api-first-swagger-ui.png 384w,
+/static/ddb96499d70516f24ee6d2c5389d5b70/50383/api-first-swagger-ui.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Documentação publicada no Swagger UI&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;4: Teste&lt;/h2&gt;
+&lt;p&gt;Teste sempre. Automatize sempre que possível.&lt;/p&gt;
+&lt;p&gt;Nessa etapa validaremos e garantiremos o funcionamento do contrato. Casos de uso podem ser necessários para estressar
+a coerência da &lt;em&gt;API&lt;/em&gt;. Particularmente, não acho que essa seja a camada mais interessante para testar coisas além do
+contrato estabelecido (como por exemplo, a própria lógica de negócio). Pode tornar-se uma linha tênue em sua
+&lt;a href=&quot;https://martinfowler.com/articles/practical-test-pyramid.html&quot; title=&quot;The Practical Test Pyramid&quot;&gt;pirâmide de testes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;https://dredd.org/en/latest/quickstart.html&quot; title=&quot;Documentação do Dredd&quot;&gt;&lt;em&gt;Dredd&lt;/em&gt;&lt;/a&gt; é uma ferramenta bem interessante para testar
+a especificação construída. Ela utiliza um servidor como alvo, portanto, podemos adicioná-la ao &lt;em&gt;build pipeline&lt;/em&gt;,
+levantarmos o nosso serviço, e ela operará como uma espécie de &lt;em&gt;Component Test&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Executando contra o nosso servidor &lt;em&gt;mockado&lt;/em&gt;, tudo deveria funcionar &quot;out of the box&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ dredd ./openapi.yml http://127.0.0.1:4010
+
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:66 (from line 66 column 7 to column 13): &amp;#39;Parameter Object&amp;#39; contains unsupported key &amp;#39;schema&amp;#39;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:73 (from line 73 column 7 to column 13): &amp;#39;Parameter Object&amp;#39; contains unsupported key &amp;#39;schema&amp;#39;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:102 (from line 102 column 7 to column 12): &amp;#39;Schema Object&amp;#39; contains unsupported key &amp;#39;allOf&amp;#39;
+pass: GET (200) /channels duration: 63ms
+pass: GET (200) /channels/1 duration: 20ms
+pass: GET (200) /channels/1/items duration: 14ms
+pass: GET (200) /channels/1/items/1 duration: 11ms
+complete: 4 passing, 0 failing, 0 errors, 0 skipped, 4 total
+complete: Tests took 116ms&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um outro extra muito interessante
+é a &lt;a href=&quot;https://dredd.org/en/latest/hooks/python.html&quot; title=&quot;Leia mais na documentação do Dredd&quot;&gt;possibilidade de escrever &lt;em&gt;hooks&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, o que nos permite criar casos de uso de acordo com diferentes aspectos e contextos.&lt;/p&gt;
+&lt;h2&gt;5: Implemente&lt;/h2&gt;
+&lt;p&gt;Agora sim! Finalmente a parte divertida.&lt;/p&gt;
+&lt;p&gt;Agora é correr para o &lt;em&gt;Django&lt;/em&gt; e implementar a &lt;em&gt;API&lt;/em&gt;. Se você estiver interessado no &lt;em&gt;Django REST Framework&lt;/em&gt;, escrevi sobre ele recentemente no &lt;a href=&quot;/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;Construindo APIs em Django com Django REST Framework&quot;&lt;/a&gt;. Não perca.&lt;/p&gt;
+&lt;p&gt;Ao fim do desenvolvimento, não esqueça de executar o &lt;em&gt;Dredd&lt;/em&gt; apontando para o serviço &lt;em&gt;Django&lt;/em&gt;. Aliás, colocar essa checagem em um &lt;em&gt;CI&lt;/em&gt; é uma excelente ideia! Dependendo do seu &lt;em&gt;release train&lt;/em&gt;, a falha dessa checagem pode inclusive bloquear o seu
+&lt;em&gt;Continuous Delivery&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;6: Opere e engage&lt;/h2&gt;
+&lt;p&gt;A sua funcionalidade está pronta. O seu produto está documentado. Agora é hora de &quot;ir para a rua&quot;.&lt;/p&gt;
+&lt;p&gt;Com essa ideia de &quot;uma &lt;em&gt;API&lt;/em&gt; para todos governar&quot;, fica mais fácil ser adepto da corrente do &quot;eat your own dog food&quot;. Tendo
+outros times da sua própria organização como usuários fica mais fácil coletar &lt;em&gt;feedbacks&lt;/em&gt; e reiniciar todo o processo
+descrito com novas demandas e possíveis correções.&lt;/p&gt;
+&lt;p&gt;Para terceiros, é fundamental tratar a &lt;em&gt;API&lt;/em&gt; como parte do negócio, e ela (e sua documentação) precisa ter espaço de destaque no &lt;em&gt;website&lt;/em&gt; da sua empresa. O &lt;a href=&quot;https://www.twilio.com/&quot; title=&quot;Communication APIs for SMS, Voice and Video&quot;&gt;&lt;em&gt;Twillio&lt;/em&gt;&lt;/a&gt; faz isso
+muito bem:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c8db147667ff9c0ef3f350067bc9cb50/50383/api-first-engage.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 26.5625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABH0lEQVQY0yWOT0sCQRyG90P1SaprEASd6lAXL0GXCCJED1YQFAQdgiKoU1IrFGWReEkio9VyyVWb3Z3RmW3+7Mz8cu3huT4vr6PfW9r7tAD/amOEVEJIKxWoVKpUCS4pFkIYAKOYpeFISu55uuw6sWVjsWXEUDzWUioThGLOhZQim+u+2MvcWVy5GjWg85Z6jxxANW/gYNaJLI2AhSnpkx6iqEcCQgmOh3KC1qAVc4+L1+7pQJMh+w3HT8BUHp4WZ6azOAbWFbjW81/JTx19B0Oc0EROzgPAIETn22vu3pY/CDq0f9G4v2vW/NvD+ZVNJzKjCDjqtlFhJyzth/kSfq5HNBEZWex/tYrLcyfrS9Wqiy1f3ShM5RYaH+X87tEfcCQF6Xb7oJ8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de exposição de documentação&quot;
+        title=&quot;Exemplo de exposição de documentação&quot;
+        src=&quot;/static/c8db147667ff9c0ef3f350067bc9cb50/50383/api-first-engage.png&quot;
+        srcset=&quot;/static/c8db147667ff9c0ef3f350067bc9cb50/8514f/api-first-engage.png 192w,
+/static/c8db147667ff9c0ef3f350067bc9cb50/804b2/api-first-engage.png 384w,
+/static/c8db147667ff9c0ef3f350067bc9cb50/50383/api-first-engage.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de exposição de documentação&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Além disso, existem &lt;em&gt;marketplaces&lt;/em&gt; de &lt;em&gt;APIs&lt;/em&gt; espalhados pela &lt;em&gt;web&lt;/em&gt; que podem servir como canal de propaganda da sua &lt;em&gt;API&lt;/em&gt;. O &lt;a href=&quot;https://rapidapi.com/&quot; title=&quot;Find and Connect to Thousands of APIs&quot;&gt;RapidAPI&lt;/a&gt; é um bom exemplo de plataforma para conectar-se
+com possíveis consumidores.&lt;/p&gt;
+&lt;p&gt;Não esqueça que propiciar &lt;em&gt;SDKs&lt;/em&gt; para os seus consumidores faz parte dessa etapa. Não basta apenas escrevermos o &lt;em&gt;backend&lt;/em&gt;,
+precisamos nos engajar em escrever clientes para diferentes linguagens. O &lt;a href=&quot;https://swagger.io/tools/swagger-codegen/&quot; title=&quot;Generate server stubs and client SDKs for any API&quot;&gt;&lt;em&gt;Swagger Codegen&lt;/em&gt;&lt;/a&gt; pode ajudar nessa tarefa, gerando &lt;em&gt;SDKs&lt;/em&gt;
+a partir da especificação da sua &lt;em&gt;API&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Abordamos o processo, os passos, e quais ferramentas podemos utilizar para atender os requisitos necessários
+em cada etapa. Faltou abordar de forma prática como &quot;colocar isso tudo junto para funcionar&quot;. O &lt;em&gt;post&lt;/em&gt;
+ficou gigante, e possivelmente abordaremos em uma parte 2 como colocar isso tudo em um &lt;em&gt;CI&lt;/em&gt;, e em como
+orquestrar &lt;em&gt;release&lt;/em&gt; de especificação e &lt;em&gt;deploy&lt;/em&gt; de aplicação.&lt;/p&gt;
+&lt;p&gt;Há uma pluralidade interessante de ferramentas e serviços que giram em torno do conceito de &lt;em&gt;API-First&lt;/em&gt;. Se
+por um lado isso pode significar aumentar a complexidade do seu processo de desenvolvimento, por outro é
+também uma certa garantia de que existem outros &lt;em&gt;players&lt;/em&gt; investindo nessa prática, e que se você tem na sua
+&lt;em&gt;API&lt;/em&gt; o seu principal produto, talvez ficar por fora possa ocasionar um problema de estratégia.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://dredd.org/en/latest/index.html&quot;&gt;Dredd - HTTP API Testing Framework&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://openapi.tools/&quot;&gt;OpenAPI.Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.programmableweb.com/news/how-to-design-great-apis-api-first-design-and-raml/how-to/2015/07/10&quot;&gt;ProgrammableWeb - How To Design Great APIs With API-First Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stoplight.io/p/docs/gh/stoplightio/prism&quot;&gt;Stoplightio - Prism&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/trimble-maps-engineering-blog/api-first-development-and-openapi-835afb46b7f1&quot;&gt;Trimble MAPS Engineering Blog - API-First Development and OpenAPI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Construindo APIs em Django com Django REST Framework]]></title><description><![CDATA[No post anterior
+tive a oportunidade de "destilar" a minha simpatia pelo Django REST Framework,
+e de salientar alguns aspectos positivos da ferramenta. A praticidade
+é sem dúvida um de seus pontos mais altos, e nesse post vamos explorá-la através
+de código escrito (que vale mais do que mil palavras…]]></description><link>https://klauslaube.com.br/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 13 Feb 2020 06:15:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2020/02/06/eu-me-rendo-django-rest-framework.html&quot; title=&quot;Leia o meu depoimento sobre a rendição ao DRF&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;
+tive a oportunidade de &quot;destilar&quot; a minha simpatia pelo &lt;a href=&quot;/tag/drf.html&quot; title=&quot;Leia mais sobre o Django REST Framework&quot;&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;,
 e de salientar alguns aspectos positivos da ferramenta. A praticidade
 é sem dúvida um de seus pontos mais altos, e nesse &lt;em&gt;post&lt;/em&gt; vamos explorá-la através
-de código escrito (que vale mais do que mil palavras …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 13 Feb 2020 06:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-02-13:/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html</guid><category>desenvolvimento</category><category>web</category><category>apis</category><category>python</category><category>django</category><category>rest</category><category>drf</category></item><item><title>Eu me rendo: Django REST Framework</title><link>https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html</link><description>&lt;p&gt;Confesso que nunca fui muito simpático ao &lt;a href="https://www.django-rest-framework.org/" title="Visite a página oficial do projeto"&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;. Antes de adotá-lo tive a oportunidade de explorar outras opções, como o &lt;a href="https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html" title="Leia mais sobre o Restless"&gt;&lt;em&gt;Restless&lt;/em&gt;&lt;/a&gt;, e admito que sempre havia algo faltando, ou algum esforço extra necessário para obter alguma funcionalidade que já vinha embutida no &lt;a href="https://klauslaube.com.br/tag/drf.html" title="Leia mais sobre Django REST Framework"&gt;&lt;em&gt;DRF&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+de código escrito (que vale mais do que mil palavras).&lt;/p&gt;
+&lt;h2&gt;Instalando&lt;/h2&gt;
+&lt;p&gt;Sem mais delongas, o &lt;em&gt;REST Framework&lt;/em&gt; é facilmente instalado através dos comandos &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;pipenv&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv install djangorestframework&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não esqueça de adicionar a &lt;em&gt;app&lt;/em&gt; ao seu &lt;code class=&quot;language-text&quot;&gt;INSTALLED_APPS&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
 
-&lt;p&gt;Comecei a aceitar a sua …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 06 Feb 2020 09:40:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-02-06:/2020/02/06/eu-me-rendo-django-rest-framework.html</guid><category>desenvolvimento</category><category>web</category><category>apis</category><category>python</category><category>django</category><category>rest</category><category>drf</category><category>eu-me-rendo</category></item></channel></rss>
+INSTALLED_APPS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;rest_framework&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Estamos prontos para mergulhar nos conceitos de &lt;em&gt;routers&lt;/em&gt;, serializadores e &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Antes de ir: O problema&lt;/h2&gt;
+&lt;p&gt;Embora o &quot;iMDB-clone&quot; seja o meu tipo de exemplo favorito, dessa vez vamos imaginar que estamos desenvolvendo
+um &quot;Feedly-clone&quot;. O &lt;a href=&quot;https://feedly.com/&quot; title=&quot;Visite o Feedly&quot;&gt;&lt;em&gt;Feedly&lt;/em&gt;&lt;/a&gt; é uma espécie de leitor &lt;a href=&quot;/2010/11/12/o-que-e-rss.html&quot; title=&quot;O que é RSS?&quot;&gt;&lt;em&gt;RSS&lt;/em&gt;&lt;/a&gt;
+(com esteroides) muito popular.&lt;/p&gt;
+&lt;p&gt;Vamos focar em dois tipos específicos: &lt;code class=&quot;language-text&quot;&gt;Channel&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt;; &lt;em&gt;Channel&lt;/em&gt; é de fato o &lt;em&gt;website&lt;/em&gt; ou &lt;em&gt;blog&lt;/em&gt; que queremos registrar em
+nossa plataforma. Esse é o mesmo nome utilizado pelo formato &lt;em&gt;RSS&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;xml&quot;&gt;&lt;pre class=&quot;language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token prolog&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;rss&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;2.0&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;RSS Title&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;This is an example of an RSS feed&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;http://www.example.com/main.html&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;link&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;lastBuildDate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Mon, 06 Sep 2010 00:01:00 +0000 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;lastBuildDate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;pubDate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Sun, 06 Sep 2009 16:20:00 +0000&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;pubDate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;ttl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;1800&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ttl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Example entry&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Here is some text containing an interesting description.&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;http://www.example.com/blog/post/1&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;link&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;guid&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;isPermaLink&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;false&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;7bd204c6-1655-4c27-aeee-53f933c5395f&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;guid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;pubDate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;Sun, 06 Sep 2009 16:20:00 +0000&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;pubDate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+ &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;rss&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Já item, como ilustrado no exemplo acima, é de fato a notícia/artigo/música/podcast que aquele canal está publicando.&lt;/p&gt;
+&lt;p&gt;Então, partiremos do princípio que os seguintes modelos já estão estabelecidos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# channels/models.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;db &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; models
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    title &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    description &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TextField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;blank&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; null&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    link &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;URLField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Model&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    channel &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ForeignKey&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Channel&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; on_delete&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CASCADE&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    title &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;CharField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_length&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    description &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;TextField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;blank&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; null&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    link &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;URLField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    pub_date &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; models&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;DateTimeField&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;title&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O próximo passo será definir a &lt;em&gt;API&lt;/em&gt; para que um possível cliente &lt;em&gt;mobile&lt;/em&gt; (por exemplo) a consuma.&lt;/p&gt;
+&lt;h2&gt;Os serializadores&lt;/h2&gt;
+&lt;p&gt;Segundo a &lt;a href=&quot;https://www.django-rest-framework.org/api-guide/serializers/&quot; title=&quot;Serializers&quot;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Serializers allow complex data such as querysets and model instances to be converted to native Python datatypes that can then be easily rendered into JSON, XML or other content types. Serializers also provide deserialization, allowing parsed data to be converted back into complex types, after first validating the incoming data.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Eles funcionam como um espécie de &lt;code class=&quot;language-text&quot;&gt;Form&lt;/code&gt;, proporcionando ferramental para o &lt;em&gt;parsing&lt;/em&gt; e validação das requisições, bem como controlando o que será mandado como &lt;em&gt;output&lt;/em&gt; para o usuário. Dentro dessa analogia, o &lt;code class=&quot;language-text&quot;&gt;ModelSerializer&lt;/code&gt; faz mais ou menos o que o &lt;code class=&quot;language-text&quot;&gt;ModelForm&lt;/code&gt; faz. Logo, um bom candidato para começarmos a escrever o &lt;em&gt;endpoint&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# channels/serializers.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; rest_framework &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; serializers
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; channels&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;models &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Channel
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ChannelSerializer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;serializers&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ModelSerializer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        model &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Channel
+        fields &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&quot;link&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez que estamos expondo todos os campos do modelo, é possível trocar a lista em &lt;code class=&quot;language-text&quot;&gt;fields&lt;/code&gt;, pela &lt;em&gt;string&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;__all__&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Viewsets&lt;/h2&gt;
+&lt;p&gt;Continuando com as analogias, um &lt;em&gt;viewset&lt;/em&gt; seria mais ou menos o que são as &lt;em&gt;class-based views&lt;/em&gt; no &lt;em&gt;Django&lt;/em&gt;. Elas abstraem uma
+porção de lógica repetitiva (como &lt;em&gt;CRUD&lt;/em&gt;) através de uma estrutura muito familiar aos que já possuem certa vivência com o &lt;em&gt;framework&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# channels/api.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; rest_framework &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; viewsets
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; channels&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;models &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Channel
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; channels&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;serializers &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; ChannelSerializer
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ChannelViewSet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;viewsets&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ModelViewSet&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    queryset &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Channel&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    serializer_class &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ChannelSerializer&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note que em &lt;code class=&quot;language-text&quot;&gt;queryset&lt;/code&gt; apontamos para o modelo &lt;code class=&quot;language-text&quot;&gt;Channel&lt;/code&gt;, e em &lt;code class=&quot;language-text&quot;&gt;serializer_class&lt;/code&gt; para a classe serializadora criada anteriormente.&lt;/p&gt;
+&lt;h2&gt;Fazendo o roteamento&lt;/h2&gt;
+&lt;p&gt;Como último passo para termos algo de fato visual, vamos mapear as rotas para o novo recurso criado.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/767c61c3f85f83779b4b72b19b2e65d7/07f3a/hyperdrive.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABw6BIH//EABcQAAMBAAAAAAAAAAAAAAAAAAACMQH/2gAIAQEAAQUCXSDX/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERMWH/2gAIAQEAAT8hgN0ump//2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qp//EAB0QAAIBBAMAAAAAAAAAAAAAAAERACExQVFhoeH/2gAIAQEAAT8QCjQLQOuZVSLP3qDaLBzP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Falcon em hyperdrive&quot;
+        title=&quot;Usar DRF é como entrar em hyperdrive (pinpointe.com)&quot;
+        src=&quot;/static/767c61c3f85f83779b4b72b19b2e65d7/07f3a/hyperdrive.jpg&quot;
+        srcset=&quot;/static/767c61c3f85f83779b4b72b19b2e65d7/7809d/hyperdrive.jpg 192w,
+/static/767c61c3f85f83779b4b72b19b2e65d7/4ecad/hyperdrive.jpg 384w,
+/static/767c61c3f85f83779b4b72b19b2e65d7/07f3a/hyperdrive.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Usar DRF é como entrar em hyperdrive (pinpointe.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Uma das vantagens de utilizar um &lt;em&gt;viewset&lt;/em&gt; é que ele também se encarrega de fazer o mapeamento das &lt;em&gt;URLs&lt;/em&gt;. Por exemplo, o &lt;code class=&quot;language-text&quot;&gt;ChannelViewSet&lt;/code&gt; uma vez que mapeado,
+responderá para rotas terminando em &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;/&amp;lt;id-do-channel&amp;gt;&lt;/code&gt;. Além disso compreenderá que um &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; é relacionado à criação de um novo elemento, bem como &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;/&amp;lt;id-do-channel&amp;gt;&lt;/code&gt; está relação à remoção:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# urls.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; path
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; rest_framework &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; routers
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; channels&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;api &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; ChannelViewSet
+
+api_router &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; routers&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;DefaultRouter&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+api_router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;register&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;r&quot;channels&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ChannelViewSet&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;api/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;api_router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nesse momento já é possível presenciar um resultado mais sólido ao acessar &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0a797ad2b8417bd9a2e5f88cd3c3a1b0/50383/django-rest-framework-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.6875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABYlAAAWJQFJUiTwAAABj0lEQVQoz32R2UrDUBCG+yYa8UahthVv1Noaalu3otblxmcS8RkEn8HaNHF5ABFEhEosiCbaJmma5WxZnKR1K9LDx89wmG/mwElslPfy2fVyYYfPra8sV9aK1VJhu5DfzC2ufrO0UC7kKyW+srtR4osHayvVIr8FPYn02Pj81DSfzuRT6WwymZtJzU1OZriJ2b9kOC6+hOQGN+NcQpQkQRTP63VBEqEALgShVq/XhGEaYkOSGmKckiQ2Li8TYRgGQUApDXw/HHlMEr47fpeGCiSOmiNZVVVZlpvNpqIovu8zRhljUAQwL04vnnty0zo8uzu6kvdPb4+v5YFsmr23N6Xd7miarutGJzoapeCHnhfpfQIgCKJ3+nH2ZcdxwXFdzAijmBJMESIjgE4YPdgMe+7vH55ary9ts/VudC0XI/IDHgahX7LW0R6fWs9KWzVstWvrlosIHfDfK2AzIV8yoQybDjFs0rWpYRG9hz6MiI6JDAvhkTJlHrYR6TnYwcRyoSBmDBQOgr4hMIbf8ED8BMauEY/dCRS/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo ao acessar o endereço no browser&quot;
+        title=&quot;Exemplo ao acessar o endereço no browser&quot;
+        src=&quot;/static/0a797ad2b8417bd9a2e5f88cd3c3a1b0/50383/django-rest-framework-example.png&quot;
+        srcset=&quot;/static/0a797ad2b8417bd9a2e5f88cd3c3a1b0/8514f/django-rest-framework-example.png 192w,
+/static/0a797ad2b8417bd9a2e5f88cd3c3a1b0/804b2/django-rest-framework-example.png 384w,
+/static/0a797ad2b8417bd9a2e5f88cd3c3a1b0/50383/django-rest-framework-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo ao acessar o endereço no browser&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Não ligue para a porta &lt;code class=&quot;language-text&quot;&gt;:5000&lt;/code&gt; no exemplo acima...&lt;/p&gt;
+&lt;p&gt;Se você não é fã do &lt;em&gt;browsable api&lt;/em&gt;, e não quer ter essa visão do &lt;code class=&quot;language-text&quot;&gt;API Root&lt;/code&gt; (como da imagem acima), troque o &lt;code class=&quot;language-text&quot;&gt;DefaultRouter&lt;/code&gt; por &lt;code class=&quot;language-text&quot;&gt;SimpleRouter&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;CRUD em ação&lt;/h2&gt;
+&lt;p&gt;Considerando tudo o que foi dito até então, podemos esperar que temos o recurso mapeado no endereço &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api/channels&lt;/code&gt;,
+e que a partir desse, poderemos desempenhar a listagem, adição, edição e exclusão de dados desse recurso.&lt;/p&gt;
+&lt;p&gt;Começamos então adicionando um elemento, ao enviar o método &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; para o endereço com final &lt;code class=&quot;language-text&quot;&gt;channels/&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -XPOST http://localhost:8000/api/channels/ --data &amp;#39;{
+    &amp;quot;id&amp;quot;: 1,
+    &amp;quot;title&amp;quot;: &amp;quot;Klaus Laube&amp;quot;,
+    &amp;quot;description&amp;quot;: &amp;quot;Python, Django e desenvolvimento Web&amp;quot;,
+    &amp;quot;link&amp;quot;: &amp;quot;https://klauslaube.com.br&amp;quot;
+}&amp;#39; --header &amp;quot;Content-Type: application/json&amp;quot;
+
+{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Klaus Laube&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Python, Django e desenvolvimento Web&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como o serializador espelha as propriedades do modelo &lt;code class=&quot;language-text&quot;&gt;Channel&lt;/code&gt;, caso um campo obrigatório não seja enviado
+no &lt;em&gt;payload&lt;/em&gt;, o próprio serializador se encarregará de fazer essa validação e de retornar detalhes do erro ao usuário:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -i -XPOST http://localhost:8000/api/channels/ --data &amp;#39;{
+    &amp;quot;title&amp;quot;: &amp;quot;Klaus Laube&amp;quot;,
+    &amp;quot;description&amp;quot;: &amp;quot;Python, Django, APIs, e desenvolvimento Web&amp;quot;
+}&amp;#39; --header &amp;quot;Content-Type: application/json&amp;quot;
+
+HTTP/1.1 400 Bad Request
+Date: Tue, 11 Feb 2020 18:00:44 GMT
+Server: WSGIServer/0.2 CPython/3.7.2
+Content-Type: application/json
+Vary: Accept, Cookie
+Allow: GET, POST, HEAD, OPTIONS
+X-Frame-Options: DENY
+Content-Length: 36
+X-Content-Type-Options: nosniff
+
+{&amp;quot;link&amp;quot;:[&amp;quot;This field is required.&amp;quot;]}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como estamos falando de uma &lt;em&gt;API&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt;, é normal esperarmos que um &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt; no mesmo endereço traga uma lista de &lt;em&gt;channels&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl http://localhost:8000/api/channels/
+
+[{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Klaus Laube&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Python, Django e desenvolvimento Web&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br&amp;quot;}]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E normalmente, um &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;channels/1&lt;/code&gt; deve trazer detalhes daquele recurso:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl http://localhost:8000/api/channels/1/
+
+{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Klaus Laube&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Python, Django e desenvolvimento Web&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para atualizar o registro, enviamos o método &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -XPUT http://localhost:8000/api/channels/1/ --data &amp;#39;{
+    &amp;quot;title&amp;quot;: &amp;quot;Klaus Laube&amp;quot;,
+    &amp;quot;description&amp;quot;: &amp;quot;Python, Django, APIs, e desenvolvimento Web&amp;quot;,
+    &amp;quot;link&amp;quot;: &amp;quot;https://klauslaube.com.br&amp;quot;
+}&amp;#39; --header &amp;quot;Content-Type: application/json&amp;quot;
+
+{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Klaus Laube&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Python, Django, APIs, e desenvolvimento Web&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E para finalizar, com &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt; é possível remover o recurso:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -XDELETE http://localhost:8000/api/channels/2/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mágico, não?!&lt;/p&gt;
+&lt;h2&gt;Serializando relacionamentos&lt;/h2&gt;
+&lt;p&gt;Passaremos a abordar agora a construção do &lt;em&gt;endpoint&lt;/em&gt; para o recurso &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/71dd224a33c9c79420baf43984fa2225/c08c5/vim-jedi.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAVzVJo0VJAo//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAMBAhESE//aAAgBAQABBQJGejGdVKjJnD//xAAXEQADAQAAAAAAAAAAAAAAAAABAhAR/9oACAEDAQE/AQ2T/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEQESFBQv/aAAgBAQAGPwLJfK1CFH//xAAYEAADAQEAAAAAAAAAAAAAAAAAARExIf/aAAgBAQABPyFmQRbUJWtm6KuhpF4I/9oADAMBAAIAAwAAABBY7//EABYRAQEBAAAAAAAAAAAAAAAAAAEREP/aAAgBAwEBPxARJn//xAAWEQEBAQAAAAAAAAAAAAAAAAARAAH/2gAIAQIBAT8Q10m//8QAHBABAQACAgMAAAAAAAAAAAAAAREAITFhQVGB/9oACAEBAAE/ELpIjVKHeBMI1/AHveaSja5xjbu/ccHsgBcTOc//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Kylo vs Rey&quot;
+        title=&quot;Nem o DRF consegue serializar o relacionamento entre Rey e Kylo (jovemnerd.com.br)&quot;
+        src=&quot;/static/71dd224a33c9c79420baf43984fa2225/c08c5/vim-jedi.jpg&quot;
+        srcset=&quot;/static/71dd224a33c9c79420baf43984fa2225/7809d/vim-jedi.jpg 192w,
+/static/71dd224a33c9c79420baf43984fa2225/4ecad/vim-jedi.jpg 384w,
+/static/71dd224a33c9c79420baf43984fa2225/c08c5/vim-jedi.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Nem o DRF consegue serializar o relacionamento entre Rey e Kylo (jovemnerd.com.br)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Começamos pelo &lt;em&gt;serializer&lt;/em&gt;, que não é muito diferente do construído anteriormente para o modelo &lt;code class=&quot;language-text&quot;&gt;Channel&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# channels/serializers.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ItemSerializer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;serializers&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ModelSerializer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        model &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Item
+        fields &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__all__&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;ModelSerializer&lt;/code&gt; &quot;automagicamente&quot; fará o &lt;em&gt;parsing&lt;/em&gt; do relacionamento entre &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;Channel&lt;/code&gt;. O resultado da serialização de uma instância
+de &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt; terá uma propriedade &lt;code class=&quot;language-text&quot;&gt;channel&lt;/code&gt;, com a chave primária do elemento relacionado como valor:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(...)
+
+&amp;gt;&amp;gt;&amp;gt; item = Item.objects.first()
+&amp;gt;&amp;gt;&amp;gt; serializer = ItemSerializer(item)
+&amp;gt;&amp;gt;&amp;gt; data = serializer.data
+
+&amp;gt;&amp;gt;&amp;gt; print(data[&amp;quot;channel&amp;quot;])
+1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Antes de passarmos para o &lt;em&gt;viewset&lt;/em&gt;, vamos discutir como ficará a &lt;em&gt;URL&lt;/em&gt; desse recurso. Se seguirmos a mesma receita utilizada para &lt;code class=&quot;language-text&quot;&gt;Channel&lt;/code&gt;,
+teremos um endereço semelhante com o abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api/items/&amp;lt;id&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas que tal se &lt;code class=&quot;language-text&quot;&gt;channels&lt;/code&gt; fosse parte da &lt;em&gt;URL&lt;/em&gt; de &lt;code class=&quot;language-text&quot;&gt;items&lt;/code&gt;? É possível atingir tal resultado com o conceito de recurso aninhado.&lt;/p&gt;
+&lt;h2&gt;Nested resources&lt;/h2&gt;
+&lt;p&gt;O que queremos, na prática, é o seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api/channels/&amp;lt;id-do-channel&amp;gt;/items/&amp;lt;id-do-item&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com isso, ao acessar &lt;code class=&quot;language-text&quot;&gt;channels/1/items&lt;/code&gt; (por exemplo), teremos uma listagem de todos os itens relacionados
+com o canal &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Infelizmente o &lt;em&gt;DRF&lt;/em&gt; não possui nenhuma &quot;classe mágica&quot; que faça isso acontecer com poucas linhas de código. Estratégias
+para atingir o mesmo resultado podem variar. Existe uma biblioteca que integra-se com o &lt;em&gt;DRF&lt;/em&gt; e produz um resultado
+similar ao que queremos. Estou falando da &lt;a href=&quot;https://github.com/alanjds/drf-nested-routers&quot; title=&quot;Veja o repositório do projeto&quot;&gt;&lt;em&gt;drf-nested-routers&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv install drf-nested-routers&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Fica o &lt;em&gt;disclaimer&lt;/em&gt;:&lt;/strong&gt; Como o próprio autor da biblioteca salienta na documentação, essa é uma ferramenta em estado experimental, portanto,
+cogite alternativas quando estiver fazendo o &lt;em&gt;deploy&lt;/em&gt; do código para produção. Para provar o conceito apresentado nesse &lt;em&gt;post&lt;/em&gt;, ela serve
+perfeitamente.&lt;/p&gt;
+&lt;p&gt;Agora sim podemos continuar com o desenvolvimento do recurso &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# channels/api.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ItemViewSet&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;viewsets&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ModelViewSet&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    serializer_class &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; ItemSerializer
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;get_queryset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; Item&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;filter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            channel&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;kwargs&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;channel_pk&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note a sobrescrita do método &lt;code class=&quot;language-text&quot;&gt;get_queryset&lt;/code&gt;. O parâmetro &lt;code class=&quot;language-text&quot;&gt;channel_pk&lt;/code&gt; será passado para o &lt;code class=&quot;language-text&quot;&gt;ItemViewSet&lt;/code&gt; no momento
+em que registrarmos a classe no &lt;code class=&quot;language-text&quot;&gt;Router&lt;/code&gt;. Com isso, de forma &quot;lazy&quot;, estamos dizendo que os items pesquisados
+devem ser relacionados com o &lt;code class=&quot;language-text&quot;&gt;channel&lt;/code&gt; mencionado no &lt;em&gt;path&lt;/em&gt; do endereço acessado.&lt;/p&gt;
+&lt;p&gt;De volta ao &lt;code class=&quot;language-text&quot;&gt;urls.py&lt;/code&gt;, atualizaremos o roteamento para ficar semelhante com o exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# urls.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; path
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; rest_framework_nested &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; routers
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; channels&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;api &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; ChannelViewSet&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ItemViewSet
+
+api_router &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; routers&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;DefaultRouter&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+api_router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;register&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;r&quot;channels&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ChannelViewSet&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+channels_router &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; routers&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;NestedDefaultRouter&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    api_router&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;r&quot;channels&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; lookup&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;channel&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+channels_router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;register&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;r&quot;items&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ItemViewSet&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    basename&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;channel-items&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;api/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;api_router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    path&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;api/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;channels_router&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos aos pontos de atenção:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Importamos &lt;code class=&quot;language-text&quot;&gt;routers&lt;/code&gt; de &lt;code class=&quot;language-text&quot;&gt;rest_framework_nested&lt;/code&gt;, e não mais de &lt;code class=&quot;language-text&quot;&gt;rest_framework&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Agora lidamos com duas instâncias de &lt;code class=&quot;language-text&quot;&gt;Router&lt;/code&gt;, a primeiro vindo de &lt;code class=&quot;language-text&quot;&gt;api_router = routers.DefaultRouter()&lt;/code&gt;,
+e a segunda vindo de &lt;code class=&quot;language-text&quot;&gt;channels_router = routers.NestedDefaultRouter(api_router, r&amp;quot;channels&amp;quot;, lookup=&amp;quot;channel&amp;quot;)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;DefaultRouter&lt;/code&gt; continua com o mesmo comportamento do exemplo anterior;&lt;/li&gt;
+&lt;li&gt;Precisamos adicionar ao &lt;code class=&quot;language-text&quot;&gt;urlpatterns&lt;/code&gt; a instância de &lt;code class=&quot;language-text&quot;&gt;DefaultRouter&lt;/code&gt; e as instâncias de &lt;code class=&quot;language-text&quot;&gt;NestedDefaultRouter&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;NestedDefaultRouter&lt;/code&gt; espera três parâmetros:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;parent_router&lt;/code&gt;: O &lt;code class=&quot;language-text&quot;&gt;Router&lt;/code&gt; &quot;pai&quot;, podendo ser um &lt;code class=&quot;language-text&quot;&gt;DefaultRouter&lt;/code&gt; ou até mesmo outro &lt;code class=&quot;language-text&quot;&gt;NestedDefaultRouter&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;parent_prefix&lt;/code&gt;: O prefixo de &lt;em&gt;URL&lt;/em&gt; no qual os recursos registrados passarão a ser articulados como sub recursos;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;lookup&lt;/code&gt;: É a partir dessa informação que a chave &lt;code class=&quot;language-text&quot;&gt;channel_pk&lt;/code&gt; é criada e passada para o &lt;em&gt;viewset&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Aqui também, se você não quiser ter a visão de &lt;em&gt;browsable api&lt;/em&gt; habilitada, troque para o &lt;code class=&quot;language-text&quot;&gt;SimpleRouter&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Pronto! O recurso &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt; está disponível para as operações exibidas anteriormente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl http://localhost:8000/api/channels/1/items/
+
+[{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Eu me rendo: Django REST Framework&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Confesso que nunca fui muito simpático ao Django REST Framework...&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html&amp;quot;,&amp;quot;pub_date&amp;quot;:&amp;quot;2020-02-06T09:40:00Z&amp;quot;,&amp;quot;channel&amp;quot;:1}]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;payload&lt;/em&gt; retorna uma chave &lt;code class=&quot;language-text&quot;&gt;channel&lt;/code&gt; para cada item. Uma vez que estamos falando de um &lt;em&gt;nested resource&lt;/em&gt;, não faz muito sentido retornarmos essa informação. A maneira mais prática de corrigirmos isso é alterando a classe serializadora:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# channels/serializers.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ItemSerializer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;serializers&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ModelSerializer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Meta&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        model &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Item
+        exclude &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;channel&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como queremos tudo, menos o &lt;code class=&quot;language-text&quot;&gt;channel&lt;/code&gt;, utilizamos a propriedade &lt;code class=&quot;language-text&quot;&gt;exclude&lt;/code&gt; ao invés de &lt;code class=&quot;language-text&quot;&gt;fields&lt;/code&gt;, e determinamos o que queremos excluir da resposta.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Há muito o que ser discutido ainda, como customização, autenticação, segurança, &lt;em&gt;HATEOAS&lt;/em&gt;, etc. Assuntos esses que pretendo abordar em &lt;em&gt;posts&lt;/em&gt; vindouros.&lt;/p&gt;
+&lt;p&gt;Com o mínimo coberto no &lt;em&gt;getting started&lt;/em&gt; da documentação do &lt;em&gt;DRF&lt;/em&gt;, já é
+possível termos algo &lt;em&gt;up &amp;#x26; running&lt;/em&gt;. Provar conceitos e discutir contratos
+passou a ser muito menos custoso graças à biblioteca.&lt;/p&gt;
+&lt;p&gt;Essa &quot;proximidade&quot; de conceitos como serializadores e &lt;em&gt;viewsets&lt;/em&gt;, com conceitos bem estabelecidos do &lt;em&gt;Django&lt;/em&gt; (como &lt;em&gt;forms&lt;/em&gt; e &lt;em&gt;class-based views&lt;/em&gt;) faz com que o atrito seja menor, e a curva de aprendizagem mais baixa. É quase natural compreender tais artefatos à primeira vista.&lt;/p&gt;
+&lt;p&gt;Se o seu projeto é feito em &lt;em&gt;Django&lt;/em&gt;, e você necessita escrever &lt;em&gt;APIs&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt;, não perca tempo e caia de cabeça no &lt;em&gt;REST Framework&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.django-rest-framework.org/tutorial/quickstart/&quot;&gt;Django REST Framework - Quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/RSS&quot;&gt;Wikipedia - RSS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Eu me rendo: Django REST Framework]]></title><description><![CDATA[Confesso que nunca fui muito simpático ao Django REST Framework. Antes de adotá-lo tive a oportunidade de explorar outras opções, como o Restless, e admito que sempre havia algo faltando, ou algum esforço extra necessário para obter alguma funcionalidade que já vinha embutida no DRF. Comecei a…]]></description><link>https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 06 Feb 2020 09:40:00 GMT</pubDate><content:encoded>&lt;p&gt;Confesso que nunca fui muito simpático ao &lt;a href=&quot;https://www.django-rest-framework.org/&quot; title=&quot;Visite a página oficial do projeto&quot;&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;. Antes de adotá-lo tive a oportunidade de explorar outras opções, como o &lt;a href=&quot;/2017/01/06/construindo-apis-em-django-com-restless.html&quot; title=&quot;Leia mais sobre o Restless&quot;&gt;&lt;em&gt;Restless&lt;/em&gt;&lt;/a&gt;, e admito que sempre havia algo faltando, ou algum esforço extra necessário para obter alguma funcionalidade que já vinha embutida no &lt;a href=&quot;/tag/drf.html&quot; title=&quot;Leia mais sobre Django REST Framework&quot;&gt;&lt;em&gt;DRF&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Comecei a aceitar a sua natureza &quot;baterias inclusas&quot; após me distanciar do desenvolvimento &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. Sob uma ótica diferente, compreendi o papel do &lt;em&gt;DRF&lt;/em&gt;, e fiz as pazes com esse sentimento de confiar em uma biblioteca (supostamente) complexa para construir &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt; (teoricamente) simples. Afinal, se &quot;ser bloated&quot; for um argumento decisivo, não escolheríamos &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; para escrever &lt;em&gt;APIs&lt;/em&gt; (principalmente em um contexto de microserviços).&lt;/p&gt;
+&lt;h2&gt;Motivação&lt;/h2&gt;
+&lt;p&gt;É claro que a minha atual simpatia pela ferramenta não se deve apenas ao fato de eu tê-la &quot;aceitado&quot;. Pura ignorância da minha parte não ter compreendido antes todos os aspectos positivos que o projeto possui, e todas as facilidades que ele proporciona aos seus usuários.&lt;/p&gt;
+&lt;h3&gt;Patrocinado&lt;/h3&gt;
+&lt;p&gt;O que faz do &lt;em&gt;REST Framework&lt;/em&gt; um projeto interessante é, para começo de conversa, que ele é financiado colaborativamente, com empresas do calibre de &lt;a href=&quot;https://getsentry.com/welcome/&quot; title=&quot;Conheça o Sentry&quot;&gt;&lt;em&gt;Sentry&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://www.digitalocean.com/&quot; title=&quot;Cloud sem complicação&quot;&gt;&lt;em&gt;DigitalOcean&lt;/em&gt;&lt;/a&gt; fazendo parte da lista de patrocinadores. Essa característica faz com que a biblioteca tenha um &lt;em&gt;long-term&lt;/em&gt; mais provável, uma vez que os esforços de desenvolvimento são financiados. Além disso, &lt;em&gt;releases&lt;/em&gt; são mais substanciais e frequentes.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://fund.django-rest-framework.org/topics/funding/&quot; title=&quot;Veja mais em Funding&quot;&gt;Leia mais sobre como patrocinar o projeto&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Autenticação&lt;/h3&gt;
+&lt;p&gt;Lidar com autenticação &quot;from scratch&quot; é no mínimo &lt;em&gt;error prone&lt;/em&gt;. O &lt;em&gt;framework&lt;/em&gt; já possui uma série de mecanismos de autenticação &lt;em&gt;built-in&lt;/em&gt; (como &lt;code class=&quot;language-text&quot;&gt;BasicAuthentication&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;SessionAuthentication&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;TokenAuthentication&lt;/code&gt;), e uma infinidade de integrações com &lt;em&gt;third parties&lt;/em&gt; (como &lt;a href=&quot;https://github.com/jazzband/django-oauth-toolkit&quot; title=&quot;Veja a página do projeto no GitHub&quot;&gt;django-oauth-toolkit&lt;/a&gt;, &lt;a href=&quot;https://github.com/davesque/django-rest-framework-simplejwt&quot; title=&quot;Biblioteca para adoção de JWT&quot;&gt;django-rest-framework-simplejwt&lt;/a&gt; e &lt;a href=&quot;https://github.com/sunscrapers/djoser&quot; title=&quot;Excelente opção de auth para APIs em Django&quot;&gt;djoser&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/49eeb3ceeb9248a95cd70ff9b2748f77/1c72d/never-give-up.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.39583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABVI9FmkA//8QAGhABAAIDAQAAAAAAAAAAAAAAAQADAhESIv/aAAgBAQABBQLfIPmV45WpQoOp/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8BJ//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/AWf/xAAaEAACAgMAAAAAAAAAAAAAAAAAARAxERIh/9oACAEBAAY/AjOzh1wuP//EABsQAAMBAAMBAAAAAAAAAAAAAAABETEhQVFh/9oACAEBAAE/IY0h6xdrFnBEGn0YiuxiTw//2gAMAwEAAgADAAAAEDff/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EHkN/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxDQ6z//xAAcEAEAAgMAAwAAAAAAAAAAAAABABEhMVFhgdH/2gAIAQEAAT8QCkYzpzFa2FrduSvAjsYy8s3fya4EoC17irsmPDU//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Never give up, never surrender&quot;
+        title=&quot;Não há nada de errado em render-se de vez em quando (publishedtodeath.blogspot.com)&quot;
+        src=&quot;/static/49eeb3ceeb9248a95cd70ff9b2748f77/1c72d/never-give-up.jpg&quot;
+        srcset=&quot;/static/49eeb3ceeb9248a95cd70ff9b2748f77/7809d/never-give-up.jpg 192w,
+/static/49eeb3ceeb9248a95cd70ff9b2748f77/4ecad/never-give-up.jpg 384w,
+/static/49eeb3ceeb9248a95cd70ff9b2748f77/1c72d/never-give-up.jpg 590w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não há nada de errado em render-se de vez em quando (publishedtodeath.blogspot.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A possibilidade de mesclar mecanismos num mesmo recurso permite que você tenha uma &lt;em&gt;API&lt;/em&gt; &lt;em&gt;session based&lt;/em&gt; para o seu &lt;em&gt;front-end&lt;/em&gt; em &lt;em&gt;React&lt;/em&gt; (por exemplo), e o mesmo recurso ser capaz de servir acessos utilizando &lt;em&gt;tokens&lt;/em&gt;, para um possível cliente &lt;em&gt;mobile&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.django-rest-framework.org/api-guide/authentication/&quot; title=&quot;Veja mais em Authentication&quot;&gt;Leia mais sobre autenticação&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;SQL &amp;#x26; NoSQL&lt;/h3&gt;
+&lt;p&gt;Os serializadores são um aspecto muito interessante da biblioteca. Além do trabalho de &lt;em&gt;marshalling&lt;/em&gt;, eles também servem como validadores. Com o &lt;code class=&quot;language-text&quot;&gt;ModelSerializer&lt;/code&gt; todos os aspectos do seu modelo são &quot;traduzidos&quot; para a &lt;em&gt;API&lt;/em&gt;, no melhor estilo &lt;em&gt;Django Admin&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Mas existe também a possibilidade de escrita de seu própria classe serializadora ao herdar de &lt;code class=&quot;language-text&quot;&gt;serializers.Serializer&lt;/code&gt;. Isso traz flexibilidade para trabalhar com artefatos não relacionados com a &lt;em&gt;ORM&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E se &lt;em&gt;HATEOAS&lt;/em&gt; for a sua praia, o &lt;code class=&quot;language-text&quot;&gt;HyperlinkedModelSerializer&lt;/code&gt; promove &lt;em&gt;hyperlinks&lt;/em&gt; entre tais classes.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.django-rest-framework.org/api-guide/serializers/&quot; title=&quot;Veja mais em Serializers&quot;&gt;Leia mais sobre serialização&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Developer eXperience&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;APIs&lt;/em&gt; escritas com o &lt;em&gt;REST Framework&lt;/em&gt; ainda ganham a funcionalidade de &quot;web browsable API&quot;. Com isso é possível navegar pelas definições da sua &lt;em&gt;API&lt;/em&gt; (como &lt;em&gt;endpoints&lt;/em&gt;, formatos e métodos) e interagir com a mesma através de uma interface amigável, pronta para ser compartilhada com outros desenvolvedores interessados em consumir a sua solução.&lt;/p&gt;
+&lt;p&gt;Uma outra opção é a geração de &lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt; através do &lt;a href=&quot;https://django-rest-swagger.readthedocs.io/en/latest/&quot; title=&quot;Leia a documentação do projeto&quot;&gt;&lt;em&gt;Django REST Swagger&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://restframework.herokuapp.com/&quot; title=&quot;Visite a aplicação de exemplo da documentação oficial&quot;&gt;Veja a &lt;em&gt;browsable API&lt;/em&gt; em ação&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Praticidade&lt;/h3&gt;
+&lt;p&gt;E meu argumento final é em torno de sua praticidade. Ter uma &lt;em&gt;API&lt;/em&gt; &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt; em &lt;em&gt;Django&lt;/em&gt;, com o &lt;em&gt;DRF&lt;/em&gt;, leva minutos...&lt;/p&gt;
+&lt;p&gt;Algumas customizações poderão exigir um pouco mais de conhecimento da biblioteca, bem como um pouquinho de criatividade, mas nada que te impeça de proporcionar um serviço estável, bem escrito, e em baixíssimo tempo de desenvolvimento.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.django-rest-framework.org/api-guide/generic-views/#customizing-the-generic-views&quot; title=&quot;Veja mais em Customizing the generic views&quot;&gt;Leia mais sobre como customizar &lt;em&gt;views&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Talvez seja só devaneio, mas depois de trabalhar com &lt;em&gt;Spring Boot&lt;/em&gt; para construção de &lt;em&gt;APIs&lt;/em&gt; &lt;a href=&quot;/tag/java.html&quot; title=&quot;(não) leia mais sobre Java&quot;&gt;&lt;em&gt;Java&lt;/em&gt;&lt;/a&gt; em um contexto de microserviços, foi que entendi o propósito do &lt;em&gt;REST Framework&lt;/em&gt;. Deixar de lado essa &quot;birra&quot; com ele (supostamente) ser grande serviu para poder enxergar as qualidades da ferramenta.&lt;/p&gt;
+&lt;p&gt;Os pontos negativos ainda estão lá, e provavelmente você também vai achá-los quando estiver &quot;entrincheirado&quot; escrevendo a sua solução. Ainda assim, o &lt;em&gt;DRF&lt;/em&gt; deve ser considerado como possível escolha para escrita de suas &lt;em&gt;APIs&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;No próximo artigo falaremos de uma maneira prática sobre o &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até lá.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.django-rest-framework.org/&quot;&gt;Django REST Framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

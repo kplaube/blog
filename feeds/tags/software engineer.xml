@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - software engineer]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O que é um Software Engineer?]]></title><description><![CDATA[Certa vez, estava eu atualizando o meu LinkedIn quando o
+@davidsonfellipe me indagou sobre o título de "Analista e Desenvolvedor Web" que possuo atualmente. Segundo ele, "Front-end/Back-end Engineer" é mais atrativo para que headhunters cheguem a um perfil. Contra argumentei dizendo que essa não era…]]></description><link>https://klauslaube.com.br/2015/03/29/o-que-e-um-software-engineer.html</link><guid isPermaLink="false">https://klauslaube.com.br/2015/03/29/o-que-e-um-software-engineer.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 29 Mar 2015 22:10:00 GMT</pubDate><content:encoded>&lt;p&gt;Certa vez, estava eu atualizando o meu &lt;em&gt;LinkedIn&lt;/em&gt; quando o
+&lt;a href=&quot;https://twitter.com/davidsonfellipe&quot; title=&quot;Acompanhe o Davi do Som no Twitter&quot;&gt;@davidsonfellipe&lt;/a&gt; me indagou sobre o título de &quot;Analista e Desenvolvedor Web&quot; que possuo atualmente. Segundo ele, &quot;Front-end/Back-end Engineer&quot; é mais atrativo para que &lt;em&gt;headhunters&lt;/em&gt; cheguem a um perfil.&lt;/p&gt;
+&lt;p&gt;Contra argumentei dizendo que essa não era a minha formação, e que não me
+sentia confortável em me chamar de engenheiro. Ele, hoje um &lt;em&gt;Front-end Engineer&lt;/em&gt;
+com formação em Engenharia da Computação, afirmou que isso era bobagem, e que
+eu já praticava muitas das suas atribuições no dia a dia.&lt;/p&gt;
+&lt;p&gt;A partir daí comecei a me perguntar: O que raios é e o que faz um Engenheiro
+de Software?&lt;/p&gt;
+&lt;h2&gt;Engenharia?&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A engenharia é a ciência, a arte e a profissão de adquirir e de aplicar os
+conhecimentos matemáticos, técnicos e científicos na criação,
+aperfeiçoamento e implementação de utilidades, tais como materiais,
+estruturas, máquinas, aparelhos, sistemas ou processos, que realizem uma
+determinada função ou objetivo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Um engenheiro é basicamente o profissional que aplica esse conhecimento para
+desenvolver soluções para problemas técnicos. Em determinadas áreas de
+atuação, ele deve estar certificado/licenciado para que possa utilizar esse
+título.&lt;/p&gt;
+&lt;p&gt;É importante notar que um engenheiro transita entre diversas áreas de
+conhecimento dentro de uma determinada profissão. Um Engenheiro Civil,
+por exemplo, além de gerenciar e executar as obras, também é responsável
+por fazer análise de solo, ventilação, das instalações elétricas, do
+saneamento, dos custos, dos padrões de qualidade, da segurança, do prazo, etc.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/33839b90ab2f297a3aec4824351bafb8/935bc/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 79.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAECAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABz0lFBMP/xAAaEAACAwEBAAAAAAAAAAAAAAABEQIDEhMi/9oACAEBAAEFAuAEDUga0ZrHncsP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgMAAwEAAAAAAAAAAAAAABEBAjESE0FR/9oACAEBAAY/AuXZDTSG66sNIVvPpDtKNZ//xAAcEAACAwADAQAAAAAAAAAAAAAAAREhMUFRYXH/2gAIAQEAAT8hU8q5e4xLIeDDomN0dPgujndIqv7Z/9oADAMBAAIAAwAAABDc7//EABURAQEAAAAAAAAAAAAAAAAAABEQ/9oACAEDAQE/EAn/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCn/8QAHRABAQACAQUAAAAAAAAAAAAAAREAIVExQWGBsf/aAAgBAQABPxALR0ZdKFvq4nASLXVunEBKckxFVNsbXEXtg67kI2au/OB4Z1gj9z//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;O que meus amigos acham que eu faço (whatmyfriendsthinkido.net)&amp;quot;&quot;
+        title=&quot;O que meus amigos acham que eu faço (whatmyfriendsthinkido.net)&quot;
+        src=&quot;/static/33839b90ab2f297a3aec4824351bafb8/935bc/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg&quot;
+        srcset=&quot;/static/33839b90ab2f297a3aec4824351bafb8/7809d/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg 192w,
+/static/33839b90ab2f297a3aec4824351bafb8/4ecad/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg 384w,
+/static/33839b90ab2f297a3aec4824351bafb8/935bc/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg 620w&quot;
+        sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;O que meus amigos acham que eu faço (whatmyfriendsthinkido.net)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Na TI, como &lt;a href=&quot;http://www.profissionaisti.com.br/2013/06/14-motivos-para-voce-ser-contra-a-regulamentacao-dos-profissionais-de-ti/&quot; title=&quot;14 motivos para você ser contra a regulamentação dos profissionais de TI&quot;&gt;não há regulamentação da profissão&lt;/a&gt;,
+é muito comum vermos desenvolvedores &quot;abraçarem&quot; diferentes atribuições dentro
+de um projeto, e por fim, acabarem exercendo esse papel multidisciplinar.&lt;/p&gt;
+&lt;h2&gt;A Engenharia de Software&lt;/h2&gt;
+&lt;p&gt;O termo &quot;Engenharia de Software&quot;, surgiu na década de 60, com a intenção de
+contornar a &lt;a href=&quot;http://pt.wikipedia.org/wiki/Crise_do_software&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;crise do Software&lt;/a&gt;,
+e dar um tratamento mais sistemático e controlado ao desenvolvimento de
+sistemas complexos.&lt;/p&gt;
+&lt;p&gt;Segundo &lt;em&gt;[Friedrich L. Bauer](&lt;a href=&quot;http://en.wikipedia.org/wiki/Friedrich&quot;&gt;http://en.wikipedia.org/wiki/Friedrich&lt;/a&gt;&lt;/em&gt;L.&lt;em&gt;Bauer &quot;Leia mais sobre Bauer no Wikipedia&quot;)&lt;/em&gt;,
+autor do que viria a ser a primeira definição sobre Engenharia de Software:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) é a criação e a utilização de sólidos princípios de engenharia a fim
+de obter software de maneira econômica, que seja confiável e que trabalhe
+eficientemente em máquinas reais.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Enquanto um cientista da computação estará &quot;focado&quot; com o desenvolvimento de
+modelos matemáticos, algoritmos, e a aplicabilidade de sua lógica dentro de um
+contexto específico, o engenheiro, além de estar envolvido com o desenvolvimento
+do sistema, terá atenção ao processo, à eficiência, aos recursos e até mesmo
+aos custos.&lt;/p&gt;
+&lt;h2&gt;Em outras palavras: Não basta só programar&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;http://twitter.com/romulojales&quot; title=&quot;Siga o Jales no Twitter&quot;&gt;@romulojales&lt;/a&gt; me
+apresentou um ponto de vista super interessante sobre o assunto:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Se eu recebo algo para fazer e simplesmente faço, eu sou apenas um
+desenvolvedor. Agora, se eu recebo algo para fazer, e questiono, eu sou
+um engenheiro.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Determinar quais são as responsabilidades de um Engenheiro de Software nem
+sempre é uma tarefa fácil. O &lt;a href=&quot;http://twitter.com/mittmann&quot; title=&quot;Siga o Cleiton no Twitter&quot;&gt;@mittmann&lt;/a&gt;
+apresentou o seu ponto de vista sobre a questão:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Já que a engenharia abrange muita coisa. O engenheiro é um cientista aplicado.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O &lt;em&gt;Facebook&lt;/em&gt;, por exemplo, detalha de forma bem sofisticada o que ele espera de
+um profissional com este título:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create elegant and useful solutions to solve complex business problems by working across various teams, understanding the needs of our business partners and advertisers, and putting on your product manager hat to provide solutions to solve those problems.&lt;/li&gt;
+&lt;li&gt;Work closely with product management and UX design teams to define and refine feature specifications.&lt;/li&gt;
+&lt;li&gt;Design and develop front-end interfaces, underlying APIs, and backend systems across a number of programming languages with focus on JavaScript, React and PHP (Hack).&lt;/li&gt;
+&lt;li&gt;Analyze and improve the efficiency, scalability, stability, and security of business applications and in-house systems to help scale the company.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note a ênfase em &quot;eficiência, escalabilidade e estabilidade&quot;. É normal vermos
+empresas exigindo certa experiência nesses quesitos nos tempos atuais (não me
+surpreenderia se os próximos requisitos para o &quot;cargo&quot; envolvessem &lt;em&gt;big data&lt;/em&gt;
+e &quot;containerização&quot;).&lt;/p&gt;
+&lt;p&gt;Transitar entre as diferentes esferas do conhecimento (como &lt;em&gt;front-end&lt;/em&gt;,
+&lt;em&gt;back-end&lt;/em&gt;, &lt;em&gt;storage&lt;/em&gt;, &lt;em&gt;infra-structure&lt;/em&gt;, &lt;em&gt;business&lt;/em&gt;, &lt;em&gt;project management&lt;/em&gt;)
+é outra característica marcante desses profissionais.
+O &lt;a href=&quot;http://pt.wikipedia.org/wiki/Software_Engineering_Body_of_Knowledge&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;SWEBOK&lt;/a&gt; (Software Engineering Body of Knowledge)
+determina quais áreas de conhecimento fazem parte da Engenharia de Software em
+seu guia, que pode ser baixado diretamente do &lt;a href=&quot;http://www.computer.org/web/swebok/index&quot; title=&quot;Baixe o guia V3 da SWEBOK&quot;&gt;site da Computer Society&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c7336057cbbd4ebd1de240ebcb7c79fd/2a195/dilbert-google-engineer.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsSAAALEgHS3X78AAABeUlEQVQY0wFuAZH+ALG7gq64gK22f663f6u1frbAhLO5mLzFjbzGirrEibW+hbrEiMfSlLi9nrjCh7rFiMDKjc3Xlr7JjMzXlQDI0pu8xZG0vY26w5G7xJHN2J6+xKO+xpaTmnGboniboniqsoPHz5vIz7C3v462vozK1J2/yJSVnHTO158AztSrv8eku8KevcSeucCb3OS4vcKqx82ov8ekwcehwcihtr2YzdStxMix3+e84uvA6O/BtLqXoaeItr6ZANzfxsjBneLlweTrzOXoyfDtycLEtdzdwdTPpOnvztbbvvHz0erpxsTJu+DewNfSqvH31uXszeTlxOztygC3rquiiZ3FvMfl9ejt7d7XwKbP0sKbka2DbqbNycrm9+rs5tPPtJy7u7OolJurmqvr7+jj8+bm18HXx68AWhYcPB04k5STf4J0wa+bsaCNkYuDUg8gNiVPmJaQgoR31MGqp56OlYJ9RAATRj9joKKZhoV11buij4d5mnj5Upk0uKQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Dilbert e os engenheiros do Google (seroundtable.com)&amp;quot;&quot;
+        title=&quot;Dilbert e os engenheiros do Google (seroundtable.com)&quot;
+        src=&quot;/static/c7336057cbbd4ebd1de240ebcb7c79fd/2a195/dilbert-google-engineer.png&quot;
+        srcset=&quot;/static/c7336057cbbd4ebd1de240ebcb7c79fd/8514f/dilbert-google-engineer.png 192w,
+/static/c7336057cbbd4ebd1de240ebcb7c79fd/804b2/dilbert-google-engineer.png 384w,
+/static/c7336057cbbd4ebd1de240ebcb7c79fd/2a195/dilbert-google-engineer.png 620w&quot;
+        sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Dilbert e os engenheiros do Google (seroundtable.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Intitular-se engenheiro ou não, é algo que vai além do simples &quot;ter aprendido
+sobre determinado assunto&quot;. Durante a escrita desse artigo, me deparei com
+vários questionamentos, envolvendo a graduação, a regulamentação da área,
+e até mesmo sobre cargos, papéis e remunerações.&lt;/p&gt;
+&lt;p&gt;Na prática, se você é uma pessoa engajada com o projeto, em diferentes esferas,
+com foco em sustentabilidade, qualidade, transitando entre a base de dados,
+a infraestrutura, a experiência do usuário, e o código em si. Você pode ter
+certeza que está desempenhando papéis que cabem a um Engenheiro de Software.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://engenhariasoftware.wordpress.com/2014/07/04/engenharia-de-software-crea-sbc-acm-e-enade/&quot;&gt;Engenharia de Software - Engenharia de Software, CREA, SBC, ACM e ENADE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/careers/department?dept=grad&amp;#x26;req=a0I1200000G4LPgEAN&quot;&gt;Facebook - Software Engineer, Enterprise&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://guiadoestudante.abril.com.br/profissoes/engenharia-producao/engenharia-civil-685209.shtml&quot;&gt;Guia do Estudante - Engenheiro Civil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://guiadoestudante.abril.com.br/orientacao-vocacional/consulte-orientador/qual-diferenca-ciencia-computacao-engenharia-software-731291.shtml&quot;&gt;Guia do Estudante - Qual a diferença entre Ciência da Computação e Engenharia de Software?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.computer.org/web/swebok/index&quot;&gt;IEEE Computer Society - About SWEBOK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikibooks.org/wiki/Engenharia_de_Software/O_que_%C3%A9_Engenharia_de_Software%3F&quot;&gt;&lt;em&gt;Wikibooks&lt;/em&gt; - O que é Engenharia de Software?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Engenharia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - Engenharia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Engenharia_de_software&quot; title=&quot;Leia mais sobre no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - Engenharia de Software&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Friedrich_L._Bauer&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - Friedrich L. Bauer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

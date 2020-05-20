@@ -1,9 +1,232 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - atom</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Thu, 27 Dec 2018 18:35:00 -0200</lastBuildDate><item><title>Atom: O simpático editor do GitHub</title><link>https://klauslaube.com.br/2018/12/27/atom-o-simpatico-editor-do-github.html</link><description>&lt;p&gt;Tenho "peregrinado" por diferentes editores e &lt;em&gt;IDEs&lt;/em&gt; nesses últimos meses. Além
-do &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre Vim"&gt;Vim&lt;/a&gt;, algumas "desventuras" com &lt;em&gt;IntelliJ IDEA&lt;/em&gt;,
-e &lt;a href="https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html" title="Eu me rendo: VS Code"&gt;uma surpreendente experiência com o &lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - atom]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Atom: O simpático editor do GitHub]]></title><description><![CDATA[Tenho "peregrinado" por diferentes editores e IDEs nesses últimos meses. Além
+do Vim, algumas "desventuras" com IntelliJ IDEA,
+e uma surpreendente experiência com o VS Code,
 tive a oportunidade de testar uma alternativa que sempre me deixou intrigado:
-&lt;a href="https://atom.io/" title="A hackable text editor for the 21st Century"&gt;O &lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Embora notícias recentes em relação ao editor sejam "preocupantes", o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 27 Dec 2018 18:35:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-12-27:/2018/12/27/atom-o-simpatico-editor-do-github.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>atom</category><category>python</category><category>vim</category></item></channel></rss>
+O Atom Embora notícias recentes em relação ao…]]></description><link>https://klauslaube.com.br/2018/12/27/atom-o-simpatico-editor-do-github.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/12/27/atom-o-simpatico-editor-do-github.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 27 Dec 2018 18:35:00 GMT</pubDate><content:encoded>&lt;p&gt;Tenho &quot;peregrinado&quot; por diferentes editores e &lt;em&gt;IDEs&lt;/em&gt; nesses últimos meses. Além
+do &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;Vim&lt;/a&gt;, algumas &quot;desventuras&quot; com &lt;em&gt;IntelliJ IDEA&lt;/em&gt;,
+e &lt;a href=&quot;/2018/06/04/eu-me-rendo-vscode.html&quot; title=&quot;Eu me rendo: VS Code&quot;&gt;uma surpreendente experiência com o &lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;,
+tive a oportunidade de testar uma alternativa que sempre me deixou intrigado:
+&lt;a href=&quot;https://atom.io/&quot; title=&quot;A hackable text editor for the 21st Century&quot;&gt;O &lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Embora notícias recentes em relação ao editor sejam &quot;preocupantes&quot;, o veredicto
+é o melhor possível. Recomendo desde já o uso, e abaixo dou mais detalhes
+sobre essa minha conclusão.&lt;/p&gt;
+&lt;h2&gt;O que é?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Atom&lt;/em&gt; é um editor de textos, gratuito e de código aberto
+(&lt;a href=&quot;https://en.wikipedia.org/wiki/MIT_License&quot; title=&quot;Leia mais sobre a MIT License&quot;&gt;&lt;em&gt;MIT&lt;/em&gt;&lt;/a&gt;),
+construído em &lt;a href=&quot;https://github.com/electron/electron&quot; title=&quot;Leia mais sobre Electron&quot;&gt;&lt;em&gt;Electron&lt;/em&gt;&lt;/a&gt;
+(portanto, multiplataforma) e mantido pelo &lt;em&gt;GitHub&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O editor ganha vida através de
+&lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;/&lt;a href=&quot;https://coffeescript.org/&quot; title=&quot;CoffeeScript is a little language that compiles into JavaScript&quot;&gt;&lt;em&gt;CoffeeScript&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;http://lesscss.org/&quot; title=&quot;It&amp;#x27;s CSS, with just a little more.&quot;&gt;&lt;em&gt;Less&lt;/em&gt;&lt;/a&gt;, e com essas
+mesmas tecnologias é possível estendê-lo de maneira impressionante. Aliás, o
+processo de customização é muito bem documentado, no
+&lt;a href=&quot;https://flight-manual.atom.io/&quot; title=&quot;Leia mais na página oficial&quot;&gt;&lt;em&gt;Atom Flight Manual&lt;/em&gt;&lt;/a&gt;,
+e escrever seus próprios &lt;em&gt;plugins&lt;/em&gt; tem uma curva de aprendizado mínima se você
+já trabalhar com desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Por padrão o &lt;em&gt;Atom&lt;/em&gt; oferece &lt;em&gt;syntax highlighting&lt;/em&gt; para uma grande gama de linguagens,
+além de outros utilitários, como &lt;em&gt;fuzzy finder&lt;/em&gt;, &lt;em&gt;tree view&lt;/em&gt;, corretor ortográfico,
+e um simples &lt;em&gt;auto-complete&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O que há de bom?&lt;/h2&gt;
+&lt;p&gt;Gosto muito do visual do &lt;em&gt;Atom&lt;/em&gt;. Na minha opinião, é um dos editores mais bonitos
+disponíveis por aí. As fontes, cores (muito graças aos temas incríveis)
+e ícones são renderizados de forma suave, e o &quot;conforto visual&quot; não pode deixar de ser
+mencionado.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 540px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/50e04a4d83b30b55256874063176a78d/09d21/ant-man-atom.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.208333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHIZIwayQmv/8QAGRABAAIDAAAAAAAAAAAAAAAAAQACEBET/9oACAEBAAEFAhqSq1euBm5//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8BR//EABkQAAMAAwAAAAAAAAAAAAAAAAABESAhUf/aAAgBAQAGPwLapUcw/8QAGxABAAICAwAAAAAAAAAAAAAAAQARIWEQMVH/2gAIAQEAAT8hzU2t9VF4oNA4bq4r1n//2gAMAwEAAgADAAAAEATv/8QAFhEAAwAAAAAAAAAAAAAAAAAAAAEh/9oACAEDAQE/EE6U/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/ELGH/8QAHBABAAMAAwEBAAAAAAAAAAAAAQARITFBUWGh/9oACAEBAAE/EMw1cF+dyuBtg7HmZwgVRf1nsp6UEal8Xs//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Imagem do personagem Homem-Formiga&amp;quot;&quot;
+        title=&quot;Não tive criatividade para fazer uma referência melhor (collider.com)&quot;
+        src=&quot;/static/50e04a4d83b30b55256874063176a78d/09d21/ant-man-atom.jpg&quot;
+        srcset=&quot;/static/50e04a4d83b30b55256874063176a78d/7809d/ant-man-atom.jpg 192w,
+/static/50e04a4d83b30b55256874063176a78d/4ecad/ant-man-atom.jpg 384w,
+/static/50e04a4d83b30b55256874063176a78d/09d21/ant-man-atom.jpg 540w&quot;
+        sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não tive criatividade para fazer uma referência melhor (collider.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Por vir com uma configuração mais &quot;básica&quot;
+por &lt;em&gt;default&lt;/em&gt;, o editor é muito simples de usar. Sem requerer funções avançadas
+(comuns em &lt;em&gt;IDEs&lt;/em&gt;, como &lt;em&gt;auto-complete&lt;/em&gt;, &lt;em&gt;debugging&lt;/em&gt; e &lt;em&gt;go to definition&lt;/em&gt;), basta
+abrí-lo e começar a escrever código. Sem dúvida ele apresenta uma interface
+mais amigável que outras opções no mercado.&lt;/p&gt;
+&lt;p&gt;Como não há almoço grátis, o &lt;em&gt;Atom&lt;/em&gt; leva a fama de ser mais lento que
+opções como &lt;em&gt;VS Code&lt;/em&gt; e &lt;em&gt;Vim&lt;/em&gt;. E embora o time de desenvolvedores
+&lt;a href=&quot;https://blog.atom.io/2017/04/18/improving-startup-time.html&quot; title=&quot;Improving Startup time&quot;&gt;tenha trabalhado nessa questão&lt;/a&gt;,
+é possível notar os &quot;soluços&quot; do editor em algumas ocasiões.&lt;/p&gt;
+&lt;p&gt;A integração com &lt;em&gt;Git&lt;/em&gt; (e obviamente &lt;em&gt;GitHub&lt;/em&gt;) é bem interessante, e pode ajudar
+bastante quem não tem intimidade com a linha de comando. E um extra bacana é o
+&lt;a href=&quot;https://teletype.atom.io/&quot; title=&quot;Collaborate in real time in Atom&quot;&gt;&lt;em&gt;Teletype&lt;/em&gt;&lt;/a&gt;:
+Pacote que vem com a distribuição padrão e que permite desenvolvedores colaborarem
+em &lt;em&gt;real time&lt;/em&gt; com o código aberto no editor.&lt;/p&gt;
+&lt;p&gt;Por falar em pacotes e extensões, talvez esse seja o ponto mais alto do editor.&lt;/p&gt;
+&lt;p&gt;Dentre eles vale mencionar o &lt;a href=&quot;https://atom.io/packages/vim-mode-plus&quot; title=&quot;vim-mode improved&quot;&gt;&lt;em&gt;vim-mode-plus&lt;/em&gt;&lt;/a&gt;
+e o &lt;a href=&quot;https://atom.io/packages/ex-mode&quot; title=&quot;Ex for Atom&amp;#x27;s vim-mode&quot;&gt;&lt;em&gt;ex-mode&lt;/em&gt;&lt;/a&gt;. Estes
+trazem os &lt;em&gt;key bindings&lt;/em&gt; do &lt;em&gt;Vim&lt;/em&gt; para o &lt;em&gt;Atom&lt;/em&gt;. Eles funcionam extremamente bem
+e é a &quot;experiência &lt;em&gt;Vim-like&lt;/em&gt;&quot; mais eficiente que já experimentei.&lt;/p&gt;
+&lt;p&gt;Configurar um &lt;em&gt;set&lt;/em&gt; de &lt;em&gt;plugins&lt;/em&gt; para as suas linguagens favoritas pode
+ser maçante e &lt;em&gt;error prone&lt;/em&gt;. O &lt;em&gt;VS Code&lt;/em&gt; resolveu isso através de &quot;plugins agregadores&quot;
+que acabam instalando e configurando uma série de outros &lt;em&gt;plugins&lt;/em&gt; menores para você. No
+&lt;em&gt;Atom&lt;/em&gt;, o &lt;em&gt;Atom-IDE&lt;/em&gt; se destaca nesse quesito.&lt;/p&gt;
+&lt;h3&gt;Atom-IDE&lt;/h3&gt;
+&lt;p&gt;O &lt;a href=&quot;https://ide.atom.io/&quot; title=&quot;Improve language integration&quot;&gt;&lt;em&gt;Atom-IDE&lt;/em&gt;&lt;/a&gt; é uma coletânea
+de &lt;em&gt;plugins&lt;/em&gt; e funcionalidades que trazem características comuns em &lt;em&gt;IDEs&lt;/em&gt; para o
+&lt;em&gt;Atom&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 540px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8c1ea794b13328391f21a9d121f923f5/07484/atom-ide-ui.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACyklEQVQ4y1VU2ZKkNhDs7/Da2wcNSCDQgbj6mu7ZnZ2NcOyzH/z/n2GlszSHww8ZJUDKqsossdHdmFQXEeZbavoRlXY4VB32lSG6vC4+UPefOBLbg+J+i7aPaVdo7I/NP5umnxDcU/L2hj7cYabvsNM3uHjF7FfY4YSGa8O17iaoNhIDajNAjQ/slccfuxLbQqfdscFG91Py7gbvH6mNz2inF4ThBudPiIQLK5Rb0dgZismViaibAM3n9vKKg7LYl03aly1jm1jhTLIbIqsbwxPc9ICbvyNMTxhZlRGy4YLWSzyzyjETqm5Ae/6BOt6zPFKdkG4UN/T2jCW+Yh0vMHaBZfaeqAw1ZYsfKJohR2lZzimSlf2Stf4ktJ4E/oppuGPqPcZOELgOmPsBsx2wECPXv+KExU2ouhlH1ZNEI5uR2zVvhGLK6L+x3Tvm+YZAzWJY4EjsSeJJJtEyydVHyjND0yRxeluoXJnE7a4guZKWIzp3hl9/wpz/xDA+Y6Bunol6VuIpgXHsgloXbLWUdmlMyfHq2N0wXxGWO8LLXyjNhGyKpYY9RV+vPzAuDyzXF44Q39GMbArd1uLwO1nN2FLjuD7gqbv2NOv5b9TukseG4/Fgm9Tx9Jxhw4nDOrMCkvG7ZoX6fWQ+wc6kCGcvULVDrQwTBmxyNrYWPMeE1VgeHgQkldmrG8/bQHBUSkbBkbMn47PdVTDjK+LpJ778vudNoSll3UFz6qvGYftu/Y5o7MhbsqLuWQG/18wuqJiglYq7mJPV/sI9C77uaxzo9ObXOKee4hq/JOPmfLij08P8lA9XZvofoeDteUAjhhqebadUs6BjE3lTqlYueeJd5I/gv4mvWmYnlPGZ+KM6eSd7xOVj2fBa8tqur/jtyy59PWhsitok2aj5x5A2GHM78q6gHJJICN7mTecBLjjUkkD+ThKpaTq+vUv/AvG6zqgQcbSzAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Atom-IDE UI&amp;quot;&quot;
+        title=&quot;Atom-IDE UI&quot;
+        src=&quot;/static/8c1ea794b13328391f21a9d121f923f5/07484/atom-ide-ui.png&quot;
+        srcset=&quot;/static/8c1ea794b13328391f21a9d121f923f5/8514f/atom-ide-ui.png 192w,
+/static/8c1ea794b13328391f21a9d121f923f5/804b2/atom-ide-ui.png 384w,
+/static/8c1ea794b13328391f21a9d121f923f5/07484/atom-ide-ui.png 540w&quot;
+        sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Atom-IDE UI&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Em uma colaboração entre &lt;em&gt;Facebook&lt;/em&gt; e &lt;em&gt;GitHub&lt;/em&gt;, tornou-se possível ter um &lt;em&gt;auto-complete&lt;/em&gt;
+mais rico, &lt;em&gt;outline view&lt;/em&gt;, &lt;em&gt;go to definition&lt;/em&gt;, &lt;em&gt;find all references&lt;/em&gt;, &lt;em&gt;diagnosis&lt;/em&gt;,
+&lt;em&gt;debugging&lt;/em&gt;, &lt;em&gt;document formatting&lt;/em&gt;, entre outras &lt;em&gt;features&lt;/em&gt; que você está acostumado a ver
+em ferramentas como &lt;em&gt;Netbeans&lt;/em&gt; ou &lt;em&gt;Eclipse&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A boa notícia é que existe uma grande quantidade de &lt;em&gt;plugins&lt;/em&gt; que dão &lt;a href=&quot;https://atom.io/packages/search?q=IDE&quot; title=&quot;Veja mais plugins de Atom-IDE&quot;&gt;suporte a diferentes linguagens&lt;/a&gt;. Por exemplo,
+recentemente testei o &lt;a href=&quot;https://atom.io/packages/ide-elixir&quot; title=&quot;Plugin para o Elixir&quot;&gt;&lt;em&gt;ide-elixir&lt;/em&gt;&lt;/a&gt;
+e foi uma experiência muito boa.&lt;/p&gt;
+&lt;p&gt;Mas é claro que tem a má notícia...&lt;/p&gt;
+&lt;h3&gt;Facebook deixa de dar suporte&lt;/h3&gt;
+&lt;p&gt;Diretamente do &lt;a href=&quot;https://blog.atom.io/2018/12/12/facebook-retires-nuclide-extension.html&quot; title=&quot;Facebook retires Nuclide extension&quot;&gt;&lt;em&gt;Blog do Atom&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A few years ago, Facebook introduced Nuclide to provide a first-class IDE experience which included associated repos such as Atom IDE. Both Nuclide and Atom IDE were developed by Facebook and supported by an open source community. At this time, Facebook has decided to retire their open source efforts on Nuclide, the Atom IDE, and other associated repos. All of the source code will remain available in the Facebook Open Source Archives, and, if you’re interested, we encourage you to check it out and continue to build on top of it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Na prática não há motivos para pânico. Os &lt;em&gt;plugins&lt;/em&gt; que estendem o &lt;em&gt;Atom-IDE&lt;/em&gt;
+para suportar diferentes linguagens são mantidos por diferentes pessoas da
+comunidade. O &lt;em&gt;Facebook&lt;/em&gt; &quot;arquivou&quot; os repositórios do &lt;em&gt;Atom-IDE&lt;/em&gt; e &lt;em&gt;Nuclide&lt;/em&gt;,
+mas seu código continua disponível. O &lt;em&gt;framework&lt;/em&gt; que foi montado
+até aqui deve continuar funcionando sem maiores problemas. Possíveis melhorias e correções
+dependerão de contribuições da comunidade. É esperar para ver se algum grande &lt;em&gt;player&lt;/em&gt; ficará
+responsável por coordenar esse esforço.&lt;/p&gt;
+&lt;p&gt;Mas com a compra do &lt;em&gt;GitHub&lt;/em&gt; pela &lt;em&gt;Microsoft&lt;/em&gt;,
+o &lt;em&gt;VS Code&lt;/em&gt; (da mesma &lt;em&gt;Microsoft&lt;/em&gt;) &lt;a href=&quot;https://www.infoq.com/br/news/2018/12/the-rise-vscode&quot; title=&quot;A crescente adoção do Visual Studio Code&quot;&gt;ganhando cada vez mais usuários&lt;/a&gt;, e esse anúncio do
+time &lt;em&gt;Nuclide&lt;/em&gt;, fica difícil não ficar com &lt;a href=&quot;https://news.ycombinator.com/item?id=18507817&quot; title=&quot;Is Atom now dead in the water?&quot;&gt;a pulga atrás da orelha&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Atom-IDE + Python&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://atom.io/packages/ide-python&quot;&gt;&lt;em&gt;ide-python&lt;/em&gt;&lt;/a&gt; é o &lt;em&gt;plugin&lt;/em&gt; para &lt;em&gt;Atom-IDE&lt;/em&gt;
+que adiciona suporte à linguagem &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;
+ao editor.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b38a64af74bbf2a5900251605e90d3d8/6af66/ide-python-ui.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClElEQVQ4y4WT227TQBCG/QS8AS/AJQ5BSduoKteIcAGPhSxxgQSquOVJilookKQhRydN0iT27voU7/qwtncYuyeJCrHyr/WOx9/+sx5rV/2fTxx3855SZsRRbAS+bziMGK5DDR/vGWPGer02lsuVYdt2FXNdr5IfBPjcMSzLehcEu4/brfVW61/03sBfI5MRFLmE/w0hBOR5DmmaVuvZbPZF63w/f5UmKYRemFpbRxK6k57LpQh9GYWBjAWXMsvwyuTtyPNM8jCUg+lcrtaWJITEQsQwGAw/ad1Op13uguUWIXUUtQlQm4FHLeC7AGK+gySOIJWyclIKd0B3HH7PbJguGVBCcLcchsPRsdY9P28XCOQ+L1zqqc3WhRIa0CsIXYJQ7wEQ3UIYhjBebMC2KaoEZjfAbrdyiCpS11OMEGCY5DisgpSJspqvdQvEkuHX7ApmG6yIUAzl98CiKCDk6NDzlO8HEOx2wLmoXIQhr2YhIojjuFIJLEsemGvojDawWK4zmUoEjo+1Dp5hBQzCglGqKCXge271YpIkdyrXUXQNLJ1yjsCxCf3BGMypmSX4YUcjBJ6dfWtjbwEjTjG3feW6bgUMguDG4bWw74BSCmVuCfM8D0ZTE1brDcbZfcm9Xq+NzsCySE68qIjjRKVJhEoUZqHkjbI7YduoKIrUZDxRl5cLRQiVaVUyAofD4evy8EEBRDsOaVw2qfpvUyulYGrOYLFYAaOsKGOTyfSz9vXk5KU5GktzNOUTc8Hnc1MslqbYbrcCfymcH8qybLFcrcSPTk9cXPQFNnQwn1/C6enZB+1Zrfao1dzTG/WG/rTW0J/X63qjUdP39/b1g4ODf2of9eLoSD88PNT3MLfVatWbzebjP6qeiXIyNC0ZAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Atom-IDE com Python&amp;quot;&quot;
+        title=&quot;Atom-IDE com Python&quot;
+        src=&quot;/static/b38a64af74bbf2a5900251605e90d3d8/6af66/ide-python-ui.png&quot;
+        srcset=&quot;/static/b38a64af74bbf2a5900251605e90d3d8/8514f/ide-python-ui.png 192w,
+/static/b38a64af74bbf2a5900251605e90d3d8/804b2/ide-python-ui.png 384w,
+/static/b38a64af74bbf2a5900251605e90d3d8/6af66/ide-python-ui.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Atom-IDE com Python&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Assim como outros &lt;em&gt;plugins&lt;/em&gt; dependentes do mesmo &lt;em&gt;framework&lt;/em&gt;, ele utiliza &lt;a href=&quot;https://github.com/Microsoft/language-server-protocol&quot; title=&quot;Defines a common protocol for language servers&quot;&gt;&lt;em&gt;Language Server Protocol&lt;/em&gt;&lt;/a&gt;
+para habilitar recursos como &lt;em&gt;completion&lt;/em&gt; e &lt;em&gt;refactoring&lt;/em&gt;. No caso do &lt;em&gt;Python&lt;/em&gt;, isso é
+possível através do &lt;a href=&quot;https://github.com/palantir/python-language-server&quot; title=&quot;An implementation of the Language Server Protocol for Python&quot;&gt;&lt;em&gt;python-language-server&lt;/em&gt;&lt;/a&gt;. Logo, o primeiro passo
+é instalar a dependência em sua máquina:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install python-language-server[all]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;[all]&lt;/code&gt;, você terá disponível &lt;em&gt;completions&lt;/em&gt; e &lt;em&gt;renaming&lt;/em&gt; (através do
+&lt;a href=&quot;https://github.com/python-rope/rope&quot; title=&quot;Repositório do Rope&quot;&gt;&lt;em&gt;Rope&lt;/em&gt;&lt;/a&gt;),
+&lt;em&gt;linter&lt;/em&gt; e &lt;em&gt;style checking&lt;/em&gt; (através do &lt;a href=&quot;https://github.com/PyCQA/pyflakes&quot; title=&quot;Repositório do Pyflakes&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://github.com/PyCQA/mccabe&quot; title=&quot;Repositório do McCabe&quot;&gt;&lt;em&gt;McCabe&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/PyCQA/pycodestyle&quot; title=&quot;Repositório do pycodestyle&quot;&gt;&lt;em&gt;pycodestyle&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;https://github.com/PyCQA/pydocstyle&quot; title=&quot;Repositório do pydocstyle&quot;&gt;&lt;em&gt;pydocstyle&lt;/em&gt;&lt;/a&gt;) e
+&lt;em&gt;code formatting&lt;/em&gt; (através de &lt;a href=&quot;https://github.com/hhatto/autopep8&quot; title=&quot;Repositório do autopep8&quot;&gt;&lt;em&gt;autopep8&lt;/em&gt;&lt;/a&gt;
+ou &lt;a href=&quot;https://github.com/google/yapf&quot; title=&quot;Repositório do YAPF&quot;&gt;&lt;em&gt;YAPF&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Na sequência, basta instalar os &lt;em&gt;plugins&lt;/em&gt; do &lt;em&gt;Atom&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ apm install atom-ide-ui
+$ apm install ide-python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Você já pode começar a usar o &lt;em&gt;Atom-IDE&lt;/em&gt; para escrever código &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Mas para deixar o seu ambiente ótimo, sugiro a instalação do &lt;a href=&quot;https://atom.io/packages/atomic-management&quot; title=&quot;Per-project Atom config&quot;&gt;&lt;em&gt;atom-management&lt;/em&gt;&lt;/a&gt;. Com ele, você poderá
+configurar o &lt;em&gt;Python&lt;/em&gt; de acordo com o &lt;em&gt;virtualenv&lt;/em&gt; de cada projeto que esteja trabalhando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ apm install atomic-management&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora basta criar o arquivo de configuração para cada projeto. Aqui está um exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;coffeescript&quot;&gt;&lt;pre class=&quot;language-coffeescript&quot;&gt;&lt;code class=&quot;language-coffeescript&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;*&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;ide-python&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;pylsPlugins&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;autopep8&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;yapf&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;python&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/Users/klaus/.local/share/virtualenvs/yatla-kWU5r6Dm/bin/python&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acima, eu propositalmente desligo o &lt;code class=&quot;language-text&quot;&gt;autopep8&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;yapf&lt;/code&gt;, uma vez que para este
+projeto eu estou utilizando &lt;a href=&quot;https://github.com/rupert/pyls-black&quot; title=&quot;Black plugin for the Python Language Server&quot;&gt;&lt;em&gt;Black&lt;/em&gt;&lt;/a&gt;. Já na chave &lt;code class=&quot;language-text&quot;&gt;python&lt;/code&gt;, eu explicitamente digo qual instalação
+do &lt;em&gt;Python&lt;/em&gt; pretendo utilizar.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Reforço a opinião do começo desse &lt;em&gt;post&lt;/em&gt;: Recomendo.&lt;/p&gt;
+&lt;p&gt;É um editor muito amigável e confortável de usar. Os &lt;em&gt;key bidings&lt;/em&gt; do &lt;em&gt;Vim&lt;/em&gt; são
+um &lt;em&gt;plus&lt;/em&gt;, e além disso a documentação para criação de &lt;em&gt;plugins&lt;/em&gt;
+e configurações diversas é impressionante. O fato de não se render à componentização é
+outro fator positivo, assim como a riqueza de pacotes e a grande comunidade em sua volta.&lt;/p&gt;
+&lt;p&gt;Mas se você é um &lt;em&gt;developer&lt;/em&gt; que gosta de seguir o &lt;em&gt;hype&lt;/em&gt;, eu diria que o &lt;em&gt;Visual
+Studio Code&lt;/em&gt; é uma opção mais atraente. Na dúvida, teste os dois e nos conte suas
+conclusões nos comentários abaixo.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.atom.io/2017/09/12/announcing-atom-ide.html&quot;&gt;Atom: Introducing Atom-IDE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.atom.io/2018/12/12/facebook-retires-nuclide-extension.html&quot;&gt;Atom: Facebook retires Nuclide extension&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://news.ycombinator.com/item?id=18507817&quot;&gt;Hacker News: Is Atom now dead in the water?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.infoq.com/br/news/2018/12/the-rise-vscode&quot;&gt;InfoQ: A crescente adoção do Visual Studio Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Atom_(text_editor)&quot;&gt;Wikipedia: Atom (text editor)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

@@ -1,13 +1,176 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - slackware</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 19 Dec 2011 20:41:00 -0200</lastBuildDate><item><title>Nginx: Poderoso, rápido e fácil</title><link>https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</link><description>&lt;p&gt;Para quem (assim como eu) começou com o &lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, uma das opções mais viáveis
-para servir projetos na &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sempre foi o &lt;a href="http://httpd.apache.org/" title="Página oficial do projeto Apache"&gt;&lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;. &lt;em&gt;Open source&lt;/em&gt;,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - slackware]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Nginx: Poderoso, rápido e fácil]]></title><description><![CDATA[Para quem (assim como eu) começou com o PHP, uma das opções mais viáveis
+para servir projetos na web sempre foi o Apache. Open source,
 prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
-padrão em quase toda distro &lt;a href="https://klauslaube.com.br/tag/linux.html" title="Leia mais sobre Linux"&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;), há anos que ele faz a …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 19 Dec 2011 20:41:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-12-19:/2011/12/19/nginx-poderoso-rapido-facil.html</guid><category>infraestrutura</category><category>ambiente-de-desenvolvimento</category><category>nginx</category><category>linux</category><category>slackware</category></item><item><title>Python, Django e virtualenv</title><link>https://klauslaube.com.br/2011/03/18/python-django-virtualenv.html</link><description>&lt;p&gt;Dando continuidade a série “&lt;a href="{filename}03-montando-seu-ambiente-de-desenvolvimento-django-no-linux.md" title="Montando seu ambiente de desenvolvimento Django em Linux"&gt;Montando seu ambiente de desenvolvimento
-&lt;em&gt;Django&lt;/em&gt; em &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;”, vamos dar uma pincelada na tríade &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/tag/virtualenv.html" title="Leia mais sobre Virtualenv"&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+padrão em quase toda distro Linux), há anos que ele faz a famosa
+tríade "AMP" (Apache…]]></description><link>https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/12/19/nginx-poderoso-rapido-facil.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 19 Dec 2011 20:41:00 GMT</pubDate><content:encoded>&lt;p&gt;Para quem (assim como eu) começou com o &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, uma das opções mais viáveis
+para servir projetos na &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; sempre foi o &lt;a href=&quot;http://httpd.apache.org/&quot; title=&quot;Página oficial do projeto Apache&quot;&gt;&lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;. &lt;em&gt;Open source&lt;/em&gt;,
+prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
+padrão em quase toda distro &lt;a href=&quot;/tag/linux.html&quot; title=&quot;Leia mais sobre Linux&quot;&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;), há anos que ele faz a famosa
+tríade &quot;AMP&quot; (&lt;em&gt;Apache&lt;/em&gt;, &lt;a href=&quot;http://www.mysql.com/&quot; title=&quot;Conheça o banco de dados open source mais popular do mundo&quot;&gt;&lt;em&gt;MySQL&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;PHP&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Acontece que com as demandas recentes que a &lt;em&gt;internet&lt;/em&gt; tem exigido de
+algumas aplicações &lt;em&gt;web&lt;/em&gt; (como &lt;em&gt;Twitter&lt;/em&gt; e &lt;em&gt;Facebook&lt;/em&gt;), a necessidade
+por performance começou a ser uma grande premissa em determinados tipos
+de projetos. E é apoiado nesse cenário que o &lt;em&gt;Nginx&lt;/em&gt; vem ganhando
+cada vez mais força no mercado. Afinal, não é a toa que ele é conhecido
+por “aguentar porrada”.&lt;/p&gt;
+&lt;h2&gt;A verdade sobre o Nginx (ou não)&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;http://nginx.org/&quot; title=&quot;Conheça o Nginx!&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; é um &lt;a href=&quot;http://pt.wikipedia.org/wiki/Servidor_web&quot; title=&quot;Entenda o que é um servidor Web&quot;&gt;&lt;strong&gt;servidor Web&lt;/strong&gt;&lt;/a&gt;, &lt;a href=&quot;http://pt.wikipedia.org/wiki/Proxy_reverso&quot; title=&quot;Entenda o que é um Proxy Reverso&quot;&gt;&lt;strong&gt;proxy reverso&lt;/strong&gt;&lt;/a&gt;,
+&lt;strong&gt;proxy balanceador de carga&lt;/strong&gt;, e faz praticamente tudo que o &lt;em&gt;Apache&lt;/em&gt;
+faz, só que muito mais rápido!&lt;/p&gt;
+&lt;p&gt;Técnicamente, o &lt;em&gt;Nginx&lt;/em&gt; consome menos memória que o &lt;em&gt;Apache&lt;/em&gt;, pois lida
+com requisições &lt;em&gt;web&lt;/em&gt; através do conceito de “event-based web server“,
+já o &lt;em&gt;Apache&lt;/em&gt; é baseado no conceito “process-based server“. &lt;em&gt;David E.
+Chen&lt;/em&gt; faz uma excelente analogia entre os dois conceitos em seu artigo
+“&lt;a href=&quot;http://daverecycles.com/post/3104767110/explain-event-driven-web-servers-to-your-grandma&quot; title=&quot;Leia esta boa analogia entre os conceitos&quot;&gt;Explain “Event-Driven” Web Servers to Your Grandma&lt;/a&gt;“.&lt;/p&gt;
+&lt;p&gt;Eles não são necessariamente “concorrentes”, &lt;em&gt;Apache&lt;/em&gt; e &lt;em&gt;Nginx&lt;/em&gt; podem
+trabalhar juntos! &lt;em&gt;Paulo Higa&lt;/em&gt;, através do seu artigo
+&lt;a href=&quot;http://paulohiga.com/posts/nginx-proxy-reverso-php-apache.php&quot; title=&quot;Aprenda como fazer o Nginx tornar-se um proxy reverso&quot;&gt;“Usando Nginx como proxy reverso e diminuindo o consumo do servidor&lt;/a&gt;“, nos mostra
+como ele diminuiu o consumo de memória do &lt;em&gt;Apache&lt;/em&gt; fazendo com que as
+requisições &lt;em&gt;web&lt;/em&gt; passassem primeiro pelo &lt;em&gt;Nginx&lt;/em&gt;. Desse modo, o
+&lt;em&gt;Apache&lt;/em&gt; não precisou servir arquivos estáticos, e pode depender do bom
+controle de &lt;em&gt;cache&lt;/em&gt; feito pelo &lt;em&gt;Nginx&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Bom, a intenção não é denegrir a imagem do &lt;em&gt;Apache&lt;/em&gt; (até parece que um
+simples mortal como eu conseguiria tal feito), então vamos adiante.&lt;/p&gt;
+&lt;h2&gt;Fácil?! Instalando e sendo bem recebido&lt;/h2&gt;
+&lt;p&gt;Estou utilizando o &lt;a href=&quot;http://www.slackware.com/&quot; title=&quot;Conheça e delicie-se com o Slackware Linux&quot;&gt;&lt;em&gt;Slackware 13.37&lt;/em&gt;&lt;/a&gt; para realizar os procedimentos
+abaixo, mas acredito que eles possam ser executados em qualquer
+distribuição &lt;em&gt;Linux&lt;/em&gt;, sem maiores problemas.&lt;/p&gt;
+&lt;p&gt;Vamos começar fazendo o &lt;em&gt;download&lt;/em&gt; da versão mais recente (até então),
+direto do site oficial do &lt;em&gt;Nginx&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ wget http://nginx.org/download/nginx-1.0.11.tar.gz&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O procedimento de instalação não difere em nada do método tradicional
+que estamos acostumados no &lt;em&gt;Linux&lt;/em&gt;. Apenas lembre-se de executar o
+&lt;code class=&quot;language-text&quot;&gt;make install&lt;/code&gt; como &lt;code class=&quot;language-text&quot;&gt;root&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ tar -zxvf nginx-1.0.11.tar.gz; cd nginx-1.0.11
+$ ./configure
+$ make
+$ make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Nginx&lt;/em&gt; será instalado em &lt;code class=&quot;language-text&quot;&gt;/usr/local/nginx/&lt;/code&gt;. Você pode iniciar o
+serviço através do comando (como &lt;code class=&quot;language-text&quot;&gt;root&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ /usr/local/nginx/sbin/nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acessando o seu &lt;code class=&quot;language-text&quot;&gt;localhost&lt;/code&gt;, o serviço estará pronto e dando boas
+vindas!&lt;/p&gt;
+&lt;h2&gt;Configurando um servidor simples&lt;/h2&gt;
+&lt;p&gt;Para homenagear o nosso amigo &lt;em&gt;Apache&lt;/em&gt;, vamos fazer o &lt;em&gt;Nginx&lt;/em&gt; servir um
+&lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt; com a clássica mensagem “It works“, em outra porta e &lt;em&gt;path&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Abra (como &lt;code class=&quot;language-text&quot;&gt;root&lt;/code&gt;) o arquivo &lt;code class=&quot;language-text&quot;&gt;/usr/local/nginx/conf/nginx.conf&lt;/code&gt;, no
+final do arquivo, adicione a seguinte expressão antes do fechamento das
+chaves:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;config&quot;&gt;&lt;pre class=&quot;language-config&quot;&gt;&lt;code class=&quot;language-config&quot;&gt;include example;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esta expressão importará o arquivo &lt;code class=&quot;language-text&quot;&gt;/usr/local/nginx/conf/example&lt;/code&gt;,
+que criaremos a seguir:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;config&quot;&gt;&lt;pre class=&quot;language-config&quot;&gt;&lt;code class=&quot;language-config&quot;&gt;server {
+    listen        127.0.0.1:8080;
+    server_name   example;
+    access_log    /usr/local/nginx/logs/example.access.log;
+    error_log     /usr/local/nginx/logs/example.error.log;
+    location / {
+        root  /var/www/example;
+        index index.html index.htm;
+    }
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Intuitivo não?! Vamos criar o &lt;em&gt;path&lt;/em&gt; onde armazenaremos o &lt;em&gt;HTML&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;mkdir /var/www/example
+echo &amp;quot;It works! &amp;quot; &amp;gt; /var/www/example/index.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Basta acessar o endereço &lt;code class=&quot;language-text&quot;&gt;localhost:8080&lt;/code&gt;, e pronto!&lt;/p&gt;
+&lt;p&gt;Como é possível perceber, os arquivos de configuração do &lt;em&gt;Nginx&lt;/em&gt; são
+simples e intuitivos. Existem várias referências na &lt;em&gt;web&lt;/em&gt; ensinando a
+montar &lt;em&gt;proxy&lt;/em&gt; reverso, servir páginas dinâmicas com &lt;em&gt;FastCGI&lt;/em&gt; ou
+&lt;em&gt;WSGI&lt;/em&gt;, utilizar &lt;em&gt;SSL&lt;/em&gt;, etc. Nada que o bom amigo &lt;em&gt;Google&lt;/em&gt; não possa
+resolver.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Quer dizer que agora eu tenho que largar tudo e correr para utilizar o
+&lt;em&gt;Nginx&lt;/em&gt;? A resposta é &lt;strong&gt;não&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Gosto dos ensinamentos do pessoal da &lt;a href=&quot;http://37signals.com/&quot; title=&quot;Você não sabe o que é a 37Signals?&quot;&gt;&lt;em&gt;37Signals&lt;/em&gt;&lt;/a&gt;, e um deles é para
+deixarmos a preocupação com performance para quando isto for realmente
+um problema (caso contrário, ninguém começaria projetos em &lt;em&gt;Ruby&lt;/em&gt; ou
+&lt;em&gt;Python&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Portanto, se você tem um &lt;em&gt;blog&lt;/em&gt; em &lt;em&gt;WordPress&lt;/em&gt; servido através de um
+&lt;em&gt;Apache&lt;/em&gt;... deixe estar. Garanto que o &lt;em&gt;Apache&lt;/em&gt; é a melhor solução para
+você neste momento. E caso você venha a ter problemas com performance,
+garanto que instalar e configurar um &lt;em&gt;Nginx&lt;/em&gt; dentro da sua
+infraestrutura será o menor dos seus problemas.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://nginx.org/&quot; title=&quot;Conheça, instale e use agora o Nginx!&quot;&gt;Site oficial do projeto &lt;em&gt;Nginx&lt;/em&gt; (em Inglês)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://daverecycles.com/post/3104767110/explain-event-driven-web-servers-to-your-grandma&quot; title=&quot;Entenda a diferença entre o webserver baseado em eventos, e outro baseado em processos&quot;&gt;&lt;em&gt;Daverecycles.com – Explain “Event-Driven” Web Servers to Your Grandma&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.linuxjournal.com/article/10108&quot; title=&quot;Excelente artigo sobre o Nginx&quot;&gt;&lt;em&gt;Linux Journal – Nginx: the High-Performance Web Server and Reverse Proxy&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://paulohiga.com/posts/nginx-proxy-reverso-php-apache.php&quot; title=&quot;Artigo de Paulo Higa sobre Nginx e proxy reverso, com Apache&quot;&gt;&lt;em&gt;Paulo Higa&lt;/em&gt; – Usando o &lt;em&gt;nginx&lt;/em&gt; como &lt;em&gt;proxy&lt;/em&gt; reverso e diminuindo o consumo do servidor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Proxy_reverso&quot; title=&quot;Leia mais na Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; – &lt;em&gt;Proxy&lt;/em&gt; reverso&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Servidor_web&quot; title=&quot;Leia mais na Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; – Servidor &lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.wikivs.com/wiki/Apache_vs_nginx&quot; title=&quot;Entenda um pouco mais a diferença entre Apache e Nginx&quot;&gt;&lt;em&gt;WikiVS – Apache vs Nginx&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Python, Django e virtualenv]]></title><description><![CDATA[Dando continuidade a série “Montando seu ambiente de desenvolvimento
+Django em Linux”, vamos dar uma pincelada na tríade Python,
+Django e virtualenv. Python Conheça alguns motivos que lhe convencerão a usar Python. O Python já vem instalado na maioria das distribuições Linux. Na
+verdade, até hoje…]]></description><link>https://klauslaube.com.br/2011/03/18/python-django-virtualenv.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/03/18/python-django-virtualenv.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 18 Mar 2011 19:24:00 GMT</pubDate><content:encoded>&lt;p&gt;Dando continuidade a série “&lt;a href=&quot;/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html&quot; title=&quot;Montando seu ambiente de desenvolvimento Django em Linux&quot;&gt;Montando seu ambiente de desenvolvimento
+&lt;em&gt;Django&lt;/em&gt; em &lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;”, vamos dar uma pincelada na tríade &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;Python&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/" title="10 motivos para se usar Python"&gt;Conheça alguns motivos que lhe convencerão a usar &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;O &lt;em&gt;Python&lt;/em&gt; já vem instalado na maioria das distribuições &lt;a href="https://klauslaube.com.br/tag/linux.html" title="Leia mais sobre Linux"&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;. Na
-verdade, até hoje nunca usei uma distro …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 18 Mar 2011 20:24:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-03-18:/2011/03/18/python-django-virtualenv.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>slackware</category><category>virtualenv</category></item></channel></rss>
+&lt;p&gt;&lt;a href=&quot;http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/&quot; title=&quot;10 motivos para se usar Python&quot;&gt;Conheça alguns motivos que lhe convencerão a usar &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Python&lt;/em&gt; já vem instalado na maioria das distribuições &lt;a href=&quot;/tag/linux.html&quot; title=&quot;Leia mais sobre Linux&quot;&gt;&lt;em&gt;Linux&lt;/em&gt;&lt;/a&gt;. Na
+verdade, até hoje nunca usei uma distro &lt;em&gt;Linux&lt;/em&gt; que não tivesse o
+&lt;em&gt;Python&lt;/em&gt; previamente instalado. No &lt;em&gt;Slackware 13.1&lt;/em&gt;, o &lt;em&gt;Python&lt;/em&gt; está na
+versão 2.6.4. No &lt;em&gt;Debian 6&lt;/em&gt;, o &lt;em&gt;Python&lt;/em&gt; está na versão 2.6.6.&lt;/p&gt;
+&lt;p&gt;O portal &lt;em&gt;Python Brasil&lt;/em&gt; possui um excelente material para você
+&lt;a href=&quot;http://www.python.org.br/wiki/InicieSe&quot; title=&quot;Inicie-se no Python&quot;&gt;instalar&lt;/a&gt; e dar os &lt;a href=&quot;http://www.python.org.br/wiki/AprendaMais&quot; title=&quot;Aprenda mais sobre Python&quot;&gt;primeiros passos&lt;/a&gt; com &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;virtualenv&lt;/h2&gt;
+&lt;p&gt;A linguagem &lt;em&gt;Python&lt;/em&gt; não vem “de bobeira” nas distribuições &lt;em&gt;Linux&lt;/em&gt;, ela
+faz parte delas, sendo utilizada para criação de uma série de &lt;em&gt;scripts&lt;/em&gt;
+fundamentais. Passei por uma situação peculiar com o &lt;em&gt;Python&lt;/em&gt;: estava
+usando o &lt;em&gt;OpenSuse&lt;/em&gt; (não recordo a versão) e decidi atualizar a versão
+do &lt;em&gt;Python&lt;/em&gt; utilizando o sistema de pacotes da distro… confirmei algumas
+operações de remoção (que não deveria ter autorizado) e acabei
+danificando minha instalação do &lt;a href=&quot;/tag/sistemas-operacionais.html&quot; title=&quot;Leia mais sobre Sistemas Operacionais&quot;&gt;&lt;em&gt;SO&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Então, para aqueles que programam em computadores pessoais, e não querem
+comprometer tanto o &lt;em&gt;SO&lt;/em&gt; quanto o &lt;em&gt;workspace&lt;/em&gt;, podem criar &lt;em&gt;ambientes
+isolados&lt;/em&gt; para os projetos utilizando o &lt;a href=&quot;http://pypi.python.org/pypi/virtualenv&quot; title=&quot;Virtual Python Environment Builder&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No &lt;em&gt;Slackware&lt;/em&gt; vamos instalar o &lt;a href=&quot;http://pypi.python.org/pypi/setuptools&quot; title=&quot;Download, build, install, upgrade, and uninstall Python packages&quot;&gt;&lt;em&gt;setuptools&lt;/em&gt;&lt;/a&gt;, que é um &lt;em&gt;framework&lt;/em&gt;
+que facilita a instalação e criação de pacotes &lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ wget http://peak.telecommunity.com/dist/ez_setup.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para instalá-lo é necessário ser &lt;em&gt;&lt;em&gt;root&lt;/em&gt;&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python ez_setup.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Em seguida, vamos instalar o &lt;em&gt;virtualenv&lt;/em&gt; com a ajuda do
+&lt;code class=&quot;language-text&quot;&gt;_easy_install_&lt;/code&gt; (que faz parte do pacote &lt;em&gt;setuptools&lt;/em&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ easy_install virtualenv&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esta é uma forma interessante para você instalar módulos &lt;em&gt;Python&lt;/em&gt; em seu
+sistema sem recorrer ao sistema de pacotes do &lt;em&gt;SO&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Agora, como um usuário comum, vamos criar um ambiente em nosso
+&lt;code class=&quot;language-text&quot;&gt;home&lt;/code&gt; para testarmos o &lt;em&gt;virtualenv&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ virtualenv ~/projeto_django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Entrando nesta pasta, você irá se deparar com três diretórios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;bin&lt;/code&gt;: Os executáveis do seu ambiente isolado estarão aí. Você
+poderá notar o executável &lt;code class=&quot;language-text&quot;&gt;python&lt;/code&gt;, o &lt;code class=&quot;language-text&quot;&gt;easy_install&lt;/code&gt;, o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; e um carinha chamado &lt;code class=&quot;language-text&quot;&gt;activate&lt;/code&gt; (falaremos deste mais tarde).&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;lib&lt;/code&gt;: Nesta pasta você encontrará os módulos e bibliotecas
+&lt;em&gt;Python&lt;/em&gt; utilizadas por este ambiente.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;include&lt;/code&gt;: Segundo o &lt;a href=&quot;http://blog.triveos.com.br/2008/03/03/ambiente-isolado-para-python-com-virtualenv/&quot; title=&quot;Ambiente Isolado para Python com virtualenv&quot;&gt;&lt;em&gt;Osvaldo Santana&lt;/em&gt;&lt;/a&gt;, dentro desse diretório
+estão os &lt;em&gt;links&lt;/em&gt; simbólicos para todos os &lt;em&gt;headers&lt;/em&gt; do &lt;em&gt;Python&lt;/em&gt; que
+são necessário para se compilar extensões escritas em &lt;em&gt;C&lt;/em&gt; para ele.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Você apenas criou seu ambiente… para ativá-lo basta dar o seguinte
+comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ source ~/projeto_django/bin/activate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Se você executar o &lt;em&gt;Python&lt;/em&gt; agora, você estará utilizando as
+&lt;em&gt;libs&lt;/em&gt; deste ambiente. Isso pode permitir que você mova este
+ambiente entre máquinas, que você instale &lt;em&gt;libs&lt;/em&gt; somente neste ambiente
+(deixando o &lt;em&gt;Python&lt;/em&gt; do seu &lt;em&gt;SO&lt;/em&gt; “limpo”, isso pode te garantir maior
+performance da distro) e que você tenha um controle maior sobre as
+dependências do seu projeto.&lt;/p&gt;
+&lt;p&gt;Para “sair” do ambiente, basta executar o comando &lt;code class=&quot;language-text&quot;&gt;deactivate&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ deactivate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto… muito simples, não?&lt;/p&gt;
+&lt;h2&gt;Django&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.profissionaisti.com.br/2009/02/programando-python-para-a-web/&quot; title=&quot;Programando Python para Web&quot;&gt;Saiba um pouco mais sobre a programação &lt;em&gt;Python&lt;/em&gt; para &lt;em&gt;Web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos instalar o &lt;em&gt;Django&lt;/em&gt; neste ambiente isolado. Ativaremos
+novamente o &lt;em&gt;virtualenv&lt;/em&gt; e usaremos o &lt;em&gt;*easy&lt;/em&gt;install*_ para nos
+ajudar com esta tarefa:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ source ~/projeto_django/bin/activate
+$ easy_install django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No final da operação, você irá se deparar com uma saída similar a esta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Installed /home/user/projeto_django/lib/python2.6/site-packages/Django-1.2.5-py2.6.egg Processing dependencies for django Finished processing dependencies for django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Isto é a garantia que o &lt;em&gt;Django&lt;/em&gt; foi &lt;strong&gt;instalado dentro deste
+ambiente&lt;/strong&gt;, e não está visível para o escopo global da distribuição.
+Tente importa o &lt;em&gt;Django&lt;/em&gt; no terminal interativo do &lt;em&gt;Python&lt;/em&gt; da sua
+distro e do &lt;em&gt;Python&lt;/em&gt; do seu ambiente isolado e veja o que acontece…&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.profissionaisti.com.br/2009/04/entendendo-o-django/&quot; title=&quot;Entendendo o Django&quot;&gt;Entenda o que é o &lt;em&gt;Django&lt;/em&gt; e como ele funciona&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

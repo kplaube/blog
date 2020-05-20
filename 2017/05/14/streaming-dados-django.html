@@ -1,80 +1,254 @@
-<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>"Streamando" dados no Django | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Embora o Django não seja a opção ideal para retornar grandes volumes de dados, ele proporciona algumas alternativas interessantes. Nesse artigo falaremos do StreamingHttpResponse, que vem embutido com o framework."><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="desenvolvimento, web, python, django, streaming, generators, wsgi, csv"><meta property=og:title content streamando&quot; dados no django&quot;><meta property=og:description content="Embora o Django não seja a opção ideal para retornar grandes volumes de dados, ele proporciona algumas alternativas interessantes. Nesse artigo falaremos do StreamingHttpResponse, que vem embutido com o framework."><meta property=og:url content=https://klauslaube.com.br/2017/05/14/streaming-dados-django.html><meta property=og:image content=https://klauslaube.com.br//images/blog/biznis-cat.png><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2017/05/14/streaming-dados-django.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/biznis-cat.png> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> "Streamando" dados no Django </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2017-05-14T15:45:00-03:00 itemprop=datePublished>14 Mai, 2017</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/django-pony.png alt="Django Pony" class=representative-image width=180 height=180> <p>Recentemente na <a href=http://loadsmart.com/ title="Book a truck with Loadsmart"><em>Loadsmart</em></a>, houve a necessidade de lidar com um cenário onde se faz necessário acessar uma <em>view</em> que retorna um <em>CSV</em> de tamanho considerável, gerado a partir de parâmetros dinâmicos, no melhor esquema "imprima um relatório".</p> <!-- PELICAN_END_SUMMARY --> <p>Embora o <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre Django"><em>Django</em></a> seja desenhado para requisições curtas, existe a possibilidade de fazer <em>streaming</em> de grandes arquivos <em>CSVs</em> através da classe <code>StreamingHttpResponse</code>.</p> <p>Vale a nota: Esse artigo é sobre <em>CSVs</em>, mas você também pode <a href=http://stackoverflow.com/questions/30791228/serving-a-django-static-text-file title="Serving a django static text file">"streamar" outros tipos de dados</a> através desse método supimpa.</p> <h2>Motivação</h2> <p>Em determinados cenários, precisamos retornar arquivos relativamente grandes para o usuário. O exemplo acima, uma requisição com parâmetros que irão gerar um relatório em <em>CSV</em>, é um caso bem comum.</p> <p>O comportamento de resposta padrão do <em>Django</em> é retornar uma instância de <code>HttpResponse</code>. O problema é que nesse modo carregaremos o arquivo inteiro para a memória do servidor, e só depois enviamos o arquivo para o cliente. Além de prejudicarmos o <em>Time To First Byte</em> (TTBT), podemos gerar picos de memória na máquina hospedeira (que podem afetar demais requisições sendo processadas) e <em>timeouts</em> de conexão.</p> <p>Um exemplo de como faríamos esse retorno através do <code>HttpResponse</code>:</p> <div class=highlight><pre><span></span><span class=kn>import</span> <span class=nn>csv</span>
-<span class=kn>from</span> <span class=nn>django.http</span> <span class=kn>import</span> <span class=n>HttpResponse</span>
-<span class=kn>from</span> <span class=nn>django.view</span> <span class=kn>import</span> <span class=n>View</span>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.493e6315ef3a09bc2f74.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.12"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style data-styled="" data-styled-version="5.1.0">.dQgIel{display:inline-block;vertical-align:middle;overflow:hidden;}/*!sc*/
+data-styled.g1[id="sc-AxjAm"]{content:"dQgIel,"}/*!sc*/
+.dLmtYS{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g2[id="article-share__FacebookStyled-sc-1s9obkn-0"]{content:"dLmtYS,"}/*!sc*/
+.cXEKcd{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g3[id="article-share__LinkedinStyled-sc-1s9obkn-1"]{content:"cXEKcd,"}/*!sc*/
+.kBgYvV{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g4[id="article-share__TwitterStyled-sc-1s9obkn-2"]{content:"kBgYvV,"}/*!sc*/
+.jVnceN{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g5[id="article-share__WhatsappStyled-sc-1s9obkn-3"]{content:"jVnceN,"}/*!sc*/
+.hUktyW{display:inline-block;margin-right:8px;}/*!sc*/
+data-styled.g6[id="article-share__SocialLink-sc-1s9obkn-4"]{content:"hUktyW,"}/*!sc*/
+.hKQQPE{clear:both;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.hKQQPE{clear:none;float:right;line-height:48px;}}/*!sc*/
+data-styled.g7[id="article-share__SocialWrapper-sc-1s9obkn-5"]{content:"hKQQPE,"}/*!sc*/
+.gKRNvs{margin-bottom:24px;}/*!sc*/
+data-styled.g8[id="article-tags__Tags-lfitfk-0"]{content:"gKRNvs,"}/*!sc*/
+.kdcwKK{background-color:#f4f4f4;color:rgba(0,0,0,0.54);display:inline-block;font-size:14px;margin:0 8px 8px 0;padding:8px 16px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g9[id="article-tags__Tag-lfitfk-1"]{content:"kdcwKK,"}/*!sc*/
+.gfJCPa{color:rgba(0,0,0,0.84);margin-bottom:4px;}/*!sc*/
+data-styled.g14[id="article__AuthorName-sc-1bof3w4-0"]{content:"gfJCPa,"}/*!sc*/
+.cZgAvk{clear:both;font-family:Georgia,"Times New Roman",Times,serif;font-size:18px;font-weight:300;-webkit-letter-spacing:-0.054px;-moz-letter-spacing:-0.054px;-ms-letter-spacing:-0.054px;letter-spacing:-0.054px;line-height:28px;margin-bottom:48px;}/*!sc*/
+@media (min-width:768px){.cZgAvk{font-size:20px;}}/*!sc*/
+.cZgAvk *{margin:0;margin-block-end:0;margin-block-start:0;padding:0;}/*!sc*/
+.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{font-family:"Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;-webkit-letter-spacing:-0.66px;-moz-letter-spacing:-0.66px;-ms-letter-spacing:-0.66px;letter-spacing:-0.66px;margin-top:8px;margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{margin-bottom:16px;}}/*!sc*/
+.cZgAvk figure,.cZgAvk .gatsby-highlight{left:-24px;position:relative;width:100vw;}/*!sc*/
+@media (min-width:768px){.cZgAvk figure,.cZgAvk .gatsby-highlight{left:0;width:auto;}}/*!sc*/
+.cZgAvk a{color:#c4170c;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cZgAvk a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cZgAvk blockquote{color:rgba(0,0,0,0.54);font-style:italic;}/*!sc*/
+.cZgAvk code{font-size:16px;}/*!sc*/
+.cZgAvk figcaption{color:rgba(0,0,0,0.54);font-size:16px;line-height:20px;padding:16px 24px 0;text-align:center;}/*!sc*/
+.cZgAvk h2{font-size:26px;font-weight:600;line-height:32px;margin-bottom:28px;}/*!sc*/
+.cZgAvk h3{color:#333;font-size:22px;font-weight:300;line-height:28px;}/*!sc*/
+.cZgAvk h4{color:rgba(0,0,0,0.54);font-size:16;font-weight:300;line-height:24px;}/*!sc*/
+.cZgAvk iframe{display:block;margin:0 auto 28px auto;}/*!sc*/
+@media (min-width:768px){.cZgAvk iframe{margin-bottom:42px;}}/*!sc*/
+.cZgAvk img{display:block;margin:0 auto;}/*!sc*/
+.cZgAvk p{margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk p{margin-bottom:42px;}}/*!sc*/
+.cZgAvk pre{font-size:16px;margin-bottom:28px;padding:24px 16px;}/*!sc*/
+@media (min-width:768px){.cZgAvk pre{margin-bottom:42px;}}/*!sc*/
+.cZgAvk ol,.cZgAvk ul{margin-left:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk ol,.cZgAvk ul{margin-bottom:42px;}}/*!sc*/
+.cZgAvk li{margin-bottom:8px;}/*!sc*/
+@media (min-width:768px){.cZgAvk li{margin-bottom:16px;}}/*!sc*/
+data-styled.g15[id="article__Content-sc-1bof3w4-1"]{content:"cZgAvk,"}/*!sc*/
+.lhlkLZ{border-top:1px solid #f4f4f4;margin-bottom:24px;padding-top:24px;}/*!sc*/
+data-styled.g16[id="article__DiscussionWrapper-sc-1bof3w4-2"]{content:"lhlkLZ,"}/*!sc*/
+.hnJNBS{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(0,0,0,0.54);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;float:left;font-size:14px;margin-bottom:32px;}/*!sc*/
+data-styled.g17[id="article__Meta-sc-1bof3w4-3"]{content:"hnJNBS,"}/*!sc*/
+.cTbbvU{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g18[id="article__MetaText-sc-1bof3w4-4"]{content:"cTbbvU,"}/*!sc*/
+.lhqEXT{border-radius:60px;margin-right:16px;}/*!sc*/
+data-styled.g19[id="article__StyledAvatar-sc-1bof3w4-5"]{content:"lhqEXT,"}/*!sc*/
+.dtcUmd{color:rgba(0,0,0,0.84);font-weight:600;-webkit-letter-spacing:-0.93px;-moz-letter-spacing:-0.93px;-ms-letter-spacing:-0.93px;letter-spacing:-0.93px;margin:0 0 4px 0;font-size:30px;font-weight:400;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.dtcUmd{font-size:40px;}}/*!sc*/
+data-styled.g20[id="article__StyledTitle-sc-1bof3w4-6"]{content:"dtcUmd,"}/*!sc*/
+.bfwjqj{margin:0 auto;max-width:640px;padding:0 24px;}/*!sc*/
+data-styled.g21[id="container-sc-1o2is99-0"]{content:"bfwjqj,"}/*!sc*/
+.iyjQQp{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#c4170c;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-family:Arial,Helvetica,sans-serif;height:36px;width:36px;}/*!sc*/
+data-styled.g22[id="page-header-brand__Brand-ofbkek-0"]{content:"iyjQQp,"}/*!sc*/
+.hPHtvI{display:none;}/*!sc*/
+@media (min-width:768px){.hPHtvI{display:block;}}/*!sc*/
+data-styled.g23[id="page-header-brand__BrandFragment-ofbkek-1"]{content:"hPHtvI,"}/*!sc*/
+.exgtKg{color:#333;display:inline-block;margin-left:4px;}/*!sc*/
+.exgtKg:first-child{margin-left:0;margin-right:4px;}/*!sc*/
+data-styled.g24[id="page-header-brand__Bracket-ofbkek-2"]{content:"exgtKg,"}/*!sc*/
+.fUa-dQJ{color:#333;width:22px;}/*!sc*/
+data-styled.g25[id="page-header__GreyMail-sc-1ef23a-0"]{content:"fUa-dQJ,"}/*!sc*/
+.GBaPr{box-shadow:0 -8px 16px 0 rgba(0,0,0,0.54);font-size:1.1rem;margin-bottom:24px;}/*!sc*/
+@media (min-width:768px){.GBaPr{margin-bottom:64px;}}/*!sc*/
+data-styled.g26[id="page-header__Header-sc-1ef23a-1"]{content:"GBaPr,"}/*!sc*/
+.ktLFvT{margin:0 auto;max-width:640px;padding:0 24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:56px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:974px;}/*!sc*/
+data-styled.g27[id="page-header__HeaderContainer-sc-1ef23a-2"]{content:"ktLFvT,"}/*!sc*/
+.gbnbN{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g28[id="page-header__StyledLink-sc-1ef23a-3"]{content:"gbnbN,"}/*!sc*/
+.hJnaIf{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g29[id="page-header__StyledA-sc-1ef23a-4"]{content:"hJnaIf,"}/*!sc*/
+.eZHcyp{border-top:1px solid #f4f4f4;color:rgba(0,0,0,0.54);font-size:14px;padding:24px 0;text-align:center;}/*!sc*/
+@media (min-width:768px){.eZHcyp{text-align:right;}}/*!sc*/
+data-styled.g30[id="page-footer__Footer-sc-1jesc4c-0"]{content:"eZHcyp,"}/*!sc*/
+.hCZhVV{color:rgba(0,0,0,0.84);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hCZhVV:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g31[id="page-footer__Link-sc-1jesc4c-1"]{content:"hCZhVV,"}/*!sc*/
+body{color:rgba(0,0,0,0.84);font-family:Arial,Helvetica,sans-serif;margin:0;}/*!sc*/
+data-styled.g51[id="sc-global-eLbNMD1"]{content:"sc-global-eLbNMD1,"}/*!sc*/
+</style><title data-react-helmet="true">Streamando dados no Django | Klaus Laube</title><meta data-react-helmet="true" name="description" content="Recentemente na Loadsmart,
+houve a necessidade de lidar com um cenário onde se faz necessário acessar uma view
+que retorna um CSV de tamanho…"/><meta data-react-helmet="true" property="og:title" content="Streamando dados no Django"/><meta data-react-helmet="true" property="og:description" content="Recentemente na Loadsmart,
+houve a necessidade de lidar com um cenário onde se faz necessário acessar uma view
+que retorna um CSV de tamanho…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Klaus Peter Laube"/><meta data-react-helmet="true" name="twitter:title" content="Streamando dados no Django"/><meta data-react-helmet="true" name="twitter:description" content="Recentemente na Loadsmart,
+houve a necessidade de lidar com um cenário onde se faz necessário acessar uma view
+que retorna um CSV de tamanho…"/><meta data-react-helmet="true" name="keywords" content="desenvolvimento-web,python,django,streaming,generators,wsgi,csv"/><meta data-react-helmet="true" property="og:image" content="https://klauslaube.com.br/static/d2dedad07b8314159f8d999aa3b9e847/django-pony.png"/><link rel="icon" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="alternate" type="application/rss+xml" title="Klaus Laube" href="/feed/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-74a6d0a7c3b7aca6f059.js"/><link as="script" rel="preload" href="/framework-15c64f04ece7e16d9319.js"/><link as="script" rel="preload" href="/styles-72b9aca6a03bf971c27e.js"/><link as="script" rel="preload" href="/app-e7e259d06d29a943bae9.js"/><link as="script" rel="preload" href="/commons-d19a5247b9c341fd9cf4.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"/><link as="fetch" rel="preload" href="/page-data/2017/05/14/streaming-dados-django.html/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="page-header__Header-sc-1ef23a-1 GBaPr"><div class="container-sc-1o2is99-0 page-header__HeaderContainer-sc-1ef23a-2 ktLFvT"><a class="page-header__StyledLink-sc-1ef23a-3 gbnbN" href="/"><div class="page-header-brand__Brand-ofbkek-0 iyjQQp"><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">{</span>k<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">laus</span>l<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">aube</span><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">}</span></div></a><div><a href="https://about.me/klauslaube" title="Contato" class="page-header__StyledA-sc-1ef23a-4 hJnaIf"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="sc-AxjAm dQgIel page-header__GreyMail-sc-1ef23a-0 fUa-dQJ"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></div></div></div><div><div class="container-sc-1o2is99-0 bfwjqj"><h1 class="typograph__Title-sc-4kf6ch-1 article__StyledTitle-sc-1bof3w4-6 dtcUmd">Streamando dados no Django</h1><div class="article__Meta-sc-1bof3w4-3 hnJNBS"><img src="https://en.gravatar.com/userimage/12163112/d3ae0c6239980b01ff1f1730b65c2ebe.jpg" width="48" height="48" alt="Avatar" class="avatar-sc-46srdf-0 article__StyledAvatar-sc-1bof3w4-5 lhqEXT"/><div class="article__MetaText-sc-1bof3w4-4 cTbbvU"><div class="article__AuthorName-sc-1bof3w4-0 gfJCPa">Klaus Peter Laube</div>14 de Maio de 2017<!-- --> - <!-- -->4 minutos<!-- --> de leitura</div></div><div class="article-share__SocialWrapper-sc-1s9obkn-5 hKQQPE"><a href="https://twitter.com/intent/tweet?url=https://klauslaube.com.br/2017/05/14/streaming-dados-django.html&amp;text=Streamando dados no Django" target="_blank" rel="noreferrer" title="Compartilhe no Twitter" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__TwitterStyled-sc-1s9obkn-2 kBgYvV"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22 8.073 8.073 0 002.319-.624 8.645 8.645 0 01-2.019 2.083z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://klauslaube.com.br/2017/05/14/streaming-dados-django.html" target="_blank" rel="noreferrer" title="Compartilhe no Facebook" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__FacebookStyled-sc-1s9obkn-0 dLmtYS"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325 1.42-3.592 3.5-3.592.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.725h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"></path></svg></a><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://klauslaube.com.br/2017/05/14/streaming-dados-django.html&amp;title=Streamando dados no Django" target="_blank" rel="noreferrer" title="Compartilhe no Linkedin" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__LinkedinStyled-sc-1s9obkn-1 cXEKcd"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg></a><a href="https://api.whatsapp.com/send?text=https://klauslaube.com.br/2017/05/14/streaming-dados-django.html" target="_blank" rel="noreferrer" title="Compartilhe no Whatsapp" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__WhatsappStyled-sc-1s9obkn-3 jVnceN"><path fill-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 004.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 00-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 01-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 01-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 015.275 2.188 7.42 7.42 0 012.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 00-.429-.008.826.826 0 00-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263" clip-rule="evenodd"></path></svg></a></div><div class="article__Content-sc-1bof3w4-1 cZgAvk"><p>Recentemente na <a href="http://loadsmart.com/" title="Book a truck with Loadsmart"><em>Loadsmart</em></a>,
+houve a necessidade de lidar com um cenário onde se faz necessário acessar uma <em>view</em>
+que retorna um <em>CSV</em> de tamanho considerável, gerado a partir de parâmetros dinâmicos,
+no melhor esquema "imprima um relatório".</p>
+<p>Embora o <a href="/tag/django.html" title="Leia mais sobre Django"><em>Django</em></a> seja desenhado para requisições curtas, existe a possibilidade
+de fazer <em>streaming</em> de grandes arquivos <em>CSVs</em> através da classe <code class="language-text">StreamingHttpResponse</code>.</p>
+<p>Vale a nota: Esse artigo é sobre <em>CSVs</em>, mas você também pode <a href="http://stackoverflow.com/questions/30791228/serving-a-django-static-text-file" title="Serving a django static text file">"streamar" outros tipos de dados</a>
+através desse método supimpa.</p>
+<h2>Motivação</h2>
+<p>Em determinados cenários, precisamos retornar arquivos relativamente grandes para
+o usuário. O exemplo acima, uma requisição com parâmetros que irão gerar um relatório
+em <em>CSV</em>, é um caso bem comum.</p>
+<p>O comportamento de resposta padrão do <em>Django</em> é retornar uma instância de <code class="language-text">HttpResponse</code>.
+O problema é que nesse modo carregaremos o arquivo inteiro para a memória do
+servidor, e só depois enviamos o arquivo para o cliente. Além de prejudicarmos o <em>Time To
+First Byte</em> (TTBT), podemos gerar picos de memória na máquina hospedeira (que podem afetar
+demais requisições sendo processadas) e <em>timeouts</em> de conexão.</p>
+<p>Um exemplo de como faríamos esse retorno através do <code class="language-text">HttpResponse</code>:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">import</span> csv
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> HttpResponse
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>view <span class="token keyword">import</span> View
 
 
-<span class=k>class</span> <span class=nc>CsvReportView</span><span class=p>(</span><span class=n>View</span><span class=p>):</span>
-    <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
-        <span class=c1># Abstraindo a logica de filtro por parametros do request</span>
-        <span class=n>cargoes</span> <span class=o>=</span> <span class=n>Cargoes</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>filter_by_request_parms</span><span class=p>(</span><span class=n>request</span><span class=p>)</span>
+<span class="token keyword">class</span> <span class="token class-name">CsvReportView</span><span class="token punctuation">(</span>View<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Abstraindo a logica de filtro por parametros do request</span>
+        cargoes <span class="token operator">=</span> Cargoes<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter_by_request_parms<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
 
-        <span class=n>response</span> <span class=o>=</span> <span class=n>HttpResponse</span><span class=p>(</span><span class=n>content_type</span><span class=o>=</span><span class=s1>&#39;text/csv&#39;</span><span class=p>)</span>
-        <span class=n>response</span><span class=p>[</span><span class=s1>&#39;Content-Disposition&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;attachment; filename=&quot;filtered_cargoes.csv&quot;&#39;</span>
+        response <span class="token operator">=</span> HttpResponse<span class="token punctuation">(</span>content_type<span class="token operator">=</span><span class="token string">'text/csv'</span><span class="token punctuation">)</span>
+        response<span class="token punctuation">[</span><span class="token string">'Content-Disposition'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'attachment; filename="filtered_cargoes.csv"'</span>
 
-        <span class=n>writer</span> <span class=o>=</span> <span class=n>csv</span><span class=o>.</span><span class=n>writer</span><span class=p>(</span><span class=n>response</span><span class=p>)</span>
+        writer <span class="token operator">=</span> csv<span class="token punctuation">.</span>writer<span class="token punctuation">(</span>response<span class="token punctuation">)</span>
 
-        <span class=k>for</span> <span class=n>row</span> <span class=ow>in</span> <span class=n>cargoes</span><span class=o>.</span><span class=n>values_list</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>,</span> <span class=s1>&#39;commodity&#39;</span><span class=p>,</span> <span class=s1>&#39;weight&#39;</span><span class=p>):</span>
-            <span class=n>writer</span><span class=o>.</span><span class=n>writerow</span><span class=p>(</span><span class=n>row</span><span class=p>)</span>
+        <span class="token keyword">for</span> row <span class="token keyword">in</span> cargoes<span class="token punctuation">.</span>values_list<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'commodity'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            writer<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span>row<span class="token punctuation">)</span>
 
-        <span class=k>return</span> <span class=n>response</span>
-</pre></div> <p>Se você tem certa intimidade com geradores, deve estar supondo que essa pode ser uma maneira de solucionar esse problema... e você está certo!</p> <h2>Como funciona o StreamingHttpResponse?</h2> <p>O <code>StreamingHttpResponse</code> funciona com a ajuda do conceito de <em>generators</em>. Achei uma excelente definição no <a href=http://stackoverflow.com/questions/1756096/understanding-generators-in-python title="Understanding Generators in Python"><em>Stackoverflow</em></a>:</p> <blockquote> <p>(...) is simply a function which returns an object on which you can call next, such that for every call it returns some value, until it raises a StopIteration exception, signaling that all values have been generated. Such an object is called an iterator.</p> </blockquote> <p><a href=https://www.slideshare.net/ramalho/iteraveis-e-geradores-em-python title="Iteraveis e geradores em Python">Leia mais sobre iteráveis e geradores</a>.</p> <p>Para tanto, o uso da palavra reservada <code>yield</code> se faz necessário. Logo, ao invés de termos o exemplo abaixo:</p> <div class=highlight><pre><span></span><span class=k>def</span> <span class=nf>my_view</span><span class=p>(</span><span class=n>request</span><span class=p>):</span>
-    <span class=n>message</span> <span class=o>=</span> <span class=s1>&#39;Hello, there!&#39;</span>
-    <span class=n>response</span> <span class=o>=</span>  <span class=n>HttpResponse</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
-    <span class=n>response</span><span class=p>[</span><span class=s1>&#39;Content-Length&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>message</span><span class=p>)</span>
+        <span class="token keyword">return</span> response</code></pre></div>
+<p>Se você tem certa intimidade com geradores, deve estar supondo que essa pode ser uma
+maneira de solucionar esse problema... e você está certo!</p>
+<h2>Como funciona o StreamingHttpResponse?</h2>
+<p>O <code class="language-text">StreamingHttpResponse</code> funciona com a ajuda do conceito de <em>generators</em>. Achei
+uma excelente definição no <a href="http://stackoverflow.com/questions/1756096/understanding-generators-in-python" title="Understanding Generators in Python"><em>Stackoverflow</em></a>:</p>
+<blockquote>
+<p>(...) is simply a function which returns an object on which you can
+call next, such that for every call it returns some value, until it raises
+a StopIteration exception, signaling that all values have been generated.
+Such an object is called an iterator.</p>
+</blockquote>
+<p><a href="https://www.slideshare.net/ramalho/iteraveis-e-geradores-em-python" title="Iteraveis e geradores em Python">Leia mais sobre iteráveis e geradores</a>.</p>
+<p>Para tanto, o uso da palavra reservada <code class="language-text">yield</code> se faz necessário. Logo, ao invés de termos o exemplo abaixo:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">my_view</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    message <span class="token operator">=</span> <span class="token string">'Hello, there!'</span>
+    response <span class="token operator">=</span>  HttpResponse<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+    response<span class="token punctuation">[</span><span class="token string">'Content-Length'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
 
-    <span class=k>return</span> <span class=n>response</span>
-</pre></div> <p>Teremos:</p> <div class=highlight><pre><span></span><span class=k>def</span> <span class=nf>hello</span><span class=p>():</span>
-    <span class=k>yield</span> <span class=s1>&#39;Hello,&#39;</span>
-    <span class=k>yield</span> <span class=s1>&#39;there!&#39;</span>
+    <span class="token keyword">return</span> response</code></pre></div>
+<p>Teremos:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">hello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">yield</span> <span class="token string">'Hello,'</span>
+    <span class="token keyword">yield</span> <span class="token string">'there!'</span>
 
-<span class=k>def</span> <span class=nf>my_view</span><span class=p>(</span><span class=n>request</span><span class=p>):</span>
-    <span class=k>return</span> <span class=n>StreamingHttpResponse</span><span class=p>(</span><span class=n>hello</span><span class=p>)</span>
-</pre></div> <p><a href=https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/ title="How does Django’s StreamingHttpResponse work, exactly">Leia mais no excelente "How does Django's StreamingHttpResponse work, exactly?"</a>.</p> <p>Voltando ao exemplo do <em>CSV</em>, teremos:</p> <div class=highlight><pre><span></span><span class=kn>import</span> <span class=nn>csv</span>
-<span class=kn>from</span> <span class=nn>django.db</span> <span class=kn>import</span> <span class=n>models</span>
-<span class=kn>from</span> <span class=nn>django.http</span> <span class=kn>import</span> <span class=n>StreamingHttpResponse</span>
-<span class=kn>from</span> <span class=nn>django.views.generic</span> <span class=kn>import</span> <span class=n>View</span>
+<span class="token keyword">def</span> <span class="token function">my_view</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">return</span> StreamingHttpResponse<span class="token punctuation">(</span>hello<span class="token punctuation">)</span></code></pre></div>
+<p><a href="https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/" title="How does Django’s StreamingHttpResponse work, exactly">Leia mais no excelente "How does Django's StreamingHttpResponse work, exactly?"</a>.</p>
+<p>Voltando ao exemplo do <em>CSV</em>, teremos:</p>
+<div class="gatsby-highlight" data-language="python"><pre class="language-python"><code class="language-python"><span class="token keyword">import</span> csv
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>db <span class="token keyword">import</span> models
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>http <span class="token keyword">import</span> StreamingHttpResponse
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>views<span class="token punctuation">.</span>generic <span class="token keyword">import</span> View
 
-<span class=k>class</span> <span class=nc>Echo</span><span class=p>(</span><span class=nb>object</span><span class=p>):</span>
-    <span class=sd>&quot;&quot;&quot;</span>
-<span class=sd>    Interface parecida com a que usamos para escrever arquivos.</span>
-<span class=sd>    &quot;&quot;&quot;</span>
+<span class="token keyword">class</span> <span class="token class-name">Echo</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""
+    Interface parecida com a que usamos para escrever arquivos.
+    """</span>
 
-    <span class=k>def</span> <span class=nf>write</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>value</span><span class=p>):</span>
-        <span class=k>return</span> <span class=n>value</span>
+    <span class="token keyword">def</span> <span class="token function">write</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> value
 
 
-<span class=k>class</span> <span class=nc>CsvReportView</span><span class=p>(</span><span class=n>View</span><span class=p>):</span>
-    <span class=k>def</span> <span class=nf>get</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>request</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
-        <span class=c1># Abstraindo a logica de filtro por parametros do request</span>
-        <span class=n>cargoes</span> <span class=o>=</span> <span class=n>Cargoes</span><span class=o>.</span><span class=n>objects</span><span class=o>.</span><span class=n>filter_by_request_parms</span><span class=p>(</span><span class=n>request</span><span class=p>)</span>
+<span class="token keyword">class</span> <span class="token class-name">CsvReportView</span><span class="token punctuation">(</span>View<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> <span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># Abstraindo a logica de filtro por parametros do request</span>
+        cargoes <span class="token operator">=</span> Cargoes<span class="token punctuation">.</span>objects<span class="token punctuation">.</span>filter_by_request_parms<span class="token punctuation">(</span>request<span class="token punctuation">)</span>
 
-        <span class=c1># Usamos a mesma interface de buffer utilizada para escrever</span>
-        <span class=c1># um arquivo. No entanto, apenas damos um `return value`</span>
-        <span class=c1># aos inves de persistirmos o valor</span>
-        <span class=n>pseudo_buffer</span> <span class=o>=</span> <span class=n>Echo</span><span class=p>()</span>
-        <span class=n>writer</span> <span class=o>=</span> <span class=n>csv</span><span class=o>.</span><span class=n>writer</span><span class=p>(</span><span class=n>pseudo_buffer</span><span class=p>)</span>
+        <span class="token comment"># Usamos a mesma interface de buffer utilizada para escrever</span>
+        <span class="token comment"># um arquivo. No entanto, apenas damos um `return value`</span>
+        <span class="token comment"># aos inves de persistirmos o valor</span>
+        pseudo_buffer <span class="token operator">=</span> Echo<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        writer <span class="token operator">=</span> csv<span class="token punctuation">.</span>writer<span class="token punctuation">(</span>pseudo_buffer<span class="token punctuation">)</span>
 
-        <span class=c1># Construimos o nosso gerador</span>
-        <span class=n>gen_func</span> <span class=o>=</span> <span class=p>(</span><span class=n>writer</span><span class=o>.</span><span class=n>writerow</span><span class=p>(</span><span class=n>row</span><span class=p>)</span> <span class=k>for</span> <span class=n>row</span> <span class=ow>in</span> <span class=n>cargos</span><span class=o>.</span><span class=n>values_list</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>,</span> <span class=s1>&#39;commodity&#39;</span><span class=p>,</span> <span class=s1>&#39;weight&#39;</span><span class=p>))</span>
+        <span class="token comment"># Construimos o nosso gerador</span>
+        gen_func <span class="token operator">=</span> <span class="token punctuation">(</span>writer<span class="token punctuation">.</span>writerow<span class="token punctuation">(</span>row<span class="token punctuation">)</span> <span class="token keyword">for</span> row <span class="token keyword">in</span> cargos<span class="token punctuation">.</span>values_list<span class="token punctuation">(</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'commodity'</span><span class="token punctuation">,</span> <span class="token string">'weight'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-        <span class=n>response</span> <span class=o>=</span> <span class=n>StreamingHttpResponse</span><span class=p>(</span><span class=n>gen_func</span><span class=p>,</span> <span class=n>content_type</span><span class=o>=</span><span class=s1>&#39;text/csv&#39;</span><span class=p>)</span>
-        <span class=n>response</span><span class=p>[</span><span class=s1>&#39;Content-Disposition&#39;</span><span class=p>]</span> <span class=o>=</span> <span class=s1>&#39;attachment;filename=&quot;filtered_cargoes.csv&quot;&#39;</span>
+        response <span class="token operator">=</span> StreamingHttpResponse<span class="token punctuation">(</span>gen_func<span class="token punctuation">,</span> content_type<span class="token operator">=</span><span class="token string">'text/csv'</span><span class="token punctuation">)</span>
+        response<span class="token punctuation">[</span><span class="token string">'Content-Disposition'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'attachment;filename="filtered_cargoes.csv"'</span>
 
-        <span class=k>return</span> <span class=n>response</span>
-</pre></div> <p>Antes mesmo de termos todo o <em>CSV</em> montado, já estamos retornando dados ao usuário.</p> <p><a href=https://docs.djangoproject.com/en/1.11/howto/outputting-csv/#streaming-large-csv-files title="Leia mais na documentação do Django">Veja o exemplo da documentação ofical do <em>Django</em></a>.</p> <h2>É a melhor maneira de resolver esse problema?</h2> <p>Caso a sua única opção seja retornar o dado através de uma <em>view</em> <em>Django</em>, sim. Além de um uso mais eficiente de memória, o retorno do <code>StreamingHttpResponse</code> vai impedir que, por exemplo, um <em>load balancer</em> feche a conexão do seu usuário pelo fato de o serviço <em>Django</em> estar levando muito tempo para montar a resposta.</p> <p><img class=align-center-keep-size src=/images/blog/biznis-cat.png width=610 height=259 title="O Django com StreamingHttpResponse fica mais biznis (thelegomovie.wikia.com)" alt="O Django com StreamingHttpResponse fica mais biznis (thelegomovie.wikia.com)"></p> <p>Mas segundo a recomendação da <a href=https://docs.djangoproject.com/en/1.11/ref/request-response/#django.http.StreamingHttpResponse title="Veja mais na documentação do Django">própria documentação</a> do <code>StreamingHttpResponse</code>, já que essa é uma "operação bloqueante", o ideal seria realizá-la em um <em>background job</em> (por exemplo) e deixar com que o usuário acesse essa informação quando ela já estiver pronta.</p> <p>O <code>django-report-builder</code> entrega essa <a href=https://django-report-builder.readthedocs.io/en/latest/quickstart/#asynchronous-report-generation title="Leia mais na documentação da biblioteca">modalidade de "asynchronous reports"</a> através do <a href=http://www.celeryproject.org/ title="Celery: Distributed Task Queue"><em>Celery</em></a>.</p> <h2>Considerações finais</h2> <p>É fato que a "mágica pesada" fica no lado do <a href=https://klauslaube.com.br/tag/wsgi.html title="Leia mais sobre WSGI"><em>WSGI</em></a>, como você pode ver <a href=https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/#the-wsgi-server title="How does Django’s StreamingHttpResponse work, exactly?">aqui</a>. O <em>Django</em> "faz o que pode" quando o assunto é lidar com grandes volumes de dados. Mas o ideal é sempre deixar essa carga de processamento fora do ciclo de vida da requisição do usuário.</p> <p>Mesmo assim, o <code>StreamingHttpResponse</code> vem como uma boa alternativa para resolver alguns problemas de <em>views</em> com tempos de resposta e consumo de recursos muito altos, podendo ser a solução ideal para alguns relatórios que você emite em sua aplicação.</p> <p>Até a próxima.</p> <h2>Referências</h2> <ul> <li><a href=http://blog.aeguana.com/2015/12/12/csv-export-data-for-django-model/ ><em>Aeguana - How to export data as a CSV – Django model</em></a></li> <li><a href=https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/ ><em>Andrew Brookins - How does Django's StreamingHttpResponse work, exactly?</em></a></li> <li><a href=https://docs.djangoproject.com/en/1.11/ref/request-response/#streaminghttpresponse-objects><em>Django Documentation - StreamingHttpResponse</em></a></li> <li><a href=http://www.ericcarmichael.com/streaming-django-responses-on-heroku.html><em>nerdery - Streaming Django responses on Heroku</em></a></li> <li><a href=http://www.rodvdka.co.za/heroku/long-polling/h12/h18/django/2016/10/13/long-polling-heroku.html><em>rodvdka - Django long running report on Django</em></a></li> <li><a href=http://stackoverflow.com/questions/33208849/python-django-streaming-video-mp4-file-using-httpresponse><em>Stackoverflow - Streaming video/mp4 file using HttpResponse</em></a></li> <li><a href=http://stackoverflow.com/questions/1756096/understanding-generators-in-python><em>Stackoverflow - Understanding Generators in Python</em></a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/desenvolvimento.html title="Leia mais sobre" class=Article-tagLink>desenvolvimento</a> <a href=https://klauslaube.com.br/tag/web.html title="Leia mais sobre" class=Article-tagLink>web</a> <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre" class=Article-tagLink>python</a> <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre" class=Article-tagLink>django</a> <a href=https://klauslaube.com.br/tag/streaming.html title="Leia mais sobre" class=Article-tagLink>streaming</a> <a href=https://klauslaube.com.br/tag/generators.html title="Leia mais sobre" class=Article-tagLink>generators</a> <a href=https://klauslaube.com.br/tag/wsgi.html title="Leia mais sobre" class=Article-tagLink>wsgi</a> <a href=https://klauslaube.com.br/tag/csv.html title="Leia mais sobre" class=Article-tagLink>csv</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
-        var disqus_shortname = "klauslaube";
-        var disqus_identifier = "2017/05/14/streaming-dados-django.html";
-
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-19657400-1');ga('send','pageview');
-    </script> </body> </html>
+        <span class="token keyword">return</span> response</code></pre></div>
+<p>Antes mesmo de termos todo o <em>CSV</em> montado, já estamos retornando dados ao usuário.</p>
+<p><a href="https://docs.djangoproject.com/en/1.11/howto/outputting-csv/#streaming-large-csv-files" title="Leia mais na documentação do Django">Veja o exemplo da documentação ofical do <em>Django</em></a>.</p>
+<h2>É a melhor maneira de resolver esse problema?</h2>
+<p>Caso a sua única opção seja retornar o dado através de uma <em>view</em> <em>Django</em>, sim. Além
+de um uso mais eficiente de memória, o retorno do <code class="language-text">StreamingHttpResponse</code>
+vai impedir que, por exemplo, um <em>load balancer</em> feche a conexão do seu usuário pelo
+fato de o serviço <em>Django</em> estar levando muito tempo para montar a resposta.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4b7ece8243cfe756552c9dfb41282281/5aae9/biznis-cat.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 42.708333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAACKklEQVQoz2NgAAFGBiZORjZ+Ji5hBj4xcV1ns9Aym8qlFcuu96290d67tahiZlhuv31Km4RrEpO0NiOfJCOPJJOQAgOLlh0TrwQjAzsDA7sEt6S/vHWIbUhGVH1mQE3GpIMFy67mLLiQ0b0zuX2tVfkiIbd0NjVrFhk9ZiUzVuswBjZjbzazQA5THwYJDTU+qVkWIZNsI9qtQrMdYgJaN9n0HTboPmjUtlu3cq1MXCe7shmjuDojnwwjlyiTrB4Ds6Qhk7Idq3kYo5aztqhCkZ51vq5tvL5duFOEefkyoZL1AiUbFeu2imTMEfAsZhOWZ2AXYGTmYWRg5JA3ZGDScGfX9+UxCGDQD3SQUT9i77jf3W+WV8TEhIr09rVRk/eEzzpZueaSU1qzrJGHgIo5g5ASIwsvEyuXqHM0A6OiJbOmI7u6rbC8AQMLX7mq7kZ7Bzcrf5vEFvusPqe8KQGlc4Oze3QMnYWUTHjkDZl4pYGaWSW0WARlGJj5ZJkldFgE5TkF5Bg4JUplFeZqWqgp26lbBAWmNEdWzvMuneeS3Scorc0FDF5xDUZuCQY2IUY2EUZGFgYGNkEGDjEGDlFBLlElTqkNivwLbGxcXRIKkpsrOtaXLDpdsf1hzqITgqo2vErmDGJajGxCDEzcjEycoChWY+EJ4BSsYufpY2EvZ+cr4ue3UlLh13GU9CxQiWxWS5+gnD1dLamTTdGcUUiFgVWAgZGNAWQnCAAAOpF93hDD7NcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="&quot;O Django com StreamingHttpResponse fica mais biznis (thelegomovie.wikia.com)&quot;"
+        title="O Django com StreamingHttpResponse fica mais biznis (thelegomovie.wikia.com)"
+        src="/static/4b7ece8243cfe756552c9dfb41282281/5aae9/biznis-cat.png"
+        srcset="/static/4b7ece8243cfe756552c9dfb41282281/8514f/biznis-cat.png 192w,
+/static/4b7ece8243cfe756552c9dfb41282281/804b2/biznis-cat.png 384w,
+/static/4b7ece8243cfe756552c9dfb41282281/5aae9/biznis-cat.png 610w"
+        sizes="(max-width: 610px) 100vw, 610px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">O Django com StreamingHttpResponse fica mais biznis (thelegomovie.wikia.com)</figcaption>
+  </figure></p>
+<p>Mas segundo a recomendação da <a href="https://docs.djangoproject.com/en/1.11/ref/request-response/#django.http.StreamingHttpResponse" title="Veja mais na documentação do Django">própria documentação</a>
+do <code class="language-text">StreamingHttpResponse</code>, já que essa é uma "operação bloqueante",
+o ideal seria realizá-la em um <em>background job</em> (por exemplo) e deixar com que o
+usuário acesse essa informação quando ela já estiver pronta.</p>
+<p>O <code class="language-text">django-report-builder</code> entrega essa <a href="https://django-report-builder.readthedocs.io/en/latest/quickstart/#asynchronous-report-generation" title="Leia mais na documentação da biblioteca">modalidade de "asynchronous reports"</a>
+através do <a href="http://www.celeryproject.org/" title="Celery: Distributed Task Queue"><em>Celery</em></a>.</p>
+<h2>Considerações finais</h2>
+<p>É fato que a "mágica pesada" fica no lado do <a href="/tag/wsgi.html" title="Leia mais sobre WSGI"><em>WSGI</em></a>, como você pode ver <a href="https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/#the-wsgi-server" title="How does Django’s StreamingHttpResponse work, exactly?">aqui</a>.
+O <em>Django</em> "faz o que pode" quando o assunto é lidar com grandes volumes de dados. Mas
+o ideal é sempre deixar essa carga de processamento fora do ciclo de vida da requisição do usuário.</p>
+<p>Mesmo assim, o <code class="language-text">StreamingHttpResponse</code> vem como uma boa alternativa para resolver
+alguns problemas de <em>views</em> com tempos de resposta e consumo de recursos muito altos, podendo
+ser a solução ideal para alguns relatórios que você emite em sua aplicação.</p>
+<p>Até a próxima.</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="http://blog.aeguana.com/2015/12/12/csv-export-data-for-django-model/"><em>Aeguana - How to export data as a CSV – Django model</em></a></li>
+<li><a href="https://andrewbrookins.com/django/how-does-djangos-streaminghttpresponse-work-exactly/"><em>Andrew Brookins - How does Django's StreamingHttpResponse work, exactly?</em></a></li>
+<li><a href="https://docs.djangoproject.com/en/1.11/ref/request-response/#streaminghttpresponse-objects"><em>Django Documentation - StreamingHttpResponse</em></a></li>
+<li><a href="http://www.ericcarmichael.com/streaming-django-responses-on-heroku.html"><em>nerdery - Streaming Django responses on Heroku</em></a></li>
+<li><a href="http://www.rodvdka.co.za/heroku/long-polling/h12/h18/django/2016/10/13/long-polling-heroku.html"><em>rodvdka - Django long running report on Django</em></a></li>
+<li><a href="http://stackoverflow.com/questions/33208849/python-django-streaming-video-mp4-file-using-httpresponse"><em>Stackoverflow - Streaming video/mp4 file using HttpResponse</em></a></li>
+<li><a href="http://stackoverflow.com/questions/1756096/understanding-generators-in-python"><em>Stackoverflow - Understanding Generators in Python</em></a></li>
+</ul></div><div class="article-tags__Tags-lfitfk-0 gKRNvs"><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/desenvolvimento-web.html">desenvolvimento-web</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/python.html">python</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/django.html">django</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/streaming.html">streaming</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/generators.html">generators</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/wsgi.html">wsgi</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/csv.html">csv</a></div><div class="article__DiscussionWrapper-sc-1bof3w4-2 lhlkLZ"><div shortname="klauslaube" config="[object Object]" id="disqus_thread"></div></div></div></div><footer class="page-footer__Footer-sc-1jesc4c-0 eZHcyp"><div class="container-sc-1o2is99-0 bfwjqj"><p>O conteúdo desse blog está sob a licença<!-- --> <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Creative Commons Attribution</a>.</p><p><a href="https://github.com/kplaube/blog" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Fork me on Github</a>.</p></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2017/05/14/streaming-dados-django.html";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e7e259d06d29a943bae9.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-0712dae6686d19cfe871.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-37944ec4ec91a7d47898.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bf5e10cca5c03eb48f60.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js" async=""></script><script src="/commons-d19a5247b9c341fd9cf4.js" async=""></script><script src="/app-e7e259d06d29a943bae9.js" async=""></script><script src="/styles-72b9aca6a03bf971c27e.js" async=""></script><script src="/framework-15c64f04ece7e16d9319.js" async=""></script><script src="/webpack-runtime-74a6d0a7c3b7aca6f059.js" async=""></script></body></html>

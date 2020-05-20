@@ -1,8 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - nodejs</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 16 Sep 2017 00:15:00 -0300</lastBuildDate><item><title>Documentando a sua API com raml2html</title><link>https://klauslaube.com.br/2017/09/16/documentando-sua-api-com-raml2html.html</link><description>&lt;p&gt;Uma das coisas mais legais em relação ao &lt;a href="https://klauslaube.com.br/tag/raml.html" title="Leia mais sobre RAML"&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - nodejs]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Documentando a sua API com raml2html]]></title><description><![CDATA[Uma das coisas mais legais em relação ao RAML
 (e afins) é a diversidade de ferramentas que existem em seu ecossistema.
 Embora a especificação por si cumpra o seu papel, são elas que trazem
-"mais cores" aos resultados práticos de ter uma &lt;em&gt;spec&lt;/em&gt; para a sua &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre API"&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;No universo do …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 16 Sep 2017 00:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-09-16:/2017/09/16/documentando-sua-api-com-raml2html.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>apis</category><category>raml</category><category>nodejs</category></item></channel></rss>
+"mais cores" aos resultados práticos de ter uma spec para a sua API. No universo do RAML, existe algumas boas…]]></description><link>https://klauslaube.com.br/2017/09/16/documentando-sua-api-com-raml2html.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/09/16/documentando-sua-api-com-raml2html.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 16 Sep 2017 00:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Uma das coisas mais legais em relação ao &lt;a href=&quot;/tag/raml.html&quot; title=&quot;Leia mais sobre RAML&quot;&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;
+(e afins) é a diversidade de ferramentas que existem em seu ecossistema.
+Embora a especificação por si cumpra o seu papel, são elas que trazem
+&quot;mais cores&quot; aos resultados práticos de ter uma &lt;em&gt;spec&lt;/em&gt; para a sua &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre API&quot;&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;No universo do &lt;em&gt;RAML&lt;/em&gt;, existe algumas boas ferramentas que geram documentação a partir da especificação.
+Soluções que vão do &lt;a href=&quot;https://github.com/spotify/ramlfications&quot; title=&quot;Conheça o Ramlfications&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/jhitchcock/raml2wiki&quot; title=&quot;Conheça o raml2wiki&quot;&gt;&lt;em&gt;Wikis&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/QuickenLoans/RAMLsharp&quot; title=&quot;Leia mais sobre o RAMLsharp&quot;&gt;&lt;em&gt;ASP.net&lt;/em&gt;&lt;/a&gt; e até ao
+&lt;a href=&quot;https://github.com/isaacloud/sdk-gen&quot; title=&quot;Gere SDKs usando RAML&quot;&gt;&lt;em&gt;Java&lt;/em&gt;&lt;/a&gt;. Mas acredito
+que a ferramenta mais atual seja o
+&lt;a href=&quot;https://github.com/raml2html/raml2html&quot; title=&quot; RAML to HTML documentation generator&quot;&gt;&lt;em&gt;raml2html&lt;/em&gt;&lt;/a&gt;,
+feito em &lt;a href=&quot;/tag/nodejs.html&quot; title=&quot;Leia mais sobre Node.js&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Simples, como as melhores coisas da vida&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://github.com/raml2html/raml2html&quot; title=&quot;RAML to HTML documentation generator&quot;&gt;&lt;em&gt;raml2html&lt;/em&gt;&lt;/a&gt;
+é uma biblioteca que transforma &lt;em&gt;specs&lt;/em&gt; &lt;em&gt;RAML&lt;/em&gt; em &lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt;.
+E o mais legal é que a sua versão 4 suporta a versão 1.0 da linguagem.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQBBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHnpqJqZpP/xAAaEAADAQADAAAAAAAAAAAAAAABAgMAEiIy/9oACAEBAAEFAo0ZdU8bMxYg9n1PX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAMAAwEAAAAAAAAAAAAAAAABERASQYH/2gAIAQEABj8C1i9KlCsvc//EABsQAQACAwEBAAAAAAAAAAAAAAEAESFBUTGR/9oACAEBAAE/IUPkExipyOfRiNq5XcWV27m/oT//2gAMAwEAAgADAAAAEHsf/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEx/9oACAEDAQE/ENR//8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxDHS0//xAAbEAEBAAIDAQAAAAAAAAAAAAABEQAhMUFRcf/aAAgBAQABPxB+kZru06xBUEkzfK/d4hS8i5Sk6Xu+3EBrBqa8Yls7Qvus/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Aguenta mais um pouco dessa poesia Vogon (imagilendo.wordpress.com)&amp;quot;&quot;
+        title=&quot;Aguenta mais um pouco dessa poesia Vogon (imagilendo.wordpress.com)&quot;
+        src=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg&quot;
+        srcset=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/7809d/poesia-vogon.jpg 192w,
+/static/38bde1abbcaf123f1744a17ab3a04572/4ecad/poesia-vogon.jpg 384w,
+/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Aguenta mais um pouco dessa poesia Vogon (imagilendo.wordpress.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Vamos aproveitar o &quot;mini IMDB&quot; construído no
+&lt;a href=&quot;/2017/01/31/ramilificando-as-suas-apis.html&quot; title=&quot;Ramilificando as suas APIs&quot;&gt;&lt;em&gt;post&lt;/em&gt; de &lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;, para
+ilustrar como essa ferramenta funciona. Mas antes, aquele &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt; clássico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm i -g raml2html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora é só chamar o utilitário de linha de comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ raml2html api.raml &amp;gt; index.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Basta abrir o arquivo no seu navegador favorito:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3d450d7316eac432c912aacbbdbe36b9/6af66/raml2html-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAABaklEQVQoz5WS21KDMBCGeXNfw3fQF/DCG2e807EzrT0oVMqhLeeQQAI5gEugWHG04zdc7O7kz27+xXAc56BxXXe323me55+wLCsIAsYYpbRpmlajdHB9b17dLgzbttfrtWmaW8sKowghFIZhHMdpmsKNkFZVBfpR3JOQOsgrA6pFUZRlCUfaf2LkeZ4kCee8rmv2J7T/KIWTg5hgcgzCHGMt7+C/oCRXQkguhRCDGKolyVo15PAKpcCUb0BVSDVzq2d/v0xWteSDWEo5dwozAFtoQUg/UvMDqVRSyrgsc4YgHsTQ59F/f/K3KMvA5CzLGKsm8olPY6XrjEiESAy3QCw0o0xvtQmwWBzoQ4o3rkc3K8nPxvaOZB8SITrHIJ2MDVlaCCtiM1y6YVjbH3I0DB5w4+A7D6MkPo3NzptfGHs+e3lbvsZxEkURxhj+mYltqltB51m3CL2LL8NalDV5zmFuWKZ2srlEL/4E5M3vVnQUf6wAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de documentação RAML&amp;quot;&quot;
+        title=&quot;Exemplo de documentação RAML&quot;
+        src=&quot;/static/3d450d7316eac432c912aacbbdbe36b9/6af66/raml2html-example.png&quot;
+        srcset=&quot;/static/3d450d7316eac432c912aacbbdbe36b9/8514f/raml2html-example.png 192w,
+/static/3d450d7316eac432c912aacbbdbe36b9/804b2/raml2html-example.png 384w,
+/static/3d450d7316eac432c912aacbbdbe36b9/6af66/raml2html-example.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de documentação RAML&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Simples, não? Calma que ainda não acabou! Existe a possibilidade de utilizar temas juntamente com o &lt;code class=&quot;language-text&quot;&gt;raml2html&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm i -g raml2html-markdown-theme&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora basta passar o tema na hora de gerar a documentação:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ raml2html --theme raml2html-markdown-theme api.raml &amp;gt; index.md&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Sem dúvida, um dos templates mais legais que temos disponível é o &lt;code class=&quot;language-text&quot;&gt;raml2html-slate-theme&lt;/code&gt;.
+Completo, e baseado no próprio
+&lt;a href=&quot;https://github.com/lord/slate&quot; title=&quot;Beautiful static documentation for your API&quot;&gt;&lt;em&gt;Slate&lt;/em&gt;&lt;/a&gt;,
+famosa ferramenta para criação de documentação de &lt;em&gt;APIs&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fa67e81f6682a91ec52b768cbcd65d95/6af66/raml2html-example-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAABXElEQVQoz21S/06CUBjlRaq1ZmJwub9IRG2aW60eopaIGOupq39KcAkKZAj0AbMY49yzO+7G4ZzvXITXt3dgEIRxHP8csNvtsiwz5gtVG0xu79XeQCYcUbVGwd9sNtttkiRZBUmawm5adltSuvqQqFqzOIq+AaVVTWzMLYnwq/GEd3sSoYiykgrL9wuFCkvHdVx36Tie7/+LiyCP09lJS0SUI6IojGBGFIYxJ4QTRHBbQkIYhvDqfh9Xk5fPhrk4bYkKUyXMJcwqhCOHQYS0SAhIK9gXYst+EWUCbbGu3sg89sfnMgjD6szlF82FrWr9yc1dbzhqLmydw/M8PwyjWmEzy4ZW9KsxmKBG8TYAwOARrL8RDuJnmfLB6Jpe6h1EZcJqBGcPjL/W62rysrCH6eyoJaqapvXBm2KoOm+7ICN523BP7moFPwrcdk38ZJjHZ+eYqZgxhdIOwjX+AtYmbk4Lol1rAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de documentação RAML&amp;quot;&quot;
+        title=&quot;Exemplo de documentação RAML&quot;
+        src=&quot;/static/fa67e81f6682a91ec52b768cbcd65d95/6af66/raml2html-example-2.png&quot;
+        srcset=&quot;/static/fa67e81f6682a91ec52b768cbcd65d95/8514f/raml2html-example-2.png 192w,
+/static/fa67e81f6682a91ec52b768cbcd65d95/804b2/raml2html-example-2.png 384w,
+/static/fa67e81f6682a91ec52b768cbcd65d95/6af66/raml2html-example-2.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de documentação RAML&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Você pode criar o seu próprio template! Eles são escritos utilizando o
+&lt;a href=&quot;https://mozilla.github.io/nunjucks/&quot; title=&quot; A rich and powerful templating language for JavaScript.&quot;&gt;&lt;em&gt;Nunjucks&lt;/em&gt;&lt;/a&gt;,
+linguagem de templates &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; da &lt;em&gt;Mozilla&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;post&lt;/em&gt; de hoje foi uma dica rápida e rasteira.&lt;/p&gt;
+&lt;p&gt;A partir do momento que você pratica o
+&lt;a href=&quot;https://swaggerhub.com/blog/api-design/design-first-or-code-first-api-development/&quot; title=&quot;Design First or Code First: What’s the Best Approach to API Development?&quot;&gt;&lt;em&gt;design first&lt;/em&gt;&lt;/a&gt;,
+ter uma especificação &lt;em&gt;RAML&lt;/em&gt; como &quot;single source of truth&quot; é um caminho no mínimo razoável.
+Com isso, gerar documentações através de ferramentas como a apresentada nesse artigo torna-se
+algo rápido e prático.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;</content:encoded></item></channel></rss>

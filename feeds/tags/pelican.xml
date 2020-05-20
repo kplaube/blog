@@ -1,8 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - pelican</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 26 Mar 2014 12:00:00 -0300</lastBuildDate><item><title>Pelican e os static site generators</title><link>https://klauslaube.com.br/2014/03/26/pelican-e-os-static-site-generators.html</link><description>&lt;p&gt;O &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; é de longe o meu &lt;em&gt;framework&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; favorito. Fácil,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pelican]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Pelican e os static site generators]]></title><description><![CDATA[O Django é de longe o meu framework Python favorito. Fácil,
 extensível, com uma série de "baterias inclusas" que tornam o desenvolvimento
-de aplicações &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; muito mais fácil e divertido.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
+de aplicações web muito mais fácil e divertido. Mas verdade seja dita, para algumas soluções, é como se utilizássemos um
+canhão para matar um mosquito. Existe…]]></description><link>https://klauslaube.com.br/2014/03/26/pelican-e-os-static-site-generators.html</link><guid isPermaLink="false">https://klauslaube.com.br/2014/03/26/pelican-e-os-static-site-generators.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 26 Mar 2014 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; é de longe o meu &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; favorito. Fácil,
+extensível, com uma série de &quot;baterias inclusas&quot; que tornam o desenvolvimento
+de aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; muito mais fácil e divertido.&lt;/p&gt;
 &lt;p&gt;Mas verdade seja dita, para algumas soluções, é como se utilizássemos um
-canhão para matar um mosquito. Existe toda uma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 26 Mar 2014 12:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2014-03-26:/2014/03/26/pelican-e-os-static-site-generators.html</guid><category>desenvolvimento</category><category>web</category><category>blog</category><category>pelican</category><category>python</category></item></channel></rss>
+canhão para matar um mosquito. Existe toda uma preocupação no que diz respeito
+a persistência, &lt;a href=&quot;/tag/cache.html&quot; title=&quot;Leia mais sobre Cache&quot;&gt;&lt;em&gt;caching&lt;/em&gt;&lt;/a&gt;, serviço de aplicação e serviço &lt;em&gt;Web&lt;/em&gt;, que em
+determinados contextos não passa de &quot;overhead&quot;.&lt;/p&gt;
+&lt;p&gt;Foi em cima dessa linha de pensamento que resolvi abandonar a &lt;em&gt;engine&lt;/em&gt; de
+&lt;em&gt;blog&lt;/em&gt; &lt;a href=&quot;https://bitbucket.org/semente/django-diario&quot; title=&quot;Conheça a engine de blogs escrita em Python e Django&quot;&gt;&lt;em&gt;django-diario&lt;/em&gt;&lt;/a&gt;, e me aventurar pelo mundo dos geradores de sites
+estáticos.&lt;/p&gt;
+&lt;h2&gt;Por que um static site generator?&lt;/h2&gt;
+&lt;p&gt;Geradores de sites estáticos não são nenhuma novidade, e
+&lt;a href=&quot;http://staticsitegenerators.net/&quot; title=&quot;The definitive listing of Static Site Generators&quot;&gt;existem aos montes&lt;/a&gt;. Seja em &lt;a href=&quot;http://jekyllrb.com/&quot; title=&quot;Transform your plain text into static websites and blogs&quot;&gt;&lt;em&gt;Ruby&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;http://docpad.org/&quot; title=&quot;Designers and developers can create websites faster than ever before&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;http://dropplets.com/&quot; title=&quot;A fresh platform dedicated to making blogging simple again&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; ou até mesmo em &lt;a href=&quot;http://ikiwiki.info/&quot; title=&quot;Ikiwiki is a wiki compiler. It converts wiki pages into HTML pages suitable for publishing on a website&quot;&gt;&lt;em&gt;Perl&lt;/em&gt;&lt;/a&gt;, a sua popularidade é notória e no mínimo
+curiosa.&lt;/p&gt;
+&lt;p&gt;Alguns amam, &lt;a href=&quot;http://blog.millermedeiros.com/static-site-generators/&quot; title=&quot;Static site generators&quot;&gt;outros odeiam&lt;/a&gt;. A verdade é que (uma vez a sua ferramenta
+devidamente configurada) eles tornam a publicação de conteúdo muito simples:
+Basta pegar o &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt; gerado e jogar no seu servidor favorito, podendo
+inclusive ser aquela sua hospedagem nacional, que mal funciona e que você sonha
+um dia ter suporte a &lt;em&gt;Python 3&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Já passei por problemas com indisponibilidade de banco de dados, &lt;em&gt;websites&lt;/em&gt;
+invadidos por falhas de segurança em aplicações como &lt;em&gt;Joomla!&lt;/em&gt; e &lt;em&gt;Wordpress&lt;/em&gt;,
+e nem vou mencionar as dores de cabeça que já tive para configurar um servidor
+&lt;a href=&quot;/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html&quot; title=&quot;Entendendo o CGI, FastCGI e o WSGI&quot;&gt;&lt;em&gt;WSGI&lt;/em&gt;&lt;/a&gt; dentro de uma hospedagem.&lt;/p&gt;
+&lt;p&gt;Com ferramentas como o &lt;a href=&quot;http://docs.getpelican.com/&quot; title=&quot;Pelican is a static site generator, written in Python&quot;&gt;&lt;em&gt;Pelican&lt;/em&gt;&lt;/a&gt; esses problemas deixam de existir. A
+persistência é feita no seu próprio disco, o que é ótimo, já que você pode
+manter o seu &lt;em&gt;blog&lt;/em&gt; inteiro (inclusive o seu conteúdo) versionado no
+&lt;a href=&quot;https://github.com/kplaube/blog&quot; title=&quot;Contribua com o código deste blog!&quot;&gt;&lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Não estamos &quot;regredindo&quot; para um &lt;em&gt;web&lt;/em&gt; estática, estamos apenas explorando
+diferentes meios para publicação de conteúdo :)&lt;/p&gt;
+&lt;h2&gt;Pelican FTW!&lt;/h2&gt;
+&lt;p&gt;Por que &lt;em&gt;Pelican&lt;/em&gt;? Porque é feito em &lt;em&gt;Python&lt;/em&gt;. Simples assim.&lt;/p&gt;
+&lt;p&gt;Foi a primeira ferramenta que encontrei feita na linguagem, e desde lá venho
+explorando as suas funcionalidades. Logo, seria hipocrisia dar qualquer
+resposta diferente desta.&lt;/p&gt;
+&lt;p&gt;É claro que a ferramenta possui seus atrativos, a começar pela ótima
+integração com o &lt;a href=&quot;http://jinja.pocoo.org/docs/&quot; title=&quot;Jinja2 is a modern and designer friendly templating language for Python, modelled after Django’s templates&quot;&gt;&lt;em&gt;Jinja2&lt;/em&gt;&lt;/a&gt;, que torna o processo de criação dos temas muito
+mais fácil e intuitivo. Estender o &lt;em&gt;Pelican&lt;/em&gt; &lt;a href=&quot;http://docs.getpelican.com/en/3.3.0/plugins.html#how-to-create-plugins&quot; title=&quot;Como criar plugins para o Pelican&quot;&gt;é simples&lt;/a&gt;, embora
+ele já possua uma série de &lt;a href=&quot;https://github.com/getpelican/pelican-plugins&quot; title=&quot;A bunch of plugins for the pelican blog engine.&quot;&gt;&lt;em&gt;plugins&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://github.com/getpelican/pelican-themes&quot; title=&quot;Themes for pelican&quot;&gt;temas&lt;/a&gt; para diferentes fins,
+prontinhos para uso.&lt;/p&gt;
+&lt;p&gt;Nesse processo &lt;a href=&quot;https://github.com/kplaube/maggner-pelican&quot; title=&quot;Contribua com o Maggner-Pelican&quot;&gt;escrevi um tema&lt;/a&gt; para o &lt;em&gt;blog&lt;/em&gt;, e tendo escrito
+&lt;em&gt;templates&lt;/em&gt; para &lt;em&gt;Joomla!&lt;/em&gt;, &lt;em&gt;Wordpress&lt;/em&gt; e até mesmo &lt;em&gt;Django&lt;/em&gt;, sou obrigado a
+dizer: É muito, muito mais simples!&lt;/p&gt;
+&lt;p&gt;Além de ser fácil de usar, a ferramenta &lt;strong&gt;pelican-quickstart&lt;/strong&gt; te entrega logo
+de cara uma estrutura de projeto bem consistente, incluindo &lt;em&gt;tasks&lt;/em&gt; de
+publicação através de &lt;em&gt;Makefile&lt;/em&gt; e &lt;a href=&quot;/2012/02/26/automatize-o-deploy-dos-seus-projetos-com-fabric.html&quot; title=&quot;Automatize o deploy dos seus projetos com Fabric&quot;&gt;&lt;em&gt;Fabric&lt;/em&gt;&lt;/a&gt;. É configurar o seu
+&lt;strong&gt;pelicanconf.py&lt;/strong&gt;, escolher o seu tema preferido, e sair usando.&lt;/p&gt;
+&lt;p&gt;Lembro de começar a usar o &lt;em&gt;Pelican&lt;/em&gt; antes da sua versão &lt;strong&gt;3.3&lt;/strong&gt;, e foi uma
+tremenda dor de cabeça. Essa última versão está mais &quot;redonda&quot;, sua
+documentação abrange muito bem os passos de escrita conteúdo e criação de temas.&lt;/p&gt;
+&lt;p&gt;Minha maior crítica fica na fraca solução dada para instalação e gerência de
+temas e &lt;em&gt;plugins&lt;/em&gt;. Fico na esperança de alguma boa alma chegar com uma ideia
+muito boa para resolver esse problema.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Hype&lt;/em&gt; ou não, os &lt;em&gt;static site generators&lt;/em&gt; possuem sim o seu valor. Se você
+está querendo blogar, ou está cansado de lidar com aquele seu &lt;em&gt;Wordpress&lt;/em&gt; que
+mais parece um elefante branco, considere utilizar uma dessas ferramentas.&lt;/p&gt;
+&lt;p&gt;E se você é pythonista, considere utilizar o &lt;em&gt;Pelican&lt;/em&gt;. Quanto mais gente
+talentosa estendendo-o, melhor ele ficará!&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item></channel></rss>

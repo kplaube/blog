@@ -1,8 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - pep8</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 26 Aug 2011 13:51:00 -0300</lastBuildDate><item><title>Assegure a qualidade do seu código Python - pep8</title><link>https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html</link><description>&lt;p&gt;Convenções de código! Já tive a oportunidade de &lt;a href="http://www.profissionaisti.com.br/2009/06/codifique-como-um-verdadeiro-pythonista/" title="Codifique como um verdadeiro Pythonista"&gt;escrever sobre elas no &lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;. Benção ou
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pep8]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - pep8]]></title><description><![CDATA[Convenções de código! Já tive a oportunidade de escrever sobre elas no Profissionais TI. Benção ou
+maldição? Há quem goste, há quem ache uma perda de tempo… Acredito muito que a organização e a qualidade do código são benéficas
+para qualquer projeto, principalmente para aqueles que possuem alta…]]></description><link>https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 26 Aug 2011 13:51:00 GMT</pubDate><content:encoded>&lt;p&gt;Convenções de código! Já tive a oportunidade de &lt;a href=&quot;http://www.profissionaisti.com.br/2009/06/codifique-como-um-verdadeiro-pythonista/&quot; title=&quot;Codifique como um verdadeiro Pythonista&quot;&gt;escrever sobre elas no &lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;. Benção ou
 maldição? Há quem goste, há quem ache uma perda de tempo…&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Acredito muito que a organização e a qualidade do código são benéficas
 para qualquer projeto, principalmente para aqueles que possuem alta
-rotatividade de …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 26 Aug 2011 13:51:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-08-26:/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>pep8</category></item></channel></rss>
+rotatividade de profissionais. Padrões de projetos, padrões estruturais
+e de escrita facilitam a “assimilação” do que já foi produzido, facilita
+a manutenção e “orienta” as novas produções.&lt;/p&gt;
+&lt;p&gt;Se você tem problemas em decorar convenções e boas práticas, não
+desanime! O &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; possui algumas ferramentas “bacanudas” que vão
+te auxiliar a deixar o &lt;em&gt;software&lt;/em&gt; mais próximo do “estado da arte”, seja
+garantindo as convenções de código, seja avaliando a qualidade do mesmo.&lt;/p&gt;
+&lt;h2&gt;Python Enhancement Proposals&lt;/h2&gt;
+&lt;p&gt;As “PEPs“ (&lt;em&gt;Python Enhancement Proposal&lt;/em&gt;) são documentos que geralmente
+abordam alguma nova funcionalidade da linguagem, propósitos,
+procedimentos ou ambiente. Em suma, são “guidelines” que te orientam num
+melhor uso da linguagem e suas funcionalidades, bem como podem ajudar em
+questões como arquitetura, ambiente ou processos de sua aplicação.&lt;/p&gt;
+&lt;p&gt;Para saber mais sobre &lt;em&gt;PEPs&lt;/em&gt;, acesse a &lt;a href=&quot;http://www.python.org/dev/peps/pep-0001/&quot; title=&quot;PEP1 - PEP Purpose and Guidelines&quot;&gt;&lt;em&gt;PEP 1&lt;/em&gt;&lt;/a&gt; que é justamente um documento
+explicando o que são e o que fazem as &lt;em&gt;Python Enhancement Proposals&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;pep8&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;pep8&lt;/em&gt; é uma ferramenta simples (e muito eficaz) que analisa o seu
+código &lt;em&gt;Python&lt;/em&gt; segundo as convenções de código descritas na
+&lt;a href=&quot;http://www.python.org/dev/peps/pep-0008/&quot; title=&quot;PEP 8 - Style Guide for Python Code&quot;&gt;&lt;em&gt;PEP 8&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos analisar o código do &lt;a href=&quot;https://github.com/djangobrasil/djangobrasil.org&quot; title=&quot;Repositório no GitHub do site do Django no Brasil&quot;&gt;&lt;em&gt;Django Brasil&lt;/em&gt;&lt;/a&gt; (você não sabia? O site é
+&lt;em&gt;open source&lt;/em&gt;!), mais especificamente o arquivo &lt;strong&gt;models.py&lt;/strong&gt; da &lt;em&gt;app&lt;/em&gt;
+&lt;strong&gt;blog&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pep8 src/djangobrasil/apps/blog/models.py
+
+src/djangobrasil/apps/blog/models.py:42:65: W291 trailing whitespace
+src/djangobrasil/apps/blog/models.py:62:1: E302 expected 2 blank lines, found 1
+src/djangobrasil/apps/blog/models.py:105:80: E501 line too long (89 characters)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como podemos ver, a ferramenta nos mostra a linha e coluna onde o
+problema foi encontrado, apresentando uma breve descrição da incoerência
+que estamos cometendo em relação às recomendações da
+&lt;em&gt;PEP 8&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para obter uma resposta mais “verbose“, podemos passar alguns parâmetros
+para o &lt;code class=&quot;language-text&quot;&gt;pep8&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pep8 src/djangobrasil/apps/blog/models.py --show-source --show-pep8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Viu só?! Dessa forma podemos aprender sobre a &lt;em&gt;PEP 8&lt;/em&gt; enquanto “ferimos” as
+convenções de código em nossos projetos :D&lt;/p&gt;
+&lt;p&gt;Para finalizar, podemos contar as ocorrências de problemas com a
+&lt;em&gt;PEP 8&lt;/em&gt; em determinada região do projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pep8 src/djangobrasil/apps/blog/ --statistics -qq --filename=*.py
+
+1       E225 missing whitespace around operator
+7       E302 expected 2 blank lines, found 1
+1       E303 too many blank lines (2)
+11      E501 line too long (89 characters)
+4       W291 trailing whitespace
+2       W391 blank line at end of file&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nenhum problema muito grave de convenções de código na &lt;em&gt;app blog&lt;/em&gt; do
+&lt;em&gt;DjangoBrasil&lt;/em&gt; ;)&lt;/p&gt;
+&lt;p&gt;Confira: &lt;a href=&quot;https://github.com/jcrocholl/pep8/&quot; title=&quot;Repositório no GitHub do pep8&quot;&gt;&lt;em&gt;pep8 – Python style guide checker&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/dev/peps/&quot; title=&quot;Conheça os tipos de PEPs e quais os seus propósitos&quot;&gt;&lt;em&gt;Python.org – Index of Python Enhancement Proposals (PEPs)&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/dev/peps/pep-0001/&quot; title=&quot;Saiba o que é, o que faz, e como é feita uma PEP&quot;&gt;&lt;em&gt;Python.org – PEP 1: Purpose and Guidelines&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/dev/peps/pep-0008/&quot; title=&quot;Conheça as convenções de código Python&quot;&gt;&lt;em&gt;Python.org – PEP 8: Style Guide for Python Code&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.vivaolinux.com.br/artigo/PEP-8-Guia-de-estilo-para-codigo-Python&quot; title=&quot;Artigo do Viva o Linux que é uma adaptação para o Português da PEP 8&quot;&gt;&lt;em&gt;Viva o Linux&lt;/em&gt; – &lt;em&gt;PEP 8&lt;/em&gt;: Guia de estilo para código &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jcrocholl/pep8/&quot; title=&quot;Repositório no GitHub do projeto pep8&quot;&gt;&lt;em&gt;GitHub – pep8&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nos próximos &lt;em&gt;posts&lt;/em&gt;, vamos dar uma pincelada no &lt;em&gt;pylint&lt;/em&gt;, &lt;em&gt;pyflakes&lt;/em&gt; e
+&lt;em&gt;clone digger&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

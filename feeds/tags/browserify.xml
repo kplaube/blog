@@ -1,12 +1,162 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - browserify</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 20 Jun 2016 23:04:00 -0300</lastBuildDate><item><title>Django e ES6 com django-compressor</title><link>https://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html" title="Django e Sass com django-compressor"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
-falamos sobre como utilizar o &lt;a href="https://klauslaube.com.br/tag/sass.html" title="Leia mais sobre Sass"&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
-com o &lt;em&gt;framework&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - browserify]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django e ES6 com django-compressor]]></title><description><![CDATA[No post anterior,
+falamos sobre como utilizar o Sass
+com o framework Django
+através da biblioteca Compressor (e sem necessitar de uma
+ferramenta intermediária para build). Nesse artigo, vamos utilizar
+o mesmo conceito e apresentar uma forma diferente de utilizar
+a nova versão do Javascript
+com o…]]></description><link>https://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 20 Jun 2016 23:04:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2016/06/04/django-e-sass-com-django-compressor.html&quot; title=&quot;Django e Sass com django-compressor&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
+falamos sobre como utilizar o &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
+com o &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;
 através da biblioteca &lt;em&gt;Compressor&lt;/em&gt; (e sem necessitar de uma
 ferramenta intermediária para &lt;em&gt;build&lt;/em&gt;). Nesse artigo, vamos utilizar
 o mesmo conceito e apresentar uma forma diferente de utilizar
-a nova versão do &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;
-com o &lt;code&gt;django-compressor&lt;/code&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+a nova versão do &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;
+com o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalando e configurando o Compressor&lt;/h2&gt;
+&lt;p&gt;Vamos recaptular o processo de instalação do &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install django-compressor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos esquecer de adicionar a &lt;em&gt;app&lt;/em&gt; ao &lt;code class=&quot;language-text&quot;&gt;INSTALLED_APPS&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+INSTALLED_APPS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;compressor&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E para finalizar, precisamos fazer os estáticos serem &quot;encontráveis&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+STATICFILES_FINDERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.staticfiles.finders.FileSystemFinder&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.contrib.staticfiles.finders.AppDirectoriesFinder&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;compressor.finders.CompressorFinder&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para simplificar o nosso exemplo, vou reaproveitar o cenário criado no &lt;em&gt;post&lt;/em&gt;
+anterior:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;django-html&quot;&gt;&lt;pre class=&quot;language-django-html&quot;&gt;&lt;code class=&quot;language-django-html&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
 
-&lt;h2&gt;Instalando e …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 20 Jun 2016 23:04:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-06-20:/2016/06/20/django-e-es6-com-django-compressor.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>es6</category><category>javascript</category><category>babel</category><category>browserify</category></item></channel></rss>
+{% load compress %}
+{% load staticfiles %}
+
+{% compress js %}
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;vendor/jquery/jquery.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;js/app.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+{% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Imagine que o nosso arquivo &lt;code class=&quot;language-text&quot;&gt;js/app.js&lt;/code&gt; é um &lt;em&gt;Javascript&lt;/em&gt;, mas escrito seguindo as
+especificações do &lt;a href=&quot;/tag/es6.html&quot; title=&quot;Leia mais sobre ES6&quot;&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Podendo ser algo
+semelhante ao exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; createStore &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;redux&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; rootReducer &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./reducers&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; App &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;./components/app&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; store &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createStore&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;rootReducer&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;app&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;subscriber&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O bloco de &lt;code class=&quot;language-text&quot;&gt;{% compress js %}&lt;/code&gt; será responsável por minificar e concatenar os nossos &lt;em&gt;scripts&lt;/em&gt;.
+Se executarmos o comando &lt;code class=&quot;language-text&quot;&gt;manage.py compress&lt;/code&gt;, provavelmente não teremos nenhum problema,
+e o &lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt; de resposta será algo parecido com isso:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- index.html --&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text/javascript&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/static/CACHE/js/3ffb288f8747.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas o &lt;em&gt;ES6&lt;/em&gt; ainda não é amplamente suportado pelos navegadores... logo, teremos
+que usar &quot;transpiladores&quot; para que o código seja traduzido em algo &quot;entendível&quot; pelos &lt;em&gt;browsers&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Hello NPM my old friend&lt;/h2&gt;
+&lt;p&gt;Eu sinceramente desconheço uma ferramenta que faça &lt;a href=&quot;https://www.stevefenton.co.uk/2012/11/compiling-vs-transpiling/&quot; title=&quot;Compiling vs Transpiling&quot;&gt;&lt;em&gt;transpiling&lt;/em&gt;&lt;/a&gt;
+de &lt;em&gt;ES6&lt;/em&gt; para &lt;em&gt;ES5&lt;/em&gt; melhor que o &lt;a href=&quot;https://babeljs.io/&quot; title=&quot;Use next generation JavaScript, today&quot;&gt;&lt;em&gt;Babel&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;E embora a gente &quot;torça o nariz&quot; para a necessidade de adicionar &lt;a href=&quot;/tag/node.html&quot; title=&quot;Leia mais sobre Node&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;
+à nossa &lt;em&gt;stack&lt;/em&gt; &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, o uso do &lt;em&gt;Babel&lt;/em&gt; nessas condições faz
+certo sentido. Primeiro, por nos permitir escrever &lt;em&gt;Javascript&lt;/em&gt;
+numa versão mais prática, legível e divertida. Segundo, que com o auxílio do
+&lt;a href=&quot;http://browserify.org/&quot; title=&quot;Browserify lets you require modules in the browser&quot;&gt;&lt;em&gt;Browserify&lt;/em&gt;&lt;/a&gt; (por exemplo),
+podemos deixar a resolução de &lt;em&gt;path&lt;/em&gt; do &lt;em&gt;JS&lt;/em&gt; nas mãos da tríade &lt;em&gt;NPM/Browserify/Babel&lt;/em&gt;
+(ou você achou que aquele &lt;code class=&quot;language-text&quot;&gt;import &amp;#39;redux&amp;#39;&lt;/code&gt; veio de graça?).&lt;/p&gt;
+&lt;p&gt;Isso nos permite escrever &lt;em&gt;Javascript&lt;/em&gt; modular, utilizando recursos que já são &lt;em&gt;built-in&lt;/em&gt;
+(na especificação) da linguagem, sem necessariamente nos preocuparmos em como resolveremos as
+questões de importação (como por exemplo, se usaremos &lt;a href=&quot;http://requirejs.org/&quot; title=&quot;RequireJS is a JavaScript file and module loader&quot;&gt;&lt;em&gt;RequireJS&lt;/em&gt;&lt;/a&gt;
+ou &lt;a href=&quot;https://github.com/cujojs/curl&quot; title=&quot;curl.js is small, fast, extensible module loader&quot;&gt;&lt;em&gt;curl.js&lt;/em&gt;&lt;/a&gt;)
+e deixamos toda essa responsabilidade nas mãos da ferramenta de &lt;em&gt;bundling&lt;/em&gt; de sua escolha.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dc950275e2c6d590b83a54d5a867fdc3/2a195/django-babel-auf-wiedersehen.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABqElEQVQY00VQW0sbQRSey5mdnZ3d7G5izEZysQGVavGGSL1D+54SsGpSMSiojQ/SKFITqUalGMGoiOCDDyL4WihtH/rU39azKW0PB+Yb5rucM4RSKgAiyvIsHXPsVNSPKOVpXZiZblbenxQL80O5npivhNnbFXMtC7jBGKftIoQSCcJVOqqdwPUyMT+qrYTrflpb+XF5/lSrtor58ssRTyolTcYYpX+6LaYhZJwDcBBgmEJyJuKO3n6b/3lzeTD/5nR5KT86nPXcdiZy2f9kRjlesMNiILhBGXTa6rhc+nV3+1Dd+XJ8tPl69kWHL4XJwxiB7v+SUQo8NMMDDIH2kPQijfLS96uLr6eN85Xi5LNsrjNhWzbS2+S/YuDCAOlqJ+75jEK4BGGM0P5M6np//6yysf5qsjAykIonkEkIvqGSIwjFOCyioMPvz6UJ4Yl40BWkp8bGt0vLd81WY7f2YXWjsrCYCZKGtKRUuKGBn8Mxn5FwWwamEHPjE9Wtvd2t+vXB52+tZv1d6XCn9nj/+LFaHxwYNZWd7e7r6R163jecTqY97bim/g2WwkJ29mDhJgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Django + Babel é como dar um Auf Wiedersehen para o ES5 (fallsdownz.blogspot.com.br)&amp;quot;&quot;
+        title=&quot;Django + Babel é como dar um Auf Wiedersehen para o ES5 (fallsdownz.blogspot.com.br)&quot;
+        src=&quot;/static/dc950275e2c6d590b83a54d5a867fdc3/2a195/django-babel-auf-wiedersehen.png&quot;
+        srcset=&quot;/static/dc950275e2c6d590b83a54d5a867fdc3/8514f/django-babel-auf-wiedersehen.png 192w,
+/static/dc950275e2c6d590b83a54d5a867fdc3/804b2/django-babel-auf-wiedersehen.png 384w,
+/static/dc950275e2c6d590b83a54d5a867fdc3/2a195/django-babel-auf-wiedersehen.png 620w&quot;
+        sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Django + Babel é como dar um Auf Wiedersehen para o ES5 (fallsdownz.blogspot.com.br)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Sem mais delongas, vamos instalar as dependências que precisaremos para o nosso exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save-dev babelify babel-preset-es2015 redux&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dos pacotes acima, os mais fundamentais são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;babelify&lt;/code&gt;: Um &lt;a href=&quot;http://babeljs.io/docs/plugins/#transform&quot; title=&quot;Babel plugins&quot;&gt;&lt;em&gt;transform&lt;/em&gt;&lt;/a&gt; de &lt;em&gt;Babel&lt;/em&gt; para o &lt;em&gt;Browserify&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;babel-preset-es2015&lt;/code&gt;: Um &lt;em&gt;preset&lt;/em&gt; com um apanhado de &lt;em&gt;plugins&lt;/em&gt; necessários para compilar &lt;em&gt;ES2015&lt;/em&gt; para &lt;em&gt;ES5&lt;/em&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O pacote &lt;code class=&quot;language-text&quot;&gt;redux&lt;/code&gt; é apenas uma dependência utilizada pelo exemplo, e não
+influencia diretamente no processo de &lt;em&gt;build&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para facilitar a comunicação entre o &lt;em&gt;Django&lt;/em&gt; e o &lt;em&gt;Babel&lt;/em&gt;, vamos criar um arquivo de configuração
+&lt;code class=&quot;language-text&quot;&gt;.babelrc&lt;/code&gt;, na raíz do nosso projeto, com a seguinte configuração:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Voltamos ao &lt;em&gt;Django&lt;/em&gt;, para terminar de configurar o nosso projeto.&lt;/p&gt;
+&lt;h2&gt;Back to the Django&lt;/h2&gt;
+&lt;p&gt;Como no exemplo do &lt;em&gt;post&lt;/em&gt; anterior, vamos utilizar a capacidade de setarmos
+compiladores/transpiladores, no &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;, e passaremos a interpretar
+os arquivos &lt;em&gt;Javascript&lt;/em&gt; utilizando o &lt;em&gt;Babel&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/es6&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./node_modules/.bin/browserify {infile} -t babelify --outfile {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;./node_modules/.bin/browserify&lt;/code&gt; é onde está o binário após ser instalado
+via &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt;. Os parâmetros &lt;code class=&quot;language-text&quot;&gt;infile&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;outfile&lt;/code&gt; dizem respeito ao arquivo de entrada e
+de saída, respectivamente.&lt;/p&gt;
+&lt;p&gt;Agora basta voltarmos ao nosso &lt;em&gt;template&lt;/em&gt;, e adicionarmos o atributo &lt;code class=&quot;language-text&quot;&gt;type=&amp;quot;text/es6&lt;/code&gt; à
+nossa &lt;em&gt;tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;django-html&quot;&gt;&lt;pre class=&quot;language-django-html&quot;&gt;&lt;code class=&quot;language-django-html&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
+
+{% load compress %}
+{% load staticfiles %}
+
+{% compress js %}
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;vendor/jquery/jquery.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&amp;quot;{% static &amp;#39;js/app.js&amp;#39; %}&amp;quot; type=&amp;quot;text/es6&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+{% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Agora é só ver o resultado através do comando &lt;code class=&quot;language-text&quot;&gt;python manage.py compress&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Tratando-se de uma aplicação em produção, onde é recomendado utilizar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;
+com &lt;a href=&quot;http://django-compressor.readthedocs.io/en/latest/scenarios/#offline-compression&quot; title=&quot;Offline compression&quot;&gt;&lt;em&gt;offline compression&lt;/em&gt;&lt;/a&gt;,
+a adição do &lt;em&gt;Browserify&lt;/em&gt; não impactará no tempo de resposta
+do seu servidor. No entanto, é certo que o servidor local, levantado através do
+&lt;code class=&quot;language-text&quot;&gt;manage.py runserver&lt;/code&gt;, leve um tempo maior para responder depois dessa adição.&lt;/p&gt;
+&lt;p&gt;Na dúvida, não custa testar...&lt;/p&gt;
+&lt;p&gt;Inicie utilizando o &lt;em&gt;Django&lt;/em&gt; com &lt;em&gt;Compressor&lt;/em&gt;. A partir do momento onde os
+tempos de resposta tornem-se muito altos, opte por uma ferramenta que
+&lt;a href=&quot;/2016/02/22/vivendo-sem-o-grunt.html&quot; title=&quot;Vivendo sem o Grunt&quot;&gt;execute o &lt;em&gt;build&lt;/em&gt; em paralelo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/babel/babelify&quot;&gt;&lt;em&gt;Babelify - Browserify transform for Babel&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://django-compressor.readthedocs.io/en/latest/&quot;&gt;&lt;em&gt;Django Compressor - Compresses linked and inline JavaScript or CSS into a single cached file&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

@@ -1,9 +1,219 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - splinter</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 03 Feb 2016 23:50:00 -0200</lastBuildDate><item><title>BDD com Django e Behave</title><link>https://klauslaube.com.br/2016/02/03/bdd-com-django-e-behave.html</link><description>&lt;p&gt;Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - splinter]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[BDD com Django e Behave]]></title><description><![CDATA[Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,
+é uma grande prática no que diz respeito a escrita de testes que guiem o
+seu desenvolvimento. Deixando a polêmica do "TDD is dead"
+de lado, criar cenários que garantem um determinado fluxo, além de servir
+como um…]]></description><link>https://klauslaube.com.br/2016/02/03/bdd-com-django-e-behave.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/02/03/bdd-com-django-e-behave.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 03 Feb 2016 23:50:00 GMT</pubDate><content:encoded>&lt;p&gt;Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,
 é uma grande prática no que diz respeito a escrita de testes que guiem o
 seu desenvolvimento.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Deixando a polêmica do "&lt;a href="http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html" title="TDD is dead. Long live testing."&gt;TDD is dead&lt;/a&gt;"
+&lt;p&gt;Deixando a polêmica do &quot;&lt;a href=&quot;http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html&quot; title=&quot;TDD is dead. Long live testing.&quot;&gt;TDD is dead&lt;/a&gt;&quot;
 de lado, criar cenários que garantem um determinado fluxo, além de servir
-como um …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 03 Feb 2016 23:50:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-02-03:/2016/02/03/bdd-com-django-e-behave.html</guid><category>desenvolvimento</category><category>testes</category><category>bdd</category><category>aceitação</category><category>python</category><category>django</category><category>behave</category><category>splinter</category></item></channel></rss>
+como um excelente contrato à sua suite de aceitação, é uma ótima ferramenta
+para garantir que a integração &lt;em&gt;back-end/front-end&lt;/em&gt; está funcionando de acordo
+com o esperado.&lt;/p&gt;
+&lt;p&gt;Devo ser sincero com você, caro leitor: Fazer &lt;a href=&quot;/tag/bdd.html&quot; title=&quot;Leia mais sobre BDD&quot;&gt;&lt;em&gt;BDD&lt;/em&gt;&lt;/a&gt;
+com &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; (IMO) sempre foi uma dor de cabeça.
+Já utilizei algumas ferramentas, como &lt;a href=&quot;/2011/07/18/ferramentas-de-testes-em-django-parte-1.html&quot;&gt;&lt;em&gt;unittest&lt;/em&gt;&lt;/a&gt;
+focado em comportamento, &lt;a href=&quot;/2011/07/18/ferramentas-de-testes-em-django-parte-1.html&quot;&gt;&lt;em&gt;doctests&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;/2011/07/23/ferramentas-de-testes-em-django-parte-2.html&quot;&gt;&lt;em&gt;Lettuce&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Pycurracy&lt;/em&gt; e até mesmo &lt;em&gt;Jasmine&lt;/em&gt;...
+Nada pareceu ser &quot;o certo a se fazer&quot;.&lt;/p&gt;
+&lt;p&gt;Recentemente esbarrei com um artigo ensinando a usar o &lt;a href=&quot;http://pythonhosted.org/behave/&quot; title=&quot;BDD for Python&quot;&gt;&lt;em&gt;Behave&lt;/em&gt;&lt;/a&gt;,
+um &lt;em&gt;engine&lt;/em&gt; de testes &lt;em&gt;BDD&lt;/em&gt; para &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;...
+E foi aí que a minha opinião mudou.&lt;/p&gt;
+&lt;h2&gt;Oh, behave!&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Behave&lt;/em&gt; é uma biblioteca &lt;em&gt;Python&lt;/em&gt; que permite a escrita de &lt;em&gt;specs&lt;/em&gt; em linguagem humana,
+e a execução dos cenários através de &lt;em&gt;asserts&lt;/em&gt; em &quot;linguagem de programação&quot;. Agnóstico de &lt;em&gt;framework&lt;/em&gt;,
+é um &lt;em&gt;engine&lt;/em&gt; promissor, &lt;a href=&quot;http://pythonhosted.org/behave/tutorial.html&quot; title=&quot;Conheça o tutorial do Behave&quot;&gt;fácil de usar&lt;/a&gt;,
+e que possui uma boa comunidade dando suporte.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bb6cb6691f182c0f762c2544f9a48ceb/7cc5e/oh-behave.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.45833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMA/9oADAMBAAIQAxAAAAGeC+3Lzms5ciPUis//xAAbEAADAAIDAAAAAAAAAAAAAAAAAQIDEBETQf/aAAgBAQABBQLNdi5FLZMWxxlO1zpnv//EABkRAAEFAAAAAAAAAAAAAAAAAAEAAhARIf/aAAgBAwEBPwFpxWJ//8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEBMh/9oACAECAQE/AXHplSP/xAAdEAABBAIDAAAAAAAAAAAAAAAAAQIRIRASQXGx/9oACAEBAAY/AtuCyhXFekQ3C9in/8QAGxAAAwEBAAMAAAAAAAAAAAAAAAERITFRcbH/2gAIAQEAAT8hfqJqZBr7Yjq1CunclwYWEhW9ye4efZ8ow//aAAwDAQACAAMAAAAQw+f+/8QAGREAAwADAAAAAAAAAAAAAAAAAAERMVFx/9oACAEDAQE/EE1Rlvo8n//EABgRAAMBAQAAAAAAAAAAAAAAAAARITFR/9oACAECAQE/EJEVWcMH/8QAHRAAAgMAAgMAAAAAAAAAAAAAAREAIUEx8GGhwf/aAAgBAQABPxAcflAuyrUNZMHWVfLiKgEgo65ceWMEwqJ8iDDbTg7GgYoUCxWQ8dMnDooz3vgn/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Austin Powers: Oh behave (flickr.com)&amp;quot;&quot;
+        title=&quot;Austin Powers: Oh behave (flickr.com)&quot;
+        src=&quot;/static/bb6cb6691f182c0f762c2544f9a48ceb/7cc5e/oh-behave.jpg&quot;
+        srcset=&quot;/static/bb6cb6691f182c0f762c2544f9a48ceb/7809d/oh-behave.jpg 192w,
+/static/bb6cb6691f182c0f762c2544f9a48ceb/4ecad/oh-behave.jpg 384w,
+/static/bb6cb6691f182c0f762c2544f9a48ceb/7cc5e/oh-behave.jpg 480w&quot;
+        sizes=&quot;(max-width: 480px) 100vw, 480px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Austin Powers: Oh behave (flickr.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Você pode escrever a integração do &lt;em&gt;lib&lt;/em&gt; com o &lt;em&gt;Django&lt;/em&gt;, como demonstrado na &lt;a href=&quot;http://pythonhosted.org/behave/django.html&quot; title=&quot;Exemplo de integração entre Behave e Django&quot;&gt;documentação oficial&lt;/a&gt;.
+Como eu sou preguiçoso, prefiro utilizar o módulo &lt;code class=&quot;language-text&quot;&gt;behave-django&lt;/code&gt;,
+criado por &lt;a href=&quot;https://github.com/mixxorz&quot; title=&quot;Perfil do mixxorz no GitHub&quot;&gt;Mitchel Cabuloy&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install behave-django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos esquecer de colocá-lo no &lt;code class=&quot;language-text&quot;&gt;INSTALLED_APPS&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;INSTALLED_APPS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;behave_django&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora basta criar uma estrutura na raíz do seu projeto (no mesmo nível do &lt;code class=&quot;language-text&quot;&gt;manage.py&lt;/code&gt;), com a seguinte formação:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;features/
+    steps/
+        steps.py
+    environment.py
+    funcionalidade.feature&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos para um exemplo mais prático: &lt;em&gt;Eu quero que minha home exiba meu nome de usuário, caso eu esteja logado&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Começaremos pelo arquivo &lt;code class=&quot;language-text&quot;&gt;.feature&lt;/code&gt;. Vou chamá-lo de &lt;code class=&quot;language-text&quot;&gt;features/home-logada.feature&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Feature: Logged in page
+
+    Scenario: Access index page
+
+        Given an authenticated user
+        When I access the home page
+        Then I see my username printed&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Já podemos executar o &lt;code class=&quot;language-text&quot;&gt;behave&lt;/code&gt; através do &lt;code class=&quot;language-text&quot;&gt;manage.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Você verá uma saída sinalizando que nosso cenário está montado, mas
+que ainda não há testes executando de fato.&lt;/p&gt;
+&lt;p&gt;O arquivo de teste pode ter o nome que você desejar, o &lt;em&gt;Behave&lt;/em&gt; olhará
+para cada ocorrência dentro de &lt;code class=&quot;language-text&quot;&gt;steps/&lt;/code&gt; e coletará os passos que serão
+usados para a execução das especificações.&lt;/p&gt;
+&lt;p&gt;Mas antes de escrevermos os testes, vamos falar de uma ferramenta essencial
+quando estamos fazendo testes de interface &lt;em&gt;web&lt;/em&gt; com &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Splinter&lt;/h2&gt;
+&lt;p&gt;Diretamente da &lt;a href=&quot;https://splinter.readthedocs.org/en/latest/&quot; title=&quot;Documentação do Splinter&quot;&gt;documentação oficial&lt;/a&gt; do &lt;em&gt;Splinter&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Splinter is an open source tool for testing web applications using Python. It lets you automate browser actions,
+such as visiting URLs and interacting with their items.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A ferramenta fornece uma &lt;em&gt;API&lt;/em&gt; única para diferentes ferramentas de
+testes de interface &lt;em&gt;web&lt;/em&gt;, como &lt;em&gt;Selenium&lt;/em&gt;, &lt;em&gt;PhantomJS&lt;/em&gt; e &lt;em&gt;zope.testbrowser&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Conseguimos instalá-la de forma muito fácil, através do comando &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install splinter&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É ele que nos permite, através de sua interface, escrever testes utilizando o driver do
+&lt;em&gt;Firefox&lt;/em&gt; (por exemplo), e deixar as &lt;em&gt;tasks&lt;/em&gt; executando em nosso servidor de integração
+contínua com um driver &lt;em&gt;headless&lt;/em&gt;, como o &lt;em&gt;PhantomJS&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Django + Behave + Splinter == Epic Win&lt;/h3&gt;
+&lt;p&gt;Podemos utilizar o &lt;em&gt;Splinter&lt;/em&gt; juntamente com a mecânica de teste do &lt;em&gt;Behave&lt;/em&gt;.
+A maneira mais fácil é através do esquema de configuração da suite,
+criando o arquivo &lt;code class=&quot;language-text&quot;&gt;features/environment.py&lt;/code&gt;, com o seguinte conteúdo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; splinter &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; Browser
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;before_all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Browser&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;server_url &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;http://localhost:8000&apos;&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;after_all&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;quit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! O contexto dos nossos testes tem a propriedade &lt;code class=&quot;language-text&quot;&gt;browser&lt;/code&gt;, que é a instância do &lt;em&gt;Splinter&lt;/em&gt;
+para execução dos testes de interface.&lt;/p&gt;
+&lt;p&gt;As &lt;em&gt;specs&lt;/em&gt; executarão com o &lt;em&gt;Firefox&lt;/em&gt;, por padrão. Caso queira alterar o navegador,
+basta especificá-lo na instância de &lt;code class=&quot;language-text&quot;&gt;Browser&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Browser&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;chrome&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Dado um determinado cenário&lt;/h2&gt;
+&lt;p&gt;Vamos escrever o código &lt;em&gt;Python&lt;/em&gt; necessário para atender a seguinte condição:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Given an authenticated user&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para isso, criaremos um &lt;em&gt;step&lt;/em&gt; específico para autenticação:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# features/steps/auth.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; behave &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; given
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;contrib&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;auth&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;models &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; User
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@given&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;an authenticated user&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;given_auth_user&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    User&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;objects&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;create_superuser&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;username&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; email&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;foo@bar&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; password&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    br &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser
+    br&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;visit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_url &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/admin/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    br&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fill&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;username&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    br&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fill&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;password&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;test&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    br&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;find_by_css&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;.submit-row input&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;first&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;click&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O código acima é simples e objetivo. Através do &lt;em&gt;decorator&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;@given&lt;/code&gt; associamos um determinado
+pedaço de código &lt;em&gt;Python&lt;/em&gt; a um trecho das histórias escritas em &lt;code class=&quot;language-text&quot;&gt;.feature&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Rodando o &lt;code class=&quot;language-text&quot;&gt;behave&lt;/code&gt;, teremos uma saída similar a essa:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave
+
+Creating test database for alias &amp;#39;default&amp;#39;...
+Feature: Logged in page # features/home-logada.feature:1
+
+    Scenario: Access index page    # features/home-logada.feature:3
+    Given an authenticated user    # features/steps/auth.py:5 0.646s
+    When I access the home page    # None
+    Then I see my username printed # None&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O motor de testes, além de identificar e executar o trecho de código necessário
+para contemplar uma expressão, exibe o tempo de execução da mesma.&lt;/p&gt;
+&lt;h2&gt;Quando alguma coisa acontece&lt;/h2&gt;
+&lt;p&gt;Vamos para a parte onde o usuário interage com a aplicação.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# features/steps/actions.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; behave &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; when
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@when&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;I access the home page&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;access_the_home_page&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    br &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser
+    br&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;visit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;base_url &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Aqui começa a ficar mais evidente o funcionamento de &lt;em&gt;steps&lt;/em&gt;. Se amanhã
+eu precisar de um novo cenário onde é necessário acessar a página inicial,
+eu posso aproveitar o &lt;code class=&quot;language-text&quot;&gt;when&lt;/code&gt; criado acima. O &lt;em&gt;Behave&lt;/em&gt; fará isso automaticamente
+para você... Portanto, organizar os &lt;em&gt;steps&lt;/em&gt; de uma forma que eles agrupem
+um determinado grupo de ações é uma sugestão interessante.&lt;/p&gt;
+&lt;h2&gt;Então eu espero algum resultado&lt;/h2&gt;
+&lt;p&gt;E para finalizar o nosso exemplo, vamos para o &lt;em&gt;decorator&lt;/em&gt; de &lt;code class=&quot;language-text&quot;&gt;@then&lt;/code&gt;,
+que é o passo onde validamos o resultado dos acontecimentos disparados por &lt;code class=&quot;language-text&quot;&gt;@when&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# features/steps/results.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; behave &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; then
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;I see my username printed&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;see_my_username&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;context&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    br &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; context&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;browser
+    body &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; br&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;find_by_css&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;body&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello test!&apos;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;text&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Executamos nossas &lt;em&gt;specs&lt;/em&gt; e temos o seguinte resultado:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave
+
+Creating test database for alias &amp;#39;default&amp;#39;...
+Feature: Logged in page # features/home-logada.feature:1
+
+    Scenario: Access index page      # features/home-logada.feature:3
+    Given an authenticated user    # features/steps/auth.py:5 0.654s
+    When I access the home page    # features/steps/actions.py:4 0.888s
+    Then I see my username printed # features/steps/results.py:4 0.075s
+
+1 feature passed, 0 failed, 0 skipped
+1 scenario passed, 0 failed, 0 skipped
+3 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m1.617s
+Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Garantimos através dos cenários acima que, dado um usuário logado,
+imprimiremos o seu &lt;em&gt;username&lt;/em&gt; na rota &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Behave&lt;/em&gt; é uma ótima ferramenta de &lt;em&gt;BDD&lt;/em&gt; para &lt;em&gt;Python&lt;/em&gt;. Sua integração
+com o &lt;em&gt;Django&lt;/em&gt; e demais &lt;em&gt;frameworks&lt;/em&gt; é relativamente simples, o que só
+aumenta a simpatia pela ferramenta.&lt;/p&gt;
+&lt;p&gt;Já sofri muito com escrita de testes de aceitação com &lt;em&gt;Django&lt;/em&gt;. Não é
+um veredicto, mas até o momento o sentimento é extremamente positivo em relação
+ao casamento entre &lt;em&gt;Behave&lt;/em&gt; e &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://pythonhosted.org/behave/&quot;&gt;&lt;em&gt;Behave: Behavior-Driven Development, Python style&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mixxorz/behave-django&quot;&gt;&lt;em&gt;GitHub: behave-django&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://splinter.readthedocs.org/en/latest/&quot;&gt;&lt;em&gt;Splinter: Tool for testing web applications using Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

@@ -1,8 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - pyflakes</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 02 Oct 2011 17:58:00 -0300</lastBuildDate><item><title>Assegure a qualidade do seu código Python - Pyflakes</title><link>https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html</link><description>&lt;p&gt;Depois da dar uma pincelada na &lt;a href="https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html" title="Assegura a qualidade do seu código Python com a pep8"&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt; e no &lt;a href="https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html" title="Assegure a qualidade do seu código Python com o Pylint"&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt;, chegou a hora de
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pyflakes]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Pyflakes]]></title><description><![CDATA[Depois da dar uma pincelada na pep8 e no Pylint, chegou a hora de
+falarmos um pouco sobre o Pyflakes. Resumidamente, o Pyflakes é uma ferramenta de qualidade que
+analisa o seu código Python atrás de erros (de sintaxe e
+importação, por exemplo), retornando um relatório muito objetivo com o
+arquivo…]]></description><link>https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 02 Oct 2011 17:58:00 GMT</pubDate><content:encoded>&lt;p&gt;Depois da dar uma pincelada na &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Assegura a qualidade do seu código Python com a pep8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt; e no &lt;a href=&quot;/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html&quot; title=&quot;Assegure a qualidade do seu código Python com o Pylint&quot;&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt;, chegou a hora de
 falarmos um pouco sobre o &lt;strong&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Resumidamente, o &lt;a href="https://launchpad.net/pyflakes" title="Pyflakes no Launchpad"&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt; é uma ferramenta de qualidade que
-analisa o seu código &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; atrás de erros (de sintaxe e
-importação, por exemplo), retornando um relatório muito objetivo com o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 02 Oct 2011 17:58:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-10-02:/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>pyflakes</category><category>qualidade</category></item></channel></rss>
+&lt;p&gt;Resumidamente, o &lt;a href=&quot;https://launchpad.net/pyflakes&quot; title=&quot;Pyflakes no Launchpad&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt; é uma ferramenta de qualidade que
+analisa o seu código &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; atrás de erros (de sintaxe e
+importação, por exemplo), retornando um relatório muito objetivo com o
+arquivo, linha e o tipo de incoerência que ele encontrou.&lt;/p&gt;
+&lt;p&gt;Uma excelente ferramenta para você ter “plugada” ao seu editor favorito.&lt;/p&gt;
+&lt;h2&gt;O que o Pyflakes faz que o Pylint não faz?&lt;/h2&gt;
+&lt;p&gt;As comparações, acredito, serão inevitáveis. Afinal, o que o &lt;em&gt;Pyflakes&lt;/em&gt;
+faz que o &lt;em&gt;Pylint&lt;/em&gt; não faz? A resposta que você encontrará é muito
+simples: O &lt;strong&gt;&lt;em&gt;Pyflakes&lt;/em&gt; não analisa a “beleza”&lt;/strong&gt; do seu &lt;strong&gt;código&lt;/strong&gt;. Ou
+seja, ele apenas &lt;strong&gt;verifica erros de lógica e de sintaxe&lt;/strong&gt;, não de
+convenções de código.&lt;/p&gt;
+&lt;p&gt;Isso faz do &lt;em&gt;Pyflakes&lt;/em&gt; o parceiro ideal do seu editor de código
+favorito. Por ser objetivo, favorece a análise e traz resultados
+interessantes, por exemplo, apontando variáveis criadas que nunca foram
+usadas, ou métodos importados que nunca foram chamados no escopo de um
+módulo &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Logo, ter as duas ferramentas à mão é uma excelente pedida para
+incrementar ainda mais o seu ambiente de desenvolvimento.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vamos analisar o código de um projeto da faculdade que eu fiz, chamado
+&lt;a href=&quot;https://bitbucket.org/kplaube/social-portal-for-soccer-players/overview&quot; title=&quot;Visite o repositório do projeto no BitBucket&quot;&gt;&lt;em&gt;Social portal for soccer players&lt;/em&gt;&lt;/a&gt; (encontra-se aberto no
+&lt;em&gt;BitBucket&lt;/em&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyflakes apps/notificate/views.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A resposta é muito clara. Existem classes sendo importadas, mas que não
+estão sendo usadas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apps/notificate/views.py:3: &amp;#39;EmptyPage&amp;#39; imported but unused
+apps/notificate/views.py:3: &amp;#39;InvalidPage&amp;#39; imported but unused&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O funcionamento básico do &lt;em&gt;Pyflakes&lt;/em&gt; é esse… simples como as melhores
+coisas devem ser!&lt;/p&gt;
+&lt;h2&gt;Pyflakes + Vim&lt;/h2&gt;
+&lt;p&gt;Se assim como eu, você tem um “tropeço” pelo &lt;a href=&quot;http://www.vim.org/&quot; title=&quot;Página oficial do Vi Improved&quot;&gt;&lt;em&gt;vim&lt;/em&gt;&lt;/a&gt;, você não pode
+deixar passar esse bom &lt;em&gt;plugin&lt;/em&gt; chamado &lt;a href=&quot;http://symbolsystem.com/pyflakes-vim/&quot; title=&quot;pyflakes.vim - Verifique o seu código em tempo real&quot;&gt;&lt;em&gt;pyflakes.vim&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para instalá-lo, basta seguir o guia de instalação contido no arquivo
+&lt;strong&gt;README&lt;/strong&gt; (&lt;a href=&quot;https://github.com/kevinw/pyflakes-vim#readme&quot; title=&quot;README do pyflakes.vim no GitHub&quot;&gt;leia diretamente do &lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;). Para que o &lt;em&gt;plugin&lt;/em&gt;
+funcione corretamente, o seu &lt;em&gt;vim&lt;/em&gt; deve ter suporte a &lt;em&gt;Python&lt;/em&gt; (se não
+tiver, basta compilá-lo com o parâmetro &lt;strong&gt;-–enable-pythoninterp&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Uma vez instalado, quando estiver editando um código &lt;em&gt;Python&lt;/em&gt;, basta
+utilizar o comando &lt;strong&gt;:cc&lt;/strong&gt; para navegar entre os erros encontrados pelo
+&lt;em&gt;plugin&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://launchpad.net/pyflakes&quot; title=&quot;Faça download agora mesmo do Pyflakes&quot;&gt;&lt;em&gt;Pyflakes in Launchpad&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://symbolsystem.com/pyflakes-vim/&quot; title=&quot;Utilize o Pyflakes em seu VIM&quot;&gt;&lt;em&gt;pyflakes.vim: check Python code on the fly&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

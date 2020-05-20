@@ -1,24 +1,667 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - carreira</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 30 Apr 2019 17:30:00 -0300</lastBuildDate><item><title>Peça ajuda!</title><link>https://klauslaube.com.br/2019/04/30/peca-ajuda.html</link><description>&lt;p&gt;Desde que assisti ao (razoável) &lt;a href="https://www.imdb.com/title/tt0480249/" title="I Am Legend"&gt;Eu Sou a Lenda&lt;/a&gt;, uma pergunta instalou-se em minha cabeça: E se eu fosse o último ser humano vivo depois de um apocalipse zumbi? Alguns bons anos depois da estreia do filme, posso dizer com toda a sobriedade que, se eu o fosse, seria por …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 30 Apr 2019 17:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-04-30:/2019/04/30/peca-ajuda.html</guid><category>profissao</category><category>carreira</category><category>desenvolvedor</category><category>sindrome-impostor</category></item><item><title>Aprendendo a Aprender</title><link>https://klauslaube.com.br/2017/07/27/aprendendo-a-aprender.html</link><description>&lt;p&gt;Já mencionei o "&lt;a href="https://www.coursera.org/learn/aprender" title="Veja o curso em pt-BR"&gt;Aprendendo a Aprender&lt;/a&gt;"
-no &lt;em&gt;post&lt;/em&gt; sobre &lt;a href="https://klauslaube.com.br/2017/06/29/pomodoro-ftw.html" title="Leia mais sobre Pomodoro"&gt;&lt;em&gt;Pomodoro&lt;/em&gt;&lt;/a&gt;, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - carreira]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Peça ajuda!]]></title><description><![CDATA[Desde que assisti ao (razoável) Eu Sou a Lenda, uma pergunta instalou-se em minha cabeça: E se eu fosse o último ser humano vivo depois de um apocalipse zumbi? Alguns bons anos depois da estreia do filme, posso dizer com toda a sobriedade que, se eu o fosse, seria por muita sorte, e possivelmente…]]></description><link>https://klauslaube.com.br/2019/04/30/peca-ajuda.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/04/30/peca-ajuda.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 30 Apr 2019 17:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Desde que assisti ao (razoável) &lt;a href=&quot;https://www.imdb.com/title/tt0480249/&quot; title=&quot;I Am Legend&quot;&gt;Eu Sou a Lenda&lt;/a&gt;, uma pergunta instalou-se em minha cabeça: E se eu fosse o último ser humano vivo depois de um apocalipse zumbi? Alguns bons anos depois da estreia do filme, posso dizer com toda a sobriedade que, se eu o fosse, seria por muita sorte, e possivelmente não viveria muito tempo mais.&lt;/p&gt;
+&lt;h2&gt;Quantas pessoas é preciso para construir um lápis?&lt;/h2&gt;
+&lt;p&gt;As vezes esquecemos que no mundo globalizado em que vivemos, é muito raro sermos os únicos agentes por trás de uma ideia ou produto. O lápis, que você usa diariamente e nem nota a tamanha importância que tem, &lt;a href=&quot;https://www.sucessonetwork.com.br/licoes-aprenda-com-o-lapis-e-como-construir-confianca-por-gilberto-suzuki/&quot; title=&quot;Aprenda com o Lápis e Como construir confiança&quot;&gt;passou pela mão de centenas de pessoas&lt;/a&gt; antes de chegar à sua mesa. Não é incomum olharmos algo simples, e automaticamente assumirmos como fácil.&lt;/p&gt;
+&lt;p&gt;Algumas semanas atrás eu estava enfrentando uma daquelas tarefas &quot;toca do coelho da Alice&quot;. Na primeira estimativa do time parecia algo trivial, de baixa complexidade. Com o tempo, e descobrindo mais sobre os requisitos (de produto e técnicos), a complexidade foi crescendo exponencialmente. Logo, aquele &lt;em&gt;ticket&lt;/em&gt; que teoricamente seria resolvido em uma iteração, estava em seu terceiro &lt;em&gt;sprint&lt;/em&gt;, e sem grandes perspectivas de acabar.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/23e393d3a98246d5a742a40fd7b09c6d/828fb/help-starwars.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcxxMsIg/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAECERAS/9oACAEBAAEFAmpIUeNjms0//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRABAAIDAAAAAAAAAAAAAAAAAQARICEy/9oACAEBAAY/AmgmwnBh/8QAGhAAAwADAQAAAAAAAAAAAAAAAAERIUFRMf/aAAgBAQABPyFrQaHGeBmsilQr6S8ZXT//2gAMAwEAAgADAAAAEAPf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAEDAQE/EK1//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAECAQE/EDGf/8QAGhABAQEBAQEBAAAAAAAAAAAAAREAITFBYf/aAAgBAQABPxCnF10ex+ZQB6B2XzTSmWgt66zauARQ/HBkHv/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Cena de Star Wars onde Leia pede ajuda a Obi-Wan&quot;
+        title=&quot;Help me, Obi-Wan (starwars.com)&quot;
+        src=&quot;/static/23e393d3a98246d5a742a40fd7b09c6d/828fb/help-starwars.jpg&quot;
+        srcset=&quot;/static/23e393d3a98246d5a742a40fd7b09c6d/7809d/help-starwars.jpg 192w,
+/static/23e393d3a98246d5a742a40fd7b09c6d/4ecad/help-starwars.jpg 384w,
+/static/23e393d3a98246d5a742a40fd7b09c6d/828fb/help-starwars.jpg 630w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Help me, Obi-Wan (starwars.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Cada &lt;em&gt;daily meeting&lt;/em&gt; era uma tortura. Era como reconhecer que eu estava falhando como desenvolvedor, e que não tinha a capacidade de entregar uma história teoricamente simples. O medo de mostrar vulnerabilidade trouxe a necessidade de ser menos transparente em relação aos reais motivos por trás do atraso. No fim, só conseguia enxergar que eu era o culpado por todo aquele atraso, e que era o fim da linha para mim como desenvolvedor na empresa que eu havia acabado de ingressar.&lt;/p&gt;
+&lt;p&gt;Era como correr de um zumbi, sem realmente ter um plano para escapar dele.&lt;/p&gt;
+&lt;h2&gt;A Síndrome do Impostor ou Efeito Dunning-Kruger?&lt;/h2&gt;
+&lt;p&gt;Nem preciso dizer que toda essa dinâmica resultou em picos altíssimos de ansiedade, e quando menos percebi estava preso no círculo vicioso da &lt;a href=&quot;https://pt.wikipedia.org/wiki/S%C3%ADndrome_do_impostor&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;Síndrome do Impostor&lt;/a&gt;. Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As pessoas que sofrem este tipo de síndrome, de forma permanente, temporária ou frequente, parecem incapazes de internalizar os seus feitos na vida. Não importando o nível de sucesso alcançado em sua área de estudo ou trabalho, ou quaisquer que sejam as provas externas de suas competências, essas pessoas permanecem convencidas de que não merecem o sucesso alcançado e que de fato são nada menos do que fraudes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O medo de descobrirem a &quot;fraude&quot; me colocou na defensiva. Uma cortina de fumaça. Se eu conseguisse resolver aquele problema, sem ajuda nenhuma, eu ganharia tempo, e todo esse episódio seria esquecido.&lt;/p&gt;
+&lt;p&gt;Hoje fica fácil olhar para trás e reconhecer que na época, eu tinha pouca experiência com a plataforma &lt;em&gt;Java&lt;/em&gt;, e que eu deveria adicionar isso como argumento no momento da estimativa. Eu &quot;achava que sabia o que eu não sabia&quot;, uma espécie de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Efeito_Dunning-Kruger&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;Efeito Dunning-Kruger&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) é o fenômeno pelo qual indivíduos que possuem pouco conhecimento sobre um assunto acreditam saber mais que outros mais bem preparados, fazendo com que tomem decisões erradas e cheguem a resultados indevidos; é a sua incompetência que os restringe da habilidade de reconhecer os próprios erros. Estas pessoas sofrem de superioridade ilusória.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&quot;Isso é fácil! Resolvo em um sprint, sem dúvida. Sou um excelente desenvolvedor&quot;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 625px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/19fd5f0161b7ef5b7dae555fa572e192/dfe3c/help-zombieland.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAEDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHGglrCf//EABcQAQEBAQAAAAAAAAAAAAAAAAEAAhH/2gAIAQEAAQUCwDcJv//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAEFAAAAAAAAAAAAAAAAAAABESExUf/aAAgBAQAGPwJXwsg//8QAGhAAAgIDAAAAAAAAAAAAAAAAAREAITFBUf/aAAgBAQABPyHcOQgYrBciuzE//9oADAMBAAIAAwAAABCP/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAwEBPxCH/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8QZ//EABkQAQEBAQEBAAAAAAAAAAAAAAERADEhUf/aAAgBAQABPxD3oYwvHV4AEQCL0b8wEhDsDf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Imagem do filme Zumbilandia - Seja um herói&quot;
+        title=&quot;Não! Não seja um herói! (anythingzombie.com)&quot;
+        src=&quot;/static/19fd5f0161b7ef5b7dae555fa572e192/dfe3c/help-zombieland.jpg&quot;
+        srcset=&quot;/static/19fd5f0161b7ef5b7dae555fa572e192/7809d/help-zombieland.jpg 192w,
+/static/19fd5f0161b7ef5b7dae555fa572e192/4ecad/help-zombieland.jpg 384w,
+/static/19fd5f0161b7ef5b7dae555fa572e192/dfe3c/help-zombieland.jpg 625w&quot;
+        sizes=&quot;(max-width: 625px) 100vw, 625px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não! Não seja um herói! (anythingzombie.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;É essa mesma superioridade ilusória que faz você acreditar que sim, sobreviveria a um &lt;em&gt;outbreak&lt;/em&gt; zumbi.&lt;/p&gt;
+&lt;h2&gt;Somos um exército de um homem só&lt;/h2&gt;
+&lt;p&gt;Só aprendi a controlar o ego através da &quot;dor&quot;. Somente após viver cercado de profissionais muito mais capazes do que eu o era, e que diariamente me provocavam um &lt;em&gt;reality check&lt;/em&gt;. Em algum momento desse período eu compreendi que era mais fácil adotar uma postura humilde, me aproximar de tais profissionais, e aprender o que fosse possível com eles.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/60d3d6498dc690335ad21ed3276d3957/be796/help-i-am-legend.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGNkmZXE4f/xAAZEAACAwEAAAAAAAAAAAAAAAAAAQIDEhH/2gAIAQEAAQUCrlkptza5demNs6z/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAABBQEAAAAAAAAAAAAAAAABAAIQITFB/9oACAEBAAY/AqpPJ6DGxq//xAAZEAEBAQEBAQAAAAAAAAAAAAABABExIeH/2gAIAQEAAT8h3IkX2VLQU9YHikJqzp1f/9oADAMBAAIAAwAAABAD7//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EKr/xAAWEQEBAQAAAAAAAAAAAAAAAAAAETH/2gAIAQIBAT8Q1H//xAAdEAEBAQABBQEAAAAAAAAAAAABEQAhMVGBodHw/9oACAEBAAE/EIqxEez+mnidY+R70Z1FVHIEFeY6jKNKvDvqG//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Will Smith em Eu sou a lenda&quot;
+        title=&quot;Nem Will Smith aguenta sozinho (looper.com)&quot;
+        src=&quot;/static/60d3d6498dc690335ad21ed3276d3957/212bf/help-i-am-legend.jpg&quot;
+        srcset=&quot;/static/60d3d6498dc690335ad21ed3276d3957/7809d/help-i-am-legend.jpg 192w,
+/static/60d3d6498dc690335ad21ed3276d3957/4ecad/help-i-am-legend.jpg 384w,
+/static/60d3d6498dc690335ad21ed3276d3957/212bf/help-i-am-legend.jpg 768w,
+/static/60d3d6498dc690335ad21ed3276d3957/be796/help-i-am-legend.jpg 780w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Nem Will Smith aguenta sozinho (looper.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Mas a competividade no setor de Tecnologia da Informação é alta, e isso pode resultar em ambientes tóxicos. Empresas que não te permitem errar, que possuem um sistema de evolução de carreira baseado somente em avaliações 360 e produtividade, ou colegas de trabalho que pecam em &lt;em&gt;soft skills&lt;/em&gt; com um &quot;como é que você não sabe isso?&quot;. Pedir ajuda em um ambiente como esse não é nada atrativo, e o empenho de resolver um problema sozinho pode parecer mais recompensador.&lt;/p&gt;
+&lt;p&gt;Mas a dura realidade é que, mesmo que você sobreviva ao &lt;em&gt;outbreak&lt;/em&gt; zumbi, você não seria capaz de fabricar um lápis sozinho.&lt;/p&gt;
+&lt;h2&gt;Help!&lt;/h2&gt;
+&lt;p&gt;Como eu resolvi o meu problema? Pedindo ajuda, claro.&lt;/p&gt;
+&lt;p&gt;Tenho o privilégio de trabalhar na Dinamarca atualmente, um país com níveis de &lt;em&gt;work-life balance&lt;/em&gt; impressionantes. Grande parte dos meus colegas de trabalho têm por filosofia de vida o &quot;existe vida lá fora&quot; com pitadas de &quot;não se leve tão a sério&quot; e &quot;você não é o seu crachá&quot;. O que resulta em um ambiente de trabalho relativamente leve, te dando segurança para mostrar suas vulnerabilidades, e de aprender com os próprios erros.&lt;/p&gt;
+&lt;p&gt;Ser vulnerável não é algo ruim. Sair da zona de conforto e &quot;lutar a boa luta&quot; exige energia, exige movimento, proatividade. Quebre esse círculo vicioso da insegurança e peça ajuda!&lt;/p&gt;
+&lt;h2&gt;Antes de ir&lt;/h2&gt;
+&lt;p&gt;A grande lição que fica disso é que, ao se levar muito a sério, você deixa de fazer algo que deveria ser muito comum no meio &lt;em&gt;Agile&lt;/em&gt;: Errar.&lt;/p&gt;
+&lt;p&gt;Se você estiver nadando em um mar de angústia e ansiedade, espero que esse depoimento te motive a quebrar o círculo vicioso, e a pedir ajuda. Não há &quot;desonra&quot; nisso, e bobear você aprende algo novo por tabela.&lt;/p&gt;
+&lt;p&gt;Permita-se &quot;ligar o fod*-se&quot; de vez em quando.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.boanoiteinternet.com.br/&quot;&gt;Boa Noite Internet - Um podcast procurando respostas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Aprendendo a Aprender]]></title><description><![CDATA[Já mencionei o "Aprendendo a Aprender"
+no post sobre Pomodoro, e
 faço questão de citá-lo sempre que possível. O curso, ministrado por
-&lt;a href="https://en.wikipedia.org/wiki/Barbara_Oakley" title="Conheça Barbara"&gt;&lt;em&gt;Barbara Oakley&lt;/em&gt;&lt;/a&gt;,
+Barbara Oakley,
+além de inspirador apresenta uma série de ferramentas que irão te ajudar a aprender
+o mais maçante dos conteúdos (e farão bem à sua memória). O ABBC…]]></description><link>https://klauslaube.com.br/2017/07/27/aprendendo-a-aprender.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/07/27/aprendendo-a-aprender.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 27 Jul 2017 20:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Já mencionei o &quot;&lt;a href=&quot;https://www.coursera.org/learn/aprender&quot; title=&quot;Veja o curso em pt-BR&quot;&gt;Aprendendo a Aprender&lt;/a&gt;&quot;
+no &lt;em&gt;post&lt;/em&gt; sobre &lt;a href=&quot;/2017/06/29/pomodoro-ftw.html&quot; title=&quot;Leia mais sobre Pomodoro&quot;&gt;&lt;em&gt;Pomodoro&lt;/em&gt;&lt;/a&gt;, e
+faço questão de citá-lo sempre que possível. O curso, ministrado por
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Barbara_Oakley&quot; title=&quot;Conheça Barbara&quot;&gt;&lt;em&gt;Barbara Oakley&lt;/em&gt;&lt;/a&gt;,
 além de inspirador apresenta uma série de ferramentas que irão te ajudar a aprender
 o mais maçante dos conteúdos (e farão bem à sua memória).&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;O …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 27 Jul 2017 20:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-07-27:/2017/07/27/aprendendo-a-aprender.html</guid><category>produtividade</category><category>estudos</category><category>carreira</category><category>cursos</category></item><item><title>O que é um Software Engineer?</title><link>https://klauslaube.com.br/2015/03/29/o-que-e-um-software-engineer.html</link><description>&lt;p&gt;Certa vez, estava eu atualizando o meu &lt;em&gt;LinkedIn&lt;/em&gt; quando o
-&lt;a href="https://twitter.com/davidsonfellipe" title="Acompanhe o Davi do Som no Twitter"&gt;@davidsonfellipe&lt;/a&gt; me indagou sobre o título de "Analista e Desenvolvedor Web" que possuo atualmente. Segundo ele, "Front-end/Back-end Engineer" é mais atrativo para que &lt;em&gt;headhunters&lt;/em&gt; cheguem a um perfil.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Contra argumentei dizendo que essa não era a minha formação, e …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 29 Mar 2015 22:10:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2015-03-29:/2015/03/29/o-que-e-um-software-engineer.html</guid><category>profissao</category><category>carreira</category><category>desenvolvedor</category><category>software engineer</category></item><item><title>As lições aprendidas em 3 anos de cidade grande</title><link>https://klauslaube.com.br/2014/05/05/as-licoes-aprendidas-em-3-anos-de-cidade-grande.html</link><description>&lt;p&gt;Neste mês de Maio, faz 3 anos que deixei &lt;em&gt;&lt;a href="http://pt.wikipedia.org/wiki/Schroeder" title="Conheça SC!"&gt;Schroeder (SC)&lt;/a&gt;&lt;/em&gt; e me mudei para
-o Rio de Janeiro, para trabalhar na &lt;em&gt;&lt;a href="http://globo.com" title="Uma das maiores empresas de mídia da América Latina"&gt;Globo.com&lt;/a&gt;&lt;/em&gt;. Não tinha como ser
+&lt;p&gt;O &lt;a href=&quot;http://www.abbc.org.br/cursos/artigo.asp?id=7&quot; title=&quot;Aprendendo a aprender - 10 regras para estudar bem&quot;&gt;&lt;em&gt;ABBC&lt;/em&gt;&lt;/a&gt;
+bem que tentou descrever a tutora:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;É difícil definir uma profissão para Barbara Oakley. Ela se formou em Literatura
+e Línguas Eslavas, trabalhou como tradutora no exército americano, até que decidiu
+estudar engenharia! Hoje, ela tem um currículo invejável, que passa por disciplinas
+tão distantes quanto Letras, Engenharia e Biologia. É PhD, professora de Engenharia
+na Universidade de Oakland, em Rochester, Michigan. Sua pesquisa atualmente
+se concentra na complexa relação entre neurociência e comportamento social.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É com esse gabarito todo que &lt;em&gt;Barbara&lt;/em&gt;, acompanhada de
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Terry_Sejnowski&quot; title=&quot;Conheça Terry&quot;&gt;&lt;em&gt;Terrence Sejnowski&lt;/em&gt;&lt;/a&gt;,
+dá o curso através da plataforma &lt;em&gt;Coursera&lt;/em&gt;, &lt;strong&gt;totalmente grátis&lt;/strong&gt;.
+Mesmo que você (assim como eu) não tenha a pretensão de virar um estudioso, eu super recomendo!&lt;/p&gt;
+&lt;p&gt;Abaixo, com ajuda de algumas referências espalhadas pela &lt;em&gt;web&lt;/em&gt;, eu relembro alguns
+conceitos que aprendi durante as 4 semanas de curso.&lt;/p&gt;
+&lt;h2&gt;Combata a procrastinação&lt;/h2&gt;
+&lt;p&gt;Sair de inércia é um desafio imenso (pelo menos pra mim). Não importa o quão
+recompensador ou empolgante for a tarefa, meu cérebro entende que ir pro
+&lt;em&gt;Netflix&lt;/em&gt; sempre trará resultados maiores.&lt;/p&gt;
+&lt;p&gt;É um comportamento comum: Focamos no resultado final, e o resultado final não é
+fácil de atingir imediatamente. Ao contrário da satisfação instantânea de assistir a um seriado.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Foque no processo. Ao invés de &quot;preciso aprender XYZ&quot;, prefira
+&quot;vou dedicar 1 hora aprendendo XYZ, começando por Y&quot;. O (supracitado)
+&lt;em&gt;Pomodoro Technique&lt;/em&gt; pode te ajudar com isso.&lt;/p&gt;
+&lt;p&gt;E Lembre-se: &quot;Um pouco&quot; é melhor que nada.&lt;/p&gt;
+&lt;h2&gt;Aprenda de forma ativa&lt;/h2&gt;
+&lt;p&gt;Procure relembrar! Nem só ler, ou copiar, ou ainda usar &quot;caneta marca texto&quot;.
+Quantos livros você já leu e tava tão focado em acabá-lo que semanas depois não
+era mais capaz de lembrar dos detalhes da trama?&lt;/p&gt;
+&lt;p&gt;Absorver o conteúdo de forma passiva é outra &quot;traquinagem&quot; do nosso cérebro.
+A sensação de progresso é reconfortante, mas outra vez estamos cometendo o pecado
+de focar no resultado final e não no processo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Relembre. Explique o que você acabou de aprender para você mesmo ou
+algum amigo. Relembre as principais ideias em um lugar diferente daquele no qual você costuma aprender.&lt;/p&gt;
+&lt;p&gt;E por mais clichê que possa parecer, teste os seus conhecimentos. Isso será
+crucial para que você seja capaz de revisitar pontos dos quais ainda possui dúvidas.&lt;/p&gt;
+&lt;h2&gt;&quot;Indexe&quot; o conteúdo que você está aprendendo&lt;/h2&gt;
+&lt;p&gt;Para aprender a tocar uma música, é mais fácil separá-la em partes (intro, verso, refrão, etc)
+e praticar parte por parte, até que você seja capaz de &quot;amarrá-las&quot; e tocá-la por inteiro.&lt;/p&gt;
+&lt;p&gt;Podemos usar a mesma analogia (e fazer analogias é uma boa ferramenta para entender conteúdos)
+para o processo de aprendizado como um todo: É mais eficaz quebrarmos um
+determinado tema em conteúdos menores e iterativamente aprendê-los.&lt;/p&gt;
+&lt;p&gt;Voltando ao exemplo da música. Quando estamos aprendendo a tocar o refrão
+nossa memória de curto prazo (que tem pouco poder de armazenamento) é completamente
+preenchida pelos acordes que o compõe. Através da repetição, conseguimos
+&quot;dar significado&quot; àquele bloco até chegar o momento em que não pensamos
+mais nos acordes em si, e sim no &quot;bloco como um todo&quot;.&lt;/p&gt;
+&lt;p&gt;Trazendo pro lado da &lt;em&gt;TI&lt;/em&gt;, é quase como &quot;zipar&quot; o conhecimento e indexá-lo em
+um banco de dados (que seria a nossa memória de longo prazo) através de uma
+chave que faça muito sentido para nós.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Use analogias para dar maior significado a um determinado assunto.
+Separe o conteúdo em pequenos grupos e aplique o processo de aprendizagem para cada um.&lt;/p&gt;
+&lt;p&gt;E não envergonhe-se de técnicas como &quot;bem/mal, bom/mau&quot;.&lt;/p&gt;
+&lt;h2&gt;Aprenda de forma espaçada&lt;/h2&gt;
+&lt;p&gt;Por mais surpreendente que possa parecer, estudar 10 horas num dia não vai te
+deixar mais preparado para uma prova que ocorrerá no dia seguinte, do que
+estudar 1 hora em 10 dias. Isso segundo &lt;a href=&quot;https://www.theguardian.com/education/2009/feb/13/gcses-teaching&quot; title=&quot;A sixth of a GCSE in 60 minutes?&quot;&gt;&lt;em&gt;Douglas Fields&lt;/em&gt;&lt;/a&gt;,
+que propõe que através de aprendizagem espaçada a informação entra de maneira
+mais fácil na &lt;a href=&quot;https://drauziovarella.com.br/corpo-humano/memoria/&quot; title=&quot;Memória&quot;&gt;memória de longo prazo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Além disso, seu cérebro precisa de descanso. Estudar horas a fio ou negligenciar
+noites de sono pode trazer malefícios à saúde e principalmente ao seu
+processo de aprendizagem. É através do sono, por exemplo, que o seu cérebro passa
+por um &quot;período de manutenção&quot;, eliminando toxinas, fortalecendo memórias importantes
+e descartando as menos importantes.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAGTWkMlMmJN/wD/xAAcEAABAwUAAAAAAAAAAAAAAAAAAQMyAgQSMUP/2gAIAQEAAQUCmMPUYyOdsLv/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwEn/8QAFREBAQAAAAAAAAAAAAAAAAAAAhD/2gAIAQIBAT8BU//EABkQAAMAAwAAAAAAAAAAAAAAAAABERIgUf/aAAgBAQAGPwLJnIV6f//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExcUFh/9oACAEBAAE/Idk+0URLHM4N3Fso2zx8IMvGJFTP/9oADAMBAAIAAwAAABDE3//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPxC2yn//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QAFl//8QAHBABAQADAAMBAAAAAAAAAAAAAREAITFBYXGR/9oACAEBAAE/ENwEvB8AMflgT2+saqC95gV3yT9wGgbphMkt23P/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Cursos de algorítmos do Coursera te farão querer afundar a cara nos livros (blogossus.com)&amp;quot;&quot;
+        title=&quot;Cursos de algorítmos do Coursera te farão querer afundar a cara nos livros (blogossus.com)&quot;
+        src=&quot;/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg&quot;
+        srcset=&quot;/static/fc9d05e0486545742dfa74774d00ba18/7809d/social-network-algorithm.jpg 192w,
+/static/fc9d05e0486545742dfa74774d00ba18/4ecad/social-network-algorithm.jpg 384w,
+/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Cursos de algorítmos do Coursera te farão querer afundar a cara nos livros (blogossus.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E quando você faz uma pausa, o cérebro entra no famigerado
+&lt;a href=&quot;https://pt.coursera.org/learn/aprender/lecture/IeefW/introducao-aos-modos-difuso-e-focado&quot; title=&quot;Introdução aos Modos Difuso e Focado&quot;&gt;&quot;modo difuso&quot;&lt;/a&gt;.
+Que pode ser (vulgarmente) explicado como ele trabalhando em segundo plano para
+construir novos padrões neurais, ajudando-o a resolver problemas complexos, ter
+novas ideias ou entender algo melhor.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Ao invés de estudar 5 horas nas quartas-feiras, estude 1 hora 5x na semana.
+Descanse, faça pausas durante os estudos (olha o &lt;em&gt;Pomodoro&lt;/em&gt; aí de novo),
+pratique exercícios, caminhe e quebre a rotina.&lt;/p&gt;
+&lt;p&gt;E não subestime os &quot;eurekas&quot; durante o banho.&lt;/p&gt;
+&lt;h2&gt;Tenha a sensação de progresso&lt;/h2&gt;
+&lt;p&gt;Você não sobe numa esteira sem saber quantos quilômetros ou minutos
+vai ficar correndo nela, certo? (Certo?)&lt;/p&gt;
+&lt;p&gt;Seu cérebro sente-se premiado com a sensação reconfortante do progresso.
+E embora exista o risco de cair nas armadilhas dos dois primeiros tópicos,
+entender onde você quer chegar e saber o quanto você já caminhou é fundamental
+para se manter motivado.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;A dica é:&lt;/strong&gt; Pense de onde você veio e aonde quer chegar estudando determinado
+assunto. &quot;Trackeie&quot; o seu progresso. Faça as coisas mais difíceis primeiro, a realização
+delas te dará motivação para seguir em frente.&lt;/p&gt;
+&lt;p&gt;Ter a sensação de progresso é um fator motivante. Não o subestime.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Eu recorri ao curso após falhar duas vezes seguidas nos testes de uma determinada
+especialização do &lt;em&gt;Coursera&lt;/em&gt;. É bem verdade que algumas das técnicas acima
+são bem conhecidas, mas eu nunca tive a noção do quanto elas (através de uma
+forma pragmática) podem auxiliar no processo de aprendizagem de diferentes assuntos.&lt;/p&gt;
+&lt;p&gt;Inclusive, esse artigo faz parte do meu processo de &lt;a href=&quot;http://noticias.universia.pt/ciencia-tecnologia/especial/2014/01/14/1074898/1/portugues-recebe-2-milhes-euros-investigar-mecanismos-memoria/consiste-chunking.html&quot; title=&quot;Em que é que consiste o Chunking?&quot;&gt;chunking&lt;/a&gt;
+apresentado pelo próprio &quot;Aprendendo a Aprender&quot;. É algo que costumo fazer com
+frequência: Ao aprender um conteúdo novo, eu escrevo sobre e compartilho. Isso
+me motiva a fazer uma pesquisa maior e me faz relembrar conceitos, &quot;fixando&quot; melhor o assunto.&lt;/p&gt;
+&lt;p&gt;Vários pontos importantes não foram abordados nesse &lt;em&gt;post&lt;/em&gt; (como construção de
+redes neurais, diferença de memória de curto e longo prazo, como fazer &lt;em&gt;chunking&lt;/em&gt;,
+aspectos visuais da memória e como tirar proveito disso, palácio das memórias, etc),
+portanto saliento uma vez mais: &lt;a href=&quot;https://pt.coursera.org/learn/aprender&quot; title=&quot;Aprendendo a Aprender&quot;&gt;Não deixe de conferir o curso no &lt;em&gt;Cousera&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Aproveite também para conferir o &lt;a href=&quot;https://medium.com/@princessmiwi/um-resumo-do-curso-aprendendo-a-aprender-de-barbara-oakley-8d7253f51d21&quot; title=&quot;Um Resumo do Curso “Aprendendo a Aprender”, de Barbara Oakley&quot;&gt;bom artigo&lt;/a&gt; da &lt;em&gt;Cindy Dalfovo&lt;/em&gt; no &lt;em&gt;Medium&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Obs.: Não li o livro (de mesmo nome e autor), mas está bem avaliado na &lt;a href=&quot;https://www.amazon.com.br/Aprendendo-Aprender-Matem%C3%A1tica-Ci%C3%AAncias-Qualquer/dp/8586622451&quot; title=&quot;Aprendendo a Aprender. Como Ter Sucesso em Matemática, Ciências e Qualquer Outra Matéria&quot;&gt;&lt;em&gt;Amazon&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;#ficadica&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.abbc.org.br/cursos/artigo.asp?id=7&quot;&gt;ABBC Educacional - Aprender a aprender: 10 regras para estudar bem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@eu.alexandre/aprendizagem-espa%C3%A7ada-o-m%C3%A9todo-que-tem-causado-muita-pol%C3%AAmica-a93bcea8c8f0&quot;&gt;Alexandre Afonso - Aprendizagem Espaçada… O Método Que Tem Causado Muita Polêmica&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.coursera.org/learn/aprender&quot;&gt;Coursera - Aprendendo a Aprender&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lifehacker.com/5946606/improve-your-memory-with-the-chunking-technique&quot;&gt;Lifehacker - Improve Your Memory with The Chunking Technique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://mel-meow.com/uma-longa-noite-aprendendo/&quot;&gt;mel-meow - Uma longa noite aprendendo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@princessmiwi/um-resumo-do-curso-aprendendo-a-aprender-de-barbara-oakley-8d7253f51d21&quot;&gt;pricessmiwi - Um Resumo do Curso “Aprendendo a Aprender”, de Barbara Oakley&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://noticias.universia.pt/ciencia-tecnologia/especial/2014/01/14/1074898/1/portugues-recebe-2-milhes-euros-investigar-mecanismos-memoria/consiste-chunking.html&quot;&gt;Universia - Em que é que consiste o Chunking?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[O que é um Software Engineer?]]></title><description><![CDATA[Certa vez, estava eu atualizando o meu LinkedIn quando o
+@davidsonfellipe me indagou sobre o título de "Analista e Desenvolvedor Web" que possuo atualmente. Segundo ele, "Front-end/Back-end Engineer" é mais atrativo para que headhunters cheguem a um perfil. Contra argumentei dizendo que essa não era…]]></description><link>https://klauslaube.com.br/2015/03/29/o-que-e-um-software-engineer.html</link><guid isPermaLink="false">https://klauslaube.com.br/2015/03/29/o-que-e-um-software-engineer.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 29 Mar 2015 22:10:00 GMT</pubDate><content:encoded>&lt;p&gt;Certa vez, estava eu atualizando o meu &lt;em&gt;LinkedIn&lt;/em&gt; quando o
+&lt;a href=&quot;https://twitter.com/davidsonfellipe&quot; title=&quot;Acompanhe o Davi do Som no Twitter&quot;&gt;@davidsonfellipe&lt;/a&gt; me indagou sobre o título de &quot;Analista e Desenvolvedor Web&quot; que possuo atualmente. Segundo ele, &quot;Front-end/Back-end Engineer&quot; é mais atrativo para que &lt;em&gt;headhunters&lt;/em&gt; cheguem a um perfil.&lt;/p&gt;
+&lt;p&gt;Contra argumentei dizendo que essa não era a minha formação, e que não me
+sentia confortável em me chamar de engenheiro. Ele, hoje um &lt;em&gt;Front-end Engineer&lt;/em&gt;
+com formação em Engenharia da Computação, afirmou que isso era bobagem, e que
+eu já praticava muitas das suas atribuições no dia a dia.&lt;/p&gt;
+&lt;p&gt;A partir daí comecei a me perguntar: O que raios é e o que faz um Engenheiro
+de Software?&lt;/p&gt;
+&lt;h2&gt;Engenharia?&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A engenharia é a ciência, a arte e a profissão de adquirir e de aplicar os
+conhecimentos matemáticos, técnicos e científicos na criação,
+aperfeiçoamento e implementação de utilidades, tais como materiais,
+estruturas, máquinas, aparelhos, sistemas ou processos, que realizem uma
+determinada função ou objetivo.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Um engenheiro é basicamente o profissional que aplica esse conhecimento para
+desenvolver soluções para problemas técnicos. Em determinadas áreas de
+atuação, ele deve estar certificado/licenciado para que possa utilizar esse
+título.&lt;/p&gt;
+&lt;p&gt;É importante notar que um engenheiro transita entre diversas áreas de
+conhecimento dentro de uma determinada profissão. Um Engenheiro Civil,
+por exemplo, além de gerenciar e executar as obras, também é responsável
+por fazer análise de solo, ventilação, das instalações elétricas, do
+saneamento, dos custos, dos padrões de qualidade, da segurança, do prazo, etc.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/33839b90ab2f297a3aec4824351bafb8/935bc/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 79.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAECAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABz0lFBMP/xAAaEAACAwEBAAAAAAAAAAAAAAABEQIDEhMi/9oACAEBAAEFAuAEDUga0ZrHncsP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgMAAwEAAAAAAAAAAAAAABEBAjESE0FR/9oACAEBAAY/AuXZDTSG66sNIVvPpDtKNZ//xAAcEAACAwADAQAAAAAAAAAAAAAAAREhMUFRYXH/2gAIAQEAAT8hU8q5e4xLIeDDomN0dPgujndIqv7Z/9oADAMBAAIAAwAAABDc7//EABURAQEAAAAAAAAAAAAAAAAAABEQ/9oACAEDAQE/EAn/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCn/8QAHRABAQACAQUAAAAAAAAAAAAAAREAIVExQWGBsf/aAAgBAQABPxALR0ZdKFvq4nASLXVunEBKckxFVNsbXEXtg67kI2au/OB4Z1gj9z//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;O que meus amigos acham que eu faço (whatmyfriendsthinkido.net)&amp;quot;&quot;
+        title=&quot;O que meus amigos acham que eu faço (whatmyfriendsthinkido.net)&quot;
+        src=&quot;/static/33839b90ab2f297a3aec4824351bafb8/935bc/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg&quot;
+        srcset=&quot;/static/33839b90ab2f297a3aec4824351bafb8/7809d/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg 192w,
+/static/33839b90ab2f297a3aec4824351bafb8/4ecad/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg 384w,
+/static/33839b90ab2f297a3aec4824351bafb8/935bc/what-my-friends-think-I-do-what-i-actually-do-engineer.jpg 620w&quot;
+        sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;O que meus amigos acham que eu faço (whatmyfriendsthinkido.net)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Na TI, como &lt;a href=&quot;http://www.profissionaisti.com.br/2013/06/14-motivos-para-voce-ser-contra-a-regulamentacao-dos-profissionais-de-ti/&quot; title=&quot;14 motivos para você ser contra a regulamentação dos profissionais de TI&quot;&gt;não há regulamentação da profissão&lt;/a&gt;,
+é muito comum vermos desenvolvedores &quot;abraçarem&quot; diferentes atribuições dentro
+de um projeto, e por fim, acabarem exercendo esse papel multidisciplinar.&lt;/p&gt;
+&lt;h2&gt;A Engenharia de Software&lt;/h2&gt;
+&lt;p&gt;O termo &quot;Engenharia de Software&quot;, surgiu na década de 60, com a intenção de
+contornar a &lt;a href=&quot;http://pt.wikipedia.org/wiki/Crise_do_software&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;crise do Software&lt;/a&gt;,
+e dar um tratamento mais sistemático e controlado ao desenvolvimento de
+sistemas complexos.&lt;/p&gt;
+&lt;p&gt;Segundo &lt;em&gt;[Friedrich L. Bauer](&lt;a href=&quot;http://en.wikipedia.org/wiki/Friedrich&quot;&gt;http://en.wikipedia.org/wiki/Friedrich&lt;/a&gt;&lt;/em&gt;L.&lt;em&gt;Bauer &quot;Leia mais sobre Bauer no Wikipedia&quot;)&lt;/em&gt;,
+autor do que viria a ser a primeira definição sobre Engenharia de Software:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) é a criação e a utilização de sólidos princípios de engenharia a fim
+de obter software de maneira econômica, que seja confiável e que trabalhe
+eficientemente em máquinas reais.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Enquanto um cientista da computação estará &quot;focado&quot; com o desenvolvimento de
+modelos matemáticos, algoritmos, e a aplicabilidade de sua lógica dentro de um
+contexto específico, o engenheiro, além de estar envolvido com o desenvolvimento
+do sistema, terá atenção ao processo, à eficiência, aos recursos e até mesmo
+aos custos.&lt;/p&gt;
+&lt;h2&gt;Em outras palavras: Não basta só programar&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;http://twitter.com/romulojales&quot; title=&quot;Siga o Jales no Twitter&quot;&gt;@romulojales&lt;/a&gt; me
+apresentou um ponto de vista super interessante sobre o assunto:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Se eu recebo algo para fazer e simplesmente faço, eu sou apenas um
+desenvolvedor. Agora, se eu recebo algo para fazer, e questiono, eu sou
+um engenheiro.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Determinar quais são as responsabilidades de um Engenheiro de Software nem
+sempre é uma tarefa fácil. O &lt;a href=&quot;http://twitter.com/mittmann&quot; title=&quot;Siga o Cleiton no Twitter&quot;&gt;@mittmann&lt;/a&gt;
+apresentou o seu ponto de vista sobre a questão:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Já que a engenharia abrange muita coisa. O engenheiro é um cientista aplicado.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O &lt;em&gt;Facebook&lt;/em&gt;, por exemplo, detalha de forma bem sofisticada o que ele espera de
+um profissional com este título:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create elegant and useful solutions to solve complex business problems by working across various teams, understanding the needs of our business partners and advertisers, and putting on your product manager hat to provide solutions to solve those problems.&lt;/li&gt;
+&lt;li&gt;Work closely with product management and UX design teams to define and refine feature specifications.&lt;/li&gt;
+&lt;li&gt;Design and develop front-end interfaces, underlying APIs, and backend systems across a number of programming languages with focus on JavaScript, React and PHP (Hack).&lt;/li&gt;
+&lt;li&gt;Analyze and improve the efficiency, scalability, stability, and security of business applications and in-house systems to help scale the company.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note a ênfase em &quot;eficiência, escalabilidade e estabilidade&quot;. É normal vermos
+empresas exigindo certa experiência nesses quesitos nos tempos atuais (não me
+surpreenderia se os próximos requisitos para o &quot;cargo&quot; envolvessem &lt;em&gt;big data&lt;/em&gt;
+e &quot;containerização&quot;).&lt;/p&gt;
+&lt;p&gt;Transitar entre as diferentes esferas do conhecimento (como &lt;em&gt;front-end&lt;/em&gt;,
+&lt;em&gt;back-end&lt;/em&gt;, &lt;em&gt;storage&lt;/em&gt;, &lt;em&gt;infra-structure&lt;/em&gt;, &lt;em&gt;business&lt;/em&gt;, &lt;em&gt;project management&lt;/em&gt;)
+é outra característica marcante desses profissionais.
+O &lt;a href=&quot;http://pt.wikipedia.org/wiki/Software_Engineering_Body_of_Knowledge&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;SWEBOK&lt;/a&gt; (Software Engineering Body of Knowledge)
+determina quais áreas de conhecimento fazem parte da Engenharia de Software em
+seu guia, que pode ser baixado diretamente do &lt;a href=&quot;http://www.computer.org/web/swebok/index&quot; title=&quot;Baixe o guia V3 da SWEBOK&quot;&gt;site da Computer Society&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c7336057cbbd4ebd1de240ebcb7c79fd/2a195/dilbert-google-engineer.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsSAAALEgHS3X78AAABeUlEQVQY0wFuAZH+ALG7gq64gK22f663f6u1frbAhLO5mLzFjbzGirrEibW+hbrEiMfSlLi9nrjCh7rFiMDKjc3Xlr7JjMzXlQDI0pu8xZG0vY26w5G7xJHN2J6+xKO+xpaTmnGboniboniqsoPHz5vIz7C3v462vozK1J2/yJSVnHTO158AztSrv8eku8KevcSeucCb3OS4vcKqx82ov8ekwcehwcihtr2YzdStxMix3+e84uvA6O/BtLqXoaeItr6ZANzfxsjBneLlweTrzOXoyfDtycLEtdzdwdTPpOnvztbbvvHz0erpxsTJu+DewNfSqvH31uXszeTlxOztygC3rquiiZ3FvMfl9ejt7d7XwKbP0sKbka2DbqbNycrm9+rs5tPPtJy7u7OolJurmqvr7+jj8+bm18HXx68AWhYcPB04k5STf4J0wa+bsaCNkYuDUg8gNiVPmJaQgoR31MGqp56OlYJ9RAATRj9joKKZhoV11buij4d5mnj5Upk0uKQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Dilbert e os engenheiros do Google (seroundtable.com)&amp;quot;&quot;
+        title=&quot;Dilbert e os engenheiros do Google (seroundtable.com)&quot;
+        src=&quot;/static/c7336057cbbd4ebd1de240ebcb7c79fd/2a195/dilbert-google-engineer.png&quot;
+        srcset=&quot;/static/c7336057cbbd4ebd1de240ebcb7c79fd/8514f/dilbert-google-engineer.png 192w,
+/static/c7336057cbbd4ebd1de240ebcb7c79fd/804b2/dilbert-google-engineer.png 384w,
+/static/c7336057cbbd4ebd1de240ebcb7c79fd/2a195/dilbert-google-engineer.png 620w&quot;
+        sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Dilbert e os engenheiros do Google (seroundtable.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Intitular-se engenheiro ou não, é algo que vai além do simples &quot;ter aprendido
+sobre determinado assunto&quot;. Durante a escrita desse artigo, me deparei com
+vários questionamentos, envolvendo a graduação, a regulamentação da área,
+e até mesmo sobre cargos, papéis e remunerações.&lt;/p&gt;
+&lt;p&gt;Na prática, se você é uma pessoa engajada com o projeto, em diferentes esferas,
+com foco em sustentabilidade, qualidade, transitando entre a base de dados,
+a infraestrutura, a experiência do usuário, e o código em si. Você pode ter
+certeza que está desempenhando papéis que cabem a um Engenheiro de Software.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://engenhariasoftware.wordpress.com/2014/07/04/engenharia-de-software-crea-sbc-acm-e-enade/&quot;&gt;Engenharia de Software - Engenharia de Software, CREA, SBC, ACM e ENADE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/careers/department?dept=grad&amp;#x26;req=a0I1200000G4LPgEAN&quot;&gt;Facebook - Software Engineer, Enterprise&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://guiadoestudante.abril.com.br/profissoes/engenharia-producao/engenharia-civil-685209.shtml&quot;&gt;Guia do Estudante - Engenheiro Civil&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://guiadoestudante.abril.com.br/orientacao-vocacional/consulte-orientador/qual-diferenca-ciencia-computacao-engenharia-software-731291.shtml&quot;&gt;Guia do Estudante - Qual a diferença entre Ciência da Computação e Engenharia de Software?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.computer.org/web/swebok/index&quot;&gt;IEEE Computer Society - About SWEBOK&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikibooks.org/wiki/Engenharia_de_Software/O_que_%C3%A9_Engenharia_de_Software%3F&quot;&gt;&lt;em&gt;Wikibooks&lt;/em&gt; - O que é Engenharia de Software?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Engenharia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - Engenharia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Engenharia_de_software&quot; title=&quot;Leia mais sobre no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - Engenharia de Software&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Friedrich_L._Bauer&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - Friedrich L. Bauer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[As lições aprendidas em 3 anos de cidade grande]]></title><description><![CDATA[Neste mês de Maio, faz 3 anos que deixei Schroeder (SC) e me mudei para
+o Rio de Janeiro, para trabalhar na Globo.com. Não tinha como ser
 diferente: Eu estava estudando as tecnologias utilizadas pelo "plim-plim" há
-quase 1 ano, e idealizava como seria trabalhar para uma das maiores …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 05 May 2014 22:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2014-05-05:/2014/05/05/as-licoes-aprendidas-em-3-anos-de-cidade-grande.html</guid><category>profissao</category><category>carreira</category><category>globo.com</category><category>rio de janeiro</category></item><item><title>Graduação não é só diploma</title><link>https://klauslaube.com.br/2012/02/14/graduacao-nao-e-so-diploma.html</link><description>&lt;p&gt;Se eu fizer o exercício proposto por &lt;em&gt;Steve Jobs&lt;/em&gt;, de &lt;strong&gt;“ligar os
+quase 1 ano, e idealizava como seria trabalhar para uma das maiores empresas
+de mídia…]]></description><link>https://klauslaube.com.br/2014/05/05/as-licoes-aprendidas-em-3-anos-de-cidade-grande.html</link><guid isPermaLink="false">https://klauslaube.com.br/2014/05/05/as-licoes-aprendidas-em-3-anos-de-cidade-grande.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 05 May 2014 20:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Neste mês de Maio, faz 3 anos que deixei &lt;em&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Schroeder&quot; title=&quot;Conheça SC!&quot;&gt;Schroeder (SC)&lt;/a&gt;&lt;/em&gt; e me mudei para
+o Rio de Janeiro, para trabalhar na &lt;em&gt;&lt;a href=&quot;http://globo.com&quot; title=&quot;Uma das maiores empresas de mídia da América Latina&quot;&gt;Globo.com&lt;/a&gt;&lt;/em&gt;. Não tinha como ser
+diferente: Eu estava estudando as tecnologias utilizadas pelo &quot;plim-plim&quot; há
+quase 1 ano, e idealizava como seria trabalhar para uma das maiores empresas
+de mídia da América Latina.&lt;/p&gt;
+&lt;p&gt;Recebi uma recomendação (e sou eternamente grato ao &lt;em&gt;&lt;a href=&quot;https://twitter.com/franciscosouza&quot; title=&quot;Siga o Chico no Twitter&quot;&gt;Francisco Souza&lt;/a&gt;&lt;/em&gt; por
+isso), passei pela entrevista, fui chamado, arrumei a minha mala (sim, uma só)
+e me mudei para a cidade grande, na &quot;cara e coragem&quot;.&lt;/p&gt;
+&lt;p&gt;De lá para cá aconteceram inúmeras coisas na minha vida pessoal e profissional.
+Aprendi muito, mais do que qualquer instituição de ensino poderia me ensinar.
+Logo, caro leitor, se o seu destino é ir para a cidade grande, trabalhar em
+uma grande empresa, talvez você se interesse pelo que eu tenho a dizer.&lt;/p&gt;
+&lt;h2&gt;Adapte-se!&lt;/h2&gt;
+&lt;p&gt;Não me considero um &quot;carioca&quot;. Invejo colegas de trabalho, que assim como eu
+vieram de outras partes do país, mas que se adaptaram com facilidade.&lt;/p&gt;
+&lt;p&gt;Essa é uma lição que eu me forço a aprender todos os dias: Adapte-se.&lt;/p&gt;
+&lt;p&gt;A realidade é completamente diferente daquele pedacinho de paraíso (ou
+pedacinho de inferno) do qual você veio. A cultura é diferente, a economia
+move-se diferente, o lazer é diferente, as pessoas são diferentes, os
+problemas são diferentes, o tempo passa de uma forma diferente.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 324px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2ff9c22718d80a528a77dc5713c2688b/033fb/adapt.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 123.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAIDAQQF/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB9xdWRwDipbOG5FSP/8QAGhABAAIDAQAAAAAAAAAAAAAAAQIDABARIf/aAAgBAQABBQLadw8MpskvZStTrv8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEQERL/2gAIAQIBAT8BjbLP/8QAHRAAAQIHAAAAAAAAAAAAAAAAAQAQAhEgIjFBof/aAAgBAQAGPwJ5PeFsQjqxR//EABwQAAMBAAIDAAAAAAAAAAAAAAABESEQIDFRkf/aAAgBAQABPyGwTd4Vt4Y1MiRUNzlFmCsRDnotY4+9P//aAAwDAQACAAMAAAAQX+v9/8QAFxEBAQEBAAAAAAAAAAAAAAAAAQARUf/aAAgBAwEBPxDLJBbDl//EABYRAQEBAAAAAAAAAAAAAAAAAAARIf/aAAgBAgEBPxCqwin/xAAdEAEAAgIDAQEAAAAAAAAAAAABACEQETFRcUGB/9oACAEBAAE/EEDah7E01rvAAYgiJzActVE7EPWIhuWl9RCmgDyLz+BXs3UBa3tj7j//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Adapt! Veja mais em dudeologyforall.wordpress.com&amp;quot;&quot;
+        title=&quot;Adapt! Veja mais em dudeologyforall.wordpress.com&quot;
+        src=&quot;/static/2ff9c22718d80a528a77dc5713c2688b/033fb/adapt.jpg&quot;
+        srcset=&quot;/static/2ff9c22718d80a528a77dc5713c2688b/7809d/adapt.jpg 192w,
+/static/2ff9c22718d80a528a77dc5713c2688b/033fb/adapt.jpg 324w&quot;
+        sizes=&quot;(max-width: 324px) 100vw, 324px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Adapt! Veja mais em dudeologyforall.wordpress.com&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Esteja preparado para uma nova faixa salarial, bem como para um novo patamar
+nos gastos. Esteja preparado para o trânsito caótico, bem como para fazer as
+mais exóticas amizades. Esteja preparado para a saudade, bem como para deixar
+os seus conterrâneos orgulhosos. Esteja preparado para estar por conta
+própria, bem como para enfrentar desafios que você jamais enfrentaria morando
+com os pais. Esteja preparado para se perder pelas ruas, bem como para
+encontrar lugares magníficos pelo caminho.&lt;/p&gt;
+&lt;p&gt;E esteja preparado para a violência, para a desigualdade social e para tantos
+outros problemas que assolam o nosso país, e que ficam mais evidentes em uma
+capital.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;&lt;a href=&quot;https://twitter.com/alexiacaldas&quot; title=&quot;Siga a Alexia no Twitter&quot;&gt;Alexia Caldas&lt;/a&gt;&lt;/em&gt;, atualmente &lt;em&gt;Scrum Master&lt;/em&gt; na &lt;em&gt;Globo.com&lt;/em&gt;, uma vez me
+disse: &lt;em&gt;Você tem que aceitar o Rio&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E é basicamente isso! Só depende de você encontrar uma forma de maximizar os
+prós e minimizar os contras.&lt;/p&gt;
+&lt;h2&gt;Controle o seu ego...&lt;/h2&gt;
+&lt;p&gt;Admito que sempre tive um problema com o ego. Antes de me mudar para o Rio eu
+me sentia &quot;invencível&quot;, capaz de liderar qualquer equipe ou de enfrentar
+qualquer desafio. As minhas expectativas em relação a mim mesmo eram
+totalmente desproporcionais.&lt;/p&gt;
+&lt;p&gt;Esse tipo de postura só é resolvida com &lt;strong&gt;choque de realidade&lt;/strong&gt;. E foi o que
+aconteceu comigo logo no meu primeiro dia de &lt;em&gt;Globo.com&lt;/em&gt;. Quando você passa a
+conviver com pessoas mais inteligentes (as experientes e maduras, não as
+&quot;exibicionistas&quot;) a sua falta de vivência fica tão evidente que você é
+obrigado a se posicionar para resolver este problema.&lt;/p&gt;
+&lt;p&gt;É fácil ter um olho em terra de cego, quero ver você se virar em terra
+de &lt;a href=&quot;http://pt.wikipedia.org/wiki/Beholder&quot; title=&quot;No RPG, você nunca irá querer se deparar com um Beholder&quot;&gt;beholder&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;... mas não se subestime&lt;/h3&gt;
+&lt;p&gt;Humildade é sempre bom, mas você deve se dar o valor. E isso é para qualquer
+coisa na vida.&lt;/p&gt;
+&lt;p&gt;Ser mais &quot;aguerrido&quot; em uma discussão se faz necessário para a tomada de
+decisão, principalmente se você não acredita na decisão que está prestes a ser
+tomada. Você possui a sua experiência, a sua gama de conhecimento, e &lt;strong&gt;deve&lt;/strong&gt;
+articular argumentos para defender o seu ponto de vista.&lt;/p&gt;
+&lt;p&gt;Nunca deixe que &quot;os anos de casa&quot; do seu colega sejam o diferencial para uma
+batida de martelo, muito menos que o grau de instrução te
+intimide perante o &quot;embate&quot;. Os argumentos sim, esses devem ser o diferencial.&lt;/p&gt;
+&lt;p&gt;As vezes optamos pelo silêncio, alegando que estamos &quot;respeitando&quot; a opinião
+dos demais. Mas o que você enxerga como &quot;respeito&quot;, o seu gerente/superior
+pode enxergar como &quot;covardia&quot;. Sempre tenha a sua opinião (mas esteja apto a
+mudá-la quando necessário) e use bons argumentos para defendê-la (mas seja
+educado).&lt;/p&gt;
+&lt;p&gt;Você não está em um campo de batalha, muito menos em um monastério fazendo
+voto de silêncio.&lt;/p&gt;
+&lt;h2&gt;Só trabalho sem diversão faz de Jack um bobão&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 612px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/55909e0479277a1825437a2dddf66ae9/a18e1/iluminado.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.958333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAB4tFS8yjL/8QAGhABAAIDAQAAAAAAAAAAAAAAAQACEBEjMf/aAAgBAQABBQJ2S9hxb0OE/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8BR//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAMBAQAAAAAAAAAAAAAAAAABAhAx/9oACAEBAAY/AhKTgis//8QAGhAAAwADAQAAAAAAAAAAAAAAAAEREDFBUf/aAAgBAQABPyF2UnDgr6xUUiqYtI//2gAMAwEAAgADAAAAEMAv/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Qg//EABcRAAMBAAAAAAAAAAAAAAAAAAABEUH/2gAIAQIBAT8QWMp//8QAGhABAAMAAwAAAAAAAAAAAAAAAQARIUFxof/aAAgBAQABPxAEwLzZXRVb7lQ6bwwiCXEqbA1ps8U//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Adapt! Jack, de O Iluminado&amp;quot;&quot;
+        title=&quot;Adapt! Jack, de O Iluminado&quot;
+        src=&quot;/static/55909e0479277a1825437a2dddf66ae9/a18e1/iluminado.jpg&quot;
+        srcset=&quot;/static/55909e0479277a1825437a2dddf66ae9/7809d/iluminado.jpg 192w,
+/static/55909e0479277a1825437a2dddf66ae9/4ecad/iluminado.jpg 384w,
+/static/55909e0479277a1825437a2dddf66ae9/a18e1/iluminado.jpg 612w&quot;
+        sizes=&quot;(max-width: 612px) 100vw, 612px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Adapt! Jack, de O Iluminado&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;É sempre bom lembrar: &lt;strong&gt;Não mude-se sem um tostão no bolso!&lt;/strong&gt; Tenha uma
+reserva, e que ela seja uma &quot;senhora reserva&quot;. Tenho certeza que ela será
+muito útil nos primeiros meses da sua nova vida, principalmente para lidar
+com aquele cheque caução do aluguel.&lt;/p&gt;
+&lt;p&gt;Em contrapartida, &lt;strong&gt;não torne-se escravo do trabalho&lt;/strong&gt;. Mesmo na ausência
+de &quot;distrações&quot; como família, amigos, namorada, cachorro, papagaio, televisão,
+vídeo game, entre outros, não use 100% do seu tempo trabalhando. Mesmo que
+você tenha se mudado exclusivamente por causa do trabalho (meu caso), tenha
+momentos de lazer.&lt;/p&gt;
+&lt;p&gt;Quando me mudei, percebi que precisava estudar uma porção de conceitos e
+tecnologias utilizadas pelo time que eu ingressara. &quot;Coisas&quot; das quais não
+aprendi na escola, curso técnico ou faculdade, mas que eles sim. Logo, passei
+a investir quase a totalidade do meu tempo livre para aprender estes
+conceitos, descobrir como usar essas tecnologias, qual a melhor forma de
+empregar determinado padrão. Só assim eu seria capaz de acompanhá-los durante
+o percorrer do projeto, certo?&lt;/p&gt;
+&lt;p&gt;A intenção foi nobre, a disciplina foi notória, mas os resultados nem tanto.
+Passado pouco mais de um ano, eu quase perdera total contato com a minha família, não me
+alimentava direito, mal saia de casa e o meu rendimento no trabalho não
+passava de razoável. O &quot;saco cheio&quot; foi tanto, que por muitas ocasiões
+cogitei arrumar a minha mala (sim, uma só) e voltar correndo para a minha
+zona de conforto.&lt;/p&gt;
+&lt;p&gt;Conheça os seus limites, determine um valor para o seu tempo, crie um
+coeficiente de felicidade e busque o &lt;strong&gt;equilíbrio&lt;/strong&gt; entre a sua vida pessoal e
+profissional.&lt;/p&gt;
+&lt;h2&gt;Para concluir&lt;/h2&gt;
+&lt;p&gt;A experiência poderia ter sido melhor, isso é fato. Enfatizo novamente a
+falta de equilíbrio, e também a perda de um estabelecimento de prioridades
+entre minha vida pessoal e profissional.&lt;/p&gt;
+&lt;p&gt;Mas se me perguntarem se me arrependo de ter tomado esta decisão, há 3 anos
+atrás, eu respondo sem pestanejar: Não! E faria de novo se tivesse a
+oportunidade.&lt;/p&gt;
+&lt;p&gt;Em tempo, recomendo este peculiar artigo do Papo de Homem, sobre morar
+sozinho: &lt;a href=&quot;http://papodehomem.com.br/o-que-ninguem-conta-sobre-morar-sozinho/&quot; title=&quot;O que ninguém conta sobre morar sozinho&quot;&gt;&lt;em&gt;O que ninguém conta sobre morar sozinho&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Graduação não é só diploma]]></title><description><![CDATA[Se eu fizer o exercício proposto por Steve Jobs, de “ligar os
+pontos”, sou capaz de dizer que as melhores experiências profissionais
+da minha vida estão de alguma forma relacionadas com o ambiente
+acadêmico. Graças ao curso técnico, tive a oportunidade de trabalhar com
+web desde o início da minha…]]></description><link>https://klauslaube.com.br/2012/02/14/graduacao-nao-e-so-diploma.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/02/14/graduacao-nao-e-so-diploma.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 14 Feb 2012 23:21:39 GMT</pubDate><content:encoded>&lt;p&gt;Se eu fizer o exercício proposto por &lt;em&gt;Steve Jobs&lt;/em&gt;, de &lt;strong&gt;“ligar os
 pontos”&lt;/strong&gt;, sou capaz de dizer que as melhores experiências profissionais
 da minha vida estão de alguma forma relacionadas com o &lt;strong&gt;ambiente
 acadêmico&lt;/strong&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Graças ao &lt;strong&gt;curso técnico&lt;/strong&gt;, tive a oportunidade de trabalhar com
-&lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; desde o início da minha …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 14 Feb 2012 23:21:39 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-02-14:/2012/02/14/graduacao-nao-e-so-diploma.html</guid><category>profissao</category><category>carreira</category><category>graduacao</category></item></channel></rss>
+&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; desde o início da minha carreira. Já na &lt;strong&gt;graduação&lt;/strong&gt;, pude
+conviver com pessoas muito mais inteligentes e interessantes que eu.
+Pessoas com um conhecimento e &lt;em&gt;feeling&lt;/em&gt; sobre o mercado de Tecnologia da
+Informação, que fizeram toda a diferença na minha vida.&lt;/p&gt;
+&lt;p&gt;Também tive o prazer de trabalhar em duas empresas incubadas pelo
+&lt;a href=&quot;http://www.catolicasc.org.br/&quot; title=&quot;UNERJ, atual Católica de Santa Catarina&quot;&gt;&lt;em&gt;Centro Universitário de Jaraguá do Sul (UNERJ)&lt;/em&gt;&lt;/a&gt;. Nelas, tive a liberdade e
+oportunidade de explorar &lt;strong&gt;conceitos técnicos e de gestão&lt;/strong&gt;, que não
+poderia exercer em hipótese alguma em outras empresas de porte maior.&lt;/p&gt;
+&lt;p&gt;São essas experiências, aliadas a um conjunto de valores, que me
+permitem escrever para você hoje como &lt;strong&gt;analista e desenvolvedor web&lt;/strong&gt;
+da &lt;a href=&quot;http://globo.com&quot; title=&quot;Absolutamente tudo sobre notícias e entretenimento&quot;&gt;&lt;em&gt;Globo.com&lt;/em&gt;&lt;/a&gt;. Uma empresa que acredita muito mais no que você pode
+mostrar, e não no que instituições de ensino têm a dizer a seu respeito.&lt;/p&gt;
+&lt;p&gt;E vejo esta tendência, de profissionais e instituições contestarem o
+valor da graduação, ganhar cada vez mais força. É fato que o diploma não
+garante que você será um bom profissional, somente a prática e
+experiência poderão certificar isso. Se olharmos para a história,
+veremos que pessoas como o próprio &lt;a href=&quot;http://pt.wikipedia.org/wiki/Steve_Jobs&quot; title=&quot;Leia mais sobre Steve Jobs na Wikipedia&quot;&gt;&lt;em&gt;Steve Jobs&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;http://pt.wikipedia.org/wiki/Bill_Gates&quot; title=&quot;Leia mais sobre Bill Gates na Wikipedia&quot;&gt;&lt;em&gt;Bill Gates&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;http://akitaonrails.com/&quot; title=&quot;Conheça o Fábio Akita&quot;&gt;&lt;em&gt;Fábio Akita&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://marcogomes.com/blog/&quot; title=&quot;Conheça um dos jovens empreendedores de maior sucesso no país&quot;&gt;&lt;em&gt;Marco Gomes&lt;/em&gt;&lt;/a&gt;, nem sequer terminaram a
+graduação, e são hoje mais do que certificados, são empreendedores de
+sucesso e referências em suas áreas de atuação.&lt;/p&gt;
+&lt;p&gt;O ambiente acadêmico é &lt;strong&gt;sim&lt;/strong&gt; muito rico e relevante, e como
+profissional formado estou certo que ele foi um dos responsáveis por me
+fazer chegar até aqui. Foi através da graduação que aprendi valores como
+“determinação” e “autodidatismo”, e aprendi a valorizar o &lt;em&gt;networking&lt;/em&gt; e
+a troca de conhecimento. É certo que não desenvolveria estas qualidades
+fora deste ambiente, e num exercício de analisar o passado, sou capaz de
+concluir que as experiências (ou a trajetória) foram muito mais
+significativas do que o ato de receber o diploma em si.&lt;/p&gt;
+&lt;p&gt;Acredito que o problema de hoje é que o “canudo”, aquele &lt;strong&gt;“pedaço de
+papel”&lt;/strong&gt; que garante que você está apto para o mercado de trabalho,
+virou nosso principal objetivo quando ingressamos em uma graduação.
+Deixamos que todo o caminho a ser trilhado e conhecimento a ser
+adquirido, seja encarado como um sacrifício, e não como uma oportunidade
+de crescimento.&lt;/p&gt;
+&lt;p&gt;Culpa das instituições de ensino, ou dos alunos? Não tenho a resposta
+para este questionamento. Mas, no fim das contas, a mensagem que quero
+passar para você é a seguinte: &lt;strong&gt;Aproveite ao máximo o ambiente
+acadêmico&lt;/strong&gt;. Dificilmente em outras épocas da sua vida você terá tanto
+tempo e disposição para adquirir conhecimento. “Esprema” o máximo que
+puder dos seus professores e colegas, participe de projetos científicos,
+de atividades extracurriculares, empenhe-se em trabalhos e provas.
+Afinal, como diria o &lt;em&gt;Scorpions&lt;/em&gt;, “no pain, no gain”.&lt;/p&gt;
+&lt;p&gt;E acima de tudo, faça o que você ama, e use a graduação para descobrir
+se é isto mesmo que você quer fazer na sua vida.&lt;/p&gt;
+&lt;p&gt;Esse artigo foi originalmente escrito para o jornal &lt;a href=&quot;http://www.folhasc.com/&quot; title=&quot;O jornal de vanguarda&quot;&gt;&lt;em&gt;FolhaSC&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>

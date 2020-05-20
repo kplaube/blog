@@ -1,7 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - http</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 14 May 2012 23:14:46 -0300</lastBuildDate><item><title>O cache e o HTTP</title><link>https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html</link><description>&lt;p&gt;Em tempos de alta demanda, o &lt;strong&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/strong&gt; pode tornar-se o melhor amigo das
-aplicações &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - http]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O cache e o HTTP]]></title><description><![CDATA[Em tempos de alta demanda, o cache pode tornar-se o melhor amigo das
+aplicações web.
+Através dele temos uma opção prática, acessível e barata para melhorar
+performance, diminuir consumo de recursos e tempos de resposta. Qualquer
+milissegundo economizado é um ponto a mais com o seu usuário, com os…]]></description><link>https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 14 May 2012 23:14:46 GMT</pubDate><content:encoded>&lt;p&gt;Em tempos de alta demanda, o &lt;strong&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/strong&gt; pode tornar-se o melhor amigo das
+aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.
 Através dele temos uma opção prática, acessível e barata para melhorar
 performance, diminuir consumo de recursos e tempos de resposta. Qualquer
 milissegundo economizado é um ponto a mais com o seu usuário, com os
-mecanismos …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 14 May 2012 23:14:46 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-05-14:/2012/05/14/o-cache-e-o-http.html</guid><category>desenvolvimento</category><category>web</category><category>infraestrutura</category><category>cache</category><category>http</category></item></channel></rss>
+mecanismos de busca e com o seu serviço de hospedagem.&lt;/p&gt;
+&lt;p&gt;Antes de falarmos de &lt;em&gt;cache&lt;/em&gt; em aplicações &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre o Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; ou
+&lt;a href=&quot;/tag/codeigniter.html&quot; title=&quot;Leia mais sobre Codeigniter&quot;&gt;&lt;em&gt;Codeigniter&lt;/em&gt;&lt;/a&gt;, acho interessante falarmos sobre o uso de &lt;em&gt;cache&lt;/em&gt; com
+o protocolo &lt;em&gt;HTTP&lt;/em&gt;. Afinal, é esta a primeira camada a “atacar” quando
+precisamos melhorar os tempos de resposta das nossas aplicações &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O que é “caching”?&lt;/h2&gt;
+&lt;p&gt;Segundo &lt;a href=&quot;http://betterexplained.com/articles/how-to-optimize-your-site-with-http-caching/&quot; title=&quot;How To Optimize Your Site With HTTP Caching&quot;&gt;&lt;em&gt;Kalid Azad&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Caching is a great example of the ubiquitous time-space tradeoff
+in programming. You can save time by using space to store
+results.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Basicamente, &lt;strong&gt;&lt;em&gt;caching&lt;/em&gt;&lt;/strong&gt; é o ato de “economizar processamento”
+armazenando os seus resultados. Um bom exemplo é o temporário do seu
+navegador, onde uma imagem que não teve alteração desde o momento do seu
+&lt;em&gt;download&lt;/em&gt; é resgatada do seu disco e não da &lt;em&gt;internet&lt;/em&gt;. Uma tarefa mais
+rápida e menos custosa.&lt;/p&gt;
+&lt;p&gt;Logo, entendemos que o &lt;strong&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/strong&gt; é um local em disco ou memória
+utilizado para armazenar estes resultados. Ele pode se aplicar ao
+&lt;em&gt;front-end&lt;/em&gt; (como ilustrado no exemplo acima), ou ao &lt;em&gt;back-end&lt;/em&gt;, através
+dos servidores &lt;em&gt;web&lt;/em&gt;, como o &lt;em&gt;Apache&lt;/em&gt; e o &lt;a href=&quot;/2011/12/19/nginx-poderoso-rapido-facil.html&quot; title=&quot;Leia mais sobre Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt;, ou através de
+ferramentas mais específicas, como &lt;em&gt;Memcached&lt;/em&gt; e &lt;em&gt;Redis&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Assim como a definição de &lt;a href=&quot;/2012/04/05/entendendo-os-cookies-e-sessoes.html&quot; title=&quot;Entendendo os Cookies e Sessões&quot;&gt;&lt;em&gt;cookies&lt;/em&gt; e sessões&lt;/a&gt;, a utilização de
+&lt;em&gt;cache&lt;/em&gt; nos navegadores &lt;em&gt;Web&lt;/em&gt; é feita através de informações
+transmitidas pelo cabeçalho da requisição e resposta.&lt;/p&gt;
+&lt;p&gt;Existem quatro tipos de cabeçalhos específicos para &lt;em&gt;cache&lt;/em&gt; em &lt;em&gt;HTTP&lt;/em&gt;.
+Mas todos partem da premissa que o arquivo em questão (pode ser um
+documento, imagem, &lt;em&gt;script&lt;/em&gt;, etc) já está armazenado no disco do
+internauta, acessível ao navegador.&lt;/p&gt;
+&lt;h2&gt;Last-Modified&lt;/h2&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;Last-Modified&lt;/code&gt;, o navegador informa ao servidor que irá baixar
+um arquivo desde que a sua data de modificação seja diferente da data do
+arquivo armazenado. Na requisição é passado o cabeçalho
+&lt;code class=&quot;language-text&quot;&gt;If-Modified-Since&lt;/code&gt;, e se a data do arquivo no servidor for mais
+recente, o navegador faz um novo &lt;em&gt;download&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos fazer uma requisição tendo como resposta um cabeçalho
+&lt;code class=&quot;language-text&quot;&gt;Last-Modified&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -I http://klauslaube.com.br/media/blog/security.jpg
+
+HTTP/1.1 200 OK
+...
+Date: Tue, 01 May 2012 19:20:27 GMT
+Last-Modified: Sat, 07 Apr 2012 17:51:10 GMT
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez que o arquivo esteja em disco, o navegador tem como informar a
+data da última alteração. Então, fazemos uma nova requisição ao arquivo
+&lt;code class=&quot;language-text&quot;&gt;security.jpg&lt;/code&gt;, passando esta data no cabeçalho &lt;code class=&quot;language-text&quot;&gt;If-Modified-Since&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -H &amp;quot;If-Modified-Since: Sat, 07 Apr 2012 17:51:10 GMT&amp;quot; http://klauslaube.com.br/media/blog/security.jpg
+
+HTTP/1.1 304 Not Modified
+Date: Tue, 01 May 2012 19:22:00 GMT
+Last-Modified: Sat, 07 Apr 2012 17:51:10 GMT&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A resposta &lt;code class=&quot;language-text&quot;&gt;304 Not Modified&lt;/code&gt; não traz o conteúdo do arquivo em seu
+corpo, e é através desta resposta que o navegador sabe que não precisa
+fazer o &lt;em&gt;download&lt;/em&gt; do arquivo, utilizando assim a versão que está em seu
+&lt;em&gt;cache&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;ETag&lt;/h2&gt;
+&lt;p&gt;O modo como a &lt;code class=&quot;language-text&quot;&gt;ETag&lt;/code&gt; funciona é bem parecido com o conceito do
+&lt;code class=&quot;language-text&quot;&gt;Last-Modified&lt;/code&gt;. A diferença está no método de comparação: ao invés de
+fazer comparações pela data, são realizadas comparações através de
+identificadores únicos, atribuídos aos arquivos envolvidos nas
+requisições.&lt;/p&gt;
+&lt;p&gt;Quando trabalhamos com &lt;code class=&quot;language-text&quot;&gt;ETag&lt;/code&gt;, obtemos respostas com o seguinte
+cabeçalho:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -I http://localhost/exemplo-cache.html
+
+HTTP/1.1 200 OK
+...
+Date: Tue, 01 May 2012 19:46:18 GMT
+ETag: &amp;quot;2c6b0d8-13-4befe555d6f80&amp;quot;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É através do valor &lt;code class=&quot;language-text&quot;&gt;2c6b0d8-13-4befe555d6f80&lt;/code&gt; que navegador e servidor
+saberão se aquele arquivo em questão já está armazenado em &lt;em&gt;cache&lt;/em&gt;. Isso
+é possível através do cabeçalho &lt;code class=&quot;language-text&quot;&gt;If-None-Match&lt;/code&gt;, enviado pelo
+navegador na requisição:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -I -H &amp;quot;If-None-Match: \&amp;quot;2c6b0d8-13-4befe555d6f80\&amp;quot;&amp;quot; http://localhost/exemplo-cache.html
+
+HTTP/1.1 304 Not Modified
+Date: Tue, 01 May 2012 19:50:40 GMT
+ETag: &amp;quot;2c6b0d8-13-4befe555d6f80&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez que o valor bata com o identificador do arquivo, o servidor
+informa ao navegador que não houve alterações. Então, o navegador
+utiliza a versão do arquivo que está no temporário.&lt;/p&gt;
+&lt;h2&gt;Expires&lt;/h2&gt;
+&lt;p&gt;A grande desvantagem dos dois métodos acima é que necessitamos consultar
+o servidor para verificar a procedência do arquivo. Com o &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt; e
+&lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt; a “data de validade” vem junto com a requisição, logo, o
+navegador já sabe quando o arquivo em seu &lt;em&gt;cache&lt;/em&gt; irá expirar, e só
+voltará a consultar o servidor quando este tempo for alcançado.&lt;/p&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt;, o servidor retorna no cabeçalho da resposta uma data
+de validade para um determinado arquivo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -I http://klauslaube.com.br/media/blog/cookies.jpg
+
+HTTP/1.1 200 OK
+Date: Tue, 08 May 2012 01:49:13 GMT
+...
+Expires: Thu, 31 Dec 2037 23:55:55 GMT
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Solicitando uma nova requisição para este mesmo arquivo, o navegador
+analisará a data local e a data de expiração. Se a data atual for maior
+que &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt;, aí sim o navegador se comunicará com o servidor &lt;em&gt;web&lt;/em&gt;,
+e fará um novo &lt;em&gt;download&lt;/em&gt; do arquivo.&lt;/p&gt;
+&lt;h2&gt;max-age&lt;/h2&gt;
+&lt;p&gt;Embora o &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt; possa parecer um pouco enigmático, ele é (na minha
+opinião) uma solução mais elegante e fácil de implementar que o
+&lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt;, temos que informar uma data “absoluta” no cabeçalho,
+ou seja, somos obrigados a dizer o dia da semana, mês, ano, hora, minuto
+e até mesmo segundo em que determinado arquivo irá expirar. Logo, temos
+o trabalho de interpretar a data da requisição (seja no servidor ou na
+aplicação) adicionando o tempo que desejamos de &lt;em&gt;cache&lt;/em&gt; e imprimindo
+este valor por extenso.&lt;/p&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt; temos a opção de utilizar datas “relativas”, ou seja,
+podemos dizer ao navegador que o arquivo irá expirar em 1 dia (em
+segundos):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i http://localhost/exemplo-cache.html
+
+HTTP/1.1 200 OK
+Date: Mon, 14 May 2012 17:04:29 GMT
+...
+Cache-Control: max-age=86400, must-revalidate
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como você já deve ter reparado, não existe um índice de cabeçalho
+específico chamado &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt;. Ele é na verdade um valor do índice
+&lt;code class=&quot;language-text&quot;&gt;Cache-Control&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O valor &lt;code class=&quot;language-text&quot;&gt;must-revalidate&lt;/code&gt; solicita aos mecanismos de &lt;em&gt;cache&lt;/em&gt; (você
+pode estar “atrás” de um &lt;em&gt;proxy&lt;/em&gt;) o seguinte: Quando o arquivo
+ultrapassar o &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt;, o &lt;em&gt;user-agent&lt;/em&gt; deve revalidar o conteúdo
+junto ao servidor &lt;em&gt;Web&lt;/em&gt;. Embora esse seja o comportamento esperado por
+estes mecanismos, tornar esta informação explícita pode garantir que
+ferramentas mais “obscuras” sigam este comportamento.&lt;/p&gt;
+&lt;h3&gt;Um pouco sobre o Cache-Control&lt;/h3&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;Cache-Control&lt;/code&gt; foi adicionado na especificação do
+&lt;a href=&quot;http://www.w3.org/Protocols/rfc2616/rfc2616.html&quot; title=&quot;Conheça o protocolo HTTP versão 1.1&quot;&gt;&lt;em&gt;HTTP 1.1&lt;/em&gt;&lt;/a&gt; com a finalidade de contornar
+as limitações do &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt;, e também de melhorar o controle sobre o
+&lt;em&gt;cache&lt;/em&gt; de determinado conteúdo por diferentes tipos de mecanismos.&lt;/p&gt;
+&lt;p&gt;Além do uso do &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt;, é através do &lt;code class=&quot;language-text&quot;&gt;Cache-Control&lt;/code&gt; que podemos
+especificar o comportamento de &lt;em&gt;cache&lt;/em&gt; para o navegador (&lt;code class=&quot;language-text&quot;&gt;private&lt;/code&gt;),
+para algum &lt;em&gt;proxy&lt;/em&gt;, servidores intermediários ou requisições &lt;em&gt;HTTPS&lt;/em&gt;
+(&lt;code class=&quot;language-text&quot;&gt;public&lt;/code&gt;), ou ainda informarmos que não queremos fazer &lt;em&gt;caching&lt;/em&gt; do
+conteúdo (&lt;code class=&quot;language-text&quot;&gt;no-cache&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.mnot.net/cache_docs/#CACHE-CONTROL&quot; title=&quot;Tutorial sobre HTTP caching&quot;&gt;Leia mais sobre &lt;em&gt;Cache-Control&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vale ressaltar que o &lt;code class=&quot;language-text&quot;&gt;Cache-Control&lt;/code&gt; tem precedência sobre o
+&lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Qual forma utilizar?&lt;/h2&gt;
+&lt;p&gt;A resposta é: depende do cenário.&lt;/p&gt;
+&lt;p&gt;Para servir arquivos estáticos, a &lt;a href=&quot;http://www.webfaction.com/&quot; title=&quot;Smarter web hosting&quot;&gt;&lt;em&gt;Webfaction&lt;/em&gt;&lt;/a&gt; utiliza os cabeçalhos
+&lt;code class=&quot;language-text&quot;&gt;Last-Modified&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt;, atribuindo aos dois
+últimos valores absurdos de &lt;em&gt;cache&lt;/em&gt; (por exemplo, datas de expiração
+para o ano de 2037). Isso garante que o seu navegador, &lt;em&gt;proxy&lt;/em&gt; ou
+&lt;em&gt;gateway&lt;/em&gt; “nunca esqueça” de uma determina imagem, folha de estilos ou
+arquivo &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Mesmo com o uso do &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt;, é interessante ter o &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt; como
+alternativa, caso o navegador do internauta não compreenda instruções de
+&lt;code class=&quot;language-text&quot;&gt;Cache-Control&lt;/code&gt;. Já a utilização do &lt;code class=&quot;language-text&quot;&gt;Last-Modified&lt;/code&gt;, segundo o &lt;a href=&quot;http://www.askapache.com/htaccess/apache-speed-last-modified.html&quot; title=&quot;Remove Last-Modified Header&quot;&gt;&lt;em&gt;Ask Apache&lt;/em&gt;&lt;/a&gt;,
+não é lá muito interessante pois a sua utilização faz com
+que alguns navegadores ignorem o cabeçalho &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt;. Um argumento
+mais relevante é a eliminação de procedimentos de validação (como o
+&lt;code class=&quot;language-text&quot;&gt;If-Modified-Since&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;If-None-Match&lt;/code&gt;), deixando a cargo apenas do
+&lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt; determinar o tempo de vida do estático em
+&lt;em&gt;cache&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Em páginas dinâmicas, onde um &lt;em&gt;cache&lt;/em&gt; de 5 ou 10 minutos possa ser
+aplicado, o &lt;code class=&quot;language-text&quot;&gt;max-age&lt;/code&gt; com &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt; é fundamental. Já em páginas que
+necessitam de um conteúdo em tempo real, ou páginas que utilizam
+informações de &lt;em&gt;cookies&lt;/em&gt; ou sessões, a ausência de &lt;em&gt;cache&lt;/em&gt; é
+justificável.&lt;/p&gt;
+&lt;p&gt;Em documentos &lt;em&gt;HTML&lt;/em&gt; onde o conteúdo é atualizado com uma frequência
+indeterminada, o uso de &lt;code class=&quot;language-text&quot;&gt;Last-Modified&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;ETag&lt;/code&gt; é mais apropriado.
+Uma vez que fica difícil determinar quando a atualização irá ocorrer, é
+uma boa estratégia fazer com que o navegador atualize o conteúdo do seu
+&lt;em&gt;cache&lt;/em&gt; quando necessário.&lt;/p&gt;
+&lt;h2&gt;Considerações Finais&lt;/h2&gt;
+&lt;p&gt;Embora seja um conteúdo bem introdutório, acho fundamental sabermos as
+diferentes maneiras de aplicar &lt;em&gt;cache&lt;/em&gt; com o protocolo &lt;em&gt;HTTP&lt;/em&gt; antes de
+partirmos para soluções específicas. Essas recomendações não são
+infalíveis, e em um cenário mais “extremo”, necessitam sim de auxílio de
+algumas ferramentas disponíveis no mercado para tornar o &lt;em&gt;cache&lt;/em&gt;
+eficiente tanto para a experiência do usuário, quanto para a
+estabilidade dos seus serviços.&lt;/p&gt;
+&lt;p&gt;Embora eu tenha utilizado o navegador &lt;em&gt;Web&lt;/em&gt; como foco das explicações,
+“robôs”, ferramentas de &lt;em&gt;proxy&lt;/em&gt; e &lt;em&gt;gateways&lt;/em&gt; também podem fazer controle
+de &lt;em&gt;cache&lt;/em&gt;. O comportamento é basicamente o mesmo, variando de acordo
+com instruções passadas no cabeçalho &lt;code class=&quot;language-text&quot;&gt;Cache-Control&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Como não sou nenhum “expert” no assunto, se você possui alguma sugestão
+ou correção sobre o uso de &lt;em&gt;cache&lt;/em&gt; com &lt;em&gt;HTTP&lt;/em&gt;, por favor, conte-nos
+através dos comentários abaixo.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.askapache.com/htaccess/apache-speed-compression.html&quot; title=&quot;Material bem interessante sobre como melhorar a performance com Cache no Apache&quot;&gt;&lt;em&gt;Ask Apache: Speed tips – Turn on Compressor&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://betterexplained.com/articles/how-to-optimize-your-site-with-http-caching/&quot; title=&quot;Excelente artigo falando sobre HTTP e cache&quot;&gt;&lt;em&gt;Better Explained: How To Optimize Your Site With HTTP Caching&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/cache/&quot; title=&quot;Leia mais sobre Cache no Django&quot;&gt;&lt;em&gt;Django Documentation: Django’s cache framework&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/speed/articles/caching&quot; title=&quot;Bom material do Google sobre Caching&quot;&gt;&lt;em&gt;Google Developers: HTTP Caching&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://condor.depaul.edu/dmumaugh/readings/handouts/SE435/HTTP/http.html&quot; title=&quot;Conheça um pouco mais sobre o protocolo HTTP com este artigo científico&quot;&gt;&lt;em&gt;John Yannakopoulos: HyperText Transfer Protocol – A Short Course&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.mnot.net/cache_docs/&quot; title=&quot;Excelente conteúdo sobre caching HTTP&quot;&gt;&lt;em&gt;mnot.net: Caching Tutorial&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.webscalingblog.com/performance/caching-http-headers-cache-control-max-age.html&quot; title=&quot;Artigo bem objetivo descrevendo o uso do max-age&quot;&gt;&lt;em&gt;Web Scaling Blog: Caching HTTP Headers, Cache-Control: max-age&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

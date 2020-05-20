@@ -1,14 +1,343 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - memcached</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 22 Jul 2012 14:33:58 -0300</lastBuildDate><item><title>Django e Cache: Uma dupla de alta performance - Parte 2</title><link>https://klauslaube.com.br/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2.html</link><description>&lt;p&gt;Continuando o &lt;em&gt;post&lt;/em&gt; &lt;a href="https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html" title="Leia a parte 1 deste artigo"&gt;&lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Cache&lt;/em&gt;: Uma dupla de alta performance&lt;/a&gt;, vamos
-ver na prática como utilizar o &lt;em&gt;framework&lt;/em&gt; de &lt;a href="https://klauslaube.com.br/tag/cache.html" title="Leia mais sobre Cache"&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/a&gt; do &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Embora eu esteja utilizando o &lt;a href="https://klauslaube.com.br/tag/memcached.html" title="Leia mais sobre Memcached"&gt;&lt;em&gt;Memcached&lt;/em&gt;&lt;/a&gt; para escrever estes
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - memcached]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django e Cache: Uma dupla de alta performance - Parte 2]]></title><description><![CDATA[Continuando o post Django e Cache: Uma dupla de alta performance, vamos
+ver na prática como utilizar o framework de cache do Django. Embora eu esteja utilizando o Memcached para escrever estes
+artigos, vale ressaltar que a abstração do Django lhe permite utilizar
+a ferramenta mais apropriada para…]]></description><link>https://klauslaube.com.br/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 22 Jul 2012 14:33:58 GMT</pubDate><content:encoded>&lt;p&gt;Continuando o &lt;em&gt;post&lt;/em&gt; &lt;a href=&quot;/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html&quot; title=&quot;Leia a parte 1 deste artigo&quot;&gt;&lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Cache&lt;/em&gt;: Uma dupla de alta performance&lt;/a&gt;, vamos
+ver na prática como utilizar o &lt;em&gt;framework&lt;/em&gt; de &lt;a href=&quot;/tag/cache.html&quot; title=&quot;Leia mais sobre Cache&quot;&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/a&gt; do &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Embora eu esteja utilizando o &lt;a href=&quot;/tag/memcached.html&quot; title=&quot;Leia mais sobre Memcached&quot;&gt;&lt;em&gt;Memcached&lt;/em&gt;&lt;/a&gt; para escrever estes
 artigos, vale ressaltar que a abstração do &lt;em&gt;Django&lt;/em&gt; lhe permite utilizar
-a &lt;a href="https://docs.djangoproject.com/en/dev/topics/cache/#using-a-custom-cache-backend" title="Django Documentation - Custom backends"&gt;ferramenta mais apropriada para você&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+a &lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/cache/#using-a-custom-cache-backend&quot; title=&quot;Django Documentation - Custom backends&quot;&gt;ferramenta mais apropriada para você&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Diferentes maneiras de “cachear” a aplicação&lt;/h2&gt;
+&lt;p&gt;Podemos utilizar a camada de &lt;em&gt;cache&lt;/em&gt; em diferentes pontos da aplicação.
+Por exemplo, podemos utilizá-la antes de uma consulta ao banco de dados,
+armazenar resultados de operações complexas, armazenar o &lt;em&gt;parsing&lt;/em&gt; de um
+&lt;em&gt;template&lt;/em&gt;, etc. Com o esquema de &lt;em&gt;middlewares&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt;, podemos ter
+essa camada aplicada diretamente ao fluxo de interpretação do
+&lt;em&gt;framework&lt;/em&gt;, o que pode reduzir consideravelmente o uso de recursos de
+nossa hospedagem, sem mesmo termos alterado código das nossas &lt;em&gt;apps&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos ver a diferença, e casos de usos, dessas formas de utilização do
+&lt;em&gt;cache&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Granular&lt;/h3&gt;
+&lt;p&gt;Quando você quer ser “incisivo”, utilizar a &lt;em&gt;API&lt;/em&gt; de forma “granular” é
+uma ótima opção.&lt;/p&gt;
+&lt;p&gt;Por exemplo, no &lt;a href=&quot;http://globoesporte.globo.com&quot; title=&quot;A melhor cobertura sobre o Futebol e Outros Esportes, no Brasil e no Mundo&quot;&gt;&lt;em&gt;Globoesporte.com&lt;/em&gt;&lt;/a&gt; nós fazemos algumas consultas a
+um &lt;a href=&quot;http://virtuoso.openlinksw.com/&quot; title=&quot;Conheça o Virtuoso&quot;&gt;banco de dados semântico&lt;/a&gt; para trazer informações de eventos,
+jogos e atletas. Como esta consulta é consideravelmente demorada,
+utilizamos a &lt;em&gt;API&lt;/em&gt; de &lt;em&gt;cache&lt;/em&gt; para melhorar os tempos de resposta.
+Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;core&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cache &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; cache
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;jogos_por_edicao&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;edicao_slug&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    jogos &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cache&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;jogos_%s&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; edicao_slug&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;not&lt;/span&gt; jogos&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        jogos &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; pega_jogos_da_semantica&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;edicao_slug&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        cache&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;jogos_%s&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; edicao_slug&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; jogos&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Passamos ao &lt;code class=&quot;language-text&quot;&gt;cache.set&lt;/code&gt; uma chave (que deve ser menor que 250
+caracteres, e não utilizar caracteres especiais) e um valor. Ele também
+aceita um terceiro parâmetro, que é o tempo de vida desta informação em
+&lt;em&gt;cache&lt;/em&gt;. Quando omitido, o tempo definido nas configurações do &lt;em&gt;backend&lt;/em&gt;
+é utilizado.&lt;/p&gt;
+&lt;p&gt;Para remover esta informação do &lt;em&gt;cache&lt;/em&gt;, basta utilizarmos o método
+&lt;code class=&quot;language-text&quot;&gt;cache.delete&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;cache&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;delete&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;jogos_%s&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; edicao_slug&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Você tem a liberdade de fazer &lt;em&gt;caching&lt;/em&gt; de qualquer região da sua
+aplicação. Mas é bom tomarmos cuidado para que o gerenciamento desses
+pontos não passem a ser um problema. O &lt;em&gt;framework&lt;/em&gt; de &lt;em&gt;cache&lt;/em&gt; pode ser
+aplicado em outras camadas da abstração, dispensando (em muitos casos) a
+necessidade desse tipo de controle em modelos e &lt;em&gt;views&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Template&lt;/h3&gt;
+&lt;p&gt;Assim como é possível fazer &lt;em&gt;caching&lt;/em&gt; de forma minuciosa com a &lt;em&gt;API&lt;/em&gt;
+acima, é possível fazer um controle muito interessante de &lt;em&gt;cache&lt;/em&gt; com os
+&lt;em&gt;templates&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;h4&gt;Prevenindo acesso a disco&lt;/h4&gt;
+&lt;p&gt;A cada nova requisição, o &lt;em&gt;Django&lt;/em&gt; carrega o arquivo de &lt;em&gt;template&lt;/em&gt; do
+disco, interpreta-o com o contexto, e retorna o seu resultado. Podemos
+melhorar um pouquinho este fluxo, sem necessitar do &lt;em&gt;Memcached&lt;/em&gt;, basta
+adicionarmos o &lt;code class=&quot;language-text&quot;&gt;django.template.loaders.cached.Loader&lt;/code&gt; ao
+&lt;code class=&quot;language-text&quot;&gt;TEMPLATE_LOADERS&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;settings.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;TEMPLATE_LOADERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;django.template.loaders.cached.Loader&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;django.template.loaders.filesystem.Loader&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;django.template.loaders.app_directories.Loader&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Esse &lt;em&gt;loader&lt;/em&gt; manterá o arquivo de &lt;em&gt;template&lt;/em&gt; em memória, evitando com
+que o &lt;em&gt;Django&lt;/em&gt; tenha que recorrer ao disco para obter o seu conteúdo. O
+“trade-off” é mais utilização da memória do seu servidor (que,
+dependendo do cenário, nem é um problema tão grande assim) e a
+necessidade de, quando houver atualizações em &lt;em&gt;templates&lt;/em&gt;, efetuar o
+&lt;em&gt;restart&lt;/em&gt; do serviço de &lt;em&gt;WSGI&lt;/em&gt; que você utiliza.&lt;/p&gt;
+&lt;p&gt;Outro ponto a se observar é que as &lt;em&gt;template tags&lt;/em&gt; que você utilizar
+deverão ser &lt;a href=&quot;https://docs.djangoproject.com/en/dev/howto/custom-template-tags/#template-tag-thread-safety&quot; title=&quot;Leia mais na documentação do Django&quot;&gt;&lt;em&gt;thread-safe&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Prevenindo parsing desnecessário&lt;/h4&gt;
+&lt;p&gt;O &lt;em&gt;framework&lt;/em&gt; de &lt;em&gt;cache&lt;/em&gt; permite “cachear” fragmentos de um &lt;em&gt;template&lt;/em&gt;.
+Essa modalidade de &lt;em&gt;cache&lt;/em&gt; é bem interessante quando utilizamos filtros
+ou &lt;em&gt;tags&lt;/em&gt; que executam operações que aumentam consideravelmente o tempo
+de interpretação do &lt;em&gt;template&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Na &lt;a href=&quot;https://docs.djangoproject.com/en/1.4/topics/cache/#template-fragment-caching&quot; title=&quot;Template fragment caching&quot;&gt;documentação&lt;/a&gt; há um exemplo bem interessante, onde é feito o
+&lt;em&gt;cache&lt;/em&gt; de um &lt;em&gt;sidebar&lt;/em&gt; inteiro:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;django-html&quot;&gt;&lt;pre class=&quot;language-django-html&quot;&gt;&lt;code class=&quot;language-django-html&quot;&gt;{% load cache %}
 
-&lt;h2&gt;Diferentes …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 22 Jul 2012 14:33:58 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-07-22:/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>memcached</category><category>johnny-cache</category><category>cache</category></item><item><title>Django e Cache: Uma dupla de alta performance - Parte 1</title><link>https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</link><description>&lt;p&gt;Embora o &lt;a href="https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html" title="O cache e o HTTP"&gt;&lt;em&gt;caching HTTP&lt;/em&gt;&lt;/a&gt; seja essencial
-para qualquer aplicação &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, &lt;strong&gt;(IMO)&lt;/strong&gt;
-essa modalidade de &lt;a href="https://klauslaube.com.br/tag/cache.html" title="Leia mais sobre Cache"&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/a&gt; deve ser encarada como um acréscimo à
+{% cache 500 sidebar %}
+    &amp;lt;!-- conteúdo do sidebar --&amp;gt;
+{% endcache %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Passamos para a &lt;em&gt;template tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;cache&lt;/code&gt; o tempo de vida do conteúdo
+(500 segundos), e o identificador deste conteúdo (&lt;code class=&quot;language-text&quot;&gt;sidebar&lt;/code&gt;). Se a
+chave não existir, o &lt;em&gt;Django&lt;/em&gt; interpretará as instruções dentro do bloco
+e armazenará o seu resultado no &lt;em&gt;Memcached&lt;/em&gt; para que, num próximo
+acesso, esse resultado seja recuperado sem necessitar interpretar todo o
+bloco novamente.&lt;/p&gt;
+&lt;h3&gt;Views&lt;/h3&gt;
+&lt;p&gt;Uma das maneiras mais práticas de utilizarmos o &lt;em&gt;cache&lt;/em&gt; em nossos
+&lt;em&gt;websites&lt;/em&gt; e aplicações &lt;em&gt;Web&lt;/em&gt; escritos em &lt;em&gt;Django&lt;/em&gt;, é através do método
+chamado &lt;a href=&quot;https://docs.djangoproject.com/en/1.4/topics/cache/#the-per-site-cache&quot; title=&quot;Leia mais sobre na documentação do Django&quot;&gt;&lt;em&gt;per-site cache&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Basicamente, o &lt;em&gt;Django&lt;/em&gt; analisará requisições realizadas através dos
+métodos &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;HEAD&lt;/code&gt;, e utilizará a sua &lt;em&gt;URL&lt;/em&gt; como chave para a
+verificação em &lt;em&gt;cache&lt;/em&gt;. Caso ele encontre a ocorrência, retornará ao
+usuário o resultado “cacheado”, senão, interpretará a &lt;em&gt;view&lt;/em&gt; e ao final
+armazenará o seu resultado.&lt;/p&gt;
+&lt;p&gt;Para que isso seja possível, é necessário a utilização dos &lt;em&gt;middlewares&lt;/em&gt;
+&lt;code class=&quot;language-text&quot;&gt;django.middleware.cache.UpdateCacheMiddleware&lt;/code&gt; e
+&lt;code class=&quot;language-text&quot;&gt;django.middleware.cache.FetchFromCacheMiddleware&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;MIDDLEWARE_CLASSES &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.middleware.cache.UpdateCacheMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;django.middleware.cache.FetchFromCacheMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Além da configuração das seguintes constantes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;CACHE_MIDDLEWARE_ALIAS&lt;/code&gt; : O identificador da conexão (padrão
+&lt;code class=&quot;language-text&quot;&gt;default&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;CACHE_MIDDLEWARE_SECONDS&lt;/code&gt; : O tempo de vida (em segundos) das
+páginas em &lt;em&gt;cache&lt;/em&gt; (padrão &lt;code class=&quot;language-text&quot;&gt;600 segundos&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;CACHE_MIDDLEWARE_KEY_PREFIX&lt;/code&gt; : Chave para prevenir problemas
+quando o &lt;em&gt;cache&lt;/em&gt; é um serviço compartilhado entre diferentes
+instâncias &lt;em&gt;Django&lt;/em&gt;. Pode-se, por exemplo, colocar o nome do &lt;em&gt;site&lt;/em&gt;
+como prefixo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ao acessar as &lt;em&gt;views&lt;/em&gt;, temos uma agradável surpresa:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -I http://localhost:8000/
+
+HTTP/1.0 200 OK
+Date: Wed, 04 Jul 2012 00:12:17 GMT
+Server: WSGIServer/0.1 Python/2.7.2
+Cache-Control: max-age=600
+Vary: Cookie
+Expires: Wed, 04 Jul 2012 00:22:17 GMT
+Content-Type: text/html; charset=utf-8
+Last-Modified: Wed, 04 Jul 2012 00:12:17 GMT&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ganhamos &lt;a href=&quot;/2012/05/14/o-cache-e-o-http.html&quot; title=&quot;O cache e o HTTP&quot;&gt;cabeçalhos &lt;em&gt;HTTP&lt;/em&gt;&lt;/a&gt; com os valores correspondentes às nossas
+configurações de &lt;em&gt;cache&lt;/em&gt;! Por exemplo, &lt;code class=&quot;language-text&quot;&gt;Last-Modified&lt;/code&gt; corresponde a
+data de acesso, &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt; é a data de acesso acrescentando os 600
+segundos de &lt;em&gt;cache&lt;/em&gt;, e o &lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt; corresponde ao tempo de
+&lt;code class=&quot;language-text&quot;&gt;CACHE_MIDDLEWARE_SECONDS&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Interessante não? Temos um controle de &lt;em&gt;cache&lt;/em&gt; na “borda” da nossa
+aplicação… não precisamos interferir nas nossas &lt;em&gt;views&lt;/em&gt;, modelos ou
+consultas.&lt;/p&gt;
+&lt;h4&gt;O método per-view&lt;/h4&gt;
+&lt;p&gt;É natural que certas &lt;em&gt;views&lt;/em&gt; necessitem de um tempo de &lt;em&gt;cache&lt;/em&gt; diferente
+de outras. Para tanto, podemos utilizar &lt;em&gt;decorators&lt;/em&gt; que “sobrescrevem”
+as configurações utilizadas pelo &lt;em&gt;per-site&lt;/em&gt;, permitindo assim um
+controle mais granular sobre o tempo de &lt;em&gt;cache&lt;/em&gt; das &lt;em&gt;views&lt;/em&gt;. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;views&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;generic&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;simple &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; direct_to_template
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;views&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;decorators&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cache &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; cache_page
+
+urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; patterns&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    url&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;r&apos;^outra-view/$&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; cache_page&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;60&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;direct_to_template&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;template&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;outra-view.html&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;outra-view&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No exemplo acima estou usando a &lt;em&gt;generic view&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;direct_to_template&lt;/code&gt;
+para ilustrar. Através do &lt;em&gt;decorator&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;cache_page&lt;/code&gt; eu informo o tempo
+de vida desta &lt;em&gt;view&lt;/em&gt; em &lt;em&gt;cache&lt;/em&gt; (2 minutos, 60 * 2 para ficar mais
+legível).&lt;/p&gt;
+&lt;p&gt;E quando acessamos esta &lt;em&gt;view&lt;/em&gt;, é possível reparar que inclusive os
+valores dos cabeçalhos &lt;em&gt;HTTP&lt;/em&gt; são outros:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -I http://localhost:8000/outra-view/
+
+HTTP/1.0 200 OK
+Date: Wed, 04 Jul 2012 00:28:07 GMT
+Server: WSGIServer/0.1 Python/2.7.2
+Last-Modified: Wed, 04 Jul 2012 00:28:07 GMT
+Expires: Wed, 04 Jul 2012 00:30:07 GMT
+Content-Type: text/html; charset=utf-8
+Vary: Cookie
+Cache-Control: max-age=120&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainda é possível passar como parâmetro para o &lt;code class=&quot;language-text&quot;&gt;cache_page&lt;/code&gt;, o
+&lt;code class=&quot;language-text&quot;&gt;cache&lt;/code&gt; que você deseja utilizar (por padrão &lt;code class=&quot;language-text&quot;&gt;default&lt;/code&gt;), e um
+&lt;code class=&quot;language-text&quot;&gt;key_prefix&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Caching de queries com o Johnny Cache&lt;/h2&gt;
+&lt;p&gt;É normal que algumas rotas da sua aplicação não possam fazer utilização
+desse tipo de &lt;em&gt;cache&lt;/em&gt;. Por exemplo, &lt;em&gt;views&lt;/em&gt; para usuários autenticados,
+que necessitam transitar informações de sessão e &lt;em&gt;cookies&lt;/em&gt;, ou até mesmo
+&lt;em&gt;views&lt;/em&gt; que precisam receber informações através de &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos imaginar que, dentro desse cenário, a sua &lt;em&gt;app&lt;/em&gt; faça uma consulta
+“custosa” ao banco de dados. Logo, concluímos que adicionar um controle
+de &lt;em&gt;cache&lt;/em&gt; a esta consulta seria extremamente interessante para a
+velocidade de resposta da &lt;em&gt;view&lt;/em&gt;. A primeira opção é utilizar o
+&lt;em&gt;framework&lt;/em&gt; de &lt;em&gt;cache&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt; de forma granular, através de sua
+&lt;em&gt;API&lt;/em&gt;. A outra opção é fazer &lt;em&gt;caching&lt;/em&gt; “dentro” do &lt;em&gt;ORM&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;É apoiado nessa última proposta que o &lt;a href=&quot;http://packages.python.org/johnny-cache/&quot; title=&quot;Conheça a ferramenta de caching, Johnny Cache&quot;&gt;&lt;em&gt;Johnny Cache&lt;/em&gt;&lt;/a&gt; se baseia:
+“cachear” dados transitados através do &lt;em&gt;ORM&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt;, não
+interferindo no código das &lt;em&gt;apps&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Johnny Cache&lt;/em&gt; está no &lt;a href=&quot;http://pypi.python.org/pypi&quot; title=&quot;the Python Package Index&quot;&gt;&lt;em&gt;PyPi&lt;/em&gt;&lt;/a&gt;, então basta um &lt;code class=&quot;language-text&quot;&gt;pip install johnny-cache&lt;/code&gt; para realizarmos a instalação. Para configurar,
+precisamos adicionar algumas informações ao &lt;code class=&quot;language-text&quot;&gt;settings.py&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;MIDDLEWARE_CLASSES &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;johnny.middleware.LocalStoreClearMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;johnny.middleware.QueryCacheMiddleware&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+CACHES &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;default&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;BACKEND&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;johnny.backends.memcached.MemcachedCache&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;LOCATION&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;127.0.0.1:11211&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;JOHNNY_CACHE&apos;&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Onde:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;johnny.middleware.LocalStoreClearMiddleware:&lt;/code&gt; O &lt;em&gt;Johnny&lt;/em&gt; utiliza
+este &lt;em&gt;middleware&lt;/em&gt; para gerenciar o &lt;em&gt;cache&lt;/em&gt; de uma &lt;a href=&quot;https://github.com/jmoiron/johnny-cache/blob/master/johnny/transaction.py&quot; title=&quot;Veja o uso dessa modalidade no módulo transaction.py&quot;&gt;maneira &quot;thread-safe&quot;&lt;/a&gt;.
+Ele basicamente limpa este objeto ao final de cada
+requisição.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;johnny.middleware.QueryCacheMiddleware:&lt;/code&gt; É o &lt;em&gt;middleware&lt;/em&gt;
+responsável pela “mágica” de &lt;em&gt;caching&lt;/em&gt; no &lt;em&gt;ORM&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O &lt;em&gt;backend&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;johnny.backends.memcached.MemcachedCache&lt;/code&gt; é basicamente
+uma &lt;a href=&quot;https://github.com/jmoiron/johnny-cache/blob/master/johnny/backends/memcached.py&quot; title=&quot;Veja o código-fonte&quot;&gt;subclasse do &lt;em&gt;backend built-in&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt; para o &lt;em&gt;Memcached&lt;/em&gt;&lt;/a&gt;,
+com a adição do seguinte comportamento: Se o &lt;em&gt;timeout&lt;/em&gt; for setado como 0
+(zero), o &lt;em&gt;cache&lt;/em&gt; fica “infinito”.&lt;/p&gt;
+&lt;p&gt;Com a opção &lt;code class=&quot;language-text&quot;&gt;JOHNNY_CACHE&lt;/code&gt; como &lt;code class=&quot;language-text&quot;&gt;True&lt;/code&gt;, estamos informando ao
+&lt;em&gt;Johnny&lt;/em&gt; que este é o &lt;em&gt;pool&lt;/em&gt; de &lt;em&gt;cache&lt;/em&gt; que ele deve usar para &lt;em&gt;caching&lt;/em&gt;
+das &lt;em&gt;queries&lt;/em&gt;. É possível ter uma configuração diferenciada, como
+encontrada no &lt;a href=&quot;https://github.com/nelas/cifonauta/blob/master/dummy_settings_server.py#L33&quot; title=&quot;Veja o código-fonte do projeto no GitHub&quot;&gt;projeto Cifonauta&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Com a ajuda do &lt;a href=&quot;http://pypi.python.org/pypi/django-debug-toolbar/&quot; title=&quot;Excelente lib para debugging de projetos Django&quot;&gt;django-debug-toolbar&lt;/a&gt;, podemos ver o número de
+&lt;em&gt;queries&lt;/em&gt; diminuírem consideravelmente (fatalmente ocasionando um tempo
+de resposta menor). Quando um registro for adicionado, editado ou
+removido, o &lt;em&gt;Johnny Cache&lt;/em&gt; remove as &lt;em&gt;queries&lt;/em&gt; envolvendo determinada
+tabela do &lt;em&gt;cache&lt;/em&gt;, permitindo assim uma nova “batida” no banco de dados
+(e um novo armazenamento dos resultados).&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Como &lt;a href=&quot;/2011/12/19/nginx-poderoso-rapido-facil.html&quot; title=&quot;Nginx: Poderoso, rápido e fácil&quot;&gt;já mencionei&lt;/a&gt;, gosto muito dos ensinamentos e experiências
+compartilhadas pelo pessoal da &lt;a href=&quot;http://37signals.com/&quot; title=&quot;Making collaboration productive and enjoyable for people every day&quot;&gt;&lt;em&gt;37Signals&lt;/em&gt;&lt;/a&gt;. Um deles é para nos
+preocuparmos com performance quando isto for realmente um problema.&lt;/p&gt;
+&lt;p&gt;Logo, (&lt;em&gt;IMO&lt;/em&gt;) não construa uma mega
+&lt;a href=&quot;/tag/infraestrutura.html&quot; title=&quot;Leia mais sobre infra&quot;&gt;infraestrutura&lt;/a&gt; para uma aplicação que atende 50 usuários por dia.
+Você está desperdiçando o seu tempo e linhas de código. Em
+contrapartida, qualquer esforço para melhorar a experiência do usuário,
+e para economizar recursos, &lt;strong&gt;é sempre bem-vinda&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Vale sempre ressaltar que problemas de performance podem estar
+relacionados a qualidade do código produzido, e não necessariamente com
+o consumo da aplicação. Então, se a demanda está baixa e mesmo assim
+você tem tempos de resposta absurdamente altos, talvez seja a hora de
+“refatorar” o seu código.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.4/topics/cache/&quot; title=&quot;Leia tudo sobre o framework de cache do Django&quot;&gt;&lt;em&gt;Django Documentation – Cache Framework&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/dev/ref/templates/api/#loader-types&quot; title=&quot;Mais informações sobre os template loaders do Django&quot;&gt;&lt;em&gt;Django Documentation – The Django template language: Loader types&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://packages.python.org/johnny-cache/&quot; title=&quot;Mais informações sobre o uso do Johnny Cache&quot;&gt;&lt;em&gt;Johnny Cache Documentation&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.jongales.com/blog/2012/02/16/make-django-keep-templates-in-memory/&quot; title=&quot;Leia mais sobre o cached.Loader&quot;&gt;&lt;em&gt;Jongales.com – Make Django keep templates in memory&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Django e Cache: Uma dupla de alta performance - Parte 1]]></title><description><![CDATA[Embora o caching HTTP seja essencial
+para qualquer aplicação web, (IMO)
+essa modalidade de cache deve ser encarada como um acréscimo à
 experiência de uso, e não necessariamente como uma “arma” contra
 problemas de performance. Os usuários poderão abdicar desta
-funcionalidade, e aí a sua aplicação não poderá depender do …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 17 Jun 2012 15:52:22 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-06-17:/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>memcached</category><category>cache</category></item></channel></rss>
+funcionalidade, e aí a sua aplicação não…]]></description><link>https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 17 Jun 2012 15:52:22 GMT</pubDate><content:encoded>&lt;p&gt;Embora o &lt;a href=&quot;/2012/05/14/o-cache-e-o-http.html&quot; title=&quot;O cache e o HTTP&quot;&gt;&lt;em&gt;caching HTTP&lt;/em&gt;&lt;/a&gt; seja essencial
+para qualquer aplicação &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, &lt;strong&gt;(IMO)&lt;/strong&gt;
+essa modalidade de &lt;a href=&quot;/tag/cache.html&quot; title=&quot;Leia mais sobre Cache&quot;&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/a&gt; deve ser encarada como um acréscimo à
+experiência de uso, e não necessariamente como uma “arma” contra
+problemas de performance. Os usuários poderão abdicar desta
+funcionalidade, e aí a sua aplicação não poderá depender do protocolo
+para atingir tempos de resposta atrativos.&lt;/p&gt;
+&lt;p&gt;Desenvolvedores &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; podem contar com boas soluções, do próprio
+&lt;em&gt;framework&lt;/em&gt; e de terceiros, que podem melhorar o &lt;em&gt;caching&lt;/em&gt; das
+aplicações (e consequentemente a performance). A grande notícia é que
+essas ferramentas são fáceis e práticas. Vamos conhecê-las?&lt;/p&gt;
+&lt;h2&gt;O Memcached&lt;/h2&gt;
+&lt;p&gt;Eu juro que tentei escrever uma introdução
+para este tópico, mas a descricão contida no &lt;a href=&quot;http://memcached.org/&quot; title=&quot;A distributed memory object caching system&quot;&gt;site oficial do &lt;em&gt;Memcached&lt;/em&gt;&lt;/a&gt; é
+tão boa, que vou simplesmente copiá-la:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Memcached is an in-memory key-value store for small chunks of arbitrary
+data (strings, objects) from results of database calls,
+API calls, or page rendering.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em outras palavras, é uma ferramenta &lt;em&gt;open source&lt;/em&gt;, que tem como função
+o armazenamento (e gerenciamento) de resultados de &lt;em&gt;queries&lt;/em&gt;, conteúdo
+de arquivos, processamentos avançados, ou qualquer tipo de informação,
+em memória (um meio muito mais rápido de ser lido que em disco, por
+exemplo). Embora esse potencial possa ser utilizado para os mais
+diferentes fins, é como mecanismo de &lt;em&gt;caching&lt;/em&gt; que ele se destaca.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Memcached&lt;/em&gt; foi construído em um esquema “cliente-servidor”, e é
+possível utilizá-lo com uma grande quantidade de linguagens de
+programação. Mas o que eu acho mais bacana na ferramenta é a
+possibilidade de utilizá-la de forma distribuída. Isso propicia uma
+flexibilidade muito maior na hora de construirmos a &lt;a href=&quot;/tag/infraestrutura.html&quot; title=&quot;Leia mais sobre infra&quot;&gt;infraestrutura&lt;/a&gt;
+para servir as nossas aplicações &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Mas a “cereja do bolo” é: O &lt;em&gt;Django&lt;/em&gt; funciona muito bem com o
+&lt;em&gt;Memcached&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Framework de cache do Django&lt;/h2&gt;
+&lt;p&gt;O uso do &lt;em&gt;Memcached&lt;/em&gt; não é obrigatório! Na verdade, podemos utilizar
+diferentes &lt;em&gt;backends&lt;/em&gt; para diferentes tipos de mecanismos de &lt;em&gt;cache&lt;/em&gt;. O
+&lt;em&gt;Django&lt;/em&gt; possui algumas opções disponíveis, sem necessitar utilizar
+nenhum “código de terceiro”. Temos a opção de fazer &lt;em&gt;cache&lt;/em&gt; em disco,
+banco de dados ou até mesmo “simularmos” a interação com &lt;em&gt;cache&lt;/em&gt; (muito
+bom para ambientes de desenvolvimento). &lt;a href=&quot;https://docs.djangoproject.com/en/1.3/topics/cache/#setting-up-the-cache&quot; title=&quot;Setting up cache&quot;&gt;Leia mais sobre&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Neste &lt;em&gt;post&lt;/em&gt;, vamos nos concentrar na configuração do &lt;em&gt;Django&lt;/em&gt; com o
+&lt;em&gt;Memcached&lt;/em&gt;. Para instalar, &lt;a href=&quot;http://code.google.com/p/memcached/wiki/NewInstallFromSource&quot; title=&quot;Memcached - Why build from source&quot;&gt;basta compilar através do make&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ wget http://memcached.org/latest
+$ tar -zxvf memcached-1.4.13.tar.gz
+$ cd memcached-1.4.13
+$ ./configure
+$ make &amp;amp;&amp;amp; make test
+$ make install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Utilizando a &lt;a href=&quot;ftp://ftp.tummy.com/pub/python-memcached/&quot; title=&quot;Conheça a python-memcached&quot;&gt;&lt;em&gt;python-memcached&lt;/em&gt;&lt;/a&gt; como &lt;em&gt;binding&lt;/em&gt; &lt;em&gt;Python&lt;/em&gt; para o
+&lt;em&gt;Memcached&lt;/em&gt;, basta adicionarmos o seguinte &lt;em&gt;backend&lt;/em&gt; ao &lt;strong&gt;settings.py&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;CACHES &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;default&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;BACKEND&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;django.core.cache.backends.memcached.MemcachedCache&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;LOCATION&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;127.0.0.1:11211&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;TIMEOUT&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Default: 300 segundos,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;KEY_PREFIX&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;djcache&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Onde:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;BACKEND:&lt;/code&gt; É o módulo responsável por se comunicar com o
+&lt;em&gt;Memcached&lt;/em&gt;. Estamos utilizando este &lt;em&gt;backend&lt;/em&gt; pois optamos pela
+&lt;em&gt;python-memcached&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;LOCATION:&lt;/code&gt; É a porta (ou &lt;em&gt;socket&lt;/em&gt;) onde o serviço do &lt;em&gt;Memcached&lt;/em&gt;
+está respondendo. A porta padrão é a 11211.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;TIMEOUT:&lt;/code&gt; É o tempo de vida do informação “cacheada”. Acima
+informamos 60 segundos, o padrão é 5 minutos.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;KEY_PREFIX:&lt;/code&gt; É um valor que precederá todas as chaves que
+utilizarmos com o &lt;em&gt;Django&lt;/em&gt;. Bem útil para prevenir que duas
+aplicações utilizem o mesmo valor no &lt;em&gt;Memcached&lt;/em&gt; (quando este não é
+o comportamento esperado).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/cache/#cache-arguments&quot; title=&quot;Cache Arguments - Django Documentation&quot;&gt;Conheça outras opções de configurações.&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Pronto! As ferramentas estão apresentadas e estamos prontos para partir
+para uma abordagem prática.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Django&lt;/em&gt; já vem “preparado” para trabalhar com mecanismos de &lt;em&gt;cache&lt;/em&gt;.
+O seu esquema de &lt;em&gt;backends&lt;/em&gt; permite que você “acople” diferentes módulos
+para atender os mais exóticos mecanismos de &lt;em&gt;cache&lt;/em&gt;, sem necessariamente
+precisar alterar código nas suas &lt;em&gt;apps&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;É bem verdade que o &lt;em&gt;Memcached&lt;/em&gt; é um tanto “tradicional”, e que hoje
+existem alternativas mais “atrativas”, como o &lt;a href=&quot;http://redis.io/&quot; title=&quot;Redis is an open source, advanced key-value store&quot;&gt;&lt;em&gt;Redis&lt;/em&gt;&lt;/a&gt;. Na prática,
+depende muito do cenário no qual você está inserido, por exemplo, no
+&lt;a href=&quot;http://globoesporte.globo.com/&quot; title=&quot;a melhor cobertura sobre o Futebol e Outros Esportes, no Brasil e no Mundo&quot;&gt;&lt;em&gt;Globoesporte.com&lt;/em&gt;&lt;/a&gt; utilizamos o &lt;em&gt;Memcached&lt;/em&gt; e ele nos atende muito
+bem.&lt;/p&gt;
+&lt;p&gt;No próximo &lt;em&gt;post&lt;/em&gt; vamos partir para uma abordagem mais prática, cobrindo
+as diferentes maneiras de utilizar &lt;em&gt;caching&lt;/em&gt; com &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até lá...&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://amix.dk/blog/post/19471&quot; title=&quot;Um post antigo, com o comparativo entre pylibmc e python-memcached&quot;&gt;&lt;em&gt;Amix.dk – memcached: Benchmark of 4 Python libraries&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/cache/&quot; title=&quot;Leia a documentação do framework de cache do Django&quot;&gt;&lt;em&gt;Django Documentation – Django’s cache framework&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://memcached.org/&quot; title=&quot;Página principal do projeto Memcached&quot;&gt;&lt;em&gt;Memcached.org&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://sendapatch.se/projects/pylibmc/&quot; title=&quot;Cliente Python escrito em C para trabalhar com o Memcached&quot;&gt;&lt;em&gt;pylibmc – Python client for memcached&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Memcached&quot; title=&quot;Leia mais sobre o Memcached no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia: Memcached&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

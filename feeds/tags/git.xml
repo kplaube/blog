@@ -1,9 +1,44 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - git</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 10 May 2011 23:34:00 -0300</lastBuildDate><item><title>Como versionar projetos Django com o Mercurial - Parte 1</title><link>https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html</link><description>&lt;p&gt;Se você está começando em &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, e nunca utilizou uma ferramenta
-de controle de versão (as vezes por trauma do &lt;a href="http://akitaonrails.com/2007/09/22/jogar-pedra-em-gato-morto-por-que-subversion-no-presta" title="Jogar Pedra em Gato Morto: por que Subversion não presta"&gt;&lt;em&gt;SVN&lt;/em&gt;&lt;/a&gt; ou por &lt;a href="http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o" title="Wikipedia, Sistema de Controle de Versão"&gt;simples
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - git]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Como versionar projetos Django com o Mercurial - Parte 1]]></title><description><![CDATA[Se você está começando em Django, e nunca utilizou uma ferramenta
+de controle de versão (as vezes por trauma do SVN ou por simples
+desinteresse) esta será uma grande oportunidade para você conhecer o
+Mercurial, e saber a forma que venho utilizando para versionar
+meus projetos Django. Peraí! Por que…]]></description><link>https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/05/10/como-versionar-projetos-django-mercurial-parte.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 10 May 2011 21:34:00 GMT</pubDate><content:encoded>&lt;p&gt;Se você está começando em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, e nunca utilizou uma ferramenta
+de controle de versão (as vezes por trauma do &lt;a href=&quot;http://akitaonrails.com/2007/09/22/jogar-pedra-em-gato-morto-por-que-subversion-no-presta&quot; title=&quot;Jogar Pedra em Gato Morto: por que Subversion não presta&quot;&gt;&lt;em&gt;SVN&lt;/em&gt;&lt;/a&gt; ou por &lt;a href=&quot;http://pt.wikipedia.org/wiki/Sistema_de_controle_de_vers%C3%A3o&quot; title=&quot;Wikipedia, Sistema de Controle de Versão&quot;&gt;simples
 desinteresse&lt;/a&gt;) esta será uma grande oportunidade para você conhecer o
-&lt;a href="http://www.profissionaisti.com.br/2009/06/bitbucket-hospede-e-versione-softwares-com-mercurial/" title="Bitbucket: Hospede e versione softwares com Mercurial"&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;, e saber a forma que venho utilizando para versionar
+&lt;a href=&quot;http://www.profissionaisti.com.br/2009/06/bitbucket-hospede-e-versione-softwares-com-mercurial/&quot; title=&quot;Bitbucket: Hospede e versione softwares com Mercurial&quot;&gt;&lt;em&gt;Mercurial&lt;/em&gt;&lt;/a&gt;, e saber a forma que venho utilizando para versionar
 meus projetos Django.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;Peraí! Por que …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 10 May 2011 23:34:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-05-10:/2011/05/10/como-versionar-projetos-django-mercurial-parte.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>django</category><category>git</category><category>mercurial</category></item></channel></rss>
+&lt;h2&gt;Peraí! Por que não Git?&lt;/h2&gt;
+&lt;p&gt;Sem dúvida o &lt;a href=&quot;http://git-scm.com/&quot; title=&quot;Git é a estrela do momento tratando-se de DVCS&quot;&gt;&lt;em&gt;Git&lt;/em&gt;&lt;/a&gt; é a ferramenta do momento em
+se tratando de controle de versões, e vem sendo muito utilizada por
+rubistas e pythonistas (eu incluso nessa última galera).&lt;/p&gt;
+&lt;p&gt;Por que não falar de &lt;em&gt;Git&lt;/em&gt; aqui? Simples! &lt;strong&gt;Você vai ouvir falar sobre
+&lt;em&gt;Git&lt;/em&gt; em todo o lugar&lt;/strong&gt;. O &lt;em&gt;Google&lt;/em&gt; vai te trazer toneladas de
+informações sobre &lt;em&gt;Git&lt;/em&gt;. Você vai “ouvir” o pessoal falando que &lt;a href=&quot;http://pt.whygitisbetterthanx.com/&quot; title=&quot;Por que Git é Melhor que X&quot;&gt;&lt;em&gt;Git&lt;/em&gt; é melhor do que qualquer outra ferramenta&lt;/a&gt;.
+Você vai até enjoar de tanto ouvir falar sobre &lt;em&gt;Git&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Mercurial&lt;/em&gt; foi o primeiro &lt;a href=&quot;http://en.wikipedia.org/wiki/Distributed_revision_control&quot; title=&quot;DVCS - Distributed Version Control System&quot;&gt;&lt;em&gt;DVCS&lt;/em&gt;&lt;/a&gt; que utilizei (de verdade). &lt;strong&gt;Na
+minha opinião&lt;/strong&gt;, ele é mais simples que o &lt;em&gt;Git&lt;/em&gt;, é feito em
+&lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, e me atende no desenvolvimento dos meus projetos pessoais.&lt;/p&gt;
+&lt;p&gt;Concordo com o pessoal que diz que o &lt;em&gt;Git&lt;/em&gt; é bom, e concordo com o
+pessoal que fala que o &lt;em&gt;Mercurial&lt;/em&gt; é bom. É perfeitamente possível
+utilizar estas duas ferramentas, não precisamos ser radicais e iniciar
+um &lt;em&gt;flame&lt;/em&gt; em cima deste assunto. A opção é melhor que não ter opção…&lt;/p&gt;
+&lt;h2&gt;GitHub x Bitbucket&lt;/h2&gt;
+&lt;p&gt;Agora uma coisa eu não posso deixar de concordar: O &lt;a href=&quot;https://github.com/&quot; title=&quot;GitHub, Social coding&quot;&gt;&lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt; é (na minha opinião) melhor que o
+&lt;a href=&quot;https://bitbucket.org/&quot; title=&quot;Alternativa com Mercurial ao GitHub&quot;&gt;&lt;em&gt;Bitbucket&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ambos são repositórios de código na nuvem, o primeiro usando &lt;em&gt;Git&lt;/em&gt; e o
+segundo usando &lt;em&gt;Mercurial&lt;/em&gt;. O detalhe é que o &lt;em&gt;GitHub&lt;/em&gt; tem algumas
+funções mais apuradas que o &lt;em&gt;Bitbucket&lt;/em&gt;, principalmente as
+funcionalidades que tornam a ferramenta muito mais “social”.&lt;/p&gt;
+&lt;p&gt;Embora o &lt;em&gt;Bitbucket&lt;/em&gt; recentemente tenha sido adquirido pela
+&lt;strong&gt;&lt;em&gt;Atlassian&lt;/em&gt;&lt;/strong&gt; e tenha recebido uma forte injencão de melhorias… o
+&lt;em&gt;GitHub&lt;/em&gt; ainda é, para mim, a melhor forma de compartilhar código que
+existe no momento.&lt;/p&gt;
+&lt;p&gt;Venho utilizando o &lt;em&gt;Bitbucket&lt;/em&gt; pela opção de poder manter &lt;strong&gt;repositórios
+de código “fechados”&lt;/strong&gt;. Coisa que com o “rival” só é possível através de
+uma conta paga.&lt;/p&gt;
+&lt;p&gt;Mais uma vez… é perfeitamente possível viver utilizando as duas
+ferramentas.&lt;/p&gt;
+&lt;p&gt;Na próxima parte deste &lt;em&gt;post&lt;/em&gt; vamos abordar o básico do &lt;em&gt;Mercurial&lt;/em&gt;, e
+também pretendo mostrar como organizo os meus projetos &lt;em&gt;Django&lt;/em&gt;
+“versionando-os” com o &lt;em&gt;Mercurial&lt;/em&gt; e &lt;em&gt;Bitbucket&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

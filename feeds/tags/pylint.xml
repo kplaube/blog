@@ -1,8 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - pylint</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 06 Sep 2011 17:48:00 -0300</lastBuildDate><item><title>Assegure a qualidade do seu código Python - Pylint</title><link>https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</link><description>&lt;p&gt;Se você precisa de uma ferramenta mais poderosa que o &lt;a href="https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html" title="Assegure a qualidade do seu código Python – pep8"&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, talvez você
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pylint]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Pylint]]></title><description><![CDATA[Se você precisa de uma ferramenta mais poderosa que o pep8, talvez você
+precise do Pylint. De forma (bem) resumida, o Pylint analisa de forma minuciosa o código
+do seu projeto Python, lhe retornando uma variedade de relatórios
+(as vezes, detalhistas até demais) sobre todo o tipo de problema que ele…]]></description><link>https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 06 Sep 2011 17:48:00 GMT</pubDate><content:encoded>&lt;p&gt;Se você precisa de uma ferramenta mais poderosa que o &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Assegure a qualidade do seu código Python – pep8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, talvez você
 precise do &lt;em&gt;Pylint&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;De forma (bem) resumida, o &lt;em&gt;Pylint&lt;/em&gt; analisa de forma minuciosa o código
-do seu projeto &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, lhe retornando uma variedade de relatórios
-(as vezes, detalhistas até demais) sobre todo o tipo de problema que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 06 Sep 2011 17:48:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-09-06:/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>pylint</category><category>qualidade</category></item></channel></rss>
+do seu projeto &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, lhe retornando uma variedade de relatórios
+(as vezes, detalhistas até demais) sobre todo o tipo de problema que ele
+encontra. Indo de incoerências com a &lt;em&gt;PEP 8&lt;/em&gt;, até nome de variáveis.&lt;/p&gt;
+&lt;p&gt;É sem dúvida, uma das melhores ferramentas feitas para o &lt;em&gt;Python&lt;/em&gt;, e é
+essencial para você deixar o seu código mais próximo do “estado da
+arte”.&lt;/p&gt;
+&lt;p&gt;Mas o que eu achei mais legal sobre o &lt;em&gt;Pylint&lt;/em&gt;, foi um comentário em sua
+documentação. O &lt;a href=&quot;http://www.logilab.org/card/pylint_manual#what-is-pylint&quot; title=&quot;O que é o pylint?&quot;&gt;autor salienta&lt;/a&gt; muito bem que a ferramenta pode ser
+eficiente em certos contextos, mas não em todos. Então, antes de
+“pularmos de cabeça”, peço que você utilize o bom senso e saiba mensurar
+as suas necessidades em relação ao que a ferramenta tem a oferecer.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vamos testar as conformidades do arquivo &lt;code class=&quot;language-text&quot;&gt;site.py&lt;/code&gt; segundo o &lt;em&gt;Pylint&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint /usr/lib/python2.7/dist-packages/site.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O resultado pode parecer assustador. Então “vamos começar pelo começo”.&lt;/p&gt;
+&lt;p&gt;O resultado do &lt;em&gt;Pylint&lt;/em&gt; é dividido em duas grandes seções: &lt;strong&gt;análise de
+código&lt;/strong&gt; e &lt;strong&gt;relatório&lt;/strong&gt;; O primeiro, como o nome sugere, apresenta uma
+análise de código bem semelhante a apresentada pelo &lt;em&gt;pep8&lt;/em&gt;. Porém no
+seguinte formato:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MESSAGE_TYPE: LINE_NUM:[OBJECT:] MESSAGE&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos pegar a primeira linha gerada pelo &lt;em&gt;Pylint&lt;/em&gt; para entender melhor:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;C:  1: Missing docstring&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt; é o tipo da mensagem, &lt;strong&gt;1&lt;/strong&gt; é o número da linha (no arquivo) onde
+o problema foi constatado, &lt;strong&gt;Missing docstring&lt;/strong&gt; é a mensagem gerada. O
+&lt;em&gt;Pylint&lt;/em&gt; poderá apresentar os seguintes tipos de mensagens:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[R]efactor for a &amp;quot;good practice&amp;quot; metric violation
+[C]onvention for coding standard violation
+[W]arning for stylistic problems, or minor programming issues
+[E]rror for important programming issues (i.e. most probably bug)
+[F]atal for errors which prevented further processing&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quase posso ver o brilho em seus olhos. A saída do &lt;em&gt;Pylint&lt;/em&gt; deixou de
+ser enigmática, não?!&lt;/p&gt;
+&lt;p&gt;A segunda seção, a de relatório, apresentará alguns números
+interessantes sobre o seu projeto. Como o número de &lt;em&gt;warnings&lt;/em&gt; e
+&lt;em&gt;errors&lt;/em&gt;, uma nota para o seu projeto (e um comparativo com a execução
+anterior do &lt;em&gt;Pylint&lt;/em&gt;), quantidade de código duplicado, quantidade de
+código documentado e “desenhará” uma árvore de dependências do seu
+projeto.&lt;/p&gt;
+&lt;h2&gt;Diminuindo o ruído&lt;/h2&gt;
+&lt;p&gt;Eu avisei que o &lt;em&gt;Pylint&lt;/em&gt; era “barulhento”!&lt;/p&gt;
+&lt;p&gt;Vamos reduzir um pouco o nível de detalhes da ferramenta, passando
+alguns parâmetros:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint /usr/lib/python2.7/dist-packages/site.py --reports=n --include-ids=y --disable=W0232&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Primeiro, com o parâmetro &lt;strong&gt;–-reports=n&lt;/strong&gt; dizemos que não queremos
+aquele relatório gigantesco no final da análise. O &lt;strong&gt;–-include-ids=y&lt;/strong&gt;
+exibe para gente os &lt;em&gt;ids&lt;/em&gt; das mensagens de erros do &lt;em&gt;Pylint&lt;/em&gt;. É útil,
+pois todas as mensagens que você julgar desnecessárias para a análise
+você adiciona no parâmetro &lt;strong&gt;-–disable&lt;/strong&gt; (separadas por vírgula).&lt;/p&gt;
+&lt;p&gt;Para que não seja necessário passar todos esses parâmetros todas as
+vezes que executar o &lt;em&gt;Pylint&lt;/em&gt; basta gerar um arquivo &lt;strong&gt;.pylintrc&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint --reports=n --include-ids=y --disable=W0232 --generate-rcfile &amp;gt; ~/.pylintrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É possível gerar este arquivo por projeto, podendo mudar a
+especificidade das métricas de acordo com a necessidade. Quer saber
+mais? &lt;a href=&quot;http://www.logilab.org/card/pylint_tutorial&quot; title=&quot;Pylint tutorial&quot;&gt;Leia este tutorial muito bom&lt;/a&gt;, direto da documentação do
+&lt;em&gt;Pylint&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para entender os códigos das mensagens, &lt;a href=&quot;http://pylint-messages.wikidot.com/all-codes&quot; title=&quot;Todos os códigos retornados pelo Pylint&quot;&gt;confira a listagem nesta &lt;em&gt;wiki&lt;/em&gt;&lt;/a&gt;,
+ou utilize o parâmetro &lt;strong&gt;-–help-msg&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint --help-msg=R0904:
+
+R0904: \*Too many public methods (%s/%s)\*
+Used when class has too many public methods, try to reduce this to get a more
+simple (and so easier to use) class. This message belongs to the design checker.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.logilab.org/857&quot; title=&quot;Obtenha o Pylint gratuitamente&quot;&gt;&lt;em&gt;Pylint: analyzes Python source code looking for bugs and signs of poor quality&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.logilab.org/card/pylint_manual&quot; title=&quot;Leia o manual oficial do Pylint&quot;&gt;&lt;em&gt;Logilab.org: Pylint User Manual&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.logilab.org/card/pylint_tutorial&quot; title=&quot;Leia agora mesmo este excelente tutorial sobre Pylint&quot;&gt;&lt;em&gt;Logilab.org: Pylint Tutorial&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://turbogears.org/1.0/docs/UsingPylint.html&quot; title=&quot;Leia as recomendações de uso do Pylint com TurboGears&quot;&gt;&lt;em&gt;TurboGears Documentation: Using Pylint to improve the quality of your code&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

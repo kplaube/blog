@@ -1,16 +1,299 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - html</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 12 Jan 2019 10:55:00 -0200</lastBuildDate><item><title>Deixe darem pitaco no seu código com Prettier</title><link>https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</link><description>&lt;p&gt;&lt;em&gt;Code formatters&lt;/em&gt; são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
-mas depois de alguns "Hello world" em &lt;a href="https://golang.org/" title="Leia mais sobre Golang"&gt;&lt;em&gt;Go&lt;/em&gt;&lt;/a&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - html]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+mas depois de alguns "Hello world" em Go
+admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
+programador para isso, é uma ideia excelente. Em Go temos o , que
+poupa um tempo absurdo tornando o…]]></description><link>https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 12 Jan 2019 10:55:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Code formatters&lt;/em&gt; são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+mas depois de alguns &quot;Hello world&quot; em &lt;a href=&quot;https://golang.org/&quot; title=&quot;Leia mais sobre Golang&quot;&gt;&lt;em&gt;Go&lt;/em&gt;&lt;/a&gt;
 admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
 programador para isso, é uma ideia excelente.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Em &lt;em&gt;Go&lt;/em&gt; temos o &lt;code class=&quot;language-text&quot;&gt;go fmt&lt;/code&gt;, que
+poupa um tempo absurdo tornando o seu código &quot;go-like&quot; com pouco esforço.
+Já para &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, temos o &lt;a href=&quot;https://prettier.io/&quot; title=&quot;Opiniated Code Formatter&quot;&gt;&lt;em&gt;Prettier&lt;/em&gt;&lt;/a&gt;.
+E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
+&lt;h2&gt;Mais bonito&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Prettier&lt;/em&gt; é um &lt;em&gt;code formatter&lt;/em&gt; livre (&lt;a href=&quot;https://github.com/prettier/prettier/blob/master/LICENSE&quot; title=&quot;Leia o documento completo&quot;&gt;&lt;em&gt;MIT&lt;/em&gt;&lt;/a&gt;) e de código aberto, que tem por finalidade &quot;forçar&quot; um padrão de código. Ele realiza isso analisando o seu código e alterando-o de acordo com regras pré-definidas.&lt;/p&gt;
+&lt;p&gt;Todos nós temos algum vício na forma como escrevemos nosso código. A ideia de ferramentas como o &lt;em&gt;Prettier&lt;/em&gt; é fazer com que todos os integrantes de um projeto tenham um estilo comum de escrita. Tornando a leitura do código consistente, não importando o seu autor (ou editor).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAHnzfONFxgP/8QAGxAAAQQDAAAAAAAAAAAAAAAAAAECAxExMjP/2gAIAQEAAQUCk3fRSjui4P/EABcRAQADAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8BnVP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFX/8QAGRAAAwADAAAAAAAAAAAAAAAAABARAiGB/9oACAEBAAY/AjGaXCr/xAAaEAADAAMBAAAAAAAAAAAAAAAAASERQXFR/9oACAEBAAE/IUjgueOkLQWE+ht9P//aAAwDAQACAAMAAAAQ1+//xAAWEQADAAAAAAAAAAAAAAAAAAABECH/2gAIAQMBAT8Qkl//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QET//xAAbEAEAAwEAAwAAAAAAAAAAAAABABFBIWFxkf/aAAgBAQABPxCrywxypqj1XYexbCAIc4+wFIxV5Kr2J//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Imagem do Sr. Bennet, personagem de The Ranch&amp;quot;&quot;
+        title=&quot;Prettier é como trabalhar para o Sr. Bennett, de The Ranch. Na dúvida, você está errado (heighline)&quot;
+        src=&quot;/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg&quot;
+        srcset=&quot;/static/2f948d5b80c9977df2afe786c68ddade/7809d/sam-elliot-prettier.jpg 192w,
+/static/2f948d5b80c9977df2afe786c68ddade/4ecad/sam-elliot-prettier.jpg 384w,
+/static/2f948d5b80c9977df2afe786c68ddade/c08c5/sam-elliot-prettier.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Prettier é como trabalhar para o Sr. Bennett, de The Ranch. Na dúvida, você está errado (heighline)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Com &quot;estilo comum de escrita&quot; não estamos falando necessariamente de qualidade de código. Por exemplo, o &lt;em&gt;Prettier&lt;/em&gt; não está preocupado com variáveis sendo usadas antes de serem declaradas. Para isso existe os &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade de código&quot;&gt;&lt;em&gt;linters&lt;/em&gt;&lt;/a&gt;, e no caso do &lt;em&gt;Javascript&lt;/em&gt; o &lt;a href=&quot;https://eslint.org/&quot; title=&quot;The pluggable linting utility for JavaScript and JSX&quot;&gt;&lt;em&gt;ESLint&lt;/em&gt;&lt;/a&gt; é (provavelmente) a opção mais famosa. Por outro lado, ele estará preocupado com a quantidade de espaços em branco, quantidade de caracteres por linha, uso de vírgulas, etc. Tópicos que geralmente demandam energia durante um &lt;em&gt;code review&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E talvez esse seja o ponto marcante por trás do &lt;em&gt;Prettier&lt;/em&gt;. Diretamente da &lt;a href=&quot;https://prettier.io/docs/en/option-philosophy.html&quot; title=&quot;Option Philosophy&quot;&gt;página que fala sobre a filosofia da ferramenta&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;By far the biggest reason for adopting Prettier is to stop all the on-going debates over styles.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;A ferramenta é escrita em &lt;em&gt;Node.js&lt;/em&gt;, portanto, um &lt;code class=&quot;language-text&quot;&gt;npm install&lt;/code&gt; é o suficiente para tê-la em seu ambiente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm install --global prettier&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A documentação da ferramenta sugere &quot;pinnar&quot; a versão exata no &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; do seu projeto, uma vez que diferentes versões podem ter diferentes sugestões de escrita.&lt;/p&gt;
+&lt;p&gt;Com o utilitário de linha de comando, basta executarmos passando o arquivo &lt;em&gt;JS&lt;/em&gt; desejado como parâmetro:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prettier file.js
 
-&lt;p&gt;Em &lt;em&gt;Go&lt;/em&gt; temos o &lt;code&gt;go fmt …&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 12 Jan 2019 10:55:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-01-12:/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</guid><category>desenvolvimento</category><category>web</category><category>formatters</category><category>editores</category><category>prettier</category><category>javascript</category><category>html</category><category>css</category></item><item><title>As camadas do desenvolvimento Web</title><link>https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</link><description>&lt;p&gt;Se eu aprendi alguma coisa com o &lt;em&gt;xHTML&lt;/em&gt;, foi:
+function HelloWorld({
+    greeting = &amp;quot;hello&amp;quot;,
+    greeted = &amp;#39;&amp;quot;World&amp;quot;&amp;#39;,
+    silent = false,
+onMouseOver
+}) {
+    if (!greeting) {
+        return null;
+    }
+
+    // TODO: Don&amp;#39;t use random in render
+    let num = Math.floor(Math.random() * 1e7)
+        .toString()
+        .replace(/\.\d+/gi, &amp;quot;&amp;quot;);
+
+    return (
+        &amp;lt;div
+        className=&amp;quot;HelloWorld&amp;quot;
+        title={`You are visitor number ${num}`}
+        onMouseOver={onMouseOver}
+        &amp;gt;
+        &amp;lt;strong&amp;gt;
+            {greeting.slice(0, 1).toUpperCase() + greeting.slice(1).toLowerCase()}
+        &amp;lt;/strong&amp;gt;
+        {greeting.endsWith(&amp;quot;,&amp;quot;) ? (
+            &amp;quot; &amp;quot;
+        ) : (
+            &amp;lt;span style={{ color: &amp;quot;grey&amp;quot; }}&amp;gt;&amp;quot;, &amp;quot;&amp;lt;/span&amp;gt;
+        )}
+        &amp;lt;em&amp;gt;{greeted}&amp;lt;/em&amp;gt;
+        {silent ? &amp;quot;.&amp;quot; : &amp;quot;!&amp;quot;}
+        &amp;lt;/div&amp;gt;
+    );
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;output&lt;/em&gt; é o conteúdo do seu arquivo já formatado. Se quiser a alteração &quot;in-place&quot;, temos a opção &lt;code class=&quot;language-text&quot;&gt;--write&lt;/code&gt; disponível.&lt;/p&gt;
+&lt;p&gt;É possível customizar a ferramenta de acordo com as suas escolhas &lt;a href=&quot;https://prettier.io/docs/en/options.html&quot; title=&quot;Options&quot;&gt;passando argumentos durante sua chamada&lt;/a&gt;. No exemplo abaixo, queremos formatar o arquivo &lt;code class=&quot;language-text&quot;&gt;file.js&lt;/code&gt; sem &lt;em&gt;semicolons&lt;/em&gt; no final das linhas, e com &lt;em&gt;single quotes&lt;/em&gt; ao invés de &lt;em&gt;double quotes&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prettier --no-semi --single-quote file.js&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O mais recomendado é a criação de um &lt;a href=&quot;https://prettier.io/docs/en/configuration.html&quot; title=&quot;Configuration file&quot;&gt;arquivo de configuração&lt;/a&gt; (geralmente chamado de &lt;code class=&quot;language-text&quot;&gt;.prettierrc&lt;/code&gt;), com todas a regras explícitas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;trailingComma&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;es5&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;tabWidth&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;semi&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;singleQuote&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Na prática (de verdade)&lt;/h2&gt;
+&lt;p&gt;É inviável ir na linha de comando e executar a ferramenta toda a vez que você alterar o seu código. Uma opção mais eficiente é deixar com que o seu editor ou &lt;em&gt;IDE&lt;/em&gt; tome conta desse processo.&lt;/p&gt;
+&lt;p&gt;Os principais editores do mercado possuem suporte ao &lt;em&gt;Prettier&lt;/em&gt;, como pode ser visto em &lt;a href=&quot;https://prettier.io/docs/en/editors.html&quot; title=&quot;Leia na documentação da ferramenta&quot;&gt;Editor Integration&lt;/a&gt;. Para o &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;, recomendo o uso com o &lt;em&gt;plugin&lt;/em&gt; &lt;a href=&quot;https://github.com/w0rp/ale&quot; title=&quot;Asynchronous linting/fixing for Vim and Language Server Protocol (LSP) integration&quot;&gt;&lt;em&gt;Ale&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É esperado que nem todo membro do seu projeto configurará o editor apropriadamente na primeira interação. Portanto, uma &quot;salvaguarda&quot; pode ser habilitar um &lt;em&gt;pre-commit hook&lt;/em&gt;. Com isso, ao executar &lt;code class=&quot;language-text&quot;&gt;git add&lt;/code&gt;, o &lt;em&gt;Prettier&lt;/em&gt; será executado automaticamente nos arquivos alterados pelo desenvolvedor. O capítulo &lt;a href=&quot;https://prettier.io/docs/en/precommit.html&quot; title=&quot;Leia na documentação oficial&quot;&gt;Pre-commit Hook&lt;/a&gt; da documentação oficial dá várias sugestões de uso. Para esse caso, simpatizo bastante com o &lt;a href=&quot;https://pre-commit.com/&quot; title=&quot;A framework for managing and maintaining multi-language pre-commit hooks&quot;&gt;pre-commit&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;ESLint vs Prettier? ESLint + Prettier!&lt;/h2&gt;
+&lt;p&gt;Sabe o que é melhor que usar o &lt;em&gt;Prettier&lt;/em&gt;? É usar o &lt;em&gt;Prettier&lt;/em&gt; integrado com as regras que você já conhece do &lt;em&gt;ESlint&lt;/em&gt;. Obviamente que executar os dois em paralelo pode resultar em comportamentos inesperados. Existe inúmeros tutoriais na internet recomendando como fazer essas duas ferramentas funcionarem em conjunto.&lt;/p&gt;
+&lt;p&gt;Recomendo o &lt;a href=&quot;https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a&quot; title=&quot;Leia o artigo original&quot;&gt;Integrating Prettier + ESLint + Airbnb Style Guide in VSCode&lt;/a&gt;, do &lt;em&gt;Echobind&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Não perca tempo tentando controlar &quot;na conversa&quot; o estilo de código do seu time ou projeto. Já passei por isso e não compensa o estresse e tempo investido. Adote uma ferramenta como o &lt;em&gt;Prettier&lt;/em&gt;, e reserve tempo e energia para coisas mais importantes, relacionados ao seu negócio ou produto.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a&quot;&gt;Echobind - Integrating Prettier + ESLint + Airbnb Style Guide in VSCode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.futurehosting.com/blog/prettier-vs-eslint-whats-the-difference/&quot;&gt;Future Hosting - Prettier vs Eslint: What&apos;s the difference?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@joshuacrass/javascript-linting-and-formatting-with-eslint-prettier-and-airbnb-30eb746db862&quot;&gt;Joshua Crass - Javascript Linting and Formatting with ESLint, Prettier, and Airbnb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[As camadas do desenvolvimento Web]]></title><description><![CDATA[Se eu aprendi alguma coisa com o xHTML, foi:
+Separar marcação, estilos e comportamento tornam a sua vida muito mais
+feliz. Assim como tratando-se de acessibilidade, quando falamos em “camadas
+de desenvolvimento web“, estamos (a grosso modo) falando de
+semântica. E nisso, o HTML5 vem nos presenteando…]]></description><link>https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 16 Feb 2011 15:09:00 GMT</pubDate><content:encoded>&lt;p&gt;Se eu aprendi alguma coisa com o &lt;em&gt;xHTML&lt;/em&gt;, foi:
 Separar marcação, estilos e comportamento tornam a sua vida muito mais
 feliz.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Assim como tratando-se de &lt;a href="https://klauslaube.com.br/tag/acessibilidade.html" title="Leia mais sobre Acessibilidade"&gt;acessibilidade&lt;/a&gt;, quando falamos em “camadas
-de desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
-semântica. E nisso, o &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; vem nos presenteando com &lt;em&gt;tags&lt;/em&gt;
-supimpas …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 16 Feb 2011 16:09:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-02-16:/2011/02/16/camadas-desenvolvimento-web.html</guid><category>desenvolvimento</category><category>web</category><category>html</category><category>css</category><category>javascript</category><category>acessibilidade</category></item></channel></rss>
+&lt;p&gt;Assim como tratando-se de &lt;a href=&quot;/tag/acessibilidade.html&quot; title=&quot;Leia mais sobre Acessibilidade&quot;&gt;acessibilidade&lt;/a&gt;, quando falamos em “camadas
+de desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
+semântica. E nisso, o &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; vem nos presenteando com &lt;em&gt;tags&lt;/em&gt;
+supimpas como a &lt;code class=&quot;language-text&quot;&gt;section&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;article&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos conhecer um pouco mais sobre desenvolvimento e padrões &lt;em&gt;web&lt;/em&gt;?&lt;/p&gt;
+&lt;h2&gt;Marcação com uma boa dose de semântica&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEYUlEQVQ4y6XUXWzbVBQHcHe8gZBASLyDBOJlL0hISLwg4GESQiBe9oIEPKAB0wSFjW1iA6pV7WBibOrKxtpuY526Qjdg7aouW5esXdcuafPZfDVxPpzacRwncRIndhKn9499s88nQFzp6Nj36vx0rn1thrkzAHQx/3G4I+lNVubEEuNwRzuTs8shptVuUyyVld8qVGojhbJ61IyBuyGVqgNZuTKQNzMnyoP228Gdh85eftSqCcT5R6ysVHTm6u0gY8oRqzs6KSvqUfyLkS3U4QoknOtK7WmrbpUVaKcXrjoZxv4AmC+pfVZBy9jQm622YV4ajWbbWPSJhm2JN4S8Rudycrkp5FWsS2VuJcpttmp9a5lNnS2vhO+BYrF60AK1Now2QDJihRwcdpEzkzEyuyySdalOlGqT1LQWchW9xcs1zLnC6eHJ+ces+pkF/8OgICn9FqimeaOZy+P8VRZHxoJQ6u17241nymQ5lCetOEvM54Z0rty44Vx9wapfCae6zJfyAFht9jd5CaVr140sr4DL1XDTm0OAVRDnVWi6AX9UxuC4jzTYJJFsdsiFaj0oFJ+z6iNcrot2uLHRAbMN9EmLK1izXTMCXA2/jPspMPRHFO/stGP/oBOvvz+G3T9eh6JUifvkaYgZSYtUjOcpmL4DNtsdMCkU+4jZrmdm1vDOOdE77MHxMT/e/XwKT70yiGe2DOHJlw/hoi0I31+TJJOWUKgTzb0ao2DYAq+7w4yqd8CEoPTqpiipxJCKGt3mjt5ZPPHSD3h2y894cesw+kcWICs6RKVJzNMDQa5rPlagYChlgnYTVGodMM4rB6rmwTCfncHlNYglHf64jBMTbvx0zgXbUhI5pYGMucaZb5wv0GvNG1unYDApdtGDnS9vUDC2XuopaICXLRoeE/Iny4gKdaQLTSQkDWtCzVpDIFUx1xQSSCpIZFXNz/IUDCTugEKx3ekwq37HyQ14o7wRW6/AsejDlG0ek1fmYb/lw8JKFJ5whs4veWKEFVSw2ZrmjnIU9LMmOOcJM+m8QcFMaeMbZyCF3oOHjYETZzAyegHHTv6Kk2fGMXx2Al/s2ovvDw9iz74eHDpynPhiElhR15zBFAW9cQpGmITYoiBfwf7ZxSDe++Aj49PPduL4qd9x4vQETo1NYXTiCl597Q1sefNtdO/+Ftu2f0kWPElE+brmDKUp6IllTdAbYWJCg4LpEtnncK1h6NwlY/LaMk6PT2P0gg3nLznw55Ul7Pr6AL7a34djw7+he08P2d69Fxdnbmk6cB+86YsykYxOQX+iuJfNA7cjBX0pLBuuaMlwRov3YiVeMdxs1XCtlaxoLayKxBMvqd54ln4p7jUTXDDBEKfdBXukBuBOqPBzjYcjY2XzGKV1eu8zczi7gVBGg7ll+i0vR/hNzMyil7nhTtEfrMPNbp6e9++47PBsm77h/fgfYtuUw/PJ5Tn/h7alwONW/fRN7/3feZirMf9n2F0hmv8GnZcHrspkuVkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Representação de documentos HTML&amp;quot;&quot;
+        title=&quot;Representação de documentos HTML&quot;
+        src=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png&quot;
+        srcset=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Representação de documentos HTML&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Algumas referências vão chamar esta camada de “marcação”, outras vão direto ao
+ponto chamando-a de “informação”. Eu gosto de pensar que é através da marcação
+que damos significado a informação.&lt;/p&gt;
+&lt;p&gt;Este conceito foi fortemente utilizado no &lt;em&gt;xHTML&lt;/em&gt; (devido ao seu vínculo
+com o próprio &lt;em&gt;XML&lt;/em&gt;). Para dar significado a nossa informação através de
+hipertexto, utilizamos o &lt;em&gt;HTML&lt;/em&gt; … e nada mais!&lt;/p&gt;
+&lt;p&gt;É nesta camada que “diremos” às máquinas que determinada parte da nossa
+informação é mais relevante que a outra, que determinado bloco na
+verdade é um conjunto de meta-informação ou que o bloco no fim do
+arquivo contém informações menos relevantes. Sendo mais minucioso, é
+nesta camada que diremos o que é um parágrafo, o que é um título, um
+vínculo com outro documento, um trecho de código que mereça ênfase, uma
+lista não-ordenada que servirá como menu de navegação, etc.&lt;/p&gt;
+&lt;p&gt;Não importando qual o tipo de sistema que interpretará esta informação
+(&lt;em&gt;crawlers&lt;/em&gt;, navegadores, leitores de e-mail ou leitores &lt;em&gt;RSS&lt;/em&gt;), eles
+sabem (através do padrão &lt;em&gt;HTML&lt;/em&gt;) do que aquela informação se trata e
+como eles devem lidar com ela.&lt;/p&gt;
+&lt;h2&gt;Embelezando com estilos&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADzElEQVQ4y4VU62uTdxTun7L9A/tShA3ch8GQug8yhyhuDOZKQelCly1aEWspOjYKVbSo7IMDPy2idjT2tjRCt1nXVk3apAlJk7y5Nff7pXkvSfPs+b2paWu3+YOT933J7zznOec553S1Wi2II57/Zm87+p3W7nvXXrD/cmg2m2g0GlBVFfV6HZVKRX/qftvbbdvx79oL9NpZ0zTIsqw7VatVlEol5HI5xONxRKNRSJKEdDqtB9H99vh3ABVFQbFYRD6f1y+nUikEAgG43W44HA4sLCzAbrfD5/PB5XIhFotBI2BTCqPh9qKltcE7KZfLZZ1BKBTC5uYmlpaWYLPZMDMzg9nZWVgsFkxPT8PpdGJxcVEHTjPoC8sUwuM/ozz1+0HARCKhsxLRBYju6PXCbDbDarViYmICHo9HZxzhnZmpKTx5+hSjY2NY/ePP/TUUtRKpivqEyTLo98M6P48Vprm2ugo/vwX7cDjcLsX6OpaNBmyMXMKN741Ik9A+wK2tLWQzGUTpIEATFCLJ1FMEiyeTiO2I4VpbgzsYxN+/3EP2ohHFL47DdesGFAFCQXdFoaJ5iiKJtFmfHGtXMxpRPXkSXqYuETBIZh4yc/o2sDZogvzjMDyffIwYAxxQWWiUoyi5uTnUrl5FY3AQ2uXL0Hp6kBoehkQBwiLVjQ28YLDIwDlUz30F25efo8Q+xE4vt0Wp1aBSVXl8HBqdhanXr0M+cwbK6dOoHz6MGIsfZY0DDOoc/Qm1ofPwffQBnty+Da1Nb4ch32tsD+3uXWh37kAdGYFiMkG7fx/a6ChkMpQPHUKRwFGCedmD0ncGqBcMmPvwfTy3O6CpSmfadIYF1mxLRKKprJs6MAC5t1dn2TxyBI3ubqTfeRfhl6/gfPAr8he/RfLTHpi/6YefNa9QwM7oiZ861cnfvIkGayYbDFCuXMH20BAaR48iRrCVr3v1uklU3X3hPBqXTHje/R4s7Mso+zGbzeoj2wYUg82X7LwNSn8/mmfPQj12DIkTJ9hnRlgfP4Y94EcyX4DX6cDyLRNTPgXzqc/gkkKIE1D0rxjdfX1YKRRQ6OtDnLV6de0aljm7PvbfJtWVqGwqlYF3/SXiyz/g0dhxTE7+1lkYYlRFH+8C0ig80mxaHy3O9RTlpSCBREOLhi8US7Cv/IWH432YfHAPwVAUyWQCGf4nxnY3ZaHO60XJU+YIZsgsEonokQUDMdsFZvDs2SIePprgWlP01bX9xg7tNHZnwdLqpC5qItaYWKRiLwrnfQv4jR26d0EfWLD/t+rfZuL8A95kjBNdjIKHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ícone representando documento CSS&amp;quot;&quot;
+        title=&quot;Ícone representando documento CSS&quot;
+        src=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png&quot;
+        srcset=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ícone representando documento CSS&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Antes de fazer minha primeira
+aula de &lt;em&gt;Tableless&lt;/em&gt;, eu nem fazia ideia de quão importante são as folhas
+de estilos. Você já deve imaginar como eu desenvolvia para a &lt;em&gt;web&lt;/em&gt;:
+&lt;em&gt;WYSIWYG&lt;/em&gt; cuspindo tabelas e mais tabelas, com milhares de atributos
+“font” e “color” espalhados por dezenas de arquivos.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Um trecho de informação ser da cor verde ou azul irá afetar a
+semântica? Salvo exceções… &lt;strong&gt;não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Um título &lt;code class=&quot;language-text&quot;&gt;h1&lt;/code&gt; ser de tamanho 38px vai afetar a semântica?
+&lt;strong&gt;Não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;A imagem de fundo utilizada no topo deste &lt;em&gt;blog&lt;/em&gt; altera o
+siginifcado deste &lt;em&gt;post&lt;/em&gt;? &lt;strong&gt;Não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Tabelas posicionarem elementos na tela é algo semântico? &lt;strong&gt;Não!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O &lt;em&gt;Tableless&lt;/em&gt;, além de defender que as tabelas devem ser usadas apenas
+para dados tabulares, prega que a informação deve estar separada da
+formatação. Levando em conta que hoje possuímos vários tipos de
+navegadores (&lt;em&gt;desktop&lt;/em&gt;, &lt;em&gt;mobile&lt;/em&gt;, &lt;em&gt;embed&lt;/em&gt;, leitores de tela, etc), a
+informação deveria ser a mesma para todos os navegadores, mas a
+formatação não.&lt;/p&gt;
+&lt;p&gt;Com o &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS3&quot;&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt; e as folhas de estilos, aplicar diferentes formatações
+para um mesmo conteúdo passou a ser trivial. Antes, quando você tinha a
+formatação mesclada a informação, você era obrigado a reescrever a
+informação para diferentes formatos.&lt;/p&gt;
+&lt;p&gt;Outro exemplo, meu leitor &lt;a href=&quot;/2010/11/12/o-que-e-rss.html&quot; title=&quot;O que é RSS?&quot;&gt;&lt;em&gt;RSS&lt;/em&gt;&lt;/a&gt; não utiliza a formatação que eu
+escrevi para o meu &lt;em&gt;site&lt;/em&gt; … ele utiliza uma formatação própria. Estamos
+permitindo que nossa informação seja propagada em uma espécie de
+“acoplamento fraco”. Para o pessoal que curte uma &lt;em&gt;buzzword&lt;/em&gt;, essa é a
+premissa da &lt;em&gt;Web 3.0&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Interação e comportamento&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEIElEQVQ4y5WUa0ybVRjHO2fMMtiYGhMIZHPGRCdWp5lxZgi6za0tAzcKFDa8xWiyjGWJfnDTePlgnM5Lohm7ZBPGxhDmNmGAW8JuAuFWboWWXmhLLy+lfXsvLZfSc/6eImAZjsST/HOec55zfud53uecVyCIaXK5PNrFMa1iiv8PrZr1C9IzMpYJlmhzzoTExMQ+sVhs2ykSmUQikTlWYonE9HSq0M7WHYguflYofGARKVuWGDtcIZXu8WGmESY6KzIzE56eRlOPCvveeQ9zUKFQuHwR9JWMNWzy4bXMfCk9Q+QKjkc3I8JEIhEQQmaIZCocJh0DukhwahoHDxbPQzc8k7oIujopZYV6T0EyOXRke6Sx8wTu9pyirQOl6B2qRr/xIjheRdkBtFejh8PjY2eAvv/Bh/PQ117fugCYsGlLgtno+QFq7jhRmU5Rg60KOu4i+vQ/oUX5Ebq1lZgKA0MWjtp4F+xuL+H9obn0i6OQ+Pj4+UKtTt24Ul9Wk4ZfL28lnQMn0dl/mmqH63GhNhMllRvR1FWO8UnAyNmo2mihnQNaNPeoIre7lBC+uCnEGMkLInzyqYdGP/02Dt/8/Bw5V/UuPVayGZVXD+CTrx9D8WcC1N8qwdg4hdPrgcPto3aXh3J2nvhCUygsesvDGOtjgfEr45Y3PPKoQPPqtuenzl05g9+unafV9eVouFOLxpZ6KDRK8J4AnB4/672s91GH20MmIhSFe/d5GWPdPO3ltAfncl8jkux2ekMEvHec8N4J9q0CrAhB2Jw+mEdHYLKZYbXzTE6YbQ7inwhD9g/w8RkCIFxwscWZmU4L++h6K0f01hGY7QEYRxwM5kd988do6SvDqAswcDYMma3EHZyErDAGeM9LYRHucprY6QbOQ/ScG41tJ9GqqIPOYkPpH9txs/04bneUsrGdVdxN7P4g8pcAJuwQSxjQh9a+G6T0ihQlFS9ArryDlt4GnL0kQZeqCaertjB7F+7KrxJHIIzcgsL7A98QiZxmfhIVtfvJ4aMCXG86geHRMCqvHUJFzX5mT+Nm2wUc+W4ZzlYXEH4MkMpkSwElTi3Ho0+nJjWNR/Hl90n4868y/FKWyUC/s3Tr8NWPKbh8/XN0DSqIxR1kwIL7A7cz4KB5FAo9RwbNXnSr+1F36wy+OLaB2Rq0D8jR3t8GtcWHXp2FDPM+5OQvkfK2nWJeYbBCrjZEOlQaqjC46I3mGlp+6TDtHRqh3RoT7dFaaeegjnYodRGtzYXdeTLPgnsYW+UdkiyP0TmGQSvP3rWLiYfW5oHeEWK2c1bMN+KC0myHLRRBbmFR4N4I559gUnLK8Ju5+RPZ0jw/UyBbmh+I9lk5ubP2v8rKyfPnFOwNrVv/hJXtXbuIll/0djTSlFnn/1HK5rT0mX/i35TJ+EshQbldAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ícone representando documento Javascript&amp;quot;&quot;
+        title=&quot;Ícone representando documento Javascript&quot;
+        src=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png&quot;
+        srcset=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ícone representando documento Javascript&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; é interpretado pelo navegador. Com ele, nossas aplicações &lt;em&gt;web&lt;/em&gt; podem
+fazer com que o navegador tenha um comportamento (ou interaja com os
+elementos) de uma maneira diferente da usual.&lt;/p&gt;
+&lt;p&gt;Por exemplo, podemos fazer uma página inteira ser aberta de forma
+assíncrona através de &lt;em&gt;Ajax&lt;/em&gt;, ou podemos fazer com que nossos
+formulários sejam validados antes mesmo da informação ser enviada ao
+servidor. Você pode notar que fazemos com que o navegador interaja com
+nossa informação de uma forma “fora do padrão”… já ouvi pessoas chamando
+esta camada de “interação”, outras de “comportamento”. Na minha opinião,
+a última opção faz mais sentido.&lt;/p&gt;
+&lt;p&gt;Os seus &lt;em&gt;scripts&lt;/em&gt;, assim como os seus estilos, não devem estar
+“mesclados” com a informação. Pense comigo, se a informação pode ser
+acessada por leitores &lt;em&gt;RSS&lt;/em&gt;, é bem provável que eles não entendam
+&lt;em&gt;Javascript&lt;/em&gt; (ou que não entendam na plenitude de um navegador Web).
+Certo?&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Mas afinal de contas, como separo as camadas de desenvolvimento? Muito
+simples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Informação deve ser sempre acessível, indiferente do estilo ou
+comportamento da sua aplicação (ou seja, só &lt;em&gt;HTML&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Qualquer espécie de formato que você irá aplicar deve estar contido
+em folhas de estilo &lt;em&gt;CSS&lt;/em&gt; (ou seja, fontes, tamanhos, cores)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Javascript&lt;/em&gt; não devem estar misturados com &lt;em&gt;HTML&lt;/em&gt;! Nem mesmo em
+atributos como &lt;em&gt;onClick&lt;/em&gt; (com a &lt;em&gt;jQuery&lt;/em&gt; isso se torna muito fácil)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sei muito bem que na prática a coisa pode não ser bem assim. Os
+navegadores estão preparados para lidar com esse tipo de situação, mas
+não caia nessa! Separar o seu desenvolvimento em camadas só faz bem para
+você, para o seu cliente e para a sociedade.&lt;/p&gt;</content:encoded></item></channel></rss>

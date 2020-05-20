@@ -1,6 +1,150 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - macosx</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 26 Apr 2016 09:53:00 -0300</lastBuildDate><item><title>O simples e poderoso Pyenv</title><link>https://klauslaube.com.br/2016/04/26/o-simples-e-poderoso-pyenv.html</link><description>&lt;p&gt;Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - macosx]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O simples e poderoso Pyenv]]></title><description><![CDATA[Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
+a versão do Mac OS X para o El Capitan. Na cara e coragem,
+e dotado de uma ingenuidade ímpar, simplesmente apertei o botão
+Update e deixei com que os deuses resolvessem qual seria o
+destino do meu workspace após essa fatídica operação…]]></description><link>https://klauslaube.com.br/2016/04/26/o-simples-e-poderoso-pyenv.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/04/26/o-simples-e-poderoso-pyenv.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 26 Apr 2016 09:53:00 GMT</pubDate><content:encoded>&lt;p&gt;Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
 a versão do &lt;em&gt;Mac OS X&lt;/em&gt; para o &lt;em&gt;El Capitan&lt;/em&gt;. Na cara e coragem,
 e dotado de uma ingenuidade ímpar, simplesmente apertei o botão
 &lt;em&gt;Update&lt;/em&gt; e deixei com que os deuses resolvessem qual seria o
-destino do meu …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 26 Apr 2016 09:53:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-04-26:/2016/04/26/o-simples-e-poderoso-pyenv.html</guid><category>desenvolvimento</category><category>python</category><category>pyenv</category><category>virtualenv</category><category>virtualenvwrapper</category><category>macosx</category></item></channel></rss>
+destino do meu &lt;em&gt;workspace&lt;/em&gt; após essa fatídica operação.&lt;/p&gt;
+&lt;p&gt;Obviamente, &lt;a href=&quot;https://ohthehugemanatee.org/blog/2015/10/01/how-i-got-el-capitain-working-with-my-developer-tools/&quot; title=&quot;Veja o que fazer com se o update do El Capitan quebrar o seu ambiente de desenvolvimento&quot;&gt;algumas ferramentas deixaram de funcionar&lt;/a&gt;,
+incluindo a minha instalação &quot;system wide&quot; do &lt;a href=&quot;/tag/pip.html&quot; title=&quot;Leia mais sobre pip&quot;&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt;
+e o meu &lt;a href=&quot;/tag/virtualenvwrapper.html%7D&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;&lt;em&gt;virtualenvwrapper&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Após algum tempo &quot;googlando&quot; eu encontrei o &lt;a href=&quot;https://github.com/yyuu/pyenv&quot; title=&quot;Conheça o Pyenv&quot;&gt;&lt;em&gt;Pyenv&lt;/em&gt;&lt;/a&gt;,
+e vou compartilhar com você a razão pela qual ele é uma excelente ideia.&lt;/p&gt;
+&lt;h2&gt;Múltiplas versões de Python, sem dor de cabeça&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Pyenv&lt;/em&gt; é uma ferramenta que te permite selecionar qual a versão
+do &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; você está utilizando,
+de maneira muito fácil e prática.&lt;/p&gt;
+&lt;p&gt;Antes de conhecer o &lt;em&gt;Pyenv&lt;/em&gt;, eu geralmente baixava o código fonte e
+compilava as versões &quot;adicionais&quot; do &lt;em&gt;Python&lt;/em&gt; (2.6, 3.3, 3.4, etc)
+no &lt;code class=&quot;language-text&quot;&gt;/opt/&lt;/code&gt; da minha máquina, utilizando a versão do sistema (2.7.x)
+para a maioria dos projetos que desenvolvia. Aí no momento de criação
+do meu &lt;code class=&quot;language-text&quot;&gt;virtualenv&lt;/code&gt;, apontava o executável da linguagem para a versão
+específica.&lt;/p&gt;
+&lt;p&gt;Com essa ferramenta eu deixo uma versão do sistema intacta, e utilizo
+de forma completamente isolada a determinada versão do &lt;em&gt;Python&lt;/em&gt; do
+qual necessito, com alguns atalhos que me auxiliam na transição de
+uma versão para a outra.&lt;/p&gt;
+&lt;h2&gt;Instalando&lt;/h2&gt;
+&lt;p&gt;Instalar o &lt;em&gt;Pyenv&lt;/em&gt; é tão trivial quanto dar um &lt;code class=&quot;language-text&quot;&gt;pip install&lt;/code&gt;. Por ele não
+depender do &lt;em&gt;Python&lt;/em&gt; (e ser em &lt;em&gt;shell&lt;/em&gt; puro) podemos utilizar o seu
+&lt;a href=&quot;https://github.com/yyuu/pyenv-installer&quot; title=&quot;Veja no Github&quot;&gt;instalador de linha de comando&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
+$ pyenv update&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o comando &lt;code class=&quot;language-text&quot;&gt;pyenv install -l&lt;/code&gt; somos apresentados a uma lista de possíveis versões
+a serem instaladas através do utilitário (indo de &lt;em&gt;Python 2.1&lt;/em&gt; até &lt;em&gt;PyPy&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Suponha que você queira instalar a versão 3.5.1 da linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv install 3.5.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Genial, não?&lt;/p&gt;
+&lt;h2&gt;Transitando entre versões&lt;/h2&gt;
+&lt;p&gt;Para utilizar a versão instalada no terminal que está aberto, usamos o parâmetro &lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv shell 3.5.1
+$ python -V
+Python 3.5.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Talvez seja necessário executar o comando &lt;code class=&quot;language-text&quot;&gt;pyenv rehash&lt;/code&gt;, caso você não esteja
+obtendo o resultado esperado.&lt;/p&gt;
+&lt;p&gt;Com o comando &lt;code class=&quot;language-text&quot;&gt;versions&lt;/code&gt; obtemos as versões disponíveis no computador:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv versions
+system
+* 3.5.1 (set by PYENV_VERSION environment variable)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O asterisco indica a versão em uso atualmente.&lt;/p&gt;
+&lt;p&gt;Com o comando &lt;code class=&quot;language-text&quot;&gt;local&lt;/code&gt;, setamos uma determinada versão do &lt;em&gt;Python&lt;/em&gt; para um
+determinado &lt;em&gt;path&lt;/em&gt;. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Workspace/blog
+$ pyenv local 3.5.1
+$ pyenv version
+3.5.1 (set by /Users/klaus/Workspace/blog/.python-version)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Pyenv&lt;/em&gt; criará um arquivo &lt;code class=&quot;language-text&quot;&gt;.python-version&lt;/code&gt; no diretório, e
+todo o momento que você acessá-lo trocará a versão corrente do
+interpretador, automaticamente.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bb8b2bc62fb619c6c39a441e15387da6/073a0/sparrow.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 47.91666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQAEBv/EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAE9bm3zdEVIf//EAB0QAAEDBQEAAAAAAAAAAAAAAAMCBBIAAQUjMTT/2gAIAQEAAQUCQrY3PMRDNZWrH9f+r//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABURAQEAAAAAAAAAAAAAAAAAABAx/9oACAECAQE/AYf/xAAeEAEAAQIHAAAAAAAAAAAAAAABAAIRECEiMWFxof/aAAgBAQAGPwJustU7Pk1ZvGD0Rn//xAAcEAACAgIDAAAAAAAAAAAAAAABEQAhMUEQUbH/2gAIAQEAAT8hG/IsuABtZJ1Brp3AZhxKiaoeT//aAAwDAQACAAMAAAAQo9//xAAXEQEBAQEAAAAAAAAAAAAAAAABEQBR/9oACAEDAQE/EFpNTm//xAAVEQEBAAAAAAAAAAAAAAAAAAAREP/aAAgBAgEBPxATP//EAB0QAQACAgIDAAAAAAAAAAAAAAEAIRExQYFhceH/2gAIAQEAAT8Q5KBEebvdwxSDggGxe8HcdpiW0PZuAyrhgCs+jGlWGs9J/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Minha cara após o update do El Capitan (thewrap.com)&amp;quot;&quot;
+        title=&quot;Minha cara após o update do El Capitan (thewrap.com)&quot;
+        src=&quot;/static/bb8b2bc62fb619c6c39a441e15387da6/073a0/sparrow.jpg&quot;
+        srcset=&quot;/static/bb8b2bc62fb619c6c39a441e15387da6/7809d/sparrow.jpg 192w,
+/static/bb8b2bc62fb619c6c39a441e15387da6/4ecad/sparrow.jpg 384w,
+/static/bb8b2bc62fb619c6c39a441e15387da6/073a0/sparrow.jpg 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Minha cara após o update do El Capitan (thewrap.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Um &lt;em&gt;workaround&lt;/em&gt; para fazer o meu ambiente de trabalho funcionar,
+no &lt;em&gt;El Capitan&lt;/em&gt;, foi baixar uma versão 2.7.x do &lt;em&gt;Python&lt;/em&gt; e torná-la
+&lt;code class=&quot;language-text&quot;&gt;global&lt;/code&gt;. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv install 2.7.10
+$ pyenv rehash
+$ pyenv global 2.7.10
+system
+* 2.7.10 (set by /usr/local/opt/pyenv/version)
+3.5.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com isso, o comando &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; voltou a funcionar &quot;system wide&quot;, bem como
+as minhas integrações do &lt;code class=&quot;language-text&quot;&gt;zsh&lt;/code&gt; com o &lt;code class=&quot;language-text&quot;&gt;virtualenvwrapper&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Bônus: virtualenvwrapper&lt;/h2&gt;
+&lt;p&gt;E assim a minha vida continuou pacata e serena... até o momento que eu
+tiver que criar um &lt;code class=&quot;language-text&quot;&gt;virtualenv&lt;/code&gt; para uma versão diferente da minha
+versão &lt;code class=&quot;language-text&quot;&gt;global&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Pyenv&lt;/em&gt; com &lt;em&gt;virtualenvwrapper&lt;/em&gt; não se entendem muito bem.
+Para facilitar a nossa vida, temos o &lt;a href=&quot;https://github.com/yyuu/pyenv-virtualenvwrapper&quot; title=&quot;Veja o repositório no GitHub&quot;&gt;&lt;em&gt;pyenv-virtualenvwrapper&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install virtualenvwrapper
+$ brew install pyenv-virtualenvwrapper&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É necessário ativá-lo em seu &lt;em&gt;shell&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv virtualenvwrapper&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E agora sim, criar o seu ambiente virtual:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyenv shell 3.5.1
+$ mkvirtualenv test
+Using base prefix &amp;#39;/usr/local/opt/pyenv/versions/3.5.1&amp;#39;
+New python executable in /Users/klaus/.virtualenvs/test/bin/python3.5
+Also creating executable in /Users/klaus/.virtualenvs/test/bin/python
+Installing setuptools, pip, wheel...done.
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/predeactivate
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/postdeactivate
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/preactivate
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/postactivate
+virtualenvwrapper.user_scripts creating /Users/klaus/.virtualenvs/test/bin/get_env_details&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E &quot;esquecer&quot; do comando &lt;code class=&quot;language-text&quot;&gt;pyenv&lt;/code&gt; a partir do momento que você tem os seus &lt;em&gt;virtualenvs&lt;/em&gt; criados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ workon meu_projeto_em_py_27
+$ python -V
+Python 2.7.10
+
+$ workon test
+$ python -V
+Python 3.5.1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Pyenv&lt;/em&gt; é, assim como o &lt;em&gt;virtualenv&lt;/em&gt;, aquele tipo de ferramenta que te mantém são e salvo
+quando a sua necessidade é trabalhar com versões completamente diferentes do &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Infelizmente, o seu uso com o &lt;em&gt;virtualenvwrapper&lt;/em&gt; não é lá tão &lt;em&gt;smooth&lt;/em&gt; (mas está longe de
+ser complicado). Para facilitar a vida, talvez adicionar o comando &lt;code class=&quot;language-text&quot;&gt;pyenv virtualenvwrapper&lt;/code&gt;
+ao seu &lt;code class=&quot;language-text&quot;&gt;.bash_profile&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;.zshrc&lt;/code&gt; seja uma dica interessante.&lt;/p&gt;
+&lt;p&gt;Ou ainda, você pode utilizar o &lt;em&gt;virtualenvwrapper&lt;/em&gt; para os
+projetos &lt;em&gt;Python&lt;/em&gt; 2.7.x, e o &lt;a href=&quot;https://docs.python.org/3/library/venv.html&quot; title=&quot;Creation of virtual environments in Python 3&quot;&gt;&lt;em&gt;pyvenv&lt;/em&gt;&lt;/a&gt;
+para projetos &gt; 3.2.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/yyuu/pyenv&quot;&gt;&lt;em&gt;Pyenv - Simple Python version management&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/yyuu/pyenv-virtualenvwrapper&quot;&gt;&lt;em&gt;Pyenv-virtualenvwrapper - An alternative approach to manage virtualenvs from pyenv&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.shichao.io/2014/10/01/setup_virtualenvwrapper_with_pyenv_using_pyenv_virtualenvwrapper.html&quot;&gt;&lt;em&gt;Schichao&apos;s Blog - Setting up virtualenvwrapper with pyenv using pyenv-virtualenvwrapper&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://taoofmac.com/space/blog/2015/10/03/1245&quot;&gt;&lt;em&gt;The Tao of Mac - Using Pyenv with El Capitan&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

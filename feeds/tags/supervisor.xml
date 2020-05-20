@@ -1,9 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - supervisor</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 23 Jan 2012 21:28:00 -0200</lastBuildDate><item><title>Supervisor: Aumentando a disponibilidade das suas aplicações Web</title><link>https://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</link><description>&lt;p&gt;E se você pudesse controlar uma série de processos
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - supervisor]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Supervisor: Aumentando a disponibilidade das suas aplicações Web]]></title><description><![CDATA[E se você pudesse controlar uma série de processos
+através de um comando? Ou de garantir que serviços “down” sejam
+reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder
+reiniciá-los com um simples comando de terminal? O Supervisor aparece para facilitar muito a vida de quem precisa…]]></description><link>https://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 23 Jan 2012 21:28:00 GMT</pubDate><content:encoded>&lt;p&gt;E se você pudesse controlar uma série de processos
 através de um comando? Ou de garantir que serviços “down” sejam
 reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder
 reiniciá-los com um simples comando de terminal?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;O &lt;strong&gt;&lt;em&gt;Supervisor&lt;/em&gt;&lt;/strong&gt; aparece para facilitar muito a vida de quem precisa
-administrar servidores &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web …&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 23 Jan 2012 21:28:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-01-23:/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</guid><category>infraestrutura</category><category>ambiente-de-desenvolvimento</category><category>web</category><category>supervisor</category><category>linux</category></item></channel></rss>
+administrar servidores &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e não tem muito tempo a perder com
+criação de rotinas, ou mesmo com trabalho manual.&lt;/p&gt;
+&lt;h2&gt;Afinal, o que é o Supervisor?&lt;/h2&gt;
+&lt;p&gt;A proposta do &lt;a href=&quot;http://supervisord.org/&quot; title=&quot;Conheça o projeto Supervisor&quot;&gt;&lt;em&gt;Supervisor&lt;/em&gt;&lt;/a&gt; é simples: permitir que usuários possam
+controlar e monitorar processos (e grupos de processos) em um sistema
+&lt;em&gt;Unix-like&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Em suma, o &lt;em&gt;Supervisor&lt;/em&gt; é um programa escrito em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, capaz de
+iniciar, reiniciar e parar outros programas. Mas, o que me chamou mais a
+atenção, é que ele é capaz de reiniciar programas “crashados”
+automaticamente.&lt;/p&gt;
+&lt;p&gt;Isso é possível pois, por baixo dos panos, o &lt;em&gt;Supervisor&lt;/em&gt; é um serviço
+que inicia todos os demais como subprocessos. Desse modo, é capaz de
+monitorar o estado dos mesmos, e numa eventual “queda”, reiniciar um
+determinado processo/serviço imediatamente.&lt;/p&gt;
+&lt;p&gt;Ou seja, funciona como uma ferramenta centralizadora e de monitoramento.
+E que ainda serve uma &lt;em&gt;API&lt;/em&gt; para gerenciamento remoto, &lt;a href=&quot;http://supervisord.org/api.html&quot; title=&quot;Leia mais sobre a API do Supervisor&quot;&gt;através de &lt;em&gt;XML-RPC&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalar para administrar&lt;/h2&gt;
+&lt;p&gt;Para instalar, basta utilizar o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install supervisor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos gerar um arquivo de configuração básico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ echo_supervisord_conf &amp;gt; /etc/supervisord.conf&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos aproveitar que &lt;a href=&quot;/2011/12/19/nginx-poderoso-rapido-facil.html&quot; title=&quot;Nginx: Poderoso, rápido e fácil&quot;&gt;falamos recentemente sobre a instalação do &lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt;,
+para demonstrar o princípio do &lt;em&gt;Supervisor&lt;/em&gt;. Adicione as
+seguintes linhas ao arquivo &lt;code class=&quot;language-text&quot;&gt;/etc/supervisord.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;config&quot;&gt;&lt;pre class=&quot;language-config&quot;&gt;&lt;code class=&quot;language-config&quot;&gt;[program:nginx]
+command=/usr/local/nginx/sbin/nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora iniciamos o serviço do &lt;em&gt;Supervisor&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ supervisord&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E através do &lt;code class=&quot;language-text&quot;&gt;supervisorctl&lt;/code&gt;, vamos iniciar e parar o &lt;em&gt;Nginx&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ supervisorctl start all
+nginx: started
+
+$ ps aux | grep nginx
+root      1863  0.0  0.1 (...) /usr/local/nginx/sbin/nginx
+
+$ supervisorctl stop nginx
+nginx: stopped&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E agora, o “pulo do gato”. Com o &lt;em&gt;Nginx&lt;/em&gt; iniciado via &lt;em&gt;Supervisor&lt;/em&gt;,
+vamos fechá-lo através de um comando &lt;code class=&quot;language-text&quot;&gt;kill&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ supervisorctl start nginx
+nginx: started
+
+$ killall nginx
+
+$ ps aux | grep nginx
+root      1917  0.0  0.1 (...) /usr/local/nginx/sbin/nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Magia? Que nada! É a ferramenta garantindo que os nossos processos não
+fiquem “down”. &lt;a href=&quot;http://brandonkonkle.com/blog/2010/sep/14/django-uwsgi-and-nginx/&quot; title=&quot;Django on uWSGI and Nginx&quot;&gt;&lt;em&gt;Brandon Konkle&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://senko.net/en/django-nginx-gunicorn/&quot; title=&quot;A Django setup using Nginx and Gunicorn&quot;&gt;&lt;em&gt;Senko Rasic&lt;/em&gt;&lt;/a&gt; possuem exemplos
+utilizando um cenário real com &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/nginx.html&quot; title=&quot;Leia mais sobre Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Embora o &lt;em&gt;Supervisor&lt;/em&gt; seja uma ferramenta espetacular, acredito que
+muitos profissionais já possuam intimidade com os seus servidores, bem
+como já tenham construído &lt;em&gt;sets&lt;/em&gt; de &lt;em&gt;scripts&lt;/em&gt;, e atalhos em geral. Isso,
+de fato, faz a gente questionar a utilidade dela.&lt;/p&gt;
+&lt;p&gt;A possibilidade de monitorar e garantir a disponibilidade dos processos
+foi o que mais me agradou. Se você tem “poderes administrativos” na sua
+hospedagem, talvez o &lt;em&gt;Supervisor&lt;/em&gt; seja a ferramenta que faltava para
+você possa dormir mais tranquilo.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://supervisord.org/&quot; title=&quot;Supervisor - A process control system&quot;&gt;&lt;em&gt;Supervisor&lt;/em&gt; – Documentação oficial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://brandonkonkle.com/blog/2010/sep/14/django-uwsgi-and-nginx/&quot; title=&quot;Saiba como montar um servidor Nginx com Django, uWSGI e Supervisor&quot;&gt;&lt;em&gt;Brandon Konkle – Django on uWSGI and Nginx&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.plope.com/static/misc/supervisor-pycon2008.pdf&quot; title=&quot;Apresentação para a PyCon 2008, sobre Supervisor&quot;&gt;&lt;em&gt;Mike Naberezny – Supervisor as a Platform&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://senko.net/en/django-nginx-gunicorn/&quot; title=&quot;Um ótimo exemplo de uso do Nginx, Django e Supervisor&quot;&gt;&lt;em&gt;Senko’s Blog – A Django setup using Nginx and Gunicorn&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

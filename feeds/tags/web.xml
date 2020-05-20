@@ -1,280 +1,272 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - web</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 05 Apr 2020 07:40:00 -0300</lastBuildDate><item><title>API Blueprint: Markdown é vida!</title><link>https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html</link><description>&lt;p&gt;Estamos falando sobre escrever especificações de &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre APIs"&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;
-há um bom tempo aqui no &lt;em&gt;blog&lt;/em&gt;. &lt;a href="https://klauslaube.com.br/tag/raml.html" title="Leia mais sobre RAML"&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;,
-&lt;a href="https://klauslaube.com.br/tag/swagger.html" title="Leia mais sobre Swagger"&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt; e
-&lt;a href="https://klauslaube.com.br/tag/oai.html" title="Leia mais sobre OpenAPI"&gt;&lt;em&gt;OpenAPI Specification&lt;/em&gt;&lt;/a&gt; já foram explorados, e
-com os dois últimos encontramos um ecossistema rico com ferramentas extremamente
-interessantes.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Há um outro simpático &lt;em&gt;player&lt;/em&gt; no mercado, o &lt;a href="https://apiblueprint.org/" title="Visite a página oficial do projeto"&gt;&lt;em&gt;API Blueprint&lt;/em&gt;&lt;/a&gt;,
-e o &lt;em&gt;post&lt;/em&gt; de hoje …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 05 Apr 2020 07:40:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-04-05:/2020/04/05/api-blueprint-markdown-e-vida.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>apis</category><category>api-first</category><category>api-blueprint</category><category>mson</category></item><item><title>API-First: Processo e ferramentas</title><link>https://klauslaube.com.br/2020/03/02/api-first-processo-e-ferramentas.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2020/02/21/o-api-first.html" title="O API-First"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; tive a oportunidade de falar
-de uma forma mais abrangente sobre o &lt;a href="https://klauslaube.com.br/tag/api-first.html" title="Leia mais sobre API-First"&gt;&lt;em&gt;API-First&lt;/em&gt;&lt;/a&gt;.
-O exercício é interessante, uma vez que é possível focar no conceito,
-ao invés de ferramentas e processos. Mas o objetivo
-desse artigo é cairmos de cabeça em como exercitar a ideia de forma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 02 Mar 2020 10:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-03-02:/2020/03/02/api-first-processo-e-ferramentas.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>prism</category><category>dredd</category><category>apis</category><category>api-first</category><category>swagger</category><category>drf</category><category>oai</category></item><item><title>O API-First</title><link>https://klauslaube.com.br/2020/02/21/o-api-first.html</link><description>&lt;p&gt;Tratar &lt;em&gt;APIs&lt;/em&gt; como "first-class citizens" pode ser um desafio e tanto, principalmente quando estamos em um contexto
-de entrega rápida ou de prova de conceito. Como desenvolvedor, admito que priorizo resolver a lógica de negócio
-escrevendo código, do que discutindo contratos ou requisitos não funcionais.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;Code-First&lt;/h2&gt;
-&lt;p&gt;O modelo de trabalho …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 21 Feb 2020 09:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-02-21:/2020/02/21/o-api-first.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>apis</category><category>api-first</category></item><item><title>Construindo APIs em Django com Django REST Framework</title><link>https://klauslaube.com.br/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html" title="Leia o meu depoimento sobre a rendição ao DRF"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;
-tive a oportunidade de "destilar" a minha simpatia pelo &lt;a href="https://klauslaube.com.br/tag/drf.html" title="Leia mais sobre o Django REST Framework"&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;,
-e de salientar alguns aspectos positivos da ferramenta. A praticidade
-é sem dúvida um de seus pontos mais altos, e nesse &lt;em&gt;post&lt;/em&gt; vamos explorá-la através
-de código escrito (que vale mais do que mil palavras …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 13 Feb 2020 06:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-02-13:/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html</guid><category>desenvolvimento</category><category>web</category><category>apis</category><category>python</category><category>django</category><category>rest</category><category>drf</category></item><item><title>Eu me rendo: Django REST Framework</title><link>https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html</link><description>&lt;p&gt;Confesso que nunca fui muito simpático ao &lt;a href="https://www.django-rest-framework.org/" title="Visite a página oficial do projeto"&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;. Antes de adotá-lo tive a oportunidade de explorar outras opções, como o &lt;a href="https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html" title="Leia mais sobre o Restless"&gt;&lt;em&gt;Restless&lt;/em&gt;&lt;/a&gt;, e admito que sempre havia algo faltando, ou algum esforço extra necessário para obter alguma funcionalidade que já vinha embutida no &lt;a href="https://klauslaube.com.br/tag/drf.html" title="Leia mais sobre Django REST Framework"&gt;&lt;em&gt;DRF&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Comecei a aceitar a sua …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 06 Feb 2020 09:40:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-02-06:/2020/02/06/eu-me-rendo-django-rest-framework.html</guid><category>desenvolvimento</category><category>web</category><category>apis</category><category>python</category><category>django</category><category>rest</category><category>drf</category><category>eu-me-rendo</category></item><item><title>Engatinhando em Java para a web - Parte 3</title><link>https://klauslaube.com.br/2019/12/10/engatinhando-em-java-web-parte-3.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2019/12/02/engatinhando-em-java-web-parte-2.html" title="Confira a parte 2"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; falamos sobre a especificação
-&lt;em&gt;Servlet&lt;/em&gt;, bem como sobre o uso de &lt;em&gt;JavaServer Pages&lt;/em&gt; e &lt;em&gt;Expression Language&lt;/em&gt;.
-Para finalizar o protótipo proposto, e encerrar essa introdução ao &lt;a href="https://klauslaube.com.br/tag/java.html" title="Leia mais sobre Java"&gt;&lt;em&gt;Java&lt;/em&gt;&lt;/a&gt;,
-precisamos implementar o método &lt;code&gt;POST&lt;/code&gt;, e durante esse percurso abordaremos os conceitos de &lt;em&gt;filters&lt;/em&gt; e &lt;em&gt;listeners&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;doGet e doPost&lt;/h2&gt;
-&lt;p&gt;Recaptulando …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 10 Dec 2019 13:50:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-12-10:/2019/12/10/engatinhando-em-java-web-parte-3.html</guid><category>desenvolvimento</category><category>web</category><category>java</category><category>servlet</category></item><item><title>Engatinhando em Java para a web - Parte 2</title><link>https://klauslaube.com.br/2019/12/02/engatinhando-em-java-web-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html" title="Engatinhando em Java para a web - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; demos uma breve pincelada sobre &lt;em&gt;JDK&lt;/em&gt;, &lt;em&gt;JRE&lt;/em&gt;, &lt;em&gt;JSE&lt;/em&gt; e &lt;em&gt;JEE&lt;/em&gt;. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do uso de &lt;em&gt;Maven&lt;/em&gt; e &lt;em&gt;Tomcat&lt;/em&gt;, vamos partir para uma abordagem mais prática, e finalmente falar sobre os famosos &lt;em&gt;Servlets&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Mas antes de continuar …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 02 Dec 2019 09:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-12-02:/2019/12/02/engatinhando-em-java-web-parte-2.html</guid><category>desenvolvimento</category><category>web</category><category>java</category><category>servlet</category><category>jsp</category><category>jstl</category></item><item><title>Engatinhando em Java para a web - Parte 1</title><link>https://klauslaube.com.br/2019/11/28/engatinhando-em-java-web-parte-1.html</link><description>&lt;p&gt;Uma constante nesses dois últimos anos da minha vida profissional tem sido "reavaliar" algumas opiniões que tive durante a minha carreira. Não à toa costumo escrever &lt;a href="https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html" title="Já me rendi até ao Material Design"&gt;alguns artigos do tipo "eu me rendo"&lt;/a&gt;. Já me rendi ao &lt;a href="https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html" title="Relato onde admito estar traindo o Vim"&gt;VS Code, ao uso de IDEs&lt;/a&gt;, e até mesmo ao &lt;em&gt;React&lt;/em&gt;. Agora chegou …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 28 Nov 2019 11:35:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-11-28:/2019/11/28/engatinhando-em-java-web-parte-1.html</guid><category>desenvolvimento</category><category>web</category><category>java</category><category>servlet</category></item><item><title>SEO ainda é relevante?</title><link>https://klauslaube.com.br/2019/08/20/seo-ainda-e-relevante.html</link><description>&lt;p&gt;Se há uma constante em desenvolvimento de &lt;em&gt;software&lt;/em&gt; é o &lt;a href="https://www.significados.com.br/hype/" title="Significado de hype"&gt;&lt;em&gt;hype&lt;/em&gt;&lt;/a&gt;. Hoje vivemos o &lt;em&gt;buzz&lt;/em&gt;
-ao redor de &lt;em&gt;microservices&lt;/em&gt;, &lt;em&gt;machine learning&lt;/em&gt; e &lt;em&gt;blockchain&lt;/em&gt;. Mas há algum tempo um dos &lt;em&gt;hypes&lt;/em&gt; que varreu o mundo do desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; foi o &lt;em&gt;SEO&lt;/em&gt; (ou &lt;em&gt;Search Engine Optimization&lt;/em&gt;).&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Quem aqui nunca fez um freela …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 20 Aug 2019 16:05:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-08-20:/2019/08/20/seo-ainda-e-relevante.html</guid><category>desenvolvimento</category><category>web</category><category>seo</category></item><item><title>LSP e o PyLS</title><link>https://klauslaube.com.br/2019/05/24/lsp-e-o-pyls.html</link><description>&lt;p&gt;Uma das virtudes do &lt;a href="https://klauslaube.com.br/tag/vscode.html" title="Leia mais sobre o editor"&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt; é como ele integra-se facilmente com diferentes linguagens.
-O esforço é pequeno, geralmente resumindo-se à instalação de um único &lt;em&gt;plugin&lt;/em&gt;. Essa característica o torna uma ferramenta extremamente
-produtiva, e que vem conquistando o coração dos desenvolvedores ao redor do mundo.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;O curioso é que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 24 May 2019 10:53:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-05-24:/2019/05/24/lsp-e-o-pyls.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>vscode</category><category>vim</category><category>python</category><category>pyls</category><category>lsp</category></item><item><title>Deixe darem pitaco no seu código com Prettier</title><link>https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</link><description>&lt;p&gt;&lt;em&gt;Code formatters&lt;/em&gt; são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
-mas depois de alguns "Hello world" em &lt;a href="https://golang.org/" title="Leia mais sobre Golang"&gt;&lt;em&gt;Go&lt;/em&gt;&lt;/a&gt;
-admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
-programador para isso, é uma ideia excelente.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Em &lt;em&gt;Go&lt;/em&gt; temos o &lt;code&gt;go fmt …&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 12 Jan 2019 10:55:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-01-12:/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html</guid><category>desenvolvimento</category><category>web</category><category>formatters</category><category>editores</category><category>prettier</category><category>javascript</category><category>html</category><category>css</category></item><item><title>Atom: O simpático editor do GitHub</title><link>https://klauslaube.com.br/2018/12/27/atom-o-simpatico-editor-do-github.html</link><description>&lt;p&gt;Tenho "peregrinado" por diferentes editores e &lt;em&gt;IDEs&lt;/em&gt; nesses últimos meses. Além
-do &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre Vim"&gt;Vim&lt;/a&gt;, algumas "desventuras" com &lt;em&gt;IntelliJ IDEA&lt;/em&gt;,
-e &lt;a href="https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html" title="Eu me rendo: VS Code"&gt;uma surpreendente experiência com o &lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;,
-tive a oportunidade de testar uma alternativa que sempre me deixou intrigado:
-&lt;a href="https://atom.io/" title="A hackable text editor for the 21st Century"&gt;O &lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Embora notícias recentes em relação ao editor sejam "preocupantes", o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 27 Dec 2018 18:35:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-12-27:/2018/12/27/atom-o-simpatico-editor-do-github.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>atom</category><category>python</category><category>vim</category></item><item><title>Eu me rendo: VS Code</title><link>https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</link><description>&lt;p&gt;É, caro leitor... chegou o dia de admitir que tenho usado outro editor
-além do &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre o melhor editor do universo"&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;. Pode
-me julgar, me chamar de "poser" ou de "vendido", mas acontece que tenho descoberto no
-&lt;a href="https://code.visualstudio.com/" title="Conheça o VS Code"&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, da &lt;em&gt;Microsoft&lt;/em&gt;,
-uma excelente ferramenta para desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Piadas à parte, ainda acho o &lt;em&gt;Vim&lt;/em&gt; uma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 04 Jun 2018 16:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-06-04:/2018/06/04/eu-me-rendo-vscode.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>vscode</category><category>vim</category><category>python</category><category>css</category><category>javascript</category><category>eu-me-rendo</category></item><item><title>Swagger na prática</title><link>https://klauslaube.com.br/2018/03/15/swagger-na-pratica.html</link><description>&lt;p&gt;Voltamos a falar de &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre APIs"&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, e voltamos a falar sobre especificações.
-Para continuar o assunto sobre &lt;a href="https://klauslaube.com.br/2017/11/25/swagger-e-o-open-api-initiative.html" title="Swagger e o OAI"&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;,
-hoje vamos abordar o tema de uma maneira prática. Afinal, é com ela que a gente vê as principais
-vantagens de utilizar &lt;em&gt;Swagger&lt;/em&gt; + &lt;em&gt;Open API Spec&lt;/em&gt;, em relação aos concorrentes.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Não deixe de …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 15 Mar 2018 18:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-03-15:/2018/03/15/swagger-na-pratica.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>microservices</category><category>apis</category><category>swagger</category><category>oai</category></item><item><title>OAuth2.0: Autorização simples (or is it?)</title><link>https://klauslaube.com.br/2018/02/06/oauth20-autorizacao-simples-or-is-it.html</link><description>&lt;p&gt;É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
-de &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre API"&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, desde
-&lt;a href="https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html" title="Construindo APIs em Django com Restless"&gt;bibliotecas&lt;/a&gt;
-até a construção de &lt;a href="https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html" title="Ramilificando as suas APIs"&gt;especificações&lt;/a&gt;.
-Nesse &lt;em&gt;post&lt;/em&gt; vamos introduzir a camada de &lt;em&gt;auth&lt;/em&gt; de uma &lt;em&gt;API&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, e
-entender como podemos resolver esse problema através do protocolo &lt;em&gt;OAuth 2.0&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;h2&gt;O que …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 06 Feb 2018 11:45:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-02-06:/2018/02/06/oauth20-autorizacao-simples-or-is-it.html</guid><category>desenvolvimento</category><category>web</category><category>oauth</category><category>oauth2</category><category>auth</category><category>apis</category></item><item><title>Swagger e o Open API Initiative</title><link>https://klauslaube.com.br/2017/11/25/swagger-e-o-open-api-initiative.html</link><description>&lt;p&gt;Já falamos sobre &lt;a href="https://klauslaube.com.br/tag/raml.html" title="Leia mais sobre RAML"&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt; aqui no &lt;em&gt;blog&lt;/em&gt;. Uma maneira
-de descrever &lt;em&gt;APIs&lt;/em&gt;, facilitando a vida de clientes, fornecedores, e até mesmo
-máquinas. Acontece que há uma alternativa muito mais popular,
-chamada &lt;a href="https://swagger.io/" title="The world's most popular API tooling"&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;,
-que na minha opinião tem por principal ponto positivo ser base para a criação da
-&lt;a href="https://github.com/OAI/OpenAPI-Specification" title="The OpenAPI Spec repository"&gt;&lt;em&gt;OpenAPI Specification&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Se …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 25 Nov 2017 20:52:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-11-25:/2017/11/25/swagger-e-o-open-api-initiative.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>microservices</category><category>apis</category><category>swagger</category><category>oai</category></item><item><title>Documentando a sua API com raml2html</title><link>https://klauslaube.com.br/2017/09/16/documentando-sua-api-com-raml2html.html</link><description>&lt;p&gt;Uma das coisas mais legais em relação ao &lt;a href="https://klauslaube.com.br/tag/raml.html" title="Leia mais sobre RAML"&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;
-(e afins) é a diversidade de ferramentas que existem em seu ecossistema.
-Embora a especificação por si cumpra o seu papel, são elas que trazem
-"mais cores" aos resultados práticos de ter uma &lt;em&gt;spec&lt;/em&gt; para a sua &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre API"&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;No universo do …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 16 Sep 2017 00:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-09-16:/2017/09/16/documentando-sua-api-com-raml2html.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>apis</category><category>raml</category><category>nodejs</category></item><item><title>"Streamando" dados no Django</title><link>https://klauslaube.com.br/2017/05/14/streaming-dados-django.html</link><description>&lt;p&gt;Recentemente na &lt;a href="http://loadsmart.com/" title="Book a truck with Loadsmart"&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;,
-houve a necessidade de lidar com um cenário onde se faz necessário acessar uma &lt;em&gt;view&lt;/em&gt;
-que retorna um &lt;em&gt;CSV&lt;/em&gt; de tamanho considerável, gerado a partir de parâmetros dinâmicos,
-no melhor esquema "imprima um relatório".&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Embora o &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; seja desenhado para requisições curtas, existe a possibilidade
-de fazer …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 14 May 2017 15:45:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-05-14:/2017/05/14/streaming-dados-django.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>streaming</category><category>generators</category><category>wsgi</category><category>csv</category></item><item><title>Eu me rendo: Material Design</title><link>https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</link><description>&lt;p&gt;Lembro como se fosse hoje de um camarada dos tempos de &lt;em&gt;Globo.com&lt;/em&gt; me falando de
-modo efusivo: Você deveria experimentar o &lt;em&gt;MaterializeCSS&lt;/em&gt;, vai te poupar muito
-tempo e te entregar uma interface elegante; Na época eu estava munido da minha
-ignorância, e acabei não seguindo o conselho do nobre …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 19 Apr 2017 12:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-04-19:/2017/04/19/eu-me-rendo-material-design.html</guid><category>desenvolvimento</category><category>web</category><category>mobile</category><category>android</category><category>css</category><category>material-design</category><category>materializecss</category><category>material-design-lite</category><category>eu-me-rendo</category></item><item><title>Ramilificando as suas APIs</title><link>https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html</link><description>&lt;p&gt;Você já tem a sua &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre APIs"&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;! Ela é &lt;a href="https://klauslaube.com.br/tag/rest.html" title="Leia mais sobre REST"&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;,
-performa muito bem, e todos os seus aplicativos estão
-conversando com a mesma. Vem uma oportunidade de negócio de abrí-la para consumo
-de parceiros. Agora não basta só a técnica perfeita, você precisa de especificação, documentações,
-exemplos de uso e validadores …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 31 Jan 2017 21:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-01-31:/2017/01/31/ramilificando-as-suas-apis.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>microservices</category><category>apis</category><category>raml</category></item><item><title>Construindo APIs em Django com Restless</title><link>https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html</link><description>&lt;p&gt;Construir &lt;em&gt;APIs&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/rest.html" title="Leia mais sobre REST"&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt; em
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; nos dias atuais é uma
-tarefa no máximo corriqueira. Com a ajuda de bibliotecas consagradas, como
-&lt;a href="http://www.django-rest-framework.org/"&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt; e
-&lt;a href="https://django-tastypie.readthedocs.io/en/latest/"&gt;&lt;em&gt;Tastypie&lt;/em&gt;&lt;/a&gt;,
-e utilizando toda a abstração que envolve os &lt;em&gt;Models&lt;/em&gt; do &lt;em&gt;framework&lt;/em&gt;, é
-possível ter &lt;em&gt;endpoints&lt;/em&gt; respondendo em questão de minutos.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Mas existem alternativas que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 06 Jan 2017 10:45:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-01-06:/2017/01/06/construindo-apis-em-django-com-restless.html</guid><category>desenvolvimento</category><category>web</category><category>apis</category><category>python</category><category>django</category><category>rest</category><category>restless</category></item><item><title>Django, Sass e ES6 no Heroku com Multiple Buildpacks</title><link>https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</link><description>&lt;p&gt;Anteriormente, falamos sobre como utilizar o &lt;code&gt;django-compressor&lt;/code&gt; com &lt;a href="https://klauslaube.com.br/tag/sass.html" title="Leia mais sobre Sass"&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
-e &lt;a href="https://klauslaube.com.br/tag/es6.html" title="Leia mais sobre ES6"&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Se você quisesse utilizar o &lt;em&gt;Heroku&lt;/em&gt;,
-com uma aplicação &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; executando operações de &lt;em&gt;build&lt;/em&gt;
-em &lt;a href="https://klauslaube.com.br/tag/node.html" title="Leia mais sobre Node.JS"&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;, seria uma tarefa um tanto árdua,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - web]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
+e ES6. Se você quisesse utilizar o Heroku,
+com uma aplicação Python executando operações de build
+em Node.js, seria uma tarefa um tanto árdua,
 que exigiria um certo nível de paciência na
-construção do seu próprio &lt;em&gt;Buildpack&lt;/em&gt;. Hoje, com o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 27 Aug 2016 16:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-08-27:/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>sass</category><category>es6</category><category>css</category><category>js</category><category>heroku</category><category>buildpack</category></item><item><title>Django e ES6 com django-compressor</title><link>https://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html" title="Django e Sass com django-compressor"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
-falamos sobre como utilizar o &lt;a href="https://klauslaube.com.br/tag/sass.html" title="Leia mais sobre Sass"&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
-com o &lt;em&gt;framework&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;
-através da biblioteca &lt;em&gt;Compressor&lt;/em&gt; (e sem necessitar de uma
-ferramenta intermediária para &lt;em&gt;build&lt;/em&gt;). Nesse artigo, vamos utilizar
-o mesmo conceito e apresentar uma forma diferente de utilizar
-a nova versão do &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;
-com o &lt;code&gt;django-compressor&lt;/code&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+construção do seu próprio Buildpack. Hoje, com o Multiple…]]></description><link>https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/08/27/django-sass-es6-no-heroku-com-multiple-buildpacks.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 27 Aug 2016 16:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Anteriormente, falamos sobre como utilizar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; com &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;/tag/es6.html&quot; title=&quot;Leia mais sobre ES6&quot;&gt;&lt;em&gt;ES6&lt;/em&gt;&lt;/a&gt;. Se você quisesse utilizar o &lt;em&gt;Heroku&lt;/em&gt;,
+com uma aplicação &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; executando operações de &lt;em&gt;build&lt;/em&gt;
+em &lt;a href=&quot;/tag/node.html&quot; title=&quot;Leia mais sobre Node.JS&quot;&gt;&lt;em&gt;Node.js&lt;/em&gt;&lt;/a&gt;, seria uma tarefa um tanto árdua,
+que exigiria um certo nível de paciência na
+construção do seu próprio &lt;em&gt;Buildpack&lt;/em&gt;. Hoje, com o &lt;em&gt;Multiple Buildpacks&lt;/em&gt;, isso não é mais necessário.&lt;/p&gt;
+&lt;h2&gt;Build o quê?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Buildpack&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;São conjuntos de scripts que, dependendo da linguagem de programação que você escolher,
+resolverão dependências, geração de &lt;em&gt;assets&lt;/em&gt; e até mesmo compilação arquivos, dentro da plataforma &lt;em&gt;Heroku&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ou seja, eles são uma espécie de &quot;provisionamento&quot;, onde você escreverá uma série de
+instruções que deixarão o ambiente preparado para receber o seu projeto.&lt;/p&gt;
+&lt;p&gt;Antigamente, para você trabalhar com compilação/transpilação de &lt;em&gt;assets&lt;/em&gt; em um projeto
+&lt;em&gt;Django&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;, você tinha duas opções:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Utilizar (ou construir) um &lt;em&gt;Buildpack&lt;/em&gt; customizado que realizasse o procedimento de instalação das dependências e build (como o &lt;a href=&quot;https://github.com/jiaaro/heroku-buildpack-django&quot; title=&quot;Veja o repositório no GitHub&quot;&gt;heroku-buildpack-django&lt;/a&gt;);&lt;/li&gt;
+&lt;li&gt;&quot;Commitar&quot; os arquivos &quot;buildados&quot; e utilizar o &lt;em&gt;Buildpack Python&lt;/em&gt; padrão.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Eu nunca tive muita paciência com a questão de provisionamento no &lt;em&gt;Heroku&lt;/em&gt;,
+então geralmente eu partia para a ignorância e vivia &quot;commitando&quot; &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; compilados.&lt;/p&gt;
+&lt;h2&gt;Repita comigo: Nunca mais vou commitar arquivos compilados&lt;/h2&gt;
+&lt;p&gt;É uma péssima ideia! Principalmente quando você está trabalhando em uma equipe grande.
+A quantidade de &lt;em&gt;merge hells&lt;/em&gt; envolvendo arquivos compilados é aquele tipo de dor de
+cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHISawFD//EABoQAAICAwAAAAAAAAAAAAAAAAECABEQEjH/2gAIAQEAAQUCAXVas9WLj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAQAGPwLWv//EABkQAQADAQEAAAAAAAAAAAAAAAEAESFRYf/aAAgBAQABPyG4eK3sKQsziDD5FTnGKrs//9oADAMBAAIAAwAAABD7H//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0oaJu+D2KDaGsdgsFnNgLgQsD8yM6kRMeS5K2f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Não dá pra pilotar um Jaeger sozinho (deadline.com)&amp;quot;&quot;
+        title=&quot;Não dá pra pilotar um Jaeger sozinho (deadline.com)&quot;
+        src=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg&quot;
+        srcset=&quot;/static/a5e7fde62eb0da75c7d6193857640faa/7809d/multipack-pacific-rim.jpg 192w,
+/static/a5e7fde62eb0da75c7d6193857640faa/4ecad/multipack-pacific-rim.jpg 384w,
+/static/a5e7fde62eb0da75c7d6193857640faa/c08c5/multipack-pacific-rim.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não dá pra pilotar um Jaeger sozinho (deadline.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;De forma bem resumida, vamos ilustrar como funcionaria o fluxo de &lt;em&gt;build&lt;/em&gt; de estáticos com
+múltiplos &lt;em&gt;Buildpacks&lt;/em&gt;. Para começar, vamos criar um novo &lt;em&gt;app&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku create&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você tenha dúvidas sobre como criar um projeto &lt;em&gt;Python&lt;/em&gt; no &lt;em&gt;Heroku&lt;/em&gt;,
+o &quot;&lt;a href=&quot;https://devcenter.heroku.com/articles/getting-started-with-python#introduction&quot; title=&quot;Leia documentação oficial&quot;&gt;Getting started&lt;/a&gt;&quot; deles é muito bacana e fácil de seguir.&lt;/p&gt;
+&lt;p&gt;Supondo que já instalamos o &lt;em&gt;Django&lt;/em&gt;, e que criamos os arquivos &lt;code class=&quot;language-text&quot;&gt;runtime.txt&lt;/code&gt;,
+determinando qual a versão do &lt;em&gt;Python&lt;/em&gt; que usaremos, e &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;,
+para resolução de dependências, automaticamente o &lt;em&gt;Heroku&lt;/em&gt; saberá preparar
+o ambiente para o nosso projeto.&lt;/p&gt;
+&lt;p&gt;Mas caso você queira ter certeza disso, podemos usar o comando &lt;code class=&quot;language-text&quot;&gt;buildpacks:set&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku buildpacks:set heroku/python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como no &lt;a href=&quot;/2016/06/04/django-e-sass-com-django-compressor.html&quot; title=&quot;Django e Sass com django-compressor&quot;&gt;&lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;,
+utilizaremos a biblioteca &lt;em&gt;Python&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;libsass&lt;/code&gt;. Logo, vamos adicioná-la ao &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
 
-&lt;h2&gt;Instalando e …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 20 Jun 2016 23:04:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-06-20:/2016/06/20/django-e-es6-com-django-compressor.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>es6</category><category>javascript</category><category>babel</category><category>browserify</category></item><item><title>Django e Sass com django-compressor</title><link>https://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html</link><description>&lt;p&gt;Eu sempre gostei da proposta do &lt;code&gt;django-compressor&lt;/code&gt;: Concatenar e comprimir
-estáticos, utilizando como agrupadores os blocos da &lt;em&gt;engine&lt;/em&gt; de &lt;em&gt;templates&lt;/em&gt;
-do &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.
-Além de manter a declaração dos &lt;em&gt;assets&lt;/em&gt; no &lt;a href="https://klauslaube.com.br/tag/html.html" title="Leia mais sobre HTML"&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt;,
-ele ainda abre uma margem interessante para quando você precisa customizar um grupo
-de estáticos para uma determinada página …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 04 Jun 2016 16:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-06-04:/2016/06/04/django-e-sass-com-django-compressor.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>sass</category><category>css</category></item><item><title>Fazendo Javascript OO de forma fácil - Parte 2</title><link>https://klauslaube.com.br/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</link><description>&lt;p&gt;Há cerca de 5 anos, fiz um &lt;em&gt;post&lt;/em&gt; sobre como escrever
-&lt;a href="https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html" title="Leia o artigo completo"&gt;Javascript OO de forma fácil&lt;/a&gt;
-utilizando a orientação a objetos da linguagem através de
-&lt;a href="https://klauslaube.com.br/2011/10/23/javascript-constructor-function-object-literal.html" title="Diferença entre Constructor Function e Object Literal"&gt;&lt;em&gt;Constructor Functions&lt;/em&gt; e &lt;em&gt;Object Literal&lt;/em&gt;&lt;/a&gt;.
-Hoje, com o &lt;em&gt;ES6&lt;/em&gt;, o esquema de &lt;em&gt;Prototype&lt;/em&gt; ainda continua,
-mas a sintaxe ficou muito mais fácil e intuitiva, valendo …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 15 Mar 2016 13:20:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-03-15:/2016/03/15/fazendo-javascript-oo-de-forma-facil-parte-2.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>es6</category><category>oop</category></item><item><title>Vivendo sem o Grunt</title><link>https://klauslaube.com.br/2016/02/22/vivendo-sem-o-grunt.html</link><description>&lt;p&gt;No meu primeiro contato com o &lt;em&gt;Grunt&lt;/em&gt;, ele não me convenceu. Qual era a
-necessidade de um &lt;em&gt;task runner&lt;/em&gt; se eu já tinha o &lt;code&gt;Makefile&lt;/code&gt;? O mesmo valia
-para o &lt;em&gt;build&lt;/em&gt; de estáticos... &lt;em&gt;Frameworks&lt;/em&gt; como o &lt;em&gt;Django&lt;/em&gt; já possuíam um
-&lt;em&gt;pipeline&lt;/em&gt; de concatenação e minificação, não sendo necessário que um …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 22 Feb 2016 12:35:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-02-22:/2016/02/22/vivendo-sem-o-grunt.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>node</category><category>npm</category><category>grunt</category></item><item><title>Pelican e os static site generators</title><link>https://klauslaube.com.br/2014/03/26/pelican-e-os-static-site-generators.html</link><description>&lt;p&gt;O &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; é de longe o meu &lt;em&gt;framework&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; favorito. Fácil,
-extensível, com uma série de "baterias inclusas" que tornam o desenvolvimento
-de aplicações &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; muito mais fácil e divertido.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+Django
+django-compressor
+libsass&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos deixar de configurar o &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
 
-&lt;p&gt;Mas verdade seja dita, para algumas soluções, é como se utilizássemos um
-canhão para matar um mosquito. Existe toda uma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 26 Mar 2014 12:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2014-03-26:/2014/03/26/pelican-e-os-static-site-generators.html</guid><category>desenvolvimento</category><category>web</category><category>blog</category><category>pelican</category><category>python</category></item><item><title>Entendendo o CGI, FastCGI e WSGI</title><link>https://klauslaube.com.br/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html</link><description>&lt;p&gt;Pelos vários anos que programei com o &lt;a href="https://klauslaube.com.br/tag/php.html" title="Conheça mais sobre o Hypertext PreProcessor"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;Apache&lt;/em&gt;,
-nunca precisei me preocupar com o que acontecia entre esses dois. Para
-mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas
-&lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; de forma dinâmica. Era uma troca justa: Eles não me traziam
-preocupação, logo, eu não me …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 02 Nov 2012 15:09:19 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-11-02:/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html</guid><category>desenvolvimento</category><category>infraestrutura</category><category>web</category><category>python</category><category>cgi</category><category>fastcgi</category><category>wsgi</category><category>gunicorn</category></item><item><title>As pseudo-classes e os pseudo-elementos</title><link>https://klauslaube.com.br/2012/09/05/pseudo-classes-e-os-pseudo-elementos.html</link><description>&lt;p&gt;O &lt;a href="https://klauslaube.com.br/tag/css3.html" title="Leia mais sobre CSS"&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt; tem diversas coisas legais. Uma quantidade
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/x-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sassc {infile} {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas e o &lt;em&gt;ES6&lt;/em&gt;? Precisaremos do &lt;a href=&quot;/tag/babel.html&quot; title=&quot;Leia mais sobre BabelJS&quot;&gt;BabelJS&lt;/a&gt;,
+e consequentemente do &lt;em&gt;Node.js&lt;/em&gt;, para realizar o &lt;em&gt;transpiling&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Python + Node.js em uma mesma instância Heroku&lt;/h2&gt;
+&lt;p&gt;Para adicionar um novo &lt;em&gt;Buildpack&lt;/em&gt;, temos o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ heroku buildpacks:add --index 1 heroku/nodejs&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Onde &lt;code class=&quot;language-text&quot;&gt;--index&lt;/code&gt; determina qual será a ordem de execução do &lt;em&gt;Buildpack&lt;/em&gt;.
+Nesse caso, opto por ele ser o primeiro e o do &lt;em&gt;Python&lt;/em&gt; segundo,
+somente para garantir que todas as dependências estejam sanadas quando
+a resolução de estáticos do &lt;em&gt;Django&lt;/em&gt; acontecer.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Buildpack Python&lt;/em&gt; executa operações dependendo de alguns arquivos
+do nosso projeto. Por exemplo, como mencionado acima, precisamos especificar
+a versão da linguagem (&lt;code class=&quot;language-text&quot;&gt;runtime.txt&lt;/code&gt;), instalar as dependências do projeto
+(&lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;) e no caso do &lt;em&gt;Django&lt;/em&gt;, executar a operação de
+&lt;code class=&quot;language-text&quot;&gt;collectstatic&lt;/code&gt; após o deploy (&lt;code class=&quot;language-text&quot;&gt;manage.py&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;No caso do &lt;em&gt;Node.js&lt;/em&gt;, precisaremos ter um arquivo &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; na raíz do
+projeto, contendo todas as bibliotecas que o projeto usa, para essa linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm init .
+$ npm install --save babelify babel-preset-es2015&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não podemos esquecer do &lt;code class=&quot;language-text&quot;&gt;.babelrc&lt;/code&gt;, essencial para a execução do &lt;em&gt;Babel&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// .babelrc&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;presets&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;es2015&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E por fim, falta adicionar o pré-compilador ao &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# settings.py&lt;/span&gt;
+
+COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/x-sass&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;sassc {infile} {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;text/es6&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./node_modules/.bin/browserify {infile} -t babelify --outfile {outfile}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Ao dar o &lt;code class=&quot;language-text&quot;&gt;git push heroku master&lt;/code&gt;, a plataforma executará primeiro o
+&lt;em&gt;Buildback Node.js&lt;/em&gt;, e na sequência o &lt;em&gt;Buildpack Python&lt;/em&gt;. No momento de entrega das
+páginas, teremos os binários &lt;code class=&quot;language-text&quot;&gt;browserify&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;sassc&lt;/code&gt; instalados em nossa instância,
+e poderemos entregar nossas páginas com &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; compilados sem a necessidade de &quot;commitá-los&quot;.&lt;/p&gt;
+&lt;h2&gt;Comprimindo no momento do deploy&lt;/h2&gt;
+&lt;p&gt;Comprimir/compilar &lt;em&gt;assets&lt;/em&gt; no momento da requisição também é algo que deve ser evitado.
+Embora o &lt;em&gt;Django Compressor&lt;/em&gt; faça um excelente trabalho nesse quesito, se estivermos usando
+uma &lt;em&gt;CDN&lt;/em&gt; para a entrega desses estáticos, esse procedimento não deve acontecer durante a requisição de um usuário.&lt;/p&gt;
+&lt;p&gt;Para executar o comando &lt;code class=&quot;language-text&quot;&gt;compress&lt;/code&gt; da biblioteca &lt;code class=&quot;language-text&quot;&gt;django-compressor&lt;/code&gt; em tempo de &lt;em&gt;deploy&lt;/em&gt;,
+basta fazermos duas coisas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Garantir que &lt;code class=&quot;language-text&quot;&gt;COMPRESS_OFFLINE&lt;/code&gt;, na configuração do seu projeto, esteja setado como &lt;code class=&quot;language-text&quot;&gt;True&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Criar um diretório &lt;code class=&quot;language-text&quot;&gt;bin&lt;/code&gt;, e dentro dele um arquivo &lt;code class=&quot;language-text&quot;&gt;post_compile&lt;/code&gt;, com a instrução de &lt;code class=&quot;language-text&quot;&gt;compress&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token shebang important&quot;&gt;#!/usr/bin/env bash&lt;/span&gt;
+
+python manage.py compress&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Feito! Agora a cada &lt;em&gt;deploy&lt;/em&gt; da sua aplicação, o &lt;em&gt;build&lt;/em&gt; dos &lt;em&gt;assets&lt;/em&gt; acontecerá
+automaticamente, dispensando assim a necessidade de ficar enviando &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt; &quot;buildados&quot;
+através de &lt;code class=&quot;language-text&quot;&gt;git push&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Dúvidas sobre a relação entre Django, Sass e ES6? Eu a detalho um pouco melhor nesses dois posts:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2016/06/20/django-e-es6-com-django-compressor.html&quot;&gt;Django e ES6 com django-compressor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://klauslaube.com.br/2016/06/04/django-e-sass-com-django-compressor.html&quot;&gt;Django e Sass com django-compressor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app&quot;&gt;Heroku Dev Center: Using Multiple Buildpacks for an App&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[As pseudo-classes e os pseudo-elementos]]></title><description><![CDATA[O CSS tem diversas coisas legais. Uma quantidade
+de propriedades, valores e funcionalidades, que por inúmeras vezes me
+fogem da memória. Uma das coisas mais interessantes do CSS, mas que
+geralmente me confunde, são as pseudo-classes e os
+pseudo-elementos. Então eu resolvi escrever este post, e nele…]]></description><link>https://klauslaube.com.br/2012/09/05/pseudo-classes-e-os-pseudo-elementos.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/09/05/pseudo-classes-e-os-pseudo-elementos.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 05 Sep 2012 09:42:49 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS&quot;&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt; tem diversas coisas legais. Uma quantidade
 de propriedades, valores e funcionalidades, que por inúmeras vezes me
 fogem da memória. Uma das coisas mais interessantes do &lt;em&gt;CSS&lt;/em&gt;, mas que
 geralmente me confunde, são as &lt;strong&gt;pseudo-classes&lt;/strong&gt; e os
 &lt;strong&gt;pseudo-elementos&lt;/strong&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Então eu resolvi escrever este &lt;em&gt;post&lt;/em&gt;, e nele vou explicar a diferença e
+aplicabilidade dos dois. Espero colaborar com outras mentes tão
+preguiçosas na arte da lembrança, quanto a minha :)&lt;/p&gt;
+&lt;h2&gt;Pseudo-classes&lt;/h2&gt;
+&lt;p&gt;As pseudo-classes são muito úteis para fazermos manipulações
+estruturais, ou alterações de estilos de forma dinâmica. Uma forma
+interessante de pensarmos sobre pseudo-classes é que o seu resultado
+pode ser obtido com &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, através de eventos ou de seletores
+(como o &lt;code class=&quot;language-text&quot;&gt;:eq&lt;/code&gt;). Com a ajuda deste artifício, conseguimos entregar uma
+solução muito simples e funcional. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;#menu a&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; blue&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
-&lt;p&gt;Então eu resolvi escrever este &lt;em&gt;post&lt;/em&gt;, e nele vou explicar a …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 05 Sep 2012 09:42:49 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-09-05:/2012/09/05/pseudo-classes-e-os-pseudo-elementos.html</guid><category>desenvolvimento</category><category>web</category><category>padroes-web</category><category>css3</category></item><item><title>Django e Cache: Uma dupla de alta performance - Parte 2</title><link>https://klauslaube.com.br/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2.html</link><description>&lt;p&gt;Continuando o &lt;em&gt;post&lt;/em&gt; &lt;a href="https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html" title="Leia a parte 1 deste artigo"&gt;&lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Cache&lt;/em&gt;: Uma dupla de alta performance&lt;/a&gt;, vamos
-ver na prática como utilizar o &lt;em&gt;framework&lt;/em&gt; de &lt;a href="https://klauslaube.com.br/tag/cache.html" title="Leia mais sobre Cache"&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/a&gt; do &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Embora eu esteja utilizando o &lt;a href="https://klauslaube.com.br/tag/memcached.html" title="Leia mais sobre Memcached"&gt;&lt;em&gt;Memcached&lt;/em&gt;&lt;/a&gt; para escrever estes
-artigos, vale ressaltar que a abstração do &lt;em&gt;Django&lt;/em&gt; lhe permite utilizar
-a &lt;a href="https://docs.djangoproject.com/en/dev/topics/cache/#using-a-custom-cache-backend" title="Django Documentation - Custom backends"&gt;ferramenta mais apropriada para você&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;span class=&quot;token selector&quot;&gt;#menu a:hover&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; red&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja o exemplo no &lt;a href=&quot;http://jsfiddle.net/kplaube/vv7Yu/&quot; title=&quot;Exemplo de utilização de pseudo-classes&quot;&gt;&lt;em&gt;jsFiddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Na demonstração acima, utilizamos a pseudo-classe &lt;code class=&quot;language-text&quot;&gt;:hover&lt;/code&gt; para
+alterar a cor do &lt;em&gt;link&lt;/em&gt; de azul para vermelho. O evento “hover” acontece
+quando estamos com o mouse sobre o elemento. Outros eventos podem
+acontecer, como o &lt;code class=&quot;language-text&quot;&gt;:active&lt;/code&gt; (quando pressionamos o botão do mouse
+sobre o &lt;em&gt;link&lt;/em&gt;), e &lt;code class=&quot;language-text&quot;&gt;:visited&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Outro exemplo muito bom, é se precisássemos que apenas o primeiro item
+fosse de cor laranja:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;#menu li:first-child a&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; orange&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja o exemplo no &lt;a href=&quot;http://jsfiddle.net/kplaube/vv7Yu/3/embedded/result/&quot; title=&quot;Exemplo de uso do first-child&quot;&gt;&lt;em&gt;jsFiddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Note que o caso poderia ser resolvido adicionando uma classe “first” ao
+primeiro elemento da lista, e atribuindo a propriedade &lt;strong&gt;color&lt;/strong&gt; à esta
+classe. Mas com o uso de pseudo-classes, é possível economizar todo esse
+esforço.&lt;/p&gt;
+&lt;h2&gt;Pseudo-elementos&lt;/h2&gt;
+&lt;p&gt;Os pseudo-elementos, assim como as pseudo-classes, levam à economia de
+esforço, de interpretação de &lt;em&gt;Javascript&lt;/em&gt;, e de elementos
+“não-semânticos”. Por exemplo, queremos que a primeira letra de um
+parágrafo ganhe destaque:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;L&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;span&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;orem ipsum dolor sit amet, consectetur adipiscing elit.
+  Pellentesque in scelerisque quam...
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;CSS&lt;/em&gt; ficaria mais ou menos assim:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 14px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
-&lt;h2&gt;Diferentes …&lt;/h2&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 22 Jul 2012 14:33:58 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-07-22:/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>memcached</category><category>johnny-cache</category><category>cache</category></item><item><title>Django e Cache: Uma dupla de alta performance - Parte 1</title><link>https://klauslaube.com.br/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</link><description>&lt;p&gt;Embora o &lt;a href="https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html" title="O cache e o HTTP"&gt;&lt;em&gt;caching HTTP&lt;/em&gt;&lt;/a&gt; seja essencial
-para qualquer aplicação &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, &lt;strong&gt;(IMO)&lt;/strong&gt;
-essa modalidade de &lt;a href="https://klauslaube.com.br/tag/cache.html" title="Leia mais sobre Cache"&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/a&gt; deve ser encarada como um acréscimo à
-experiência de uso, e não necessariamente como uma “arma” contra
-problemas de performance. Os usuários poderão abdicar desta
-funcionalidade, e aí a sua aplicação não poderá depender do …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 17 Jun 2012 15:52:22 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-06-17:/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>memcached</category><category>cache</category></item><item><title>O cache e o HTTP</title><link>https://klauslaube.com.br/2012/05/14/o-cache-e-o-http.html</link><description>&lt;p&gt;Em tempos de alta demanda, o &lt;strong&gt;&lt;em&gt;cache&lt;/em&gt;&lt;/strong&gt; pode tornar-se o melhor amigo das
-aplicações &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.
-Através dele temos uma opção prática, acessível e barata para melhorar
-performance, diminuir consumo de recursos e tempos de resposta. Qualquer
-milissegundo economizado é um ponto a mais com o seu usuário, com os
-mecanismos …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 14 May 2012 23:14:46 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-05-14:/2012/05/14/o-cache-e-o-http.html</guid><category>desenvolvimento</category><category>web</category><category>infraestrutura</category><category>cache</category><category>http</category></item><item><title>Problemas comuns de segurança em aplicações Web</title><link>https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html</link><description>&lt;p&gt;Seria perfeito se o mundo fosse feito apenas de pessoas
-bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
-a raça humana, do que o homem deixar de tirar proveito de alguma
-situação.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;span class=&quot;token selector&quot;&gt;p span&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; bold&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;letter-spacing&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 3px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja exemplo no &lt;a href=&quot;http://jsfiddle.net/kplaube/MW5p9/&quot; title=&quot;Exemplo com elemento não-semântico&quot;&gt;&lt;em&gt;jsFiddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Podemos alcançar o mesmo resultado, sem necessitar do &lt;code class=&quot;language-text&quot;&gt;span&lt;/code&gt;, através
+do pseudo-elemento &lt;code class=&quot;language-text&quot;&gt;first-letter&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 14px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
-&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
-“pensar” como um usuário mal-intencionado. Não somente para garantir …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 15 Apr 2012 18:03:48 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-04-15:/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html</guid><category>desenvolvimento</category><category>web</category><category>segurança</category><category>xss</category><category>csrf</category><category>sql-injection</category><category>php-injection</category><category>django</category><category>php</category><category>codeigniter</category></item><item><title>Entendendo os Cookies e Sessões</title><link>https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html</link><description>&lt;p&gt;Por muito tempo eu abstrai o conceito de
-&lt;em&gt;cookies&lt;/em&gt; e sessões, e nunca cheguei a prestar muita atenção no seu
-funcionamento. Recentemente, trabalhando com uma infra mais preocupada
-com a segurança, disponibilidade e performance, tive a oportunidade de
-relembrar e me aprofundar em alguns conceitos e práticas.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;O que já …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 05 Apr 2012 16:53:12 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-04-05:/2012/04/05/entendendo-os-cookies-e-sessoes.html</guid><category>desenvolvimento</category><category>infraestrutura</category><category>web</category><category>cookies</category><category>sessões</category><category>php</category></item><item><title>PHP ágil e divertido com CodeIgniter</title><link>https://klauslaube.com.br/2012/03/05/php-agil-e-divertido-com-codeigniter.html</link><description>&lt;p&gt;Após experimentar &lt;a href="https://klauslaube.com.br/2010/11/27/agilidade-em-php-conhecendo-algumas-frameworks.html" title="Agilidade em PHP: Conhecendo algumas frameworks – Parte 1"&gt;alguns &lt;em&gt;frameworks&lt;/em&gt;&lt;/a&gt; &lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, recentemente tenho
-aplicado bastante tempo no estudo do &lt;a href="http://codeigniter.com/" title="CodeIgniter: Open source PHP web application framework"&gt;&lt;strong&gt;CodeIgniter&lt;/strong&gt;&lt;/a&gt;, e tive o prazer de
-redescobrir a diversão em programar nessa linguagem um tanto controversa.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Logo de cara, quero recomendar o &lt;em&gt;screencast&lt;/em&gt; da &lt;a href="http://net.tutsplus.com/" title="Web development tutorials, from beginner to advanced"&gt;&lt;em&gt;Nettus+&lt;/em&gt;&lt;/a&gt; chamado
-&lt;a href="http://net.tutsplus.com/sessions/codeigniter-from-scratch/" title="Confira a série de screencasts sobre desenvolvimento com PHP e CodeIgniter"&gt;&lt;em&gt;CodeIgniter From Scratch&lt;/em&gt;&lt;/a&gt;. Um excelente material para aprender (e
-se aperfeiçoar …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 05 Mar 2012 10:06:57 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-03-05:/2012/03/05/php-agil-e-divertido-com-codeigniter.html</guid><category>desenvolvimento</category><category>web</category><category>php</category><category>codeigniter</category></item><item><title>Supervisor: Aumentando a disponibilidade das suas aplicações Web</title><link>https://klauslaube.com.br/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</link><description>&lt;p&gt;E se você pudesse controlar uma série de processos
-através de um comando? Ou de garantir que serviços “down” sejam
-reiniciados automaticamente? Ou ainda, agrupar seus serviços e poder
-reiniciá-los com um simples comando de terminal?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;O &lt;strong&gt;&lt;em&gt;Supervisor&lt;/em&gt;&lt;/strong&gt; aparece para facilitar muito a vida de quem precisa
-administrar servidores &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web …&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 23 Jan 2012 21:28:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-01-23:/2012/01/23/supervisor-gerencie-os-processos-seu-servidor-web.html</guid><category>infraestrutura</category><category>ambiente-de-desenvolvimento</category><category>web</category><category>supervisor</category><category>linux</category></item><item><title>Javascript: A diferença entre Constructor Function e Object Literal</title><link>https://klauslaube.com.br/2011/10/23/javascript-constructor-function-object-literal.html</link><description>&lt;p&gt;Meses atrás, &lt;a href="https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html" title="Fazendo Javascript OO de forma fácil"&gt;escrevi sobre como era fácil criar objetos em &lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;.
-Devo confessar que, a minha visão sobre a utilização da &lt;a href="https://klauslaube.com.br/tag/oop.html" title="Leia mais sobre OOP"&gt;Orientação a Objetos&lt;/a&gt;
-em &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; era muito superficial, e que uma dúvida muito pertinente
-surgiu na época: Onde usar &lt;em&gt;object literal&lt;/em&gt; e onde usar classes?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Hoje, depois de entender …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 23 Oct 2011 15:07:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-10-23:/2011/10/23/javascript-constructor-function-object-literal.html</guid><category>desenvolvimento</category><category>javascript</category><category>prototype</category><category>oop</category><category>web</category></item><item><title>Minhas extensões favoritas do Google Chrome</title><link>https://klauslaube.com.br/2011/08/09/minhas-extensoes-favoritas-google-chrome.html</link><description>&lt;p&gt;O &lt;a href="http://www.google.com/chrome?hl=pt-BR" title="Um navegador novo e mais rápido"&gt;&lt;em&gt;Google Chrome&lt;/em&gt;&lt;/a&gt; há muito já provou ser um fantástico navegador, me
-fazendo largar o &lt;a href="http://br.mozdev.org/" title="Navegue com segurança e eficiência"&gt;&lt;em&gt;Firefox&lt;/em&gt;&lt;/a&gt; já na sua primeira semana de lançamento
-(olha que eu ainda usava &lt;em&gt;Windows&lt;/em&gt;).&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Hoje é um dos navegadores mais rápidos, seguros, com uma usabilidade
-impressionante e que suporta mais recursos da &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; (obrigado &lt;em&gt;Webkit …&lt;/em&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 09 Aug 2011 23:17:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-08-09:/2011/08/09/minhas-extensoes-favoritas-google-chrome.html</guid><category>desenvolvimento</category><category>web</category><category>google-chrome</category></item><item><title>Gráficos estatísticos em Canvas com RGraph</title><link>https://klauslaube.com.br/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</link><description>&lt;p&gt;O &lt;a href="http://www.rgraph.net/" title="RGraph: HTML5 canvas graph library based on the HTML5 canvas tag"&gt;&lt;em&gt;RGraph&lt;/em&gt;&lt;/a&gt; é uma fantástica &lt;em&gt;lib&lt;/em&gt; &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, que gera
-gráficos estatísticos em &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;Canvas&lt;/em&gt;&lt;/a&gt; de uma forma extremamente simples
-e direta. Sinceramente, foi uma das &lt;em&gt;libs&lt;/em&gt; mais eficazes que já usei
-para criar representações visuais de relatórios.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Por criar gráficos em &lt;em&gt;Canvas&lt;/em&gt;, podemos interagir com os elementos
-através do &lt;em&gt;Javascript&lt;/em&gt;. Isso …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 12 Jun 2011 21:38:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-06-12:/2011/06/12/graficos-estatisticos-em-canvas-rgraph.html</guid><category>desenvolvimento</category><category>web</category><category>html5</category><category>rgraph</category><category>padroes-web</category></item><item><title>Fazendo Javascript OO de forma fácil</title><link>https://klauslaube.com.br/2011/05/16/fazendo-javascript-oo-de-forma-facil.html</link><description>&lt;p&gt;Embora o &lt;em&gt;Javascript&lt;/em&gt; (em sua essência) seja orientado a objetos, temos
-que admitir que ela foge um pouco do convencional através do estilo de
-escrita &lt;em&gt;&lt;em&gt;prototype&lt;/em&gt;&lt;/em&gt;. Quero dizer que, é possível utilizarmos
-conceitos como encapsulamento, herança, atributos e métodos públicos e
-privados, etc. Mas de uma maneira um pouco diferente …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 16 May 2011 22:27:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-05-16:/2011/05/16/fazendo-javascript-oo-de-forma-facil.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>oop</category></item><item><title>Montando seu ambiente de desenvolvimento Django no Linux</title><link>https://klauslaube.com.br/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html</link><description>&lt;p&gt;Vou iniciar uma série de publicações mostrando na prática como montar o
-seu ambiente de desenvolvimento para trabalhar com &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;O objetivo é ilustrar como você pode facilmente ingressar no &lt;em&gt;Django&lt;/em&gt; e
-ter um conjunto de ferramentas simples e eficientes que lhe ajudarão a
-desenvolver de forma produtiva …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 03 Mar 2011 21:16:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-03-03:/2011/03/03/montando-seu-ambiente-de-desenvolvimento-django.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category><category>ambiente-de-desenvolvimento</category><category>linux</category></item><item><title>As camadas do desenvolvimento Web</title><link>https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</link><description>&lt;p&gt;Se eu aprendi alguma coisa com o &lt;em&gt;xHTML&lt;/em&gt;, foi:
-Separar marcação, estilos e comportamento tornam a sua vida muito mais
-feliz.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Assim como tratando-se de &lt;a href="https://klauslaube.com.br/tag/acessibilidade.html" title="Leia mais sobre Acessibilidade"&gt;acessibilidade&lt;/a&gt;, quando falamos em “camadas
-de desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
-semântica. E nisso, o &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; vem nos presenteando com &lt;em&gt;tags&lt;/em&gt;
-supimpas …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 16 Feb 2011 16:09:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-02-16:/2011/02/16/camadas-desenvolvimento-web.html</guid><category>desenvolvimento</category><category>web</category><category>html</category><category>css</category><category>javascript</category><category>acessibilidade</category></item><item><title>CSS3: Cantos arredondados, sombras e degradês até no IE</title><link>https://klauslaube.com.br/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</link><description>&lt;p&gt;Enquanto o &lt;a href="https://klauslaube.com.br/2010/11/13/usando-html5-sem-medo.html" title="Usando o HTML5 sem medo"&gt;movimento em prol do HTML5 ganha cada vez mais força&lt;/a&gt;, o
-que podemos falar do &lt;a href="https://klauslaube.com.br/tag/css3.html" title="Leia mais sobre CSS3"&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Para a nossa felicidade, &lt;em&gt;Opera&lt;/em&gt;, &lt;em&gt;Safari&lt;/em&gt;, &lt;em&gt;Google Chrome&lt;/em&gt;, &lt;em&gt;Firefox&lt;/em&gt; e
-(o polêmico) &lt;em&gt;IE9&lt;/em&gt; já apresentam (ou apresentarão, no caso do &lt;em&gt;IE&lt;/em&gt;) bom
-suporte às principais propriedades do &lt;em&gt;CSS3&lt;/em&gt;. Mas vale ressaltar que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 27 Dec 2010 13:00:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-12-27:/2010/12/27/css3-cantos-arredondados-sombras-degrades-ate.html</guid><category>desenvolvimento</category><category>web</category><category>padroes-web</category><category>css3</category><category>graceful-degradation</category><category>html5</category></item><item><title>Agilidade em PHP: Conhecendo algumas frameworks – Parte 1</title><link>https://klauslaube.com.br/2010/11/27/agilidade-em-php-conhecendo-algumas-frameworks.html</link><description>&lt;p&gt;Embora eu me considere um admirador do &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, é o
-&lt;a href="https://klauslaube.com.br/tag/php.html" title="Leia mais sobre PHP"&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; que vem “colocando comida na mesa”. É inegável a importância
-desta linguagem para o meio &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Basta reparar que a grande parte
-dos cursos focados nesta área têm o &lt;em&gt;PHP&lt;/em&gt; em sua grade.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Isto pode ser uma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 27 Nov 2010 13:21:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-11-27:/2010/11/27/agilidade-em-php-conhecendo-algumas-frameworks.html</guid><category>desenvolvimento</category><category>web</category><category>php</category><category>frameworks</category><category>akelos</category><category>cakephp</category><category>codeigniter</category><category>zend framework</category></item><item><title>Garantindo acessibilidade com Javascript não obstrusivo</title><link>https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</link><description>&lt;p&gt;Em épocas onde &lt;em&gt;RIA&lt;/em&gt; está cada vez mais comum, e as interfaces &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; resolveram
-parecer-se cada vez mais com ambientes &lt;em&gt;desktops&lt;/em&gt;, tenho reparado um
-grande movimento a favor da acessibilidade, afinal, como bons
-profissionais que somos temos que garantir que a informação que estamos
-disponibilizando seja acessada por uma gama …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 18 Nov 2010 09:00:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-11-18:/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>acessibilidade</category></item><item><title>Usando o HTML5 sem medo</title><link>https://klauslaube.com.br/2010/11/13/usando-html5-sem-medo.html</link><description>&lt;p&gt;É notável como gradativamente a gente vem ouvindo cada vez mais sobre
-&lt;em&gt;HTML5&lt;/em&gt; e &lt;a href="https://klauslaube.com.br/tag/css3.html" title="Leia mais sobre CSS3"&gt;&lt;em&gt;CSS3&lt;/em&gt;&lt;/a&gt;. Os sites com experimentos não param de aparecer na
-&lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, muitas referências boas com excelentes dicas sobre escrita e
-semântica, e até mesmo &lt;em&gt;websites&lt;/em&gt; profissionais (desenvolvidos por
-empresas da área do desenvolvimento &lt;em&gt;web&lt;/em&gt;), começam a …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 13 Nov 2010 11:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-11-13:/2010/11/13/usando-html5-sem-medo.html</guid><category>desenvolvimento</category><category>html5</category><category>css3</category><category>web</category></item><item><title>Motive-se: Por que usar Python e Django?</title><link>https://klauslaube.com.br/2010/11/12/motive-se-por-que-usar-python-e-django.html</link><description>&lt;p&gt;Se você ainda está em dúvida sobre utilizar &lt;a href="http://www.python.org/" title="Site oficial do Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;
-e &lt;a href="http://www.djangoproject.com/" title="Site oficial do Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;, abaixo
-segue uma compilação dos &lt;em&gt;posts&lt;/em&gt; que já fiz
-ao &lt;a href="http://www.profissionaisti.com.br/author/klaus/" title="Minhas contribuições ao Profissionais TI"&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;
-sobre esta fantástica linguagem de programação que é o &lt;em&gt;Python&lt;/em&gt;, e esta
-maravilhosa &lt;em&gt;framework&lt;/em&gt; chamada &lt;em&gt;Django&lt;/em&gt;:&lt;/p&gt;
+&lt;span class=&quot;token selector&quot;&gt;p::first-letter&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; bold&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;letter-spacing&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 3px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Veja o exemplo no &lt;a href=&quot;http://jsfiddle.net/kplaube/MW5p9/1/&quot; title=&quot;Exemplo com pseudo-elemento&quot;&gt;&lt;em&gt;jsFiddle&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Outros pseudo-elementos interessantes são os clássicos &lt;code class=&quot;language-text&quot;&gt;after&lt;/code&gt; e
+&lt;code class=&quot;language-text&quot;&gt;before&lt;/code&gt;, o &lt;code class=&quot;language-text&quot;&gt;first-line&lt;/code&gt; e o &lt;code class=&quot;language-text&quot;&gt;selection&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Os pseudo-elementos e pseudo-classes não são nenhum “bicho de sete
+cabeças”, e podem economizar preciosas linhas de código (e tempo de
+processamento do usuário).&lt;/p&gt;
+&lt;p&gt;Quando bater aquela dúvida sobre qual utilizar, lembre-se: Quando o
+resultado pode ser obtido através de uma classe, use pseudo-classes;
+Quando o resultado pode ser obtido através de elementos não-semânticos,
+use pseudo-elementos.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="http://www.profissionaisti.com.br/2009/01/10-motivos-para-voce-aprender-a-programar-em-python/" title="Leia este post no Profissionais TI"&gt;10 motivos para você aprender a programar em Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="http://www.profissionaisti.com.br/2009/06/pense-como-um-pythonista/" title="Leia este post no Profissionais TI"&gt;Pense como …&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 12 Nov 2010 20:20:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-11-12:/2010/11/12/motive-se-por-que-usar-python-e-django.html</guid><category>desenvolvimento</category><category>web</category><category>python</category><category>django</category></item><item><title>O que é RSS?</title><link>https://klauslaube.com.br/2010/11/12/o-que-e-rss.html</link><description>&lt;p&gt;Conheço pessoas “bem instruídas” em &lt;em&gt;TI&lt;/em&gt; que simplesmente não sabem o que é &lt;em&gt;RSS&lt;/em&gt;.
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/CSS/Pseudo-classes&quot; title=&quot;Página sobre pseudo-classes na MDN&quot;&gt;&lt;em&gt;Mozilla Developer Network: CSS – Pseudo-classes&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/CSS/Pseudo-elements&quot; title=&quot;Página sobre pseudo-elementos na MDN&quot;&gt;&lt;em&gt;Mozilla Developer Network: CSS – Pseudo-elements&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://tableless.com.br/pseudo-classes-css/&quot; title=&quot;Artigo no Tableless sobre pseudo-classes no CSS&quot;&gt;&lt;em&gt;Tableless&lt;/em&gt;: Seletor do &lt;em&gt;CSS&lt;/em&gt; – Pseudo-classes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[O que é RSS?]]></title><description><![CDATA[Conheço pessoas “bem instruídas” em TI que simplesmente não sabem o que é RSS.
+Esta é a minha motivação para escrever este “primeiro post oficial” e lhe explicar,
+caso você não saiba, como você pode ler o conteúdo deste blog sem visitar este endereço. In a nutshell… Primeiramente quero deixar claro…]]></description><link>https://klauslaube.com.br/2010/11/12/o-que-e-rss.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/11/12/o-que-e-rss.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 12 Nov 2010 19:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Conheço pessoas “bem instruídas” em &lt;em&gt;TI&lt;/em&gt; que simplesmente não sabem o que é &lt;em&gt;RSS&lt;/em&gt;.
 Esta é a minha motivação para escrever este “primeiro post oficial” e lhe explicar,
 caso você não saiba, como você pode ler o conteúdo deste &lt;em&gt;blog&lt;/em&gt; sem visitar este endereço.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;h2&gt;In a nutshell…&lt;/h2&gt;
-&lt;p&gt;Primeiramente quero deixar …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 12 Nov 2010 20:15:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-11-12:/2010/11/12/o-que-e-rss.html</guid><category>informativos</category><category>rss</category><category>web</category></item></channel></rss>
+&lt;p&gt;Primeiramente quero deixar claro que gosto muito de &lt;em&gt;pageviews&lt;/em&gt;. Fique a vontade
+para visitar este &lt;em&gt;blog&lt;/em&gt; quando e quantas vezes quiser :)&lt;/p&gt;
+&lt;p&gt;Segundo a &lt;a href=&quot;http://pt.wikipedia.org/&quot; title=&quot;Visite a Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;RSS (Really Simple Syndication) é um subconjunto de “dialetos” XML que servem para agregar conteúdo ou “Web syndication“, podendo ser acessado mediante programas ou sites agregadores. É usado principalmente em sites de notícias e blogs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Bom… este é um &lt;em&gt;blog&lt;/em&gt;! E este é nosso &lt;a href=&quot;http://www.klauslaube.com.br/feed/rss.xml&quot; title=&quot;Confira o nosso feed RSS&quot;&gt;&lt;em&gt;link RSS&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Logo, você é capaz de receber os artigos que publico aqui em seu leitor &lt;em&gt;RSS&lt;/em&gt;
+favorito. Não viu vantagem nenhuma nisto?&lt;/p&gt;
+&lt;h2&gt;RSS na prática&lt;/h2&gt;
+&lt;p&gt;Você é um cara antenado, toda a manhã você visita os mais variados &lt;em&gt;blogs&lt;/em&gt; e
+&lt;em&gt;sites&lt;/em&gt; de notícias para manter-se atualizado. Nem todos os sites possuem
+atualizações, e lá se foi tempo precioso da sua vida visitando o dito cujo.&lt;/p&gt;
+&lt;p&gt;Certo dia, você visita um &lt;a href=&quot;http://klauslaube.com.br&quot; title=&quot;O blog pode até ser simpático, mas o autor não =]&quot;&gt;&lt;em&gt;blog&lt;/em&gt; simpático&lt;/a&gt;
+e o autor lhe fala sobre &lt;em&gt;RSS&lt;/em&gt;. Ele promete que você não precisa ficar
+saltitando de &lt;em&gt;blog&lt;/em&gt; em &lt;em&gt;blog&lt;/em&gt; procurando por novos artigos. O autor lhe
+promete que existem programas que visitam uma determinada &lt;em&gt;URL&lt;/em&gt; destes sites
+procurando por novidades, este programa lhe traz o resumo (as vezes até mesmo
+a notícia completa) de todos os sites que você usualmente visita. Você leva
+muito menos tempo para atualizar-se sobre as coisas que estão acontecendo no mundo.&lt;/p&gt;
+&lt;p&gt;Esta “determinada URL” que o tal programa visita é chamada de &lt;em&gt;Feed RSS&lt;/em&gt;.
+Este programa que você utiliza para visitar esta &lt;em&gt;URL&lt;/em&gt; chama-se “cliente RSS“,
+“agregador” ou “leitor RSS“. E o tal do &lt;em&gt;RSS&lt;/em&gt; na verdade é um padrão que
+sistemas como o que alimenta este &lt;em&gt;blog&lt;/em&gt; e os leitores &lt;em&gt;RSS&lt;/em&gt;
+usam para se comunicar.&lt;/p&gt;
+&lt;p&gt;Vulgarmente falando, é um formato para divulgação de artigos.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Está em dúvida sobre qual cliente &lt;em&gt;RSS&lt;/em&gt; escolher?
+&lt;a href=&quot;http://pt.wikipedia.org/wiki/Anexo:Lista_de_agregadores_de_feed&quot; title=&quot;Escolha o agregador RSS do seu agrado&quot;&gt;Esta lista pode te ajudar&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Agora que você tem ideia do que é &lt;em&gt;RSS&lt;/em&gt;, não deixe de
+&lt;a href=&quot;http://www.klauslaube.com.br/feed/rss.xml&quot; title=&quot;Adicione este blog ao seu leitor RSS&quot;&gt;adicionar este &lt;em&gt;blog&lt;/em&gt; no seu leitor&lt;/a&gt;.&lt;/p&gt;</content:encoded></item></channel></rss>

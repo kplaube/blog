@@ -1,15 +1,292 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - eu-me-rendo</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Thu, 06 Feb 2020 09:40:00 -0300</lastBuildDate><item><title>Eu me rendo: Django REST Framework</title><link>https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html</link><description>&lt;p&gt;Confesso que nunca fui muito simpático ao &lt;a href="https://www.django-rest-framework.org/" title="Visite a página oficial do projeto"&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;. Antes de adotá-lo tive a oportunidade de explorar outras opções, como o &lt;a href="https://klauslaube.com.br/2017/01/06/construindo-apis-em-django-com-restless.html" title="Leia mais sobre o Restless"&gt;&lt;em&gt;Restless&lt;/em&gt;&lt;/a&gt;, e admito que sempre havia algo faltando, ou algum esforço extra necessário para obter alguma funcionalidade que já vinha embutida no &lt;a href="https://klauslaube.com.br/tag/drf.html" title="Leia mais sobre Django REST Framework"&gt;&lt;em&gt;DRF&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Comecei a aceitar a sua …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 06 Feb 2020 09:40:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-02-06:/2020/02/06/eu-me-rendo-django-rest-framework.html</guid><category>desenvolvimento</category><category>web</category><category>apis</category><category>python</category><category>django</category><category>rest</category><category>drf</category><category>eu-me-rendo</category></item><item><title>Eu me rendo: VS Code</title><link>https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</link><description>&lt;p&gt;É, caro leitor... chegou o dia de admitir que tenho usado outro editor
-além do &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre o melhor editor do universo"&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;. Pode
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - eu-me-rendo]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Eu me rendo: Django REST Framework]]></title><description><![CDATA[Confesso que nunca fui muito simpático ao Django REST Framework. Antes de adotá-lo tive a oportunidade de explorar outras opções, como o Restless, e admito que sempre havia algo faltando, ou algum esforço extra necessário para obter alguma funcionalidade que já vinha embutida no DRF. Comecei a…]]></description><link>https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 06 Feb 2020 09:40:00 GMT</pubDate><content:encoded>&lt;p&gt;Confesso que nunca fui muito simpático ao &lt;a href=&quot;https://www.django-rest-framework.org/&quot; title=&quot;Visite a página oficial do projeto&quot;&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;. Antes de adotá-lo tive a oportunidade de explorar outras opções, como o &lt;a href=&quot;/2017/01/06/construindo-apis-em-django-com-restless.html&quot; title=&quot;Leia mais sobre o Restless&quot;&gt;&lt;em&gt;Restless&lt;/em&gt;&lt;/a&gt;, e admito que sempre havia algo faltando, ou algum esforço extra necessário para obter alguma funcionalidade que já vinha embutida no &lt;a href=&quot;/tag/drf.html&quot; title=&quot;Leia mais sobre Django REST Framework&quot;&gt;&lt;em&gt;DRF&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Comecei a aceitar a sua natureza &quot;baterias inclusas&quot; após me distanciar do desenvolvimento &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. Sob uma ótica diferente, compreendi o papel do &lt;em&gt;DRF&lt;/em&gt;, e fiz as pazes com esse sentimento de confiar em uma biblioteca (supostamente) complexa para construir &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt; (teoricamente) simples. Afinal, se &quot;ser bloated&quot; for um argumento decisivo, não escolheríamos &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; para escrever &lt;em&gt;APIs&lt;/em&gt; (principalmente em um contexto de microserviços).&lt;/p&gt;
+&lt;h2&gt;Motivação&lt;/h2&gt;
+&lt;p&gt;É claro que a minha atual simpatia pela ferramenta não se deve apenas ao fato de eu tê-la &quot;aceitado&quot;. Pura ignorância da minha parte não ter compreendido antes todos os aspectos positivos que o projeto possui, e todas as facilidades que ele proporciona aos seus usuários.&lt;/p&gt;
+&lt;h3&gt;Patrocinado&lt;/h3&gt;
+&lt;p&gt;O que faz do &lt;em&gt;REST Framework&lt;/em&gt; um projeto interessante é, para começo de conversa, que ele é financiado colaborativamente, com empresas do calibre de &lt;a href=&quot;https://getsentry.com/welcome/&quot; title=&quot;Conheça o Sentry&quot;&gt;&lt;em&gt;Sentry&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://www.digitalocean.com/&quot; title=&quot;Cloud sem complicação&quot;&gt;&lt;em&gt;DigitalOcean&lt;/em&gt;&lt;/a&gt; fazendo parte da lista de patrocinadores. Essa característica faz com que a biblioteca tenha um &lt;em&gt;long-term&lt;/em&gt; mais provável, uma vez que os esforços de desenvolvimento são financiados. Além disso, &lt;em&gt;releases&lt;/em&gt; são mais substanciais e frequentes.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://fund.django-rest-framework.org/topics/funding/&quot; title=&quot;Veja mais em Funding&quot;&gt;Leia mais sobre como patrocinar o projeto&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Autenticação&lt;/h3&gt;
+&lt;p&gt;Lidar com autenticação &quot;from scratch&quot; é no mínimo &lt;em&gt;error prone&lt;/em&gt;. O &lt;em&gt;framework&lt;/em&gt; já possui uma série de mecanismos de autenticação &lt;em&gt;built-in&lt;/em&gt; (como &lt;code class=&quot;language-text&quot;&gt;BasicAuthentication&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;SessionAuthentication&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;TokenAuthentication&lt;/code&gt;), e uma infinidade de integrações com &lt;em&gt;third parties&lt;/em&gt; (como &lt;a href=&quot;https://github.com/jazzband/django-oauth-toolkit&quot; title=&quot;Veja a página do projeto no GitHub&quot;&gt;django-oauth-toolkit&lt;/a&gt;, &lt;a href=&quot;https://github.com/davesque/django-rest-framework-simplejwt&quot; title=&quot;Biblioteca para adoção de JWT&quot;&gt;django-rest-framework-simplejwt&lt;/a&gt; e &lt;a href=&quot;https://github.com/sunscrapers/djoser&quot; title=&quot;Excelente opção de auth para APIs em Django&quot;&gt;djoser&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/49eeb3ceeb9248a95cd70ff9b2748f77/1c72d/never-give-up.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.39583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABVI9FmkA//8QAGhABAAIDAQAAAAAAAAAAAAAAAQADAhESIv/aAAgBAQABBQLfIPmV45WpQoOp/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8BJ//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/AWf/xAAaEAACAgMAAAAAAAAAAAAAAAAAARAxERIh/9oACAEBAAY/AjOzh1wuP//EABsQAAMBAAMBAAAAAAAAAAAAAAABETEhQVFh/9oACAEBAAE/IY0h6xdrFnBEGn0YiuxiTw//2gAMAwEAAgADAAAAEDff/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EHkN/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxDQ6z//xAAcEAEAAgMAAwAAAAAAAAAAAAABABEhMVFhgdH/2gAIAQEAAT8QCkYzpzFa2FrduSvAjsYy8s3fya4EoC17irsmPDU//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Never give up, never surrender&quot;
+        title=&quot;Não há nada de errado em render-se de vez em quando (publishedtodeath.blogspot.com)&quot;
+        src=&quot;/static/49eeb3ceeb9248a95cd70ff9b2748f77/1c72d/never-give-up.jpg&quot;
+        srcset=&quot;/static/49eeb3ceeb9248a95cd70ff9b2748f77/7809d/never-give-up.jpg 192w,
+/static/49eeb3ceeb9248a95cd70ff9b2748f77/4ecad/never-give-up.jpg 384w,
+/static/49eeb3ceeb9248a95cd70ff9b2748f77/1c72d/never-give-up.jpg 590w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não há nada de errado em render-se de vez em quando (publishedtodeath.blogspot.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A possibilidade de mesclar mecanismos num mesmo recurso permite que você tenha uma &lt;em&gt;API&lt;/em&gt; &lt;em&gt;session based&lt;/em&gt; para o seu &lt;em&gt;front-end&lt;/em&gt; em &lt;em&gt;React&lt;/em&gt; (por exemplo), e o mesmo recurso ser capaz de servir acessos utilizando &lt;em&gt;tokens&lt;/em&gt;, para um possível cliente &lt;em&gt;mobile&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.django-rest-framework.org/api-guide/authentication/&quot; title=&quot;Veja mais em Authentication&quot;&gt;Leia mais sobre autenticação&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;SQL &amp;#x26; NoSQL&lt;/h3&gt;
+&lt;p&gt;Os serializadores são um aspecto muito interessante da biblioteca. Além do trabalho de &lt;em&gt;marshalling&lt;/em&gt;, eles também servem como validadores. Com o &lt;code class=&quot;language-text&quot;&gt;ModelSerializer&lt;/code&gt; todos os aspectos do seu modelo são &quot;traduzidos&quot; para a &lt;em&gt;API&lt;/em&gt;, no melhor estilo &lt;em&gt;Django Admin&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Mas existe também a possibilidade de escrita de seu própria classe serializadora ao herdar de &lt;code class=&quot;language-text&quot;&gt;serializers.Serializer&lt;/code&gt;. Isso traz flexibilidade para trabalhar com artefatos não relacionados com a &lt;em&gt;ORM&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E se &lt;em&gt;HATEOAS&lt;/em&gt; for a sua praia, o &lt;code class=&quot;language-text&quot;&gt;HyperlinkedModelSerializer&lt;/code&gt; promove &lt;em&gt;hyperlinks&lt;/em&gt; entre tais classes.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.django-rest-framework.org/api-guide/serializers/&quot; title=&quot;Veja mais em Serializers&quot;&gt;Leia mais sobre serialização&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Developer eXperience&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;APIs&lt;/em&gt; escritas com o &lt;em&gt;REST Framework&lt;/em&gt; ainda ganham a funcionalidade de &quot;web browsable API&quot;. Com isso é possível navegar pelas definições da sua &lt;em&gt;API&lt;/em&gt; (como &lt;em&gt;endpoints&lt;/em&gt;, formatos e métodos) e interagir com a mesma através de uma interface amigável, pronta para ser compartilhada com outros desenvolvedores interessados em consumir a sua solução.&lt;/p&gt;
+&lt;p&gt;Uma outra opção é a geração de &lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt; através do &lt;a href=&quot;https://django-rest-swagger.readthedocs.io/en/latest/&quot; title=&quot;Leia a documentação do projeto&quot;&gt;&lt;em&gt;Django REST Swagger&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://restframework.herokuapp.com/&quot; title=&quot;Visite a aplicação de exemplo da documentação oficial&quot;&gt;Veja a &lt;em&gt;browsable API&lt;/em&gt; em ação&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Praticidade&lt;/h3&gt;
+&lt;p&gt;E meu argumento final é em torno de sua praticidade. Ter uma &lt;em&gt;API&lt;/em&gt; &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt; em &lt;em&gt;Django&lt;/em&gt;, com o &lt;em&gt;DRF&lt;/em&gt;, leva minutos...&lt;/p&gt;
+&lt;p&gt;Algumas customizações poderão exigir um pouco mais de conhecimento da biblioteca, bem como um pouquinho de criatividade, mas nada que te impeça de proporcionar um serviço estável, bem escrito, e em baixíssimo tempo de desenvolvimento.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.django-rest-framework.org/api-guide/generic-views/#customizing-the-generic-views&quot; title=&quot;Veja mais em Customizing the generic views&quot;&gt;Leia mais sobre como customizar &lt;em&gt;views&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Talvez seja só devaneio, mas depois de trabalhar com &lt;em&gt;Spring Boot&lt;/em&gt; para construção de &lt;em&gt;APIs&lt;/em&gt; &lt;a href=&quot;/tag/java.html&quot; title=&quot;(não) leia mais sobre Java&quot;&gt;&lt;em&gt;Java&lt;/em&gt;&lt;/a&gt; em um contexto de microserviços, foi que entendi o propósito do &lt;em&gt;REST Framework&lt;/em&gt;. Deixar de lado essa &quot;birra&quot; com ele (supostamente) ser grande serviu para poder enxergar as qualidades da ferramenta.&lt;/p&gt;
+&lt;p&gt;Os pontos negativos ainda estão lá, e provavelmente você também vai achá-los quando estiver &quot;entrincheirado&quot; escrevendo a sua solução. Ainda assim, o &lt;em&gt;DRF&lt;/em&gt; deve ser considerado como possível escolha para escrita de suas &lt;em&gt;APIs&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;No próximo artigo falaremos de uma maneira prática sobre o &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até lá.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.django-rest-framework.org/&quot;&gt;Django REST Framework&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Eu me rendo: VS Code]]></title><description><![CDATA[É, caro leitor... chegou o dia de admitir que tenho usado outro editor
+além do Vim. Pode
 me julgar, me chamar de "poser" ou de "vendido", mas acontece que tenho descoberto no
-&lt;a href="https://code.visualstudio.com/" title="Conheça o VS Code"&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, da &lt;em&gt;Microsoft&lt;/em&gt;,
-uma excelente ferramenta para desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Piadas à parte, ainda acho o &lt;em&gt;Vim&lt;/em&gt; uma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 04 Jun 2018 16:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-06-04:/2018/06/04/eu-me-rendo-vscode.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>vscode</category><category>vim</category><category>python</category><category>css</category><category>javascript</category><category>eu-me-rendo</category></item><item><title>Eu me rendo: Material Design</title><link>https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</link><description>&lt;p&gt;Lembro como se fosse hoje de um camarada dos tempos de &lt;em&gt;Globo.com&lt;/em&gt; me falando de
+VS Code, da Microsoft,
+uma excelente ferramenta para desenvolvimento web. Piadas à parte, ainda acho o Vim uma ferramenta…]]></description><link>https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 04 Jun 2018 16:30:00 GMT</pubDate><content:encoded>&lt;p&gt;É, caro leitor... chegou o dia de admitir que tenho usado outro editor
+além do &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre o melhor editor do universo&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;. Pode
+me julgar, me chamar de &quot;poser&quot; ou de &quot;vendido&quot;, mas acontece que tenho descoberto no
+&lt;a href=&quot;https://code.visualstudio.com/&quot; title=&quot;Conheça o VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, da &lt;em&gt;Microsoft&lt;/em&gt;,
+uma excelente ferramenta para desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Piadas à parte, ainda acho o &lt;em&gt;Vim&lt;/em&gt; uma ferramenta fantástica. Mas também
+reconheço que há uma curva de aprendizagem, e que montar um set de &lt;em&gt;plugins&lt;/em&gt; para
+um determinado ambiente de desenvolvimento pode ser uma tarefa maçante (sim,
+eu estou olhando para você, &lt;code class=&quot;language-text&quot;&gt;python-mode&lt;/code&gt;). Nisso, tenho que reconhecer
+que o &lt;em&gt;Visual Studio Code&lt;/em&gt; faz um trabalho primoroso.&lt;/p&gt;
+&lt;h2&gt;Motivação&lt;/h2&gt;
+&lt;p&gt;Tenho &quot;advogado&quot; contra o uso de &lt;em&gt;IDEs&lt;/em&gt; &lt;a href=&quot;https://www.profissionaisti.com.br/2009/01/produtividade-x-programacao-voce-realmente-precisa-de-uma-ide/&quot; title=&quot;Produtividade x Programação: Você realmente precisa de uma IDE?&quot;&gt;desde 2009&lt;/a&gt;.
+De lá para cá, geralmente trabalhei com ambientes relativamente fáceis de lidar, como
+&lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.
+Essa opinião mudou a partir do momento que comecei a desenvolver para &lt;em&gt;Android&lt;/em&gt;. Não digo
+que usar editores de texto (como o &lt;em&gt;Vim&lt;/em&gt; ou &lt;em&gt;Emacs&lt;/em&gt;) para desenvolver &lt;em&gt;Java/Android&lt;/em&gt; seja
+impossível, mas (IMO) beira o masoquismo. Com o &lt;em&gt;Android Studio&lt;/em&gt;, por exemplo, muitas barreiras
+de &lt;em&gt;setup&lt;/em&gt; de ambiente são derrubadas pela ferramenta, aumentando produtividade e diminuindo
+o tempo necessário para ter a sua solução funcionando no dispositivo do seu usuário.&lt;/p&gt;
+&lt;h2&gt;IDE pero no mucho&lt;/h2&gt;
+&lt;p&gt;Além de ser livre e de código-aberto, o &lt;em&gt;Visual Studio Code&lt;/em&gt; é leve, extensível e &lt;a href=&quot;https://github.com/Microsoft/vscode&quot; title=&quot;Veja o repositório do vscode no Github&quot;&gt;construído
+em &lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;. Ele funciona &quot;out of the box&quot; para linguagens como &lt;a href=&quot;/tag/css.html&quot; title=&quot;Leia mais sobre CSS&quot;&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Javascript&lt;/em&gt; e &lt;em&gt;HTML&lt;/em&gt;,
+inclusive, é impressionante como o &lt;em&gt;autocomplete&lt;/em&gt; (através do
+&lt;a href=&quot;https://code.visualstudio.com/docs/editor/intellisense&quot; title=&quot;Leia mais sobre o IntelliSense&quot;&gt;&lt;em&gt;IntelliSense&lt;/em&gt;&lt;/a&gt;) funciona
+&quot;smoothly&quot; para as mesmas.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.22916666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAP/2gAMAwEAAhADEAAAAc9imSgWh5//xAAcEAACAAcAAAAAAAAAAAAAAAAAAQIDEiIxMkL/2gAIAQEAAQUChuMlLZK27P/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAICAwAAAAAAAAAAAAAAAAABEBECEkH/2gAIAQEABj8CpUPU7GEf/8QAGxABAAICAwAAAAAAAAAAAAAAAQARMUFxobH/2gAIAQEAAT8hSmoZWoGhuhjsKZ+D2PdGf//aAAwDAQACAAMAAAAQQC//xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QwBn/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAECAQE/EK8If//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESFBMVGhsfD/2gAIAQEAAT8QMtRweDZFAAW9IKsFI8Li1az6XSeV9TSf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Lando em Star Wars&amp;quot;&quot;
+        title=&quot;Tô traindo o movimento tipo o Lando (theplaylist.net)&quot;
+        src=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg&quot;
+        srcset=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/7809d/lando-traidor.jpg 192w,
+/static/85acfc9ae4d6d6e9fd906e6ea957e446/4ecad/lando-traidor.jpg 384w,
+/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Tô traindo o movimento tipo o Lando (theplaylist.net)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O seu &lt;em&gt;marketplace&lt;/em&gt; de &lt;em&gt;plugins&lt;/em&gt; é rico, e é sem dúvida um dos seus
+pontos fortes. Adicionar &lt;em&gt;code formatters&lt;/em&gt;, &lt;em&gt;autocomplete&lt;/em&gt;, ou integrações com ferramentas
+externas nunca foi tão fácil. Além disso, a opção de customizar o editor
+globalmente ou por &lt;em&gt;workspace&lt;/em&gt; é uma mão na roda para quem trabalha com mais de um projeto no cotidiano.&lt;/p&gt;
+&lt;p&gt;Utilitários de &lt;em&gt;refactoring&lt;/em&gt;, &lt;em&gt;debugging&lt;/em&gt;, controle de versão, além dos inúmeros &lt;em&gt;plugins&lt;/em&gt; para &lt;em&gt;tests&lt;/em&gt;, só aumentam
+ainda mais o poderio do editor, e dão a ele esse &quot;jeitão&quot; de &lt;em&gt;IDE&lt;/em&gt;, sem perder
+a simplicidade peculiar dos editores de texto.&lt;/p&gt;
+&lt;h2&gt;Python&lt;/h2&gt;
+&lt;p&gt;Para usar o editor com &lt;em&gt;Python&lt;/em&gt;, a &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-python.python&quot; title=&quot;Python for VS Code&quot;&gt;extensão criada pela própria &lt;em&gt;Microsoft&lt;/em&gt;&lt;/a&gt;
+deve ser o suficiente. Ela é simples de configurar e muito rica, trazendo comandos interessantes como
+&lt;code class=&quot;language-text&quot;&gt;Start REPL&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;Run all unit tests&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAA7CAAAOwgEVKEqAAAABUUlEQVQoz4WSaW7CMBBGc42WNgl4zeI1TgwkKVSEELFDS3v/m9QIiVIhUen9sKV5mm/G9mabT16UeaaFEFEcM8YIIRAhFCXGGEopAoBiQjCGEF0AALriOE48O2mq9/bw8XU8ntar7Xqzr+upLUaB71NKjJFWiRTDCPQD//VKGPhhEHh1VZZl1XarupoUxTDLcmtHWWb9PgAkognzAXoOBo6X8BYQDAZOrrhUUhvOmIuEMYEQpKoqum89P4Z588TfenLqeL4iJr184UfKa9tWSdUPB/A8KHYACI0adYt1nts0FYzJezjXGFOv6zoplduB6/kry+GiXRpT/CPvdjulzvLFRIi4s+u8WR9ms7kQ+pGstU6S5Jr5IudqvFpu7XDMuXokW+sGS//KoNDlYX+aTmdKZc6/R4iMEOo1TSOlvIl9/gwsEe6pU8bd1RXdQ2nklB/snmwWSfoFyAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;VS Code com Python&amp;quot;&quot;
+        title=&quot;VS Code com Python&quot;
+        src=&quot;/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png&quot;
+        srcset=&quot;/static/242f57ae87264056e1abda47eef7e913/8514f/vscode-python-example.png 192w,
+/static/242f57ae87264056e1abda47eef7e913/804b2/vscode-python-example.png 384w,
+/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;VS Code com Python&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A configuração granular do editor permite que você tenha um determinado conjunto de regras para
+cada projeto que esteja envolvido. Por exemplo, em um projeto pessoal você usa &lt;code class=&quot;language-text&quot;&gt;nose&lt;/code&gt; como
+&lt;em&gt;test runner&lt;/em&gt;, além de &lt;code class=&quot;language-text&quot;&gt;pylamas&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;mypy&lt;/code&gt;. Mas no projeto da sua empresa o padrão é
+&lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;isort&lt;/code&gt;, e a única ferramenta de &lt;em&gt;lint&lt;/em&gt; é o &lt;code class=&quot;language-text&quot;&gt;flake8&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.flake8Path&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/flake8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.pythonPath&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/python&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.sortImports.path&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/isort&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.pylintEnabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notou o &lt;em&gt;path&lt;/em&gt; com &lt;code class=&quot;language-text&quot;&gt;pyenv&lt;/code&gt;? Com a opção &lt;code class=&quot;language-text&quot;&gt;python.venvPath&lt;/code&gt; apontando para o diretório do &lt;em&gt;pyenv&lt;/em&gt;,
+fica muito mais conveniente configurar qual interpretador e ferramentas de &lt;em&gt;lint&lt;/em&gt; utilizar. Ao
+executar o comando &lt;code class=&quot;language-text&quot;&gt;Python: Select interpreter&lt;/code&gt; o &lt;em&gt;plugin&lt;/em&gt; levará em consideração os seus
+ambientes virtuais e irá sugerí-los.&lt;/p&gt;
+&lt;h2&gt;Vim bindings&lt;/h2&gt;
+&lt;p&gt;É claro que você pode trazer umas das melhores coisas do &lt;em&gt;Vim&lt;/em&gt; para o &lt;em&gt;VS Code&lt;/em&gt;! Os &lt;em&gt;keys bindings&lt;/em&gt;
+vão te dar a velocidade de escrita que você já está acostumado, e o &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscodevim.vim&quot; title=&quot;Vim emulation for Visual Studio Code&quot;&gt;&lt;em&gt;VSCodeVim&lt;/em&gt;&lt;/a&gt; é uma excelente escolha como extensão.&lt;/p&gt;
+&lt;p&gt;Obviamente que, por tratar-se de um emulador, não temos toda a experiência do &lt;em&gt;Vim&lt;/em&gt;. Para compensar a extensão já traz
+algumas funcionalidades embutidas, como &lt;em&gt;easymotion&lt;/em&gt;, &lt;em&gt;surround&lt;/em&gt;, &lt;em&gt;commentary&lt;/em&gt; e &lt;em&gt;sneak&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Um dos maiores desafios que enfrentei com a adoção do &lt;em&gt;VS Code&lt;/em&gt; foi quebrar esse preconceito
+bobo que todo &quot;fanboy&quot; tem com tecnologias que rivalizam com a sua. Na verdade, testar novas
+ferramentas (como o &lt;em&gt;VS Code&lt;/em&gt;), tecnologias (como o &lt;em&gt;iOS&lt;/em&gt;) e até outras linguagens (como &lt;em&gt;Java&lt;/em&gt; e &lt;em&gt;Scala&lt;/em&gt;),
+tem agregado muito ao meu crescimento profissional.&lt;/p&gt;
+&lt;p&gt;E se você está torcendo o nariz para o fato do editor ser da &lt;em&gt;Microsoft&lt;/em&gt;, lembre-se:
+&lt;a href=&quot;https://g1.globo.com/economia/tecnologia/noticia/microsoft-compra-github-por-us-75-bilhoes.ghtml&quot; title=&quot;Microsoft compra GitHub por US$ 7,5 bilhões e anuncia mudanças&quot;&gt;&lt;em&gt;Github&lt;/em&gt; também é dela&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Eu me rendo: Material Design]]></title><description><![CDATA[Lembro como se fosse hoje de um camarada dos tempos de Globo.com me falando de
+modo efusivo: Você deveria experimentar o MaterializeCSS, vai te poupar muito
+tempo e te entregar uma interface elegante; Na época eu estava munido da minha
+ignorância, e acabei não seguindo o conselho do nobre amigo…]]></description><link>https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 19 Apr 2017 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Lembro como se fosse hoje de um camarada dos tempos de &lt;em&gt;Globo.com&lt;/em&gt; me falando de
 modo efusivo: Você deveria experimentar o &lt;em&gt;MaterializeCSS&lt;/em&gt;, vai te poupar muito
 tempo e te entregar uma interface elegante; Na época eu estava munido da minha
-ignorância, e acabei não seguindo o conselho do nobre …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 19 Apr 2017 12:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-04-19:/2017/04/19/eu-me-rendo-material-design.html</guid><category>desenvolvimento</category><category>web</category><category>mobile</category><category>android</category><category>css</category><category>material-design</category><category>materializecss</category><category>material-design-lite</category><category>eu-me-rendo</category></item></channel></rss>
+ignorância, e acabei não seguindo o conselho do nobre amigo.&lt;/p&gt;
+&lt;p&gt;Pouco tempo se passou, e entrei em um projeto muito importante da empresa. Nele,
+houve um complexo trabalho por parte do time de estratégia e de &lt;em&gt;UX&lt;/em&gt; para determinar
+a arquitetura da informação e &lt;em&gt;design&lt;/em&gt;. Imagine a minha surpresa quando descobri que o
+&lt;em&gt;Material Design&lt;/em&gt; foi usado como base para uma série de decisões tomadas. Uma luz amarela
+acendeu-se em minha cabeça, mas ainda não tinha sido o suficiente para saber mais.&lt;/p&gt;
+&lt;p&gt;Finalmente, ao inscrever-me no &lt;a href=&quot;https://br.udacity.com/course/android-basics-nanodegree-by-google--nd803/&quot; title=&quot;Android Basics&quot;&gt;&lt;em&gt;Nanodegree&lt;/em&gt; de &lt;em&gt;Android&lt;/em&gt; do &lt;em&gt;Udacity&lt;/em&gt;&lt;/a&gt;,
+que eu desisti e me rendi ao &lt;em&gt;Material Design&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O Material Design&lt;/h2&gt;
+&lt;p&gt;Diretamente do &lt;a href=&quot;http://material.io&quot; title=&quot;Visite o site oficial&quot;&gt;material.io&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Material Design is a unified system that combines theory, resources, and tools for crafting digital experiences.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em uma definição mais descritiva, podemos dizer que o &lt;em&gt;Material Design&lt;/em&gt; é
+uma completíssima &quot;linguagem de design&quot;. Criado a partir de um profundo estudo de
+&lt;em&gt;branding&lt;/em&gt;, &lt;em&gt;interaction&lt;/em&gt; e &lt;em&gt;motion&lt;/em&gt;, o &lt;em&gt;Material&lt;/em&gt; é uma compilação de estilos
+e princípios que funcionam consistentemente em diferentes soluções.&lt;/p&gt;
+&lt;p&gt;Com sua origem no universo &lt;em&gt;Mobile&lt;/em&gt; da &lt;em&gt;Google&lt;/em&gt;, a partir da versão 2.1 do
+&lt;em&gt;Android&lt;/em&gt;, hoje é possível apreciarmos o &lt;em&gt;Material Design&lt;/em&gt; sendo utilizado
+também em soluções &lt;em&gt;web&lt;/em&gt;. Existem duas bibliotecas bem-quistas em &quot;traduzir&quot;
+a especificação para os &lt;em&gt;browsers&lt;/em&gt;: &lt;a href=&quot;http://materializecss.com/&quot; title=&quot;Leia mais sobre o Materialize&quot;&gt;&lt;em&gt;MaterializeCSS&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://getmdl.io/index.html&quot; title=&quot;Leia mais sobre o MDL&quot;&gt;&lt;em&gt;Material Design Lite&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;MaterializeCSS ou Material Design Lite?&lt;/h2&gt;
+&lt;p&gt;Sem rodeios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MaterializeCSS&lt;/strong&gt;: Iniciativa &lt;em&gt;open source&lt;/em&gt;, com mais de 25 mil &lt;em&gt;stars&lt;/em&gt; no
+&lt;a href=&quot;https://github.com/dogfalo/materialize/&quot; title=&quot;Veja o repositório&quot;&gt;&lt;em&gt;Github&lt;/em&gt;&lt;/a&gt;. Possui como dependência o &lt;em&gt;jQuery&lt;/em&gt;,
+tornando-a uma opção ligeiramente &quot;pesada&quot;. Possui uma documentação fácil de ler, mas
+infelizmente o seu &lt;em&gt;showcase&lt;/em&gt; está desatualizado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MDL&lt;/strong&gt;: A biblioteca &quot;oficial&quot; da &lt;em&gt;Google&lt;/em&gt;. Também &lt;em&gt;open source&lt;/em&gt;, com cerca de 26 mil &lt;em&gt;stars&lt;/em&gt; no
+&lt;a href=&quot;https://github.com/google/material-design-lite&quot;&gt;&lt;em&gt;Github&lt;/em&gt;&lt;/a&gt;, não possui dependência de outras bibliotecas e é
+declarada como opção mais fiel às especificações do &lt;em&gt;Material Design&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Não vou fazer uma análise profunda entre os dois, pois para ser sincero, só tive
+um contato mais íntimo com o &lt;em&gt;MaterializeCSS&lt;/em&gt;. O que posso dizer é que ambos
+cumprem bem a sua proposta (e possuem uma boa camada de customização através de &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;),
+e (na minha opinião) a biblioteca do &lt;em&gt;Google&lt;/em&gt; leva certa vantagem por ser ligeiramente
+mais leve, não ter o &lt;em&gt;jQuery&lt;/em&gt; como dependência, e ainda por cima usar
+&lt;a href=&quot;http://getbem.com/&quot; title=&quot;Saiba o que é o BEM e como ele pode te ajudar a escrever CSS&quot;&gt;&lt;em&gt;BEM&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABSJp6z1zPB//EABsQAAIDAAMAAAAAAAAAAAAAAAECAAMREiIj/9oACAEBAAEFAidrZjtR62+bLA/Gf//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAABAAIQMRMhQf/aAAgBAQAGPwIsFlVrkY2kz//EABwQAQADAAIDAAAAAAAAAAAAAAEAESExQVFxgf/aAAgBAQABPyHaHlDCLwd1Ac059zqB23zKiOv2VqCf/9oADAMBAAIAAwAAABCX7//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QiaRn/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/EK1//8QAHBABAQACAwEBAAAAAAAAAAAAAREAMSFBUWHh/9oACAEBAAE/EN8gxqBK01+5GhI0cw9+y4Vnkc6Q7xrglObW9uF6UUB0xI8LWPef/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ao contrário do Batman, eu me rendi&amp;quot;&quot;
+        title=&quot;Ao contrário do Batman, eu me rendi&quot;
+        src=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg&quot;
+        srcset=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/7809d/batman-fear-face.jpg 192w,
+/static/d3b12e92557b0a1f6834bdaa10f190a7/4ecad/batman-fear-face.jpg 384w,
+/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ao contrário do Batman, eu me rendi&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Em defesa do &lt;em&gt;Materialize&lt;/em&gt;, acho a curva de aprendizagem menor que a do concorrente,
+e uma rápida leitura do seu &lt;em&gt;getting started&lt;/em&gt; já te dá conteúdo o suficiente para ter
+as suas primeiras páginas escritas.&lt;/p&gt;
+&lt;p&gt;Se você deseja uma análise mais completa, recomendo o &lt;a href=&quot;https://andreapaiola.name/2015-07-materialize-css-vs-material-design-lite/&quot;&gt;&lt;em&gt;Google release Material Design Lite, time to switch?&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Acredito que ter qualquer uma das duas bibliotecas no seu &lt;em&gt;toolbox&lt;/em&gt; é recomendado, principalmente
+se a sua solução for flertar com o ambiente &lt;em&gt;Mobile&lt;/em&gt;. Então, no seu próximo projeto, antes
+de ir &quot;por padrão&quot; no &lt;em&gt;Bootstrap&lt;/em&gt; ou &lt;em&gt;Foundation&lt;/em&gt;, dê uma chance ao &lt;em&gt;Material&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se você estiver usando &lt;em&gt;React&lt;/em&gt;, o &lt;a href=&quot;http://www.material-ui.com/&quot;&gt;&lt;em&gt;Material-UI&lt;/em&gt;&lt;/a&gt; pode
+ser uma boa pedida. Para a galera do &lt;em&gt;Angular&lt;/em&gt;, existe o &lt;a href=&quot;https://material.angular.io/&quot;&gt;&lt;em&gt;Angular Material&lt;/em&gt;&lt;/a&gt;
+que cumpre bem o seu papel. O &lt;em&gt;Vue&lt;/em&gt; não fica de fora com o &lt;a href=&quot;https://vuematerial.github.io/&quot;&gt;&lt;em&gt;Vue Material&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://material.io/&quot;&gt;&lt;em&gt;Material Design.io&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://getmdl.io/&quot;&gt;&lt;em&gt;Material Design Lite&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://materializecss.com/&quot;&gt;&lt;em&gt;Materialize&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.myway.com.br/material-design-o-que-e-e-sua-aplicacao/&quot;&gt;&lt;em&gt;MyWay&lt;/em&gt; - &lt;em&gt;Material Design&lt;/em&gt;: O que é e sua aplicação&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Material_Design&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - &lt;em&gt;Material Design&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

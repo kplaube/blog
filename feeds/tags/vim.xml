@@ -1,37 +1,1435 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - vim</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 24 May 2019 10:53:00 -0300</lastBuildDate><item><title>LSP e o PyLS</title><link>https://klauslaube.com.br/2019/05/24/lsp-e-o-pyls.html</link><description>&lt;p&gt;Uma das virtudes do &lt;a href="https://klauslaube.com.br/tag/vscode.html" title="Leia mais sobre o editor"&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt; é como ele integra-se facilmente com diferentes linguagens.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - vim]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[LSP e o PyLS]]></title><description><![CDATA[Uma das virtudes do VS Code é como ele integra-se facilmente com diferentes linguagens.
+O esforço é pequeno, geralmente resumindo-se à instalação de um único plugin. Essa característica o torna uma ferramenta extremamente
+produtiva, e que vem conquistando o coração dos desenvolvedores ao redor do…]]></description><link>https://klauslaube.com.br/2019/05/24/lsp-e-o-pyls.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/05/24/lsp-e-o-pyls.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 24 May 2019 10:53:00 GMT</pubDate><content:encoded>&lt;p&gt;Uma das virtudes do &lt;a href=&quot;/tag/vscode.html&quot; title=&quot;Leia mais sobre o editor&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt; é como ele integra-se facilmente com diferentes linguagens.
 O esforço é pequeno, geralmente resumindo-se à instalação de um único &lt;em&gt;plugin&lt;/em&gt;. Essa característica o torna uma ferramenta extremamente
 produtiva, e que vem conquistando o coração dos desenvolvedores ao redor do mundo.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;O curioso é que o &lt;em&gt;VS Code&lt;/em&gt; utiliza um protocolo aberto para ter esse &quot;jeitão&quot; de &lt;em&gt;IDE&lt;/em&gt;, chamado &lt;em&gt;Language Server Protocol&lt;/em&gt;,
+que entre outras funcionalidades traz ao editor a possibilidade de &lt;em&gt;autocomplete&lt;/em&gt;, &lt;em&gt;go to definition&lt;/em&gt;, &lt;em&gt;diagnosis&lt;/em&gt; e &lt;em&gt;documentation&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;É... &lt;em&gt;Microsoft&lt;/em&gt; popularizando protocolos abertos. Tempos interessantes esses que vivemos, não?&lt;/p&gt;
+&lt;h2&gt;LSP - Language Server Protocol&lt;/h2&gt;
+&lt;p&gt;Durante o desenvolvimento do &lt;em&gt;VS Code&lt;/em&gt;, a &lt;em&gt;Microsoft&lt;/em&gt; introduziu o &lt;a href=&quot;https://microsoft.github.io/language-server-protocol/&quot; title=&quot;Leia na página oficial do projeto&quot;&gt;&lt;em&gt;Language Server Protocol&lt;/em&gt;&lt;/a&gt;.
+O &lt;a href=&quot;https://langserver.org/&quot; title=&quot;A community-driven source of knowledge for Language Server Protocol implementations&quot;&gt;langserver.org&lt;/a&gt; o define da seguinte forma:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Language Server protocol is used between a tool (the client) and a language smartness provider (the server) to integrate
+features like auto complete, go to definition, find all references and alike into the tool.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em outras palavras, é um &lt;a href=&quot;https://microsoft.github.io/language-server-protocol/specification&quot; title=&quot;Leia a especificação completa&quot;&gt;protocolo&lt;/a&gt; que descreve
+a comunicação entre um cliente (um editor de textos, por exemplo) e um servidor (ligado à uma determinada linguagem), com a motivação de proporcionar e enriquecer
+ferramentas de desenvolvimento.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 650px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/df33db8630f02f86d5ccbf4b680a3164/6aca1/vim-lsp.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHdYyskH//EABYQAQEBAAAAAAAAAAAAAAAAABACMf/aAAgBAQABBQInH//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAAMAAAAAAAAAAAAAAAAAABAgIf/aAAgBAQAGPwIVP//EABsQAAICAwEAAAAAAAAAAAAAAAERADEgIVHw/9oACAEBAAE/IfVGXWuwySY3h//aAAwDAQACAAMAAAAQEw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAbEAEAAgIDAAAAAAAAAAAAAAABACEQQRExkf/aAAgBAQABPxDRBT9k5ACMuoaj1j//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Ilustração de como funciona a comunicação entre cliente e servidor (kieranbamforth.me)&quot;
+        title=&quot;Ilustração de como funciona a comunicação entre cliente e servidor (kieranbamforth.me)&quot;
+        src=&quot;/static/df33db8630f02f86d5ccbf4b680a3164/6aca1/vim-lsp.jpg&quot;
+        srcset=&quot;/static/df33db8630f02f86d5ccbf4b680a3164/7809d/vim-lsp.jpg 192w,
+/static/df33db8630f02f86d5ccbf4b680a3164/4ecad/vim-lsp.jpg 384w,
+/static/df33db8630f02f86d5ccbf4b680a3164/6aca1/vim-lsp.jpg 650w&quot;
+        sizes=&quot;(max-width: 650px) 100vw, 650px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ilustração de como funciona a comunicação entre cliente e servidor (kieranbamforth.me)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ou seja, podemos ter uma solução única para &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, que traga as mesmas funcionalidades para diferentes
+editores ou &lt;em&gt;IDEs&lt;/em&gt;. Em contrapartida, podemos ter um único editor que suporte diferentes linguagens e tais funcionalidades avançadas.
+O &lt;em&gt;langserver.org&lt;/em&gt; chama esse problema de &quot;The Matrix Problem&quot;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1c782901e02af07ed2b0824bf19b1e38/50383/lsp-the-matrix-problem.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 20.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAlklEQVQI1zWOyxKDIAxF+f8P7KrdNLURKQwtLyOI3up4FpmTwA2odGCMISJmnqYpxojJfBFCcM4SvZhHMAyDtRYXcsqq1ioiOWfvPUZaa/h6gXBrbW2r8Zo9YRFCaG00/COFDI5777iKil2QbdvgqPhFKQXyCePze4fLImjfnh7ups53+sUZOwUsB39pMtdSD9BKm8uSdtDi5nL/2oTNAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Com LSP, temos Go funcionando para diferentes editores, seguindo os mesmos princípios (langserver.org)&quot;
+        title=&quot;Com LSP, temos Go funcionando para diferentes editores, seguindo os mesmos princípios (langserver.org)&quot;
+        src=&quot;/static/1c782901e02af07ed2b0824bf19b1e38/50383/lsp-the-matrix-problem.png&quot;
+        srcset=&quot;/static/1c782901e02af07ed2b0824bf19b1e38/8514f/lsp-the-matrix-problem.png 192w,
+/static/1c782901e02af07ed2b0824bf19b1e38/804b2/lsp-the-matrix-problem.png 384w,
+/static/1c782901e02af07ed2b0824bf19b1e38/50383/lsp-the-matrix-problem.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Com LSP, temos Go funcionando para diferentes editores, seguindo os mesmos princípios (langserver.org)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Como afirma o site oficial do projeto:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;LSP is a win for both language providers and tooling vendors!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Como funciona?&lt;/h2&gt;
+&lt;p&gt;Na prática, o que acontece é uma comunicação inter-processos entre o &lt;em&gt;language server&lt;/em&gt; e a ferramenta de desenvolvimento. O protocolo utilizado para tal operação é o &lt;em&gt;JSON-RPC&lt;/em&gt;,
+um protocolo simples, e com um formato de dados extremamente popular.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c9ad9f156d904ad0aa69f1e894ffcf4b/50383/language-server-sequence.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAABT0lEQVQY001QTU/DMAzt/90VfgE/hUmIcUPcuYHQLtwGSCBttPlo6jRJ0yRN0havAzTrHWwnz+/ZRR6neZ7vtmy13q3Wb487wBJbWuvD4VCWZdM0KWVsfoO7uH2/3Hxc3X+mPGKnWLjz9kutn8j1M9tV3TzmIaYQAiEE+dZ2MaZpzNLGzZbdvNCH1/okWSilAKTVLf7uQlTG7CtWMoGoeEOFJDVgguj6gILGp/kvCmtti6GU9bFqOsIFq4HWDUUCrSsmeCOxZAJKwkG71uWc0jAMOefif0xII9iI5IoLWgNBMoozcWQu4oQJ4yKarznf7/eU0sJ7j7tJCUOeuPJSWyraijWLbRxxxGIb8Mn4LPtf29M0Fc45ADBa+Zi1z2GIXAA7qqFzQRjH8tQ5XjFN2p3t3C+BJ+1cMH5UxoLqWmNbbeWSKNMjMO/D4ON4Tv4BWji+Cv6Dyq4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de como funciona a comunicação entre cliente e servidor (microsoft.github.io)&quot;
+        title=&quot;Exemplo de como funciona a comunicação entre cliente e servidor (microsoft.github.io)&quot;
+        src=&quot;/static/c9ad9f156d904ad0aa69f1e894ffcf4b/50383/language-server-sequence.png&quot;
+        srcset=&quot;/static/c9ad9f156d904ad0aa69f1e894ffcf4b/8514f/language-server-sequence.png 192w,
+/static/c9ad9f156d904ad0aa69f1e894ffcf4b/804b2/language-server-sequence.png 384w,
+/static/c9ad9f156d904ad0aa69f1e894ffcf4b/50383/language-server-sequence.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de como funciona a comunicação entre cliente e servidor (microsoft.github.io)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Nem toda linguagem pode suportar todas as funcionalidade definidas pelo protocolo (o mesmo vale para as ferramentas de desenvolvimento), mas isso não impede a sua adoção.
+O protocolo permite que tanto cliente como servidor &quot;anunciem&quot; suas capacidades, portanto, as duas pontas podem ter um comportamento preventivo quando determinada capacidade
+(como &lt;em&gt;go to definition&lt;/em&gt;) não é suportada.&lt;/p&gt;
+&lt;h2&gt;PyLS - Python Language Server&lt;/h2&gt;
+&lt;p&gt;Para &lt;em&gt;Python&lt;/em&gt;, além do &lt;em&gt;language server&lt;/em&gt; implementado pela própria &lt;em&gt;Microsoft&lt;/em&gt; e &lt;a href=&quot;https://github.com/microsoft/python-language-server&quot; title=&quot;Repositório do Microsoft Python Language Server&quot;&gt;usado no &lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;,
+temos o &lt;a href=&quot;https://github.com/palantir/python-language-server&quot; title=&quot;Repositório do projeto&quot;&gt;&lt;em&gt;Python Language Server&lt;/em&gt;&lt;/a&gt;. Ele conta com as seguintes funcionalidades:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Auto completion&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Code linting&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Signature help&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Go to definition&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Hover&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Find references&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Document symbols&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Document formatting&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O que acho mais interessante em relação ao projeto é que ele não reinventa a roda. Por exemplo, ele não implementa uma nova ferramenta de &lt;em&gt;linting&lt;/em&gt;, pelo contrário, ele utiliza ferramentas
+que já são bem conhecidas pela comunidade:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Auto completion&lt;/em&gt;, &lt;em&gt;definitions&lt;/em&gt;, &lt;em&gt;hover&lt;/em&gt;, &lt;em&gt;references&lt;/em&gt;, &lt;em&gt;signature help&lt;/em&gt; e &lt;em&gt;symbols&lt;/em&gt; são resolvidos via &lt;a href=&quot;https://github.com/davidhalter/jedi&quot; title=&quot;Awesome completion and static analysis for Python&quot;&gt;&lt;em&gt;Jedi&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Auto completion&lt;/em&gt; e &lt;em&gt;renaming&lt;/em&gt; é resolvido via &lt;a href=&quot;https://github.com/python-rope/rope&quot; title=&quot;Python refactoring library&quot;&gt;&lt;em&gt;Rope&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Linting&lt;/em&gt; é resolvido via &lt;a href=&quot;https://github.com/PyCQA/mccabe&quot; title=&quot;McCabe complexity checker&quot;&gt;&lt;em&gt;McCabe&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/PyCQA/pyflakes&quot; title=&quot;Checks Python source files for errors&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://github.com/pycqa/pycodestyle&quot; title=&quot;Python style checker&quot;&gt;&lt;em&gt;pycodestyle&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://github.com/PyCQA/pydocstyle&quot; title=&quot;Docstring style checker&quot;&gt;&lt;em&gt;pydocstyle&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Formatting&lt;/em&gt; é resolvido via &lt;a href=&quot;https://github.com/hhatto/autopep8&quot; title=&quot;Formats Python code to PEP 8&quot;&gt;&lt;em&gt;autopep8&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://github.com/google/yapf&quot; title=&quot;A formatter for Python files&quot;&gt;&lt;em&gt;YAPF&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Há um certo grau de customização, como por exemplo usar o &lt;a href=&quot;/2019/02/07/deixe-darem-pitaco-no-seu-codigo-com-black.html&quot; title=&quot;Leia mais sobre Black&quot;&gt;&lt;em&gt;Black&lt;/em&gt;&lt;/a&gt; ao invés de &lt;em&gt;YAPF&lt;/em&gt;. Discutiremos
+mais sobre esse tópico a seguir.&lt;/p&gt;
+&lt;h2&gt;Clientes LSP&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;em&gt;langserver.org&lt;/em&gt;, os principais &lt;em&gt;IDEs&lt;/em&gt; e editores já possuem alguma forma de cliente implementado. Seja através de extensões (como &lt;em&gt;JetBrains IDE&lt;/em&gt;, &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;,
+&lt;em&gt;Sublime&lt;/em&gt;, &lt;em&gt;Atom&lt;/em&gt; e &lt;em&gt;Emacs&lt;/em&gt;), ou através de suporte &lt;em&gt;built-in&lt;/em&gt; (como &lt;em&gt;VS Code&lt;/em&gt; e &lt;em&gt;Oni&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAGF8adEKA//xAAaEAACAwEBAAAAAAAAAAAAAAAAAQIRIgMT/9oACAEBAAEFAueJaZ5DRF07s//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8BpX//xAAZEAACAwEAAAAAAAAAAAAAAAAAESAhMWH/2gAIAQEABj8C0VrhsP/EABsQAQEBAAIDAAAAAAAAAAAAAAEAETFBUWGR/9oACAEBAAE/IeQZfdmgHCPMh3Ry+1dqX//aAAwDAQACAAMAAAAQgA//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8QhMf/xAAXEQADAQAAAAAAAAAAAAAAAAAAARFR/9oACAECAQE/EMGVn//EABwQAQADAAMBAQAAAAAAAAAAAAEAESFBUZEx8P/aAAgBAQABPxA1iQRrZv7JV3haMd847lvUdIXNSJzJwt0MKB8I/KW9T//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;O Um Anel&quot;
+        title=&quot;Sauron faz um anel para juntar a todos. Sem querer comparar Microsoft com Sauron, mas espero que isso não acabe em uma guerra (lego-lord-of-the-rings.wikia.com)&quot;
+        src=&quot;/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg&quot;
+        srcset=&quot;/static/86cf2a69117e22c87b361033b5154429/7809d/lsp-one-ring.jpg 192w,
+/static/86cf2a69117e22c87b361033b5154429/4ecad/lsp-one-ring.jpg 384w,
+/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Sauron faz um anel para juntar a todos. Sem querer comparar Microsoft com Sauron, mas espero que isso não acabe em uma guerra (lego-lord-of-the-rings.wikia.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Para &lt;em&gt;Vim&lt;/em&gt;, uma opção que tenho usado com sucesso é o &lt;a href=&quot;https://github.com/autozimu/LanguageClient-neovim&quot; title=&quot;Repositório oficial do projeto&quot;&gt;&lt;em&gt;LanguageClient-neovim&lt;/em&gt;&lt;/a&gt;, que embora possa parecer
+exclusivo para o &lt;em&gt;Neovim&lt;/em&gt;, possui suporte para &lt;em&gt;Vim 8.x&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;h3&gt;Configurando o servidor&lt;/h3&gt;
+&lt;p&gt;Vamos para um exemplo prático de como usar &lt;em&gt;LSP&lt;/em&gt; e &lt;em&gt;Vim&lt;/em&gt; com &lt;em&gt;Python&lt;/em&gt;. Mas antes, deixa eu definir algumas &lt;em&gt;constraints&lt;/em&gt; do meu ambiente de desenvolvimento:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Quero utilizar &lt;em&gt;flake8&lt;/em&gt; ao invés de &lt;em&gt;pycodestyle&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Quero utilizar &lt;em&gt;Black&lt;/em&gt; ao invés de &lt;em&gt;YAPF&lt;/em&gt; ou &lt;em&gt;autopep8&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Quero utilizar &lt;em&gt;isort&lt;/em&gt; como uma das opções de formatação.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para começar, vamos instalar o &lt;em&gt;language server&lt;/em&gt;. Eu prefiro tê-lo dentro do &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;ambiente virtual&lt;/a&gt; do projeto em que estou trabalhando. É trabalhoso
+e repetitivo se você estiver trabalhando em diferentes projetos e &lt;em&gt;virtualenvs&lt;/em&gt;!
+Uma alternativa mais prática é tê-lo instalado em uma instância global do &lt;a href=&quot;/2016/04/26/o-simples-e-poderoso-pyenv.html&quot; title=&quot;O simples e poderoso Pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Fica a seu critério o destino
+da instalação:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install python-language-server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O próprio servidor identificará quais ferramentas você tem instaladas e habilitará determinada capacidade proporcionada por tal ferramenta (por exemplo, se o &lt;em&gt;Rope&lt;/em&gt; estiver instalado,
+será capaz de fazer &lt;em&gt;renaming&lt;/em&gt;). Mas dentre elas o &lt;em&gt;Jedi&lt;/em&gt; é fundamental, e por isso é instalada automaticamente como dependência do &lt;em&gt;PyLS&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nesse momento temos grande parte das funcionalidades cobertas pelo &lt;em&gt;LSP&lt;/em&gt; habilitadas pelo servidor. Uma muito útil, que ainda está faltando, é o &lt;em&gt;renaming&lt;/em&gt;. Segundo a lista acima, conseguimos
+tal capacidade ao instalar o &lt;em&gt;Rope&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install &amp;#39;python-language-server[rope]&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se você está interessado em utilizar a configuração padrão do &lt;em&gt;python-language-server&lt;/em&gt;, uma opção mais prática é instalar todos os &lt;em&gt;providers&lt;/em&gt; de uma só vez:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install &amp;#39;python-language-server[all]&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para fins didáticos estamos resolvendo as dependências manualmente. Há uma outra forma de gerenciar quais &lt;em&gt;providers&lt;/em&gt; serão utilizados, que discutiremos a seguir.&lt;/p&gt;
+&lt;p&gt;Para termos o &lt;em&gt;isort&lt;/em&gt; e o &lt;em&gt;Black&lt;/em&gt; habilitados como ferramentas de formatação, precisaremos recorrer à &lt;em&gt;plugins&lt;/em&gt; de terceiros:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install pyls-isort pyls-black&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Infelizmente, o &lt;code class=&quot;language-text&quot;&gt;pyls-black&lt;/code&gt; exige que você não tenha o &lt;code class=&quot;language-text&quot;&gt;autopep8&lt;/code&gt; instalado para funcionar. Como não há um controle manual para decidir qual será usado,
+a melhor forma é garantindo que apenas uma das duas extensões esteja instalada.&lt;/p&gt;
+&lt;p&gt;Temos tudo o que é necessário para o lado do servidor.&lt;/p&gt;
+&lt;h3&gt;Configurando o cliente&lt;/h3&gt;
+&lt;p&gt;A melhor forma de instalarmos o &lt;em&gt;LanguageClient-neovim&lt;/em&gt; é através do utilitário &lt;code class=&quot;language-text&quot;&gt;Plug&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
 
-&lt;p&gt;O curioso é que …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 24 May 2019 10:53:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-05-24:/2019/05/24/lsp-e-o-pyls.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>vscode</category><category>vim</category><category>python</category><category>pyls</category><category>lsp</category></item><item><title>Deixe darem pitaco no seu código com Black</title><link>https://klauslaube.com.br/2019/02/07/deixe-darem-pitaco-no-seu-codigo-com-black.html</link><description>&lt;p&gt;Já abordamos &lt;a href="https://klauslaube.com.br/tag/formatters.html" title="Leia mais sobre formatters"&gt;&lt;em&gt;code formatters&lt;/em&gt;&lt;/a&gt; aqui no &lt;em&gt;blog&lt;/em&gt;. Para &lt;a href="https://klauslaube.com.br/tag/javascript.html" title="Leia mais sobre Javascript"&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; temos o &lt;a href="https://klauslaube.com.br/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html" title="Deixe darem pitaco no seu código com Prettier"&gt;&lt;em&gt;Prettier&lt;/em&gt;&lt;/a&gt; como solução mais famosa, e há de se reconhecer a série de vantagens no uso da mesma. Acontece que para &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; temos algumas ferramentas tão interessantes quanto, como o &lt;em&gt;autopep8&lt;/em&gt;, &lt;em&gt;yapf&lt;/em&gt; e o &lt;em&gt;Black&lt;/em&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;autozimu/LanguageClient-neovim&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    \ &lt;span class=&quot;token string&quot;&gt;&apos;branch&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;next&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    \ &lt;span class=&quot;token string&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;bash install.sh&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    \ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 
-&lt;p&gt;E é sobre o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 07 Feb 2019 14:20:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-02-07:/2019/02/07/deixe-darem-pitaco-no-seu-codigo-com-black.html</guid><category>desenvolvimento</category><category>formatters</category><category>editores</category><category>black</category><category>python</category><category>vscode</category><category>vim</category></item><item><title>Atom: O simpático editor do GitHub</title><link>https://klauslaube.com.br/2018/12/27/atom-o-simpatico-editor-do-github.html</link><description>&lt;p&gt;Tenho "peregrinado" por diferentes editores e &lt;em&gt;IDEs&lt;/em&gt; nesses últimos meses. Além
-do &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre Vim"&gt;Vim&lt;/a&gt;, algumas "desventuras" com &lt;em&gt;IntelliJ IDEA&lt;/em&gt;,
-e &lt;a href="https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html" title="Eu me rendo: VS Code"&gt;uma surpreendente experiência com o &lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;,
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;junegunn/fzf&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ele funciona muito bem com o &lt;a href=&quot;https://github.com/junegunn/fzf.vim&quot; title=&quot;Veja o repositório oficial do projeto&quot;&gt;&lt;em&gt;fzf&lt;/em&gt;&lt;/a&gt;, portanto, é uma boa pedida termos os dois disponíveis.&lt;/p&gt;
+&lt;p&gt;O próximo passo é informar ao cliente como encontrar o servidor da linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;LanguageClient_serverCommands &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    \ &lt;span class=&quot;token string&quot;&gt;&apos;python&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;pyls&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    \ &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainda precisamos dizer ao &lt;em&gt;LSP&lt;/em&gt; sobre as nossas preferências. O arquivo abaixo está situado na raíz do projeto que estou trabalhando,
+mais especificamente em &lt;code class=&quot;language-text&quot;&gt;./.vim/settings.json&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;pyls&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;configurationSources&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;flake8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;plugins&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;yapf&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;enabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para fins didáticos adicionei o &lt;code class=&quot;language-text&quot;&gt;yapf&lt;/code&gt; à configuração. Alguns &lt;em&gt;plugins&lt;/em&gt; possuem a flexibilidade de mesmo que instalados, poderem ser desabilitados.&lt;/p&gt;
+&lt;p&gt;Pronto! O cliente está configurado, e com os seguintes comandos você pode explorar todas as funcionalidades do &lt;em&gt;LSP&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;Ctrl+x Ctrl+o&lt;/code&gt;: &lt;em&gt;Auto completion&lt;/em&gt; via &lt;em&gt;Omni completion&lt;/em&gt; (o &lt;a href=&quot;https://github.com/Shougo/deoplete.nvim&quot; title=&quot;Dark powered asynchronous completion framework for neovim/Vim8&quot;&gt;&lt;em&gt;Deoplete&lt;/em&gt;&lt;/a&gt; é uma boa pedida)&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_definition()&lt;/code&gt;: &lt;em&gt;Go to definition&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_hover()&lt;/code&gt;: &lt;em&gt;Hover&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_references()&lt;/code&gt;: &lt;em&gt;References&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_documentSymbol()&lt;/code&gt;: Lista de &lt;em&gt;Symbols&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_rename()&lt;/code&gt;: &lt;em&gt;Renaming&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call LanguageClient#textDocument_formatting()&lt;/code&gt;: &lt;em&gt;Formatting&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;:call :call LanguageClient_contextMenu()&lt;/code&gt;: Menu de contexto mostrando todas as opções disponíveis&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b71dd9238b6c9316981247af00919559/6af66/vim-lsp-autocomplete.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.8125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABe0lEQVQoz42QW0+DQBCF+SlVkF6AdoHusruz3KFAKRRp1BiNTz74akx887+7xXubmCZfJpPdnDlzRrm7fVg32yipkrQSfgwQAIQDPw2HcOC7+UQRTgY4NRZc1d1zDZ2pi9GZNRqZ6gVSdVu+qBe2ptuyHqMk3rrOLou8892MgSTn8UbkHeWZswyFXyDH1yd4OvOmxiFKnDZV3ZdVn6dttdmVRXf5+Hz98hbEdRDJICUmIQXfWvDxFE9m5DcKg0IEBfESLlbGnGm6O97jzExqWExW6WBYe58D5V7s8VW/uzUtqmpIn7iUp8acmnMmfQbIseZHDF7etrsF8vQxQjbv+xvKQtnInPL7a8Sw8NEgxbHDbbMry5ZD6rhi0/RpVuNlyGAljzfELrAXEwqY+AfLK5Stoq5ZskjTnfF06eLIsOhHVMnM/L4tOY6tOCjE2Oc846LwWOAS+D/nHzFyk/rpNW7vCRYQJNL2ROVebFoQrK+ivBOQiSCTe54ufgf+GZSHvNEFDwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo do LSP funcionando com o Vim&quot;
+        title=&quot;Exemplo do LSP funcionando com o Vim&quot;
+        src=&quot;/static/b71dd9238b6c9316981247af00919559/6af66/vim-lsp-autocomplete.png&quot;
+        srcset=&quot;/static/b71dd9238b6c9316981247af00919559/8514f/vim-lsp-autocomplete.png 192w,
+/static/b71dd9238b6c9316981247af00919559/804b2/vim-lsp-autocomplete.png 384w,
+/static/b71dd9238b6c9316981247af00919559/6af66/vim-lsp-autocomplete.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo do LSP funcionando com o Vim&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Agora é só configurar os &lt;em&gt;key bindings&lt;/em&gt; e correr para o abraço :)&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.kieranbamforth.me/blog/vim-lsp.html&quot;&gt;kieranbamforth.me - Vim + Language Server Protocol—in 2019&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://langserver.org/&quot;&gt;Langserver.org - A community-driven source of knowledge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://microsoft.github.io/language-server-protocol/&quot;&gt;Language Server Protocol official page&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.thisisvini.com/vim-better-go-to-definition-completion/&quot;&gt;This is Vini - Vim: Better &quot;Go to definition&quot; and completion using ALE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/JSON-RPC&quot;&gt;Wikipedia - JSON-RPC&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Deixe darem pitaco no seu código com Black]]></title><description><![CDATA[Já abordamos code formatters aqui no blog. Para Javascript temos o Prettier como solução mais famosa, e há de se reconhecer a série de vantagens no uso da mesma. Acontece que para Python temos algumas ferramentas tão interessantes quanto, como o autopep8, yapf e o Black. E é sobre o último que…]]></description><link>https://klauslaube.com.br/2019/02/07/deixe-darem-pitaco-no-seu-codigo-com-black.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/02/07/deixe-darem-pitaco-no-seu-codigo-com-black.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 07 Feb 2019 14:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Já abordamos &lt;a href=&quot;/tag/formatters.html&quot; title=&quot;Leia mais sobre formatters&quot;&gt;&lt;em&gt;code formatters&lt;/em&gt;&lt;/a&gt; aqui no &lt;em&gt;blog&lt;/em&gt;. Para &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; temos o &lt;a href=&quot;/2019/01/12/deixe-darem-pitaco-no-seu-codigo-com-prettier.html&quot; title=&quot;Deixe darem pitaco no seu código com Prettier&quot;&gt;&lt;em&gt;Prettier&lt;/em&gt;&lt;/a&gt; como solução mais famosa, e há de se reconhecer a série de vantagens no uso da mesma. Acontece que para &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; temos algumas ferramentas tão interessantes quanto, como o &lt;em&gt;autopep8&lt;/em&gt;, &lt;em&gt;yapf&lt;/em&gt; e o &lt;em&gt;Black&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E é sobre o último que falaremos nesse &lt;em&gt;post&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se você está interessado em um comparativo, &lt;em&gt;Kevin Peters&lt;/em&gt; escreveu um artigo bem interessante para o &lt;em&gt;Medium&lt;/em&gt; chamado &lt;a href=&quot;https://medium.com/3yourmind/auto-formatters-for-python-8925065f9505&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;Auto formatters for Python&quot;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Além do PEP 8&lt;/h2&gt;
+&lt;p&gt;A motivação para usar o &lt;em&gt;Black&lt;/em&gt; é a mesma descrita no &lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Prettier&lt;/em&gt;: Reduzir tempo discutindo &lt;em&gt;code style&lt;/em&gt;, e deixar com que uma ferramenta tome essa decisão pelo time.&lt;/p&gt;
+&lt;p&gt;Em &lt;em&gt;Python&lt;/em&gt;, o caminho para chegarmos a um consenso é relativamente menor. Uma das primeiras coisas que aprendi ao iniciar a minha jornada programando com a linguagem foi seguir a &lt;a href=&quot;https://www.python.org/dev/peps/pep-0008/&quot; title=&quot;Style Guide for Python Code&quot;&gt;&lt;em&gt;PEP 8&lt;/em&gt;&lt;/a&gt; religiosamente. Nela estão descritas as convenções de código adotadas oficialmente, como linhas em branco, indentação, nomes, comentários, etc. Qual o motivo de perder tempo pensando em um &lt;em&gt;style guide&lt;/em&gt; para o seu projeto se isso já foi discutido e formalizado pela comunidade?&lt;/p&gt;
+&lt;p&gt;Ferramentas de &lt;em&gt;linting&lt;/em&gt; como &lt;a href=&quot;https://github.com/PyCQA/pycodestyle&quot; title=&quot;Simple Python style checker in one Python file&quot;&gt;&lt;em&gt;pycodestyle&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://github.com/PyCQA/flake8&quot; title=&quot;Flake8 is a wrapper around PyFlakes, pycodestyle and McCabe&quot;&gt;&lt;em&gt;flake8&lt;/em&gt;&lt;/a&gt; são essenciais e muito comuns. São elas que irão te alertar sobre possíveis quebras de estilo de código.&lt;/p&gt;
+&lt;p&gt;Mas com o &lt;em&gt;Black&lt;/em&gt; vamos além...&lt;/p&gt;
+&lt;h2&gt;Formatador descompromissado&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Black&lt;/em&gt; é um &lt;em&gt;code formatter&lt;/em&gt; para &lt;em&gt;Python&lt;/em&gt;, de código aberto (&lt;a href=&quot;https://github.com/ambv/black/blob/master/LICENSE&quot; title=&quot;The MIT License&quot;&gt;&lt;em&gt;MIT&lt;/em&gt;&lt;/a&gt;), que tem por lema tornar a formatação &quot;transparente&quot;, para que você possa focar no conteúdo.&lt;/p&gt;
+&lt;p&gt;O time do &lt;em&gt;Black&lt;/em&gt; alega que a ferramenta é &quot;descompromissada&quot;, mas nem por isso ela deixa de ser pretensiosa. Diretamente do &lt;a href=&quot;https://github.com/ambv/black/&quot; title=&quot;Black no Github&quot;&gt;repositório no &lt;em&gt;Github&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;By using it, you agree to cede control over minutiae of hand-formatting. In return, Black gives you speed, determinism, and freedom from pycodestyle nagging about formatting. You will save time and mental energy for more important matters.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em outras palavras, a ferramenta segue as recomendações da &lt;em&gt;PEP 8&lt;/em&gt; e formata seu código automaticamente. Na verdade, o &lt;em&gt;coding style&lt;/em&gt; utilizado é um &lt;em&gt;subset&lt;/em&gt; da &lt;em&gt;PEP 8&lt;/em&gt;, logo, algumas regras são &quot;manipuladas&quot; (como &lt;a href=&quot;https://github.com/ambv/black#line-length&quot; title=&quot;Leia na documentação do Black&quot;&gt;&lt;em&gt;line-length&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://github.com/ambv/black#strings&quot; title=&quot;Leia na documentação do Black&quot;&gt;aspas ao invés de apóstrofos&lt;/a&gt;) de acordo com decisões tomadas pelo time de desenvolvedores da ferramenta.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 730px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/28e5a4cc6f236ae0d0858493fb3888a9/1a144/black-walter.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABBf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAABCnl65TDo/8QAGRABAQEBAQEAAAAAAAAAAAAAAgEDABIT/9oACAEBAAEFAl4FGYvIZy3Vq/fTlo3f/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8BiP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AVf/xAAcEAACAgIDAAAAAAAAAAAAAAAAAQIRA0ETITL/2gAIAQEABj8CrhQm8a70bLcj0XJ2z//EABwQAAICAgMAAAAAAAAAAAAAAAABEWEhMUFxkf/aAAgBAQABPyF5tlzsWMUcT0PqwfKFyQ1Rb8O80P/aAAwDAQACAAMAAAAQ0z//xAAXEQEBAQEAAAAAAAAAAAAAAAABABFR/9oACAEDAQE/EBhlvt//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QUsX/xAAcEAEBAAICAwAAAAAAAAAAAAABEQAhQWExkaH/2gAIAQEAAT8QUMSIF5nGLN6AjZI295pjlIGm9uIW0xRr5i6cRCAh6xAtCKC5/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Foto do filme A Vida Secreta de Walter Mitty&amp;quot;&quot;
+        title=&quot;Pare de perder tempo discutindo convenção de código no code review e vá viver sua vida, como o Walter fez (gq.co.za)&quot;
+        src=&quot;/static/28e5a4cc6f236ae0d0858493fb3888a9/1a144/black-walter.jpg&quot;
+        srcset=&quot;/static/28e5a4cc6f236ae0d0858493fb3888a9/7809d/black-walter.jpg 192w,
+/static/28e5a4cc6f236ae0d0858493fb3888a9/4ecad/black-walter.jpg 384w,
+/static/28e5a4cc6f236ae0d0858493fb3888a9/1a144/black-walter.jpg 730w&quot;
+        sizes=&quot;(max-width: 730px) 100vw, 730px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Pare de perder tempo discutindo convenção de código no code review e vá viver sua vida, como o Walter fez (gq.co.za)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Caso você não concorde com algumas liberdades que a ferramenta toma, é possível customizar algumas regras adotadas pelo editor. Por exemplo, se você é um usuário assíduo de &lt;em&gt;single quotes&lt;/em&gt; e não concorda com o uso de &lt;em&gt;double quotes&lt;/em&gt;, pode executar o utilitário com o argumento &lt;code class=&quot;language-text&quot;&gt;--skip-string-normalization&lt;/code&gt;. Na humilde opinião de quem vos escreve, se você se pegar usando o &lt;em&gt;Black&lt;/em&gt; com muitas exceções, talvez valha a pena procurar outra ferramenta de &lt;em&gt;formatting&lt;/em&gt;, como os próprios desenvolvedores sugerem:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Pro-tip: If you&apos;re asking yourself &quot;Do I need to configure anything?&quot; the answer is &quot;No&quot;. Black is all about sensible defaults.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;No terminal&lt;/h2&gt;
+&lt;p&gt;Mas chega de papo, vamos ao que interessa:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install black&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como qualquer biblioteca &lt;em&gt;Python&lt;/em&gt;, instalamos o &lt;em&gt;Black&lt;/em&gt; através do utilitário &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;. Na sequência, basta executá-lo apontando qual arquivo você pretende formatar.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ black test.py
+reformatted test.py
+All done! ✨ 🍰 ✨
+1 file reformatted.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Também é possível passar um diretório como argumento:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ black plugins/
+reformatted /Users/klaus/Workspace/blog/plugins/global_license.py
+reformatted /Users/klaus/Workspace/blog/plugins/slideshare.py
+All done! ✨ 🍰 ✨
+2 files reformatted, 4 files left unchanged.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Não estranhe se a simpática fatia de bolo acima abrir o seu apetite.&lt;/p&gt;
+&lt;p&gt;Customizações, embora possam ser chamadas através de parâmetros de linha de comando, também podem ser armazenadas no &lt;code class=&quot;language-text&quot;&gt;pyproject.toml&lt;/code&gt; do seu projeto, como ilustra a &lt;a href=&quot;https://github.com/ambv/black#pyprojecttoml&quot; title=&quot;Leia mais na documentação do Black&quot;&gt;documentação oficial&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;No editor&lt;/h2&gt;
+&lt;p&gt;Mas o melhor mesmo é ter o &lt;em&gt;Black&lt;/em&gt; disponível no seu editor, deixando-o trabalhar em tempo de escrita de código.&lt;/p&gt;
+&lt;p&gt;Há uma vasta opção de &lt;a href=&quot;https://github.com/ambv/black#editor-integration&quot; title=&quot;Editor integration&quot;&gt;editores que suportam o &lt;em&gt;Black&lt;/em&gt;&lt;/a&gt;. Para o &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre o Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;, continuo com a opinião do artigo &lt;a href=&quot;/2017/10/15/vim-para-desenvolvimento-python.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;Vim para desenvolvimento Python&quot;&lt;/a&gt; e recomendo a utilização do &lt;a href=&quot;https://github.com/w0rp/ale&quot; title=&quot;Asynchronous Lint Engine for Vim&quot;&gt;&lt;em&gt;ALE&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;w0rp/ale&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;pip install black&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;ale_fix_on_save &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;ale_fixers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+\   &lt;span class=&quot;token string&quot;&gt;&apos;python&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;black&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;remove_trailing_lines&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;trim_whitespace&apos;&lt;/span&gt;
+\   &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+\&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Já para o &lt;a href=&quot;/tag/vscode.html&quot; title=&quot;Leia mais sobre VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, com o &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-python.python&quot; title=&quot;Python extension for Visual Studio Code&quot;&gt;&lt;em&gt;plugin&lt;/em&gt; oficial para &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, podemos configurá-lo como ferramenta de &lt;em&gt;formatting&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.formatting.blackPath&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.formatting.provider&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;black&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Em todo lugar&lt;/h2&gt;
+&lt;p&gt;Outra opção que deveria ser adotada, independente da utilização do &lt;em&gt;Black&lt;/em&gt; no editor, é o uso de &lt;em&gt;commit hooks&lt;/em&gt; para formatar arquivos alterados controlados via &lt;em&gt;git&lt;/em&gt;. Volto a recomendar o &lt;a href=&quot;https://pre-commit.com/&quot; title=&quot;A framework for managing and maintaining multi-language pre-commit hooks&quot;&gt;&lt;em&gt;pre-commit&lt;/em&gt;&lt;/a&gt; como ferramenta, e a boa notícia é que existe um &lt;em&gt;hook&lt;/em&gt; com &lt;em&gt;Black&lt;/em&gt; configurado e prontinho para uso:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;repos&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//github.com/ambv/black
+&lt;span class=&quot;token key atrule&quot;&gt;rev&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; stable
+&lt;span class=&quot;token key atrule&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; black
+    &lt;span class=&quot;token key atrule&quot;&gt;language_version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; python3.7&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;É impressionante a quantidade de tempo e atrito que economizamos quando adotamos uma ferramenta como &lt;em&gt;Black&lt;/em&gt; ou &lt;em&gt;yapf&lt;/em&gt;. Discussões relacionadas a &lt;em&gt;style guide&lt;/em&gt; praticamente inexistem, e os &lt;em&gt;code reviews&lt;/em&gt; são mais focados no problema e na qualidade do código, do que com convenções.&lt;/p&gt;
+&lt;p&gt;Já tive experiências ruins com &lt;em&gt;formatters&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;, é verdade. Nem todo time ou projeto se adapta bem com esse tipo de &quot;ferramenta impositiva&quot;, e embora os pontos positivos sejam óbvios, é na prática que você verá os negativos. Mas não me vejo mais deixando de ter esse tipo de auxílio enquanto escrevo código.&lt;/p&gt;
+&lt;p&gt;É também uma forma de pensarmos na experiência dos outros desenvolvedores, que se juntarão ao projeto durante o seu ciclo de vida.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://black.readthedocs.io/en/stable/&quot;&gt;Black - The uncompromising code formatter&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mattlayman.com/blog/2018/python-code-black/&quot;&gt;Matt Leyman - Consistent Python code with Black&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://code.visualstudio.com/docs/python/editing#_formatting&quot;&gt;Visual Studio Code - Editing Python code in VS Code&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Atom: O simpático editor do GitHub]]></title><description><![CDATA[Tenho "peregrinado" por diferentes editores e IDEs nesses últimos meses. Além
+do Vim, algumas "desventuras" com IntelliJ IDEA,
+e uma surpreendente experiência com o VS Code,
 tive a oportunidade de testar uma alternativa que sempre me deixou intrigado:
-&lt;a href="https://atom.io/" title="A hackable text editor for the 21st Century"&gt;O &lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Embora notícias recentes em relação ao editor sejam "preocupantes", o …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 27 Dec 2018 18:35:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-12-27:/2018/12/27/atom-o-simpatico-editor-do-github.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>atom</category><category>python</category><category>vim</category></item><item><title>Eu me rendo: VS Code</title><link>https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</link><description>&lt;p&gt;É, caro leitor... chegou o dia de admitir que tenho usado outro editor
-além do &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre o melhor editor do universo"&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;. Pode
+O Atom Embora notícias recentes em relação ao…]]></description><link>https://klauslaube.com.br/2018/12/27/atom-o-simpatico-editor-do-github.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/12/27/atom-o-simpatico-editor-do-github.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 27 Dec 2018 18:35:00 GMT</pubDate><content:encoded>&lt;p&gt;Tenho &quot;peregrinado&quot; por diferentes editores e &lt;em&gt;IDEs&lt;/em&gt; nesses últimos meses. Além
+do &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;Vim&lt;/a&gt;, algumas &quot;desventuras&quot; com &lt;em&gt;IntelliJ IDEA&lt;/em&gt;,
+e &lt;a href=&quot;/2018/06/04/eu-me-rendo-vscode.html&quot; title=&quot;Eu me rendo: VS Code&quot;&gt;uma surpreendente experiência com o &lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;,
+tive a oportunidade de testar uma alternativa que sempre me deixou intrigado:
+&lt;a href=&quot;https://atom.io/&quot; title=&quot;A hackable text editor for the 21st Century&quot;&gt;O &lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Embora notícias recentes em relação ao editor sejam &quot;preocupantes&quot;, o veredicto
+é o melhor possível. Recomendo desde já o uso, e abaixo dou mais detalhes
+sobre essa minha conclusão.&lt;/p&gt;
+&lt;h2&gt;O que é?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Atom&lt;/em&gt; é um editor de textos, gratuito e de código aberto
+(&lt;a href=&quot;https://en.wikipedia.org/wiki/MIT_License&quot; title=&quot;Leia mais sobre a MIT License&quot;&gt;&lt;em&gt;MIT&lt;/em&gt;&lt;/a&gt;),
+construído em &lt;a href=&quot;https://github.com/electron/electron&quot; title=&quot;Leia mais sobre Electron&quot;&gt;&lt;em&gt;Electron&lt;/em&gt;&lt;/a&gt;
+(portanto, multiplataforma) e mantido pelo &lt;em&gt;GitHub&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O editor ganha vida através de
+&lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;/&lt;a href=&quot;https://coffeescript.org/&quot; title=&quot;CoffeeScript is a little language that compiles into JavaScript&quot;&gt;&lt;em&gt;CoffeeScript&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;http://lesscss.org/&quot; title=&quot;It&amp;#x27;s CSS, with just a little more.&quot;&gt;&lt;em&gt;Less&lt;/em&gt;&lt;/a&gt;, e com essas
+mesmas tecnologias é possível estendê-lo de maneira impressionante. Aliás, o
+processo de customização é muito bem documentado, no
+&lt;a href=&quot;https://flight-manual.atom.io/&quot; title=&quot;Leia mais na página oficial&quot;&gt;&lt;em&gt;Atom Flight Manual&lt;/em&gt;&lt;/a&gt;,
+e escrever seus próprios &lt;em&gt;plugins&lt;/em&gt; tem uma curva de aprendizado mínima se você
+já trabalhar com desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Por padrão o &lt;em&gt;Atom&lt;/em&gt; oferece &lt;em&gt;syntax highlighting&lt;/em&gt; para uma grande gama de linguagens,
+além de outros utilitários, como &lt;em&gt;fuzzy finder&lt;/em&gt;, &lt;em&gt;tree view&lt;/em&gt;, corretor ortográfico,
+e um simples &lt;em&gt;auto-complete&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O que há de bom?&lt;/h2&gt;
+&lt;p&gt;Gosto muito do visual do &lt;em&gt;Atom&lt;/em&gt;. Na minha opinião, é um dos editores mais bonitos
+disponíveis por aí. As fontes, cores (muito graças aos temas incríveis)
+e ícones são renderizados de forma suave, e o &quot;conforto visual&quot; não pode deixar de ser
+mencionado.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 540px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/50e04a4d83b30b55256874063176a78d/09d21/ant-man-atom.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.208333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHIZIwayQmv/8QAGRABAAIDAAAAAAAAAAAAAAAAAQACEBET/9oACAEBAAEFAhqSq1euBm5//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8BR//EABkQAAMAAwAAAAAAAAAAAAAAAAABESAhUf/aAAgBAQAGPwLapUcw/8QAGxABAAICAwAAAAAAAAAAAAAAAQARIWEQMVH/2gAIAQEAAT8hzU2t9VF4oNA4bq4r1n//2gAMAwEAAgADAAAAEATv/8QAFhEAAwAAAAAAAAAAAAAAAAAAAAEh/9oACAEDAQE/EE6U/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/ELGH/8QAHBABAAMAAwEBAAAAAAAAAAAAAQARITFBUWGh/9oACAEBAAE/EMw1cF+dyuBtg7HmZwgVRf1nsp6UEal8Xs//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Imagem do personagem Homem-Formiga&amp;quot;&quot;
+        title=&quot;Não tive criatividade para fazer uma referência melhor (collider.com)&quot;
+        src=&quot;/static/50e04a4d83b30b55256874063176a78d/09d21/ant-man-atom.jpg&quot;
+        srcset=&quot;/static/50e04a4d83b30b55256874063176a78d/7809d/ant-man-atom.jpg 192w,
+/static/50e04a4d83b30b55256874063176a78d/4ecad/ant-man-atom.jpg 384w,
+/static/50e04a4d83b30b55256874063176a78d/09d21/ant-man-atom.jpg 540w&quot;
+        sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não tive criatividade para fazer uma referência melhor (collider.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Por vir com uma configuração mais &quot;básica&quot;
+por &lt;em&gt;default&lt;/em&gt;, o editor é muito simples de usar. Sem requerer funções avançadas
+(comuns em &lt;em&gt;IDEs&lt;/em&gt;, como &lt;em&gt;auto-complete&lt;/em&gt;, &lt;em&gt;debugging&lt;/em&gt; e &lt;em&gt;go to definition&lt;/em&gt;), basta
+abrí-lo e começar a escrever código. Sem dúvida ele apresenta uma interface
+mais amigável que outras opções no mercado.&lt;/p&gt;
+&lt;p&gt;Como não há almoço grátis, o &lt;em&gt;Atom&lt;/em&gt; leva a fama de ser mais lento que
+opções como &lt;em&gt;VS Code&lt;/em&gt; e &lt;em&gt;Vim&lt;/em&gt;. E embora o time de desenvolvedores
+&lt;a href=&quot;https://blog.atom.io/2017/04/18/improving-startup-time.html&quot; title=&quot;Improving Startup time&quot;&gt;tenha trabalhado nessa questão&lt;/a&gt;,
+é possível notar os &quot;soluços&quot; do editor em algumas ocasiões.&lt;/p&gt;
+&lt;p&gt;A integração com &lt;em&gt;Git&lt;/em&gt; (e obviamente &lt;em&gt;GitHub&lt;/em&gt;) é bem interessante, e pode ajudar
+bastante quem não tem intimidade com a linha de comando. E um extra bacana é o
+&lt;a href=&quot;https://teletype.atom.io/&quot; title=&quot;Collaborate in real time in Atom&quot;&gt;&lt;em&gt;Teletype&lt;/em&gt;&lt;/a&gt;:
+Pacote que vem com a distribuição padrão e que permite desenvolvedores colaborarem
+em &lt;em&gt;real time&lt;/em&gt; com o código aberto no editor.&lt;/p&gt;
+&lt;p&gt;Por falar em pacotes e extensões, talvez esse seja o ponto mais alto do editor.&lt;/p&gt;
+&lt;p&gt;Dentre eles vale mencionar o &lt;a href=&quot;https://atom.io/packages/vim-mode-plus&quot; title=&quot;vim-mode improved&quot;&gt;&lt;em&gt;vim-mode-plus&lt;/em&gt;&lt;/a&gt;
+e o &lt;a href=&quot;https://atom.io/packages/ex-mode&quot; title=&quot;Ex for Atom&amp;#x27;s vim-mode&quot;&gt;&lt;em&gt;ex-mode&lt;/em&gt;&lt;/a&gt;. Estes
+trazem os &lt;em&gt;key bindings&lt;/em&gt; do &lt;em&gt;Vim&lt;/em&gt; para o &lt;em&gt;Atom&lt;/em&gt;. Eles funcionam extremamente bem
+e é a &quot;experiência &lt;em&gt;Vim-like&lt;/em&gt;&quot; mais eficiente que já experimentei.&lt;/p&gt;
+&lt;p&gt;Configurar um &lt;em&gt;set&lt;/em&gt; de &lt;em&gt;plugins&lt;/em&gt; para as suas linguagens favoritas pode
+ser maçante e &lt;em&gt;error prone&lt;/em&gt;. O &lt;em&gt;VS Code&lt;/em&gt; resolveu isso através de &quot;plugins agregadores&quot;
+que acabam instalando e configurando uma série de outros &lt;em&gt;plugins&lt;/em&gt; menores para você. No
+&lt;em&gt;Atom&lt;/em&gt;, o &lt;em&gt;Atom-IDE&lt;/em&gt; se destaca nesse quesito.&lt;/p&gt;
+&lt;h3&gt;Atom-IDE&lt;/h3&gt;
+&lt;p&gt;O &lt;a href=&quot;https://ide.atom.io/&quot; title=&quot;Improve language integration&quot;&gt;&lt;em&gt;Atom-IDE&lt;/em&gt;&lt;/a&gt; é uma coletânea
+de &lt;em&gt;plugins&lt;/em&gt; e funcionalidades que trazem características comuns em &lt;em&gt;IDEs&lt;/em&gt; para o
+&lt;em&gt;Atom&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 540px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8c1ea794b13328391f21a9d121f923f5/07484/atom-ide-ui.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACyklEQVQ4y1VU2ZKkNhDs7/Da2wcNSCDQgbj6mu7ZnZ2NcOyzH/z/n2GlszSHww8ZJUDKqsossdHdmFQXEeZbavoRlXY4VB32lSG6vC4+UPefOBLbg+J+i7aPaVdo7I/NP5umnxDcU/L2hj7cYabvsNM3uHjF7FfY4YSGa8O17iaoNhIDajNAjQ/slccfuxLbQqfdscFG91Py7gbvH6mNz2inF4ThBudPiIQLK5Rb0dgZismViaibAM3n9vKKg7LYl03aly1jm1jhTLIbIqsbwxPc9ICbvyNMTxhZlRGy4YLWSzyzyjETqm5Ae/6BOt6zPFKdkG4UN/T2jCW+Yh0vMHaBZfaeqAw1ZYsfKJohR2lZzimSlf2Stf4ktJ4E/oppuGPqPcZOELgOmPsBsx2wECPXv+KExU2ouhlH1ZNEI5uR2zVvhGLK6L+x3Tvm+YZAzWJY4EjsSeJJJtEyydVHyjND0yRxeluoXJnE7a4guZKWIzp3hl9/wpz/xDA+Y6Bunol6VuIpgXHsgloXbLWUdmlMyfHq2N0wXxGWO8LLXyjNhGyKpYY9RV+vPzAuDyzXF44Q39GMbArd1uLwO1nN2FLjuD7gqbv2NOv5b9TukseG4/Fgm9Tx9Jxhw4nDOrMCkvG7ZoX6fWQ+wc6kCGcvULVDrQwTBmxyNrYWPMeE1VgeHgQkldmrG8/bQHBUSkbBkbMn47PdVTDjK+LpJ778vudNoSll3UFz6qvGYftu/Y5o7MhbsqLuWQG/18wuqJiglYq7mJPV/sI9C77uaxzo9ObXOKee4hq/JOPmfLij08P8lA9XZvofoeDteUAjhhqebadUs6BjE3lTqlYueeJd5I/gv4mvWmYnlPGZ+KM6eSd7xOVj2fBa8tqur/jtyy59PWhsitok2aj5x5A2GHM78q6gHJJICN7mTecBLjjUkkD+ThKpaTq+vUv/AvG6zqgQcbSzAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Atom-IDE UI&amp;quot;&quot;
+        title=&quot;Atom-IDE UI&quot;
+        src=&quot;/static/8c1ea794b13328391f21a9d121f923f5/07484/atom-ide-ui.png&quot;
+        srcset=&quot;/static/8c1ea794b13328391f21a9d121f923f5/8514f/atom-ide-ui.png 192w,
+/static/8c1ea794b13328391f21a9d121f923f5/804b2/atom-ide-ui.png 384w,
+/static/8c1ea794b13328391f21a9d121f923f5/07484/atom-ide-ui.png 540w&quot;
+        sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Atom-IDE UI&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Em uma colaboração entre &lt;em&gt;Facebook&lt;/em&gt; e &lt;em&gt;GitHub&lt;/em&gt;, tornou-se possível ter um &lt;em&gt;auto-complete&lt;/em&gt;
+mais rico, &lt;em&gt;outline view&lt;/em&gt;, &lt;em&gt;go to definition&lt;/em&gt;, &lt;em&gt;find all references&lt;/em&gt;, &lt;em&gt;diagnosis&lt;/em&gt;,
+&lt;em&gt;debugging&lt;/em&gt;, &lt;em&gt;document formatting&lt;/em&gt;, entre outras &lt;em&gt;features&lt;/em&gt; que você está acostumado a ver
+em ferramentas como &lt;em&gt;Netbeans&lt;/em&gt; ou &lt;em&gt;Eclipse&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A boa notícia é que existe uma grande quantidade de &lt;em&gt;plugins&lt;/em&gt; que dão &lt;a href=&quot;https://atom.io/packages/search?q=IDE&quot; title=&quot;Veja mais plugins de Atom-IDE&quot;&gt;suporte a diferentes linguagens&lt;/a&gt;. Por exemplo,
+recentemente testei o &lt;a href=&quot;https://atom.io/packages/ide-elixir&quot; title=&quot;Plugin para o Elixir&quot;&gt;&lt;em&gt;ide-elixir&lt;/em&gt;&lt;/a&gt;
+e foi uma experiência muito boa.&lt;/p&gt;
+&lt;p&gt;Mas é claro que tem a má notícia...&lt;/p&gt;
+&lt;h3&gt;Facebook deixa de dar suporte&lt;/h3&gt;
+&lt;p&gt;Diretamente do &lt;a href=&quot;https://blog.atom.io/2018/12/12/facebook-retires-nuclide-extension.html&quot; title=&quot;Facebook retires Nuclide extension&quot;&gt;&lt;em&gt;Blog do Atom&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A few years ago, Facebook introduced Nuclide to provide a first-class IDE experience which included associated repos such as Atom IDE. Both Nuclide and Atom IDE were developed by Facebook and supported by an open source community. At this time, Facebook has decided to retire their open source efforts on Nuclide, the Atom IDE, and other associated repos. All of the source code will remain available in the Facebook Open Source Archives, and, if you’re interested, we encourage you to check it out and continue to build on top of it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Na prática não há motivos para pânico. Os &lt;em&gt;plugins&lt;/em&gt; que estendem o &lt;em&gt;Atom-IDE&lt;/em&gt;
+para suportar diferentes linguagens são mantidos por diferentes pessoas da
+comunidade. O &lt;em&gt;Facebook&lt;/em&gt; &quot;arquivou&quot; os repositórios do &lt;em&gt;Atom-IDE&lt;/em&gt; e &lt;em&gt;Nuclide&lt;/em&gt;,
+mas seu código continua disponível. O &lt;em&gt;framework&lt;/em&gt; que foi montado
+até aqui deve continuar funcionando sem maiores problemas. Possíveis melhorias e correções
+dependerão de contribuições da comunidade. É esperar para ver se algum grande &lt;em&gt;player&lt;/em&gt; ficará
+responsável por coordenar esse esforço.&lt;/p&gt;
+&lt;p&gt;Mas com a compra do &lt;em&gt;GitHub&lt;/em&gt; pela &lt;em&gt;Microsoft&lt;/em&gt;,
+o &lt;em&gt;VS Code&lt;/em&gt; (da mesma &lt;em&gt;Microsoft&lt;/em&gt;) &lt;a href=&quot;https://www.infoq.com/br/news/2018/12/the-rise-vscode&quot; title=&quot;A crescente adoção do Visual Studio Code&quot;&gt;ganhando cada vez mais usuários&lt;/a&gt;, e esse anúncio do
+time &lt;em&gt;Nuclide&lt;/em&gt;, fica difícil não ficar com &lt;a href=&quot;https://news.ycombinator.com/item?id=18507817&quot; title=&quot;Is Atom now dead in the water?&quot;&gt;a pulga atrás da orelha&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Atom-IDE + Python&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://atom.io/packages/ide-python&quot;&gt;&lt;em&gt;ide-python&lt;/em&gt;&lt;/a&gt; é o &lt;em&gt;plugin&lt;/em&gt; para &lt;em&gt;Atom-IDE&lt;/em&gt;
+que adiciona suporte à linguagem &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;
+ao editor.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b38a64af74bbf2a5900251605e90d3d8/6af66/ide-python-ui.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClElEQVQ4y4WT227TQBCG/QS8AS/AJQ5BSduoKteIcAGPhSxxgQSquOVJilookKQhRydN0iT27voU7/qwtncYuyeJCrHyr/WOx9/+sx5rV/2fTxx3855SZsRRbAS+bziMGK5DDR/vGWPGer02lsuVYdt2FXNdr5IfBPjcMSzLehcEu4/brfVW61/03sBfI5MRFLmE/w0hBOR5DmmaVuvZbPZF63w/f5UmKYRemFpbRxK6k57LpQh9GYWBjAWXMsvwyuTtyPNM8jCUg+lcrtaWJITEQsQwGAw/ad1Op13uguUWIXUUtQlQm4FHLeC7AGK+gySOIJWyclIKd0B3HH7PbJguGVBCcLcchsPRsdY9P28XCOQ+L1zqqc3WhRIa0CsIXYJQ7wEQ3UIYhjBebMC2KaoEZjfAbrdyiCpS11OMEGCY5DisgpSJspqvdQvEkuHX7ApmG6yIUAzl98CiKCDk6NDzlO8HEOx2wLmoXIQhr2YhIojjuFIJLEsemGvojDawWK4zmUoEjo+1Dp5hBQzCglGqKCXge271YpIkdyrXUXQNLJ1yjsCxCf3BGMypmSX4YUcjBJ6dfWtjbwEjTjG3feW6bgUMguDG4bWw74BSCmVuCfM8D0ZTE1brDcbZfcm9Xq+NzsCySE68qIjjRKVJhEoUZqHkjbI7YduoKIrUZDxRl5cLRQiVaVUyAofD4evy8EEBRDsOaVw2qfpvUyulYGrOYLFYAaOsKGOTyfSz9vXk5KU5GktzNOUTc8Hnc1MslqbYbrcCfymcH8qybLFcrcSPTk9cXPQFNnQwn1/C6enZB+1Zrfao1dzTG/WG/rTW0J/X63qjUdP39/b1g4ODf2of9eLoSD88PNT3MLfVatWbzebjP6qeiXIyNC0ZAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Atom-IDE com Python&amp;quot;&quot;
+        title=&quot;Atom-IDE com Python&quot;
+        src=&quot;/static/b38a64af74bbf2a5900251605e90d3d8/6af66/ide-python-ui.png&quot;
+        srcset=&quot;/static/b38a64af74bbf2a5900251605e90d3d8/8514f/ide-python-ui.png 192w,
+/static/b38a64af74bbf2a5900251605e90d3d8/804b2/ide-python-ui.png 384w,
+/static/b38a64af74bbf2a5900251605e90d3d8/6af66/ide-python-ui.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Atom-IDE com Python&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Assim como outros &lt;em&gt;plugins&lt;/em&gt; dependentes do mesmo &lt;em&gt;framework&lt;/em&gt;, ele utiliza &lt;a href=&quot;https://github.com/Microsoft/language-server-protocol&quot; title=&quot;Defines a common protocol for language servers&quot;&gt;&lt;em&gt;Language Server Protocol&lt;/em&gt;&lt;/a&gt;
+para habilitar recursos como &lt;em&gt;completion&lt;/em&gt; e &lt;em&gt;refactoring&lt;/em&gt;. No caso do &lt;em&gt;Python&lt;/em&gt;, isso é
+possível através do &lt;a href=&quot;https://github.com/palantir/python-language-server&quot; title=&quot;An implementation of the Language Server Protocol for Python&quot;&gt;&lt;em&gt;python-language-server&lt;/em&gt;&lt;/a&gt;. Logo, o primeiro passo
+é instalar a dependência em sua máquina:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install python-language-server[all]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;[all]&lt;/code&gt;, você terá disponível &lt;em&gt;completions&lt;/em&gt; e &lt;em&gt;renaming&lt;/em&gt; (através do
+&lt;a href=&quot;https://github.com/python-rope/rope&quot; title=&quot;Repositório do Rope&quot;&gt;&lt;em&gt;Rope&lt;/em&gt;&lt;/a&gt;),
+&lt;em&gt;linter&lt;/em&gt; e &lt;em&gt;style checking&lt;/em&gt; (através do &lt;a href=&quot;https://github.com/PyCQA/pyflakes&quot; title=&quot;Repositório do Pyflakes&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;https://github.com/PyCQA/mccabe&quot; title=&quot;Repositório do McCabe&quot;&gt;&lt;em&gt;McCabe&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/PyCQA/pycodestyle&quot; title=&quot;Repositório do pycodestyle&quot;&gt;&lt;em&gt;pycodestyle&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;https://github.com/PyCQA/pydocstyle&quot; title=&quot;Repositório do pydocstyle&quot;&gt;&lt;em&gt;pydocstyle&lt;/em&gt;&lt;/a&gt;) e
+&lt;em&gt;code formatting&lt;/em&gt; (através de &lt;a href=&quot;https://github.com/hhatto/autopep8&quot; title=&quot;Repositório do autopep8&quot;&gt;&lt;em&gt;autopep8&lt;/em&gt;&lt;/a&gt;
+ou &lt;a href=&quot;https://github.com/google/yapf&quot; title=&quot;Repositório do YAPF&quot;&gt;&lt;em&gt;YAPF&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Na sequência, basta instalar os &lt;em&gt;plugins&lt;/em&gt; do &lt;em&gt;Atom&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ apm install atom-ide-ui
+$ apm install ide-python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Você já pode começar a usar o &lt;em&gt;Atom-IDE&lt;/em&gt; para escrever código &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Mas para deixar o seu ambiente ótimo, sugiro a instalação do &lt;a href=&quot;https://atom.io/packages/atomic-management&quot; title=&quot;Per-project Atom config&quot;&gt;&lt;em&gt;atom-management&lt;/em&gt;&lt;/a&gt;. Com ele, você poderá
+configurar o &lt;em&gt;Python&lt;/em&gt; de acordo com o &lt;em&gt;virtualenv&lt;/em&gt; de cada projeto que esteja trabalhando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ apm install atomic-management&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora basta criar o arquivo de configuração para cada projeto. Aqui está um exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;coffeescript&quot;&gt;&lt;pre class=&quot;language-coffeescript&quot;&gt;&lt;code class=&quot;language-coffeescript&quot;&gt;&lt;span class=&quot;token string&quot;&gt;&quot;*&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;ide-python&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;pylsPlugins&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;autopep8&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;false&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;yapf&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;enabled&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;false&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;python&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/Users/klaus/.local/share/virtualenvs/yatla-kWU5r6Dm/bin/python&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acima, eu propositalmente desligo o &lt;code class=&quot;language-text&quot;&gt;autopep8&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;yapf&lt;/code&gt;, uma vez que para este
+projeto eu estou utilizando &lt;a href=&quot;https://github.com/rupert/pyls-black&quot; title=&quot;Black plugin for the Python Language Server&quot;&gt;&lt;em&gt;Black&lt;/em&gt;&lt;/a&gt;. Já na chave &lt;code class=&quot;language-text&quot;&gt;python&lt;/code&gt;, eu explicitamente digo qual instalação
+do &lt;em&gt;Python&lt;/em&gt; pretendo utilizar.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Reforço a opinião do começo desse &lt;em&gt;post&lt;/em&gt;: Recomendo.&lt;/p&gt;
+&lt;p&gt;É um editor muito amigável e confortável de usar. Os &lt;em&gt;key bidings&lt;/em&gt; do &lt;em&gt;Vim&lt;/em&gt; são
+um &lt;em&gt;plus&lt;/em&gt;, e além disso a documentação para criação de &lt;em&gt;plugins&lt;/em&gt;
+e configurações diversas é impressionante. O fato de não se render à componentização é
+outro fator positivo, assim como a riqueza de pacotes e a grande comunidade em sua volta.&lt;/p&gt;
+&lt;p&gt;Mas se você é um &lt;em&gt;developer&lt;/em&gt; que gosta de seguir o &lt;em&gt;hype&lt;/em&gt;, eu diria que o &lt;em&gt;Visual
+Studio Code&lt;/em&gt; é uma opção mais atraente. Na dúvida, teste os dois e nos conte suas
+conclusões nos comentários abaixo.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.atom.io/2017/09/12/announcing-atom-ide.html&quot;&gt;Atom: Introducing Atom-IDE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.atom.io/2018/12/12/facebook-retires-nuclide-extension.html&quot;&gt;Atom: Facebook retires Nuclide extension&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://news.ycombinator.com/item?id=18507817&quot;&gt;Hacker News: Is Atom now dead in the water?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.infoq.com/br/news/2018/12/the-rise-vscode&quot;&gt;InfoQ: A crescente adoção do Visual Studio Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Atom_(text_editor)&quot;&gt;Wikipedia: Atom (text editor)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Eu me rendo: VS Code]]></title><description><![CDATA[É, caro leitor... chegou o dia de admitir que tenho usado outro editor
+além do Vim. Pode
 me julgar, me chamar de "poser" ou de "vendido", mas acontece que tenho descoberto no
-&lt;a href="https://code.visualstudio.com/" title="Conheça o VS Code"&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, da &lt;em&gt;Microsoft&lt;/em&gt;,
-uma excelente ferramenta para desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Piadas à parte, ainda acho o &lt;em&gt;Vim&lt;/em&gt; uma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 04 Jun 2018 16:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-06-04:/2018/06/04/eu-me-rendo-vscode.html</guid><category>desenvolvimento</category><category>web</category><category>editores</category><category>ide</category><category>vscode</category><category>vim</category><category>python</category><category>css</category><category>javascript</category><category>eu-me-rendo</category></item><item><title>Vim para desenvolvimento em Python</title><link>https://klauslaube.com.br/2017/10/15/vim-para-desenvolvimento-python.html</link><description>&lt;p&gt;Já mencionei as motivações de utilizar &lt;a href="https://klauslaube.com.br/tag/vim.html" title="Leia mais sobre Vim"&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;
-no &lt;a href="https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html" title="Leia o artigo completo"&gt;"Vim: O meu editor favorito"&lt;/a&gt;.
-E embora eu já tenha "caído em tentação" e utilizado &lt;a href="https://atom.io/" title="A hackable text editor"&gt;&lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt;
-e &lt;a href="http://spacemacs.org/" title="The best editor is neither Emacs nor Vim, it's Emacs and Vim!"&gt;&lt;em&gt;Spacemacs&lt;/em&gt;&lt;/a&gt;
+VS Code, da Microsoft,
+uma excelente ferramenta para desenvolvimento web. Piadas à parte, ainda acho o Vim uma ferramenta…]]></description><link>https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/06/04/eu-me-rendo-vscode.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 04 Jun 2018 16:30:00 GMT</pubDate><content:encoded>&lt;p&gt;É, caro leitor... chegou o dia de admitir que tenho usado outro editor
+além do &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre o melhor editor do universo&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;. Pode
+me julgar, me chamar de &quot;poser&quot; ou de &quot;vendido&quot;, mas acontece que tenho descoberto no
+&lt;a href=&quot;https://code.visualstudio.com/&quot; title=&quot;Conheça o VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, da &lt;em&gt;Microsoft&lt;/em&gt;,
+uma excelente ferramenta para desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Piadas à parte, ainda acho o &lt;em&gt;Vim&lt;/em&gt; uma ferramenta fantástica. Mas também
+reconheço que há uma curva de aprendizagem, e que montar um set de &lt;em&gt;plugins&lt;/em&gt; para
+um determinado ambiente de desenvolvimento pode ser uma tarefa maçante (sim,
+eu estou olhando para você, &lt;code class=&quot;language-text&quot;&gt;python-mode&lt;/code&gt;). Nisso, tenho que reconhecer
+que o &lt;em&gt;Visual Studio Code&lt;/em&gt; faz um trabalho primoroso.&lt;/p&gt;
+&lt;h2&gt;Motivação&lt;/h2&gt;
+&lt;p&gt;Tenho &quot;advogado&quot; contra o uso de &lt;em&gt;IDEs&lt;/em&gt; &lt;a href=&quot;https://www.profissionaisti.com.br/2009/01/produtividade-x-programacao-voce-realmente-precisa-de-uma-ide/&quot; title=&quot;Produtividade x Programação: Você realmente precisa de uma IDE?&quot;&gt;desde 2009&lt;/a&gt;.
+De lá para cá, geralmente trabalhei com ambientes relativamente fáceis de lidar, como
+&lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.
+Essa opinião mudou a partir do momento que comecei a desenvolver para &lt;em&gt;Android&lt;/em&gt;. Não digo
+que usar editores de texto (como o &lt;em&gt;Vim&lt;/em&gt; ou &lt;em&gt;Emacs&lt;/em&gt;) para desenvolver &lt;em&gt;Java/Android&lt;/em&gt; seja
+impossível, mas (IMO) beira o masoquismo. Com o &lt;em&gt;Android Studio&lt;/em&gt;, por exemplo, muitas barreiras
+de &lt;em&gt;setup&lt;/em&gt; de ambiente são derrubadas pela ferramenta, aumentando produtividade e diminuindo
+o tempo necessário para ter a sua solução funcionando no dispositivo do seu usuário.&lt;/p&gt;
+&lt;h2&gt;IDE pero no mucho&lt;/h2&gt;
+&lt;p&gt;Além de ser livre e de código-aberto, o &lt;em&gt;Visual Studio Code&lt;/em&gt; é leve, extensível e &lt;a href=&quot;https://github.com/Microsoft/vscode&quot; title=&quot;Veja o repositório do vscode no Github&quot;&gt;construído
+em &lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;. Ele funciona &quot;out of the box&quot; para linguagens como &lt;a href=&quot;/tag/css.html&quot; title=&quot;Leia mais sobre CSS&quot;&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Javascript&lt;/em&gt; e &lt;em&gt;HTML&lt;/em&gt;,
+inclusive, é impressionante como o &lt;em&gt;autocomplete&lt;/em&gt; (através do
+&lt;a href=&quot;https://code.visualstudio.com/docs/editor/intellisense&quot; title=&quot;Leia mais sobre o IntelliSense&quot;&gt;&lt;em&gt;IntelliSense&lt;/em&gt;&lt;/a&gt;) funciona
+&quot;smoothly&quot; para as mesmas.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.22916666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAP/2gAMAwEAAhADEAAAAc9imSgWh5//xAAcEAACAAcAAAAAAAAAAAAAAAAAAQIDEiIxMkL/2gAIAQEAAQUChuMlLZK27P/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAICAwAAAAAAAAAAAAAAAAABEBECEkH/2gAIAQEABj8CpUPU7GEf/8QAGxABAAICAwAAAAAAAAAAAAAAAQARMUFxobH/2gAIAQEAAT8hSmoZWoGhuhjsKZ+D2PdGf//aAAwDAQACAAMAAAAQQC//xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QwBn/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAECAQE/EK8If//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESFBMVGhsfD/2gAIAQEAAT8QMtRweDZFAAW9IKsFI8Li1az6XSeV9TSf/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Lando em Star Wars&amp;quot;&quot;
+        title=&quot;Tô traindo o movimento tipo o Lando (theplaylist.net)&quot;
+        src=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg&quot;
+        srcset=&quot;/static/85acfc9ae4d6d6e9fd906e6ea957e446/7809d/lando-traidor.jpg 192w,
+/static/85acfc9ae4d6d6e9fd906e6ea957e446/4ecad/lando-traidor.jpg 384w,
+/static/85acfc9ae4d6d6e9fd906e6ea957e446/c08c5/lando-traidor.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Tô traindo o movimento tipo o Lando (theplaylist.net)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O seu &lt;em&gt;marketplace&lt;/em&gt; de &lt;em&gt;plugins&lt;/em&gt; é rico, e é sem dúvida um dos seus
+pontos fortes. Adicionar &lt;em&gt;code formatters&lt;/em&gt;, &lt;em&gt;autocomplete&lt;/em&gt;, ou integrações com ferramentas
+externas nunca foi tão fácil. Além disso, a opção de customizar o editor
+globalmente ou por &lt;em&gt;workspace&lt;/em&gt; é uma mão na roda para quem trabalha com mais de um projeto no cotidiano.&lt;/p&gt;
+&lt;p&gt;Utilitários de &lt;em&gt;refactoring&lt;/em&gt;, &lt;em&gt;debugging&lt;/em&gt;, controle de versão, além dos inúmeros &lt;em&gt;plugins&lt;/em&gt; para &lt;em&gt;tests&lt;/em&gt;, só aumentam
+ainda mais o poderio do editor, e dão a ele esse &quot;jeitão&quot; de &lt;em&gt;IDE&lt;/em&gt;, sem perder
+a simplicidade peculiar dos editores de texto.&lt;/p&gt;
+&lt;h2&gt;Python&lt;/h2&gt;
+&lt;p&gt;Para usar o editor com &lt;em&gt;Python&lt;/em&gt;, a &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-python.python&quot; title=&quot;Python for VS Code&quot;&gt;extensão criada pela própria &lt;em&gt;Microsoft&lt;/em&gt;&lt;/a&gt;
+deve ser o suficiente. Ela é simples de configurar e muito rica, trazendo comandos interessantes como
+&lt;code class=&quot;language-text&quot;&gt;Start REPL&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;Run all unit tests&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAA7CAAAOwgEVKEqAAAABUUlEQVQoz4WSaW7CMBBGc42WNgl4zeI1TgwkKVSEELFDS3v/m9QIiVIhUen9sKV5mm/G9mabT16UeaaFEFEcM8YIIRAhFCXGGEopAoBiQjCGEF0AALriOE48O2mq9/bw8XU8ntar7Xqzr+upLUaB71NKjJFWiRTDCPQD//VKGPhhEHh1VZZl1XarupoUxTDLcmtHWWb9PgAkognzAXoOBo6X8BYQDAZOrrhUUhvOmIuEMYEQpKoqum89P4Z588TfenLqeL4iJr184UfKa9tWSdUPB/A8KHYACI0adYt1nts0FYzJezjXGFOv6zoplduB6/kry+GiXRpT/CPvdjulzvLFRIi4s+u8WR9ms7kQ+pGstU6S5Jr5IudqvFpu7XDMuXokW+sGS//KoNDlYX+aTmdKZc6/R4iMEOo1TSOlvIl9/gwsEe6pU8bd1RXdQ2nklB/snmwWSfoFyAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;VS Code com Python&amp;quot;&quot;
+        title=&quot;VS Code com Python&quot;
+        src=&quot;/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png&quot;
+        srcset=&quot;/static/242f57ae87264056e1abda47eef7e913/8514f/vscode-python-example.png 192w,
+/static/242f57ae87264056e1abda47eef7e913/804b2/vscode-python-example.png 384w,
+/static/242f57ae87264056e1abda47eef7e913/6af66/vscode-python-example.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;VS Code com Python&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A configuração granular do editor permite que você tenha um determinado conjunto de regras para
+cada projeto que esteja envolvido. Por exemplo, em um projeto pessoal você usa &lt;code class=&quot;language-text&quot;&gt;nose&lt;/code&gt; como
+&lt;em&gt;test runner&lt;/em&gt;, além de &lt;code class=&quot;language-text&quot;&gt;pylamas&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;mypy&lt;/code&gt;. Mas no projeto da sua empresa o padrão é
+&lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;isort&lt;/code&gt;, e a única ferramenta de &lt;em&gt;lint&lt;/em&gt; é o &lt;code class=&quot;language-text&quot;&gt;flake8&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.flake8Path&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/flake8&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.pythonPath&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/python&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.sortImports.path&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/home/klaus/.pyenv/versions/company-project/bin/isort&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.pylintEnabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Notou o &lt;em&gt;path&lt;/em&gt; com &lt;code class=&quot;language-text&quot;&gt;pyenv&lt;/code&gt;? Com a opção &lt;code class=&quot;language-text&quot;&gt;python.venvPath&lt;/code&gt; apontando para o diretório do &lt;em&gt;pyenv&lt;/em&gt;,
+fica muito mais conveniente configurar qual interpretador e ferramentas de &lt;em&gt;lint&lt;/em&gt; utilizar. Ao
+executar o comando &lt;code class=&quot;language-text&quot;&gt;Python: Select interpreter&lt;/code&gt; o &lt;em&gt;plugin&lt;/em&gt; levará em consideração os seus
+ambientes virtuais e irá sugerí-los.&lt;/p&gt;
+&lt;h2&gt;Vim bindings&lt;/h2&gt;
+&lt;p&gt;É claro que você pode trazer umas das melhores coisas do &lt;em&gt;Vim&lt;/em&gt; para o &lt;em&gt;VS Code&lt;/em&gt;! Os &lt;em&gt;keys bindings&lt;/em&gt;
+vão te dar a velocidade de escrita que você já está acostumado, e o &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscodevim.vim&quot; title=&quot;Vim emulation for Visual Studio Code&quot;&gt;&lt;em&gt;VSCodeVim&lt;/em&gt;&lt;/a&gt; é uma excelente escolha como extensão.&lt;/p&gt;
+&lt;p&gt;Obviamente que, por tratar-se de um emulador, não temos toda a experiência do &lt;em&gt;Vim&lt;/em&gt;. Para compensar a extensão já traz
+algumas funcionalidades embutidas, como &lt;em&gt;easymotion&lt;/em&gt;, &lt;em&gt;surround&lt;/em&gt;, &lt;em&gt;commentary&lt;/em&gt; e &lt;em&gt;sneak&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Um dos maiores desafios que enfrentei com a adoção do &lt;em&gt;VS Code&lt;/em&gt; foi quebrar esse preconceito
+bobo que todo &quot;fanboy&quot; tem com tecnologias que rivalizam com a sua. Na verdade, testar novas
+ferramentas (como o &lt;em&gt;VS Code&lt;/em&gt;), tecnologias (como o &lt;em&gt;iOS&lt;/em&gt;) e até outras linguagens (como &lt;em&gt;Java&lt;/em&gt; e &lt;em&gt;Scala&lt;/em&gt;),
+tem agregado muito ao meu crescimento profissional.&lt;/p&gt;
+&lt;p&gt;E se você está torcendo o nariz para o fato do editor ser da &lt;em&gt;Microsoft&lt;/em&gt;, lembre-se:
+&lt;a href=&quot;https://g1.globo.com/economia/tecnologia/noticia/microsoft-compra-github-por-us-75-bilhoes.ghtml&quot; title=&quot;Microsoft compra GitHub por US$ 7,5 bilhões e anuncia mudanças&quot;&gt;&lt;em&gt;Github&lt;/em&gt; também é dela&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Vim para desenvolvimento em Python]]></title><description><![CDATA[Já mencionei as motivações de utilizar Vim
+no "Vim: O meu editor favorito".
+E embora eu já tenha "caído em tentação" e utilizado Atom
+e Spacemacs
+(esse último é simplesmente fantástico), acabo sempre retornando ao Vim. Principalmente
+após o lançamento da versão 8,
+onde processamento assíncrono foi…]]></description><link>https://klauslaube.com.br/2017/10/15/vim-para-desenvolvimento-python.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/10/15/vim-para-desenvolvimento-python.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 15 Oct 2017 19:20:00 GMT</pubDate><content:encoded>&lt;p&gt;Já mencionei as motivações de utilizar &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;
+no &lt;a href=&quot;/2013/03/04/vim-o-meu-editor-favorito.html&quot; title=&quot;Leia o artigo completo&quot;&gt;&quot;Vim: O meu editor favorito&quot;&lt;/a&gt;.
+E embora eu já tenha &quot;caído em tentação&quot; e utilizado &lt;a href=&quot;https://atom.io/&quot; title=&quot;A hackable text editor&quot;&gt;&lt;em&gt;Atom&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;http://spacemacs.org/&quot; title=&quot;The best editor is neither Emacs nor Vim, it&amp;#x27;s Emacs and Vim!&quot;&gt;&lt;em&gt;Spacemacs&lt;/em&gt;&lt;/a&gt;
 (esse último é simplesmente fantástico), acabo sempre retornando ao &lt;em&gt;Vim&lt;/em&gt;. Principalmente
-após o &lt;a href="https://www.reddit.com/r/linux/comments/52e4qo/vim_8_released/" title="Vim 8 released"&gt;lançamento da versão 8&lt;/a&gt;,
-onde processamento assíncrono foi adicionado ao editor …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 15 Oct 2017 19:20:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-10-15:/2017/10/15/vim-para-desenvolvimento-python.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>editores-de-texto</category><category>vim</category><category>python</category></item><item><title>Vim: O meu editor favorito</title><link>https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html</link><description>&lt;p&gt;Há um bom tempo que eu trabalho com o &lt;a href="http://www.vim.org/" title="Página oficial do Vim"&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;,
-tanto tempo que quando estou em qualquer outro editor escrevo &lt;code&gt;:wq&lt;/code&gt;
-para salvar e sair.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+após o &lt;a href=&quot;https://www.reddit.com/r/linux/comments/52e4qo/vim_8_released/&quot; title=&quot;Vim 8 released&quot;&gt;lançamento da versão 8&lt;/a&gt;,
+onde processamento assíncrono foi adicionado ao editor.&lt;/p&gt;
+&lt;p&gt;Ter o &lt;em&gt;Vim&lt;/em&gt; configurado para trabalhar com projetos &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;
+é em teoria algo simples (se você optar por usar extensões). O problema é que durante a seleção de ferramentas, alguns detalhes aparecem
+e interferem na construção de um &lt;a href=&quot;/tag/ambiente-de-desenvolvimento.html&quot; title=&quot;Leia mais sobre ambiente de desenvolvimento&quot;&gt;ambiente de desenvolvimento&lt;/a&gt;
+capaz de operar sem problemas.&lt;/p&gt;
+&lt;p&gt;E como diz o poeta: O diabo está nos detalhes.&lt;/p&gt;
+&lt;h2&gt;Packaging: vim-plug&lt;/h2&gt;
+&lt;p&gt;Para começar é preciso selecionar um sistema de empacotamento, afim de facilitar a instalação e remoção de &lt;em&gt;plugins&lt;/em&gt;.
+Embora o editor possua um &lt;a href=&quot;https://shapeshed.com/vim-packages/&quot; title=&quot;Vim: So long Pathogen, hello native package loading&quot;&gt;mecanismo &lt;em&gt;built-in&lt;/em&gt;&lt;/a&gt;
+em sua versão mais recente, o &lt;a href=&quot;https://github.com/junegunn/vim-plug&quot; title=&quot;Minimalist Vim Plugin Manager &quot;&gt;&lt;em&gt;vim-plug&lt;/em&gt;&lt;/a&gt; mostra-se
+muito (mas muito) mais simples de usar.&lt;/p&gt;
+&lt;p&gt;Para instalar o &lt;em&gt;vim-plug&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O controle dos &lt;em&gt;plugins&lt;/em&gt; é feito através do &lt;code class=&quot;language-text&quot;&gt;.vimrc&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
 
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;~/.vim/plugged&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;&quot; Lista de plugins&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez que o &lt;em&gt;plugin&lt;/em&gt; desejado fora adicionado ao &lt;code class=&quot;language-text&quot;&gt;.vimrc&lt;/code&gt;, o comando
+&lt;code class=&quot;language-text&quot;&gt;:PlugInstall&lt;/code&gt; fará o &lt;em&gt;download&lt;/em&gt; e instalação do pacote.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9f24b66ee22959e8c24b0e028dc420df/6af66/vim-plug-install.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 101.5625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEg0lEQVQ4yzVUS28aVxidVR+2HDsYbMAGDMMwM8z7CcO8zAAmfgB2SFw7VRfZdFGpvyJSF80iUTfNIo3UpK2SSEmkLtq8+ttOv7lOFp++0YV77jnnO/dyf/71Em9eP8fvfzzDixfP8er1Kzx99hRPnvyGR49+xePHj/HLwwf46d493L//Mx4+eIC3//6Dd+/e4sP79/j48QP+o/r4/h1evvkbXJZNcbSf4Vaa4SROsUyHWCRDHCcpbgyPsJgu0bNtiO02VE2DLMuYz+dYLBasZrMZq/F4hO9/+BFcLAnY22tC3K1A2C2jXa6gQ50vb6O5VUWzvINqdQeCIKBNoPV6HeVKFRVaq1AvlbawvV3G6soK7nz7HbipLqEpduCFAqJxF6Yrw/BEuIGOttCBJEto8S3wPA9N12HbFga+Ds9WYGodqHKbCO2hWNzE8ptLcCNVQEsUkUQ2hmmANOnBcx3EUUKbbeiaDkmSCLAFy7Lg0m/ZQEHaVxBTTVMDhtrBZqGA8dEpuIkhotkRkaY24tiE4xjUA7YxjmMGmsvsdDoQ6eBcttgRIEsiO6TRqGGv0UCJGO4fzMAdmBJjGMcWRplHwC4GAxf9fo+qj16vB1VVwDcbDDyg9eFAw0FqYRjqyEINka+g1agiO5gTQ+0KMEksJATqeTnTiBi6iKIIpmFghxjWzT4s22HMA1dC6MlIeuQjWdaVeJS3t3B0cpZ7SDKIfhLbGI18AnOJZcCY5YC9no+uotB/ZJIsQSDJgsBfSW41KQFV1OjAUrGA01sX4FTyxtBlTG9EBNhHlkWYTPZpOCGGwyEDVlQVPPlsE8P8gDRQMYoNJj2vjKT7Jo/L5U1wbUmFKHXYUCYTnzao5J2HIOh/kh1CMy3UjB4D9PI1X2ZAliZAV4gx38AW5XLpdglQVEhKB4PQpLR7GFD+LMtEGIYsJnnXKX+5vDw++ZSFNk+Tr7HA5wHfobpWLOPSFcHJmk2REAiQ4kJZDGnCceyx4fT7AQwayudbwnLoOIhIRdJX2XQTyqKlttHg93A3IIaGO2Amh8RwOCSwKPcpj4fDYuL7/qdg87AJzPc9AuliFOkMbBLrbNotkh1rCjjF9Ihhm7wyqfLoOJRDB/tpn/wyyUcPCk2Zb7WYhzlg5HfZYHIfB14XCl0/vkkB72jgmoIIuStRDq9i4/sWC3Q/uAq15/loNltMsmGYMEwTtk5335JYuSbde7ocji6gKRDDOpndbLVpswbPEeFYMmzToG+Lvume6ipqO/Tq7NUhCm20qAutvBpo1Cpo0MtUq26jslVEqbILTrdUHB4mOD8f4cbZGY5vX2I8v42D0zusBuM5guwYTjhCPD3DeHaO6ckMy/MlDuldTCeHcKMR9H6GetcC5wU2Li6OMVtMcHh+F97kDPZwDic7pb6AO74JN1vAiA6ghVOY6cnVOq3l3Uhn0JMTOKObaOg+uDV6HNdKBZTqDawXNrBeKmJzZ5f6OtaKa1jZXMdq6TqulYtY297E6lYBK8UNfFVYZ/X15ga+uL6OL6lWK2X8D+yAjWEpa94oAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de utilização do vim-plug&amp;quot;&quot;
+        title=&quot;Exemplo de utilização do vim-plug&quot;
+        src=&quot;/static/9f24b66ee22959e8c24b0e028dc420df/6af66/vim-plug-install.png&quot;
+        srcset=&quot;/static/9f24b66ee22959e8c24b0e028dc420df/8514f/vim-plug-install.png 192w,
+/static/9f24b66ee22959e8c24b0e028dc420df/804b2/vim-plug-install.png 384w,
+/static/9f24b66ee22959e8c24b0e028dc420df/6af66/vim-plug-install.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de utilização do vim-plug&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;Syntax highlight: vim-polyglot&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Syntax highlighting&lt;/em&gt; é um dos recursos mais básicos (e úteis) que qualquer editor de texto
+possa oferecer. É no mínimo curioso o quanto a disposição de cores facilita na leitura
+de códigos-fonte.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;https://github.com/sheerun/vim-polyglot&quot; title=&quot;A solid language pack for Vim&quot;&gt;&lt;em&gt;vim-polyglot&lt;/em&gt;&lt;/a&gt; suporta
+dezenas de linguagens (incluindo &lt;em&gt;Python&lt;/em&gt;, claro), e o próprio projeto alega que a sua utilização
+não prejudica o &lt;em&gt;startup time&lt;/em&gt; do editor. Logo, uma excelente opção caso o usuário não queira perder
+tempo fazendo &lt;em&gt;setup&lt;/em&gt; desse tipo de &lt;em&gt;feature&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;~/.vim/plugged&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;&quot; Lista de plugins&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;sheerun/vim-polyglot&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para uma rápida instalação, execute &lt;code class=&quot;language-text&quot;&gt;:source $MYVIMRC&lt;/code&gt; (para atualizar o &lt;code class=&quot;language-text&quot;&gt;.vimrc&lt;/code&gt; em memória) e
+em seguida &lt;code class=&quot;language-text&quot;&gt;:PlugInstall&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Lint: ALE + flake8 + isort + yapf&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://github.com/w0rp/ale&quot; title=&quot;Asynchronous Lint Engine for Vim&quot;&gt;&lt;em&gt;Asynchronous Lint Engine&lt;/em&gt;&lt;/a&gt; é um desses
+projetos que foram feitos para tirar o máximo da nova versão do &lt;em&gt;Vim&lt;/em&gt;. A sua função é na realidade
+servir de interface assíncrona para &lt;em&gt;linters&lt;/em&gt; de diferentes linguagens, resultando em validações
+do código-fonte sem travar a &lt;em&gt;UI&lt;/em&gt; do editor.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9916737feab659a53aca66452830c933/6af66/vim-ale-linters.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.91666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB20lEQVQ4y5VT2XKkMAzk/39wayup7CQMpwFz+WbolURIJtmHnVDVZUvYbR2tzDqH/FrAGAP59hv2fRfcbgeO/Q1Kddi27cM+/wvefdk0zXDOI6UEHzfMJsmPTS58XZ33RPhp3+P0ZZfXHIGIQkxYbMBzaVB0Di5EIojH+g4+c29/R0wbsrpV8GQkSsX6hLwLmG08XiQfH3oUzJEtxlL+EId1Ee2wYnUJ4xoxmSjR/4iwqGoMehKHsQ5F1SBXTlJ/qa1EHSnV8B94ghCuFCETJSLkmuWtxZUImbTsHSpC0XlaLdqR/R56iXKeie4j5BJlDdWwqlt0gybChFp7lENARVDaCoEiokp8TOzRTR6NjvRgoPJs0l0uDT+SDeMkUjibUg8OK2lyWQ9wBsuyiAIW42m/fv7jleyZ4Hw4ZDMtXKcI46i7dOHpUuHX72eppeo0VK/RkKCbYUGr12OverTd8AG2x3k9ZKPHWbrMEfqQcKnp0mBpGlio+x1OEe//gCclbYfMsqKsSC7hEC1F+kY1qzXXJsoDPj4O6fLLn1d0lFak0ePU36jLhTLU0SDj+IhkTghhT93l7yRk7RXKUme9dFV0mH5AmF9LsLjPeeznIBMiXbXsezBlOsey+Qs6242S40rwjgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Lista de linters suportados pelo ALE&amp;quot;&quot;
+        title=&quot;Lista de linters suportados pelo ALE&quot;
+        src=&quot;/static/9916737feab659a53aca66452830c933/6af66/vim-ale-linters.png&quot;
+        srcset=&quot;/static/9916737feab659a53aca66452830c933/8514f/vim-ale-linters.png 192w,
+/static/9916737feab659a53aca66452830c933/804b2/vim-ale-linters.png 384w,
+/static/9916737feab659a53aca66452830c933/6af66/vim-ale-linters.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Lista de linters suportados pelo ALE&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Uma &quot;traquinagem&quot; que ajuda no uso do &lt;em&gt;ALE&lt;/em&gt; é utilizar o parâmetro &lt;code class=&quot;language-text&quot;&gt;do&lt;/code&gt;, do &lt;em&gt;vim-plug&lt;/em&gt;, tornando
+mais fácil a instalação dos utilitários necessários para que o &lt;em&gt;plugin&lt;/em&gt; funcione:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;w0rp/ale&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;pip install flake8 isort yapf&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Importante notar que se o &lt;em&gt;Vim&lt;/em&gt; for aberto dentro de um &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre Virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt;,
+os pacotes &lt;em&gt;Python&lt;/em&gt; serão instalados no ambiente virtual ativo. Para contornar esse problema,
+e tornar essas ferramentas &quot;globais&quot;, é possível utilizar o &lt;a href=&quot;https://medium.com/@henriquebastos/the-definitive-guide-to-setup-my-python-workspace-628d68552e14&quot; title=&quot;The definitive guide to setup my Python workspace&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;.
+Executar &lt;code class=&quot;language-text&quot;&gt;:PlugInstall!&lt;/code&gt; para cada &lt;em&gt;virtualenv&lt;/em&gt; pode ser uma opção também.&lt;/p&gt;
+&lt;p&gt;Caso algo não esteja funcionando, o &lt;code class=&quot;language-text&quot;&gt;:ALEInfo&lt;/code&gt; dará dicas de onde o problema está escondido.&lt;/p&gt;
+&lt;h3&gt;Linter: flake8&lt;/h3&gt;
+&lt;p&gt;O &lt;a href=&quot;http://flake8.pycqa.org/en/latest/&quot; title=&quot;Flake8: Your Tool For Style Guide Enforcement&quot;&gt;&lt;em&gt;flake8&lt;/em&gt;&lt;/a&gt; assegura
+que o código escrito esteja dentro das convenções da &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Leia mais sobre PEP8&quot;&gt;&lt;em&gt;PEP8&lt;/em&gt;&lt;/a&gt;.
+Alguns alertas aparecerão na tela do editor quando alguma violação acontecer:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1310bd90a3fd94756e8c482c3ceabcae/6af66/vim-ale-flake8.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.020833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAADHElEQVQ4y2WS628UZRTGJ/GzprVUaGfnPjs7Mzuzl25Lu7tlr73Rmm6hLVUTTIFYwIaWAEpKFStGDeDfYCJK1GCQm8FUtAmJtyiCf9HPsyXFGD88eZ73zck5z3mfV9n88gq/3P2Cra+uc/faNW5/9jk3r3/NN3c2uXHnB27c+p6b9x5w+/4W3373I/cfPGRz6yE///7nNn774xF/PfmbR4+f8NOvj1H8vjxxoZ/m+D5GBM2xCs3REvuGCzTqA4zWCkyMlWlNN3h5qsLw8AAJ3cS0HSzHxXbbSJLQEiwsLqP0mg6GrtKsp6lVQqqC4pBPrRpRr8dUKhHlckCx6FMoJAlCG9eziGIXyzbY3aPSq+l0dnUxfWgRxfFDdMPAdNtTTVSZpGqaFJsYpo6ma6gJDcMyxYkl99a2dpM2umlIrdQYJru6u1l4fQkldAKyjkMub9EnzkqNPMVanubIKLVGgzCK8VIpbMcWJwY9qkavDNjhnYZth2+cXEGxkx6GFPqajSc6ymQI02lZKYMfpEVH+KGPaen/abKD9vlZw+XTKFEyJCMO+/otsgWPwVqa3KBHdjBJSQKpVOvbTT0/EPiypvW/pppu0Nn9EsfmF1BcP4UpqQXi0E/5ZPP5bYdhlCbOZsjkcsSZLFnhdBxLso6k3F7TeAZD3rJrj8qbI0Mopipp9UgIvorpqcIJEnYPqVAcpdKyps4LHV2CXU/RuVuwh+c7/uWOF3t4TrBSy6C8+/YkR1+tMj9e58jhaRaPzbK0fJiVM8c5sXyEhdcO0JqdYu6VFnML05w7Pc7761N8tDHNxoVJPr7U4vL6flbyBqvFHMrJo1XOr8rF8UlWT0xxammCtbNzrJ+b5eL5Q1wQXjs7y/pb85w5NcOH78xw+b0Zrl46yJWNA3zywUGuXmzx6doUrYkRWdnLYKZinCDCSkXYfoSRDDBcSdYLRcs/Fa05HrqTEg7R3IiEsGoFT7VAC2KShQbK3uES5VqF/lKZveVhSvURKqP7KTfHKFYb24OScZ70QJmgMEQy0yfnHHYoBiR5Nx1jByFu2G5a4B9gqL27tEzVgwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Flake8 + ALE&amp;quot;&quot;
+        title=&quot;Flake8 + ALE&quot;
+        src=&quot;/static/1310bd90a3fd94756e8c482c3ceabcae/6af66/vim-ale-flake8.png&quot;
+        srcset=&quot;/static/1310bd90a3fd94756e8c482c3ceabcae/8514f/vim-ale-flake8.png 192w,
+/static/1310bd90a3fd94756e8c482c3ceabcae/804b2/vim-ale-flake8.png 384w,
+/static/1310bd90a3fd94756e8c482c3ceabcae/6af66/vim-ale-flake8.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Flake8 + ALE&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;Fixers: isort e yapf&lt;/h3&gt;
+&lt;p&gt;O &lt;em&gt;ALE&lt;/em&gt; possui o conceito de &quot;fixers&quot;. Eles são executados para realizar reparos no código-fonte
+aberto, sem a necessidade da chamada de nenhum comando adicional. Em um arquivo &lt;em&gt;Python&lt;/em&gt;, o &lt;code class=&quot;language-text&quot;&gt;:ALEFixSuggest&lt;/code&gt;
+trará sugestões de &lt;em&gt;fixers&lt;/em&gt; para a linguagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;Try the following fixers appropriate &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; the &lt;span class=&quot;token keyword&quot;&gt;filetype&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;token string&quot;&gt;&apos;add_blank_lines_for_python_control_statements&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; Add blank &lt;span class=&quot;token builtin&quot;&gt;lines&lt;/span&gt; before control statements&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&apos;autopep8&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; Fix PEP8 issues with autopep8&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&apos;isort&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; Sort Python imports with isort&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&apos;yapf&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; Fix Python &lt;span class=&quot;token keyword&quot;&gt;files&lt;/span&gt; with yapf&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;
+
+Try the following generic fixers&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+&lt;span class=&quot;token string&quot;&gt;&apos;remove_trailing_lines&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; Remove &lt;span class=&quot;token keyword&quot;&gt;all&lt;/span&gt; blank &lt;span class=&quot;token builtin&quot;&gt;lines&lt;/span&gt; at the end of a &lt;span class=&quot;token keyword&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&apos;trim_whitespace&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; Remove &lt;span class=&quot;token keyword&quot;&gt;all&lt;/span&gt; trailing whitespace characters at the end of every line&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;
+
+See &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;help&lt;/span&gt; ale&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;fix&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;configuration
+
+Press &lt;span class=&quot;token keyword&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;close&lt;/span&gt; this &lt;span class=&quot;token builtin&quot;&gt;window&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;a href=&quot;https://pypi.python.org/pypi/isort&quot; title=&quot;A Python utility / library to sort Python imports&quot;&gt;&lt;em&gt;isort&lt;/em&gt;&lt;/a&gt;
+é uma ferramenta muito útil que ajuda na ordenação dos &lt;code class=&quot;language-text&quot;&gt;import&lt;/code&gt; &lt;em&gt;Python&lt;/em&gt;. Já o
+&lt;a href=&quot;https://github.com/google/yapf%20A%20formatter%20for%20Python%20files%22&quot;&gt;&lt;em&gt;yapf&lt;/em&gt;&lt;/a&gt; formatará
+os arquivos respeitando a &lt;em&gt;PEP8&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para habilitar esses recursos, basta adicionar a seguinte configuração ao &lt;code class=&quot;language-text&quot;&gt;~/.vimrc&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;ale_fix_on_save &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;ale_fixers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+\   &lt;span class=&quot;token string&quot;&gt;&apos;python&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;isort&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;yapf&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;remove_trailing_lines&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;trim_whitespace&apos;&lt;/span&gt;
+\   &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+\&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;g:ale_fix_on_save = 1&lt;/code&gt;, ao salvar o arquivo os &lt;em&gt;fixers&lt;/em&gt; serão executados automaticamente.
+É possível executá-los também através do comando &lt;code class=&quot;language-text&quot;&gt;:ALEFix&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Code Completion: completor.vim&lt;/h2&gt;
+&lt;p&gt;Embora o &lt;a href=&quot;https://github.com/Valloric/YouCompleteMe&quot; title=&quot;A code-completion engine for Vim&quot;&gt;&lt;em&gt;YouCompleteMe&lt;/em&gt;&lt;/a&gt;
+seja a opção &lt;em&gt;standard&lt;/em&gt; para &lt;em&gt;autocomplete&lt;/em&gt; no &lt;em&gt;Vim&lt;/em&gt;, foi no &lt;a href=&quot;https://github.com/maralla/completor.vim&quot; title=&quot;Async completion framework made ease&quot;&gt;&lt;em&gt;completor&lt;/em&gt;&lt;/a&gt;
+que eu encontrei um bom balanço entre complexidade e benefícios.&lt;/p&gt;
+&lt;p&gt;Utilizando o &lt;em&gt;engine&lt;/em&gt; de &lt;em&gt;async&lt;/em&gt; do &lt;em&gt;Vim 8&lt;/em&gt;, o &lt;em&gt;plugin&lt;/em&gt; é capaz de entregar &lt;em&gt;code completion&lt;/em&gt;
+de uma maneira muito rápida, e ainda possui uma boa abstração a &lt;em&gt;semantic completion&lt;/em&gt; (que fará
+o &lt;em&gt;autocomplete&lt;/em&gt; funcionar &quot;de fato&quot; no caso do &lt;em&gt;Python&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/347850a2326924f757cba8deedec7295/6af66/vim-completor-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.583333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAABoUlEQVQoz1WR627iMBSETVtoAuWS2HEMuZBA0wZCyAVDxa5W2nfoj77/k0yPTVupPyyfOKPRN3NYsSlwPJTo3mpE6xwqTrBMM6gohlpFNK+xjFN73/7Rd2Lm9GtOIUNltWmWgyXrDBE9hkmGoO4RHFqIqsU4CDGazaH0ld47+C97eNtX+t+BlwfI4wlif8Ri8wL28ADXcXDSZzIk1yiOIYiIVw0JeyucpTlcHiDsLpCNhlfs4L9W1szcARkaAGPoBApTn5OhBkutYYKAjiBDcxZE8rjw4AppDfmuhvdcEmVlzYxmnheYZ1tMwiXu3TFmXECfLzfCFdFJIgqaE6YUfUARGGNw/BuhoeBlbeNK0kzUCoO7O6v5Ps5ohKbtDCF1aA0zyFZjItWPyPQo27MlMVG/+3N98cuMsYG9uQiIMN8SIUVOiLC/YpoVcMLICoYehzr/hUcL8U13FJ3vG+q6xVO8xlhFuHfcH2OPYjP9/gH9/x929Q7FnyvyvkVx0rbXTVUjMVsuSoj8GZIWs6SNR0RtZkEwT54Plzp8HA6R9Rd8AjKX093uch9ZAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de uso do Completor&amp;quot;&quot;
+        title=&quot;Exemplo de uso do Completor&quot;
+        src=&quot;/static/347850a2326924f757cba8deedec7295/6af66/vim-completor-example.png&quot;
+        srcset=&quot;/static/347850a2326924f757cba8deedec7295/8514f/vim-completor-example.png 192w,
+/static/347850a2326924f757cba8deedec7295/804b2/vim-completor-example.png 384w,
+/static/347850a2326924f757cba8deedec7295/6af66/vim-completor-example.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de uso do Completor&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;https://github.com/davidhalter/jedi&quot; title=&quot; Awesome autocompletion and static analysis library for python&quot;&gt;&lt;em&gt;jedi&lt;/em&gt;&lt;/a&gt;
+é o utilitário &quot;hors concours&quot; para essa tarefa:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;maralla/completor.vim&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;pip install jedi&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A dica de usar &lt;em&gt;pyenv&lt;/em&gt; ou de instalar para cada &lt;em&gt;virtualenv&lt;/em&gt; (do tópico de &lt;em&gt;Lint&lt;/em&gt;), vale aqui também.&lt;/p&gt;
+&lt;h2&gt;Navegar pelo código-fonte: jedi-vim&lt;/h2&gt;
+&lt;p&gt;E falando de &lt;em&gt;jedi&lt;/em&gt;, o &lt;a href=&quot;https://github.com/davidhalter/jedi-vim&quot; title=&quot;Using the jedi autocompletion library for VIM&quot;&gt;&lt;em&gt;jedi-vim&lt;/em&gt;&lt;/a&gt;
+é outra figurinha carimbada nos &lt;code class=&quot;language-text&quot;&gt;.vimrc&lt;/code&gt; de muitos desenvolvedores &lt;em&gt;Python&lt;/em&gt;. Assim como o
+&lt;em&gt;completor&lt;/em&gt;, ele fornece &lt;em&gt;autocompletion&lt;/em&gt; e uma excelente ferramenta de &lt;em&gt;static analysis&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/71dd224a33c9c79420baf43984fa2225/c08c5/vim-jedi.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAVzVJo0VJAo//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAMBAhESE//aAAgBAQABBQJGejGdVKjJnD//xAAXEQADAQAAAAAAAAAAAAAAAAABAhAR/9oACAEDAQE/AQ2T/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEQESFBQv/aAAgBAQAGPwLJfK1CFH//xAAYEAADAQEAAAAAAAAAAAAAAAAAARExIf/aAAgBAQABPyFmQRbUJWtm6KuhpF4I/9oADAMBAAIAAwAAABBY7//EABYRAQEBAAAAAAAAAAAAAAAAAAEREP/aAAgBAwEBPxARJn//xAAWEQEBAQAAAAAAAAAAAAAAAAARAAH/2gAIAQIBAT8Q10m//8QAHBABAQACAgMAAAAAAAAAAAAAAREAITFhQVGB/9oACAEBAAE/ELpIjVKHeBMI1/AHveaSja5xjbu/ccHsgBcTOc//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Nunca renda-se ao lado emacs da força (jovemnerd.com.br)&amp;quot;&quot;
+        title=&quot;Nunca renda-se ao lado emacs da força (jovemnerd.com.br)&quot;
+        src=&quot;/static/71dd224a33c9c79420baf43984fa2225/c08c5/vim-jedi.jpg&quot;
+        srcset=&quot;/static/71dd224a33c9c79420baf43984fa2225/7809d/vim-jedi.jpg 192w,
+/static/71dd224a33c9c79420baf43984fa2225/4ecad/vim-jedi.jpg 384w,
+/static/71dd224a33c9c79420baf43984fa2225/c08c5/vim-jedi.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Nunca renda-se ao lado emacs da força (jovemnerd.com.br)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Se você programa somente em &lt;em&gt;Python&lt;/em&gt;, esqueça o &lt;em&gt;completor&lt;/em&gt; e use apenas o &lt;em&gt;jedi-vim&lt;/em&gt;. Caso contrário,
+se você programa em mais linguagens, o &lt;em&gt;completor&lt;/em&gt; ainda é uma opção atraente (por ser &quot;genérico&quot;).&lt;/p&gt;
+&lt;p&gt;Além do &lt;em&gt;completion&lt;/em&gt; o &lt;em&gt;jedi-vim&lt;/em&gt; tem outras funcionalidades que são muito úteis para lidar com grandes projetos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Goto assignments&lt;/em&gt; (&lt;code class=&quot;language-text&quot;&gt;&amp;lt;leader&amp;gt;g&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Goto definitions&lt;/em&gt; (&lt;code class=&quot;language-text&quot;&gt;&amp;lt;leader&amp;gt;d&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Mostrar documentação (&lt;code class=&quot;language-text&quot;&gt;K&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Renomear (&lt;code class=&quot;language-text&quot;&gt;&amp;lt;leader&amp;gt;r&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;Exibir uso (&lt;code class=&quot;language-text&quot;&gt;&amp;lt;leader&amp;gt;n&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Portanto, é sempre útil tê-lo no seu ambiente de desenvolvimento:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;davidhalter/jedi-vim&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;pip install jedi&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;jedi#completions_enabled &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A última linha acima é essencial para que o &lt;em&gt;completion&lt;/em&gt; do &lt;em&gt;jedi-vim&lt;/em&gt; não conflite com o do &lt;em&gt;completor&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Navegar pelo sistema de arquivos: NERDTree e ctrlp.vim&lt;/h2&gt;
+&lt;p&gt;Aqui eu vou &quot;chover no molhado&quot; e indicar &lt;a href=&quot;https://github.com/scrooloose/nerdtree&quot; title=&quot;A tree explorer plugin for vim&quot;&gt;&lt;em&gt;NERDTree&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://github.com/ctrlpvim/ctrlp.vim&quot; title=&quot;Fuzzy file, buffer, mru, tag, etc finder&quot;&gt;&lt;em&gt;ctrlp.vim&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O primeiro exibe um simpático &lt;em&gt;file explorer&lt;/em&gt; no lado esquerdo do editor, muito útil quando você não faz
+ideia do que está procurando, e tem que ter uma visão dos arquivos e diretórios do projeto:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c045d3f7c6a8468b87353f8b9171d318/6af66/vim-nerdtree.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 78.64583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAADjklEQVQ4y1VUy24cRRTtryDz6Pez+t3Vr/E8MjM9M54Z24oThwCyoiyzQEICIRSRBYqQyCZIIEBCQuxZIPENLAjBD0icOMERFht+5HC7DUEsjqpu1a1T556+1cLByY/4+eVTvDz/E6dnZ3jxxzmOnjzFw4MjHD8+weGvj/HwlyP89OgQjw6PcXD8G548e45nL85e4eT0d5w8P8Pp+V8Q9mYVrkwX2OpXmAYcFd9AlfQQ2C68MITNXISR18C0HYoZmOfB9fxXYK6HKEnw3fc/QIg8Hf2eitiWYbRqSLDaMqR2FwaRdUQJuqkgii0iVHGJ1ludLi51Og3q+WvtTpP3xdffQJhuZxhesWAHJjqaAdE0IRoEXQfzQ8iqBk1XoWgqupJMB/+PizUJkqLhnQ/vQ+BDjvF1hnzKiNSFxmp4UCwbFpUiqSp8uoy5BpVtI4osGi/g0ppuarSnk3oDt9/9CIIZKRjMPWQjSghltFoddOnGNpViEbGkqPB8k4hslKVLpdukVmkUK6pC+zXkppK3378HgaVT3Hj9FnZ3r2JzucRwNGrMb3dF2F7QJNqO3sBhBlS99lEk78R/RqmZi3Tx3Y8/heD1Suxc28ZiOUOaF3Sz3nhSw3Z9iLIC01JhWBqN/5EbtFbbYNk6ZFJY5z347CsIab+NIG5DlrsQuxJEImqMJoV1yZppUZvYCGOGmLvgmYcgYhS7iBMGL3CgGjoU3cS9B19CuD4fYtUrwGkxIG8M8qRdk9YKqcc49VeZZUiiGEmcIOMp4jBCTDGv4zRFFPgoKOf+nTsQru7tYXt3F4PxGDKVW3v3byswP0BiaAi6XQSqjFBXaFTAyUefvn5CH4bJMlw6Uwv69pO7EFbrFTZXK2R5Tt6whuiCUGw8LPsD7L+1wMagB56XKDYy8IJabTpExCPMF0PcurkiC3x8/sYUwmxeYbVekz8pfHpqNVmrUSnBIYVhHOPGtTGKot6PwNMAKaEoI2ohF6MRx/6bFfI8xH6ZQqjmm9je2WlaZr21psSSzOZUerdp7ElVYTCaoLcxQDWb4fJkivGkwnK1RsIzUj5CfzghULslMwgfvLeDxXqByXILl+cLxEWJpKSfQ5aDU7k+KffI/JBijy7yCV6D9GKP5vVenW/zCkJ/yKA5DiTThurQnyMp4MQ5XF5ANh16hgGsiOJ8CDNIobCI8qjhTUZnnCanhu4nkOMx/gaw6RSlG21TuQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de uso do NERDTree&amp;quot;&quot;
+        title=&quot;Exemplo de uso do NERDTree&quot;
+        src=&quot;/static/c045d3f7c6a8468b87353f8b9171d318/6af66/vim-nerdtree.png&quot;
+        srcset=&quot;/static/c045d3f7c6a8468b87353f8b9171d318/8514f/vim-nerdtree.png 192w,
+/static/c045d3f7c6a8468b87353f8b9171d318/804b2/vim-nerdtree.png 384w,
+/static/c045d3f7c6a8468b87353f8b9171d318/6af66/vim-nerdtree.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de uso do NERDTree&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Com o uso do &lt;a href=&quot;https://github.com/Xuyuanp/nerdtree-git-plugin&quot; title=&quot;A plugin of NERDTree showing git status&quot;&gt;&lt;em&gt;nerdtree-git-plugin&lt;/em&gt;&lt;/a&gt;
+ele fica ainda mais interessante, pois sinaliza os arquivos que sofreram modificações dentro de um
+repositório &lt;a href=&quot;/tag/git.html&quot; title=&quot;Leia mais sobre Git&quot;&gt;&lt;em&gt;Git&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Já o &lt;em&gt;ctrlp.vim&lt;/em&gt; é usado para buscas de arquivos e &lt;em&gt;buffers&lt;/em&gt;. Muito útil para quando você já tem ideia
+do que vai procurar:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e2b72ff750b60ccd7d7cbaae52dd76a4/6af66/vim-ctrlp.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAADHklEQVQ4yz1TTW8bVRSdn4BQJWDRoMbO2J7v73nzPeMZj+MQx3EcF4iSNequEmsk/gdL1my6bytoC4G2oikuDfyZw/EYdXF177vv3vPOPe896cfvvsejn37A09cv8XZzi837W7x7/w9e/XmDZ79e4/nvr/Dk2W94+ssLPP75BZ5f/4Hrl6/x5q93ePN2gxv6m83fXby5/RfSURhgNp9isVwgz3OUVYUkzRAKgSiO4QfBBwtFCNfzEIS7vSTLIKKoi13fw3xxCslXFGi2hzAMERDEY+PWRJwgL0oYlgXbdRElKZt8mLbdgYRboCTuvON6cDwX+biBVNg6AR24bNo2Wo7bNW3jrVc0nYzCjuEO0OGe1/ltre36nbdYm49bSJ6qwmDCMK0PDDTdgKqbUDUTOvOKZrFBg+2oZKPB81QEgY4oMnmYDiFM+L5CwAKSIKDP8cqyRFYUHCfuRo9iF00TI8sF4sTj2kGaecgyl2sSsEweYpKACc3QebiCrBxDClUNlk/dyG5rjuezwKSODi/BYYPB/FYCk+wsju5CUZWuZsReebiL7+33doB9WYHNm9sJG3Q3uNVrwML9voy+PECPfr930K0P5GHXLA+G3GO+f9DFd/f2EGccOZnMEBDZSTK4IoBNrwURRgRX/BCKF0ITCVTm9Cjh+v+8L5gTMERMS6DT1ydn1DCvcP/yEqerJS7PaqzWZ2hmh8jrMdK6QTmpUYwzVE2JanaE8nCG9osZqrZGVFY40AzsjxTcHYwQk5DUG6gYs7lpaszaCnWZYtLQ1zXfYY7pdIqmynF42GI6GaOtYrRti7YuMBnn0KnfJ59+ho8+vgPhmJCGhsvbK+AG/B0xWRAoFS7KNEBOBkUqUOURyjzt4jSJeDjzFSdIE76Cgs/JxefUV5g6JM0KcHW1wrcPl7i6bLE4XaLlyMv1CvOzFU4WxzinDF9dfIn1xQWO5sdYnBxheTrH+ckEX58fY70+p1QrFEUFaa83wGSa48E31GVs4V5/iJHlQfMoOq2v2xjZAYwwgRXGUFzBn+WjP1RpCmTFwFC3IFNHWXPwH2bi8Abc1kLgAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de uso do ctrlp.vim&amp;quot;&quot;
+        title=&quot;Exemplo de uso do ctrlp.vim&quot;
+        src=&quot;/static/e2b72ff750b60ccd7d7cbaae52dd76a4/6af66/vim-ctrlp.png&quot;
+        srcset=&quot;/static/e2b72ff750b60ccd7d7cbaae52dd76a4/8514f/vim-ctrlp.png 192w,
+/static/e2b72ff750b60ccd7d7cbaae52dd76a4/804b2/vim-ctrlp.png 384w,
+/static/e2b72ff750b60ccd7d7cbaae52dd76a4/6af66/vim-ctrlp.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de uso do ctrlp.vim&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A instalação através do &lt;em&gt;vim-plug&lt;/em&gt; é simples, como sempre:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;ctrlpvim/ctrlp.vim&apos;&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;scrooloose/nerdtree&apos;&lt;/span&gt; | Plug &lt;span class=&quot;token string&quot;&gt;&apos;Xuyuanp/nerdtree-git-plugin&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Bônus:&lt;/strong&gt; O &lt;a href=&quot;https://github.com/mileszs/ack.vim&quot; title=&quot;Vim plugin for the Perl module / CLI script &amp;#x27;ack&amp;#x27;&quot;&gt;&lt;em&gt;ack.vim&lt;/em&gt;&lt;/a&gt;
+é um excelente &lt;em&gt;plugin&lt;/em&gt; para buscas por conteúdo.&lt;/p&gt;
+&lt;h2&gt;Executar testes: vim-test&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://github.com/janko-m/vim-test&quot; title=&quot;Run your tests at the speed of thought&quot;&gt;&lt;em&gt;vim-test&lt;/em&gt;&lt;/a&gt; é um
+dos meus &lt;em&gt;plugins&lt;/em&gt; favoritos! Ele é um &lt;em&gt;wrapper&lt;/em&gt; que executa testes de diferentes granularidades, ou seja,
+executa o teste de um arquivo apenas, da suíte inteira, do mais próximo, do último testado, etc.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;janko-m/vim-test&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; test#&lt;span class=&quot;token keyword&quot;&gt;python&lt;/span&gt;#runner &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;pytest&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No exemplo acima, o &lt;em&gt;runner&lt;/em&gt; configurado foi o &lt;a href=&quot;https://docs.pytest.org/en/latest/&quot; title=&quot;pytest: helps you write better programs¶&quot;&gt;&lt;em&gt;pytest&lt;/em&gt;&lt;/a&gt;,
+mas dentro do ecossistema &lt;em&gt;Python&lt;/em&gt; ele suporta os seguintes &lt;em&gt;frameworks&lt;/em&gt; de testes: &lt;code class=&quot;language-text&quot;&gt;PyTest&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Django&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Nose&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Nose2&lt;/code&gt;, e &lt;code class=&quot;language-text&quot;&gt;PyUnit&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;É possível evocar o &lt;em&gt;plugin&lt;/em&gt; para os diferentes níveis de testes através dos comandos &lt;code class=&quot;language-text&quot;&gt;:TestNearest&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;:TestFile&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;:TestSuite&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;:TestLast&lt;/code&gt;
+e &lt;code class=&quot;language-text&quot;&gt;:TestVisit&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Bônus:&lt;/strong&gt; Utilizando o &lt;a href=&quot;https://github.com/tpope/vim-dispatch&quot; title=&quot;dispatch.vim: asynchronous build and test dispatcher&quot;&gt;&lt;em&gt;dispatch.vim&lt;/em&gt;&lt;/a&gt;
+como &lt;em&gt;strategy&lt;/em&gt; no &lt;em&gt;vim-test&lt;/em&gt;, será possível executar os testes assincronamente.&lt;/p&gt;
+&lt;h2&gt;Executar comandos: dispatch.vim&lt;/h2&gt;
+&lt;p&gt;Com o &lt;a href=&quot;https://github.com/tpope/vim-dispatch&quot; title=&quot;asynchronous build and test dispatcher&quot;&gt;&lt;em&gt;dispatch.vim&lt;/em&gt;&lt;/a&gt;,
+do &lt;a href=&quot;https://github.com/tpope&quot; title=&quot;Perfil no Github&quot;&gt;&lt;em&gt;Tim Pope&lt;/em&gt;&lt;/a&gt;, é possível executar comandos (como por exemplo,
+&lt;em&gt;build&lt;/em&gt; ou testes) de forma assíncrona. O &lt;em&gt;plugin&lt;/em&gt; se responsabiliza por escolher a melhor plataforma
+(&lt;em&gt;tmux&lt;/em&gt;, tela, &lt;em&gt;iTerm&lt;/em&gt;, &lt;em&gt;headless&lt;/em&gt;, etc) de acordo com o ambiente no qual o &lt;em&gt;Vim&lt;/em&gt; está rodando.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/60f4679feb34414611d3df13a39a814a/6af66/vim-dispatch.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 102.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEZUlEQVQ4y4VUW28bRRTeP4CoIInv6931Xr327nq99nodO3FCQxIISKioakERBSlcqr5AQSDKQwVSVTWJYzcXJU5aUUCVUIt4KrfStE1IUiIScRFC8Gc+zmzqPCABD5/OmW/OzJnzzZzhdn+5h70//sTPv/+FB/u/YWt3H/d3fsLGzh7u/rCLb+9u47t7O7j1/SZu3d7AN+ub+PrOJm7f38adzR+x8WAf69t7WN/aw1dbv4Irenn0D9RRq9XgVyoEH0G1TPDhFm3kcjryeROGoULTFaiqHFpFVYjTkDV1mKZBvoLzF5vgcraDan8NOctCoVhEya/AK1nEldBfK6FUtmhz4suUuGogl1cQBFlKpsH3DdiOEtq8JeHchxfAqWYORa9EG9pw3CIsp0C+E8JxPWRzNnEuJSsho2TgOBptokEQReiGTKdXkSZfVtK4cGkaXFJSIMsZSLJ0CFnN0GKyDyHJIpUoQ5QEZGSCIkDKHICNRbJpIYn3z38EzvJIr8Cj8jwqs4iyb2NgkGlYCEuu1z3StYhq1SXODf0gcGlcpDkf9QE/lKfgmjh1+h1waUVFMiUgmZaQIsSTAnhBQoJxvBDaVFoM/RDkJx5aXhDDWIZYIonjL50BZ5gKLFuGZWVIExGFgkK3KNLtEWczvYzQNynOzCmhzzRUdZm0y1BCng6RQiQWw8tvvA2u0ShjaMjH+PhgWNbYaBVHRxp44ugwRsdGMDExhqcnxjE8PBjakSeHyY5RmQFczyP92KYpRGNxnHnzPXBa1oZhWvDKFeTtgxv2gyrsghveeDZnERzoWWYLxJepRAWROI/HemLoiaXQRzIdiSRw+uw5cLVaDorGtONJqzQk0lRUFPIFCFKGINK71OgiDAQVA5WKjnJZI2ugVs+hP88jUKKoyD04++4H4KZeaWB0tB9+tY6AuqUxOg6bbl6UVWTzNmmn4/lnbZw84ePYcy5eIHvyRIDJF6t4daqByQEex8xHcdx8BK9NToG7vLCM6Zk5LC53sLSyiiWyM7MtNFvzuET87Owc2tMtzLY7uDizgIXlj3H98y/xyfUvcO2zm7hKduXTG1i6dgNrr58Ct9rp0KIZzDWbaLfbWF3tYHFxMRxfpjHjrly9Qtw81tY6WFleQrM5g1aLEjHMUVyrifn2HN565ilwuqYhmUyG4HkeadJRpFYSBCFEjJ4D43p7e5FIJMK4eDyOaDQacpFIFD09PSESWgVcvVan/nTgui61oIxs1qT3ZlKP5snP0rvLwrapn+nzMAwDDvkslvkZejI8JVPpEkWRWtQZAlculem38OHRm2InkuhmWaCu6+RL4UKNqmDJZJl9WTp9YSr1thry7PRsbOgG+uQ8uBL9NCxjhf5CNsHKZRux4K5lPEvC0B2zBN2Y7qZHJB0cK5edgpWn6wdlsCAGRVHChYxjp+8mY7qnqDv6+vpIw8ghHqc4jpFM3C7YBOP+C/8W00v/JRf5R5b/W9TlD+OZZXPMymn8DdFjyuk9B3gcAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de utilização do vim-dispatch&amp;quot;&quot;
+        title=&quot;Exemplo de utilização do vim-dispatch&quot;
+        src=&quot;/static/60f4679feb34414611d3df13a39a814a/6af66/vim-dispatch.png&quot;
+        srcset=&quot;/static/60f4679feb34414611d3df13a39a814a/8514f/vim-dispatch.png 192w,
+/static/60f4679feb34414611d3df13a39a814a/804b2/vim-dispatch.png 384w,
+/static/60f4679feb34414611d3df13a39a814a/6af66/vim-dispatch.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de utilização do vim-dispatch&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;plugin&lt;/em&gt; (até o momento) não utiliza a estratégia de &lt;em&gt;jobs&lt;/em&gt; do &lt;em&gt;Vim 8&lt;/em&gt;. Mas &lt;a href=&quot;https://github.com/tpope/vim-dispatch/pull/193&quot; title=&quot;Add initial vim jobs strategy&quot;&gt;discussões sobre o assunto&lt;/a&gt;
+tem ocorrido, e é possível que uma solução seja incorporada em breve. Se utilizar o &lt;em&gt;async&lt;/em&gt; do &lt;em&gt;Vim&lt;/em&gt; é um desejo,
+o &lt;a href=&quot;https://github.com/skywind3000/asyncrun.vim&quot; title=&quot;Run Async Shell Commands in Vim 8.0 / NeoVim and Output to Quickfix Window&quot;&gt;&lt;em&gt;asyncrun.vim&lt;/em&gt;&lt;/a&gt;
+pode ser uma melhor opção.&lt;/p&gt;
+&lt;h3&gt;Bônus: tmux&lt;/h3&gt;
+&lt;p&gt;Com o &lt;a href=&quot;https://github.com/tmux/tmux/wiki&quot; title=&quot;tmux is a terminal multiplexer&quot;&gt;&lt;em&gt;tmux&lt;/em&gt;&lt;/a&gt;, tanto o &lt;em&gt;vim-test&lt;/em&gt; quanto o &lt;em&gt;dispatch.vim&lt;/em&gt;
+ficam ainda mais interessantes:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5e4829d45afbcfd4ed3f60ed53d311af/6af66/vim-dispatch-tmux.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.72916666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAABYlAAAWJQFJUiTwAAADhUlEQVQ4y1VT224bVRSdL0CIqEnj23ju97s9M7ZjJ06cJoikCSoJpKWhrUVpJJDK5QUJJOw4IVR5Jf0P3nhDPPOGEALakDQ4LfzEYp9jqYiHpXX23nP22Zc1wg/ffY+ffvkRP5+e4vzZJc7HLzB+/jfGL/7B6fkFfv39CcdvT55yfnr2DBfj5zj/6xJnF5cv+c+LMf44G0MYfPIpHh0fYDgc4OjoCMODRzg+Psbjxyf4htmDAb4+PMQhYX84xGg0ovPB/8Dio9E+vj05gRCoKjrdRdRrNTiOgygK4fs+4jjmdrFY5CiVyy9RKBQm/lKJc5l8U1NTmF/oQmjaOuJ6HTVKWCfOsgytVovbeZ5zX1pP6aEYuq7Dtm3ODKZpcrYsC2KlgmZ7AcKco0E1TFgUZAEGlapm1U1gw3VdflHTJolUVYeiatANltDgtkp22uhAqBsqLMeF73nwCKwChiAIyPZhU1LXpcS2SWxzroWEyELgGUgCC6FnIvJ05M02hNzU4VM7rL0kSRDR7BqNnFpO0GywlhNqOcFCO0UrC9Bu0nkuwVzuo5n6aOcults+8lDCUm8Rgi1KVIWLyHcREhxLpwosZLGNZt0lNtGsOUh8A7GrYi710Mxi+C5V5jtopBH/fnPtGjY3NyH0llrYvrmF1bc/wPqtPby5+xHH2s09vLHzAKvb93Fj9wHWd/q4fut9rL1zF1tvreDO7ddxv7+B/p114uv47OEO9j7sk2zigLZDrXW6yOa7yLtLaC314Kc5LBqFk9SJE0IGM8yhe3U4nk0j8ZAwJB7SNEQY2Vi51oPgU7nzbRq8rcF1LBQLMyjMTqNcmoUiiySHIqoiaa5wFZJYhiyJKJXKpL0KqlUZoljF9PQMXnn1NTQCF8JiL8ONjTrpzKcFpHyzbDGmSTOKIq41tnUmIRZjojcMg9jjZ89zueQq1SoW8wRCo51hdbmGOArogwBhGPC/hF3SNBWSJEGWZW6rqsJtBqZHRVG4ZjVNg0i+1DYgxDUXK8skjTShZBEXMkvIXrbprCgyv2SYxkTU9AhLZJKt6RqHbuj0oAZZNWkpvopuh/5das91qB3dIkmE8Ai6ZqFSlqDKOqSqyiFWaG7kq4oK9yuE6SuzuDI1g6uFKoTORgW3P5ex/bGErYcS3vtSxb2hhnuDCe5+paI/1CfYNya+wX9xht0vZIpV0XvXxr8UFjZpyvN2EQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de utilização do vim-dispatch com tmux&amp;quot;&quot;
+        title=&quot;Exemplo de utilização do vim-dispatch com tmux&quot;
+        src=&quot;/static/5e4829d45afbcfd4ed3f60ed53d311af/6af66/vim-dispatch-tmux.png&quot;
+        srcset=&quot;/static/5e4829d45afbcfd4ed3f60ed53d311af/8514f/vim-dispatch-tmux.png 192w,
+/static/5e4829d45afbcfd4ed3f60ed53d311af/804b2/vim-dispatch-tmux.png 384w,
+/static/5e4829d45afbcfd4ed3f60ed53d311af/6af66/vim-dispatch-tmux.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de utilização do vim-dispatch com tmux&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Interessado no &lt;em&gt;tmux&lt;/em&gt;? O &lt;em&gt;bugsnag&lt;/em&gt; possui um bom &lt;a href=&quot;https://blog.bugsnag.com/tmux-and-vim/&quot; title=&quot;Tmux and Vim - even better together&quot;&gt;artigo sobre &lt;em&gt;tmux&lt;/em&gt; + &lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;.vimrc&lt;/code&gt; abaixo é o resultado de todos os &lt;em&gt;plugins&lt;/em&gt; apresentados nesse artigo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;vim&quot;&gt;&lt;pre class=&quot;language-vim&quot;&gt;&lt;code class=&quot;language-vim&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&quot; ~/.vimrc&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;begin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;~/.vim/plugged&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;&quot; Lista de plugins&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;sheerun/vim-polyglot&apos;&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;w0rp/ale&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;pip install flake8 isort yapf&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;maralla/completor.vim&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;do&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;pip install jedi&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;davidhalter/jedi-vim&apos;&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;ctrlpvim/ctrlp.vim&apos;&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;scrooloose/nerdtree&apos;&lt;/span&gt; | Plug &lt;span class=&quot;token string&quot;&gt;&apos;Xuyuanp/nerdtree-git-plugin&apos;&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;janko-m/vim-test&apos;&lt;/span&gt;
+Plug &lt;span class=&quot;token string&quot;&gt;&apos;tpope/vim-dispatch&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;token function&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;&quot; Ale&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;ale_fix_on_save &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;ale_fixers &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+\   &lt;span class=&quot;token string&quot;&gt;&apos;python&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;isort&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;yapf&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;remove_trailing_lines&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+\       &lt;span class=&quot;token string&quot;&gt;&apos;trim_whitespace&apos;&lt;/span&gt;
+\   &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+\&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;&quot; Jedi&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; g&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;jedi#completions_enabled &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;&quot; vim-test&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; test#&lt;span class=&quot;token keyword&quot;&gt;python&lt;/span&gt;#runner &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;pytest&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Embora haja uma vertente que defende o uso mínimo (ou nulo) de &lt;em&gt;plugins&lt;/em&gt; no &lt;em&gt;Vim&lt;/em&gt;, para mim eles são um dos pontos altos do editor
+e sem dúvida são os responsáveis por me ajudar a manter uma boa produtividade. Se você, assim como eu, não tem a mínima pretensão de
+ser um &quot;vim-master&quot;, use sem medo. Tenho certeza que eles te ajudarão a lidar com os problemas do dia a dia.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://justin.abrah.ms/vim/vim_and_python.html&quot;&gt;&lt;em&gt;Justin Abrahms - Vim &amp;#x26; Python: Making yourself at home&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://liuchengxu.org/posts/use-vim-as-a-python-ide/&quot;&gt;&lt;em&gt;Liu-Cheng Xu - Use Vim as a Python IDE&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/&quot;&gt;&lt;em&gt;Real Python - VIM and Python: a Match Made in Heaven&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://shapeshed.com/vim-packages/&quot;&gt;&lt;em&gt;Shapeshed - Vim: So long Pathogen, hello native package loading&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Vim: O meu editor favorito]]></title><description><![CDATA[Há um bom tempo que eu trabalho com o Vim,
+tanto tempo que quando estou em qualquer outro editor escrevo 
+para salvar e sair. Mas não comecei a utilizar o Vim por gostar de desafios… foi pura
+necessidade! Trabalhei em uma empresa onde desenvolvíamos em uma máquina
+remota, através de linha de comando…]]></description><link>https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html</link><guid isPermaLink="false">https://klauslaube.com.br/2013/03/04/vim-o-meu-editor-favorito.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 04 Mar 2013 22:34:38 GMT</pubDate><content:encoded>&lt;p&gt;Há um bom tempo que eu trabalho com o &lt;a href=&quot;http://www.vim.org/&quot; title=&quot;Página oficial do Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;,
+tanto tempo que quando estou em qualquer outro editor escrevo &lt;code class=&quot;language-text&quot;&gt;:wq&lt;/code&gt;
+para salvar e sair.&lt;/p&gt;
 &lt;p&gt;Mas não comecei a utilizar o &lt;em&gt;Vim&lt;/em&gt; por gostar de desafios… foi pura
 necessidade! Trabalhei em uma empresa onde desenvolvíamos em uma máquina
-remota, através …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 04 Mar 2013 22:34:38 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2013-03-04:/2013/03/04/vim-o-meu-editor-favorito.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>editores-de-texto</category><category>vim</category></item></channel></rss>
+remota, através de linha de comando. Logo, entre o &lt;em&gt;Vim&lt;/em&gt; e &lt;em&gt;Emacs&lt;/em&gt; (ou
+ficar subindo arquivos via &lt;em&gt;FTP&lt;/em&gt; ou &lt;em&gt;SSH&lt;/em&gt;), optei pelo mais fácil de
+usar. É claro que no início eu não conseguia encontrar facilidade de
+jeito nenhum. Navegar pelas teclas &lt;code class=&quot;language-text&quot;&gt;h&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;j&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;k&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;l&lt;/code&gt; não fazia
+sentido nenhum para mim, sem falar que (segundo os meus colegas de
+trabalho) utilizar o &lt;code class=&quot;language-text&quot;&gt;PageUp&lt;/code&gt; , &lt;code class=&quot;language-text&quot;&gt;PageDown&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Home&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;End&lt;/code&gt; era
+praticamente uma heresia.&lt;/p&gt;
+&lt;p&gt;Mas aos poucos o editor foi conquistando a minha simpatia, e foi me
+mostrando as suas principais virtudes em relação a outras aplicações. É
+fato que não sou nenhum “guru” no assunto, mas me sinto na obrigação de
+compartilhar alguns dos pontos que mais me chamaram a atenção com o uso
+do &lt;em&gt;Vim&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Todas as teclas ao alcance das mãos&lt;/h2&gt;
+&lt;p&gt;Não vou contar a &lt;a href=&quot;http://en.wikipedia.org/wiki/Vim_(text_editor)&quot; title=&quot;Leia mais sobre o Vim na Wikipedia&quot;&gt;história do &lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt;, muito menos ficar explicando
+como &lt;a href=&quot;http://aurelio.net/vim/&quot; title=&quot;o site do Aurélio é um dos melhores locais para se aprender Vim&quot;&gt;utilizar a ferramenta&lt;/a&gt;. Eu vou simplesmente apresentar os
+motivos pelo qual eu gosto desse simpático editor de textos.&lt;/p&gt;
+&lt;p&gt;A principal vantagem em usar o &lt;em&gt;Vim&lt;/em&gt; é que você tem controle total sobre
+o conteúdo, sem necessitar movimentar muito as suas mãos. O uso de
+&lt;em&gt;mouse&lt;/em&gt; é totalmente dispensável, sem falar da interface gráfica. Hoje,
+com variações como o &lt;em&gt;Gvim&lt;/em&gt;, &lt;em&gt;MacVim&lt;/em&gt; e &lt;em&gt;Pida&lt;/em&gt;, temos algumas
+facilidades e melhorias na experiência de uso (principalmente pelo uso
+da &lt;em&gt;GUI&lt;/em&gt;), em relação ao “&lt;em&gt;Vim&lt;/em&gt; puro”, que tornam o dia-a-dia muito mais
+fácil e prático.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3af7977c8baba7c273413ef8410cdbd0/0a47e/vim-layout.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 33.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAACAUlEQVQoz62Rb2gScRzGv+fPQRu2ijXsFHGEZgOLGvSmFvQig73qVVQUjNaLhGqk+KJREbIF3sVMHBXEjLZCAq90+Wdbeu53k+n55+48L2RvZqc2Vm8jemu2d73vgefNA88HHh6oiHAJ/pMMuT4EqcVjTGZqYkbBlqeTrJUiuzYLFtqArb6TrJ3aW7XR91NHqCRvpfp5C02uW32Dq4cpwECDoPH1Yq3vKNcfPLF00LRL9cavxoQ43WTW3OpMxtNwYY/6jPOoc9jduMndUgN5l7qxPvW1/NnVfsG6mq+wp0EXbqinNkC1VVFjMNvXmH5+/MdoeN91EMAG3hAYeQzKSIwQYaUbrUGVWgaxmNgvXk7ckd2sXo7Hod6JEPWtFVBqeE+lFbTLwbxOvsAREuS7vQLIZmloy8k6f4JjbALVUhomugTKQgJVEhmtMM1qKzquV0iGzwmBeb18OgSbk6+1m9cYJNvjSFqODCizDPpy5i0hPc7eazqzt2fPF8+Snfed4d3ZYtLszaVHFZzqKdRZ4Ocw8MMlKPoCZOGu31j2viGUiyEkmxeR9NBPVh+91EtPgodExzuNPJQbiJE5s+OfdxbC3BWWrfzOYJ3KRg60Sv6RbTWN2uNpaMEq7HQY4ns5Suw8wGh77JPh2/wHU1v5aGqhOvoFEoz/ZZAlY08tWiP+AKKz6aUcm1uAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Teclas do VIM&amp;quot;&quot;
+        title=&quot;Teclas do VIM&quot;
+        src=&quot;/static/3af7977c8baba7c273413ef8410cdbd0/0a47e/vim-layout.png&quot;
+        srcset=&quot;/static/3af7977c8baba7c273413ef8410cdbd0/8514f/vim-layout.png 192w,
+/static/3af7977c8baba7c273413ef8410cdbd0/804b2/vim-layout.png 384w,
+/static/3af7977c8baba7c273413ef8410cdbd0/0a47e/vim-layout.png 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Teclas do VIM&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Outro ponto interessante é que seja no &lt;em&gt;Linux&lt;/em&gt;, &lt;em&gt;Mac&lt;/em&gt; ou &lt;em&gt;Windows&lt;/em&gt;, a
+experiência básica é a mesma. Você “sofre” menos com o &lt;em&gt;layout&lt;/em&gt; do
+teclado, principalmente pelo fato do editor “abolir” o uso de
+direcionais, e manter a experiência mais “uniforme” independentemente da
+plataforma.&lt;/p&gt;
+&lt;h2&gt;Customizações&lt;/h2&gt;
+&lt;p&gt;Outra característica muito importante do &lt;em&gt;Vim&lt;/em&gt; é a sua customização. É
+possível alterar desde comportamentos básicos como fonte de texto,
+cores, teclas de atalho e navegação, até comportamentos mais avançados
+como a &lt;a href=&quot;http://net.tutsplus.com/tutorials/other/vim-essential-plugin-nerdtree/&quot; title=&quot;Conheça o NerdTree&quot;&gt;exibição de uma árvore de arquivos&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;É possível criar &lt;em&gt;plugins&lt;/em&gt; utilizando &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Lua&lt;/em&gt;, &lt;em&gt;Perl&lt;/em&gt;,
+&lt;em&gt;Ruby&lt;/em&gt;, etc. O editor também possui uma linguagem própria de &lt;em&gt;scripts&lt;/em&gt;
+chamada &lt;a href=&quot;http://en.wikipedia.org/wiki/Vimscript&quot; title=&quot;Saiba mais sobre a Vimscript no Wikipedia&quot;&gt;&lt;em&gt;Vimscript&lt;/em&gt;&lt;/a&gt;. No &lt;em&gt;site&lt;/em&gt; do &lt;em&gt;Vim&lt;/em&gt; você pode conferir uma
+&lt;a href=&quot;http://www.vim.org/scripts/index.php&quot; title=&quot;Vim scripts&quot;&gt;extensa lista de &lt;em&gt;plugins&lt;/em&gt;&lt;/a&gt;. Também é possível acompanhar o
+desenvolvimento de &lt;a href=&quot;https://github.com/vim-scripts&quot; title=&quot;vim-scripts no GitHub&quot;&gt;extensões no &lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Um dos &lt;em&gt;plugins&lt;/em&gt; mais sensacionais é o &lt;a href=&quot;https://github.com/gmarik/vundle&quot; title=&quot;Repositório do Vundle no GitHub&quot;&gt;&lt;em&gt;Vundle&lt;/em&gt;&lt;/a&gt;. Trata-se de um
+gerenciador de extensões, onde de maneira muito simples é possível
+instalar e atualizar os mais variados tipos de soluções para o editor.
+Com ele, fica muito mais fácil &lt;a href=&quot;https://github.com/kplaube/vimfiles&quot; title=&quot;Veja o meu vimrc no GitHub&quot;&gt;versionar e distribuir o seu &lt;em&gt;vimrc&lt;/em&gt;&lt;/a&gt;
+para o seu grupo de trabalho.&lt;/p&gt;
+&lt;p&gt;Abaixo estão algumas extensões que não podem faltar no meu ambiente de
+trabalho:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kien/ctrlp.vim&quot; title=&quot;Ctrlp no GitHub&quot;&gt;&lt;em&gt;ctrlp.vim&lt;/em&gt;&lt;/a&gt; – Encontre arquivos e &lt;em&gt;tags&lt;/em&gt; em seus projetos&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/scrooloose/nerdtree&quot; title=&quot;Nerdtree no GitHub&quot;&gt;&lt;em&gt;nerdtree&lt;/em&gt;&lt;/a&gt; – Explore o seu projeto através de uma árvore de
+diretórios&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/scrooloose/syntastic&quot; title=&quot;Syntastic no GitHub&quot;&gt;&lt;em&gt;syntastic&lt;/em&gt;&lt;/a&gt; – Verificador de sintaxe que abrange &lt;em&gt;Python&lt;/em&gt;,
+&lt;em&gt;Ruby&lt;/em&gt;, &lt;em&gt;PHP&lt;/em&gt;, &lt;em&gt;Javascript&lt;/em&gt;, etc&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/tpope/vim-fugitive&quot; title=&quot;Vim-fugitive no GitHub&quot;&gt;&lt;em&gt;vim-fugitive&lt;/em&gt;&lt;/a&gt; – Um &lt;em&gt;wrapper&lt;/em&gt; para utilizar o &lt;em&gt;Git&lt;/em&gt; sem sair do
+&lt;em&gt;Vim&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Lokaltog/vim-powerline&quot; title=&quot;Vim-powerline no GitHub&quot;&gt;&lt;em&gt;vim-powerline&lt;/em&gt;&lt;/a&gt; – Adicione uma &lt;em&gt;statusline&lt;/em&gt; mais eficiente ao
+seu &lt;em&gt;Vim&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vim-scripts/Wombat&quot; title=&quot;Wombat no GitHub&quot;&gt;&lt;em&gt;Wombat&lt;/em&gt;&lt;/a&gt; – Um excelente tema para o editor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Free e open source&lt;/h2&gt;
+&lt;p&gt;E por último mas não menos importante: O &lt;em&gt;Vim&lt;/em&gt; é livre, e de código
+aberto.&lt;/p&gt;
+&lt;p&gt;A sua licença de uso é peculiar, já que é compatível com a
+&lt;em&gt;GNU GPL&lt;/em&gt;, mas possui cláusulas que incentivam
+doações para &lt;a href=&quot;http://www.iccf.nl/news.html&quot; title=&quot;Leia os relatórios ICCF&quot;&gt;crianças em Uganda&lt;/a&gt;. Uma causa muito nobre do autor da
+ferramenta, &lt;em&gt;Bram Moolenaar&lt;/em&gt;, que além de manter o &lt;em&gt;Vim&lt;/em&gt; e fazer
+caridade, participa de outros tantos projetos de código aberto.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Algumas ferramentas acabam cativando os seus usuários de tal modo, que
+os pontos negativos acabam sendo (propositalmente) esquecidos. No meu
+caso o &lt;em&gt;Vim&lt;/em&gt; é uma dessas ferramentas, e embora eu entenda as críticas
+em relação a sua curva de aprendizado, ainda assim o acho mais prático
+que muita ferramenta moderna que tem “pipocado” recentemente.&lt;/p&gt;
+&lt;p&gt;Se você tem interesse, ou acha um desafio interessante utilizar o &lt;em&gt;Vim&lt;/em&gt;,
+eu recomendo que pule de cabeça agora mesmo. Não espere para acabar
+aquele manual (ou tutorial) que você vem “negligenciando” há meses. A
+maneira mais divertida é ir aprendendo de acordo com a necessidade.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

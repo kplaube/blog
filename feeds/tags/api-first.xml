@@ -1,21 +1,1031 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - api-first</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 05 Apr 2020 07:40:00 -0300</lastBuildDate><item><title>API Blueprint: Markdown é vida!</title><link>https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html</link><description>&lt;p&gt;Estamos falando sobre escrever especificações de &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre APIs"&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;
-há um bom tempo aqui no &lt;em&gt;blog&lt;/em&gt;. &lt;a href="https://klauslaube.com.br/tag/raml.html" title="Leia mais sobre RAML"&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;,
-&lt;a href="https://klauslaube.com.br/tag/swagger.html" title="Leia mais sobre Swagger"&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt; e
-&lt;a href="https://klauslaube.com.br/tag/oai.html" title="Leia mais sobre OpenAPI"&gt;&lt;em&gt;OpenAPI Specification&lt;/em&gt;&lt;/a&gt; já foram explorados, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - api-first]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API Blueprint: Markdown é vida!]]></title><description><![CDATA[Estamos falando sobre escrever especificações de APIs
+há um bom tempo aqui no blog. RAML,
+Swagger e
+OpenAPI Specification já foram explorados, e
+com os dois últimos encontramos um ecossistema rico com ferramentas extremamente
+interessantes. Há um outro simpático player no mercado, o API Blueprint,
+e…]]></description><link>https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 05 Apr 2020 07:40:00 GMT</pubDate><content:encoded>&lt;p&gt;Estamos falando sobre escrever especificações de &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;
+há um bom tempo aqui no &lt;em&gt;blog&lt;/em&gt;. &lt;a href=&quot;/tag/raml.html&quot; title=&quot;Leia mais sobre RAML&quot;&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;/tag/oai.html&quot; title=&quot;Leia mais sobre OpenAPI&quot;&gt;&lt;em&gt;OpenAPI Specification&lt;/em&gt;&lt;/a&gt; já foram explorados, e
 com os dois últimos encontramos um ecossistema rico com ferramentas extremamente
 interessantes.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Há um outro simpático &lt;em&gt;player&lt;/em&gt; no mercado, o &lt;a href=&quot;https://apiblueprint.org/&quot; title=&quot;Visite a página oficial do projeto&quot;&gt;&lt;em&gt;API Blueprint&lt;/em&gt;&lt;/a&gt;,
+e o &lt;em&gt;post&lt;/em&gt; de hoje é sobre essa prática ferramenta.&lt;/p&gt;
+&lt;h2&gt;A menor curva de aprendizado do Oeste&lt;/h2&gt;
+&lt;p&gt;Um colega de trabalho, há muito tempo atrás, me apresentou o &lt;em&gt;API Blueprint&lt;/em&gt;. Na
+ótica dele, um dos aspectos mais interessantes era a escrita utilizando &lt;em&gt;Markdown&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d9895f02d96126045e65f1a5f55eadd5/07f3a/westworld-antony-hopkins.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEDAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAAB5XiY0GF//8QAHBAAAgICAwAAAAAAAAAAAAAAAAIBAxESISMx/9oACAEBAAEFAvCzsfWC0Xl4XJ//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAADAAMAAAAAAAAAAAAAAAAAAQIQMXH/2gAIAQEABj8CngjZIlj/xAAcEAACAgIDAAAAAAAAAAAAAAAAARFBIZExYXH/2gAIAQEAAT8hxJaQeQn0S20Nsj22CJzZ/9oADAMBAAIAAwAAABCjP//EABYRAAMAAAAAAAAAAAAAAAAAABARQf/aAAgBAwEBPxBwf//EABcRAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQIBAT8QDLj/xAAaEAEBAQEBAQEAAAAAAAAAAAABEQAhMVGR/9oACAEBAAE/EEM2MxLwVxlHlMjr1Sb8ZO+EfCZLjBVPzAqsiOb/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Antony Hopkins em Westworld&quot;
+        title=&quot;É um formato para máquinas? É um formato para humanos? Que diferença faz? (tvguide.com)&quot;
+        src=&quot;/static/d9895f02d96126045e65f1a5f55eadd5/07f3a/westworld-antony-hopkins.jpg&quot;
+        srcset=&quot;/static/d9895f02d96126045e65f1a5f55eadd5/7809d/westworld-antony-hopkins.jpg 192w,
+/static/d9895f02d96126045e65f1a5f55eadd5/4ecad/westworld-antony-hopkins.jpg 384w,
+/static/d9895f02d96126045e65f1a5f55eadd5/07f3a/westworld-antony-hopkins.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;É um formato para máquinas? É um formato para humanos? Que diferença faz? (tvguide.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Sim! É verdade! Claro que utilizando o formato/extensão específico há ganhos
+como &lt;em&gt;syntax highlighting&lt;/em&gt;, mas ainda assim é possível escrever a especificação de uma &lt;em&gt;API&lt;/em&gt; somente
+com &lt;em&gt;Markdown&lt;/em&gt;, o que torna a leitura do documento mais amigável, e interoperável com ferramentas
+como o seu editor de textos, ou o próprio &lt;em&gt;Github&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b3654afe467166066f097fd131340a36/50383/api-blueprint-github-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAABYlAAAWJQFJUiTwAAABoElEQVQoz5VTi26jMBDk///vrmpCQxUMfmH8tvEDuE1oK7WNdO1oZGy8g3dnTSOcQ1xfiWDSch25rT5t7jF3X3YVymQCm63QobEx09k/n07a6VxKqbXU9SFhd0kZmHI52DgXZqmcj9o4pe2x/Z0Qqo3lQnIxz8po663zTcoZljnn/R3bJ+x3bu/jdgQcYxNCPJ/b59P5z9+nl0vXXrr9Z7iJ4UxCKSYEDSNwHDGfVY/5QISQWilljJFSWWuVPmCUVlKpWtcmxIgJJZRRykZMMJDJYTJXqidpvfc2LO6AdcZApTeAreu6gWFuGBCjBE7FoCYYIUQgEUCPrv0AKYQQ7mowycEcxEf5TUxl5Gbkmk/TgBkicgb3ldLGQIYw45wJMRvI2zl9LwGa4lPdQezD8nIlXU8mzmJMJlTI55vhX/FmWCmZ8PkV8Z6ZkD616kvn3pbHm0MM4+TWXm69XJGsqW6/aBUU1rYtHseuu8BkWZZfiKFEqTRYwvgEfYLuPYx7LIZHXBLlE+PC+fBx6f/L2yWBD4C9oF+WVG9/T/0hQfUPlRmcUoQ5/qIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Como o documento é apresentado pelo Github&quot;
+        title=&quot;Como o documento é apresentado pelo Github&quot;
+        src=&quot;/static/b3654afe467166066f097fd131340a36/50383/api-blueprint-github-example.png&quot;
+        srcset=&quot;/static/b3654afe467166066f097fd131340a36/8514f/api-blueprint-github-example.png 192w,
+/static/b3654afe467166066f097fd131340a36/804b2/api-blueprint-github-example.png 384w,
+/static/b3654afe467166066f097fd131340a36/50383/api-blueprint-github-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Como o documento é apresentado pelo Github&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Para quem já tem um &lt;code class=&quot;language-text&quot;&gt;README.md&lt;/code&gt; em seu repositório, ter um &lt;code class=&quot;language-text&quot;&gt;api.md&lt;/code&gt; não parece ser
+nenhum grande sacrifício. E dependendo do seu público alvo, ter a &quot;documentação final gerada&quot;
+pode ser tão simples quanto compartilhar o &lt;em&gt;link&lt;/em&gt; da especificação no &lt;em&gt;Github&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Mas o que é API Blueprint mesmo?&lt;/h2&gt;
+&lt;p&gt;A documentação oficial o define da seguinte forma:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) is simple and accessible to everybody involved in the API lifecycle. Its syntax is concise yet expressive. With API Blueprint you can quickly design and prototype APIs to be created or document and test already deployed mission-critical APIs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Assim como os já citados &lt;em&gt;RAML&lt;/em&gt; e &lt;em&gt;Swagger&lt;/em&gt;, o &lt;em&gt;API Blueprint&lt;/em&gt; é uma linguagem de &lt;em&gt;design&lt;/em&gt; utilizada para
+descrever &lt;em&gt;APIs&lt;/em&gt;. O seu propósito é o de encorajar o diálogo e colaboração, logo, uma ferramenta
+mais que ideal para adoção no seu processo de &lt;em&gt;API-First&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para ter os ganhos que citei anteriormente, o &lt;em&gt;API Blueprint&lt;/em&gt; usa um &quot;melhoramento&quot; do &lt;em&gt;Markdown&lt;/em&gt;
+chamado de &lt;em&gt;MSON&lt;/em&gt; (&lt;em&gt;Markdown Syntax for Object Notation&lt;/em&gt;). É com essa notação que utilizamos a síntaxe
+do &lt;em&gt;Markdown&lt;/em&gt; para descrever estruturas de dados, heranças e recursos.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md&quot; title=&quot;Leia no Github&quot;&gt;Leia a especificação do &lt;em&gt;MSON&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Começando&lt;/h2&gt;
+&lt;p&gt;Voltando ao bom e velho exemplo do &lt;a href=&quot;/2016/05/20/rest-parte-2.html&quot; title=&quot;REST: Parte 2&quot;&gt;&lt;em&gt;mini IMDB&lt;/em&gt;&lt;/a&gt;, vamos criar um arquivo &lt;code class=&quot;language-text&quot;&gt;api.md&lt;/code&gt;
+e pôr a mão na massa.&lt;/p&gt;
+&lt;p&gt;Começamos por definir qual versão do &lt;em&gt;API Blueprint&lt;/em&gt; utilizaremos, bem como descrevendo o nome da &lt;em&gt;API&lt;/em&gt; e seu propósito:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;FORMAT: A1
 
-&lt;p&gt;Há um outro simpático &lt;em&gt;player&lt;/em&gt; no mercado, o &lt;a href="https://apiblueprint.org/" title="Visite a página oficial do projeto"&gt;&lt;em&gt;API Blueprint&lt;/em&gt;&lt;/a&gt;,
-e o &lt;em&gt;post&lt;/em&gt; de hoje …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 05 Apr 2020 07:40:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-04-05:/2020/04/05/api-blueprint-markdown-e-vida.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>apis</category><category>api-first</category><category>api-blueprint</category><category>mson</category></item><item><title>API-First: Processo e ferramentas</title><link>https://klauslaube.com.br/2020/03/02/api-first-processo-e-ferramentas.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2020/02/21/o-api-first.html" title="O API-First"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; tive a oportunidade de falar
-de uma forma mais abrangente sobre o &lt;a href="https://klauslaube.com.br/tag/api-first.html" title="Leia mais sobre API-First"&gt;&lt;em&gt;API-First&lt;/em&gt;&lt;/a&gt;.
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;#&lt;/span&gt; Movies API&lt;/span&gt;
+
+This is an API Blueprint example describing a movies API.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;#&lt;/code&gt;, no &lt;em&gt;Markdown&lt;/em&gt;, é associado a um &quot;título de nível 1&quot;. Ou seja, o &lt;code class=&quot;language-text&quot;&gt;# Movies API&lt;/code&gt; se convertido em &lt;em&gt;HTML&lt;/em&gt; produziria um &lt;code class=&quot;language-text&quot;&gt;&amp;lt;h1&amp;gt;Movies API&amp;lt;/h1&amp;gt;&lt;/code&gt;.
+Nesse caso, o &lt;code class=&quot;language-text&quot;&gt;#&lt;/code&gt; produz o título da &lt;em&gt;API&lt;/em&gt;. O &lt;code class=&quot;language-text&quot;&gt;#&lt;/code&gt; também é utilizado para agrupar recursos, mas nesse caso, ele necessita da &lt;em&gt;keyword&lt;/em&gt;
+&lt;code class=&quot;language-text&quot;&gt;Group&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;FORMAT: A1
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;#&lt;/span&gt; Movies API&lt;/span&gt;
+
+This is an API Blueprint example describing a movies API.
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;#&lt;/span&gt; Group Movies&lt;/span&gt;
+
+Resources related to movies in the API.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Descrevendo recursos&lt;/h2&gt;
+&lt;p&gt;O próximo passo é descrever o recurso e seus &lt;em&gt;endpoints&lt;/em&gt;. Começaremos pelo
+&lt;em&gt;endpoint&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;. Para descrever o recurso, utilizamos o &lt;code class=&quot;language-text&quot;&gt;##&lt;/code&gt;, já a ação
+é representada através de 3 &lt;em&gt;hashtags&lt;/em&gt; (&lt;code class=&quot;language-text&quot;&gt;###&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;(...)
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;##&lt;/span&gt; Movie collection [/movies]&lt;/span&gt;
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;###&lt;/span&gt; List all Movies [GET]&lt;/span&gt;
+
+List movies in reverse order of publication.
+
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Response 200 (application/json)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quando o recurso &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt; receber uma requisição &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;, ele responderá com
+o &lt;em&gt;status code&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;200&lt;/code&gt;, e com o &lt;code class=&quot;language-text&quot;&gt;content-type&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;application/json&lt;/code&gt;. Essa última
+parte é descrita através da linha &lt;code class=&quot;language-text&quot;&gt;+ Response 200 (application/json)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1ccb40308c7e420169072dffda7afd73/50383/api-blueprint-resource-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAABYlAAAWJQFJUiTwAAABPklEQVQoz41Sy07DMBD0L/KL3PgJkDhzqdQK1JZETdo4zsuuHceP2Bs2VBwKSuloFFn2zuwjSzjnTdO0bdv3fVVVxpjpbhClFCoZY+gihPDewzVuiaWUqEH9JT+ltPxGXdfoiF4YBAsgqEmS5HA4YDQana8hl4FtEoygJTsVBZYtpRJcdHhQSg+D1rpf5jAMhHftMd0Xebbb7lhJzxwvGmftv9Oay26FfF7t1mmeZnmntIFpCKAD9GPUy8RXHyKhOjw8fTyuqorzdyY23F247uxfbrh9Y/o1Vy+5YtoT48fPU5kci5yyrCiPJX5pmp+UsR4mF+E3A9gAWJ3DzH4c94jtFueDfcQYYpg53fzDiBAjsSFmQleMOefu3y24iDFzkia4G7gi8F+2nzlPtQ5z2RHAeG+9d+MYAO6kn9uLX99W7HtoYgL2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de representação do endpoint&quot;
+        title=&quot;Exemplo de representação do endpoint&quot;
+        src=&quot;/static/1ccb40308c7e420169072dffda7afd73/50383/api-blueprint-resource-example.png&quot;
+        srcset=&quot;/static/1ccb40308c7e420169072dffda7afd73/8514f/api-blueprint-resource-example.png 192w,
+/static/1ccb40308c7e420169072dffda7afd73/804b2/api-blueprint-resource-example.png 384w,
+/static/1ccb40308c7e420169072dffda7afd73/50383/api-blueprint-resource-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de representação do endpoint&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Podemos também descrever como será o &lt;em&gt;payload&lt;/em&gt; dessa resposta.&lt;/p&gt;
+&lt;h2&gt;Descrevendo os dados&lt;/h2&gt;
+&lt;p&gt;É possível utilizar &lt;a href=&quot;https://json-schema.org/&quot; title=&quot;A vocabulary that allows you to annotate and validate JSON documents&quot;&gt;&lt;em&gt;JSON Schema&lt;/em&gt;&lt;/a&gt;
+para descrever o &lt;em&gt;payload&lt;/em&gt; de requisições e respostas. Como ilustrado nesse exemplo tirado da documentação oficial:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;###&lt;/span&gt; Create a New Question [POST]&lt;/span&gt;
+
+You may create your own question using this action. It takes a JSON object
+containing a question and a collection of answers in the form of choices.
+
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Request (application/json)
+
+  &lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Body
+
+&lt;span class=&quot;token code keyword&quot;&gt;          {
+            &quot;question&quot;: &quot;Favourite language?&quot;
+            &quot;choices&quot;: [
+              &quot;Swift&quot;,
+              &quot;Objective-C&quot;
+            ]
+          }&lt;/span&gt;
+
+  &lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Schema
+
+&lt;span class=&quot;token code keyword&quot;&gt;          {
+            &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;question&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;choices&quot;: {
+                &quot;type&quot;: &quot;array&quot;,
+                &quot;items&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;minItems&quot;: 2
+              }
+            }
+          }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;JSON Schema&lt;/em&gt; é um vocabulário poderoso para anotar e validar documentos &lt;em&gt;JSON&lt;/em&gt;. No entanto, ele pode &quot;destoar&quot; do resto do seu documento.&lt;/p&gt;
+&lt;p&gt;Há uma alternativa utilizando o próprio &lt;em&gt;MSON&lt;/em&gt;. Através da seção &lt;code class=&quot;language-text&quot;&gt;## Data structure&lt;/code&gt;, conseguimos algo semelhante com o ilustrado acima.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;(...)
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;##&lt;/span&gt; Data structures&lt;/span&gt;
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;###&lt;/span&gt; Movie&lt;/span&gt;
+
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; id: 810b43d0-fc0d-4199-8a79-25b471c880bf (string, required)
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; title: Avengers: Endgame (string, required)
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; description (string)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Descrevemos a estrutura &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;, informando o seu &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; (&lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt; e obrigatória),
+&lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;description&lt;/code&gt;. Note que este último, além de não ser obrigatório, não
+possui nenhum exemplo informado (como os dois outro campos).&lt;/p&gt;
+&lt;p&gt;Para associar a estrutura acima com a resposta de &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;, utilizamos
+&lt;code class=&quot;language-text&quot;&gt;Attributes&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;(...)
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;###&lt;/span&gt; List all Movies [GET]&lt;/span&gt;
+
+List movies in reverse order of publication.
+
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Response 200 (application/json)
+
+  &lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Attributes (array[Movie])
+
+(...)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com ajuda do tipo &lt;code class=&quot;language-text&quot;&gt;array&lt;/code&gt;, descrevemos o &lt;em&gt;payload&lt;/em&gt; da resposta do &lt;em&gt;endpoint&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5419a6bd7d33f1938a995e924d60cc45/50383/api-blueprint-data-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 132.8125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAABYlAAAWJQFJUiTwAAACeUlEQVQ4y5VU2W7bMBDU9/Uj+9QP6UOBPhZFYddp4iS2boriTZHipa7k2C0SO3YGA4ISOeRyuMsMY4wWcM6bptFaT9OUUppuQCaE6LoOxIQQ0IPYOTeOo/ce2hjjFTFj7LA/rFIfcegPwwBRhBDiOWQg2+12RVH0fQ9T9QKllFwgLgNGMwi1qqqyLDuMIYR+Afw8LaShc46AjFFa5buqzHfPz6htKel73JlhuGobjGYdYd9XD6vH/f3TDnM5TtMQk/ZJuaj8eUoXhYvGxyyX7tOX1ecfLWb8TyfWzK+Z23C/puOK2FdcE/sTm2+F/JqLO2oy63yOcN60Fer2VV22KK+bp7xkanBpGmN6SxuSXdrMeb+5u9tsfoOzMQbv3Uw3phTfz5AIZ7YhFkw1dW2snT6CkJadt4+PZVFAVtySlYcZ3AYxhsyH0CKkjYmz+enGbWOafEyzGFWVxNgrbbTUA9eDABo7J/l7CLBzjCMXqmllVVPcYlr0tMGkZLyH5NIXAPlrnctgAS5lmj6M2TCoPbAKitCNL+GMt2EO2/nAoUSASgrJpORLtJD7Rqk5vLOAkrKjm8Vy0KysWVVX6GFX/8KkJqztaQ1z3jvzQSy0ElUtt098v0ftvu62Tbct2w0XdLjg2VEcAsTwUr0KwjXHsC9a/U8M90wpNcZAhixvy/kX5y3gjmcxuD1YC7cV45xj6dCeOsdPGH0thjNDDLrDAnWME7CKMNTPhjWLbQ1l3ZI2FRfsjdshwEvEVhuS5xW6R/2e8o7QBtwmrCG0phxBi0kBF3nObaW1tTMHMxh7oDHj0hlPn1A8p9dvVjifxeVdh3NdJ0z7nyn9BTx/E9oa47lwAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de representação do payload&quot;
+        title=&quot;Exemplo de representação do payload&quot;
+        src=&quot;/static/5419a6bd7d33f1938a995e924d60cc45/50383/api-blueprint-data-example.png&quot;
+        srcset=&quot;/static/5419a6bd7d33f1938a995e924d60cc45/8514f/api-blueprint-data-example.png 192w,
+/static/5419a6bd7d33f1938a995e924d60cc45/804b2/api-blueprint-data-example.png 384w,
+/static/5419a6bd7d33f1938a995e924d60cc45/50383/api-blueprint-data-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de representação do payload&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;No fim das contas, um &lt;em&gt;JSON body&lt;/em&gt; e &lt;em&gt;JSON Schema&lt;/em&gt; é gerado através dos
+atributos &lt;em&gt;MSON&lt;/em&gt;. Por isso do bloco &lt;code class=&quot;language-text&quot;&gt;Schema&lt;/code&gt;, exibido na imagem acima.&lt;/p&gt;
+&lt;p&gt;Visite o &lt;a href=&quot;https://apiblueprint.org/documentation/tutorial.html&quot; title=&quot;Tutorial com demais verbos&quot;&gt;tutorial do &lt;em&gt;API Blueprint&lt;/em&gt;&lt;/a&gt;
+e veja como aplicar a especificação para os demais verbos &lt;em&gt;HTTP&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/kplaube/8cb39a98e0a2892412f060ad6c61704b&quot; title=&quot;Veja o exemplo completo no Gist&quot;&gt;O exemplo completo pode ser conferido aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As imagens representando a especificação foram extraídas do &lt;em&gt;plugin&lt;/em&gt; &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=develiteio.api-blueprint-viewer&quot;&gt;&lt;em&gt;API Blueprint Viewer&lt;/em&gt;&lt;/a&gt;, para o &lt;a href=&quot;/tag/vscode.html&quot; title=&quot;LEia mais sobre VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Na página de &lt;a href=&quot;https://apiblueprint.org/tools.html&quot; title=&quot;Visite o site oficial do API Blueprint&quot;&gt;&lt;em&gt;Tools&lt;/em&gt; do site oficial&lt;/a&gt; é
+possível conhecer as diferentes ferramentas à disposição, que vão desde editores até &lt;em&gt;mock servers&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nesse quesito, uma das ferramentas que me conquistou foi o &lt;a href=&quot;https://github.com/apiaryio/dredd&quot; title=&quot;Visite o repositório no Github&quot;&gt;&lt;em&gt;Dredd&lt;/em&gt;&lt;/a&gt;,
+que é utilizado para validar especificação, e funciona tanto com o &lt;em&gt;API Blueprint&lt;/em&gt; quanto com o &lt;em&gt;OpenAPI&lt;/em&gt;. Aliás,
+&lt;em&gt;OpenAPI&lt;/em&gt;/&lt;em&gt;Swagger&lt;/em&gt; ainda são &quot;campeões&quot; no quesito ferramentas disponíveis.&lt;/p&gt;
+&lt;p&gt;Pela característica do &lt;em&gt;Markdown&lt;/em&gt;, e de ser relativamente mais barato de escrever, eu tive a oportunidade de utilizar o &lt;em&gt;API Blueprint&lt;/em&gt;
+da seguinte forma:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Propostas de adições, remoções e alterações são escritas através de &lt;em&gt;API Blueprint&lt;/em&gt; e discutidas com os &lt;em&gt;stakeholders&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;A solução é escrita e o contrato é validado através do &lt;em&gt;Dredd&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Mas a especificação pública é gerada através do código-fonte, com o &lt;em&gt;Swagger&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;E a partir dessa especificação é gerada a documentação final e &lt;em&gt;SDKs&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A facilidade de escrita de documentos &lt;em&gt;API Blueprint&lt;/em&gt; faz dele uma ótima opção e um &lt;em&gt;player&lt;/em&gt; mais que interessante
+no cenário de &lt;em&gt;specs&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt;. Um terreno ainda dominado pelo &lt;em&gt;Swagger&lt;/em&gt;...&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[API-First: Processo e ferramentas]]></title><description><![CDATA[No post anterior tive a oportunidade de falar
+de uma forma mais abrangente sobre o API-First.
 O exercício é interessante, uma vez que é possível focar no conceito,
 ao invés de ferramentas e processos. Mas o objetivo
-desse artigo é cairmos de cabeça em como exercitar a ideia de forma …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 02 Mar 2020 10:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-03-02:/2020/03/02/api-first-processo-e-ferramentas.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>prism</category><category>dredd</category><category>apis</category><category>api-first</category><category>swagger</category><category>drf</category><category>oai</category></item><item><title>O API-First</title><link>https://klauslaube.com.br/2020/02/21/o-api-first.html</link><description>&lt;p&gt;Tratar &lt;em&gt;APIs&lt;/em&gt; como "first-class citizens" pode ser um desafio e tanto, principalmente quando estamos em um contexto
+desse artigo é cairmos de cabeça em como exercitar a ideia de forma prática. O…]]></description><link>https://klauslaube.com.br/2020/03/02/api-first-processo-e-ferramentas.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/03/02/api-first-processo-e-ferramentas.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 02 Mar 2020 10:15:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2020/02/21/o-api-first.html&quot; title=&quot;O API-First&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; tive a oportunidade de falar
+de uma forma mais abrangente sobre o &lt;a href=&quot;/tag/api-first.html&quot; title=&quot;Leia mais sobre API-First&quot;&gt;&lt;em&gt;API-First&lt;/em&gt;&lt;/a&gt;.
+O exercício é interessante, uma vez que é possível focar no conceito,
+ao invés de ferramentas e processos. Mas o objetivo
+desse artigo é cairmos de cabeça em como exercitar a ideia de forma prática.&lt;/p&gt;
+&lt;p&gt;O problema a ser solucionado será explicado mais abaixo, mas antes de cairmos na tentação
+de pensar no &lt;em&gt;framework &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;web&lt;/a&gt;&lt;/em&gt;, na modelagem de dados,
+em qual servidor de aplicação usar, ou em virtualizar com &lt;a href=&quot;/tag/docker.html&quot; title=&quot;Leia mais sobre Docker&quot;&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;
+e &lt;em&gt;Kubernetes&lt;/em&gt;, vamos focar primeiro na especificação.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 422px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2c76901b9a39788658f276bc3fdc012a/fa5c1/api-first-flow.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsSAAALEgHS3X78AAACE0lEQVQoz6WTXUvbUBjH++H8AAoFL0T03m8giNbBeqFChnSInTDohXdjY4jTrTYtXaxual/WrmkS0qYnabo2aZs0zes5Z4m2pLLdjD38eC7+PD8C/0Mi+D8mEiyEMIQhCHmOU6/VGJqWRFECALruUx4Syr4+hz8QIRYAThRFRWnKMpxdh/OYBLJ3TaHDQ3xygpJJnEy6b5L22RnOZgNI0t/o4sIkM5MGbTcaVv2n3e2GX7ZSqdbCghCNdqJRfmlpsrwMNzb0vb3mzo4Qi/Hb2714HBOvzPfvFCo/yOfM24Ld+zWV3dNTdXGxv7Y2WF3tr6xY6+ve1paTSKgHBz79/X2dILzj40kmrX+70QuUWSl5hjGVYa+HaBpzHGIYzLIeyzqiCCUJy3JAp4MAsOWOMxq6quqqimdZzwqDczyVY7ruyDJ1y7LxH3XNCo9Mu56zEQwyjmHr1Vrp/oFnucd79Pd3HsJBGwkSFkUE2p4gOUA3RrqtjR3N8Mb+Hju67mh+olnD4US1PTuU804uPnxJDAhCI47w0WuY+Kh8qEjlslQsMBRV/3pN+1C3bKEEipVOud6tTpxZYaSd2QSbMX53F7xI4ASBiZT+1jf9u893l+eF8083AVfF9F3re1X+URTvVaM3lRmX/oIuczhLokzaTZPWFac0BLXVUnlx1Jb0tqgFAE0QBk1e4RSj/6ztaWfo336M3/Cz8WcA9s4KAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diferença de fluxos&quot;
+        title=&quot;Diferença de fluxos&quot;
+        src=&quot;/static/2c76901b9a39788658f276bc3fdc012a/fa5c1/api-first-flow.png&quot;
+        srcset=&quot;/static/2c76901b9a39788658f276bc3fdc012a/8514f/api-first-flow.png 192w,
+/static/2c76901b9a39788658f276bc3fdc012a/804b2/api-first-flow.png 384w,
+/static/2c76901b9a39788658f276bc3fdc012a/fa5c1/api-first-flow.png 422w&quot;
+        sizes=&quot;(max-width: 422px) 100vw, 422px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Diferença de fluxos&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Com sorte seremos capazes de produzir uma &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;
+que atenda a necessidade dos nossos &lt;em&gt;stakeholders&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O problema&lt;/h2&gt;
+&lt;p&gt;Vamos &quot;reciclar&quot; o problema proposto no &lt;em&gt;post&lt;/em&gt; sobre &lt;a href=&quot;/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html&quot; title=&quot;Construindo APIs em Django com DRF&quot;&gt;&lt;em&gt;Django REST Framework&lt;/em&gt;&lt;/a&gt;
+e construir um &quot;Feedly-clone&quot;. Então, partiremos da análise do seguinte requisito funcional:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Eu como usuário,
+Quero poder visualizar notícias recentes de websites que me cadastrei,
+Para que assim eu fique atualizado sobre assuntos de meu interesse&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Com essa &lt;em&gt;user story&lt;/em&gt;, podemos pensar no processo que envolve a prática do &lt;em&gt;API-First&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O processo&lt;/h2&gt;
+&lt;p&gt;No &lt;a href=&quot;/2020/02/21/o-api-first.html&quot; title=&quot;O API-First&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; mencionei alguns passos
+que não podem faltar em um contexto de &lt;em&gt;API-First&lt;/em&gt;. &lt;em&gt;Jennifer Riggins&lt;/em&gt;, no &lt;a href=&quot;https://www.programmableweb.com/news/how-to-design-great-apis-api-first-design-and-raml/how-to/2015/07/10&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;How to Design Great APIs with Api-First Design&quot;&lt;/a&gt; traz uma visão mais prática sobre como o processo pode ser definido:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Planeje:&lt;/strong&gt; Mesmo antes de começar, decida o propósito do produto e comece a esboçar a &lt;em&gt;API&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Projete e valide:&lt;/strong&gt; Debata o conceito com outros &lt;em&gt;stakeholders&lt;/em&gt; e progrida com o &lt;em&gt;design&lt;/em&gt; da &lt;em&gt;API&lt;/em&gt;. Prove o conceito através de &lt;em&gt;mocks&lt;/em&gt; (mais a seguir) e compreenda como a &lt;em&gt;API&lt;/em&gt; será utilizada;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Oficialize a especificação:&lt;/strong&gt; Construa a especificação de acordo com o planejamento e &lt;em&gt;design&lt;/em&gt;. Gere
+a documentação baseada na &lt;em&gt;spec&lt;/em&gt;, enriqueça o &lt;em&gt;mock&lt;/em&gt; com os casos de uso e faça o &lt;em&gt;release&lt;/em&gt; da mesma;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Teste:&lt;/strong&gt; Teste para garantir que a &lt;em&gt;API&lt;/em&gt; funcione. Teste para garantir que os casos de uso são atendidos.
+Teste para se assegurar que nenhuma nova alteração quebrou o contrato estabelecido. E considere testes automatizados sempre que possível;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implemente:&lt;/strong&gt; Não apenas você (&lt;em&gt;backend&lt;/em&gt;), é hora de outros &lt;em&gt;stakeholders&lt;/em&gt; (&lt;em&gt;mobile&lt;/em&gt;, por exemplo) fazerem
+parte do processo de concepção. Quanto antes interagirem, mais cedo e (teoricamente) mais fácil será a reação
+à mudança;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Opere e engage:&lt;/strong&gt; Publique-a! Interaja com seus clientes, aprenda com necessidades que ainda precisam ser atendidas,
+e repita o processo. &lt;em&gt;API-First&lt;/em&gt; é tão sobre negócios quanto é sobre tecnologia.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/827853de225882069665ab727698912b/50383/api-first-processo.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.229166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAmklEQVQI13WK2QrCMBBF8/+/VvRFcCnYkmaxLRXUbJPJotP63OEwHC6HfffPOWeMqbXuBSyXEiEgRojZOLAOEDNAoHGeJyVFxOQ8YqKMZo8xWb9mAZANkxmklo+5Fe/mog/XsVMvPsierwipKTi2SzdaLnTPRa+eh9vYnNXpvrCPTxbKRvZYXawmkNc/BooJeRszNSSU0d+k/AD1l+RzfKFz7gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de processo com o API-First&quot;
+        title=&quot;Exemplo de processo com o API-First&quot;
+        src=&quot;/static/827853de225882069665ab727698912b/50383/api-first-processo.png&quot;
+        srcset=&quot;/static/827853de225882069665ab727698912b/8514f/api-first-processo.png 192w,
+/static/827853de225882069665ab727698912b/804b2/api-first-processo.png 384w,
+/static/827853de225882069665ab727698912b/50383/api-first-processo.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de processo com o API-First&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Vamos esmiuçar de forma prática cada um dos passos acima.&lt;/p&gt;
+&lt;h3&gt;Antes de ir: Single source of truth&lt;/h3&gt;
+&lt;p&gt;A abordagem adotada nesse &lt;em&gt;post&lt;/em&gt; seguirá valores apresentados no
+&lt;a href=&quot;https://medium.com/adobetech/three-principles-of-api-first-design-fa6666d9f694&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;Three Principles of API First Design&quot;&lt;/a&gt;. Mais especificamente:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Your API comes first, then the implementation&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;E nesse exemplo vamos separar especificação da implementação de forma &quot;concreta&quot;. Ou seja, serão dois artefatos
+independentes.&lt;/p&gt;
+&lt;p&gt;Existem alternativas a esse &lt;em&gt;approach&lt;/em&gt;, por exemplo, o uso do &lt;a href=&quot;https://github.com/axnsan12/drf-yasg&quot; title=&quot;Yet another Swagger generator&quot;&gt;&lt;em&gt;drf-yasg&lt;/em&gt;&lt;/a&gt;. Esta é uma ferramenta que gera a especificação (&lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;/tag/oai.html&quot; title=&quot;Leia mais sobre OpenApi&quot;&gt;&lt;em&gt;OpenAPI Spec&lt;/em&gt;&lt;/a&gt;) automaticamente de acordo com
+o código fonte do seu projeto &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; (com &lt;em&gt;REST Framework&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Algo deve ser muito claro independente do que optar: Só deve haver uma verdade absoluta; No caso desse artigo,
+será a especificação escrita à parte.&lt;/p&gt;
+&lt;h2&gt;1: Planeje&lt;/h2&gt;
+&lt;p&gt;Vamos usar &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt; como padrão de comunicação entre o nosso servidor e os clientes. Portanto, poderemos utilizar &lt;em&gt;Open API Spec&lt;/em&gt;
+para especificar a &lt;em&gt;API&lt;/em&gt;. Caso a solução fosse a adoção de outra tecnologia (por exemplo, &lt;em&gt;GraphQL&lt;/em&gt; ou &lt;em&gt;gRPC&lt;/em&gt;), alternativas para o passo de descrição e documentação da interface devem ser aplicadas.&lt;/p&gt;
+&lt;p&gt;Além disso, seremos o mais &quot;compliant&quot; possível com o &lt;em&gt;RESTful&lt;/em&gt;, ou seja, seguiremos à risca recomendações
+em relação a &lt;em&gt;path&lt;/em&gt;, &lt;em&gt;status codes&lt;/em&gt; e verbos. O versionamento da &lt;em&gt;API&lt;/em&gt; acontecerá via fragmento no &lt;em&gt;path&lt;/em&gt; (ex.: &lt;code class=&quot;language-text&quot;&gt;/v1/&lt;/code&gt;),
+e a princípio apresentaremos apenas respostas em &lt;em&gt;JSON&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Imaginemos que depois de ponderar com outros &lt;em&gt;stakeholders&lt;/em&gt;, chegamos à seguinte conclusão:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Título do artigo publicado no canal ABC&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;pub_date&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;data-com-timezone-incluso&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;summary&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Resumo do artigo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Conteúdo completo do artigo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;image&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;imagem-principal-do-artigo.png&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;channel&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ABC&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;http://article-1.html&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Título do artigo publicado no canal XYZ&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;pub_date&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;data-com-timezone-incluso&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;summary&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Resumo do artigo (2)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Conteúdo completo do artigo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;image&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;imagem-principal-do-artigo-2.png&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;channel&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;XYZ&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;url&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;http://article-2.html&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Além disso, esboçamos as seguintes rotas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/channels/&amp;lt;id-do-channel&amp;gt;&lt;/code&gt;: Pega a lista de artigos&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/articles/&amp;lt;id-do-artigo&amp;gt;&lt;/code&gt;: Pega o artigo completo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vamos ocultar complexidades fora do escopo da &lt;em&gt;user story&lt;/em&gt; apresentada (como por exemplo, paginação e
+autenticação). Além disso, propositalmente não definimos um formato &quot;oficial&quot; para &lt;code class=&quot;language-text&quot;&gt;pub_date&lt;/code&gt;, apenas
+determinamos que deverá ser uma data em &lt;em&gt;UTC&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Por tratar-se de um esboço inicial que gerará material para a definição do &lt;em&gt;style guide&lt;/em&gt; da &lt;em&gt;API&lt;/em&gt; e dos &lt;em&gt;endpoints&lt;/em&gt;
+em si, é natural deixarmos passar alguns detalhes que podem gerar problemas de integração.&lt;/p&gt;
+&lt;h2&gt;2: Projete e valide&lt;/h2&gt;
+&lt;p&gt;Abaixo, o documento representando exatamente o que foi acordado na seção anterior, com &lt;em&gt;OpenApi Specification&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;openapi&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;3.0.2&quot;&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Feedly&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;clone
+  &lt;span class=&quot;token key atrule&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; v1
+&lt;span class=&quot;token key atrule&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;/channels&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set of channels&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; e.g. blogs&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; websites or podcasts
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; List of channels
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; array
+                &lt;span class=&quot;token key atrule&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                  &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/schemas/Channel&quot;&lt;/span&gt;
+
+  /channels/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/parameters/id&quot;&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Details of a channel
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Channel detail response
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/schemas/Channel&quot;&lt;/span&gt;
+
+  &lt;span class=&quot;token key atrule&quot;&gt;/articles&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Set of items
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; List of articles
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; array
+                &lt;span class=&quot;token key atrule&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                  &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/schemas/Article&quot;&lt;/span&gt;
+
+  /articles/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/parameters/id&quot;&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Details of an article
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&quot;200&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Article detail response
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;#/components/schemas/Article&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token key atrule&quot;&gt;components&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;parameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; id
+      &lt;span class=&quot;token key atrule&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; path
+      &lt;span class=&quot;token key atrule&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; integer
+  &lt;span class=&quot;token key atrule&quot;&gt;schemas&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;Channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; integer
+        &lt;span class=&quot;token key atrule&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+
+    &lt;span class=&quot;token key atrule&quot;&gt;Article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; integer
+        &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;pub_date&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O artigo &lt;a href=&quot;/2018/03/15/swagger-na-pratica.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;Swagger na prática&quot;&lt;/a&gt; pode ser de ajuda caso você não esteja familiarizado com a
+síntaxe acima.&lt;/p&gt;
+&lt;h3&gt;Projete&lt;/h3&gt;
+&lt;p&gt;A partir daqui podemos pensar sob a ótica de casos de uso.
+&lt;a href=&quot;/2020/01/07/software-design-software-architecture.html&quot; title=&quot;Software Design x Software Architecture&quot;&gt;Práticas e ferramentas podem variar&lt;/a&gt;
+dependendo da sua criatividade e do seu time. Para fins didáticos vamos manter esse passo o mais simples possível.&lt;/p&gt;
+&lt;p&gt;Para início de conversa o &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;articles/&lt;/code&gt; não está alinhado o suficiente com a semântica por trás do problema. O formato &lt;em&gt;RSS&lt;/em&gt; chama o que estamos chamando de &lt;code class=&quot;language-text&quot;&gt;Article&lt;/code&gt; de &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt;, logo,
+se quisermos manter uma linguagem ubíqua é fundamental renomearmos esse elemento.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7ydaX4mWf8A/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAEQMSEyH/2gAIAQEAAQUCxlL6rS+gRZsZ/8QAFhEAAwAAAAAAAAAAAAAAAAAAAhAx/9oACAEDAQE/ASi//8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEQISIx/9oACAEBAAY/AulYow0i8+n/xAAaEAEBAAIDAAAAAAAAAAAAAAABABExIUFR/9oACAEBAAE/ISc8RjD0mMnbbXdkdK//2gAMAwEAAgADAAAAEBQv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEx/9oACAEDAQE/ENEj/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQIBAT8Qo//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExQWH/2gAIAQEAAT8QZPJAefYb2oA7Kklzp2LRMUdlQAAMGf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Projetar é uma arte, desconhecida pelo Império (movieweb.com)&quot;
+        title=&quot;Projetar é uma arte, desconhecida pelo Império (movieweb.com)&quot;
+        src=&quot;/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg&quot;
+        srcset=&quot;/static/4e027daa42357f668194d325afbcf154/7809d/deathstar.jpg 192w,
+/static/4e027daa42357f668194d325afbcf154/4ecad/deathstar.jpg 384w,
+/static/4e027daa42357f668194d325afbcf154/b4294/deathstar.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Projetar é uma arte, desconhecida pelo Império (movieweb.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Outro ponto de controvérsia em nosso esboço é que o recurso &lt;code class=&quot;language-text&quot;&gt;articles/&lt;/code&gt; poderia ser um &lt;em&gt;nested resource&lt;/em&gt; de &lt;code class=&quot;language-text&quot;&gt;channels/{id}/&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;channels/{id}&lt;/code&gt;: Detalhes do &lt;em&gt;channel&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;channels/{id}/items&lt;/code&gt;: Lista de &lt;em&gt;items&lt;/em&gt; daquele &lt;em&gt;channel&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;channels/{channel-id}/items/{item-id}&lt;/code&gt;: Detalhes do &lt;em&gt;item&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Digamos que após consultar os &lt;em&gt;stakeholders&lt;/em&gt; de &lt;em&gt;mobile&lt;/em&gt; e &lt;em&gt;web&lt;/em&gt;, eles concordem com a alteração. É exatamente esse tipo
+de questionamento que esse passo deve trazer, além de instigar a discussão com demais interessados.&lt;/p&gt;
+&lt;p&gt;Por último, mas não menos importante, vamos supor que nossos possíveis clientes não estejam propensos a mostrar
+o conteúdo completo dos artigos em sua listagem. Logo, eles estariam fazendo &quot;over-fetching&quot; de informação. Podemos
+remover esse campo (&lt;code class=&quot;language-text&quot;&gt;content&lt;/code&gt;) de &lt;code class=&quot;language-text&quot;&gt;channels/{id}/items/{id}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A especificação final você pode &lt;a href=&quot;https://gist.github.com/kplaube/d9c16eec70895349c48f9e8ec9e3e5be&quot; title=&quot;Veja mais no Gist&quot;&gt;conferir aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Antes de ir: Over-fetching e Under-fetching&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;Over-fetching&lt;/em&gt; (trazer mais conteúdo do que o necessário em um &lt;em&gt;request&lt;/em&gt;) e &lt;em&gt;under-fetching&lt;/em&gt; (trazer menos conteúdo do
+que o necessário) são problemas comuns em &lt;em&gt;APIs&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt; que possuem pluralidade de clientes.&lt;/p&gt;
+&lt;p&gt;Soluções variam, das mais ingênuas (criar um &lt;em&gt;endpoint&lt;/em&gt; para &lt;em&gt;mobile&lt;/em&gt; e um para &lt;em&gt;web&lt;/em&gt;, por exemplo) até as mais rebuscadas
+(como deixar o &lt;em&gt;REST&lt;/em&gt; de lado e adotar &lt;em&gt;GraphQL&lt;/em&gt;). O &quot;meio-termo&quot; seria a adoção de algum mecanismo que permita ao cliente
+especificar quais campos ele deseja carregar na requisição.&lt;/p&gt;
+&lt;p&gt;E é exatamente isso que o &lt;a href=&quot;https://github.com/rsinger86/drf-flex-fields&quot; title=&quot;Veja o repositório no Github&quot;&gt;&lt;em&gt;FlexFields&lt;/em&gt;&lt;/a&gt; faz
+para soluções escritas em &lt;em&gt;REST Framework&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Valide&lt;/h3&gt;
+&lt;p&gt;É hora de validarmos o contrato.&lt;/p&gt;
+&lt;p&gt;Poderíamos escrever &lt;em&gt;views&lt;/em&gt; muito simples em &lt;em&gt;Django&lt;/em&gt; (por exemplo) que atendam a especificação ao responder conteúdo estático. Mas possivelmente a melhor forma de executarmos esse passo seja através de ferramentas chamadas &lt;a href=&quot;https://openapi.tools/#mock&quot; title=&quot;Veja uma lista de mock servers&quot;&gt;&lt;em&gt;mock servers&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As opções são as mais variadas, em diferentes linguagens. A minha sugestão é o &lt;a href=&quot;https://github.com/stoplightio/prism&quot; title=&quot;Veja o repositório no Github&quot;&gt;&lt;em&gt;Prism&lt;/em&gt;&lt;/a&gt;,
+uma ferramenta escrita em &lt;em&gt;Javascript&lt;/em&gt;, fácil de instalar e usar.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://stoplight.io/p/docs/gh/stoplightio/prism/docs/getting-started/01-installation.md?srn=gh/stoplightio/prism/docs/getting-started/01-installation.md&quot; title=&quot;Documentação oficial do Prism&quot;&gt;Veja como instalar o &lt;em&gt;Prism&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Executando o &lt;em&gt;Prism&lt;/em&gt; com a especificação passada como argumento, temos um servidor fornecendo o contrato via &lt;em&gt;REST&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prism mock openapi.yml
+
+› [CLI] …  awaiting  Starting Prism…
+› [CLI] ℹ  info      GET        http://127.0.0.1:4010/channels
+› [CLI] ℹ  info      GET        http://127.0.0.1:4010/channels/869
+› [CLI] ℹ  info      GET        http://127.0.0.1:4010/channels/857/items
+› [CLI] ℹ  info      GET        http://127.0.0.1:4010/channels/226/items/12
+› [CLI] ▶  start     Prism is listening on http://127.0.0.1:4010
+
+$ curl http://127.0.0.1:4010/channels/1/items/1
+
+{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Anthony Mackie fala sobre se tornar o Capitão América&amp;quot;,&amp;quot;pub_date&amp;quot;:&amp;quot;Sat, 29 Feb 2020 19:21:37 +0000&amp;quot;,&amp;quot;summary&amp;quot;:&amp;quot;Quero que o meu Capitão América represente todo mundo, não só um grupo específico de pessoas&amp;quot;,&amp;quot;image&amp;quot;:&amp;quot;https://uploads.jovemnerd.com.br/wp-content/uploads/2020/02/anthony-mackie-capitao-america.jpg&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;Conteúdo completo&amp;quot;,&amp;quot;url&amp;quot;:&amp;quot;https://jovemnerd.com.br/nerdbunker/anthony-mackie-fala-sobre-se-tornar-o-capitao-america/&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Isso permite que novas avaliações sejam realizadas, modificações aconteçam com antecedência, casos de uso sejam testados,
+e até mesmo que outros &lt;em&gt;stakeholders&lt;/em&gt; comecem a desenvolver a parte deles sem precisar esperar pelo &lt;em&gt;backend&lt;/em&gt; todo estar pronto.&lt;/p&gt;
+&lt;h2&gt;3: Oficialize a especificação&lt;/h2&gt;
+&lt;p&gt;Nesse passo estruturamos o &lt;em&gt;release&lt;/em&gt; da especificação, gerenciamos o processo e futuras iterações, e (claro) versionamos o arquivo.&lt;/p&gt;
+&lt;p&gt;Enquanto trabalhei na &lt;a href=&quot;https://loadsmart.com/&quot; title=&quot;Book a truck in seconds&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;, mantínhamos a especificação em um repositório &lt;em&gt;Git&lt;/em&gt; e tínhamos
+um &lt;em&gt;build&lt;/em&gt; no &lt;em&gt;CI&lt;/em&gt; para publicar a documentação baseada na versão do arquivo que encontrava-se no &lt;code class=&quot;language-text&quot;&gt;master&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Possuímos várias opções para esse passo. Talvez o &lt;a href=&quot;https://github.com/Redocly/redoc&quot; title=&quot;Visite o repositório no Github&quot;&gt;&lt;em&gt;ReDoc&lt;/em&gt;&lt;/a&gt;
+seja a ferramenta mais estilosa para gerar documentação a partir do &lt;em&gt;OpenAPI&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para fins didáticos vou usar a ferramenta do &lt;em&gt;Swagger&lt;/em&gt; e expor a documentação no
+&lt;a href=&quot;https://swagger.io/tools/swagger-ui/&quot; title=&quot;Teste na nuvem&quot;&gt;&lt;em&gt;SwaggerHub&lt;/em&gt;&lt;/a&gt;: &lt;a href=&quot;https://app.swaggerhub.com/apis-docs/kplaube/feedly-clone/v1&quot;&gt;https://app.swaggerhub.com/apis-docs/kplaube/feedly-clone/v1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ddb96499d70516f24ee6d2c5389d5b70/50383/api-first-swagger-ui.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAwUlEQVQY05XNzQ7BQBSG4d4rTUisxV/EApWwsRBX4iaEsJciBJ1qzOi002nn9AztyqqpL89y3jNG01rU+1Oza5mdcbU9KqPSGtZ6k8ZgZogo8ug9ljEA6D9n8IA/XgelFECKf0zjN/45hLky+6bZS4P4yf7KwxgihSWJJJUqzeKNo+drOD3YxQsdHzyh3RCLkQBZlP+8I3q5hbPztu/s6Pg3Kl2ePgMs4HJkIo9tqlcHcFlIqCAsQwW8JRZgEoMkiz9eRbKeMkZCywAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Documentação publicada no Swagger UI&quot;
+        title=&quot;Documentação publicada no Swagger UI&quot;
+        src=&quot;/static/ddb96499d70516f24ee6d2c5389d5b70/50383/api-first-swagger-ui.png&quot;
+        srcset=&quot;/static/ddb96499d70516f24ee6d2c5389d5b70/8514f/api-first-swagger-ui.png 192w,
+/static/ddb96499d70516f24ee6d2c5389d5b70/804b2/api-first-swagger-ui.png 384w,
+/static/ddb96499d70516f24ee6d2c5389d5b70/50383/api-first-swagger-ui.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Documentação publicada no Swagger UI&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;4: Teste&lt;/h2&gt;
+&lt;p&gt;Teste sempre. Automatize sempre que possível.&lt;/p&gt;
+&lt;p&gt;Nessa etapa validaremos e garantiremos o funcionamento do contrato. Casos de uso podem ser necessários para estressar
+a coerência da &lt;em&gt;API&lt;/em&gt;. Particularmente, não acho que essa seja a camada mais interessante para testar coisas além do
+contrato estabelecido (como por exemplo, a própria lógica de negócio). Pode tornar-se uma linha tênue em sua
+&lt;a href=&quot;https://martinfowler.com/articles/practical-test-pyramid.html&quot; title=&quot;The Practical Test Pyramid&quot;&gt;pirâmide de testes&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;https://dredd.org/en/latest/quickstart.html&quot; title=&quot;Documentação do Dredd&quot;&gt;&lt;em&gt;Dredd&lt;/em&gt;&lt;/a&gt; é uma ferramenta bem interessante para testar
+a especificação construída. Ela utiliza um servidor como alvo, portanto, podemos adicioná-la ao &lt;em&gt;build pipeline&lt;/em&gt;,
+levantarmos o nosso serviço, e ela operará como uma espécie de &lt;em&gt;Component Test&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Executando contra o nosso servidor &lt;em&gt;mockado&lt;/em&gt;, tudo deveria funcionar &quot;out of the box&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ dredd ./openapi.yml http://127.0.0.1:4010
+
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:66 (from line 66 column 7 to column 13): &amp;#39;Parameter Object&amp;#39; contains unsupported key &amp;#39;schema&amp;#39;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:73 (from line 73 column 7 to column 13): &amp;#39;Parameter Object&amp;#39; contains unsupported key &amp;#39;schema&amp;#39;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:102 (from line 102 column 7 to column 12): &amp;#39;Schema Object&amp;#39; contains unsupported key &amp;#39;allOf&amp;#39;
+pass: GET (200) /channels duration: 63ms
+pass: GET (200) /channels/1 duration: 20ms
+pass: GET (200) /channels/1/items duration: 14ms
+pass: GET (200) /channels/1/items/1 duration: 11ms
+complete: 4 passing, 0 failing, 0 errors, 0 skipped, 4 total
+complete: Tests took 116ms&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um outro extra muito interessante
+é a &lt;a href=&quot;https://dredd.org/en/latest/hooks/python.html&quot; title=&quot;Leia mais na documentação do Dredd&quot;&gt;possibilidade de escrever &lt;em&gt;hooks&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, o que nos permite criar casos de uso de acordo com diferentes aspectos e contextos.&lt;/p&gt;
+&lt;h2&gt;5: Implemente&lt;/h2&gt;
+&lt;p&gt;Agora sim! Finalmente a parte divertida.&lt;/p&gt;
+&lt;p&gt;Agora é correr para o &lt;em&gt;Django&lt;/em&gt; e implementar a &lt;em&gt;API&lt;/em&gt;. Se você estiver interessado no &lt;em&gt;Django REST Framework&lt;/em&gt;, escrevi sobre ele recentemente no &lt;a href=&quot;/2020/02/13/construindo-apis-em-django-com-django-rest-framework.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;Construindo APIs em Django com Django REST Framework&quot;&lt;/a&gt;. Não perca.&lt;/p&gt;
+&lt;p&gt;Ao fim do desenvolvimento, não esqueça de executar o &lt;em&gt;Dredd&lt;/em&gt; apontando para o serviço &lt;em&gt;Django&lt;/em&gt;. Aliás, colocar essa checagem em um &lt;em&gt;CI&lt;/em&gt; é uma excelente ideia! Dependendo do seu &lt;em&gt;release train&lt;/em&gt;, a falha dessa checagem pode inclusive bloquear o seu
+&lt;em&gt;Continuous Delivery&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;6: Opere e engage&lt;/h2&gt;
+&lt;p&gt;A sua funcionalidade está pronta. O seu produto está documentado. Agora é hora de &quot;ir para a rua&quot;.&lt;/p&gt;
+&lt;p&gt;Com essa ideia de &quot;uma &lt;em&gt;API&lt;/em&gt; para todos governar&quot;, fica mais fácil ser adepto da corrente do &quot;eat your own dog food&quot;. Tendo
+outros times da sua própria organização como usuários fica mais fácil coletar &lt;em&gt;feedbacks&lt;/em&gt; e reiniciar todo o processo
+descrito com novas demandas e possíveis correções.&lt;/p&gt;
+&lt;p&gt;Para terceiros, é fundamental tratar a &lt;em&gt;API&lt;/em&gt; como parte do negócio, e ela (e sua documentação) precisa ter espaço de destaque no &lt;em&gt;website&lt;/em&gt; da sua empresa. O &lt;a href=&quot;https://www.twilio.com/&quot; title=&quot;Communication APIs for SMS, Voice and Video&quot;&gt;&lt;em&gt;Twillio&lt;/em&gt;&lt;/a&gt; faz isso
+muito bem:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c8db147667ff9c0ef3f350067bc9cb50/50383/api-first-engage.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 26.5625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABH0lEQVQY0yWOT0sCQRyG90P1SaprEASd6lAXL0GXCCJED1YQFAQdgiKoU1IrFGWReEkio9VyyVWb3Z3RmW3+7Mz8cu3huT4vr6PfW9r7tAD/amOEVEJIKxWoVKpUCS4pFkIYAKOYpeFISu55uuw6sWVjsWXEUDzWUioThGLOhZQim+u+2MvcWVy5GjWg85Z6jxxANW/gYNaJLI2AhSnpkx6iqEcCQgmOh3KC1qAVc4+L1+7pQJMh+w3HT8BUHp4WZ6azOAbWFbjW81/JTx19B0Oc0EROzgPAIETn22vu3pY/CDq0f9G4v2vW/NvD+ZVNJzKjCDjqtlFhJyzth/kSfq5HNBEZWex/tYrLcyfrS9Wqiy1f3ShM5RYaH+X87tEfcCQF6Xb7oJ8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de exposição de documentação&quot;
+        title=&quot;Exemplo de exposição de documentação&quot;
+        src=&quot;/static/c8db147667ff9c0ef3f350067bc9cb50/50383/api-first-engage.png&quot;
+        srcset=&quot;/static/c8db147667ff9c0ef3f350067bc9cb50/8514f/api-first-engage.png 192w,
+/static/c8db147667ff9c0ef3f350067bc9cb50/804b2/api-first-engage.png 384w,
+/static/c8db147667ff9c0ef3f350067bc9cb50/50383/api-first-engage.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de exposição de documentação&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Além disso, existem &lt;em&gt;marketplaces&lt;/em&gt; de &lt;em&gt;APIs&lt;/em&gt; espalhados pela &lt;em&gt;web&lt;/em&gt; que podem servir como canal de propaganda da sua &lt;em&gt;API&lt;/em&gt;. O &lt;a href=&quot;https://rapidapi.com/&quot; title=&quot;Find and Connect to Thousands of APIs&quot;&gt;RapidAPI&lt;/a&gt; é um bom exemplo de plataforma para conectar-se
+com possíveis consumidores.&lt;/p&gt;
+&lt;p&gt;Não esqueça que propiciar &lt;em&gt;SDKs&lt;/em&gt; para os seus consumidores faz parte dessa etapa. Não basta apenas escrevermos o &lt;em&gt;backend&lt;/em&gt;,
+precisamos nos engajar em escrever clientes para diferentes linguagens. O &lt;a href=&quot;https://swagger.io/tools/swagger-codegen/&quot; title=&quot;Generate server stubs and client SDKs for any API&quot;&gt;&lt;em&gt;Swagger Codegen&lt;/em&gt;&lt;/a&gt; pode ajudar nessa tarefa, gerando &lt;em&gt;SDKs&lt;/em&gt;
+a partir da especificação da sua &lt;em&gt;API&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Abordamos o processo, os passos, e quais ferramentas podemos utilizar para atender os requisitos necessários
+em cada etapa. Faltou abordar de forma prática como &quot;colocar isso tudo junto para funcionar&quot;. O &lt;em&gt;post&lt;/em&gt;
+ficou gigante, e possivelmente abordaremos em uma parte 2 como colocar isso tudo em um &lt;em&gt;CI&lt;/em&gt;, e em como
+orquestrar &lt;em&gt;release&lt;/em&gt; de especificação e &lt;em&gt;deploy&lt;/em&gt; de aplicação.&lt;/p&gt;
+&lt;p&gt;Há uma pluralidade interessante de ferramentas e serviços que giram em torno do conceito de &lt;em&gt;API-First&lt;/em&gt;. Se
+por um lado isso pode significar aumentar a complexidade do seu processo de desenvolvimento, por outro é
+também uma certa garantia de que existem outros &lt;em&gt;players&lt;/em&gt; investindo nessa prática, e que se você tem na sua
+&lt;em&gt;API&lt;/em&gt; o seu principal produto, talvez ficar por fora possa ocasionar um problema de estratégia.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://dredd.org/en/latest/index.html&quot;&gt;Dredd - HTTP API Testing Framework&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://openapi.tools/&quot;&gt;OpenAPI.Tools&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.programmableweb.com/news/how-to-design-great-apis-api-first-design-and-raml/how-to/2015/07/10&quot;&gt;ProgrammableWeb - How To Design Great APIs With API-First Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stoplight.io/p/docs/gh/stoplightio/prism&quot;&gt;Stoplightio - Prism&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/trimble-maps-engineering-blog/api-first-development-and-openapi-835afb46b7f1&quot;&gt;Trimble MAPS Engineering Blog - API-First Development and OpenAPI&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[O API-First]]></title><description><![CDATA[Tratar APIs como "first-class citizens" pode ser um desafio e tanto, principalmente quando estamos em um contexto
+de entrega rápida ou de prova de conceito. Como desenvolvedor, admito que priorizo resolver a lógica de negócio
+escrevendo código, do que discutindo contratos ou requisitos não…]]></description><link>https://klauslaube.com.br/2020/02/21/o-api-first.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/02/21/o-api-first.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 21 Feb 2020 09:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Tratar &lt;em&gt;APIs&lt;/em&gt; como &quot;first-class citizens&quot; pode ser um desafio e tanto, principalmente quando estamos em um contexto
 de entrega rápida ou de prova de conceito. Como desenvolvedor, admito que priorizo resolver a lógica de negócio
 escrevendo código, do que discutindo contratos ou requisitos não funcionais.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;h2&gt;Code-First&lt;/h2&gt;
-&lt;p&gt;O modelo de trabalho …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 21 Feb 2020 09:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-02-21:/2020/02/21/o-api-first.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>apis</category><category>api-first</category></item></channel></rss>
+&lt;p&gt;O modelo de trabalho ilustrado acima pode ser conhecido por &quot;bottom up&quot;, &quot;code first&quot;, ou apenas por &quot;aquela forma que a gente
+geralmente utiliza em nossos projetos&quot;. Onde focamos primeiro no código, e
+deixamos para depois questões relacionadas à integração dos componentes.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Kirsten Hunter&lt;/em&gt; &lt;a href=&quot;https://www.programmableweb.com/news/introduction-to-api-first-design/analysis/2016/10/31&quot; title=&quot;Introduction to API-First Design&quot;&gt;ilustra bem os efeitos colaterais de tal prática&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;APIs are created as an afterthought once the product has already been created as a tightly coupled system, with the frontend website and backend system entwined together in a highly codependent way and the REST API having to be ‘shoe-horned’ into this system as a separate entity.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Não há nada fundamentalmente errado com essa dinâmica (inclusive, &lt;a href=&quot;https://www.youtube.com/watch?v=Tb823aqgX_0&quot; title=&quot;Bottom Up vs Top Down Design in Clojure&quot;&gt;há opiniões a favor desse conceito&lt;/a&gt;), mas com o mundo
+cada vez mais &quot;microservices-driven&quot;, pensar primeiramente na interface e em quem irá usá-la pode antecipar problemas, diminuir riscos e definir contratos mais sólidos.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a9fdd4fffa4ffc01e8b677b38f1016e1/c08c5/captain-ux.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwAF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABx2BwJY//xAAbEAEAAQUBAAAAAAAAAAAAAAABAwACECExMv/aAAgBAQABBQINyCYkq/wc/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAQUAAAAAAAAAAAAAAAAAEAABAhEx/9oACAEBAAY/Ak16Yj//xAAdEAACAQQDAAAAAAAAAAAAAAAAAREQQWFxMYHB/9oACAEBAAE/IZINxsYNi6VLtnNx4KrD/9oADAMBAAIAAwAAABCDD//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EIj/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxCq/8QAGxABAQACAwEAAAAAAAAAAAAAAREAITFBYYH/2gAIAQEAAT8QAhX3oGECjIGE0HH3GLnIesBqbgvkY6kLezP/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Capitão América levantando o martelo do Thor&quot;
+        title=&quot;Não faça o dev ser merecedor para utilizar a sua API (comicbookmovie.com)&quot;
+        src=&quot;/static/a9fdd4fffa4ffc01e8b677b38f1016e1/c08c5/captain-ux.jpg&quot;
+        srcset=&quot;/static/a9fdd4fffa4ffc01e8b677b38f1016e1/7809d/captain-ux.jpg 192w,
+/static/a9fdd4fffa4ffc01e8b677b38f1016e1/4ecad/captain-ux.jpg 384w,
+/static/a9fdd4fffa4ffc01e8b677b38f1016e1/c08c5/captain-ux.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não faça o dev ser merecedor para utilizar a sua API (comicbookmovie.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Não é raro escutarmos em pleno 2020 histórias sobre times distintos trabalhando em uma grande solução, que quando
+colocaram seus serviços para funcionar juntos, descobriram uma série de problemas de integração (ou até mesmo que eles
+simplesmente não resolviam o problema).&lt;/p&gt;
+&lt;h2&gt;O que é API-First?&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;API-First&lt;/em&gt; pode ser grosseiramente resumido em &quot;trate APIs como first-class citizens&quot;.&lt;/p&gt;
+&lt;p&gt;Em outras palavras, a proposta é que &lt;em&gt;APIs&lt;/em&gt; sejam consideradas partes fundamentais
+do ecossistema de um produto, devem ser parte de sua estratégia e construção,
+e não apenas um &quot;extra&quot; ou um &quot;side product&quot;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;DZone&lt;/em&gt; define &lt;em&gt;API-First&lt;/em&gt; da &lt;a href=&quot;https://dzone.com/articles/an-api-first-development-approach-1&quot; title=&quot;An API-First Development Approach&quot;&gt;seguinte forma&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) is a strategy in which the first order of business is to develop an API that puts your target developer’s interests first and then build the product on top of it (be it a website, mobile application, or a SaaS software). By building on top of APIs with developers in mind, you and your developers are saving a lot of work while laying down the foundations for others to build on.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Elas devem ser tão cruciais quanto usuários são em estratégias &lt;em&gt;user-centric&lt;/em&gt; e a experiência
+&lt;em&gt;mobile&lt;/em&gt; é em um &lt;em&gt;approach&lt;/em&gt; &lt;em&gt;mobile-first&lt;/em&gt;. Utilizar uma abordagem &lt;em&gt;api-centric&lt;/em&gt;
+fará com que o &lt;em&gt;design&lt;/em&gt; funcione de uma ótica diferente (possibilitando maior cuidado em relação
+a consistência e reuso), e que o negócio gire em torno do contrato que está sendo definido (ocasionando
+maior interação com outros &lt;em&gt;stakeholders&lt;/em&gt; de forma antecipada, dentro do tempo de vida de desenvolvimento).&lt;/p&gt;
+&lt;h3&gt;API-centric == Developer Experience&lt;/h3&gt;
+&lt;p&gt;E se pararmos para analisar friamente o que essa ideia significa, ser &lt;em&gt;api-centric&lt;/em&gt; é no fim das contas ser &lt;em&gt;user-centric&lt;/em&gt; (ou &lt;em&gt;customer-centric&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6618483d0a44ba07fd0bef3b4e2e25c5/50383/thor-ux.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABpElEQVQY0yXRS2/TQBQFYCf2zNgz9szY87Idv8bOE4iThpaEEkSVqpuyACG1q1bqomLFHhYs+Bv8WwxId/vpHJ3rIIAC4CMX+tCXjD982P3+dv92vcJcZaU19XRSWVM1dX82324neVp1nZ3NOOWaEcdHxBsDzwXQBZEffD5f/ro/7V9MYcgwYZyr47L+er1pmibK6kToWOexynyAGA6cl6uFkhK4fz2Gwb6dPL3fXK7nOIpxyDIh7s7mPz4eFm2Nua5tV7ddGFI4hoXizrSpbFn4CI9H3tC8FPHzadfbMqsak0201K8LfdtbJQ0hrCwqITQaksZgooWTK15o3uUxxf5o5LEA7+a1oiwOIxnSAGKbcBszhqmOeSYTSkL4D+eSO1+O+cMpf76dXfVpOAw38sosLVNtErFZtDbVgoSdURT4VrB5wXwPQheCMUwi4nx/PP58enfar2Z1lRmDqaSJoVxiklye9zeHDRqBVMuYRAZjw8jAhtcMPgDIudgsL7arqzdrlchIlyytotiETCDMZm3z6fpgOGsL9crKnAcDGOT/wxD9AcpHL75E+WoDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Thor preocupado com o martelo&quot;
+        title=&quot;Não duvide da vontade do seu usuário. Ele vai descobrir um jeito de levantar o martelo (ibtimes.com)&quot;
+        src=&quot;/static/6618483d0a44ba07fd0bef3b4e2e25c5/50383/thor-ux.png&quot;
+        srcset=&quot;/static/6618483d0a44ba07fd0bef3b4e2e25c5/8514f/thor-ux.png 192w,
+/static/6618483d0a44ba07fd0bef3b4e2e25c5/804b2/thor-ux.png 384w,
+/static/6618483d0a44ba07fd0bef3b4e2e25c5/50383/thor-ux.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não duvide da vontade do seu usuário. Ele vai descobrir um jeito de levantar o martelo (ibtimes.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O usuário nesse caso passa a ser outro desenvolvedor (do mesmo time, da mesma empresa, ou de terceiros), portanto,
+&lt;em&gt;Developer eXperience&lt;/em&gt; também é parte fundamental dessa estratégia, e vem embutida em sua prática, como ilustra o &lt;a href=&quot;https://swagger.io/resources/articles/adopting-an-api-first-approach/&quot; title=&quot;Leia mais no Swagger.io&quot;&gt;&quot;Understanding the API-First Approach to Building Products&quot;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Consumers of APIs are most often developers, and developer experience (DX) can make or break the success of an API. API first ensures that developers have positive experiences using your APIs. Well-designed, well-documented, consistent APIs provide positive developer experiences because it’s easier to reuse code and onboard developers, and it reduces the learning curve.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;Os 3 princípios&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Lars Trieloff&lt;/em&gt;, no &lt;a href=&quot;https://medium.com/adobetech&quot; title=&quot;Leia o blog de tecnologia da Adobe&quot;&gt;&lt;em&gt;Adobe Tech Blog&lt;/em&gt;&lt;/a&gt;, escreve sobre
+&lt;a href=&quot;https://medium.com/adobetech/three-principles-of-api-first-design-fa6666d9f694&quot; title=&quot;Veja mais no Adobe Tech Blog&quot;&gt;três princípios fundamentais para o sucesso da prática&lt;/a&gt;,
+que acredito serem essenciais para compreender a real motivação por trás da ideia.&lt;/p&gt;
+&lt;h3&gt;1. Your API is the first user interface of your application&lt;/h3&gt;
+&lt;p&gt;Vale estressar esse ponto: Pessoas utilizando a sua &lt;em&gt;API&lt;/em&gt; são os seus usuários, e a sua &lt;em&gt;API&lt;/em&gt; precisa ser projetada com
+esses usuários em mente.&lt;/p&gt;
+&lt;p&gt;Partindo do princípio que a &lt;em&gt;API&lt;/em&gt; é o caminho mais importante de interação com o seu produto, isso significa que ela
+deve ter um investimento de tempo equivalente (ou superior) ao tempo investido no desenvolvimento de (por exemplo) interfaces
+gráficas.&lt;/p&gt;
+&lt;h3&gt;2. Your API comes first, then the implementation&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Your implementation will change frequently, your API should not.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Sua &lt;em&gt;API&lt;/em&gt; se torna um contrato que servirá como especificação para a implementação, portanto, o ideal é pensarmos como
+duas coisas separadas. Conforme a sua aplicação for evoluindo é muito provável que a sua implementação mude, mas o
+contrato deve (dentro do possível) manter-se o mesmo.&lt;/p&gt;
+&lt;h3&gt;3. Your API is described (and maybe even self-descriptive)&lt;/h3&gt;
+&lt;p&gt;Sua &lt;em&gt;API&lt;/em&gt; precisa ser compreendida por pessoas que não estavam envolvidas em seu desenvolvimento. E aqui é difícil
+escaparmos da necessidade de documentação.&lt;/p&gt;
+&lt;p&gt;E por documentação, é impossível deixar de questionar todo o esforço envolvido em ter uma documentação válida, atualizada,
+e que deveras é usável. Ferramentas estão disponíveis, e existem diferentes formas de automatizar esse processo. Tais
+ferramentas servem não somente para a criação de documentação, mas também da especificação em si (que pode ser
+também consumida por uma máquina). Por exemplo, &lt;a href=&quot;/tag/raml.html&quot; title=&quot;Leia mais sobre RAML&quot;&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;, já abordados no &lt;em&gt;blog&lt;/em&gt;, são excelentes iniciativas para
+resolver essa questão.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 597px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6d899d82e151f549bbd384bd3b7ba1de/7aa7d/thor-ux-2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHjJuM0K//EABgQAAMBAQAAAAAAAAAAAAAAAAABERAi/9oACAEBAAEFAo5eRjz/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAQEQABIXH/2gAIAQEABj8C2JGuD//EABoQAAMBAAMAAAAAAAAAAAAAAAABETEQIWH/2gAIAQEAAT8hl0PwhPptG5wybP/aAAwDAQACAAMAAAAQW8//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8QjH//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxBX/8QAGxABAQEBAQADAAAAAAAAAAAAAREAITFBscH/2gAIAQEAAT8QZBJ2k8+fzCbFAR3HFGyvclOtxt+9fe9O/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Thor aliviado com o martelo&quot;
+        title=&quot;Se o Thor tivesse uma documentação bacanuda para como funciona o martelo, Caps teria usado antes (cinemablend.com)&quot;
+        src=&quot;/static/6d899d82e151f549bbd384bd3b7ba1de/7aa7d/thor-ux-2.jpg&quot;
+        srcset=&quot;/static/6d899d82e151f549bbd384bd3b7ba1de/7809d/thor-ux-2.jpg 192w,
+/static/6d899d82e151f549bbd384bd3b7ba1de/4ecad/thor-ux-2.jpg 384w,
+/static/6d899d82e151f549bbd384bd3b7ba1de/7aa7d/thor-ux-2.jpg 597w&quot;
+        sizes=&quot;(max-width: 597px) 100vw, 597px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Se o Thor tivesse uma documentação bacanuda para como funciona o martelo, Caps teria usado antes (cinemablend.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Mas além disso, seguir padrões é outro esforço que trará resultados na usabilidade da &lt;em&gt;API&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When it comes to documentation for APIs, structured documentation beats unstructured documentation. Following a standard pattern for URLs, resource types, request methods, headers, request parameters, and response formats will make it easier to explore and understand functionality, and reduces surprises when your API grows.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Hypermedia&lt;/em&gt; parece outra excelente ideia, uma vez que serve como documentação e oferece meios para
+humanos e máquinas compreenderem melhor a sua funcionalidade.&lt;/p&gt;
+&lt;h2&gt;Camadas: API-First Development x API-First Design&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;API-First&lt;/em&gt; é sobre fazer a &lt;em&gt;API&lt;/em&gt; antes da interface &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;mobile&lt;/em&gt;? Ou
+seria sobre primeiro fazer o &lt;em&gt;design&lt;/em&gt; da &lt;em&gt;API&lt;/em&gt; e a partir daí passar para a implementação?&lt;/p&gt;
+&lt;p&gt;Uma ótica interessante sobre esse debate pode ser lida no &lt;a href=&quot;https://apievangelist.com/2014/08/11/what-is-an-api-first-strategy-adding-some-dimensions-to-this-new-question/&quot; title=&quot;Leia mais no API Evangelist&quot;&gt;&quot;What Is An API First Strategy? Adding Some Dimensions To This New Question&quot;&lt;/a&gt;, do &lt;em&gt;apievangelist.com&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Durante a pesquisa para a escrita desse &lt;em&gt;post&lt;/em&gt;, fui exposto a diferentes perspectivas, e é muito provável que eu
+tenha apresentado elas de forma &quot;misturada&quot; até aqui:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Do ponto de vista de negócio, é sobre ter uma &lt;em&gt;API&lt;/em&gt; primeiro e torná-la um produto &lt;em&gt;per se&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Do ponto de vista de tecnologia, é sobre ter uma plataforma primeiro;&lt;/li&gt;
+&lt;li&gt;Do ponto de vista de arquitetura, é sobre ter um &lt;em&gt;design&lt;/em&gt; coeso, reusável, e construído através da colaboração de diferentes &lt;em&gt;stakeholders&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Do ponto de vista de &lt;em&gt;UX&lt;/em&gt;, é sobre ter uma &lt;em&gt;API&lt;/em&gt; bem estruturada e documentada;&lt;/li&gt;
+&lt;li&gt;Do ponto de vista do desenvolvedor, é sobre ter uma especificação antes de partir para a implementação.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Qual visão você pretende adotar depende muito do contexto. Haverá casos em que o produto já existe,
+soluções já estão no ar, e você fará o movimento para um consumo baseado em &lt;em&gt;APIs&lt;/em&gt;. Ou, com sorte, você fundará
+uma &lt;em&gt;startup&lt;/em&gt; e terá controle o suficiente para primeiramente produzir uma &lt;em&gt;API&lt;/em&gt; e depois as interfaces gráficas.&lt;/p&gt;
+&lt;p&gt;Assim como há diferentes &quot;níveis de &lt;em&gt;REST&lt;/em&gt;&quot; que podemos usar no cotidiano, &lt;em&gt;API-First&lt;/em&gt; pode ser adotado em diferentes níveis
+e maneiras.&lt;/p&gt;
+&lt;p&gt;No meu caso, que atualmente trabalho em um ambiente &lt;em&gt;enterprise&lt;/em&gt; e tenho pouca influência sobre o negócio, é basicamente
+sobre &lt;a href=&quot;https://en.wikipedia.org/wiki/Design_by_contract&quot; title=&quot;Design by contract&quot;&gt;discutir o contrato primeiro&lt;/a&gt;, e ter uma especificação que sirva como documentação e que guie o meu desenvolvimento.&lt;/p&gt;
+&lt;h2&gt;Os passos&lt;/h2&gt;
+&lt;p&gt;Na primeira vez que ouvi falar sobre esse conceito, me perguntei como que de forma prática é possível exercitá-lo. De
+lá para cá já me deparei com diferentes formas e processos para adoção.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/314f16d88e407ea33e7288faad41c6c0/07f3a/captain-ux-2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABS2l2LpEJf//EABwQAAMAAQUAAAAAAAAAAAAAAAECAxIABBEhQv/aAAgBAQABBQIYnU8Xou2lx5iAxfo//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/AYx//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEQIRESkf/aAAgBAQAGPwK1w1dS8lH/xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUFRYf/aAAgBAQABPyFlkL7xH71ubC37ZPfbikbiQEmJ/9oADAMBAAIAAwAAABAs7//EABgRAQADAQAAAAAAAAAAAAAAAAEAESEx/9oACAEDAQE/EHlscan/xAAYEQADAQEAAAAAAAAAAAAAAAAAAREhUf/aAAgBAgEBPxDTiK6f/8QAGxABAQACAwEAAAAAAAAAAAAAAREAMSFhcUH/2gAIAQEAAT8QGBCmxfn3EpAYDr3HqXFOBcDSoFEesuIF5qYTAlgvef/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Capitão América com o martelo do Thor&quot;
+        title=&quot;Ver outro dev usando sua API é tão sensacional quanto o Caps usando o martelo (youtube.com)&quot;
+        src=&quot;/static/314f16d88e407ea33e7288faad41c6c0/07f3a/captain-ux-2.jpg&quot;
+        srcset=&quot;/static/314f16d88e407ea33e7288faad41c6c0/7809d/captain-ux-2.jpg 192w,
+/static/314f16d88e407ea33e7288faad41c6c0/4ecad/captain-ux-2.jpg 384w,
+/static/314f16d88e407ea33e7288faad41c6c0/07f3a/captain-ux-2.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ver outro dev usando sua API é tão sensacional quanto o Caps usando o martelo (youtube.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Inclusive, durante meu período na &lt;a href=&quot;https://loadsmart.com/#/&quot; title=&quot;Book a truck in seconds&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt;, cheguei a
+falar exatamente sobre isso em um
+&lt;a href=&quot;https://www.slideshare.net/kplaube/api-first-design&quot; title=&quot;Veja os slides da apresentação API First Design: Insights from the real-life usage&quot;&gt;&lt;em&gt;lightning talk&lt;/em&gt; na &lt;em&gt;Python Sul&lt;/em&gt;&lt;/a&gt;, e sobre como estávamos montando esse processo.&lt;/p&gt;
+&lt;p&gt;O contexto pode variar de acordo com o público alvo de sua &lt;em&gt;API&lt;/em&gt;. Por exemplo, no artigo &lt;a href=&quot;https://swagger.io/resources/articles/adopting-an-api-first-approach/&quot;&gt;&quot;Understanding the API-First Approach to Building Products&quot;&lt;/a&gt; do &lt;em&gt;swagger.io&lt;/em&gt;, há uma boa descrição do que &lt;strong&gt;não&lt;/strong&gt; pode faltar quando o assunto é prover &lt;em&gt;APIs&lt;/em&gt; dentro de uma organização:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Brainstorm:&lt;/strong&gt; Primeiro identifique os serviços chave do negócio e suas &lt;em&gt;capabilities&lt;/em&gt;. Descubra quais tipos de &lt;em&gt;APIs&lt;/em&gt;
+deveriam ser oferecidas, descreva os casos de uso para tais &lt;em&gt;APIs&lt;/em&gt;, e aponte potenciais &lt;em&gt;endpoints&lt;/em&gt; baseados nesses casos
+de uso.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Identifique os stakeholders:&lt;/strong&gt; Quem são os potenciais usuários dentro da sua organização? Tente construir uma visão
+clara e compartilhada com os demais times da sua empresa. Permita que &lt;em&gt;stakeholders&lt;/em&gt; influenciem no &lt;em&gt;design&lt;/em&gt; da &lt;em&gt;API&lt;/em&gt; e
+envolva-os em melhorias e mudanças.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Projete um contrato:&lt;/strong&gt; O contrato estabelecerá uma série de padrões e boas práticas. Descreva todas as &lt;em&gt;APIs&lt;/em&gt; e garanta
+que elas funcionarão de acordo com o acordado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Crie um style guide:&lt;/strong&gt; Com um &lt;em&gt;style guide&lt;/em&gt; será possível ter consistência entre diferentes times e serviços, dentro
+de uma mesma organização. &lt;em&gt;Status codes&lt;/em&gt;, versionamento, erros, padrões de rota, etc. Possuir uma especificação comum reduzirá o atrito para adoção de sua &lt;em&gt;API&lt;/em&gt; por outros desenvolvedores da organização.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Implemente governança:&lt;/strong&gt; Isso ajudará a estabelecer padrões e reforçar &lt;em&gt;outcomes&lt;/em&gt; esperados. Essa prática pode envolver
+de &lt;em&gt;code reviews&lt;/em&gt; a &lt;a href=&quot;https://www.mabl.com/blog/understanding-contract-testing-microservices-mabl&quot; title=&quot;Understanding Contract Testing for Microservices&quot;&gt;&lt;em&gt;contract tests&lt;/em&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Automatize processos:&lt;/strong&gt; Utilize ferramentas para automatizar o processo de geração da documentação de &lt;em&gt;API&lt;/em&gt;, validação
+de estilo, &lt;em&gt;mocking&lt;/em&gt;, versionamento, etc. Prover todo o ferramental necessário para que o usuário possa interagir com sua
+&lt;em&gt;API&lt;/em&gt; facilmente faz parte desse passo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Controle o seu portfolio de APIs:&lt;/strong&gt; Não é raro esquecermos que certo serviço já existe, portanto, possuir um sistema
+que auxilie no gerenciamento e &lt;em&gt;tracking&lt;/em&gt; de &lt;em&gt;APIs&lt;/em&gt; é fundamental.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Crie um portal para desenvolvedores internos:&lt;/strong&gt; Tenha um lugar centralizado onde usuários possam encontrar a documentação,
+especificação e demais contratos. &lt;em&gt;Developer Experience&lt;/em&gt; é importante.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Muitos desses passos, mesmo em um contexto onde você esteja provendo &lt;em&gt;APIs&lt;/em&gt; para usuários externos, fazem completo sentido
+(e provavelmente já façam parte da fase de arquitetura e &lt;em&gt;design&lt;/em&gt; do seu produto). Possuir um portal no qual você exponha
+as suas &lt;em&gt;APIs&lt;/em&gt;, como elas funcionam e como um possível parceiro é capaz de integrar-se a ela, não são apenas artefatos de
+engenharia, também são possíveis artefatos de negócios.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Se você já pratica &lt;a href=&quot;https://en.wikipedia.org/wiki/Design_by_contract&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;&lt;em&gt;design by contract&lt;/em&gt;&lt;/a&gt;,
+muito do que foi dito aqui já faz parte do seu cotidiano.&lt;/p&gt;
+&lt;p&gt;E com o &lt;em&gt;microservices&lt;/em&gt; fazendo cada vez mais &quot;parte da normalidade&quot;, &lt;em&gt;API-First&lt;/em&gt; pode parece mais um &lt;em&gt;buzzword&lt;/em&gt; para descrever
+o que já é comum. Ainda assim, não é raro escutarmos histórias sobre dois serviços diferentes que não são
+capazes de se comunicar, ou de prestadores de serviço que produzem interfaces gráficas para empresas e que na hora de &lt;br&gt;
+vinculá-las ao &lt;em&gt;back end&lt;/em&gt; a coisa simplesmente não funciona.&lt;/p&gt;
+&lt;p&gt;Lembro que o meu primeiro contato com &lt;em&gt;API-First&lt;/em&gt; foi fruto de uma necessidade de expor certa funcionalidade para um certo
+grupo de possíveis parceiros. Pensar na &lt;em&gt;API&lt;/em&gt; primeiro foi um exercício interessante, uma vez que envolveu pensar numa
+plataforma coesa, e permitiu levar em consideração questões como reuso (que ocasionou na própria empresa utilizando
+a &lt;em&gt;API&lt;/em&gt; produzida).&lt;/p&gt;
+&lt;p&gt;Lembro também que o &lt;em&gt;feedback&lt;/em&gt; foi muito bom, uma vez que certos mercados possuem uma postura bem conservadora, e pensar
+primeiro no usuário mostrou preocupação genuína com o problema do usuário e consequentemente com o produto sendo escrito.&lt;/p&gt;
+&lt;p&gt;Contratos são difíceis de serem alterados depois de implementados, então discutí-los antes permite uma resposta mais rápida
+(e indolor) à mudanças, além de proporcionar uma possível &quot;paralelidade&quot; entre servidor e consumidor no desenvolvimento da
+funcionalidade (reduzindo assim tempo de &lt;em&gt;release&lt;/em&gt; e aumentando a interação durante a implementação do contrato por ambas as partes).&lt;/p&gt;
+&lt;p&gt;Por maior que esse &lt;em&gt;post&lt;/em&gt; seja, no fim das contas &lt;em&gt;API-First&lt;/em&gt; é algo fundamentalmente simples, que assim como o &lt;em&gt;agile&lt;/em&gt;,
+parte do princípio que as pessoas (e seus problemas) são o que realmente importa.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/adobetech/three-principles-of-api-first-design-fa6666d9f694&quot;&gt;Adobe Tech Blog - Three Principles of API First Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://apievangelist.com/2014/08/11/what-is-an-api-first-strategy-adding-some-dimensions-to-this-new-question/&quot;&gt;API Evangelist - What Is An API First Strategy? Adding Some Dimensions To This New Question&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://apifriends.com/api-creation/api-first/&quot;&gt;API Friends - What is an API First definition?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dzone.com/articles/an-api-first-development-approach-1&quot;&gt;DZone - An API-First Development Approach&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dzone.com/articles/what-api-first&quot;&gt;DZone - What is API First?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.programmableweb.com/news/introduction-to-api-first-design/analysis/2016/10/31&quot;&gt;ProgrammableWeb - Introduction to API-First Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://swagger.io/resources/articles/adopting-an-api-first-approach/&quot;&gt;Swagger.io - Understanding the API-First Approach to Building Products&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Design_by_contract&quot;&gt;Wikipedia - Design by contract&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

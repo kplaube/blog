@@ -1,14 +1,251 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - acessibilidade</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 16 Feb 2011 16:09:00 -0200</lastBuildDate><item><title>As camadas do desenvolvimento Web</title><link>https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</link><description>&lt;p&gt;Se eu aprendi alguma coisa com o &lt;em&gt;xHTML&lt;/em&gt;, foi:
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - acessibilidade]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[As camadas do desenvolvimento Web]]></title><description><![CDATA[Se eu aprendi alguma coisa com o xHTML, foi:
+Separar marcação, estilos e comportamento tornam a sua vida muito mais
+feliz. Assim como tratando-se de acessibilidade, quando falamos em “camadas
+de desenvolvimento web“, estamos (a grosso modo) falando de
+semântica. E nisso, o HTML5 vem nos presenteando…]]></description><link>https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/02/16/camadas-desenvolvimento-web.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 16 Feb 2011 15:09:00 GMT</pubDate><content:encoded>&lt;p&gt;Se eu aprendi alguma coisa com o &lt;em&gt;xHTML&lt;/em&gt;, foi:
 Separar marcação, estilos e comportamento tornam a sua vida muito mais
 feliz.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Assim como tratando-se de &lt;a href="https://klauslaube.com.br/tag/acessibilidade.html" title="Leia mais sobre Acessibilidade"&gt;acessibilidade&lt;/a&gt;, quando falamos em “camadas
-de desenvolvimento &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
-semântica. E nisso, o &lt;a href="https://klauslaube.com.br/tag/html5.html" title="Leia mais sobre HTML5"&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; vem nos presenteando com &lt;em&gt;tags&lt;/em&gt;
-supimpas …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 16 Feb 2011 16:09:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-02-16:/2011/02/16/camadas-desenvolvimento-web.html</guid><category>desenvolvimento</category><category>web</category><category>html</category><category>css</category><category>javascript</category><category>acessibilidade</category></item><item><title>Garantindo acessibilidade com Javascript não obstrusivo</title><link>https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</link><description>&lt;p&gt;Em épocas onde &lt;em&gt;RIA&lt;/em&gt; está cada vez mais comum, e as interfaces &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; resolveram
+&lt;p&gt;Assim como tratando-se de &lt;a href=&quot;/tag/acessibilidade.html&quot; title=&quot;Leia mais sobre Acessibilidade&quot;&gt;acessibilidade&lt;/a&gt;, quando falamos em “camadas
+de desenvolvimento &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;“, estamos (a grosso modo) falando de
+semântica. E nisso, o &lt;a href=&quot;/tag/html5.html&quot; title=&quot;Leia mais sobre HTML5&quot;&gt;&lt;em&gt;HTML5&lt;/em&gt;&lt;/a&gt; vem nos presenteando com &lt;em&gt;tags&lt;/em&gt;
+supimpas como a &lt;code class=&quot;language-text&quot;&gt;section&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;article&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos conhecer um pouco mais sobre desenvolvimento e padrões &lt;em&gt;web&lt;/em&gt;?&lt;/p&gt;
+&lt;h2&gt;Marcação com uma boa dose de semântica&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEYUlEQVQ4y6XUXWzbVBQHcHe8gZBASLyDBOJlL0hISLwg4GESQiBe9oIEPKAB0wSFjW1iA6pV7WBibOrKxtpuY526Qjdg7aouW5esXdcuafPZfDVxPpzacRwncRIndhKn9499s88nQFzp6Nj36vx0rn1thrkzAHQx/3G4I+lNVubEEuNwRzuTs8shptVuUyyVld8qVGojhbJ61IyBuyGVqgNZuTKQNzMnyoP228Gdh85eftSqCcT5R6ysVHTm6u0gY8oRqzs6KSvqUfyLkS3U4QoknOtK7WmrbpUVaKcXrjoZxv4AmC+pfVZBy9jQm622YV4ajWbbWPSJhm2JN4S8Rudycrkp5FWsS2VuJcpttmp9a5lNnS2vhO+BYrF60AK1Now2QDJihRwcdpEzkzEyuyySdalOlGqT1LQWchW9xcs1zLnC6eHJ+ces+pkF/8OgICn9FqimeaOZy+P8VRZHxoJQ6u17241nymQ5lCetOEvM54Z0rty44Vx9wapfCae6zJfyAFht9jd5CaVr140sr4DL1XDTm0OAVRDnVWi6AX9UxuC4jzTYJJFsdsiFaj0oFJ+z6iNcrot2uLHRAbMN9EmLK1izXTMCXA2/jPspMPRHFO/stGP/oBOvvz+G3T9eh6JUifvkaYgZSYtUjOcpmL4DNtsdMCkU+4jZrmdm1vDOOdE77MHxMT/e/XwKT70yiGe2DOHJlw/hoi0I31+TJJOWUKgTzb0ao2DYAq+7w4yqd8CEoPTqpiipxJCKGt3mjt5ZPPHSD3h2y894cesw+kcWICs6RKVJzNMDQa5rPlagYChlgnYTVGodMM4rB6rmwTCfncHlNYglHf64jBMTbvx0zgXbUhI5pYGMucaZb5wv0GvNG1unYDApdtGDnS9vUDC2XuopaICXLRoeE/Iny4gKdaQLTSQkDWtCzVpDIFUx1xQSSCpIZFXNz/IUDCTugEKx3ekwq37HyQ14o7wRW6/AsejDlG0ek1fmYb/lw8JKFJ5whs4veWKEFVSw2ZrmjnIU9LMmOOcJM+m8QcFMaeMbZyCF3oOHjYETZzAyegHHTv6Kk2fGMXx2Al/s2ovvDw9iz74eHDpynPhiElhR15zBFAW9cQpGmITYoiBfwf7ZxSDe++Aj49PPduL4qd9x4vQETo1NYXTiCl597Q1sefNtdO/+Ftu2f0kWPElE+brmDKUp6IllTdAbYWJCg4LpEtnncK1h6NwlY/LaMk6PT2P0gg3nLznw55Ul7Pr6AL7a34djw7+he08P2d69Fxdnbmk6cB+86YsykYxOQX+iuJfNA7cjBX0pLBuuaMlwRov3YiVeMdxs1XCtlaxoLayKxBMvqd54ln4p7jUTXDDBEKfdBXukBuBOqPBzjYcjY2XzGKV1eu8zczi7gVBGg7ll+i0vR/hNzMyil7nhTtEfrMPNbp6e9++47PBsm77h/fgfYtuUw/PJ5Tn/h7alwONW/fRN7/3feZirMf9n2F0hmv8GnZcHrspkuVkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Representação de documentos HTML&amp;quot;&quot;
+        title=&quot;Representação de documentos HTML&quot;
+        src=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png&quot;
+        srcset=&quot;/static/70af7ff066eb915f3c30e8bc6f34bcaf/e9ff0/html-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Representação de documentos HTML&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Algumas referências vão chamar esta camada de “marcação”, outras vão direto ao
+ponto chamando-a de “informação”. Eu gosto de pensar que é através da marcação
+que damos significado a informação.&lt;/p&gt;
+&lt;p&gt;Este conceito foi fortemente utilizado no &lt;em&gt;xHTML&lt;/em&gt; (devido ao seu vínculo
+com o próprio &lt;em&gt;XML&lt;/em&gt;). Para dar significado a nossa informação através de
+hipertexto, utilizamos o &lt;em&gt;HTML&lt;/em&gt; … e nada mais!&lt;/p&gt;
+&lt;p&gt;É nesta camada que “diremos” às máquinas que determinada parte da nossa
+informação é mais relevante que a outra, que determinado bloco na
+verdade é um conjunto de meta-informação ou que o bloco no fim do
+arquivo contém informações menos relevantes. Sendo mais minucioso, é
+nesta camada que diremos o que é um parágrafo, o que é um título, um
+vínculo com outro documento, um trecho de código que mereça ênfase, uma
+lista não-ordenada que servirá como menu de navegação, etc.&lt;/p&gt;
+&lt;p&gt;Não importando qual o tipo de sistema que interpretará esta informação
+(&lt;em&gt;crawlers&lt;/em&gt;, navegadores, leitores de e-mail ou leitores &lt;em&gt;RSS&lt;/em&gt;), eles
+sabem (através do padrão &lt;em&gt;HTML&lt;/em&gt;) do que aquela informação se trata e
+como eles devem lidar com ela.&lt;/p&gt;
+&lt;h2&gt;Embelezando com estilos&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADzElEQVQ4y4VU62uTdxTun7L9A/tShA3ch8GQug8yhyhuDOZKQelCly1aEWspOjYKVbSo7IMDPy2idjT2tjRCt1nXVk3apAlJk7y5Nff7pXkvSfPs+b2paWu3+YOT933J7zznOec553S1Wi2II57/Zm87+p3W7nvXXrD/cmg2m2g0GlBVFfV6HZVKRX/qftvbbdvx79oL9NpZ0zTIsqw7VatVlEol5HI5xONxRKNRSJKEdDqtB9H99vh3ABVFQbFYRD6f1y+nUikEAgG43W44HA4sLCzAbrfD5/PB5XIhFotBI2BTCqPh9qKltcE7KZfLZZ1BKBTC5uYmlpaWYLPZMDMzg9nZWVgsFkxPT8PpdGJxcVEHTjPoC8sUwuM/ozz1+0HARCKhsxLRBYju6PXCbDbDarViYmICHo9HZxzhnZmpKTx5+hSjY2NY/ePP/TUUtRKpivqEyTLo98M6P48Vprm2ugo/vwX7cDjcLsX6OpaNBmyMXMKN741Ik9A+wK2tLWQzGUTpIEATFCLJ1FMEiyeTiO2I4VpbgzsYxN+/3EP2ohHFL47DdesGFAFCQXdFoaJ5iiKJtFmfHGtXMxpRPXkSXqYuETBIZh4yc/o2sDZogvzjMDyffIwYAxxQWWiUoyi5uTnUrl5FY3AQ2uXL0Hp6kBoehkQBwiLVjQ28YLDIwDlUz30F25efo8Q+xE4vt0Wp1aBSVXl8HBqdhanXr0M+cwbK6dOoHz6MGIsfZY0DDOoc/Qm1ofPwffQBnty+Da1Nb4ch32tsD+3uXWh37kAdGYFiMkG7fx/a6ChkMpQPHUKRwFGCedmD0ncGqBcMmPvwfTy3O6CpSmfadIYF1mxLRKKprJs6MAC5t1dn2TxyBI3ubqTfeRfhl6/gfPAr8he/RfLTHpi/6YefNa9QwM7oiZ861cnfvIkGayYbDFCuXMH20BAaR48iRrCVr3v1uklU3X3hPBqXTHje/R4s7Mso+zGbzeoj2wYUg82X7LwNSn8/mmfPQj12DIkTJ9hnRlgfP4Y94EcyX4DX6cDyLRNTPgXzqc/gkkKIE1D0rxjdfX1YKRRQ6OtDnLV6de0aljm7PvbfJtWVqGwqlYF3/SXiyz/g0dhxTE7+1lkYYlRFH+8C0ig80mxaHy3O9RTlpSCBREOLhi8US7Cv/IWH432YfHAPwVAUyWQCGf4nxnY3ZaHO60XJU+YIZsgsEonokQUDMdsFZvDs2SIePprgWlP01bX9xg7tNHZnwdLqpC5qItaYWKRiLwrnfQv4jR26d0EfWLD/t+rfZuL8A95kjBNdjIKHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ícone representando documento CSS&amp;quot;&quot;
+        title=&quot;Ícone representando documento CSS&quot;
+        src=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png&quot;
+        srcset=&quot;/static/e4657099d7865d5dabc50c5729d3853c/e9ff0/css-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ícone representando documento CSS&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Antes de fazer minha primeira
+aula de &lt;em&gt;Tableless&lt;/em&gt;, eu nem fazia ideia de quão importante são as folhas
+de estilos. Você já deve imaginar como eu desenvolvia para a &lt;em&gt;web&lt;/em&gt;:
+&lt;em&gt;WYSIWYG&lt;/em&gt; cuspindo tabelas e mais tabelas, com milhares de atributos
+“font” e “color” espalhados por dezenas de arquivos.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Um trecho de informação ser da cor verde ou azul irá afetar a
+semântica? Salvo exceções… &lt;strong&gt;não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Um título &lt;code class=&quot;language-text&quot;&gt;h1&lt;/code&gt; ser de tamanho 38px vai afetar a semântica?
+&lt;strong&gt;Não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;A imagem de fundo utilizada no topo deste &lt;em&gt;blog&lt;/em&gt; altera o
+siginifcado deste &lt;em&gt;post&lt;/em&gt;? &lt;strong&gt;Não.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Tabelas posicionarem elementos na tela é algo semântico? &lt;strong&gt;Não!&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O &lt;em&gt;Tableless&lt;/em&gt;, além de defender que as tabelas devem ser usadas apenas
+para dados tabulares, prega que a informação deve estar separada da
+formatação. Levando em conta que hoje possuímos vários tipos de
+navegadores (&lt;em&gt;desktop&lt;/em&gt;, &lt;em&gt;mobile&lt;/em&gt;, &lt;em&gt;embed&lt;/em&gt;, leitores de tela, etc), a
+informação deveria ser a mesma para todos os navegadores, mas a
+formatação não.&lt;/p&gt;
+&lt;p&gt;Com o &lt;a href=&quot;/tag/css3.html&quot; title=&quot;Leia mais sobre CSS3&quot;&gt;&lt;em&gt;CSS&lt;/em&gt;&lt;/a&gt; e as folhas de estilos, aplicar diferentes formatações
+para um mesmo conteúdo passou a ser trivial. Antes, quando você tinha a
+formatação mesclada a informação, você era obrigado a reescrever a
+informação para diferentes formatos.&lt;/p&gt;
+&lt;p&gt;Outro exemplo, meu leitor &lt;a href=&quot;/2010/11/12/o-que-e-rss.html&quot; title=&quot;O que é RSS?&quot;&gt;&lt;em&gt;RSS&lt;/em&gt;&lt;/a&gt; não utiliza a formatação que eu
+escrevi para o meu &lt;em&gt;site&lt;/em&gt; … ele utiliza uma formatação própria. Estamos
+permitindo que nossa informação seja propagada em uma espécie de
+“acoplamento fraco”. Para o pessoal que curte uma &lt;em&gt;buzzword&lt;/em&gt;, essa é a
+premissa da &lt;em&gt;Web 3.0&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Interação e comportamento&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEIElEQVQ4y5WUa0ybVRjHO2fMMtiYGhMIZHPGRCdWp5lxZgi6za0tAzcKFDa8xWiyjGWJfnDTePlgnM5Lohm7ZBPGxhDmNmGAW8JuAuFWboWWXmhLLy+lfXsvLZfSc/6eImAZjsST/HOec55zfud53uecVyCIaXK5PNrFMa1iiv8PrZr1C9IzMpYJlmhzzoTExMQ+sVhs2ykSmUQikTlWYonE9HSq0M7WHYguflYofGARKVuWGDtcIZXu8WGmESY6KzIzE56eRlOPCvveeQ9zUKFQuHwR9JWMNWzy4bXMfCk9Q+QKjkc3I8JEIhEQQmaIZCocJh0DukhwahoHDxbPQzc8k7oIujopZYV6T0EyOXRke6Sx8wTu9pyirQOl6B2qRr/xIjheRdkBtFejh8PjY2eAvv/Bh/PQ117fugCYsGlLgtno+QFq7jhRmU5Rg60KOu4i+vQ/oUX5Ebq1lZgKA0MWjtp4F+xuL+H9obn0i6OQ+Pj4+UKtTt24Ul9Wk4ZfL28lnQMn0dl/mmqH63GhNhMllRvR1FWO8UnAyNmo2mihnQNaNPeoIre7lBC+uCnEGMkLInzyqYdGP/02Dt/8/Bw5V/UuPVayGZVXD+CTrx9D8WcC1N8qwdg4hdPrgcPto3aXh3J2nvhCUygsesvDGOtjgfEr45Y3PPKoQPPqtuenzl05g9+unafV9eVouFOLxpZ6KDRK8J4AnB4/672s91GH20MmIhSFe/d5GWPdPO3ltAfncl8jkux2ekMEvHec8N4J9q0CrAhB2Jw+mEdHYLKZYbXzTE6YbQ7inwhD9g/w8RkCIFxwscWZmU4L++h6K0f01hGY7QEYRxwM5kd988do6SvDqAswcDYMma3EHZyErDAGeM9LYRHucprY6QbOQ/ScG41tJ9GqqIPOYkPpH9txs/04bneUsrGdVdxN7P4g8pcAJuwQSxjQh9a+G6T0ihQlFS9ArryDlt4GnL0kQZeqCaertjB7F+7KrxJHIIzcgsL7A98QiZxmfhIVtfvJ4aMCXG86geHRMCqvHUJFzX5mT+Nm2wUc+W4ZzlYXEH4MkMpkSwElTi3Ho0+nJjWNR/Hl90n4868y/FKWyUC/s3Tr8NWPKbh8/XN0DSqIxR1kwIL7A7cz4KB5FAo9RwbNXnSr+1F36wy+OLaB2Rq0D8jR3t8GtcWHXp2FDPM+5OQvkfK2nWJeYbBCrjZEOlQaqjC46I3mGlp+6TDtHRqh3RoT7dFaaeegjnYodRGtzYXdeTLPgnsYW+UdkiyP0TmGQSvP3rWLiYfW5oHeEWK2c1bMN+KC0myHLRRBbmFR4N4I559gUnLK8Ju5+RPZ0jw/UyBbmh+I9lk5ubP2v8rKyfPnFOwNrVv/hJXtXbuIll/0djTSlFnn/1HK5rT0mX/i35TJ+EshQbldAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ícone representando documento Javascript&amp;quot;&quot;
+        title=&quot;Ícone representando documento Javascript&quot;
+        src=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png&quot;
+        srcset=&quot;/static/315d5f80084b2ad72c5d0935e67e726c/e9ff0/js-icon.png 180w&quot;
+        sizes=&quot;(max-width: 180px) 100vw, 180px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ícone representando documento Javascript&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; é interpretado pelo navegador. Com ele, nossas aplicações &lt;em&gt;web&lt;/em&gt; podem
+fazer com que o navegador tenha um comportamento (ou interaja com os
+elementos) de uma maneira diferente da usual.&lt;/p&gt;
+&lt;p&gt;Por exemplo, podemos fazer uma página inteira ser aberta de forma
+assíncrona através de &lt;em&gt;Ajax&lt;/em&gt;, ou podemos fazer com que nossos
+formulários sejam validados antes mesmo da informação ser enviada ao
+servidor. Você pode notar que fazemos com que o navegador interaja com
+nossa informação de uma forma “fora do padrão”… já ouvi pessoas chamando
+esta camada de “interação”, outras de “comportamento”. Na minha opinião,
+a última opção faz mais sentido.&lt;/p&gt;
+&lt;p&gt;Os seus &lt;em&gt;scripts&lt;/em&gt;, assim como os seus estilos, não devem estar
+“mesclados” com a informação. Pense comigo, se a informação pode ser
+acessada por leitores &lt;em&gt;RSS&lt;/em&gt;, é bem provável que eles não entendam
+&lt;em&gt;Javascript&lt;/em&gt; (ou que não entendam na plenitude de um navegador Web).
+Certo?&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Mas afinal de contas, como separo as camadas de desenvolvimento? Muito
+simples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Informação deve ser sempre acessível, indiferente do estilo ou
+comportamento da sua aplicação (ou seja, só &lt;em&gt;HTML&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Qualquer espécie de formato que você irá aplicar deve estar contido
+em folhas de estilo &lt;em&gt;CSS&lt;/em&gt; (ou seja, fontes, tamanhos, cores)&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Javascript&lt;/em&gt; não devem estar misturados com &lt;em&gt;HTML&lt;/em&gt;! Nem mesmo em
+atributos como &lt;em&gt;onClick&lt;/em&gt; (com a &lt;em&gt;jQuery&lt;/em&gt; isso se torna muito fácil)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sei muito bem que na prática a coisa pode não ser bem assim. Os
+navegadores estão preparados para lidar com esse tipo de situação, mas
+não caia nessa! Separar o seu desenvolvimento em camadas só faz bem para
+você, para o seu cliente e para a sociedade.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Garantindo acessibilidade com Javascript não obstrusivo]]></title><description><![CDATA[Em épocas onde RIA está cada vez mais comum, e as interfaces web resolveram
+parecer-se cada vez mais com ambientes desktops, tenho reparado um
+grande movimento a favor da acessibilidade, afinal, como bons
+profissionais que somos temos que garantir que a informação que estamos
+disponibilizando seja…]]></description><link>https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 18 Nov 2010 08:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Em épocas onde &lt;em&gt;RIA&lt;/em&gt; está cada vez mais comum, e as interfaces &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; resolveram
 parecer-se cada vez mais com ambientes &lt;em&gt;desktops&lt;/em&gt;, tenho reparado um
 grande movimento a favor da acessibilidade, afinal, como bons
 profissionais que somos temos que garantir que a informação que estamos
-disponibilizando seja acessada por uma gama …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 18 Nov 2010 09:00:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-11-18:/2010/11/18/acessibilidade-javascript-nao-obstrusivo.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>acessibilidade</category></item></channel></rss>
+disponibilizando seja acessada por uma gama de pessoas, inclusive
+aquelas com necessidades especiais.&lt;/p&gt;
+&lt;h2&gt;Preocupe-se com a acessibilidade&lt;/h2&gt;
+&lt;p&gt;Quando você lê “&lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; não obstrusivo”, você está lendo que
+uma aplicação &lt;em&gt;web&lt;/em&gt;, mesmo que recheada de requisições &lt;em&gt;Ajax&lt;/em&gt;, possa
+funcionar em navegadores mais modestos (como o &lt;a href=&quot;http://pt.wikipedia.org/wiki/Lynx_(navegador)&quot; title=&quot;Não conhece o Lynx?&quot;&gt;&lt;em&gt;Lynx&lt;/em&gt;&lt;/a&gt;, dispositivos
+&lt;em&gt;mobile&lt;/em&gt;, navegadores específicos para pessoas com necessidades
+especiais (leitores de tela, por exemplo) ou até mesmo em outras
+máquinas (no caso de serviços &lt;em&gt;web&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.tableless.com.br/principais-pontos-da-acessibilidade-na-web&quot; title=&quot;Principais pontos da Acessibilidade na Web&quot;&gt;&lt;em&gt;Diego Eis (do Tableless)&lt;/em&gt;&lt;/a&gt; comenta que para garantir
+acessibilidade em suas aplicações &lt;em&gt;web&lt;/em&gt; é necessário que:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Funcione em diversos dispositivos (&lt;em&gt;handhelds&lt;/em&gt;, &lt;em&gt;WebTV&lt;/em&gt;, &lt;em&gt;tablets&lt;/em&gt;, etc);&lt;/li&gt;
+&lt;li&gt;Funcione em várias plataformas (&lt;em&gt;Windows&lt;/em&gt;, &lt;em&gt;Linux&lt;/em&gt;, &lt;em&gt;Mac&lt;/em&gt;, etc);&lt;/li&gt;
+&lt;li&gt;Funcione em diversos navegadores;&lt;/li&gt;
+&lt;li&gt;Seja acessível por todos os tipos de pessoas (incluindo pessoas com deficiência motora ou visual).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A pergunta que não quer calar: Como posso fazer da minha aplicação
+&lt;em&gt;web&lt;/em&gt;, que tem centenas de eventos &lt;em&gt;Javascript&lt;/em&gt; e centenas de
+requisições &lt;em&gt;Ajax&lt;/em&gt;, ser “não obstrusiva”?&lt;/p&gt;
+&lt;h2&gt;Não deixe que o Javascript interfira na informação&lt;/h2&gt;
+&lt;p&gt;Quem vem do &lt;em&gt;xHTML&lt;/em&gt; já tem por hábito separar o &lt;em&gt;front-end&lt;/em&gt; em três
+áreas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Informação (conteúdo)&lt;/li&gt;
+&lt;li&gt;Estilos (aparência)&lt;/li&gt;
+&lt;li&gt;Comportamento (interação)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Podemos chamá-las de &lt;strong&gt;camadas&lt;/strong&gt; se preferir. O importante é que uma
+área deve impactar o mínimo possível sobre a outra (ou seja, interferir
+“diretamente”). Isto é possível eliminando o uso de instruções &lt;em&gt;inline&lt;/em&gt;,
+usando folhas de estilos ao invés de instruções &lt;em&gt;style&lt;/em&gt; e adicionando
+eventos ao &lt;em&gt;Javascript&lt;/em&gt; através de métodos da linguagem (e não atributos
+dos elementos &lt;em&gt;HTML&lt;/em&gt; como o &lt;em&gt;onClick&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Pode parecer difícil enriquecer uma aplicação e preocupar-se com
+acessibilidade, mas faça o seguinte:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Comece com um &lt;em&gt;HTML&lt;/em&gt; bem escrito (e semântico)&lt;/li&gt;
+&lt;li&gt;Construa a aparência através de folhas de estilos externas (de preferência)&lt;/li&gt;
+&lt;li&gt;Aplique o comportamento necessário através de &lt;em&gt;scripts&lt;/em&gt; externos (de preferência)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O &lt;a href=&quot;http://www.igorescobar.com/blog/&quot; title=&quot;Visite o blog do Igor Escobar&quot;&gt;&lt;em&gt;Igor Escobar&lt;/em&gt;&lt;/a&gt; fez um &lt;em&gt;post&lt;/em&gt; com uma apresentação de &lt;em&gt;Simon
+Willison&lt;/em&gt; onde é explicado &lt;a href=&quot;http://www.igorescobar.com/blog/2009/10/26/javascript-nao-obstrutivo-com-jquery/&quot; title=&quot;Javascript não obstrusivo com jQuery&quot;&gt;como fazer &lt;em&gt;Javascript&lt;/em&gt; não obstrusivo com
+&lt;em&gt;jQuery&lt;/em&gt;&lt;/a&gt;. A prática acima (e mencionada
+na apresentação) é conhecida por &lt;em&gt;Progressive Enhancement&lt;/em&gt;, e você pode ler
+mais sobre no &lt;a href=&quot;http://www.alistapart.com/articles/understandingprogressiveenhancement/&quot; title=&quot;Understanding Progressive Enhancement&quot;&gt;&lt;em&gt;A List Apart&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;noscript?&lt;/h2&gt;
+&lt;p&gt;Se construirmos uma aplicação ou &lt;em&gt;website&lt;/em&gt; que funciona dentro da
+&lt;em&gt;Progressive Enhancement&lt;/em&gt;, temos um &lt;em&gt;website&lt;/em&gt; ou aplicação que não
+obrigará o usuário a ter todos os recursos da &lt;em&gt;CSS&lt;/em&gt; ou do &lt;em&gt;Javascript&lt;/em&gt;
+totalmente funcionais em seu navegador. Temos uma aplicação que
+funcionará mesmo se o navegador do usuário não suporte &lt;em&gt;Javascript&lt;/em&gt;.
+Logo, &lt;strong&gt;(na minha opinião)&lt;/strong&gt; não é necessário o uso da tag
+&lt;strong&gt;&amp;#x3C;noscript&gt;&lt;/strong&gt;, afinal o usuário não será “prejudicado” ou isento de
+qualquer tipo de informação que nossa aplicação se disponha a exibir.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Mesmo que a sua aplicação seja para um público muito específico,
+preocupe-se com a acessibilidade. Você, seus clientes e a sociedade só
+tem a ganhar.&lt;/p&gt;
+&lt;p&gt;Finalizando… é interessante notar que qualquer boa-prática que envolva o
+desenvolvimento &lt;em&gt;Web&lt;/em&gt; está diretamente ligada com um &lt;em&gt;HTML&lt;/em&gt; bem escrito,
+e acima de tudo, com a &lt;strong&gt;semântica&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

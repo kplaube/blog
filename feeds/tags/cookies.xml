@@ -1,9 +1,191 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - cookies</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Thu, 05 Apr 2012 16:53:12 -0300</lastBuildDate><item><title>Entendendo os Cookies e Sessões</title><link>https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html</link><description>&lt;p&gt;Por muito tempo eu abstrai o conceito de
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - cookies]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Entendendo os Cookies e Sessões]]></title><description><![CDATA[Por muito tempo eu abstrai o conceito de
+cookies e sessões, e nunca cheguei a prestar muita atenção no seu
+funcionamento. Recentemente, trabalhando com uma infra mais preocupada
+com a segurança, disponibilidade e performance, tive a oportunidade de
+relembrar e me aprofundar em alguns conceitos e…]]></description><link>https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/04/05/entendendo-os-cookies-e-sessoes.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 05 Apr 2012 16:53:12 GMT</pubDate><content:encoded>&lt;p&gt;Por muito tempo eu abstrai o conceito de
 &lt;em&gt;cookies&lt;/em&gt; e sessões, e nunca cheguei a prestar muita atenção no seu
 funcionamento. Recentemente, trabalhando com uma infra mais preocupada
 com a segurança, disponibilidade e performance, tive a oportunidade de
 relembrar e me aprofundar em alguns conceitos e práticas.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;O que já sabia é que os &lt;em&gt;cookies&lt;/em&gt; são “persistências temporárias” feitas
+no lado do usuário, e sessões são persistências dependentes de
+&lt;em&gt;cookies&lt;/em&gt;, mas realizadas no lado do servidor.&lt;/p&gt;
+&lt;p&gt;A minha felicidade é que até aí, nada mudou :)&lt;/p&gt;
+&lt;h2&gt;Para que servem Cookies e Sessões?&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;http://wagnerelias.com/2009/02/06/http-essentials/&quot; title=&quot;Conheça mais sobre o protocolo HTTP&quot;&gt;protocolo &lt;em&gt;HTTP&lt;/em&gt;&lt;/a&gt; é &lt;em&gt;stateless&lt;/em&gt;, ou seja, ele não mantém um
+estado/conexão. Toda a interação que o seu cliente fizer com um servidor
+&lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt; acarretará em uma nova requisição e resposta.&lt;/p&gt;
+&lt;p&gt;As requisições são independentes e possuem um tempo de vida (conexão,
+envio de mensagem, resposta, encerramento da conexão). O servidor &lt;em&gt;web&lt;/em&gt;
+não é capaz de identificar se duas requisições vieram de um mesmo
+navegador, e o mesmo não faz nenhum gerenciamento em memória para que
+mensagens sejam compartilhadas entre requisições.&lt;/p&gt;
+&lt;p&gt;É para suprir esta necessidade que entram os &lt;em&gt;cookies&lt;/em&gt; e sessões.&lt;/p&gt;
+&lt;h2&gt;Cookies&lt;/h2&gt;
+&lt;p&gt;Através de &lt;em&gt;cookies&lt;/em&gt; o servidor &lt;em&gt;web&lt;/em&gt; é capaz de trocar informações de
+estado com o navegador do usuário. Desse modo, somos capazes de
+adicionar produtos a um carrinho de compras, sem perder estas
+informações ao mudar de página, sair do &lt;em&gt;website&lt;/em&gt; ou até mesmo fechar o
+navegador.&lt;/p&gt;
+&lt;p&gt;Tecnicamente falando, um &lt;em&gt;cookie&lt;/em&gt; é uma pequena quantidade de informação
+persistida temporariamente pelo navegador. Os navegadores normalmente
+limitam o tamanho dos &lt;em&gt;cookies&lt;/em&gt; em até 4KB, e apagam &lt;em&gt;cookies&lt;/em&gt; com a
+data de “validade vencida”.&lt;/p&gt;
+&lt;p&gt;Para entender como essa troca de informação é feita, vamos criar um
+&lt;em&gt;cookie&lt;/em&gt; com o &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// cookies.php&lt;/span&gt;
 
-&lt;p&gt;O que já …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 05 Apr 2012 16:53:12 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-04-05:/2012/04/05/entendendo-os-cookies-e-sessoes.html</guid><category>desenvolvimento</category><category>infraestrutura</category><category>web</category><category>cookies</category><category>sessões</category><category>php</category></item></channel></rss>
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_COOKIE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;cookie_teste&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;Você JÁ passou por aqui!&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;Você NUNCA passou por aqui.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token function&quot;&gt;setcookie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;cookie_teste&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;Algum valor...&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;3600&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O código acima verifica se o &lt;em&gt;cookie&lt;/em&gt; atendendo pelo identificador
+&lt;code class=&quot;language-text&quot;&gt;cookie_teste&lt;/code&gt; já existe, caso não exista, cria um &lt;em&gt;cookie&lt;/em&gt; com
+identificador &lt;code class=&quot;language-text&quot;&gt;cookie_teste&lt;/code&gt;, valor &lt;code class=&quot;language-text&quot;&gt;Algum valor...&lt;/code&gt; e com &lt;strong&gt;1
+hora de vida&lt;/strong&gt; (a hora atual mais 3600 segundos).&lt;/p&gt;
+&lt;p&gt;Quando visitamos pela primeira vez o &lt;code class=&quot;language-text&quot;&gt;cookies.php&lt;/code&gt;, temos a seguinte
+resposta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -I localhost/cookies.php
+
+HTTP/1.1 200 OK
+Date: Wed, 04 Apr 2012 00:35:33 GMT
+Server: Apache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8r DAV/2 PHP/5.3.8
+X-Powered-By: PHP/5.3.8
+Set-Cookie: cookie_teste=Algum+valor...; expires=Wed, 04-Apr-2012 01:35:33 GMT
+Content-Type: text/html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Através da função &lt;code class=&quot;language-text&quot;&gt;setcookie&lt;/code&gt; do &lt;em&gt;PHP&lt;/em&gt;, estamos enviando um item
+chamado &lt;code class=&quot;language-text&quot;&gt;Set-Cookie&lt;/code&gt; no cabeçalho &lt;em&gt;HTTP&lt;/em&gt; da resposta. É através deste
+que o navegador entende que deve armazenar o valor &lt;code class=&quot;language-text&quot;&gt;Algum valor…&lt;/code&gt;,
+atendendo pelo identificador &lt;code class=&quot;language-text&quot;&gt;cookie_teste&lt;/code&gt;, e que esta informação
+expira em 1 hora (verifique a data da requisição e a data de validade do
+&lt;em&gt;cookie&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Na próxima vez que o navegador acessar esta &lt;em&gt;URL&lt;/em&gt;, ele verificará se
+possui algum &lt;em&gt;cookie&lt;/em&gt; para aquele domínio e &lt;em&gt;path&lt;/em&gt;, caso exista, ele
+passa as informações do &lt;em&gt;cookie&lt;/em&gt; no cabeçalho da requisição. Desse modo,
+a nossa aplicação é capaz de perceber a existência de um &lt;em&gt;cookie&lt;/em&gt; (no
+caso do &lt;em&gt;PHP&lt;/em&gt;, através do &lt;em&gt;array&lt;/em&gt; global &lt;code class=&quot;language-text&quot;&gt;$_COOKIE&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Abaixo, um exemplo de requisição utilizando o &lt;em&gt;Google Chrome&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 760px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/574c72cb92153b3981d5e76c2ba7a077/3c051/exemplo-php-cookies.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.52083333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAABs0lEQVQoz4WSTW/TQBCG/Zs5wpkzdy49wo9AHCoUgdKqpLF37SRe2yTONmpLHMffduZl1klMUwmx0qN3dlc7O1/W0/PjYa01rfWGkiSlum6pqmpq25bapum167rj3tgnPRwOPebO6HlZthhRFAr8igKEyoMz/YnJ3S1cKSGnUwjbgRAGgXveS+ee7wTCMIRSCkEQIIoixHGM5XIJ68Nnh95/ivDuyqe3V4refFT0ZRyTXoUkPY+82Yz4AbEDilcxpemOSWm3+6tJkgxYd35B32SJa1HStVPi67REtCngzz1I14bWa6S7FHmWo8gL1HWNpmkGXi+LoZNNwyl1WHAqwvV6bOlipR/we7sFR4WqqlCWJVOB6wcu3YBl6smgY+2OCm4GgtsbuKMR/PEYz/MFWq35I8L/1hAhHb/oN8bhYjKB/f0H9GyOR472SQXIOLosz5FlGfb7Pbh+vW0oiqLnwuHJZ18bxV2U3gzLeI2EH5dcu7bt+hR5VHp4fC7UcBnhUfmi5ZHw4bkulK+wedgg2SbDo5fQqzL8w2GH0DRFSJ45bshy1aeXc7om1XOaxj53+tyUP/Oi9lEWEjCnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Item cookie no cabeçalho de resposta da requisição HTTP&amp;quot;&quot;
+        title=&quot;Item cookie no cabeçalho de resposta da requisição HTTP&quot;
+        src=&quot;/static/574c72cb92153b3981d5e76c2ba7a077/3c051/exemplo-php-cookies.png&quot;
+        srcset=&quot;/static/574c72cb92153b3981d5e76c2ba7a077/8514f/exemplo-php-cookies.png 192w,
+/static/574c72cb92153b3981d5e76c2ba7a077/804b2/exemplo-php-cookies.png 384w,
+/static/574c72cb92153b3981d5e76c2ba7a077/3c051/exemplo-php-cookies.png 760w&quot;
+        sizes=&quot;(max-width: 760px) 100vw, 760px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Item cookie no cabeçalho de resposta da requisição HTTP&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/images/blog/exemplo-php-cookies.png&quot;&gt;Clique para ampliar&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Se excluirmos os &lt;em&gt;cookies&lt;/em&gt;, ou o tempo de expiração for atingido, o
+navegador deixa de anexar esta informação ao cabeçalho da requisição.&lt;/p&gt;
+&lt;h2&gt;Sessões&lt;/h2&gt;
+&lt;p&gt;As sessões têm um princípio similar aos &lt;em&gt;cookies&lt;/em&gt;, só que o
+armazenamento do estado é feito pelo servidor &lt;em&gt;web&lt;/em&gt;, e não pelo
+navegador.&lt;/p&gt;
+&lt;p&gt;Por exemplo, quando construímos uma aplicação que necessita de
+autenticação, no momento em que o usuário efetuar o &lt;em&gt;login&lt;/em&gt;, podemos até
+permitir que algumas informações sejam armazenadas em um &lt;em&gt;cookie&lt;/em&gt;, mas
+dados mais “sensíveis”, como usuário e &lt;em&gt;e-mail&lt;/em&gt;, são mais interessantes
+de serem guardadas em sessões. Isto, pois &lt;strong&gt;não é seguro&lt;/strong&gt; que esse tipo
+de informação fique “viajando” pela &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Mas se o &lt;em&gt;HTTP&lt;/em&gt; é &lt;em&gt;stateless&lt;/em&gt;, e o servidor &lt;em&gt;web&lt;/em&gt; não tem como
+identificar que a requisição anterior veio do meu &lt;em&gt;browser&lt;/em&gt;, como é que
+ele sabe que as informações que eu guardei em sessão são de fato minhas?
+Simples… &lt;strong&gt;através de &lt;em&gt;cookies&lt;/em&gt;!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Quando iniciamos uma sessão, é enviado um &lt;em&gt;cookie&lt;/em&gt; para o navegador, com
+um valor único que corresponde a sessão aberta no servidor &lt;em&gt;web&lt;/em&gt;. Vamos
+ilustrar através do exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// sessions.php&lt;/span&gt;
+
+    &lt;span class=&quot;token function&quot;&gt;session_start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;usuario&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;Bem vindo &lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;usuario&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;Você NUNCA passou por aqui.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token variable&quot;&gt;$_SESSION&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;usuario&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;João&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O código acima inicia uma sessão através do método &lt;code class=&quot;language-text&quot;&gt;session_start&lt;/code&gt;.
+Na primeira visita, será criado um índice &lt;code class=&quot;language-text&quot;&gt;usuario&lt;/code&gt; com o valor
+&lt;code class=&quot;language-text&quot;&gt;João&lt;/code&gt;. A resposta da nossa requisição será a seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -I localhost/sessions.php
+
+HTTP/1.1 200 OK
+Date: Wed, 04 Apr 2012 01:51:57 GMT
+Server: Apache/2.2.21 (Unix) mod_ssl/2.2.21 OpenSSL/0.9.8r DAV/2 PHP/5.3.8
+X-Powered-By: PHP/5.3.8
+Set-Cookie: PHPSESSID=4h91dkp7pcp8184nil8rt9ok13; path=/
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Pragma: no-cache
+Content-Type: text/html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por partes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Como mencionei, &lt;code class=&quot;language-text&quot;&gt;Set-Cookie&lt;/code&gt; foi retornado com um identificador
+(&lt;code class=&quot;language-text&quot;&gt;PHPSESSID&lt;/code&gt;) e um valor que corresponde a sessão aberta no
+servidor (&lt;code class=&quot;language-text&quot;&gt;4h91dkp7pcp8184nil8rt9ok13&lt;/code&gt;). O complemento &lt;code class=&quot;language-text&quot;&gt;path&lt;/code&gt;
+está “dizendo” ao navegador que aquele &lt;em&gt;cookie&lt;/em&gt; tem validade por
+todo o domínio (ou seja, valerá inclusive para outros arquivos &lt;em&gt;PHP&lt;/em&gt;
+em outras subpastas). Quando não é informada a data de expiração, o
+navegador manterá o &lt;em&gt;cookie&lt;/em&gt; até o momento em que ele for fechado.&lt;/li&gt;
+&lt;li&gt;O &lt;em&gt;PHP&lt;/em&gt; tomou a liberdade de adicionar alguns cabeçalhos de controle
+de &lt;em&gt;cache&lt;/em&gt; (&lt;code class=&quot;language-text&quot;&gt;Expires&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Cache-Control&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;Pragma&lt;/code&gt;) à nossa
+resposta. Em resumo, o servidor está dizendo ao navegador para que
+não armazene esta página em &lt;em&gt;cache&lt;/em&gt;. Estes valores podem ser
+alterados em &lt;a href=&quot;http://www.php.net/manual/en/ref.session.php&quot; title=&quot;PHP: Session functions&quot;&gt;tempo de desenvolvimento&lt;/a&gt;, ou &lt;a href=&quot;http://www.php.net/manual/en/session.configuration.php&quot; title=&quot;PHP: Runtime configuration&quot;&gt;através do &lt;strong&gt;php.ini&lt;/strong&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Em nenhum momento o &lt;em&gt;Apache&lt;/em&gt; informou ao navegador que temos um
+índice &lt;code class=&quot;language-text&quot;&gt;usuario&lt;/code&gt; com o valor &lt;code class=&quot;language-text&quot;&gt;João&lt;/code&gt;. Estas informações estão
+disponíveis somente no lado do servidor.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Quando visitarmos o &lt;code class=&quot;language-text&quot;&gt;sessions.php&lt;/code&gt; novamente, o navegador informará ao
+servidor que ele possui um &lt;em&gt;cookie&lt;/em&gt; chamado &lt;code class=&quot;language-text&quot;&gt;PHPSESSID&lt;/code&gt;. A partir daí
+o &lt;em&gt;PHP&lt;/em&gt; pega o valor deste &lt;em&gt;cookie&lt;/em&gt;, recupera a sessão da memória (ou de
+um banco de dados, ou arquivos em disco) e atribui este valor ao &lt;em&gt;array&lt;/em&gt;
+global &lt;code class=&quot;language-text&quot;&gt;$_SESSION&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O nome do &lt;em&gt;cookie&lt;/em&gt; varia de linguagem para linguagem e até mesmo de
+&lt;em&gt;framework&lt;/em&gt; para &lt;em&gt;framework&lt;/em&gt;. Por exemplo, no &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; ele é chamado
+por padrão de &lt;code class=&quot;language-text&quot;&gt;sessionid&lt;/code&gt;, no &lt;a href=&quot;/tag/codeigniter.html&quot; title=&quot;Leia mais sobre CodeIgniter&quot;&gt;&lt;em&gt;CodeIgniter&lt;/em&gt;&lt;/a&gt; é chamado de
+&lt;code class=&quot;language-text&quot;&gt;ci_session&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Gostei muito de me aprofundar um pouquinho mais neste assunto, e gostei
+mais ainda de poder traduzir este aprendizado através deste &lt;em&gt;post&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;É claro que há alguns cuidados com segurança quando o assunto é
+&lt;em&gt;cookies&lt;/em&gt; e sessões, bem como considerações em relação ao uso de
+&lt;em&gt;cache&lt;/em&gt;. Pretendo falar mais sobre esses temas em &lt;em&gt;posts&lt;/em&gt; vindouros.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.php.net/manual/en/book.session.php&quot; title=&quot;Confira a documentação oficial do PHP que fala sobre Sessões&quot;&gt;&lt;em&gt;PHP Manual – Session Handling&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.stanford.edu/~ouster/cgi-bin/cs142-fall10/lecture.php?topic=cookie&quot; title=&quot;Material resumido, mas muito bom, sobre sessões e Cookies&quot;&gt;&lt;em&gt;Stanford.edu – CS 142: Cookies and Session&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wagnerelias.com/2009/02/06/http-essentials/&quot; title=&quot;Wagner nos apresenta de forma objetiva o funcionamento do protocolo HTTP&quot;&gt;&lt;em&gt;Wagner Elias&lt;/em&gt; – &lt;em&gt;HTTP Essentials&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wagnerelias.com/2009/04/21/seguranca-de-cookies-de-sessao-e-httponly/&quot; title=&quot;Entenda as falhas de segurança apresentadas com o uso de sessões e cookies&quot;&gt;&lt;em&gt;Wagner Elias&lt;/em&gt; – Segurança de &lt;em&gt;Cookies&lt;/em&gt; de sessão e &lt;em&gt;HTTPOnly&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/HTTP_cookie&quot; title=&quot;Leia este bom artigo em inglês sobre Cookies&quot;&gt;&lt;em&gt;Wikipedia – HTTP Cookie&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

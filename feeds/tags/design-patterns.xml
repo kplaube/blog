@@ -1,11 +1,224 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - design-patterns</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sat, 24 Oct 2015 16:30:00 -0200</lastBuildDate><item><title>Injeção de Dependência</title><link>https://klauslaube.com.br/2015/10/24/injecao-de-dependencia.html</link><description>&lt;p&gt;Se você já teve contato com &lt;a href="http://laravel.com/" title="PHP framework for web artisans"&gt;&lt;em&gt;Laravel&lt;/em&gt;&lt;/a&gt;
-ou &lt;a href="https://angularjs.org/" title="HTML enhanced for web apps"&gt;&lt;em&gt;AngularJS&lt;/em&gt;&lt;/a&gt;, sabe muito bem que
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - design-patterns]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Injeção de Dependência]]></title><description><![CDATA[Se você já teve contato com Laravel
+ou AngularJS, sabe muito bem que
+um dos maiores motivos de orgulho desses (e de tantos outros) frameworks
+é a "Injeção de Dependência", ou do inglês, Dependency Injection.
+Imagine-se em uma reunião, o seu Product Owner pede soluções para problemas
+complexos, e…]]></description><link>https://klauslaube.com.br/2015/10/24/injecao-de-dependencia.html</link><guid isPermaLink="false">https://klauslaube.com.br/2015/10/24/injecao-de-dependencia.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 24 Oct 2015 16:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Se você já teve contato com &lt;a href=&quot;http://laravel.com/&quot; title=&quot;PHP framework for web artisans&quot;&gt;&lt;em&gt;Laravel&lt;/em&gt;&lt;/a&gt;
+ou &lt;a href=&quot;https://angularjs.org/&quot; title=&quot;HTML enhanced for web apps&quot;&gt;&lt;em&gt;AngularJS&lt;/em&gt;&lt;/a&gt;, sabe muito bem que
 um dos maiores motivos de orgulho desses (e de tantos outros) &lt;em&gt;frameworks&lt;/em&gt;
-é a "Injeção de Dependência", ou do inglês, &lt;em&gt;Dependency Injection&lt;/em&gt;.
+é a &quot;Injeção de Dependência&quot;, ou do inglês, &lt;em&gt;Dependency Injection&lt;/em&gt;.
 Imagine-se em uma reunião, o seu &lt;em&gt;Product Owner&lt;/em&gt; pede soluções para problemas
-complexos, e você …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 24 Oct 2015 16:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2015-10-24:/2015/10/24/injecao-de-dependencia.html</guid><category>desenvolvimento</category><category>design-patterns</category><category>dependency injection</category><category>angularjs</category></item><item><title>Decorators em Python</title><link>https://klauslaube.com.br/2011/08/02/decorators-em-python.html</link><description>&lt;p&gt;E na mesma linha dos &lt;a href="https://klauslaube.com.br/2011/05/29/afinal-o-que-sao-closures.html" title="Afinal, o que são Closures?"&gt;&lt;em&gt;closures&lt;/em&gt;&lt;/a&gt;, eu passei a
-saber realmente o que são &lt;em&gt;decorators&lt;/em&gt; depois de utilizar o &lt;em&gt;framework&lt;/em&gt;
-&lt;a href="https://klauslaube.com.br/tag/django.html" title="Leia mais sobre Django"&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Se você está trabalhando com &lt;a href="https://klauslaube.com.br/tag/oop.html" title="Leia mais sobre OOP"&gt;Orientação a Objetos&lt;/a&gt; e
+complexos, e você manda logo um &quot;precisamos usar injeções de dependências&quot;...
+É aumento salarial na hora!&lt;/p&gt;
+&lt;p&gt;Brincadeiras à parte, estou fazendo um curso de
+&lt;a href=&quot;https://www.udemy.com/learn-angularjs/&quot; title=&quot;Aprenda AngularJS&quot;&gt;&lt;em&gt;AngularJS&lt;/em&gt; no &lt;em&gt;Udemy&lt;/em&gt;&lt;/a&gt;,
+e toda vez que o professor se depara com uma palavra &quot;pomposa&quot;, ele para a
+aula para fazer um &quot;big word alert&quot;.&lt;/p&gt;
+&lt;p&gt;Resolvi copiar essa ideia e mostrar como esse conceito na verdade é relativamente simples.&lt;/p&gt;
+&lt;h2&gt;Dependency Injection é um Design Pattern&lt;/h2&gt;
+&lt;p&gt;Assim como &lt;a href=&quot;/2011/05/29/afinal-o-que-sao-closures.html&quot; title=&quot;Leia mais sobre Closures&quot;&gt;&lt;em&gt;Closures&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;/2011/08/02/decorators-em-python.html&quot; title=&quot;Leia mais sobre Decorators&quot;&gt;&lt;em&gt;Decorators&lt;/em&gt;&lt;/a&gt;,
+o nome pode até causar certo calafrio... &lt;em&gt;Don&apos;t panic&lt;/em&gt;! Segundo a documentação da &lt;em&gt;AngularJS&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Dependency Injection (DI) is a software design pattern that deals with how components
+get hold of their dependencies.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ou seja, ao invés de permitir que o seu componente de &lt;em&gt;software&lt;/em&gt; manuseie dependências,
+você explicitamente passará as dependências que ele necessita.&lt;/p&gt;
+&lt;p&gt;No &lt;em&gt;Stackoverflow&lt;/em&gt; temos o
+&lt;a href=&quot;http://stackoverflow.com/questions/130794/what-is-dependency-injection&quot; title=&quot;What&amp;#x27;s dependency injection?&quot;&gt;melhor exemplo da face da terra&lt;/a&gt;
+para ilustrar uma injeção de dependência. Abaixo um código sem o &lt;em&gt;DI&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SomeClass&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    myObject &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Factory&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getObject&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora, com &lt;em&gt;DI&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;SomeClass&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;MyClass&lt;/span&gt; myObject&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;myObject &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; myObject&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Simples, não?! As dependências do seu componente ficam explícitas, fáceis de gerenciar, e
+seu código fica mais fácil de manter.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5bbe84ebf276f7accfae7f1fe6271c2e/b4294/dependency-injection-hulk.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.729166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMFAQT/xAAVAQEBAAAAAAAAAAAAAAAAAAACAP/aAAwDAQACEAMQAAAB5dQ4VQhjH//EABoQAAIDAQEAAAAAAAAAAAAAAAIDAREyADH/2gAIAQEAAQUCrmaQ4AX4JYKZv//EABcRAQADAAAAAAAAAAAAAAAAAAIBEBH/2gAIAQMBAT8BJyK//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8Bqv/EABgQAAMBAQAAAAAAAAAAAAAAAAACEDER/9oACAEBAAY/Apxtimn/xAAcEAACAgMBAQAAAAAAAAAAAAAAARFRITFBccH/2gAIAQEAAT8hwzwVNmvVgU5lSCmvps9gUSG1Z//aAAwDAQACAAMAAAAQhN//xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQMBAT8Q0Ej/xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8QdJH/xAAbEAEAAwADAQAAAAAAAAAAAAABABEhMUGxUf/aAAgBAQABPxDCxhLy6iyWCmdrjG31eiKhx0+PIn61V7chMEq4p//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Injenções podem te dar super poderes... Ou não. (hanhchampion.blogspot.com.br)&amp;quot;&quot;
+        title=&quot;Injenções podem te dar super poderes... Ou não. (hanhchampion.blogspot.com.br)&quot;
+        src=&quot;/static/5bbe84ebf276f7accfae7f1fe6271c2e/b4294/dependency-injection-hulk.jpg&quot;
+        srcset=&quot;/static/5bbe84ebf276f7accfae7f1fe6271c2e/7809d/dependency-injection-hulk.jpg 192w,
+/static/5bbe84ebf276f7accfae7f1fe6271c2e/4ecad/dependency-injection-hulk.jpg 384w,
+/static/5bbe84ebf276f7accfae7f1fe6271c2e/b4294/dependency-injection-hulk.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Injenções podem te dar super poderes... Ou não. (hanhchampion.blogspot.com.br)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;Angular&lt;/em&gt; utiliza esse conceito para que seja possível passar para o seu &lt;em&gt;controller&lt;/em&gt;,
+uma série de &lt;em&gt;services&lt;/em&gt; necessários para a resolução de um problema:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; myApp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; angular&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;myApp&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+myApp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;controller&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;mainController&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;$scope&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token string&quot;&gt;&quot;$log&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;$scope&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; $log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    $scope&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;foo &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;bar&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    $log&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;$scope&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;foo&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Imagine o trabalhão que seria em todo &lt;em&gt;controller&lt;/em&gt; ter que instanciar o
+serviço de &lt;code class=&quot;language-text&quot;&gt;$scope&lt;/code&gt; ou de &lt;code class=&quot;language-text&quot;&gt;$log&lt;/code&gt;?&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Testar um código&lt;/strong&gt; que utiliza &lt;em&gt;Dependency Injection&lt;/em&gt; é &lt;strong&gt;muito mais fácil&lt;/strong&gt;, pois
+&lt;a href=&quot;/2015/06/29/os-testes-e-os-dubles-parte-2.html&quot; title=&quot;Os testes e os dublês - Parte 2&quot;&gt;&lt;em&gt;mockar&lt;/em&gt;&lt;/a&gt;
+as dependências e garantir o comportamente esperado pode ser feito com muito menos linhas de código.&lt;/p&gt;
+&lt;p&gt;Além disso, se o contrato de uma dependência mudar, com essa prática fica mais fácil de
+alterar o seu código, fazendo com que a integração entre componentes seja mais &lt;em&gt;smooth&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se você ainda duvida desse &lt;em&gt;design pattern&lt;/em&gt;, fica a constatação: É fácil
+assegurar que a &lt;em&gt;AngularJS&lt;/em&gt; não seria o &lt;em&gt;framework&lt;/em&gt; que é hoje, sem o uso dessa prática.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&quot;https://docs.angularjs.org/guide/di&quot; title=&quot;Leia mais na documentação da Angular&quot;&gt;AngularJS Developer Guide - Dependency Injection&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&quot;http://stackoverflow.com/questions/130794/what-is-dependency-injection&quot; title=&quot;Leia mais no Stackoverflow&quot;&gt;Stackoverflow - What&apos;s dependency injection&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Decorators em Python]]></title><description><![CDATA[E na mesma linha dos closures, eu passei a
+saber realmente o que são decorators depois de utilizar o framework
+Django. Se você está trabalhando com Orientação a Objetos e
 até agora não se deparou com este recurso, te garanto que um dia você
-precisará dele… afinal, é um dos …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 02 Aug 2011 20:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-08-02:/2011/08/02/decorators-em-python.html</guid><category>desenvolvimento</category><category>python</category><category>oop</category><category>design-patterns</category><category>decorators</category></item></channel></rss>
+precisará dele… afinal, é um dos Design Patterns mais…]]></description><link>https://klauslaube.com.br/2011/08/02/decorators-em-python.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/08/02/decorators-em-python.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 02 Aug 2011 20:00:00 GMT</pubDate><content:encoded>&lt;p&gt;E na mesma linha dos &lt;a href=&quot;/2011/05/29/afinal-o-que-sao-closures.html&quot; title=&quot;Afinal, o que são Closures?&quot;&gt;&lt;em&gt;closures&lt;/em&gt;&lt;/a&gt;, eu passei a
+saber realmente o que são &lt;em&gt;decorators&lt;/em&gt; depois de utilizar o &lt;em&gt;framework&lt;/em&gt;
+&lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;. Se você está trabalhando com &lt;a href=&quot;/tag/oop.html&quot; title=&quot;Leia mais sobre OOP&quot;&gt;Orientação a Objetos&lt;/a&gt; e
+até agora não se deparou com este recurso, te garanto que um dia você
+precisará dele… afinal, é um dos &lt;a href=&quot;http://pt.wikipedia.org/wiki/Padr%C3%A3o_de_projeto_de_software&quot; title=&quot;Conheça os Design Patterns&quot;&gt;&lt;em&gt;Design Patterns&lt;/em&gt;&lt;/a&gt; mais bacanas (e
+úteis) que já vi.&lt;/p&gt;
+&lt;p&gt;Vamos lá “decorar” nossos métodos &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;h2&gt;Decoradores? Really?&lt;/h2&gt;
+&lt;p&gt;Eu não saberia explicar de uma forma melhor do que foi explicado pela
+&lt;a href=&quot;http://pt.wikipedia.org/wiki/Decorator&quot; title=&quot;Leia mais sobre o pattern Decorator&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;, o que é o padrão decorator:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Intenção:&lt;/strong&gt; Acrescentar responsabilidades a um objeto
+dinamicamente. Prover alternativa flexível ao uso de subclasses para
+se estender a funcionalidade de uma classe;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Motivação:&lt;/strong&gt; Objeto usado possui as funcionalidades básicas, mas é
+necessário adicionar funcionalidades adicionais a ele que podem
+ocorrer antes ou depois da funcionalidade básica. Funcionalidades
+devem ser adicionadas em instancias individuais e não na classe;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Consequências:&lt;/strong&gt; Mais flexibilidade do que herança.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Encontramos na &lt;a href=&quot;http://wiki.python.org/moin/FrontPage&quot; title=&quot;Wiki oficial da linguagem Python&quot;&gt;&lt;em&gt;Wiki&lt;/em&gt; do &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; uma explicação mais objetiva e
+esclarecedora:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Decorators alteram dinamicamente a funcionalidade de uma função,
+método ou classe, sem uso direto de subclasses ou alterando o
+código-fonte da função “decorada”.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;O uso de decorators em Python&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Python&lt;/em&gt; começou a dar suporte a &lt;em&gt;decorators&lt;/em&gt; a partir da &lt;strong&gt;versão
+2.4&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Você terá a sua disposição alguns decoradores &lt;em&gt;built-in&lt;/em&gt; e também poderá
+criar os seus próprios sem muito dificuldade. É possível identificar um
+&lt;em&gt;decorator&lt;/em&gt; através do caractere &lt;code class=&quot;language-text&quot;&gt;@&lt;/code&gt;, por exemplo, a instrução abaixo
+declara o método &lt;code class=&quot;language-text&quot;&gt;say_hello&lt;/code&gt; da classe &lt;code class=&quot;language-text&quot;&gt;People&lt;/code&gt; como estático:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;People&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@staticmethod&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;say_hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello!&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vale notar que podemos reproduzir o comportamento acima sem utilizar a
+sintaxe especial de &lt;em&gt;decorators&lt;/em&gt; (mas não deixamos de utilizar o
+conceito):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;People&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;say_hello&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello!&apos;&lt;/span&gt;
+  say_hello &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;staticmethod&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;say_hello&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quer conhecer mais sobre &lt;em&gt;decorators&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;? Leia a
+&lt;a href=&quot;http://www.python.org/dev/peps/pep-0318/&quot; title=&quot;Leia mais sobre a PEP318&quot;&gt;&lt;em&gt;PEP 318 – Decorators for functions and methods&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Um pouco de prática&lt;/h2&gt;
+&lt;p&gt;Vamos por a mão na massa e criar o nosso próprio &lt;em&gt;decorator&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# meu_decorator.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;meu_decorador&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;alvo&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Chamando a funcao &quot;%s&quot;&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; alvo&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;__name__
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; alvo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; wrapper
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@meu_decorador&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;meu_alvo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Eu sou um alvo!&apos;&lt;/span&gt;
+
+meu_alvo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Chamando o &lt;em&gt;script&lt;/em&gt; acima, teremos o seguinte resultado:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python meu_decorator.py
+
+Chamando a funcao &amp;quot;meu_alvo&amp;quot;
+Eu sou um alvo!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vou tentar seguir um fluxo que deixe claro o que o procedimento está
+realizando.&lt;/p&gt;
+&lt;p&gt;O comportamento da função &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt; é muito simples: imprimir &lt;code class=&quot;language-text&quot;&gt;“Eu sou um alvo!”&lt;/code&gt; na tela. Mas o &lt;code class=&quot;language-text&quot;&gt;@meu_decorador&lt;/code&gt; está lá para
+complicar a nossa vida :D&lt;/p&gt;
+&lt;p&gt;Com a chamada de &lt;code class=&quot;language-text&quot;&gt;@meu_decorador&lt;/code&gt; logo acima de &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;, fica
+claro que na verdade estamos passando &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt; como um parâmetro
+(&lt;code class=&quot;language-text&quot;&gt;alvo&lt;/code&gt;) para o método &lt;code class=&quot;language-text&quot;&gt;meu_decorador&lt;/code&gt;, encontrado logo no início
+do arquivo. Note que o método retorna &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt; sem os parênteses no
+final (que caracterizam uma chamada de função), ele está retornando
+apenas a referência ao método &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt;, que será de fato “executado”
+externamente.&lt;/p&gt;
+&lt;p&gt;Dentro da função &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt; temos a impressão da &lt;em&gt;string&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;‘Chamando a funcao “meu_alvo”‘&lt;/code&gt; e a execução de &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;. Isto deve-se ao
+fato de que &lt;code class=&quot;language-text&quot;&gt;alvo&lt;/code&gt; nada mais é que uma referência a função
+&lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;, que passamos como argumento para &lt;code class=&quot;language-text&quot;&gt;meu_decorador&lt;/code&gt;
+através do &lt;code class=&quot;language-text&quot;&gt;@meu_decorador&lt;/code&gt; logo acima da função &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;,
+certo?&lt;/p&gt;
+&lt;p&gt;Então resumindo isso tudo, o resultado final é que &lt;code class=&quot;language-text&quot;&gt;meu_alvo()&lt;/code&gt; no
+final do arquivo na verdade é a execução da referência a &lt;code class=&quot;language-text&quot;&gt;wrapper&lt;/code&gt;, ou
+seja, é o mesmo que ler &lt;code class=&quot;language-text&quot;&gt;“wrapper()“&lt;/code&gt;. Ele fará o &lt;em&gt;print&lt;/em&gt; e
+posteriormente retornará o resultado de &lt;code class=&quot;language-text&quot;&gt;meu_alvo&lt;/code&gt;, que nada mais é
+que a impressão de &lt;code class=&quot;language-text&quot;&gt;“Eu sou um alvo!”&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Bacana não? Aqui vai mais um para deixar as coisas um pouco mais claras…
+vamos simular o esquema de roteamento de um &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/web.html&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;rotas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;rota&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;endereco&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wrapper&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fn&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    rotas&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;append&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;endereco&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fn&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; wrapper
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@rota&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/index/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;home_view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Pagina inicial&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@rota&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/contato/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;contato_view&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Pagina de contato&apos;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; rotas&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Pagina inicial&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; rotas&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# Pagina de contato&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt; rotas
+&lt;span class=&quot;token comment&quot;&gt;# [(&apos;/index/&apos;, &amp;lt; function home_view at 0xb736580c &gt;),&lt;/span&gt;
+&lt;span class=&quot;token comment&quot;&gt;#  (&apos;/contato/&apos;, &amp;lt; function contato_view at 0xb7365b8c &gt;)]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://devlog.waltercruz.com/python_decorators&quot; title=&quot;Walter Cruz em um excelente post sobre Decorators em Python&quot;&gt;&lt;em&gt;Devlog – @decorators&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.fiveminutes.eu/a-quick-introduction-to-python-decorators/&quot; title=&quot;Uma introdução rápida aos decorators em Python. Muito bom!&quot;&gt;&lt;em&gt;Five Minutes – A quick introduction to Python decorators&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/workshops/1997-10/proceedings/savikko.html&quot; title=&quot;Padrões de Projetos em Python.&quot;&gt;&lt;em&gt;Python.org – Design Patterns in Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wiki.python.org/moin/PythonDecorators&quot; title=&quot;Decorators em Python, direto da Wiki oficial do Python&quot;&gt;&lt;em&gt;Python.org – Python Decorators&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.siafoo.net/article/68&quot; title=&quot;Decorators em Python não precisam ser assustadores. Um ótimo artigo.&quot;&gt;&lt;em&gt;Siafoo – Python Decorators Don’t Have to be (that) Scary&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Decorator&quot; title=&quot;Leia mais na Wikipedia sobre Decorators&quot;&gt;&lt;em&gt;Wikipedia – Decorator&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

@@ -1,5 +1,143 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - prospector</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 21 Jan 2020 16:15:00 -0300</lastBuildDate><item><title>Assegure a qualidade do seu código Python - Prospector</title><link>https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</link><description>&lt;p&gt;Mais um ano, mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;a href="https://klauslaube.com.br/tag/qualidade.html" title="Leia mais sobre qualidade"&gt;ferramentas de qualidade de código&lt;/a&gt;. Opções não faltam quando o assunto é &lt;a href="https://klauslaube.com.br/tag/python.html" title="Leia mais sobre Python"&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter "um anel para a todos governar"?&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - prospector]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Prospector]]></title><description><![CDATA[Mais um ano, mais um post sobre ferramentas de qualidade de código. Opções não faltam quando o assunto é Python, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter "um anel para a todos governar"? Tanto é interessante que um utilitário vem fazendo parte do…]]></description><link>https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 21 Jan 2020 16:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Mais um ano, mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade&quot;&gt;ferramentas de qualidade de código&lt;/a&gt;. Opções não faltam quando o assunto é &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter &quot;um anel para a todos governar&quot;?&lt;/p&gt;
+&lt;p&gt;Tanto é interessante que um utilitário vem fazendo parte do &lt;em&gt;toolbelt&lt;/em&gt; dos desenvolvedores &lt;em&gt;Python&lt;/em&gt; nos últimos tempos justamente por desempenhar esse papel. Estamos falando, claro, do &lt;a href=&quot;https://prospector.readthedocs.io/en/master/&quot; title=&quot;Leia a documentação oficial&quot;&gt;&lt;em&gt;Prospector&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;One ring to rule them all&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Prospector&lt;/em&gt; é uma ferramenta &lt;a href=&quot;https://github.com/PyCQA/prospector/blob/master/LICENSE&quot; title=&quot;Confira mais no repositório do projeto&quot;&gt;livre&lt;/a&gt;, que analisa código &lt;em&gt;Python&lt;/em&gt; e retorna informações sobre potenciais problemas, erros de convenção de código, alertas sobre complexidade, etc.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAGF8adEKA//xAAaEAACAwEBAAAAAAAAAAAAAAAAAQIRIgMT/9oACAEBAAEFAueJaZ5DRF07s//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8BpX//xAAZEAACAwEAAAAAAAAAAAAAAAAAESAhMWH/2gAIAQEABj8C0VrhsP/EABsQAQEBAAIDAAAAAAAAAAAAAAEAETFBUWGR/9oACAEBAAE/IeQZfdmgHCPMh3Ry+1dqX//aAAwDAQACAAMAAAAQgA//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8QhMf/xAAXEQADAQAAAAAAAAAAAAAAAAAAARFR/9oACAECAQE/EMGVn//EABwQAQADAAMBAQAAAAAAAAAAAAEAESFBUZEx8P/aAAgBAQABPxA1iQRrZv7JV3haMd847lvUdIXNSJzJwt0MKB8I/KW9T//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;O Um Anel&quot;
+        title=&quot;Sauron faz um anel para juntar a todos. Bem parecido com a ideia do prospector (lego-lord-of-the-rings.wikia.com)&quot;
+        src=&quot;/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg&quot;
+        srcset=&quot;/static/86cf2a69117e22c87b361033b5154429/7809d/lsp-one-ring.jpg 192w,
+/static/86cf2a69117e22c87b361033b5154429/4ecad/lsp-one-ring.jpg 384w,
+/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Sauron faz um anel para juntar a todos. Bem parecido com a ideia do prospector (lego-lord-of-the-rings.wikia.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ela agrega a funcionalidade de outras ferramentas de análise, como &lt;a href=&quot;/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html&quot; title=&quot;Leia mais sobre o Pylint&quot;&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Leia mais sobre PEP8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, e disponibiliza algumas configurações padrões, permitindo assim um bom balanço entre cobertura x configuração.&lt;/p&gt;
+&lt;p&gt;O &quot;lema&quot; do &lt;em&gt;Prospector&lt;/em&gt; é ser &quot;out of the box&quot;. Segundo a &lt;a href=&quot;https://prospector.readthedocs.io/en/master/&quot; title=&quot;Leia mais na documentação do Prospector&quot;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A common complaint of other Python analysis tools is that it takes a long time to filter through which errors are relevant or interesting to your own coding style. Prospector provides some default profiles, which hopefully will provide a good starting point and will be useful straight away, and adapts the output depending on the libraries your project uses.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;No terminal&lt;/h2&gt;
+&lt;p&gt;Para começar, precisamos instalar a ferramenta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install prospector&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por padrão o &lt;em&gt;Prospector&lt;/em&gt; utiliza os seguintes utilitários &quot;under the hood&quot;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html&quot; title=&quot;Leia mais sobre o Pyflakes&quot;&gt;&lt;em&gt;pyflakes&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;mccabe&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html&quot; title=&quot;Leia mais sobre o Dodgy&quot;&gt;&lt;em&gt;dodgy&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;pydocstyle&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mas alguns extras (como &lt;em&gt;mypy&lt;/em&gt;) também estão disponíveis para instalação. Confira a &lt;a href=&quot;https://prospector.readthedocs.io/en/master/supported_tools.html&quot; title=&quot;Supported Tools&quot;&gt;lista completa de ferramentas suportadas&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ao executá-lo, ele apontará possíveis problemas em seu projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prospector
 
-&lt;p&gt;Tanto é interessante que um utilitário vem fazendo …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 21 Jan 2020 16:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-01-21:/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>prospector</category></item></channel></rss>
+Messages
+========
+
+my_app/views.py
+  Line: 1
+    pylint: unused-import / Unused render imported from django.shortcuts
+
+manage.py
+  Line: 10
+    pylint: import-outside-toplevel / Import outside toplevel (django.core.management) (col 8)
+
+my_project/settings.py
+  Line: 23
+    dodgy: secret / Possible hardcoded secret key
+
+my_second_app/views.py
+  Line: 1
+    pylint: unused-import / Unused render imported from django.shortcuts
+
+
+
+Check Information
+=================
+         Started: 2020-01-21 11:06:04.832118
+        Finished: 2020-01-21 11:06:07.455090
+      Time Taken: 2.62 seconds
+       Formatter: grouped
+        Profiles: default, no_doc_warnings, no_test_warnings, strictness_medium, strictness_high, strictness_veryhigh, no_member_warnings
+      Strictness: None
+  Libraries Used: django
+       Tools Run: dodgy, mccabe, pep8, profile-validator, pyflakes, pylint
+  Messages Found: 4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainda é possível aumentar o nível de rigorosidade:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prospector --strictness veryhigh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Utilizando-o com o &lt;a href=&quot;https://pre-commit.com/&quot; title=&quot;pre-commit hooks&quot;&gt;&lt;em&gt;pre-commit&lt;/em&gt;&lt;/a&gt;, tudo fica ainda mais dinâmico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; git&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//github.com/guykisel/prospector&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;mirror
+  &lt;span class=&quot;token key atrule&quot;&gt;rev&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# Use the sha / tag you want to point at&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; prospector&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;No VSCode&lt;/h2&gt;
+&lt;p&gt;Admito que conheci o &lt;em&gt;Prospector&lt;/em&gt; por causa do &lt;a href=&quot;/2018/06/04/eu-me-rendo-vscode.html&quot; title=&quot;Eu me rendi ao VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, e utilizá-lo com o editor é tão simples quanto o seu uso via linha de comando. Basta adicionar ao seu &lt;code class=&quot;language-text&quot;&gt;settings.json&lt;/code&gt; as seguintes diretivas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.enabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.prospectorEnabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E após o editor resolver as dependências, ele passa a funcionar quase que magicamente.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8e13f621213d5622fd01845b842f01ef/50383/prospector-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.770833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA2UlEQVQY013N6WqEMBQF4HkbJzGrxph91WmKWNofff9XqeNAW4SPy+HC4dwAtoxExQtmroPqDlR3AV9Bn3e+wz83iCymaZKbGN/5mJSrs30p2lep02SKjUuob8pXLiLo1b8yNogEyguhGVPPRKCD48JzEdh4Gtww+VGG44Oouy4Tls28S9GoXCEJAFmI3cmfnhmgpyNcyuaYtelL+z3Xz5g/Qtpn3YRcB1HYmKV6DKIi4nvsEIvXMpErr9/MbCG2pW1r21yqLpaDdtn4nJclL9X40hPTAflb/gExmUrsvQrFQgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de uso do Prospector + Dodgy + VS Code&quot;
+        title=&quot;Exemplo de uso do Prospector + Dodgy + VS Code&quot;
+        src=&quot;/static/8e13f621213d5622fd01845b842f01ef/50383/prospector-example.png&quot;
+        srcset=&quot;/static/8e13f621213d5622fd01845b842f01ef/8514f/prospector-example.png 192w,
+/static/8e13f621213d5622fd01845b842f01ef/804b2/prospector-example.png 384w,
+/static/8e13f621213d5622fd01845b842f01ef/50383/prospector-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de uso do Prospector + Dodgy + VS Code&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Se você já está cansado de configurar diferentes ferramentas de &lt;em&gt;linting&lt;/em&gt; &lt;em&gt;Python&lt;/em&gt;, o &lt;em&gt;Prospector&lt;/em&gt; pode ser um bom utilitário para manter por perto.&lt;/p&gt;
+&lt;p&gt;Tenho problemas com a &quot;verbosidade&quot; dele, mas acho que ele funciona bem com editores como o &lt;em&gt;VS Code&lt;/em&gt; (por exemplo). Se você quiser ser altamente criterioso em relação ao seu código, vale muito a pena testá-lo em seu processo de &lt;em&gt;pre-commit&lt;/em&gt; e durante o &lt;em&gt;build&lt;/em&gt; no &lt;em&gt;CI&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/PyCQA/prospector/&quot;&gt;Github - prospector&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

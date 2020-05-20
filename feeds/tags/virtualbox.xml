@@ -1,6 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - virtualbox</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 01 Dec 2010 21:14:00 -0200</lastBuildDate><item><title>Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só</title><link>https://klauslaube.com.br/2010/12/01/virtualbox-varios-sos-numa-maquina-so.html</link><description>&lt;p&gt;Sabe quando você quer testar uma distribuição (ou &lt;em&gt;SO&lt;/em&gt;) diferente mas não quer mexer diretamente no
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - virtualbox]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Virtualbox: Uma maneira interessante de possuir vários SOs em uma máquina só]]></title><description><![CDATA[Sabe quando você quer testar uma distribuição (ou SO) diferente mas não quer mexer diretamente no
+particionamento do seu HD? Ou quando você precisar propor uma máquina
+individual para serviços web, mas não tem hardware sobrando para
+isto? Ou quando você precisa ficar movendo um ambiente completo…]]></description><link>https://klauslaube.com.br/2010/12/01/virtualbox-varios-sos-numa-maquina-so.html</link><guid isPermaLink="false">https://klauslaube.com.br/2010/12/01/virtualbox-varios-sos-numa-maquina-so.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 01 Dec 2010 20:14:00 GMT</pubDate><content:encoded>&lt;p&gt;Sabe quando você quer testar uma distribuição (ou &lt;em&gt;SO&lt;/em&gt;) diferente mas não quer mexer diretamente no
 particionamento do seu &lt;em&gt;HD&lt;/em&gt;? Ou quando você precisar propor uma máquina
-individual para serviços &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, mas não tem &lt;em&gt;hardware&lt;/em&gt; sobrando para
+individual para serviços &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, mas não tem &lt;em&gt;hardware&lt;/em&gt; sobrando para
 isto? Ou quando você precisa ficar movendo um ambiente completo entre
-máquinas ou …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 01 Dec 2010 21:14:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2010-12-01:/2010/12/01/virtualbox-varios-sos-numa-maquina-so.html</guid><category>infraestrutura</category><category>sistemas-operacionais</category><category>virtualizacao</category><category>virtualbox</category></item></channel></rss>
+máquinas ou locais?&lt;/p&gt;
+&lt;p&gt;Virtualização pode ser a resposta para os seus problemas!&lt;/p&gt;
+&lt;h2&gt;Virtualização? What the hell?&lt;/h2&gt;
+&lt;p&gt;Segundo o nosso bom e velho &lt;a href=&quot;http://pt.wikipedia.org/wiki/Virtualiza%C3%A7%C3%A3o&quot; title=&quot;Leia mais sobre Virtualização na Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;, virtualização é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(…) uma forma de esconder as características físicas de uma plataforma
+computacional dos utilizadores, mostrando outro hardware virtual,
+emulando um ou mais ambientes isolados.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em outras palavras, é a capacidade de você executar um ou mais sistemas
+operacionais através de plataformas que são emuladas através de um
+segundo sistema operativo… não ajudei né? Então vamos para a forma
+“vulgar”:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;É o conceito ou &lt;em&gt;software&lt;/em&gt; que permite a você executar &lt;em&gt;Ubuntu&lt;/em&gt;, &lt;em&gt;Mac OS
+X&lt;/em&gt; e &lt;em&gt;FreeBSD&lt;/em&gt; em seu &lt;em&gt;Windows XP&lt;/em&gt; sem necessitar particionar seu &lt;em&gt;HD&lt;/em&gt;,
+e ao mesmo tempo. Neste caso, um &lt;em&gt;hardware&lt;/em&gt; virtual é criado e você
+opera (instala, configura, usa) o &lt;em&gt;SO&lt;/em&gt; normalmente, como se estivesse em
+uma “máquina física”.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O &lt;a href=&quot;http://pt.wikipedia.org/wiki/Virtualiza%C3%A7%C3%A3o&quot; title=&quot;Leia mais sobre Virtualização na Wikipedia&quot;&gt;artigo no &lt;em&gt;Wikipedia&lt;/em&gt; sobre virtualização&lt;/a&gt; está bem
+bacana, inclusive citando vantagens e inconvenientes.&lt;/p&gt;
+&lt;h2&gt;O Virtualbox&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 174px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7a15cdd98523e9982ff0b9d9356248e5/fe9c7/virtualbox-logo.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 103.44827586206897%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsSAAALEgHS3X78AAAEaUlEQVQ4y12Ua0yaVxjH323NFpPtw7ZmSbM03aVfFpN9WJYt25Im7dYvW9dk2ZZ2tbZGW1HbqajVYhUQxiooF6tcFFBBQCrgiyACAiqKWG+IN0DEG0NsseIFvACCe9/itN2Tc76c8/ye55zzPP8DHBwcxGIH0WgMGrED2HZ398yTTtA05vGtRaPRFw7w7n/7xwbEXizFlwPBHeOYAy/RX2EqrjLbkQ0avn7U4fZF9qNxb8g39lIIAJp74bDPv2kYsaEaVMk1rSlsFaql9xcqmN2gu8NWI9kddMWTsbmna1s7sVeTAx6ff2p+BcvruFhSn8vTJxaxMzgqYptJYp6mKge+LmSnMxQ5dcpf8XxRr6PP5gnu7B6dFBC3G0G1yTQ5TxB3p1Fak2iyn0jiDxDkVGbb3TrVj1hhWpUyi61l6azSnnHMI5HdtRR/BRiWqnuvo8giacesa7FrzFVar02lSC89FF4miUpEhls0JaPD2j2x0Cg13ERRb5fWOF3uo7cFjP2WM5nYDxFYDLXOMjTo9j5r65++x1Fdq3qMl/YMzS6rei05eOZXCHTCzZIUPNvpXAoGgvEqAONWx+eFxIS8indul/1cTBK3SBZdM3a3d2TOPeZYKK0SnEOgT6XeB5KK3kzB5FQ2Oezzq6v+UCgMw86ZxR8wNM6A9TsiH0jGnMnAoavoNotJ0WU+n1by8Y38E8n5ryehvq9oulTBK6CIHLY57/Kz7e0dGPZ6fBdQlXlSNc0w+A2RB9woO3GtWKKQ4Wnck1ezgetI4ErhZVqzwDxxrpSOYYBTk06P52kwuA1dG/A/X/8dS09AEM5imRliNUKoff9OJR8Eq9nN7yUhPymqzBdrCyWGk3dJb/9xn8rXWS02r9cHZYZh6AJELngqgwjcIiY+bMpuNZ4nizkysKpW8AWynKAx/1Yrfyud+FpS6UUMt1pkHB2eiMPwsdf8G8a+UZ5E8y2WA2RRT+P5H+F4PKWKwRF9WUA9i60HkgnvZlFSyS14rqGuSTMyBMO7u3CrAH7/xpTN1d5h1GqN6SzJG8gaAMkQajobeZJPEeXALXIiqq6YKSfQ5eiyWiG/bWR4amXFF4lEYPj5qt9hn2uV6eisFn2nkSZRncZwG9S6ZoHss/zqC3/x/2ZKS0m8rExcOZ4lBw1Wq31jY+uwtzc3ttxur8k4zGKKmY0yjVLXptZru3u4PNmfBDaJLi5AM+8VU3IzcayaZoNuYGlpORyOHMKhUGjV57dPu0BZp7zdwBF08AWKof7+RqH8AZ6VkUspIzXgCAwMiqaUG2bs88HAdry9DvUcDO5AdX9iHgNBncFk4TZrG5pVjHopIo+CIzfR2SLsA5pUrLZNz66vb0bCEehbONYzFCkQCEKlHx4cV6l6pW3dFLqoGEdHE5hkaj39EV+nMS0ueKDGOMp5DMclFtoLbW4G/nGvjA5P6Tv75aCuXdHVZxxeWPBsbQXC4fD+q+Qx/LJBgfYj+/DY34/Bwo0dCfh/9i8NYpSVNYwk7QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Logotipo do Virtualbox&amp;quot;&quot;
+        title=&quot;Logotipo do Virtualbox&quot;
+        src=&quot;/static/7a15cdd98523e9982ff0b9d9356248e5/fe9c7/virtualbox-logo.png&quot;
+        srcset=&quot;/static/7a15cdd98523e9982ff0b9d9356248e5/fe9c7/virtualbox-logo.png 174w&quot;
+        sizes=&quot;(max-width: 174px) 100vw, 174px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Logotipo do Virtualbox&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Existem diversas formas e ferramentas para virtualizar ambientes em seu &lt;em&gt;desktop&lt;/em&gt;
+ou servidor. A ferramenta que tenho utilizado com muito sucesso
+(em meu &lt;em&gt;desktop&lt;/em&gt;, sou programador e não &lt;em&gt;expert&lt;/em&gt; em infra (: ) é o
+&lt;strong&gt;&lt;em&gt;Virtualbox&lt;/em&gt;&lt;/strong&gt; (também chamado de &lt;strong&gt;&lt;em&gt;Virtualbox OSE&lt;/em&gt;&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Hoje mantido pela &lt;em&gt;Oracle&lt;/em&gt; (que adquiriu a &lt;em&gt;Sun Microsystems&lt;/em&gt;), o
+&lt;em&gt;Virtualbox&lt;/em&gt; é uma solução ágil e objetiva no que diz respeito a
+virtualização. Não sei a opinião dos profissionais de infraestrutura
+sobre esta ferramenta, mas já passei por duas empresas especializadas em
+serviços/produtos focados em servidores, e o &lt;em&gt;Virtualbox&lt;/em&gt; estava lá
+atendendo a demanda.&lt;/p&gt;
+&lt;p&gt;O que me chamou a atenção foi a facilidade de uso. Como programador,
+utilizo-o para criar &lt;em&gt;sandboxes&lt;/em&gt; e máquinas de testes. Na empresa onde
+trabalho atualmente, utilizamos o programa para manter nossos
+&lt;em&gt;workspaces&lt;/em&gt; isolados (já que a aplicação em que eu trabalho é
+empacotada como uma verdadeira distribuição &lt;em&gt;Linux&lt;/em&gt;). Já no meu
+computador pessoal, tenho &lt;em&gt;VMs&lt;/em&gt; (&lt;em&gt;Virtual Machines&lt;/em&gt; – Máquinas Virtuais)
+para testar distribuições como o &lt;em&gt;Debian&lt;/em&gt;, &lt;em&gt;Slackware&lt;/em&gt; e até mesmo o
+&lt;em&gt;Android&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Instalando o Virtualbox&lt;/h2&gt;
+&lt;p&gt;Existem milhares de tutoriais que ensinam a instalar o &lt;em&gt;Virtualbox&lt;/em&gt;. Não
+vou “reinventar a roda”… vou apenas indicar alguns tutoriais:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.vivaolinux.com.br/artigo/Instalando-o-VirtualBox-no-Ubuntu-10.04/&quot; title=&quot;Artigo de Leandro Bruno para o Viva o Linux sobre Virtualbox no Ubuntu-10.04&quot;&gt;&lt;em&gt;Viva o Linux&lt;/em&gt;: Instalando o &lt;em&gt;Virtualbox&lt;/em&gt; no &lt;em&gt;Ubuntu 10.04&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.vivaolinux.com.br/dica/Instalacao-do-Virtualbox-no-Debian-Etch-4-Linux&quot; title=&quot;Artigo de Ronnie Robson Campos para o Viva o Linux sobre o Virtualbox no Debian Etch&quot;&gt;&lt;em&gt;Viva o Linux&lt;/em&gt;: Instalação do &lt;em&gt;Virtualbox&lt;/em&gt; no &lt;em&gt;Debian (Etch)&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.brunorusso.eti.br/virtualizacao/instalando-o-virtualbox-em-uma-maquina-com-slackware/&quot; title=&quot;Um excelente post de Bruno Russo sobre Virtualbox em Slackware&quot;&gt;&lt;em&gt;Bruno Russo&lt;/em&gt;: Instalando o &lt;em&gt;Virtualbox&lt;/em&gt; em uma máquina com
+&lt;em&gt;Slackware&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blogdovicente.com/2009/03/04/como-instalar-e-usar-o-virtualbox/&quot; title=&quot;Post feito pelo Vicente sobre o Virtualbox no Windows&quot;&gt;&lt;em&gt;Blog do Vicente&lt;/em&gt;: Como instalar e usar o &lt;em&gt;Virtualbox&lt;/em&gt;
+(&lt;em&gt;Windows&lt;/em&gt;)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

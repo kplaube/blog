@@ -1,25 +1,976 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - estrutura-de-dados</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 10 May 2019 10:45:00 -0300</lastBuildDate><item><title>Algoritmos de ordenação - Parte 1</title><link>https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</link><description>&lt;p&gt;Voltamos a falar sobre &lt;a href="https://klauslaube.com.br/tag/algoritmos.html" title="Leia mais sobre Algoritmos"&gt;algoritmos&lt;/a&gt;, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - estrutura-de-dados]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Algoritmos de ordenação - Parte 1]]></title><description><![CDATA[Voltamos a falar sobre algoritmos, e
+dessa vez o tópico é sobre ordenação de elementos. As linguagens de programação abstraem
+toda a complexidade envolvida para nós, mas mais que fundamental, compreender como tais algoritmos funcionam é mais um passo
+adiante no aprendizado das Ciências da Computação…]]></description><link>https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 10 May 2019 10:45:00 GMT</pubDate><content:encoded>&lt;p&gt;Voltamos a falar sobre &lt;a href=&quot;/tag/algoritmos.html&quot; title=&quot;Leia mais sobre Algoritmos&quot;&gt;algoritmos&lt;/a&gt;, e
 dessa vez o tópico é sobre ordenação de elementos. As linguagens de programação abstraem
 toda a complexidade envolvida para nós, mas mais que fundamental, compreender como tais algoritmos funcionam é mais um passo
 adiante no aprendizado das Ciências da Computação.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;h2&gt;Definição&lt;/h2&gt;
-&lt;p&gt;Algoritmos de ordenação …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 10 May 2019 10:45:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-05-10:/2019/05/10/algoritmos-de-ordenacao-parte-1.html</guid><category>desenvolvimento</category><category>estrutura-de-dados</category><category>ordenacao</category><category>algoritmos</category></item><item><title>Os greedy algorithms</title><link>https://klauslaube.com.br/2019/01/27/os-greedy-algorithms.html</link><description>&lt;p&gt;Quando estive revisando a disciplina de &lt;a href="https://klauslaube.com.br/tag/algoritmos.html" title="Leia mais sobre Algoritmos"&gt;algoritmos&lt;/a&gt;, me deparei com os tais "algoritmos gulosos", ou &lt;em&gt;greedy algorithms&lt;/em&gt;. Lembro que na época eu automaticamente associei o termo a soluções de baixa utilidade ou performance. Mal sabia eu que estive equivocado esse tempo todo.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Algoritmos de ordenação (ou &lt;em&gt;Sorting Algorithms&lt;/em&gt;) podem ser &lt;a href=&quot;https://brilliant.org/wiki/sorting-algorithms/&quot; title=&quot;Sorting Algorithms no Brilliant&quot;&gt;definidos como&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) an algorithm made up of a series of instructions that takes an array as input, performs specified operations on the array, sometimes called a list, and outputs a sorted array. (...) There are many factors to consider when choosing a sorting algorithm to use.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Resumidamente, é o tipo de algoritmo que tem por entrada um &lt;em&gt;array&lt;/em&gt; e organiza os seus items seguindo uma ordem. Um fator a se considerar é que, as dimensões do &lt;em&gt;array&lt;/em&gt;, e as limitações de espaço, podem influenciar na escolha do algoritmo que será utilizado.&lt;/p&gt;
+&lt;h2&gt;Bubble sort&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Bubble sort&lt;/em&gt; é a escolha mais comum quando começamos a estudar sobre algoritmos e ordenação, por sua simplicidade e por dar uma ideia geral sobre como funcionam tais algoritmos.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/d4c88b8cc620af6af67c33910899fcf7/algoritmos-bubble-sort.gif&quot; alt=&quot;Passos do Bubble sort (wikipedia.org)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Os passos são os seguintes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Compare &lt;code class=&quot;language-text&quot;&gt;A[0]&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;A[1]&lt;/code&gt;. Se &lt;code class=&quot;language-text&quot;&gt;A[0]&lt;/code&gt; for maior que &lt;code class=&quot;language-text&quot;&gt;A[1]&lt;/code&gt;, troque os elementos;&lt;/li&gt;
+&lt;li&gt;Vá para &lt;code class=&quot;language-text&quot;&gt;A[1]&lt;/code&gt;. Se &lt;code class=&quot;language-text&quot;&gt;A[1]&lt;/code&gt; for maior que &lt;code class=&quot;language-text&quot;&gt;A[2]&lt;/code&gt;, troque os elementos; Repita o processo para cada par de elementos até o final do &lt;em&gt;array&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Repita os passos &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;2&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt; vezes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;E é daí que vem seu nome: Pegue o valor mais alto, e &quot;bubble it up&quot; até o fim do &lt;em&gt;array&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Abaixo o algoritmo representado em código &lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;bubble_sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+    Teste de mesa
+    -------------
 
-&lt;p&gt;Os &lt;em&gt;greedy algorithms&lt;/em&gt; são fundamentais nos estudos de …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 27 Jan 2019 15:28:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-01-27:/2019/01/27/os-greedy-algorithms.html</guid><category>desenvolvimento</category><category>estrutura-de-dados</category><category>algoritmos</category></item><item><title>Algoritmos: Como medir?</title><link>https://klauslaube.com.br/2018/12/09/algoritmos-como-medir.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2018/11/09/analise-assintotica.html" title="Leia mais sobre Análise Assintótica"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
+    array = []:
+        - `i` é `-1`, não cai no laço `while` e retorna array sem modificações
+
+    array = [1]:
+        - `i` é `0`, não cai no laço `while` e retorna array sem modificações
+
+    array = [1, 2]:
+        - `i` é `1`, entra no laço `while`
+        - `range(1)` resulta em `[0]`
+        - `j` é `0`. `j[0]` é menor que `j[1]`. Não faz swap
+        - Sai do laço `for`
+        - `i` é `0`. Sai do laço `while`
+        - Retorna array sem modificações
+
+    array = [3, 1, 2, 4]:
+        - `i` é `3`, entra no laço `while`
+        - `range(3)` resulta em `[0, 1, 2]`
+        - `j` é `0`. `j[0]` é maior que `j[1]`. Faz swap
+        - `array` fica [1, 3, 2, 4]
+        - `j` é `1`. `j[1]` é maior que `j[2]`. Faz swap
+        - `array` fica [1, 2, 3, 4]
+        - `j` é `2`. `j[2]` é menor que `j[3]`. Não faz swap
+        - Sai do laço `for`
+        - `i` é `2`, entra no laço `for [0, 1]`. Itens estão ordenados. Não faz swap
+        - Sai do laço `for`
+        - `i` é `1`, entra no laço `for [0]`. Itens estão ordenados. Não faz swap
+        - `i` é `0`. Sai do laço `while`
+        - Retorna array ordenado
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; j&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; j &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                swap&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; j&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        i &lt;span class=&quot;token operator&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;# Ao alterar o array in-place, não há reais motivos para retorná-lo&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Running-time complexity&lt;/em&gt;: Para cada elemento do &lt;em&gt;array&lt;/em&gt;, o algoritmo faz &lt;code class=&quot;language-text&quot;&gt;n - 1&lt;/code&gt; comparações. Considerando que ele percorre todo o array fazendo &lt;code class=&quot;language-text&quot;&gt;n - 1&lt;/code&gt; comparações, em &lt;a href=&quot;/2018/11/09/analise-assintotica.html&quot; title=&quot;Análise assintótica&quot;&gt;&lt;em&gt;big O notation&lt;/em&gt;&lt;/a&gt; temos &lt;code class=&quot;language-text&quot;&gt;O(n^2)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Space complexity&lt;/em&gt;: Como operamos a troca de elementos (&lt;code class=&quot;language-text&quot;&gt;swap&lt;/code&gt;), não precisamos de nenhuma outra estrutura de dados para armazenar o resultado da operação, com isso, temos complexidade de espaço de &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Selection sort&lt;/h2&gt;
+&lt;p&gt;Outro algoritmo simples e intuitivo, e &lt;a href=&quot;https://www.quora.com/Which-is-faster-selection-sort-or-bubble-sort&quot; title=&quot;Which is faster: selection sort or bubble sort?&quot;&gt;ligeiramente mais performático&lt;/a&gt;, é o &lt;em&gt;Selection sort&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/f20b8898585b3ca03843d93ce2c35a68/algoritmos-selection-sort.gif&quot; alt=&quot;Passos do Selection Sort (wikipedia.org)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Os passos podem ser resumidos em:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Encontre o menor valor;&lt;/li&gt;
+&lt;li&gt;Troque o menor valor com o primeiro item do &lt;em&gt;array&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Encontre o segundo menor valor;&lt;/li&gt;
+&lt;li&gt;Troque o segundo menor valor com o segundo item do &lt;em&gt;array&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Repita a operação até o &lt;em&gt;array&lt;/em&gt; estar ordenado.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b94efd9b044adf58624b636b64642a67/07f3a/mad-max-ordem.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHojqeHbFwP/8QAGRABAQADAQAAAAAAAAAAAAAAAgEDEjEh/9oACAEBAAEFAn4VkNYp1zW7jp5//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAESQf/aAAgBAwEBPwHVIf/EABgRAAIDAAAAAAAAAAAAAAAAAAABERIh/9oACAECAQE/AZwuz//EABkQAAIDAQAAAAAAAAAAAAAAAAABAhAhQf/aAAgBAQAGPwIXcFpK/wD/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhQTH/2gAIAQEAAT8hYlvJtlcOwRO+z3DgVAKuDM//2gAMAwEAAgADAAAAELsv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREQ/9oACAEDAQE/EIEGH//EABYRAQEBAAAAAAAAAAAAAAAAAAEREP/aAAgBAgEBPxCmnD//xAAbEAEAAgIDAAAAAAAAAAAAAAABABEhMUFRcf/aAAgBAQABPxCj4tV7C84ERnvEIlU23cAARhmqvccgKDUJSf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Image do filme MadMax&quot;
+        title=&quot;Um mundo sem ordem é um mundo infeliz (tasteofcinema.com)&quot;
+        src=&quot;/static/b94efd9b044adf58624b636b64642a67/07f3a/mad-max-ordem.jpg&quot;
+        srcset=&quot;/static/b94efd9b044adf58624b636b64642a67/7809d/mad-max-ordem.jpg 192w,
+/static/b94efd9b044adf58624b636b64642a67/4ecad/mad-max-ordem.jpg 384w,
+/static/b94efd9b044adf58624b636b64642a67/07f3a/mad-max-ordem.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Um mundo sem ordem é um mundo infeliz (tasteofcinema.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;No algoritmo anterior tínhamos como finalidade mover o maior valor para o final do &lt;em&gt;array&lt;/em&gt;. Nesse, a finalidade é selecionar o valor mais baixo no &lt;em&gt;array&lt;/em&gt;, e movê-lo para o começo da estrutura.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;selection_sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+    Teste de mesa
+    -------------
+
+    array = []:
+        - `len(array)` é `0`, não cai no primeiro no laço `for` e retorna array sem modificações
+
+    array = [1]:
+        - `len(array)` é `1`, entra no primeiro laço `for`
+        - `min_index` é `0`, não entra no segundo laço
+        - Retorna array sem modificações
+
+    array = [1, 2]:
+        - `len(array)` é `2`, entra no primeiro laço `for`
+        - `i` é `0` e `min_index` é `0`. Entra no segundo laço `for`
+        - `j` é `1`. `array[0]` não é maior que `array[1]`
+        - Sai do segundo laço `for`
+        - Faz swap `0` (`i`) e `0` (`min_index`)
+        - Retorna array sem modificações
+
+    array = [3, 1, 2, 4]:
+        - `len(array)` é `4`, entra no primeiro laço `for`
+        - `i` é `0` e `min_index` é `0`. Entra no segundo laço `for`
+        - `j` é `1`. `array[0]` é maior que `array[1]`
+        - `min_index` é `1`
+        - `j` é `2`. `array[1]` não é maior que `array[2]`
+        - `j` é `3`. `array[1]` não é maior que `array[3]`
+        - Sai do segundo laço `for`
+        - Faz swap `0` (`i`) e `1` (`min_index`)
+        - `array` fica [1, 3, 2, 4]
+        - `i` é `1` e `min_index` é `1`. Entra no segundo laço `for`
+        - `j` é `2`. `array[1]` é maior que `array[2]`
+        - `min_index` é `2`
+        - `j` é `3`. `array[2]` não é maior que `array[3]`
+        - Sai do segundo laço `for`
+        - Faz swap `1` (`i`) e `2` (`min_index`)
+        - `array` fica [1, 2, 3, 4]
+        - `i` é `2` e `min_index` é `2`. Entra no segundo laço `for`
+        - `j` é `3`. `array[2]` não é maior que `array[3]`
+        - Sai do segundo laço `for`
+        - Faz swap `2` (`i`) e `2` (`min_index`)
+        - `i` é `3` e `min_index` é `3`. Não entra no segundo laço `for`
+        - Faz swap `3` (`i`) e `3` (`min_index`)
+        - Sai do primeiro laço `for`
+        - Retorna array ordenado
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; j&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i
+
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        min_index &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; j &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;min_index&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                min_index &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; j
+
+        swap&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; min_index&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;# Ao alterar o array in-place, não há reais motivos para retorná-lo&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Running-time complexity&lt;/em&gt;: Ao percebermos os dois &lt;em&gt;loops&lt;/em&gt; alinhados, percorrendo a dimensão do &lt;em&gt;array&lt;/em&gt; cada, podemos concluir que a complexidade é de &lt;code class=&quot;language-text&quot;&gt;O(n^2)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Space complexity&lt;/em&gt;: Como operamos a troca de elementos (&lt;code class=&quot;language-text&quot;&gt;swap&lt;/code&gt;), não precisamos de nenhuma outra estrutura de dados para armazenar o resultado da operação, com isso, temos complexidade de espaço de &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Insertion sort&lt;/h2&gt;
+&lt;p&gt;Para finalizar essa primeira parte do artigo, apresentamos o &lt;em&gt;Insertion sort&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/6e67d1c722106442b422ee53e98575b3/algoritmos-insertion-sort.gif&quot; alt=&quot;Passos do Insertion sort (wikipedia.org)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Embora ele se compare aos dois algoritmos acima em &lt;em&gt;running time&lt;/em&gt;, na minha opinião, imaginar o seu funcionamento demanda um pouquinho mais de esforço. Nesse algoritmo, o propósito é achar o lugar onde o elemento deveria estar no &lt;em&gt;array&lt;/em&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Para cada elemento &lt;code class=&quot;language-text&quot;&gt;A[i]&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Se &lt;code class=&quot;language-text&quot;&gt;A[i] &amp;gt; A[i + 1]&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Troque os elementos até &lt;code class=&quot;language-text&quot;&gt;A[i] &amp;lt;= A[i + 1]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Abaixo a implementação em &lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;insertion_sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+    Teste de mesa
+    -------------
+
+    array = []:
+        - `len(array)` é `0`, não cai no laço `for` e retorno array sem modificações
+
+    array = [1]:
+        - `len(array)` é `1`, mas `range(1, len(array))` resulta em `[]`
+        - Retorna array sem modificações
+
+    array = [1, 2]:
+        - `len(array)` é `2`, entra no laço `for`
+        - `slot` é `1`. `value` é `2` e `test_slot` é `0`
+        - `test_slot` é maior que `-1`, mas `array[0]` não é maior que `2`
+        - `array[1]` recebe `2` (mesmo valor)
+        - Retorna array sem modificações
+
+    array = [3, 1, 2, 4]:
+        - `len(array)` é `4`, entra no laço `for`
+        - `slot` é `1`, `value` é `1` e `test_slot` é `0`
+        - `test_slot` é maior que `-1` e `array[0]` é maior que `1`. Entra no laço `while`
+        - `array[1]` recebe `array[0]`
+        - `test_slot` é `-1`
+        - `array` fica [3, 3, 2, 4]
+        - `test_slot` não é maior que `-1`. Sai do laço `while`
+        - `array[0]` recebe `1`
+        - `array` fica [1, 3, 2, 4]
+        - `slot` é `2`, `value` é `2` e `test_slot` é `1`
+        - `test_slot` é maior que `-1` e `array[1]` é maior que `2`. Entra no laço `while`
+        - `array[2]` recebe `3`
+        - `test_slot` é `0`
+        - `array` fica [1, 3, 3, 4]
+        - `test_slot` é maior que `-1`, mas `array[0]` não é maior que `2`. Sai do laço `while`
+        - `array[1]` recebe `2`
+        - `array` fica [1, 2, 3, 4]
+        - `slot` é `3`, `value` é `4` e `test_slot` é `2`
+        - `test_slot` é maior que `-1`, mas `array[2]` não é maior que `4`. Não entra no laço `while`
+        - `array[3]` recebe `4` (mesmo valor). Sai do laço `for`
+        - Retorna array ordenado
+    &quot;&quot;&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; slot &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;slot&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+        test_slot &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; slot &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; test_slot &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;and&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test_slot&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test_slot &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test_slot&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+            test_slot &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; test_slot &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+        array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test_slot &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; value
+
+    &lt;span class=&quot;token comment&quot;&gt;# Ao alterar o array in-place, não há reais motivos para retorná-lo&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Running-time complexity&lt;/em&gt;: No melhor cenário, o algoritmo terá complexidade &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;. O mesmo apresenta complexidade &lt;code class=&quot;language-text&quot;&gt;O(n^2)&lt;/code&gt; como pior cenário.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Space complexity&lt;/em&gt;: Como operamos a troca de elementos (&lt;code class=&quot;language-text&quot;&gt;swap&lt;/code&gt;), não precisamos de nenhuma outra estrutura de dados para armazenar o resultado da operação, com isso, temos complexidade de espaço de &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Os algoritmos listados nesse artigo não possuem performance atrativa, mas são a escolha perfeita para introduzir o conceito de algoritmos e ordenação de elementos. E por mais que você sinta-se tentado a defender a ótima característica de &lt;em&gt;space complexity&lt;/em&gt; que eles possuem, ainda assim há soluções mais práticas para os problemas de ordenação do cotidiano.&lt;/p&gt;
+&lt;p&gt;Nos próximos artigos vamos explorar algumas delas, como o &lt;em&gt;Merge&lt;/em&gt; e &lt;em&gt;Quicksort&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://brilliant.org/wiki/bubble-sort/&quot;&gt;Brilliant - Bubble sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://brilliant.org/wiki/insertion/&quot;&gt;Brilliant - Insertion sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://brilliant.org/wiki/sorting-algorithms/&quot;&gt;Brilliant - Sorting Algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/selection-sort/&quot;&gt;GeeksForGeeks - Selection sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@george.seif94/a-tour-of-the-top-5-sorting-algorithms-with-python-code-43ea9aa02889&quot;&gt;George Seif - A tour of the top 5 sorting algorithms with Python code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms/a/selection-sort-pseudocode&quot;&gt;Khan Academy - Selection sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/sorting.html&quot;&gt;Victor S. Adamchick - Sorting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Bubble_sort&quot;&gt;Wikipedia - Bubble sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Insertion_sort&quot;&gt;Wikipedia - Insertion sort&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Recursividade e o "dividir e conquistar"]]></title><description><![CDATA[Sabe aquelas pessoas que têm problemas em determinar qual lado é o "esquerdo" e qual lado é o "direito"?
+Admito, sem orgulho algum, que tenho o mesmo problema com recursividade. Meu cérebro simplesmente se embaralha,
+e preciso fazer um grande esforço para imaginar o que está acontecendo. A boa…]]></description><link>https://klauslaube.com.br/2019/03/25/recursividade-e-dividir-e-conquistar.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/03/25/recursividade-e-dividir-e-conquistar.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 25 Mar 2019 18:55:00 GMT</pubDate><content:encoded>&lt;p&gt;Sabe aquelas pessoas que têm problemas em determinar qual lado é o &quot;esquerdo&quot; e qual lado é o &quot;direito&quot;?
+Admito, sem orgulho algum, que tenho o mesmo problema com recursividade. Meu cérebro simplesmente se embaralha,
+e preciso fazer um grande esforço para imaginar o que está acontecendo.&lt;/p&gt;
+&lt;p&gt;A boa notícia é que assim como usar a mão do relógio (ou a mão que você escreve) ajuda a determinar o que é esquerda e direita, é possível utilizar alguns padrões de escrita de código para ajudar a entender o que está acontecendo em um algoritmo com recursividade.&lt;/p&gt;
+&lt;p&gt;Mas como só a receita de bolo não basta... senta que lá vem história.&lt;/p&gt;
+&lt;h2&gt;Napoleão style!&lt;/h2&gt;
+&lt;p&gt;O &quot;Dividir e Conquistar&quot; (ou &lt;em&gt;Divide and Conquer&lt;/em&gt;), assim como os &lt;a href=&quot;/2019/01/27/os-greedy-algorithms.html&quot; title=&quot;Os Greedy algorithms&quot;&gt;&lt;em&gt;Greedy algorithms&lt;/em&gt;&lt;/a&gt;, é um paradigma para construção de algoritmos (&lt;em&gt;algorithmic paradigm&lt;/em&gt;), onde a ideia é resolver um determinado problema utilizando três passos diferentes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dividir: Quebre um determinado problema em subproblemas do mesmo tipo;&lt;/li&gt;
+&lt;li&gt;Conquistar: Resolva esses subproblemas de forma recursiva;&lt;/li&gt;
+&lt;li&gt;Combinar: Combine as respostas apropriadamente.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Algoritmos de ordenação famosos, como o &lt;em&gt;Quicksort&lt;/em&gt; e o &lt;em&gt;Merge Sort&lt;/em&gt;, utilizam esse paradigma para apresentar soluções com performance ótima.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4f305a9c1529024471828ae2df1570c7/b4294/divide-and-conquer-napoleon.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAB1c2sIhbf/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIBEwQRM//aAAgBAQABBQK5SWsVm1Jjj9P/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERL/2gAIAQMBAT8BjL//xAAXEQADAQAAAAAAAAAAAAAAAAAAARES/9oACAECAQE/AdVwp//EABsQAAIBBQAAAAAAAAAAAAAAAAABAhARIjFx/9oACAEBAAY/AtmLLOkiXT//xAAbEAACAwADAAAAAAAAAAAAAAAAAREhMRBBcf/aAAgBAQABPyFqcOw+XN3cE/Qxd+8Dvcf/2gAMAwEAAgADAAAAEOTf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EMhsBL//xAAVEQEBAAAAAAAAAAAAAAAAAAABAP/aAAgBAgEBPxAcFjf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUFR/9oACAEBAAE/EOObtC1KgwEolBc0fY8gmx5ZHCrGG8n/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Napeleon sentado no sofá&quot;
+        title=&quot;Não! Não esse Napoleon... (youtube.com)&quot;
+        src=&quot;/static/4f305a9c1529024471828ae2df1570c7/b4294/divide-and-conquer-napoleon.jpg&quot;
+        srcset=&quot;/static/4f305a9c1529024471828ae2df1570c7/7809d/divide-and-conquer-napoleon.jpg 192w,
+/static/4f305a9c1529024471828ae2df1570c7/4ecad/divide-and-conquer-napoleon.jpg 384w,
+/static/4f305a9c1529024471828ae2df1570c7/b4294/divide-and-conquer-napoleon.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não! Não esse Napoleon... (youtube.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Compreender essa estrutura é um bom passo para dominar funções recursivas. Na verdade, a utilização de recursividade parte do princípio que você seja capaz de quebrar um grande problema em problemas menores (e semelhantes). No fim, os dois conceitos se completam e é difícil imaginar um sem o outro. O &lt;a href=&quot;https://www.tutorialspoint.com/data_structures_algorithms/divide_and_conquer.htm&quot; title=&quot;Data Structures - Divide and Conquer&quot;&gt;&lt;em&gt;tutorialspoint&lt;/em&gt;&lt;/a&gt; reforça essa idea:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In divide and conquer approach, the problem in hand, is divided into smaller sub-problems and then each problem is solved independently. When we keep on dividing the subproblems into even smaller sub-problems, we may eventually reach a stage where no more division is possible. Those &quot;atomic&quot; smallest possible sub-problem (fractions) are solved. The solution of all sub-problems is finally merged in order to obtain the solution of an original problem.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Não será surpresa se vermos a mesma receita se repetir pelo resto desse &lt;em&gt;post&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Uma função que chama a si mesmo&lt;/h2&gt;
+&lt;p&gt;O &lt;a href=&quot;https://pt.wikibooks.org/wiki/Algoritmos_e_Estruturas_de_Dados/Recursividade&quot; title=&quot;Algoritmos e Estruturas de Dados/Recursividade&quot;&gt;&lt;em&gt;Wikibooks&lt;/em&gt;&lt;/a&gt; explica de forma muito clara o que é recursividade:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Recursão é um método de programação no qual uma função pode chamar a si mesma. O termo é usado de maneira mais geral para descrever o processo de repetição de um objeto de um jeito similar ao que já fora mostrado. Muitos problemas em computação tem a propriedade de que cada instância sua contém uma instância menor do mesmo problema.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em termos mais práticos, é como se criássemos uma função para fatorar, e essa função chamasse a ela mesma:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FUNÇÃO fatorial(numero)
+    RETORNE numero * fatorial(numero - 1)
+FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos fazer um rápido teste de mesa. Imagine que queremos saber o fatorial de 3:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;3 * fatorial(2)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(2)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;2 * fatorial(1)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Por intuição (falaremos mais sobre esse passo a seguir), assumimos que &lt;code class=&quot;language-text&quot;&gt;fatorial(1) == 1&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A função chama a si mesma recursivamente em uma versão menor da entrada (&lt;code class=&quot;language-text&quot;&gt;n - 1&lt;/code&gt;), e multiplica o resultado por &lt;code class=&quot;language-text&quot;&gt;numero&lt;/code&gt;. Podemos visualizar o resultado desse comportamento ao fazer o caminho &quot;de baixo para cima&quot; na lista acima: &lt;code class=&quot;language-text&quot;&gt;1 * 2 * 3 = 6&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aab18e08c8f881190c73d853f5090ed3/50383/recursion-russian-doll.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQozyWQa0hTYRzGD0FQmUu38573Pe973rOds53pZpt5KXOaFzZ1zrykTlFKu5FXSsoGU5NEWhDKEhX8YjcUlMrLvMzrxEviNwu/RtDXqE9B0LfOEp6Pz4/f8/8zXk5XArQdEPQpuFIGXjMqleBVE+mv9nx+PXD0YfxWRrLLSNKBJpAt+dLomwJTt5VUAV0jBsxdnr3Hg04JVYjsJS7OgbUXdJqgt2gv+DQS8P053Poefn84Ppgncu0ppMbIPcmg0/nGOsDe5AHTjeEgRb1W3JKE3CLrNnAp2rNLXc2fhvumfM3fIqEfXw6+To5lYbZYD9pswkCO9LHQ2KHnyoGOmRDRCEX+VNmt4BwKnHroFGGqgDw2s0uhlXZTSZIxS6Z5FNyx0TKzUG2jY4WWV2ZczmqZeYrGBNipGIwxMSkY1iq4QgL5JL7USKb9rVM9D4oknMrGPkwVArnyoyuJ8rk4n0m/IAlBwjGLApwicAZzuwS9teo9BpDNx+UQdtHftB/s/Xu0/3tv8fZle4PC9jgMOzX2TZFsYG5OgCGKmCUCVwhaJnAPwdFEUmRGbpmvt4ovrpcF6ooHOpqGHrfX201VCm5JlyY95l2JX8JcSICzAoyaVXiVwG0Mh0XeI5L2i5YWG7FoThfzGmf8SeXUCa+sCzgt3gT5uSxsUV71hSicE1AUDhO0RqCaTZ7bp2gkgZbJnPr5Z9dc7+7fqLDKVTIYcinb58UNANRyWIAqNa/C6uDV//A6jmZZRE1GmMHFtjmSDwb9P3dC6y/7C3iNP1O/lmtaQXBFQGECVWqBQiYc3YyOyS0ezuhRYwKqNega0syRrtZfq7OR0YALnOnK1E84DOtRU/TMY/k/0eXB+NLo+R0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Imagem ilustrando a recursão&quot;
+        title=&quot;Duas referências no mesmo post. Ousado! (mashable.com)&quot;
+        src=&quot;/static/aab18e08c8f881190c73d853f5090ed3/50383/recursion-russian-doll.png&quot;
+        srcset=&quot;/static/aab18e08c8f881190c73d853f5090ed3/8514f/recursion-russian-doll.png 192w,
+/static/aab18e08c8f881190c73d853f5090ed3/804b2/recursion-russian-doll.png 384w,
+/static/aab18e08c8f881190c73d853f5090ed3/50383/recursion-russian-doll.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Duas referências no mesmo post. Ousado! (mashable.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Roubamos no exemplo anterior, quando dissemos que por intuição sabemos o resultado da última etapa. &quot;Intuição&quot; não funciona do ponto de vista do algoritmo, e acabaríamos com um &lt;em&gt;loop&lt;/em&gt; infinito, uma vez que não informamos em qual momento a função tem que parar de chamar a si mesma. O caso acima, se executado em uma linguagem de programação, vai resultar no famoso &lt;a href=&quot;http://ptcomputador.com/P/computer-programming-languages/88738.html&quot; title=&quot;O que é o estouro de pilha&quot;&gt;estouro de pilha&lt;/a&gt; (ou &lt;a href=&quot;https://pt.stackoverflow.com/questions/59135/erro-stackoverflow&quot; title=&quot;Erro stack overflow no StackOverflow&quot;&gt;&lt;em&gt;stack overflow&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Precisamos adicionar o que é conhecido por &quot;caso base&quot; (ou &quot;condição de parada&quot;) ao algoritmo. É esse caso que vai determinar quando a função deve parar:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FUNÇÃO fatorial(numero)
+    SE numero &amp;lt;= 1 ENTÃO
+        RETORNE 1
+    SENÃO
+        RETORNE numero * fatorial(numero - 1)
+FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Podemos refazer o nosso teste de mesa:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;3 * fatorial(2)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(2)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;2 * fatorial(1)&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(1)&lt;/code&gt;: Retorna &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;É possível perceber uma estrutura que costuma se repetir em outros algoritmos que utilizam recursão:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Um número limitado de casos base;&lt;/li&gt;
+&lt;li&gt;Um caso recursivo;&lt;/li&gt;
+&lt;li&gt;Uma chamada externa (ex.: &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;);&lt;/li&gt;
+&lt;li&gt;Um conjunto de chamadas recursivas (ex.: &lt;code class=&quot;language-text&quot;&gt;fatorial(3 - 1)&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Tail recursion&lt;/h2&gt;
+&lt;p&gt;Voltando ao exemplo &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;, uma melhor leitura da ordem de chamada seria a seguinte:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;3 * fatorial(2)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;3 * (2 * fatorial(1))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;3 * (2 * (1))&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cada linha cria um &lt;a href=&quot;https://stackoverflow.com/questions/10057443/explain-the-concept-of-a-stack-frame-in-a-nutshell&quot; title=&quot;Explain the concept of a stack frame in a nutshell&quot;&gt;&lt;em&gt;stack frame&lt;/em&gt;&lt;/a&gt;, que é empilhado de acordo com a ordem das chamadas. Ao fim da última chamada recursiva, os &lt;em&gt;frames&lt;/em&gt; são retirados gradativamente da pilha, como ilustrado no exemplo abaixo:&lt;/p&gt;
+&lt;p&gt;{% img align-center-keep-size /images/blog/javascript-stack-example.png 740 243 Exemplo de call stack em Javascript (thinkingincrowd.me) %}&lt;/p&gt;
+&lt;p&gt;Uma função recursiva é &lt;em&gt;tail recursive&lt;/em&gt; quando a chamada recursiva é a última coisa executada pela função. No nosso exemplo, temos uma função que aparentemente possui essa característica. Porém, não é certo dizer que ela possui de fato recursão de cauda, uma vez que temos que considerar que &lt;code class=&quot;language-text&quot;&gt;fatorial(numero - 1)&lt;/code&gt; é usado dentro de &lt;code class=&quot;language-text&quot;&gt;fatorial(numero)&lt;/code&gt;. O exemplo abaixo passa a ideia de que a chamada da função não é a última coisa executada no &lt;em&gt;frame&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chamada inicial: &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;3 * fatorial(2)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 2: &lt;code class=&quot;language-text&quot;&gt;3 * (2 * fatorial(1))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 3: Atinge caso base em &lt;code class=&quot;language-text&quot;&gt;fatorial(1)&lt;/code&gt; e retorna &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 2: &lt;code class=&quot;language-text&quot;&gt;3 * (2 * (1))&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;3 * (2)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Retorno da chamada inicial: &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://www.geeksforgeeks.org/tail-recursion/&quot; title=&quot;Tail Recursion&quot;&gt;GeeksForGeeks&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Consider the (...) function to calculate factorial of n. It is a non-tail-recursive function. Although it looks like a tail recursive at first look. If we take a closer look, we can see that the value returned by fact(n-1) is used in fact(n), so the call to fact(n-1) is not the last thing done by fact(n)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É preciso fazer uma manutenção no corpo da função:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FUNÇÃO fatorial-interna(numero, acumulador)
+    SE numero == 0 ENTÃO
+        RETORNE acumulador
+    SENÃO
+        RETORNE fatorial-interna(numero - 1, numero * acumulador)
+
+FUNÇÃO fatorial(numero)
+    RETORNE fatorial-interna(numero, 1)
+FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como resultado, teremos um &lt;em&gt;call stack&lt;/em&gt; diferente:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chamada inicial: &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(3, 1)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 2: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(2, 3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 3: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(1, 6)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 4: Atinge caso base em &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(0, 6)&lt;/code&gt; e retorna &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 3: Retorno de &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 2: Retorno de &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: Retorno de &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Retorno da chamada inicial: &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Qual a real motivação em utilizar funções com recursão de cauda? Esse tipo de função pode ser otimizada pelo interpretador/compilador, portanto, o seu uso é encorajado em &lt;a href=&quot;https://www.quora.com/Which-programming-languages-support-tail-recursion-optimization-out-of-the-box%22%0AWhich%20programming%20languages%20support%20tail%20recursion%20optimization%20out%20of%20the%20box?%22&quot;&gt;linguagens que suportam essa funcionalidade&lt;/a&gt;. De forma bem resumida, uma vez que a chamada recursiva é o último &quot;statement&quot;, não há nada mais para ser executado pela função corrente, podendo utilizar o mesmo &lt;em&gt;stack frame&lt;/em&gt;, &lt;a href=&quot;https://www.geeksforgeeks.org/tail-call-elimination/&quot; title=&quot;Tail Call Elimination&quot;&gt;minimizando o esforço de empilhar e desempilhar chamadas&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Chamada inicial: &lt;code class=&quot;language-text&quot;&gt;fatorial(3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(3, 1)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(2, 3)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(1, 6)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Frame 1: Atinge caso base em &lt;code class=&quot;language-text&quot;&gt;fatorial-interna(0, 6)&lt;/code&gt; e retorna &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Retorno da chamada inicial: &lt;code class=&quot;language-text&quot;&gt;6&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vamos para uma abordagem mais prática, e para esse bloco, nada melhor que um dos desafios mais populares em entrevistas de emprego: Determinar se uma palavra é palíndromo.&lt;/p&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://www.todamateria.com.br/palindromo/&quot; title=&quot;Palíndromo&quot;&gt;TodaMatéria&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Palíndromo, do grego palin (novo) e dromo (percurso), é toda palavra ou frase que pode ser lida de trás pra frente e que, independente da direção, mantém o seu sentido.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Vamos nos ater apenas à palavra. Utilizando a ideia de dividir e conquistar, é possível imaginar o seguinte algoritmo:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dividir:&lt;/strong&gt; Recebo determinada palavra, ou qualquer fração da mesma (exemplo: &lt;code class=&quot;language-text&quot;&gt;arara&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;rar&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Conquistar:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se a largura da palavra for igual a &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt; (exemplo: &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt;), é palíndromo. Esse é um caso base;&lt;/li&gt;
+&lt;li&gt;Senão, se primeira e última letra da palavra forem diferentes (exemplo: &lt;code class=&quot;language-text&quot;&gt;araro&lt;/code&gt;), não é palíndromo. Esse é o segundo caso base;&lt;/li&gt;
+&lt;li&gt;Senão, retiramos a primeira e última letra da palavra, e passamos a nova palavra como parâmetro recursivamente (exemplo: &lt;code class=&quot;language-text&quot;&gt;rar&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Combinar:&lt;/strong&gt; O resultado do último caso base executado vai dizer se o parâmetro passado é palíndromo ou não.&lt;/p&gt;
+&lt;p&gt;Em &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;, podemos reproduzir as condições acima da seguinte forma:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token function-variable function&quot;&gt;isPalindrome&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;word&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token comment&quot;&gt;// Caso base #1&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;length &lt;span class=&quot;token operator&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// Caso base #2&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;word&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;!==&lt;/span&gt; word&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;token comment&quot;&gt;// Chamada recursiva&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;isPalindrome&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;str&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;slice&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acredito que deixando a chamada recursiva para o final, além de ser mais fácil de imaginar o problema e seus diferentes casos, &quot;ganhamos&quot; a característica de &lt;em&gt;tail recursion&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Recursividade sempre é um assunto que demanda um pouco mais de energia na leitura de um código, principalmente se você (assim como eu) prefere a forma iterativa (com &lt;code class=&quot;language-text&quot;&gt;for&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;while&lt;/code&gt; e utilizando uma &lt;code class=&quot;language-text&quot;&gt;stack&lt;/code&gt; como estrutura de dados), mas sem dúvida alguma que compreender o &lt;em&gt;divide and conquer&lt;/em&gt; e praticar uma forma mais estruturada de pensar facilita na compreensão de problemas com recursão.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction/&quot;&gt;GeeksForGeeks - Divide and Conquer Algorithm. Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/tail-recursion/&quot;&gt;GeeksForGeeks - Tail recursion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/recursion&quot;&gt;Khan Academy - Recursividade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cs.stackexchange.com/questions/6230/what-is-tail-recursion&quot;&gt;StackExchange - What is tail recursion?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.tutorialspoint.com/data_structures_algorithms/divide_and_conquer.htm&quot;&gt;TutorialsPoint - Divide and Conquer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikibooks.org/wiki/Algoritmos_e_Estruturas_de_Dados/Recursividade&quot;&gt;Wikibooks - Algoritmos e Estruturas de Dados/Recursividade&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Recursividade_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)&quot;&gt;Wikipedia - Recursividade (ciência da computação)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Os greedy algorithms]]></title><description><![CDATA[Quando estive revisando a disciplina de algoritmos, me deparei com os tais "algoritmos gulosos", ou greedy algorithms. Lembro que na época eu automaticamente associei o termo a soluções de baixa utilidade ou performance. Mal sabia eu que estive equivocado esse tempo todo. Os greedy algorithms são…]]></description><link>https://klauslaube.com.br/2019/01/27/os-greedy-algorithms.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/01/27/os-greedy-algorithms.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 27 Jan 2019 15:28:00 GMT</pubDate><content:encoded>&lt;p&gt;Quando estive revisando a disciplina de &lt;a href=&quot;/tag/algoritmos.html&quot; title=&quot;Leia mais sobre Algoritmos&quot;&gt;algoritmos&lt;/a&gt;, me deparei com os tais &quot;algoritmos gulosos&quot;, ou &lt;em&gt;greedy algorithms&lt;/em&gt;. Lembro que na época eu automaticamente associei o termo a soluções de baixa utilidade ou performance. Mal sabia eu que estive equivocado esse tempo todo.&lt;/p&gt;
+&lt;p&gt;Os &lt;em&gt;greedy algorithms&lt;/em&gt; são fundamentais nos estudos de algoritmos e otimizações, não à toa o mundo acadêmico faz questão de mencioná-los em uma variedade de cursos de algoritmos ou de computação. Mas algumas definições podem passar uma ideia equivocada sobre o que eles realmente são, e do que são capazes.&lt;/p&gt;
+&lt;h2&gt;Definição&lt;/h2&gt;
+&lt;p&gt;Embora a &lt;em&gt;Wikipedia&lt;/em&gt; possua uma definição interessante sobre o assunto, foi no &lt;em&gt;GeeksforGeeks&lt;/em&gt; que &lt;a href=&quot;https://www.geeksforgeeks.org/greedy-algorithms/&quot; title=&quot;Greedy Algorithms&quot;&gt;encontrei uma passagem bem esclarecedora&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Greedy is an algorithmic paradigm that builds up a solution piece by piece, always choosing the next piece that offers the most obvious and immediate benefit. So the problems where choosing locally optimal also leads to global solution are best fit for Greedy.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O &lt;em&gt;Paulo Feofiloff&lt;/em&gt; vai além em &lt;a href=&quot;https://www.ime.usp.br/~pf/analise_de_algoritmos/aulas/guloso.html&quot; title=&quot;USP - Algoritmos gulosos&quot;&gt;&quot;Algoritmos gulosos&quot;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Para resolver um problema, um algoritmo guloso escolhe, em cada iteração, o objeto mais apetitoso que vê pela frente. (...) Um algoritmo guloso é míope: ele toma decisões com base nas informações disponíveis na iteração corrente, sem olhar as consequências que essas decisões terão no futuro. Um algoritmo guloso jamais se arrepende ou volta atrás: as escolhas que faz em cada iteração são definitivas.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A estratégia gulosa tem por abordagem encontrar a melhor resposta para cada passo, sem se importar em resolver esse passo novamente ou com os passos seguintes, esperando como consequência um resultado global ótimo. Acabamos por ter algoritmos mais simples e intuitivos em grande parte dos casos, mas não necessariamente apresentando a melhor resposta.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 750px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1e0c9882d38789417728440a6de772b3/acb04/greedy-boo.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAADAgT/2gAMAwEAAhADEAAAAV1twdc4vNZf/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAEiEDEf/aAAgBAQABBQJF9boBXJUWA1lAn//EABkRAQACAwAAAAAAAAAAAAAAAAEAAhETUf/aAAgBAwEBPwGtAMTQdn//xAAaEQABBQEAAAAAAAAAAAAAAAAAAQIDBCJx/9oACAECAQE/AX2NcElP/8QAGRAAAwADAAAAAAAAAAAAAAAAAAEREBIh/9oACAEBAAY/AlStY2nYMUSP/8QAGRAAAgMBAAAAAAAAAAAAAAAAABEBITFR/9oACAEBAAE/IYYWZKEqMRbMG8BZEhVKYrJLh//aAAwDAQACAAMAAAAQuN//xAAYEQACAwAAAAAAAAAAAAAAAAAAARExUf/aAAgBAwEBPxBq0TUP/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERQbH/2gAIAQIBAT8QdUWOoorD/8QAHRABAAICAgMAAAAAAAAAAAAAAQARITFBUWFx0f/aAAgBAQABPxAhabI8+IVuU03qKisLYFzEhBInQ9ai22tBzdr8iAgHg9z/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Imagem do Majin Boo, personagem de Dragon Ball Z&amp;quot;&quot;
+        title=&quot;Algoritmos gulosos são como o Maijin Boo. Gulosos em essência, mas nem por isso não eficazes (tvovermind.com)&quot;
+        src=&quot;/static/1e0c9882d38789417728440a6de772b3/acb04/greedy-boo.jpg&quot;
+        srcset=&quot;/static/1e0c9882d38789417728440a6de772b3/7809d/greedy-boo.jpg 192w,
+/static/1e0c9882d38789417728440a6de772b3/4ecad/greedy-boo.jpg 384w,
+/static/1e0c9882d38789417728440a6de772b3/acb04/greedy-boo.jpg 750w&quot;
+        sizes=&quot;(max-width: 750px) 100vw, 750px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Algoritmos gulosos são como o Maijin Boo. Gulosos em essência, mas nem por isso não eficazes (tvovermind.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;As propriedades desse paradigma podem lembrar outras formas de escrever algoritmos, portanto, é importante saber diferenciá-lo.&lt;/p&gt;
+&lt;h3&gt;Greedy não é brute-force&lt;/h3&gt;
+&lt;p&gt;É bom deixar claro que um algoritmo guloso não é um algoritmo de força bruta:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Greedy&lt;/em&gt; significa que o algoritmo, a cada passo, seleciona a melhor opção para aquele passo;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Brute-force&lt;/em&gt; significa que o algoritmo seleciona uma opção de uma maneira mais simples, óbvia ou direta. E que repete essa tentativa até encontrar o resultado esperado.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Greedy não é naive&lt;/h3&gt;
+&lt;p&gt;Essa talvez tenha sido a origem da minha confusão. &lt;em&gt;Naive algorithms&lt;/em&gt; são de certa forma o primeiro passo para quando você está tentando resolver um problema complexo: Primeiro faça funcionar, depois faça melhor.&lt;/p&gt;
+&lt;p&gt;Em uma abordagem &lt;em&gt;naive&lt;/em&gt;, não estamos necessariamente tentando resolver cada passo com a melhor opção possível, e sim tentando resolver o todo de maneira ingênua, sem nenhuma estrutura de dados rebuscada ou cálculo preparatório, e sem se preocupar com a performance do algoritmo em si.&lt;/p&gt;
+&lt;h3&gt;Naive vs. Brute-force vs. Greedy&lt;/h3&gt;
+&lt;p&gt;Uma maneira mais interessante de compreender como escrevemos um algoritmo com essas diferentes práticas é através do &lt;a href=&quot;https://en.wikipedia.org/wiki/Knapsack_problem&quot; title=&quot;Leia o artigo na Wikipedia&quot;&gt;&lt;em&gt;Knapsack Problem&lt;/em&gt;&lt;/a&gt;. Nesse famoso problema temos um conjunto de itens, cada qual com seu determinado &lt;code class=&quot;language-text&quot;&gt;peso&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;valor&lt;/code&gt;, e temos por desafio colocar o maior valor possível dentro de uma mochila com um determinado limite de peso.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Um exemplo do método &lt;em&gt;naive&lt;/em&gt; seria pegarmos os itens mais leves e colocarmos na bolsa até não haver mais espaço;&lt;/li&gt;
+&lt;li&gt;Com &lt;em&gt;brute-force&lt;/em&gt;, testaríamos todas as combinações de itens até chegar ao valor máximo para o limite de peso da bolsa;&lt;/li&gt;
+&lt;li&gt;Já com o paradigma &lt;em&gt;greedy&lt;/em&gt;, por intuição, pegaríamos primeiro os itens mais valiosos, até atingirmos o peso total da bolsa.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Todas as três formas chegam a um resultado. É possível afirmar que a primeira e última opção terão performance semelhantes, mas não necessariamente chegarão a um resultado ótimo. Encontrar o melhor resultado através da forma bruta, nesse problema, não é a melhor solução.&lt;/p&gt;
+&lt;h2&gt;Qual o melhor uso de greedy algorithms?&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;em&gt;Brilliant.org&lt;/em&gt;, se as propriedades abaixo forem verdadeiras, pode-se aplicar a abordagem &lt;em&gt;greedy&lt;/em&gt; para resolução do problema:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Uma solução global ótima pode ser atingida ao escolher a opção ótima de cada passo;&lt;/li&gt;
+&lt;li&gt;Um problema tem uma subestrutura ótima se uma solução ótima para o problema global conter as soluções ótimas para os sub-problemas.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Em outras palavras:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) greedy algorithms work on problems for which it is true that, at every step, there is a choice that is optimal for the problem up to that step, and after the last step, the algorithm produces the optimal solution of the complete problem.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Algoritmos como &lt;a href=&quot;https://brilliant.org/wiki/huffman-encoding/&quot; title=&quot;Leia mais no Brilliant&quot;&gt;&lt;em&gt;Huffman Code&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://brilliant.org/wiki/dijkstras-short-path-finder/&quot; title=&quot;Leia mais no Brilliant&quot;&gt;&lt;em&gt;Dijkstra&apos;s Shortest Path&lt;/em&gt;&lt;/a&gt; são &lt;em&gt;greedy algorithms&lt;/em&gt; famosos que cumprem muito bem o seu papel. O &lt;em&gt;GeeksforGeeks&lt;/em&gt; lista &lt;a href=&quot;https://www.geeksforgeeks.org/greedy-algorithms/&quot; title=&quot;Leia mais no GeeksforGeeks&quot;&gt;uma porção de outros algoritmos e problemas que utilizam o paradigma com sucesso&lt;/a&gt;. Um muito comum em entrevistas de emprego é o &lt;a href=&quot;https://www.geeksforgeeks.org/minimum-swaps-bracket-balancing/&quot; title=&quot;Leia no GeeksforGeeks&quot;&gt;&lt;em&gt;Minimum Swaps for Bracket Balancing&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Compreendendo a diferença entre um &lt;em&gt;greedy&lt;/em&gt; e um &lt;em&gt;naive algorithm&lt;/em&gt;, fica mais fácil entender quando utilizar uma técnica ou outra. Uma abordagem ingênua funciona bem quando estamos começando a construir o algoritmo que solucionará um problema. De forma iterativa podemos melhorá-lo, até chegar aos valores de performance desejados.&lt;/p&gt;
+&lt;p&gt;Uma abordagem &lt;em&gt;greedy&lt;/em&gt; pode trazer resultados satisfatórios para a sua solução, mas nem sempre trará o melhor resultado. Caso as propriedades listadas acima se apliquem ao algoritmo que você procura, sem dúvida nenhuma é uma técnica que, além de lhe ajudar a escrever um solução mais intuitiva, te trará os resultados esperados.&lt;/p&gt;
+&lt;p&gt;Se você ficou curioso sobre como resolver o &lt;em&gt;Knapsack Problem&lt;/em&gt; de forma ótima, há a opção de utilizar &lt;em&gt;Dynamic Programming&lt;/em&gt;, outro paradigma que tem certa semelhança com &lt;em&gt;greedy algorithms&lt;/em&gt;, e que vamos falar sobre em outro &lt;em&gt;post&lt;/em&gt;. Uma alternativa mais simples e intuitiva (e &lt;em&gt;greedy&lt;/em&gt;) é criar uma terceira variável que armazene &lt;code class=&quot;language-text&quot;&gt;peso / valor&lt;/code&gt; e utilize esse valor no processo de ordenação (&lt;a href=&quot;https://github.com/kplaube/rosetta-lua/blob/master/rosetta/lib/knapsack.lua&quot; title=&quot;Veja a resolução do problema em Lua&quot;&gt;exemplo&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://brilliant.org/wiki/greedy-algorithm/&quot;&gt;Brilliant - Greedy algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://book.huihoo.com/data-structures-and-algorithms-with-object-oriented-design-patterns-in-c++/html/page441.html&quot;&gt;Data Structures and Algorithms with Object-Oriented Design Patterns in C++ - Brute-Force and Greedy Algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/greedy-algorithms/&quot;&gt;GeeksforGeeks - Greedy algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://smart--grid.net/cours-lessons-theory/algorithm/brute-force-naive-greedy-algorithm/&quot;&gt;Smart Grid - Brute Force/Naive/Greedy algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/47238823/why-selection-sort-is-not-greedy&quot;&gt;Stackoverflow - Why selection sort is not greedy?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.ime.usp.br/~pf/analise_de_algoritmos/aulas/guloso.html&quot;&gt;USP - Algoritmos gulosos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Greedy_algorithm&quot;&gt;Wikipedia - Greedy algorithm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Algoritmos: Como medir?]]></title><description><![CDATA[No post anterior,
+introduzimos o conceito de Análise Assintótica e falamos brevemente sobre
+o Big O Notation. Nesse post, vamos pincelar sobre como mensurar um algoritmo
+utilizando a notação. Mas antes de mais nada é preciso reforçar: O Big O é apenas uma das métricas
+(número de passos proporcional…]]></description><link>https://klauslaube.com.br/2018/12/09/algoritmos-como-medir.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/12/09/algoritmos-como-medir.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 09 Dec 2018 21:30:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2018/11/09/analise-assintotica.html&quot; title=&quot;Leia mais sobre Análise Assintótica&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;,
 introduzimos o conceito de Análise Assintótica e falamos brevemente sobre
 o &lt;em&gt;Big O Notation&lt;/em&gt;. Nesse &lt;em&gt;post&lt;/em&gt;, vamos pincelar sobre como mensurar um algoritmo
 utilizando a notação.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Mas antes de mais nada é preciso reforçar: O &lt;em&gt;Big O&lt;/em&gt; é apenas uma das métricas
-(número de passos proporcional ao …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 09 Dec 2018 21:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-12-09:/2018/12/09/algoritmos-como-medir.html</guid><category>desenvolvimento</category><category>estrutura-de-dados</category><category>algoritmos</category></item><item><title>Análise assintótica</title><link>https://klauslaube.com.br/2018/11/09/analise-assintotica.html</link><description>&lt;p&gt;Devo confessar que durante a minha graduação, nunca prestei muita atenção na
+(número de passos proporcional ao tamanho do seu &lt;em&gt;input&lt;/em&gt;) que pode te levar à
+conclusão de que o seu algoritmo é eficiente ou não. Em momento de implementação,
+outras métricas como memória, tempo, acesso a recursos e consumo de energia podem
+impactar nesse resultado.&lt;/p&gt;
+&lt;p&gt;Para tanto, é comum termos duas formas distintas de análise:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Empírica:&lt;/strong&gt; Tempo de execução do código, implementado na linguagem de programação de sua escolha.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Analítica:&lt;/strong&gt; Não leva em consideração o ambiente no qual o seu algoritmo irá executar, representando através de uma ordem de grandeza o tempo de execução do algoritmo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vamos focar no método analítico, claro. Se você está interessado no método
+empírico, ferramentas de &lt;em&gt;profiling&lt;/em&gt; podem te dar ótimas dicas sobre a performance
+da sua solução.&lt;/p&gt;
+&lt;h2&gt;Tempo x Espaço&lt;/h2&gt;
+&lt;p&gt;É possível utilizar o &lt;em&gt;Big O&lt;/em&gt; para medirmos quanto de espaço que um determinado
+algoritmo ocupa. Na &lt;em&gt;Wikipedia&lt;/em&gt; existe inúmeros &lt;em&gt;wikis&lt;/em&gt; sobre algoritmos famosos,
+e grande parte deles apresenta a seguinte estrutura:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 331px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/62eb53a45bf4c117b6f46315dddc2398/62452/wikipedia-merge-sort.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 155.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAfCAYAAADnTu3OAAAACXBIWXMAAAsSAAALEgHS3X78AAAEK0lEQVRIx71V23LaSBD1//9FvHZclf2EfYvtBC+IiwDdkISExFUYkBDiztnuFijEZW9VKlurqsOgme4zZ7p7Wjd47zmdZBgEHl5eSmi3WvA8H2qzidlsjn97bnb7PTbbHbZX2Gy2OByOCHsenr59w+PjE5otDeWKgih6Re6z/dmHwPM32XojzofD4QpH7Gl8Vzxhf7Z567PK1rhZk5qPnhMd/Xg8Cvj/icac8v2HxRWE4vBb+IDwVx/xYV/8n4S/etwPCX8nlvivjnx99HcVck3Zto1yuYxKpYLKeVQIVUX5aY5Rq9WosHOO7LoOC9lZhufnZ9zf3+Ph82cZPxNuP33C3d0d/ri9Ffz55QseHh5kLV0uxbco7LdHTdMU8/kcSZIgjmMsFgsBz13+X8A2fKriyNl6jf5gCNtx0Wrr0A1LGoHnedB1E27Xl/UwDCgUDr17cB0HNo0+2XS9AJ2Og144zAlZJl/80vcSqtUGNE1Dl0i0dj5Xpw7j2B001DYMs4OKUqO4NdAiuyqPJKKiVIjD+EG4WmW0i507GQYs00CtrqJNxm1Nh2VZpNaASYQ6vTdVFQ3aSDdsImzDcT2kq3UeQ25V09epGGhaR3pevaGKClVtyQYakXFIGo0mWq02NOqPDVrjkDSI3CQxU+qTopD7WNgf0G4G+v0R+mFfYjaeTCWWjsRWow1UIfX9gOLJNmNZD8IQXZobkX1x5N0+73176YOn83iUuUWc0GYmKdORbXZFT7zuj0f6OdCPHDlJlnj6+oTy34osXgxYOZcUb3YhcMM56toIemeCcnOIsjqAakZiy8gJlwlVfPkcfBuGrqNju9ju9tLSt7udtHvGMErR8eeIlxuk2VaQrbf5J4Tsz4QpKjUKNGVMNx0iNqFbDmZxhmS1wZLATkweDl9huhGSNKPvzkZILuoKwkWSoW4toNoLtJ0FFGOOJo3l9hjl1hjP9REsUsWfgV4voKJ2YVICw8EIHGWOHZMVhHGywmONYmFFULQxkUeoahPUTX6foGFNEacb+TBF0xmGowmm01dMJhGG4wmGw5HEuiDkgvSHCfqTJcJRgmC8xIBiNZqmCOh9QPMcKyb0SaHjeFJKvt+DYXVgUQ1yuXDy3nz1Th/geE7QgY4cohf06Va5crMc15dk2k6PbA4/FHr9GF2CP0hkdIIFPFLdDWNMZivszhkPiKzr9c4F3adsp3ilG5IsV9cxzKDoEUqUgBcC/292plAJDSOSEDDZjhT0glCObJM6jiWrYuWMgnAer1BSR6hRErhIFT1PyPfmSErmdDpQ0HfixOpct4tms0XHdKTTDMeR3KqisDnLrOxrdYC/SiFqRLha50UrNXYuiT0RcjIU/gwodXHmjS41WChcZRuwSsaMsFhmkrU1gdekvRF4LqZrOl/Ecr/5/YJrm38AGoEoxF2sMwoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de card do Wikipedia mostrando os tempos de um algoritmo&amp;quot;&quot;
+        title=&quot;Exemplo de card do Wikipedia mostrando os tempos de um algoritmo (wikipedia)&quot;
+        src=&quot;/static/62eb53a45bf4c117b6f46315dddc2398/62452/wikipedia-merge-sort.png&quot;
+        srcset=&quot;/static/62eb53a45bf4c117b6f46315dddc2398/8514f/wikipedia-merge-sort.png 192w,
+/static/62eb53a45bf4c117b6f46315dddc2398/62452/wikipedia-merge-sort.png 331w&quot;
+        sizes=&quot;(max-width: 331px) 100vw, 331px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de card do Wikipedia mostrando os tempos de um algoritmo (wikipedia)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Merge sort&lt;/em&gt;, um dos mais famosos algoritmos de ordenação, além de ter
+uma performance média de &lt;code class=&quot;language-text&quot;&gt;O (n log n)&lt;/code&gt;, em seu pior cenário ocupa
+&lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt; de espaço. Onde &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt; corresponde ao tamanho da entrada do algoritmo.
+Logo, se você passar um &lt;em&gt;array&lt;/em&gt; de 10 posições para o &lt;em&gt;Merge sort&lt;/em&gt; ordenar,
+ele ocupará outras 10 posições ao fim do processo.&lt;/p&gt;
+&lt;p&gt;Em contrapartida, o &lt;em&gt;Bubble sort&lt;/em&gt;, também famoso mas nada performático
+(&lt;code class=&quot;language-text&quot;&gt;O(n²)&lt;/code&gt;), ocupa &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt; (não necessitando de novas posições na memória
+para fazer a ordenação).&lt;/p&gt;
+&lt;p&gt;Se você estiver projetando a sua solução para um ambiente limitado,
+será necessário levar em consideração o espaço, mas é muito comum nos tempos
+atuais &lt;a href=&quot;/2012/05/14/o-cache-e-o-http.html&quot; title=&quot;O Cache e o HTTP&quot;&gt;sacrificarmos memória em prol do tempo de execução&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Quanto mais próximo de linear, melhor&lt;/h2&gt;
+&lt;p&gt;Voltando o foco ao tempo de execução, é possível categorizarmos um bom algoritmo
+quando ele é o mais próximo possível de linear (se ele for sublinear ou constante,
+melhor ainda). Ou seja:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se ordernar &lt;strong&gt;10 items&lt;/strong&gt; leva &lt;strong&gt;1 milissegundo&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;Ordenar &lt;strong&gt;20 items&lt;/strong&gt; deveria levar &lt;strong&gt;2 milissegundos&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;E ordenar &lt;strong&gt;100 items&lt;/strong&gt; deveria levar &lt;strong&gt;10 milissegundos&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esse comportamento é linear, resultando em &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;. Mas o comportamento abaixo
+não é o dos melhores:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Se ordenar &lt;strong&gt;10 items&lt;/strong&gt; leva &lt;strong&gt;1 milissegundo&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;E ordenar &lt;strong&gt;20 items&lt;/strong&gt; leva &lt;strong&gt;4 milissegundos&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;E ordenar &lt;strong&gt;100 items&lt;/strong&gt; leva &lt;strong&gt;100 milissegundos&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;Temos uma progressão quadrática, resultando em &lt;code class=&quot;language-text&quot;&gt;O(n²)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Algo não tão desejável em se tratando de algoritmos.&lt;/p&gt;
+&lt;h2&gt;Mais um pouquinho de teoria&lt;/h2&gt;
+&lt;p&gt;Vamos gastar um pouco de teoria aqui para definir &lt;em&gt;Big O&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Se um tempo de execução é O(f(n)), então para um n suficientemente grande,
+o tempo de execução é no máximo k*f(n) para alguma constante k.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 399px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/24b310c5f126c92446525b33d67bd13c/a307d/big-o.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABcSAAAXEgFnn9JSAAABJElEQVQoz42T226DMAyGef835KZC3IxK0zYgCTnZ/+xQOqChWiQrjmL+fD7QMDPUdG37trbjPmZbORO895imCSmlZ1yjB73YC9aEdE+JJZbgnJhNmGeDYRgQQjgKLstyEuQXwVUoIwYCHWFLTM65+FXCmm+FapcvkkB0XYe2bXG73dD3fT3lPRUJirMZVixFAkscuaUYP4jOpG8FNc0YGcrGEkfOgYkOAucyXaasdbImgWMUsQiyrlrbs39oShHKayeNkQZMFiwdJB+eZO/G7I8wrIR+dBjvo+xmTe8xX+XjU0muKJss6ZifGfbbI5iArCR6WXm9ts6Ujc7P58cXotSIKJf0dVCTjoYQXlmU2qq9EKoTQpS0Q2nOf0wf1If3P8Qm+Au3VLMLZhCDPgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;f(n) e Big O&amp;quot;&quot;
+        title=&quot;f(n) e Big O (khanacademy.org)&quot;
+        src=&quot;/static/24b310c5f126c92446525b33d67bd13c/a307d/big-o.png&quot;
+        srcset=&quot;/static/24b310c5f126c92446525b33d67bd13c/8514f/big-o.png 192w,
+/static/24b310c5f126c92446525b33d67bd13c/804b2/big-o.png 384w,
+/static/24b310c5f126c92446525b33d67bd13c/a307d/big-o.png 399w&quot;
+        sizes=&quot;(max-width: 399px) 100vw, 399px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;f(n) e Big O (khanacademy.org)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Dizemos que o tempo de execução é &lt;code class=&quot;language-text&quot;&gt;big-O de f(n)&lt;/code&gt; ou só &lt;code class=&quot;language-text&quot;&gt;O de f(n)&lt;/code&gt;. Com
+isso informamos limites assintóticos superiores, ou seja, que no pior cenário
+o tempo de execução cresce de uma maneira até atingir determinado limite, mas
+poderia crescer mais devagar. Não podemos desconsiderar que o &lt;em&gt;input&lt;/em&gt; tem que ser
+suficientemente grande (repare na linha pontilhada). Não é incomum vermos
+algoritmos que performem em &lt;code class=&quot;language-text&quot;&gt;O(n log n)&lt;/code&gt; tendo um desempenho ruim com um
+conjunto de dados pequeno.&lt;/p&gt;
+&lt;h2&gt;Agora sim! Vamos contar&lt;/h2&gt;
+&lt;h3&gt;Complexidade constante: O(1)&lt;/h3&gt;
+&lt;p&gt;Queremos calcular qual é a complexidade de um algoritmo de troca de valores:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    temp_num &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; num1
+    num1 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; num2
+    num2 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; temp_num&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Podemos, em teoria, contar cada atribuição de valor executada pelo algoritmo
+como um “passo”. Teríamos &lt;code class=&quot;language-text&quot;&gt;complexidade = 3&lt;/code&gt;, e esse resultado nunca mudará,
+não importa qual valor que passe de entrada. Logo, é possível dizer que a
+complexidade desse algoritmo é constante, representada por &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAGTWkMlMmJN/wD/xAAcEAABAwUAAAAAAAAAAAAAAAAAAQMyAgQSMUP/2gAIAQEAAQUCmMPUYyOdsLv/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwEn/8QAFREBAQAAAAAAAAAAAAAAAAAAAhD/2gAIAQIBAT8BU//EABkQAAMAAwAAAAAAAAAAAAAAAAABERIgUf/aAAgBAQAGPwLJnIV6f//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExcUFh/9oACAEBAAE/Idk+0URLHM4N3Fso2zx8IMvGJFTP/9oADAMBAAIAAwAAABDE3//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPxC2yn//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QAFl//8QAHBABAQADAAMBAAAAAAAAAAAAAREAITFBYXGR/9oACAEBAAE/ENwEvB8AMflgT2+saqC95gV3yT9wGgbphMkt23P/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Eduardo Saverin, personagem do file The Social Network, rabiscando algoritmo na janela&amp;quot;&quot;
+        title=&quot;Em um piscar de olhos, você estará rabiscando algoritmos nas janelas da sua casa (blogossus.com)&quot;
+        src=&quot;/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg&quot;
+        srcset=&quot;/static/fc9d05e0486545742dfa74774d00ba18/7809d/social-network-algorithm.jpg 192w,
+/static/fc9d05e0486545742dfa74774d00ba18/4ecad/social-network-algorithm.jpg 384w,
+/static/fc9d05e0486545742dfa74774d00ba18/c08c5/social-network-algorithm.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Em um piscar de olhos, você estará rabiscando algoritmos nas janelas da sua casa (blogossus.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Pode parecer confuso não utilizar &lt;code class=&quot;language-text&quot;&gt;O(3)&lt;/code&gt;, mas seguindo a definição matemática
+apresentada anteriormente, quando eu assumo que meu algoritmo tem
+complexidade &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;, estou dizendo que o seu limite assintótico superior é menor
+ou igual a &lt;code class=&quot;language-text&quot;&gt;k * f(n)&lt;/code&gt;. Se considerarmos o &lt;code class=&quot;language-text&quot;&gt;k&lt;/code&gt; como constante representando a
+quantidade de atribuições do nosso algoritmo &lt;code class=&quot;language-text&quot;&gt;(3)&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;f(n)&lt;/code&gt; como o
+&lt;em&gt;running time&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;(1)&lt;/code&gt;, temos como &lt;em&gt;upper bound&lt;/em&gt; o valor &lt;code class=&quot;language-text&quot;&gt;3&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Em outras palavras: Se o tempo de execução do seu algoritmo é constante, a
+maneira ideal de representá-lo é através de &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Complexidade linear: O(n)&lt;/h3&gt;
+&lt;p&gt;Quando a entrada do algoritmo é variável em tamanho, temos um comportamento
+diferente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;soma&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    total &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; num &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        total &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; total &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; num&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Geralmente quando temos algum loop, e ele está ligado ao &lt;em&gt;input&lt;/em&gt;, dificilmente
+chegamos a um algoritmo de complexidade constante. No caso acima, podemos contar
+os passos da seguinte forma:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;n = tamanho(array)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;total = 0&lt;/code&gt;: 1 operação&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;atribuição de valor a num&lt;/code&gt;: n operações&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;total = total + num&lt;/code&gt;: n * 2 operações&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para cada elemento do &lt;em&gt;array&lt;/em&gt;, executaremos uma soma &lt;code class=&quot;language-text&quot;&gt;(total + num)&lt;/code&gt; e uma
+atribuição &lt;code class=&quot;language-text&quot;&gt;(total = &amp;lt;resultado&amp;gt;)&lt;/code&gt;. Chegamos à conclusão que
+&lt;code class=&quot;language-text&quot;&gt;complexidade = 1 + (n * 2)&lt;/code&gt;. Mas como chegamos a &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;?&lt;/p&gt;
+&lt;p&gt;Deixando a parte matemática de lado, quando trata-se de análise assintótica,
+estamos mais interessados no que realmente interfere na performance do
+algoritmo. Ou seja, os valores constantes &lt;code class=&quot;language-text&quot;&gt;(1 e 2)&lt;/code&gt; nessa análise são detalhes
+se comparados ao impacto que &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt; causa ao tempo de execução. Portanto, uma das
+maneiras de encarar a mensuração do &lt;em&gt;Big O&lt;/em&gt; é simplesmente ignorando as
+constantes e focando no que é dinâmico, nos levando a &lt;code class=&quot;language-text&quot;&gt;complexidade = n&lt;/code&gt; e em
+consequência ao &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;E como num passe de mágica, depois de certa intimidade com o &lt;em&gt;Big O Notation&lt;/em&gt;,
+você passa a assumir a complexidade de um algoritmo com uma breve “olhadela”.
+Ao ver um &lt;em&gt;loop&lt;/em&gt; assume que é &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;, ao ver &lt;em&gt;loop&lt;/em&gt; dentro de &lt;em&gt;loop&lt;/em&gt;, que é &lt;code class=&quot;language-text&quot;&gt;n²&lt;/code&gt;,
+e assim por diante…&lt;/p&gt;
+&lt;p&gt;Nos próximos &lt;em&gt;posts&lt;/em&gt; vamos explorar algoritmos de diferentes complexidades,
+entrando em detalhes para entender os seus tempos de execução e alternativas
+otimizadas.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;p&gt;Esse &lt;em&gt;post&lt;/em&gt; foi originalmente escrito para o &lt;a href=&quot;https://www.profissionaisti.com.br/2017/10/analise-de-algoritmos-como-medir/&quot; title=&quot;Leia mais no Profissionais TI&quot;&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.khanacademy.org/computing/computer-science/algorithms/asymptotic-notation/a/big-o-notation&quot;&gt;Khan Academy: Notação Big-O&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3255/big-o-how-do-you-calculate-approximate-it&quot;&gt;Stackoverflow: Big O, how do you calculate/approximate it?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.stackoverflow.com/questions/33319/o-que-%C3%A9-a-complexidade-de-um-algoritmo&quot;&gt;Stackoverflow: O que é complexidade de um algoritmo?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.udemy.com/complexity-theory-basics/&quot;&gt;Udemy: Complexity Theory Basics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Análise assintótica]]></title><description><![CDATA[Devo confessar que durante a minha graduação, nunca prestei muita atenção na
+parte mais “teórica” da computação. O que eu queria era sentar e “codar”,
+sem realmente me preocupar com algoritmos, estruturas de dados, ou com os
+impactos que a minha solução ocasionaria em um determinado ambiente. Com a…]]></description><link>https://klauslaube.com.br/2018/11/09/analise-assintotica.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/11/09/analise-assintotica.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 09 Nov 2018 16:34:00 GMT</pubDate><content:encoded>&lt;p&gt;Devo confessar que durante a minha graduação, nunca prestei muita atenção na
 parte mais “teórica” da computação. O que eu queria era sentar e “codar”,
 sem realmente me preocupar com algoritmos, estruturas de dados, ou com os
 impactos que a minha solução ocasionaria em um determinado ambiente.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Com a idade …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 09 Nov 2018 16:34:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-11-09:/2018/11/09/analise-assintotica.html</guid><category>desenvolvimento</category><category>estrutura-de-dados</category><category>algoritmos</category></item></channel></rss>
+&lt;p&gt;Com a idade vem a experiência, e com a experiência vem a necessidade de
+estressar diferentes pontos de vista antes de adotar solução X ou Y. Foi
+a partir dessa necessidade que fui obrigado a revisitar alguns conceitos
+básicos da Ciência da Computação, e fatalmente me senti motivado a compilar
+esse conhecimento em uma série de artigos.&lt;/p&gt;
+&lt;p&gt;Se você, assim como eu, deu aquela dormida nas aulas de Teoria da Complexidade
+Computacional, junte-se a mim e vamos relembrar esses conceitos juntos.&lt;/p&gt;
+&lt;h2&gt;Algoritmos e tempos de execução&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;, um &lt;a href=&quot;https://pt.wikipedia.org/wiki/Algoritmo&quot; title=&quot;Leia mais sobre no Wikipedia&quot;&gt;Algoritmo&lt;/a&gt; é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(…) uma sequência finita de instruções bem definidas e não ambíguas,
+cada uma das quais devendo ser executadas mecânica ou eletronicamente
+em um intervalo de tempo finito e com uma quantidade de esforço finita.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A sua aplicação pode ser composta por uma porção de algoritmos, cada um
+destinado a um fim muito específico. Por exemplo, você pode ter um algoritmo
+responsável por encontrar todos os pedidos vendidos no último mês, que contenham
+um determinado produto. Com o advento do Big Data, inúmeros algoritmos são
+postos em prática para mineração e análise de dados, então, mesmo que exista
+uma aplicação ou serviço resolvendo esses problemas para você, acredite...
+os algoritmos estarão lá.&lt;/p&gt;
+&lt;p&gt;Um determinado algoritmo pode ter tempos de execução relativamente diferentes
+de acordo com o ambiente no qual ele esteja rodando. Se for num computador
+&lt;em&gt;Core i7&lt;/em&gt; e &lt;em&gt;16GB&lt;/em&gt; de &lt;em&gt;RAM&lt;/em&gt;, é possível assumirmos que ele rodará consideravelmente
+melhor do que se estivesse operando em um &lt;em&gt;Raspberry Pi&lt;/em&gt;, por exemplo. Ainda há um
+segundo cenário onde, talvez você tenha escrito o algoritmo perfeito em
+&lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; ou &lt;em&gt;Ruby&lt;/em&gt;, mas ele corre o risco de
+executar de forma mais lenta que um algoritmo em &lt;em&gt;Assembly&lt;/em&gt; ou &lt;em&gt;C&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Partindo da premissa que um bom algoritmo é um conjunto de operações que resolvem
+um problema em tempo e esforço atrativos, como podemos classificar se um algoritmo
+é “rápido” ou não?&lt;/p&gt;
+&lt;p&gt;É aí que entra a análise assintótica.&lt;/p&gt;
+&lt;h2&gt;A Análise Assintótica&lt;/h2&gt;
+&lt;p&gt;Segundo o &lt;em&gt;Wikibooks&lt;/em&gt;, a &lt;a href=&quot;https://en.wikibooks.org/wiki/Data_Structures/Asymptotic_Notation&quot; title=&quot;Leia mais sobre no Wikibooks&quot;&gt;análise assintótica&lt;/a&gt; é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(…) a way of expressing the main component of the cost of an algorithm,
+using idealized (not comparable) units of computational work.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em termos mais práticos, é uma forma de julgarmos se o nosso algoritmo é
+eficiente, independente dos “recursos que o cercam” (como velocidade de
+processamento, quantidade de memória, latência de rede, etc).&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/541be7c32edf6206dda051976fd420f3/matrix-view.gif&quot; alt=&quot;&amp;#x22;Visão de código fonte do filme The Matrix&amp;#x22;&quot; title=&quot;Análise assintótica é ver o algoritmo além do código, como o Neo em The Matrix (scifi.stackexchange.com)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Removendo todas as variáveis que podem influenciar no tempo de execução,
+focamos nossas atenções em como o algoritmo está escrito, em qual é a sua
+entrada, e se “ele por si” é a maneira mais eficiente para a resolução de
+um determinado problema.&lt;/p&gt;
+&lt;p&gt;Vale reforçar que a entrada é um fator de extrema importância no que tange
+a análise assintótica. A análise é “input bound”, ou seja, a entrada
+influenciará diretamente no resultado do estudo. Por exemplo, quando
+ordenamos um vetor de tamanho &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;, utilizando o algoritmo &lt;em&gt;Selection Sort&lt;/em&gt;,
+teremos um tempo de execução de &lt;code class=&quot;language-text&quot;&gt;n²&lt;/code&gt; (já que o algoritmo pega um número,
+e compara com os demais números no vetor, repetindo essa operação até chegar
+ao fim do dado estruturado).&lt;/p&gt;
+&lt;p&gt;Ao fim da análise, podemos chegar a 2 conclusões diferentes: Melhor cenário
+e pior cenário.&lt;/p&gt;
+&lt;h2&gt;Big O, Big Omega e Big Theta&lt;/h2&gt;
+&lt;p&gt;Quem trabalha com desenvolvimento (ou até mesmo com computação num geral),
+já deve ter ouvido falar sobre o famigerado &lt;em&gt;Big O Notation&lt;/em&gt;. Ele é uma notação
+assintótica muito famosa na análise de tempos de execução de algoritmos. O que
+pode ser uma surpresa é que ele não é a única notação que temos disponível:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;O(n)&lt;/strong&gt;: Expressa o limite superior do tempo de execução de um algoritmo (pior cenário);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ω(n)&lt;/strong&gt;: Expressa o limite inferior do tempo de execução de um algoritmo (melhor cenário);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Θ(n)&lt;/strong&gt;: Expressa limite superior e inferior do tempo de execução de um algoritmo (pior e melhor cenário).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Além da expressão linear, temos outras notações que descrevem diferentes tempos
+de execução:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;O(1)&lt;/strong&gt;: Constante&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O(log n)&lt;/strong&gt;: Logarítmica&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O(n)&lt;/strong&gt;: Linear&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O(n log n)&lt;/strong&gt;: “Linearithmic” (maior que linear, menor que quadrática)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O(n²)&lt;/strong&gt;: Quadrática&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O(n³)&lt;/strong&gt;: Cúbica&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;n&lt;sup&gt;O(1)&lt;/sup&gt;&lt;/strong&gt;: Polinomial&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;2&lt;sup&gt;O(n)&lt;/sup&gt;&lt;/strong&gt;: Exponencial&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;De maneira simplista, &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt; pode ser considerado como o número de operações que o
+algoritmo leva para chegar ao seu final. &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt; está intimamente ligado com a entrada
+do seu algoritmo, onde quanto maior for o seu número, maior será o seu tempo de
+execução.&lt;/p&gt;
+&lt;p&gt;E como fazemos para contar o número de operações realizadas por um algoritmo?&lt;/p&gt;
+&lt;h2&gt;Um pouquinho de prática&lt;/h2&gt;
+&lt;p&gt;Voltando a citar o &lt;em&gt;Selection Sort&lt;/em&gt;, que trata-se de um “greedy algorithm” para
+ordenação de números em um vetor, temos a seguinte sequencia de operações:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;for i from 1 to n-1 {
+   Encontre um elemento menor que a i-ésima posição, entre as n entradas.
+   Troque o elemento encontrado com a i-ésima entrada.
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Fazendo um pequeno &lt;a href=&quot;http://pt.slideshare.net/henriquecarmona/aula-4-teste-de-mesa&quot; title=&quot;Veja mais no Slideshare&quot;&gt;teste de mesa&lt;/a&gt;,
+com o vetor (9, 2, 5, 7, 4, 8), temos o seguinte conjunto de procedimentos:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[9, 2, 5, 7, 4, 8]&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i=1&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Encontre o menor número entre posições 1 e 6;&lt;/li&gt;
+&lt;li&gt;Troque &lt;code class=&quot;language-text&quot;&gt;array[i]&lt;/code&gt; com &lt;code class=&quot;language-text&quot;&gt;array[2]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[2, 9, 5, 7, 4, 8]&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i=2&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Encontre o menor número entre posições 2 e 6;&lt;/li&gt;
+&lt;li&gt;Troque &lt;code class=&quot;language-text&quot;&gt;array[i]&lt;/code&gt; com &lt;code class=&quot;language-text&quot;&gt;array[5]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[2, 4, 5, 7, 9, 8]&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i=3&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Encontre o menor número entre posições 3 e 6;&lt;/li&gt;
+&lt;li&gt;Troque &lt;code class=&quot;language-text&quot;&gt;array[i]&lt;/code&gt; com &lt;code class=&quot;language-text&quot;&gt;array[3]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[2, 4, 5, 7, 9, 8]&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i=4&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Encontre o menor número entre posições 4 e 6;&lt;/li&gt;
+&lt;li&gt;Troque &lt;code class=&quot;language-text&quot;&gt;array[i]&lt;/code&gt; com &lt;code class=&quot;language-text&quot;&gt;array[4]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[2, 4, 5, 7, 9, 8]&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i=5&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Encontre o menor número entre posições 5 e 6;&lt;/li&gt;
+&lt;li&gt;Troque &lt;code class=&quot;language-text&quot;&gt;array[i]&lt;/code&gt; com &lt;code class=&quot;language-text&quot;&gt;array[5]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;[2, 4, 5, 7, 8, 9]&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;i=6&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Fim do laço.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Podemos separar a análise em 3 grupos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Tempo de execução para encontrar o menor elemento&lt;/li&gt;
+&lt;li&gt;Tempo de execução para trocar de elemento&lt;/li&gt;
+&lt;li&gt;Tempo de execução do laço&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Embora seja possível fazer uma análise detalhada, levando em consideração
+o número de passos dentro de uma operação de swap de valores, e a aritmética
+envolvendo as &lt;code class=&quot;language-text&quot;&gt;n-i-1&lt;/code&gt; chamadas que ocorrem dentro da função
+“Encontre o menor número entre posições”, para fins didáticos vamos adotar
+uma abordagem superficial.&lt;/p&gt;
+&lt;p&gt;Selecionar o menor elemento no &lt;em&gt;array&lt;/em&gt; e fazer o &lt;em&gt;swap&lt;/em&gt; para a primeira
+posição requer passar por todos os &lt;code class=&quot;language-text&quot;&gt;n-1&lt;/code&gt; elementos. Encontrar o próximo
+menor elemento requer analisar os &lt;code class=&quot;language-text&quot;&gt;n-1&lt;/code&gt; elementos restantes. Com dois
+for aninhados, executando em ordem &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt;, já podemos esperar uma execução
+em &lt;code class=&quot;language-text&quot;&gt;O(n²)&lt;/code&gt;. É possível usar a &lt;a href=&quot;https://en.wikipedia.org/wiki/Arithmetic_progression&quot; title=&quot;Leia mais sobre&quot;&gt;progressão aritmética&lt;/a&gt;
+para comprovar essa hipótese:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(n − 1) + (n − 2) + ... + 2 + 1 = n(n - 1) / 2 ∈ Θ(n²)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se revisarmos o algoritmo apresentado, é possível reparar que o
+&lt;em&gt;Selection Sort&lt;/em&gt; tem no seu melhor e pior cenário o tempo de execução de
+&lt;code class=&quot;language-text&quot;&gt;n²&lt;/code&gt;, logo, podendo ser classificado como &lt;code class=&quot;language-text&quot;&gt;Θ(n²)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Nos próximos posts vamos nos aprofundar um pouco mais nos detalhes dessa
+análise, e passar por alguns algoritmos úteis e muito comuns na nossa rotina.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;p&gt;Esse &lt;em&gt;post&lt;/em&gt; foi originalmente escrito para o &lt;a href=&quot;https://www.profissionaisti.com.br/2016/10/analise-de-algoritmos-analise-assintotica/&quot; title=&quot;Análise de algoritmos: Análise Assintótica&quot;&gt;&lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms/a/analysis-of-selection-sort&quot;&gt;Análise do Selection Sort – Khan Academy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://justin.abrah.ms/computer-science/how-to-calculate-big-o.html&quot;&gt;Justin Abrahms – Big-O is easy to calculate, if you know how&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://discrete.gr/complexity/&quot;&gt;National Technical University of Athens – A gentle introduction to Algorithm Complexity Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.perlmonks.org/?node_id=573138&quot;&gt;Perl Monks – Big-O Notation: What’s is it good for?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.tutorialspoint.com/data_structures_algorithms/asymptotic_analysis.htm&quot;&gt;Tutorials Point – Data Structures Asymptotic Analysis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikibooks.org/wiki/Data_Structures/Asymptotic_Notation&quot;&gt;Wikibooks – Data Structures/Asymptotic Notation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Algoritmo&quot;&gt;Wikipedia – Algoritmo&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

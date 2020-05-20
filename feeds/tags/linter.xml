@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - linter]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Prospector]]></title><description><![CDATA[Mais um ano, mais um post sobre ferramentas de qualidade de código. Opções não faltam quando o assunto é Python, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter "um anel para a todos governar"? Tanto é interessante que um utilitário vem fazendo parte do…]]></description><link>https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 21 Jan 2020 16:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Mais um ano, mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade&quot;&gt;ferramentas de qualidade de código&lt;/a&gt;. Opções não faltam quando o assunto é &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter &quot;um anel para a todos governar&quot;?&lt;/p&gt;
+&lt;p&gt;Tanto é interessante que um utilitário vem fazendo parte do &lt;em&gt;toolbelt&lt;/em&gt; dos desenvolvedores &lt;em&gt;Python&lt;/em&gt; nos últimos tempos justamente por desempenhar esse papel. Estamos falando, claro, do &lt;a href=&quot;https://prospector.readthedocs.io/en/master/&quot; title=&quot;Leia a documentação oficial&quot;&gt;&lt;em&gt;Prospector&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;One ring to rule them all&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Prospector&lt;/em&gt; é uma ferramenta &lt;a href=&quot;https://github.com/PyCQA/prospector/blob/master/LICENSE&quot; title=&quot;Confira mais no repositório do projeto&quot;&gt;livre&lt;/a&gt;, que analisa código &lt;em&gt;Python&lt;/em&gt; e retorna informações sobre potenciais problemas, erros de convenção de código, alertas sobre complexidade, etc.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAGF8adEKA//xAAaEAACAwEBAAAAAAAAAAAAAAAAAQIRIgMT/9oACAEBAAEFAueJaZ5DRF07s//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8BpX//xAAZEAACAwEAAAAAAAAAAAAAAAAAESAhMWH/2gAIAQEABj8C0VrhsP/EABsQAQEBAAIDAAAAAAAAAAAAAAEAETFBUWGR/9oACAEBAAE/IeQZfdmgHCPMh3Ry+1dqX//aAAwDAQACAAMAAAAQgA//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8QhMf/xAAXEQADAQAAAAAAAAAAAAAAAAAAARFR/9oACAECAQE/EMGVn//EABwQAQADAAMBAQAAAAAAAAAAAAEAESFBUZEx8P/aAAgBAQABPxA1iQRrZv7JV3haMd847lvUdIXNSJzJwt0MKB8I/KW9T//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;O Um Anel&quot;
+        title=&quot;Sauron faz um anel para juntar a todos. Bem parecido com a ideia do prospector (lego-lord-of-the-rings.wikia.com)&quot;
+        src=&quot;/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg&quot;
+        srcset=&quot;/static/86cf2a69117e22c87b361033b5154429/7809d/lsp-one-ring.jpg 192w,
+/static/86cf2a69117e22c87b361033b5154429/4ecad/lsp-one-ring.jpg 384w,
+/static/86cf2a69117e22c87b361033b5154429/07f3a/lsp-one-ring.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Sauron faz um anel para juntar a todos. Bem parecido com a ideia do prospector (lego-lord-of-the-rings.wikia.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ela agrega a funcionalidade de outras ferramentas de análise, como &lt;a href=&quot;/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html&quot; title=&quot;Leia mais sobre o Pylint&quot;&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Leia mais sobre PEP8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, e disponibiliza algumas configurações padrões, permitindo assim um bom balanço entre cobertura x configuração.&lt;/p&gt;
+&lt;p&gt;O &quot;lema&quot; do &lt;em&gt;Prospector&lt;/em&gt; é ser &quot;out of the box&quot;. Segundo a &lt;a href=&quot;https://prospector.readthedocs.io/en/master/&quot; title=&quot;Leia mais na documentação do Prospector&quot;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A common complaint of other Python analysis tools is that it takes a long time to filter through which errors are relevant or interesting to your own coding style. Prospector provides some default profiles, which hopefully will provide a good starting point and will be useful straight away, and adapts the output depending on the libraries your project uses.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;No terminal&lt;/h2&gt;
+&lt;p&gt;Para começar, precisamos instalar a ferramenta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install prospector&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por padrão o &lt;em&gt;Prospector&lt;/em&gt; utiliza os seguintes utilitários &quot;under the hood&quot;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html&quot; title=&quot;Leia mais sobre o Pyflakes&quot;&gt;&lt;em&gt;pyflakes&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;mccabe&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html&quot; title=&quot;Leia mais sobre o Dodgy&quot;&gt;&lt;em&gt;dodgy&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;pydocstyle&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Mas alguns extras (como &lt;em&gt;mypy&lt;/em&gt;) também estão disponíveis para instalação. Confira a &lt;a href=&quot;https://prospector.readthedocs.io/en/master/supported_tools.html&quot; title=&quot;Supported Tools&quot;&gt;lista completa de ferramentas suportadas&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ao executá-lo, ele apontará possíveis problemas em seu projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prospector
+
+Messages
+========
+
+my_app/views.py
+  Line: 1
+    pylint: unused-import / Unused render imported from django.shortcuts
+
+manage.py
+  Line: 10
+    pylint: import-outside-toplevel / Import outside toplevel (django.core.management) (col 8)
+
+my_project/settings.py
+  Line: 23
+    dodgy: secret / Possible hardcoded secret key
+
+my_second_app/views.py
+  Line: 1
+    pylint: unused-import / Unused render imported from django.shortcuts
+
+
+
+Check Information
+=================
+         Started: 2020-01-21 11:06:04.832118
+        Finished: 2020-01-21 11:06:07.455090
+      Time Taken: 2.62 seconds
+       Formatter: grouped
+        Profiles: default, no_doc_warnings, no_test_warnings, strictness_medium, strictness_high, strictness_veryhigh, no_member_warnings
+      Strictness: None
+  Libraries Used: django
+       Tools Run: dodgy, mccabe, pep8, profile-validator, pyflakes, pylint
+  Messages Found: 4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainda é possível aumentar o nível de rigorosidade:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prospector --strictness veryhigh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Utilizando-o com o &lt;a href=&quot;https://pre-commit.com/&quot; title=&quot;pre-commit hooks&quot;&gt;&lt;em&gt;pre-commit&lt;/em&gt;&lt;/a&gt;, tudo fica ainda mais dinâmico:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; git&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//github.com/guykisel/prospector&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;mirror
+  &lt;span class=&quot;token key atrule&quot;&gt;rev&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;# Use the sha / tag you want to point at&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; prospector&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;No VSCode&lt;/h2&gt;
+&lt;p&gt;Admito que conheci o &lt;em&gt;Prospector&lt;/em&gt; por causa do &lt;a href=&quot;/2018/06/04/eu-me-rendo-vscode.html&quot; title=&quot;Eu me rendi ao VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;, e utilizá-lo com o editor é tão simples quanto o seu uso via linha de comando. Basta adicionar ao seu &lt;code class=&quot;language-text&quot;&gt;settings.json&lt;/code&gt; as seguintes diretivas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.enabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;python.linting.prospectorEnabled&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E após o editor resolver as dependências, ele passa a funcionar quase que magicamente.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8e13f621213d5622fd01845b842f01ef/50383/prospector-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.770833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA2UlEQVQY013N6WqEMBQF4HkbJzGrxph91WmKWNofff9XqeNAW4SPy+HC4dwAtoxExQtmroPqDlR3AV9Bn3e+wz83iCymaZKbGN/5mJSrs30p2lep02SKjUuob8pXLiLo1b8yNogEyguhGVPPRKCD48JzEdh4Gtww+VGG44Oouy4Tls28S9GoXCEJAFmI3cmfnhmgpyNcyuaYtelL+z3Xz5g/Qtpn3YRcB1HYmKV6DKIi4nvsEIvXMpErr9/MbCG2pW1r21yqLpaDdtn4nJclL9X40hPTAflb/gExmUrsvQrFQgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de uso do Prospector + Dodgy + VS Code&quot;
+        title=&quot;Exemplo de uso do Prospector + Dodgy + VS Code&quot;
+        src=&quot;/static/8e13f621213d5622fd01845b842f01ef/50383/prospector-example.png&quot;
+        srcset=&quot;/static/8e13f621213d5622fd01845b842f01ef/8514f/prospector-example.png 192w,
+/static/8e13f621213d5622fd01845b842f01ef/804b2/prospector-example.png 384w,
+/static/8e13f621213d5622fd01845b842f01ef/50383/prospector-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de uso do Prospector + Dodgy + VS Code&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Se você já está cansado de configurar diferentes ferramentas de &lt;em&gt;linting&lt;/em&gt; &lt;em&gt;Python&lt;/em&gt;, o &lt;em&gt;Prospector&lt;/em&gt; pode ser um bom utilitário para manter por perto.&lt;/p&gt;
+&lt;p&gt;Tenho problemas com a &quot;verbosidade&quot; dele, mas acho que ele funciona bem com editores como o &lt;em&gt;VS Code&lt;/em&gt; (por exemplo). Se você quiser ser altamente criterioso em relação ao seu código, vale muito a pena testá-lo em seu processo de &lt;em&gt;pre-commit&lt;/em&gt; e durante o &lt;em&gt;build&lt;/em&gt; no &lt;em&gt;CI&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/PyCQA/prospector/&quot;&gt;Github - prospector&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Assegure a qualidade do seu código Python - Dodgy]]></title><description><![CDATA[Ferramentas de qualidade de código parece um tópico com conteúdo infinito
+quando o assunto é Python. Hoje a dica é rápida e rasteira, de uma ferramenta
+extremamente simples, mas que pode ser muito útil para dar aquele "up" no quesito segurança do seu projeto. Apresento-lhe
+o Dodgy! Talk is cheap…]]></description><link>https://klauslaube.com.br/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 18 Dec 2019 08:10:00 GMT</pubDate><content:encoded>&lt;p&gt;Ferramentas de &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade&quot;&gt;qualidade de código&lt;/a&gt; parece um tópico com conteúdo infinito
+quando o assunto é &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;. Hoje a dica é rápida e rasteira, de uma ferramenta
+extremamente simples, mas que pode ser muito útil para dar aquele &quot;up&quot; no quesito segurança do seu projeto. Apresento-lhe
+o &lt;a href=&quot;https://github.com/landscapeio/dodgy&quot; title=&quot;Veja o repositório no Github&quot;&gt;&lt;em&gt;Dodgy&lt;/em&gt;&lt;/a&gt;!&lt;/p&gt;
+&lt;h2&gt;Talk is cheap...&lt;/h2&gt;
+&lt;p&gt;Tudo começa com o nosso queridíssimo comando &lt;code class=&quot;language-text&quot;&gt;pip install&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install dodgy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E na sequência, com a execução do utilitário via terminal:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/hello-world-em-django/
+$ dodgy
+{
+    &amp;quot;warnings&amp;quot;: [
+        {
+        &amp;quot;path&amp;quot;: &amp;quot;hello_world/settings.py&amp;quot;,
+        &amp;quot;line&amp;quot;: 23,
+        &amp;quot;code&amp;quot;: &amp;quot;secret&amp;quot;,
+        &amp;quot;message&amp;quot;: &amp;quot;Possible hardcoded secret key&amp;quot;
+        }
+    ]
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Dodgy&lt;/em&gt; é uma ferramenta de código aberto, que tem
+por objetivo utilizar expressões regulares para inspecionar o seu código e identificar problemas como &lt;code class=&quot;language-text&quot;&gt;diffs&lt;/code&gt; esquecidos
+nos arquivos, senhas expostas, e &lt;em&gt;secrets&lt;/em&gt; (como o exemplo acima) sendo &quot;commitados&quot;. A biblioteca é extremamente simples,
+e caso você não goste do &quot;barulho&quot; que o &lt;a href=&quot;/2019/02/21/assegure-qualidade-seu-codigo-python-bandit.html&quot; title=&quot;Leia mais sobre Bandit&quot;&gt;&lt;em&gt;Bandit&lt;/em&gt;&lt;/a&gt;
+faz, pode ser uma alternativa.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1a27dd338f27cf4defade1b51f89730c/50383/dodge-this.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9ALXM3L3a6bnY5s7o8OD0+Or4+vL+/uTw8O/29fv//6eusXFuca3ByZ6utnVydtfZ2/////v8+v7///L8/ABCTV2Qpa/D3eXd+vrp/v74///g5ud5eXuqp6X///+3uLqMjo6wxsybrbV/e4K/xszh6e3t8/Tj7O3f7fEACAkXGh0tP0VReISHo7Gst728iYOIZ2FmgX196/Pvv8nIt8fCu8/On624g36HU01XRTxIrr7BhoqPmqCnABIRHycnMispLSQjJjs6OkZDQVRQT2dhXGFfV2htZXl9eJWdnoWGiouNkFM/PU88NDsvM4mNj3x9f391dQAQEBseHyQnJyknJickJSkhISQlIiUqKCZDQjpDQj49OjiFgn9wbXF4cWltUUJ3X0tCNDNLPEFTRUZtYFoAFhUaMzAuNS8tFhQYJCElJCAhJSIhPjYyMi0uJycqOTQyinp3r6emoKKanoFpmYZyamBjT0RCUERDdWpjADs3OFBKR1FNREVFNVBRPV1cTigkJm5jXW1OSxMQFRYUHGQ2MsOuo9jU1H9lUnttYJeSh7u8uLe6uLu8ugBwcF5naFJqbFiHiXugpaLM099gZWlRSkOBYVRWOTJHKCaUb1eslm6jjW4ZFBgAABY7ODrDwsG/wMO8vLoAcnFqlJKUsbO/x8zdy9PnytTqvsXWtLjHgnhzUzAlfU85kHRatLGkRkA4BAUODhEgOzw/srSxvLq4t7awAMTE1MrK3MnK3MbI2MPI2cHJ28jR5dXh+7W4wlU5LGA4JJWPhs3a7GJkZAoIDh0cIWZgTbazqLq7trO0rADBv8q/vsm8vMS7u8G8vMO/wMm/wcy+wc7DyNizs7muqq6+xM/N1d6ChoQAAQgPEBlkYFCpopS5urSwsqeEXVOjgX+zbAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Trinity em The Matrix&quot;
+        title=&quot;Desvia disso! (vulturehound.co.uk)&quot;
+        src=&quot;/static/1a27dd338f27cf4defade1b51f89730c/50383/dodge-this.png&quot;
+        srcset=&quot;/static/1a27dd338f27cf4defade1b51f89730c/8514f/dodge-this.png 192w,
+/static/1a27dd338f27cf4defade1b51f89730c/804b2/dodge-this.png 384w,
+/static/1a27dd338f27cf4defade1b51f89730c/50383/dodge-this.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Desvia disso! (vulturehound.co.uk)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E claro, podemos utilizá-la com o &lt;a href=&quot;https://pre-commit.com/&quot; title=&quot;pre-commit hooks&quot;&gt;&lt;em&gt;pre-commit&lt;/em&gt;&lt;/a&gt;. Adicione o seguinte &lt;em&gt;snippet&lt;/em&gt; ao &lt;code class=&quot;language-text&quot;&gt;.pre-commit-config.yaml&lt;/code&gt; do seu projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;repos&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//github.com/kplaube/pre&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;commit&lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;dodgy
+    &lt;span class=&quot;token key atrule&quot;&gt;rev&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;0.0.1&quot;&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; dodgy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Podemos utilizá-la nos editores também. Ganhamos o utilitário &quot;de graça&quot; com o uso do &lt;a href=&quot;https://prospector.readthedocs.io/en/master/index.html&quot; title=&quot;Python Static Analysis&quot;&gt;&lt;em&gt;Prospector&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Para quem está dando os primeiros passos em direção a um controle mais apurado de um projeto, o &lt;em&gt;Dodgy&lt;/em&gt; pode ser uma boa pedida. Mas na realidade, se você está querendo de fato maior segurança, vá para o &lt;a href=&quot;https://github.com/PyCQA/bandit&quot; title=&quot;Find common security issues in Python code&quot;&gt;&lt;em&gt;Bandit&lt;/em&gt;&lt;/a&gt;, sem medo de ser feliz.&lt;/p&gt;
+&lt;p&gt;Ou utilize o &lt;em&gt;Prospector&lt;/em&gt; e tenha os dois à disposição ¯\_(ツ)_/¯&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Assegure a qualidade do seu código Python - Bandit]]></title><description><![CDATA[Já falamos sobre algumas ferramentas de qualidade de código Python aqui no blog. De pycodestyle a Clone Digger, passando por Pyflakes e Pylint. Além do flake8 (que acredito não precisar de apresentações), uma ferramenta que passei a ter sempre no meu toolbelt foi o Bandit. Na verdade, ele não é…]]></description><link>https://klauslaube.com.br/2019/02/21/assegure-qualidade-seu-codigo-python-bandit.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/02/21/assegure-qualidade-seu-codigo-python-bandit.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 21 Feb 2019 12:45:00 GMT</pubDate><content:encoded>&lt;p&gt;Já falamos sobre algumas ferramentas de qualidade de código &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; aqui no &lt;em&gt;blog&lt;/em&gt;. De &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Assegure a qualidade do seu código Python - pep8&quot;&gt;&lt;em&gt;pycodestyle&lt;/em&gt;&lt;/a&gt; a &lt;a href=&quot;/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html&quot; title=&quot;Assegure a qualidade do seu código Python - Clone digger&quot;&gt;&lt;em&gt;Clone Digger&lt;/em&gt;&lt;/a&gt;, passando por &lt;a href=&quot;/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html&quot; title=&quot;Assegure a qualidade do seu código Python - Pyflakes&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html&quot; title=&quot;Assegure a qualidade do seu código Python - Pylint&quot;&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt;. Além do &lt;em&gt;flake8&lt;/em&gt; (que acredito não precisar de apresentações), uma ferramenta que passei a ter sempre no meu &lt;em&gt;toolbelt&lt;/em&gt; foi o &lt;a href=&quot;https://github.com/PyCQA/bandit&quot; title=&quot;Repositório do Bandit&quot;&gt;&lt;em&gt;Bandit&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Na verdade, ele não é exatamente um &lt;em&gt;code linter&lt;/em&gt;, mas sim uma ferramenta para testar a segurança do seu projeto &lt;em&gt;Python&lt;/em&gt;. Em tempos onde cada vez mais somos expostos a falhas de segurança em aplicações, e tais falhas podem ser um fator crucial para o fracasso de um negócio, cuidado nunca é demais.&lt;/p&gt;
+&lt;h2&gt;O seguro morreu de velho&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Bandit&lt;/em&gt; é uma ferramenta construída para encontrar problemas comuns de segurança em projetos &lt;em&gt;Python&lt;/em&gt;. Livre e de código aberto (&lt;a href=&quot;https://github.com/PyCQA/bandit/blob/master/LICENSE&quot; title=&quot;Leia mais no repositório da ferramenta&quot;&gt;&lt;em&gt;Apache 2&lt;/em&gt;&lt;/a&gt;), está disponível para instalação através do &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install bandit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez instalado, basta executá-lo através do terminal:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ bandit -r caminho-para-projeto-python&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note que o parâmetro &lt;code class=&quot;language-text&quot;&gt;-r&lt;/code&gt; acima instrui o utilitário a executar de forma recursiva, iterando sobre todos os arquivos e pastas dentro do caminho especificado. Outro parâmetro comum é o &lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt;, onde é possível especificar quais testes você quer executar:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ bandit -r ~/Workspace/klaus/blog -t B101,B102&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Bandit&lt;/em&gt; considera como vulnerabilidades desde o uso de &lt;code class=&quot;language-text&quot;&gt;assert&lt;/code&gt; (B101), passando pelo uso de &lt;code class=&quot;language-text&quot;&gt;eval&lt;/code&gt; (B307), até possíveis brechas para &lt;em&gt;SQL injection&lt;/em&gt; (B608). Uma lista completa de todos os &lt;em&gt;plugins&lt;/em&gt; está disponível na &lt;a href=&quot;https://bandit.readthedocs.io/en/latest/plugins/index.html#complete-test-plugin-listing&quot; title=&quot;Confira a lista de falhas cobertas pelo Bandit&quot;&gt;documentação oficial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/39204b07c84ba566fd80edb1e0ba14f9/828fb/bandit.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHnNKxuTB//xAAbEAACAgMBAAAAAAAAAAAAAAAAAQISAxEhMf/aAAgBAQABBQKsTWMft5MfByZ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAEhEBEigaH/2gAIAQEABj8ClmD4Qr7JYqf/xAAcEAEBAQACAwEAAAAAAAAAAAABEQAhoTFBUdH/2gAIAQEAAT8hY2sKv5l5VR5uMGR+nKZ0bgR8w3z1v//aAAwDAQACAAMAAAAQGA//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EMXD/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHhABAAIBBAMAAAAAAAAAAAAAAQARITFBkbFhcYH/2gAIAQEAAT8QQ2UBewofY1VwYAnPUPSLh1HMWrAbAOodEqrYvDHyGf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Foto do filme Agarre-me Se Puderes&amp;quot;&quot;
+        title=&quot;Segurança na web é como fazer parte do filme Agarra-me Se Puderes (adorocinema.com)&quot;
+        src=&quot;/static/39204b07c84ba566fd80edb1e0ba14f9/828fb/bandit.jpg&quot;
+        srcset=&quot;/static/39204b07c84ba566fd80edb1e0ba14f9/7809d/bandit.jpg 192w,
+/static/39204b07c84ba566fd80edb1e0ba14f9/4ecad/bandit.jpg 384w,
+/static/39204b07c84ba566fd80edb1e0ba14f9/828fb/bandit.jpg 630w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Segurança na web é como fazer parte do filme Agarra-me Se Puderes (adorocinema.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Se você utiliza &lt;em&gt;pytest&lt;/em&gt; para escrever os seus testes, o item B101 pode ser um problema, uma vez que é normal utilizar &lt;code class=&quot;language-text&quot;&gt;assert&lt;/code&gt; ao invés do convencional &lt;code class=&quot;language-text&quot;&gt;self.assertEquals&lt;/code&gt;. Nesse caso, uma das formas de contornar esse comportamento é ignorando os testes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ bandit -r . -x tests/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Também é possível ter um arquivo de configuração (&lt;code class=&quot;language-text&quot;&gt;.bandit&lt;/code&gt;) na raíz do seu projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;toml&quot;&gt;&lt;pre class=&quot;language-toml&quot;&gt;&lt;code class=&quot;language-toml&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token table class-name&quot;&gt;bandit&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+exclude: tests&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para finalizar, através do parâmetro &lt;code class=&quot;language-text&quot;&gt;-f&lt;/code&gt; é possível emitir a saída em diferentes formatos, como &lt;em&gt;CSV&lt;/em&gt;, &lt;em&gt;HTML&lt;/em&gt;, &lt;em&gt;JSON&lt;/em&gt;, &lt;em&gt;XML&lt;/em&gt; e &lt;em&gt;YAML&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Bandit&lt;/em&gt; é aquela ferramenta perfeita para você ter em seu &lt;a href=&quot;https://github.com/PyCQA/bandit#version-control-integration&quot; title=&quot;Veja como integrá-lo com o Git&quot;&gt;&lt;em&gt;pre-commit&lt;/em&gt;&lt;/a&gt; ou em seu &lt;em&gt;CI&lt;/em&gt;. Inclusive, o &lt;a href=&quot;https://www.codacy.com/&quot; title=&quot;The standard for automated code reviews&quot;&gt;&lt;em&gt;Codacy&lt;/em&gt;&lt;/a&gt;, serviço super bacana que avalia a qualidade do seu código, utiliza o &lt;em&gt;Bandit&lt;/em&gt; em seu processo de análise. Com isso, fica fácil de integrá-lo ao seu processo de &lt;em&gt;Pull Request&lt;/em&gt;/&lt;em&gt;Code Review&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Um bom custo vs. benefício para o seu projeto.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/PyCQA/bandit&quot;&gt;Github - Bandit&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Assegure a qualidade do seu código Python - Clone Digger]]></title><description><![CDATA[Mesmo que você possa verificar a qualidade do seu
+código com pep8, Pylint e Pyflakes, uma das virtudes
+de um projeto de software é não possuir código duplicado (leia mais
+sobre DRY). O fato é que tanto intencionalmente como
+propositalmente, podemos duplicar um trecho de código e acabar
+prejudicando…]]></description><link>https://klauslaube.com.br/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 16 Oct 2011 22:10:00 GMT</pubDate><content:encoded>&lt;p&gt;Mesmo que você possa verificar a qualidade do seu
+código com &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Assegure a qualidade do seu código Python – pep8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html&quot; title=&quot;Assegure a qualidade do seu código Python – Pylint&quot;&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html&quot; title=&quot;Assegure a qualidade do seu código Python – Pyflakes&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;, uma das virtudes
+de um projeto de &lt;em&gt;software&lt;/em&gt; é não possuir código duplicado (leia mais
+sobre &lt;a href=&quot;http://pt.wikipedia.org/wiki/Don%27t_repeat_yourself&quot; title=&quot;Leia mais sobre Don&amp;#x27;t Repeat Yourself no Wikipedia&quot;&gt;&lt;em&gt;DRY&lt;/em&gt;&lt;/a&gt;). O fato é que tanto intencionalmente como
+propositalmente, podemos duplicar um trecho de código e acabar
+prejudicando manutenções futuras (atire a primeira pedra quem nunca deu
+aquele &lt;code class=&quot;language-text&quot;&gt;CTRL+C&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;CTRL+V&lt;/code&gt;, e prometeu um &lt;em&gt;refactoring&lt;/em&gt; depois).&lt;/p&gt;
+&lt;p&gt;Para facilitar a busca por código duplicado, podemos utilizar uma
+ferramenta chamada &lt;strong&gt;&lt;em&gt;Clone Digger&lt;/em&gt;&lt;/strong&gt;. Prático, rápido e muito simples.
+Agora ficou fácil “caçar” código duplicado em projetos &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Por tratar-se de uma ferramenta bem objetiva, não há muito o que falar
+sobre o &lt;a href=&quot;http://clonedigger.sourceforge.net/index.html&quot; title=&quot;Página oficial do projeto Clone Digger&quot;&gt;&lt;em&gt;Clone Digger&lt;/em&gt;&lt;/a&gt;. Então, vamos direto para a parte prática.&lt;/p&gt;
+&lt;p&gt;Para iniciar a análise, basta chamar o executável apontando para o
+diretório do seu projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ clonedigger meuprojeto/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Será gerado um arquivo chamado &lt;code class=&quot;language-text&quot;&gt;output.html&lt;/code&gt;, com um relatório
+detalhado (&lt;a href=&quot;http://clonedigger.sourceforge.net/examples/nltk_first_50.html&quot; title=&quot;Exemplo de relatório do Clone Digger&quot;&gt;como este&lt;/a&gt;). Serão apresentadas informações como a
+quantidade de arquivos analisados, quantidade de “clones”, de linhas
+duplicadas e um apontamento com os trechos de código que a ferramenta
+concluiu como “clones” (não necessariamente iguais, mas semelhantes).&lt;/p&gt;
+&lt;p&gt;Particularmente, a ferramenta me ajuda bastante a determinar se certos
+trechos de código não poderiam ser herdados por uma classe pai, ou
+algumas rotinas costumeiras não poderiam ser encapsuladas em funções.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://clonedigger.sourceforge.net/index.html&quot; title=&quot;Página oficial do projeto Clone Digger&quot;&gt;&lt;em&gt;Clone Digger: Discovers duplicate code in Python and Java&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.andrewsmedina.com/2011/01/31/analise-de-codigo-em-python/&quot; title=&quot;Excelente post do Andrews Medina sobre ferramentas de análise de código em Python&quot;&gt;&lt;em&gt;Andrews Medina:&lt;/em&gt; Análise de código em &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Assegure a qualidade do seu código Python - Pyflakes]]></title><description><![CDATA[Depois da dar uma pincelada na pep8 e no Pylint, chegou a hora de
+falarmos um pouco sobre o Pyflakes. Resumidamente, o Pyflakes é uma ferramenta de qualidade que
+analisa o seu código Python atrás de erros (de sintaxe e
+importação, por exemplo), retornando um relatório muito objetivo com o
+arquivo…]]></description><link>https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 02 Oct 2011 17:58:00 GMT</pubDate><content:encoded>&lt;p&gt;Depois da dar uma pincelada na &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Assegura a qualidade do seu código Python com a pep8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt; e no &lt;a href=&quot;/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html&quot; title=&quot;Assegure a qualidade do seu código Python com o Pylint&quot;&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt;, chegou a hora de
+falarmos um pouco sobre o &lt;strong&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Resumidamente, o &lt;a href=&quot;https://launchpad.net/pyflakes&quot; title=&quot;Pyflakes no Launchpad&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt; é uma ferramenta de qualidade que
+analisa o seu código &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; atrás de erros (de sintaxe e
+importação, por exemplo), retornando um relatório muito objetivo com o
+arquivo, linha e o tipo de incoerência que ele encontrou.&lt;/p&gt;
+&lt;p&gt;Uma excelente ferramenta para você ter “plugada” ao seu editor favorito.&lt;/p&gt;
+&lt;h2&gt;O que o Pyflakes faz que o Pylint não faz?&lt;/h2&gt;
+&lt;p&gt;As comparações, acredito, serão inevitáveis. Afinal, o que o &lt;em&gt;Pyflakes&lt;/em&gt;
+faz que o &lt;em&gt;Pylint&lt;/em&gt; não faz? A resposta que você encontrará é muito
+simples: O &lt;strong&gt;&lt;em&gt;Pyflakes&lt;/em&gt; não analisa a “beleza”&lt;/strong&gt; do seu &lt;strong&gt;código&lt;/strong&gt;. Ou
+seja, ele apenas &lt;strong&gt;verifica erros de lógica e de sintaxe&lt;/strong&gt;, não de
+convenções de código.&lt;/p&gt;
+&lt;p&gt;Isso faz do &lt;em&gt;Pyflakes&lt;/em&gt; o parceiro ideal do seu editor de código
+favorito. Por ser objetivo, favorece a análise e traz resultados
+interessantes, por exemplo, apontando variáveis criadas que nunca foram
+usadas, ou métodos importados que nunca foram chamados no escopo de um
+módulo &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Logo, ter as duas ferramentas à mão é uma excelente pedida para
+incrementar ainda mais o seu ambiente de desenvolvimento.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vamos analisar o código de um projeto da faculdade que eu fiz, chamado
+&lt;a href=&quot;https://bitbucket.org/kplaube/social-portal-for-soccer-players/overview&quot; title=&quot;Visite o repositório do projeto no BitBucket&quot;&gt;&lt;em&gt;Social portal for soccer players&lt;/em&gt;&lt;/a&gt; (encontra-se aberto no
+&lt;em&gt;BitBucket&lt;/em&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyflakes apps/notificate/views.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A resposta é muito clara. Existem classes sendo importadas, mas que não
+estão sendo usadas:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apps/notificate/views.py:3: &amp;#39;EmptyPage&amp;#39; imported but unused
+apps/notificate/views.py:3: &amp;#39;InvalidPage&amp;#39; imported but unused&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O funcionamento básico do &lt;em&gt;Pyflakes&lt;/em&gt; é esse… simples como as melhores
+coisas devem ser!&lt;/p&gt;
+&lt;h2&gt;Pyflakes + Vim&lt;/h2&gt;
+&lt;p&gt;Se assim como eu, você tem um “tropeço” pelo &lt;a href=&quot;http://www.vim.org/&quot; title=&quot;Página oficial do Vi Improved&quot;&gt;&lt;em&gt;vim&lt;/em&gt;&lt;/a&gt;, você não pode
+deixar passar esse bom &lt;em&gt;plugin&lt;/em&gt; chamado &lt;a href=&quot;http://symbolsystem.com/pyflakes-vim/&quot; title=&quot;pyflakes.vim - Verifique o seu código em tempo real&quot;&gt;&lt;em&gt;pyflakes.vim&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para instalá-lo, basta seguir o guia de instalação contido no arquivo
+&lt;strong&gt;README&lt;/strong&gt; (&lt;a href=&quot;https://github.com/kevinw/pyflakes-vim#readme&quot; title=&quot;README do pyflakes.vim no GitHub&quot;&gt;leia diretamente do &lt;em&gt;GitHub&lt;/em&gt;&lt;/a&gt;). Para que o &lt;em&gt;plugin&lt;/em&gt;
+funcione corretamente, o seu &lt;em&gt;vim&lt;/em&gt; deve ter suporte a &lt;em&gt;Python&lt;/em&gt; (se não
+tiver, basta compilá-lo com o parâmetro &lt;strong&gt;-–enable-pythoninterp&lt;/strong&gt;).&lt;/p&gt;
+&lt;p&gt;Uma vez instalado, quando estiver editando um código &lt;em&gt;Python&lt;/em&gt;, basta
+utilizar o comando &lt;strong&gt;:cc&lt;/strong&gt; para navegar entre os erros encontrados pelo
+&lt;em&gt;plugin&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://launchpad.net/pyflakes&quot; title=&quot;Faça download agora mesmo do Pyflakes&quot;&gt;&lt;em&gt;Pyflakes in Launchpad&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://symbolsystem.com/pyflakes-vim/&quot; title=&quot;Utilize o Pyflakes em seu VIM&quot;&gt;&lt;em&gt;pyflakes.vim: check Python code on the fly&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Assegure a qualidade do seu código Python - Pylint]]></title><description><![CDATA[Se você precisa de uma ferramenta mais poderosa que o pep8, talvez você
+precise do Pylint. De forma (bem) resumida, o Pylint analisa de forma minuciosa o código
+do seu projeto Python, lhe retornando uma variedade de relatórios
+(as vezes, detalhistas até demais) sobre todo o tipo de problema que ele…]]></description><link>https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 06 Sep 2011 17:48:00 GMT</pubDate><content:encoded>&lt;p&gt;Se você precisa de uma ferramenta mais poderosa que o &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Assegure a qualidade do seu código Python – pep8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, talvez você
+precise do &lt;em&gt;Pylint&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;De forma (bem) resumida, o &lt;em&gt;Pylint&lt;/em&gt; analisa de forma minuciosa o código
+do seu projeto &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, lhe retornando uma variedade de relatórios
+(as vezes, detalhistas até demais) sobre todo o tipo de problema que ele
+encontra. Indo de incoerências com a &lt;em&gt;PEP 8&lt;/em&gt;, até nome de variáveis.&lt;/p&gt;
+&lt;p&gt;É sem dúvida, uma das melhores ferramentas feitas para o &lt;em&gt;Python&lt;/em&gt;, e é
+essencial para você deixar o seu código mais próximo do “estado da
+arte”.&lt;/p&gt;
+&lt;p&gt;Mas o que eu achei mais legal sobre o &lt;em&gt;Pylint&lt;/em&gt;, foi um comentário em sua
+documentação. O &lt;a href=&quot;http://www.logilab.org/card/pylint_manual#what-is-pylint&quot; title=&quot;O que é o pylint?&quot;&gt;autor salienta&lt;/a&gt; muito bem que a ferramenta pode ser
+eficiente em certos contextos, mas não em todos. Então, antes de
+“pularmos de cabeça”, peço que você utilize o bom senso e saiba mensurar
+as suas necessidades em relação ao que a ferramenta tem a oferecer.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Vamos testar as conformidades do arquivo &lt;code class=&quot;language-text&quot;&gt;site.py&lt;/code&gt; segundo o &lt;em&gt;Pylint&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint /usr/lib/python2.7/dist-packages/site.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O resultado pode parecer assustador. Então “vamos começar pelo começo”.&lt;/p&gt;
+&lt;p&gt;O resultado do &lt;em&gt;Pylint&lt;/em&gt; é dividido em duas grandes seções: &lt;strong&gt;análise de
+código&lt;/strong&gt; e &lt;strong&gt;relatório&lt;/strong&gt;; O primeiro, como o nome sugere, apresenta uma
+análise de código bem semelhante a apresentada pelo &lt;em&gt;pep8&lt;/em&gt;. Porém no
+seguinte formato:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;MESSAGE_TYPE: LINE_NUM:[OBJECT:] MESSAGE&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos pegar a primeira linha gerada pelo &lt;em&gt;Pylint&lt;/em&gt; para entender melhor:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;C:  1: Missing docstring&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt; é o tipo da mensagem, &lt;strong&gt;1&lt;/strong&gt; é o número da linha (no arquivo) onde
+o problema foi constatado, &lt;strong&gt;Missing docstring&lt;/strong&gt; é a mensagem gerada. O
+&lt;em&gt;Pylint&lt;/em&gt; poderá apresentar os seguintes tipos de mensagens:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[R]efactor for a &amp;quot;good practice&amp;quot; metric violation
+[C]onvention for coding standard violation
+[W]arning for stylistic problems, or minor programming issues
+[E]rror for important programming issues (i.e. most probably bug)
+[F]atal for errors which prevented further processing&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quase posso ver o brilho em seus olhos. A saída do &lt;em&gt;Pylint&lt;/em&gt; deixou de
+ser enigmática, não?!&lt;/p&gt;
+&lt;p&gt;A segunda seção, a de relatório, apresentará alguns números
+interessantes sobre o seu projeto. Como o número de &lt;em&gt;warnings&lt;/em&gt; e
+&lt;em&gt;errors&lt;/em&gt;, uma nota para o seu projeto (e um comparativo com a execução
+anterior do &lt;em&gt;Pylint&lt;/em&gt;), quantidade de código duplicado, quantidade de
+código documentado e “desenhará” uma árvore de dependências do seu
+projeto.&lt;/p&gt;
+&lt;h2&gt;Diminuindo o ruído&lt;/h2&gt;
+&lt;p&gt;Eu avisei que o &lt;em&gt;Pylint&lt;/em&gt; era “barulhento”!&lt;/p&gt;
+&lt;p&gt;Vamos reduzir um pouco o nível de detalhes da ferramenta, passando
+alguns parâmetros:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint /usr/lib/python2.7/dist-packages/site.py --reports=n --include-ids=y --disable=W0232&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Primeiro, com o parâmetro &lt;strong&gt;–-reports=n&lt;/strong&gt; dizemos que não queremos
+aquele relatório gigantesco no final da análise. O &lt;strong&gt;–-include-ids=y&lt;/strong&gt;
+exibe para gente os &lt;em&gt;ids&lt;/em&gt; das mensagens de erros do &lt;em&gt;Pylint&lt;/em&gt;. É útil,
+pois todas as mensagens que você julgar desnecessárias para a análise
+você adiciona no parâmetro &lt;strong&gt;-–disable&lt;/strong&gt; (separadas por vírgula).&lt;/p&gt;
+&lt;p&gt;Para que não seja necessário passar todos esses parâmetros todas as
+vezes que executar o &lt;em&gt;Pylint&lt;/em&gt; basta gerar um arquivo &lt;strong&gt;.pylintrc&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint --reports=n --include-ids=y --disable=W0232 --generate-rcfile &amp;gt; ~/.pylintrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É possível gerar este arquivo por projeto, podendo mudar a
+especificidade das métricas de acordo com a necessidade. Quer saber
+mais? &lt;a href=&quot;http://www.logilab.org/card/pylint_tutorial&quot; title=&quot;Pylint tutorial&quot;&gt;Leia este tutorial muito bom&lt;/a&gt;, direto da documentação do
+&lt;em&gt;Pylint&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para entender os códigos das mensagens, &lt;a href=&quot;http://pylint-messages.wikidot.com/all-codes&quot; title=&quot;Todos os códigos retornados pelo Pylint&quot;&gt;confira a listagem nesta &lt;em&gt;wiki&lt;/em&gt;&lt;/a&gt;,
+ou utilize o parâmetro &lt;strong&gt;-–help-msg&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint --help-msg=R0904:
+
+R0904: \*Too many public methods (%s/%s)\*
+Used when class has too many public methods, try to reduce this to get a more
+simple (and so easier to use) class. This message belongs to the design checker.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.logilab.org/857&quot; title=&quot;Obtenha o Pylint gratuitamente&quot;&gt;&lt;em&gt;Pylint: analyzes Python source code looking for bugs and signs of poor quality&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.logilab.org/card/pylint_manual&quot; title=&quot;Leia o manual oficial do Pylint&quot;&gt;&lt;em&gt;Logilab.org: Pylint User Manual&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.logilab.org/card/pylint_tutorial&quot; title=&quot;Leia agora mesmo este excelente tutorial sobre Pylint&quot;&gt;&lt;em&gt;Logilab.org: Pylint Tutorial&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://turbogears.org/1.0/docs/UsingPylint.html&quot; title=&quot;Leia as recomendações de uso do Pylint com TurboGears&quot;&gt;&lt;em&gt;TurboGears Documentation: Using Pylint to improve the quality of your code&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Assegure a qualidade do seu código Python - pep8]]></title><description><![CDATA[Convenções de código! Já tive a oportunidade de escrever sobre elas no Profissionais TI. Benção ou
+maldição? Há quem goste, há quem ache uma perda de tempo… Acredito muito que a organização e a qualidade do código são benéficas
+para qualquer projeto, principalmente para aqueles que possuem alta…]]></description><link>https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 26 Aug 2011 13:51:00 GMT</pubDate><content:encoded>&lt;p&gt;Convenções de código! Já tive a oportunidade de &lt;a href=&quot;http://www.profissionaisti.com.br/2009/06/codifique-como-um-verdadeiro-pythonista/&quot; title=&quot;Codifique como um verdadeiro Pythonista&quot;&gt;escrever sobre elas no &lt;em&gt;Profissionais TI&lt;/em&gt;&lt;/a&gt;. Benção ou
+maldição? Há quem goste, há quem ache uma perda de tempo…&lt;/p&gt;
+&lt;p&gt;Acredito muito que a organização e a qualidade do código são benéficas
+para qualquer projeto, principalmente para aqueles que possuem alta
+rotatividade de profissionais. Padrões de projetos, padrões estruturais
+e de escrita facilitam a “assimilação” do que já foi produzido, facilita
+a manutenção e “orienta” as novas produções.&lt;/p&gt;
+&lt;p&gt;Se você tem problemas em decorar convenções e boas práticas, não
+desanime! O &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; possui algumas ferramentas “bacanudas” que vão
+te auxiliar a deixar o &lt;em&gt;software&lt;/em&gt; mais próximo do “estado da arte”, seja
+garantindo as convenções de código, seja avaliando a qualidade do mesmo.&lt;/p&gt;
+&lt;h2&gt;Python Enhancement Proposals&lt;/h2&gt;
+&lt;p&gt;As “PEPs“ (&lt;em&gt;Python Enhancement Proposal&lt;/em&gt;) são documentos que geralmente
+abordam alguma nova funcionalidade da linguagem, propósitos,
+procedimentos ou ambiente. Em suma, são “guidelines” que te orientam num
+melhor uso da linguagem e suas funcionalidades, bem como podem ajudar em
+questões como arquitetura, ambiente ou processos de sua aplicação.&lt;/p&gt;
+&lt;p&gt;Para saber mais sobre &lt;em&gt;PEPs&lt;/em&gt;, acesse a &lt;a href=&quot;http://www.python.org/dev/peps/pep-0001/&quot; title=&quot;PEP1 - PEP Purpose and Guidelines&quot;&gt;&lt;em&gt;PEP 1&lt;/em&gt;&lt;/a&gt; que é justamente um documento
+explicando o que são e o que fazem as &lt;em&gt;Python Enhancement Proposals&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;pep8&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;pep8&lt;/em&gt; é uma ferramenta simples (e muito eficaz) que analisa o seu
+código &lt;em&gt;Python&lt;/em&gt; segundo as convenções de código descritas na
+&lt;a href=&quot;http://www.python.org/dev/peps/pep-0008/&quot; title=&quot;PEP 8 - Style Guide for Python Code&quot;&gt;&lt;em&gt;PEP 8&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos analisar o código do &lt;a href=&quot;https://github.com/djangobrasil/djangobrasil.org&quot; title=&quot;Repositório no GitHub do site do Django no Brasil&quot;&gt;&lt;em&gt;Django Brasil&lt;/em&gt;&lt;/a&gt; (você não sabia? O site é
+&lt;em&gt;open source&lt;/em&gt;!), mais especificamente o arquivo &lt;strong&gt;models.py&lt;/strong&gt; da &lt;em&gt;app&lt;/em&gt;
+&lt;strong&gt;blog&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pep8 src/djangobrasil/apps/blog/models.py
+
+src/djangobrasil/apps/blog/models.py:42:65: W291 trailing whitespace
+src/djangobrasil/apps/blog/models.py:62:1: E302 expected 2 blank lines, found 1
+src/djangobrasil/apps/blog/models.py:105:80: E501 line too long (89 characters)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como podemos ver, a ferramenta nos mostra a linha e coluna onde o
+problema foi encontrado, apresentando uma breve descrição da incoerência
+que estamos cometendo em relação às recomendações da
+&lt;em&gt;PEP 8&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para obter uma resposta mais “verbose“, podemos passar alguns parâmetros
+para o &lt;code class=&quot;language-text&quot;&gt;pep8&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pep8 src/djangobrasil/apps/blog/models.py --show-source --show-pep8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Viu só?! Dessa forma podemos aprender sobre a &lt;em&gt;PEP 8&lt;/em&gt; enquanto “ferimos” as
+convenções de código em nossos projetos :D&lt;/p&gt;
+&lt;p&gt;Para finalizar, podemos contar as ocorrências de problemas com a
+&lt;em&gt;PEP 8&lt;/em&gt; em determinada região do projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pep8 src/djangobrasil/apps/blog/ --statistics -qq --filename=*.py
+
+1       E225 missing whitespace around operator
+7       E302 expected 2 blank lines, found 1
+1       E303 too many blank lines (2)
+11      E501 line too long (89 characters)
+4       W291 trailing whitespace
+2       W391 blank line at end of file&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nenhum problema muito grave de convenções de código na &lt;em&gt;app blog&lt;/em&gt; do
+&lt;em&gt;DjangoBrasil&lt;/em&gt; ;)&lt;/p&gt;
+&lt;p&gt;Confira: &lt;a href=&quot;https://github.com/jcrocholl/pep8/&quot; title=&quot;Repositório no GitHub do pep8&quot;&gt;&lt;em&gt;pep8 – Python style guide checker&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/dev/peps/&quot; title=&quot;Conheça os tipos de PEPs e quais os seus propósitos&quot;&gt;&lt;em&gt;Python.org – Index of Python Enhancement Proposals (PEPs)&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/dev/peps/pep-0001/&quot; title=&quot;Saiba o que é, o que faz, e como é feita uma PEP&quot;&gt;&lt;em&gt;Python.org – PEP 1: Purpose and Guidelines&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.python.org/dev/peps/pep-0008/&quot; title=&quot;Conheça as convenções de código Python&quot;&gt;&lt;em&gt;Python.org – PEP 8: Style Guide for Python Code&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.vivaolinux.com.br/artigo/PEP-8-Guia-de-estilo-para-codigo-Python&quot; title=&quot;Artigo do Viva o Linux que é uma adaptação para o Português da PEP 8&quot;&gt;&lt;em&gt;Viva o Linux&lt;/em&gt; – &lt;em&gt;PEP 8&lt;/em&gt;: Guia de estilo para código &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jcrocholl/pep8/&quot; title=&quot;Repositório no GitHub do projeto pep8&quot;&gt;&lt;em&gt;GitHub – pep8&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nos próximos &lt;em&gt;posts&lt;/em&gt;, vamos dar uma pincelada no &lt;em&gt;pylint&lt;/em&gt;, &lt;em&gt;pyflakes&lt;/em&gt; e
+&lt;em&gt;clone digger&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

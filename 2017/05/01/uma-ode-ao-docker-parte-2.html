@@ -1,53 +1,288 @@
-<!DOCTYPE html><html lang=pt-br> <head><meta charset=utf-8><title>Uma ode ao Docker - Parte 2 | Klaus Laube</title><meta name=author content="Klaus Peter Laube"><meta name=description content="Vamos deixar a parte de containers de lado para falar um pouco mais sobre imagens, e baixar a primeira imagem do Docker Hub"><meta name=robots content=index,follow><meta property=og:site_name content="Klaus Laube"><meta property=og:type content=website><meta name=keywords content="infraestrutura, virtualizacao, containerizacao, docker, nginx"><meta property=og:title content="Uma ode ao Docker - Parte 2"><meta property=og:description content="Vamos deixar a parte de containers de lado para falar um pouco mais sobre imagens, e baixar a primeira imagem do Docker Hub"><meta property=og:url content=https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html><meta property=og:image content=https://klauslaube.com.br//images/blog/docker-image-container.jpg><meta property=fb:app_id content=262757647133878><meta name=google-site-verification content=xCq0H3B3JhkPcAdZ03J0vayijvH_g1rQVMZ_DVcMsQY><meta name=viewport content="width=device-width, initial-scale=1.0"><link rel=icon type=image/x-icon href=https://klauslaube.com.br/favicon.ico><link rel=alternate type=application/rss+xml title="Klaus Laube » Feed" href=https://klauslaube.com.br/feed/rss.xml><link rel=canonical href=https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html><link rel=stylesheet href=https://unpkg.com/purecss@1.0.0/build/pure-min.css integrity=sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w crossorigin=anonymous><link rel=stylesheet href=https://klauslaube.com.br/theme/css/styles.min.css?0830b1e2></head> <body> <div class="Page pure-g is-fullEntry"> <div class="PageHeader pure-u-1"> <nav class="pure-menu pure-menu-open pure-menu-horizontal"> <a href=https://klauslaube.com.br/index.html title="Home page" class="PageHeader-link pure-menu-heading pure-menu-link">Klaus<span class=u-highlighted>Laube</a> <ul class="PageHeader-menu pure-menu-list"> <li class=pure-menu-item> <a href=https://about.me/klauslaube class="PageHeader-menu-link pure-menu-link">Contato</a> </li> </ul> </nav> </div> <div class="PageContent pure-u-1"> <article class="Article u-box" itemscope itemtype=http://schema.org/BlogPosting> <div itemprop=image itemscope itemtype=http://schema.org/ImageObject> <meta itemprop=url content=https://klauslaube.com.br//images/blog/docker-image-container.jpg> </div> <span itemprop=mainEntityOfPage> <header> <h1 class=Article-title itemprop="headline name"> Uma ode ao Docker - Parte 2 </h1> <p class=Article-meta> Por <span class=Article-author itemprop=author>Klaus Peter Laube</span>. <span class=Article-pubDate> Publicado em <time datetime=2017-05-01T22:25:00-03:00 itemprop=datePublished>01 Mai, 2017</time> </span> </p> </header> <div class=Article-content itemprop=articleBody> <img src=/images/blog/docker-logo-2.png alt="Logotipo do Docker" class=representative-image width=180 height=180> <p>No <a href=https://klauslaube.com.br/2017/01/14/uma-ode-ao-docker-parte-1.html title="Uma ode ao Docker - Parte 1"><em>post</em> anterior</a> falamos sobre o <em>Docker</em>, e arranhamos um pouco sobre a diferença entre virtualização com <em>Hypervisor</em> e <em>Container</em>. Nesse <em>post</em>, vamos explorar um pouquinho mais alguns conceitos, mostrando como funciona essa ferramenta que é sensação quando o assunto é <em>virtual machines</em>.</p> <!-- PELICAN_END_SUMMARY --> <p>Mas antes, vamos relembrar o que é o <em>Docker</em>:</p> <blockquote> <p>"Docker is an open platform for building, shipping and running distributed applications. It gives programmers, development teams, and operations engineers the common toolbox they need to take advantage of the distributed and networked nature of modern applications."</p> </blockquote> <p>Em uma linguagem mais simples, <em>Docker</em> lhe dá a habilidade de executar aplicações dentro de um ambiente controlado, conhecido como <em>Container</em>. <em>Containers</em> são similares às tradicionais máquinas virtuais, contudo, eles compartilham o mesmo sistema operacional e provém um conjunto de comandos que permitem a execução e controle da sua aplicação ou processo.</p> <p><a href="https://www.youtube.com/watch?v=pGYAg7TMmp0" title="Docker Tutorial - What is Docker & Docker Containers, Images, etc?">Veja a diferença entre <em>Vagrant</em> e <em>Docker</em></a>.</p> <h2>Instalando</h2> <p>Talvez você se depare com alguns artigos na <em>Internet</em>, que ao falar sobre a instalação do <em>Docker</em>, também mencionem <strong>boot2docker</strong> ou a necessidade do <strong>docker-machine</strong>. Houve um tempo onde utilizar <em>Docker</em> em máquinas <em>Windows</em> ou <em>OSX</em> não era tão trivial assim... mas esse tempo ficou para trás.</p> <p>Hoje, basta acessar a <a href=https://www.docker.com/community-edition#/download title="Baixe o Docker Community Edition">página de <em>download</em></a>, selecionar o seu sistema operacional, e seguir o passo a passo (que geralmente consiste em uma série de "next-next-finish").</p> <p><a href=https://docs.docker.com/docker-for-mac/docker-toolbox/ title="Docker for Mac vs. Docker Toolbox">Entenda a diferença entre o Docker Toolbox e Docker for Mac</a>.</p> <p>Uma vez instalado, através do terminal execute o seguinte comando:</p> <div class=highlight><pre><span></span>$ docker images
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.493e6315ef3a09bc2f74.css">code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#9a6e3a;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 2.20.12"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><style data-styled="" data-styled-version="5.1.0">.dQgIel{display:inline-block;vertical-align:middle;overflow:hidden;}/*!sc*/
+data-styled.g1[id="sc-AxjAm"]{content:"dQgIel,"}/*!sc*/
+.dLmtYS{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g2[id="article-share__FacebookStyled-sc-1s9obkn-0"]{content:"dLmtYS,"}/*!sc*/
+.cXEKcd{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g3[id="article-share__LinkedinStyled-sc-1s9obkn-1"]{content:"cXEKcd,"}/*!sc*/
+.kBgYvV{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g4[id="article-share__TwitterStyled-sc-1s9obkn-2"]{content:"kBgYvV,"}/*!sc*/
+.jVnceN{color:rgba(0,0,0,0.84);height:24px;width:24px;}/*!sc*/
+data-styled.g5[id="article-share__WhatsappStyled-sc-1s9obkn-3"]{content:"jVnceN,"}/*!sc*/
+.hUktyW{display:inline-block;margin-right:8px;}/*!sc*/
+data-styled.g6[id="article-share__SocialLink-sc-1s9obkn-4"]{content:"hUktyW,"}/*!sc*/
+.hKQQPE{clear:both;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.hKQQPE{clear:none;float:right;line-height:48px;}}/*!sc*/
+data-styled.g7[id="article-share__SocialWrapper-sc-1s9obkn-5"]{content:"hKQQPE,"}/*!sc*/
+.gKRNvs{margin-bottom:24px;}/*!sc*/
+data-styled.g8[id="article-tags__Tags-lfitfk-0"]{content:"gKRNvs,"}/*!sc*/
+.kdcwKK{background-color:#f4f4f4;color:rgba(0,0,0,0.54);display:inline-block;font-size:14px;margin:0 8px 8px 0;padding:8px 16px;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g9[id="article-tags__Tag-lfitfk-1"]{content:"kdcwKK,"}/*!sc*/
+.gfJCPa{color:rgba(0,0,0,0.84);margin-bottom:4px;}/*!sc*/
+data-styled.g14[id="article__AuthorName-sc-1bof3w4-0"]{content:"gfJCPa,"}/*!sc*/
+.cZgAvk{clear:both;font-family:Georgia,"Times New Roman",Times,serif;font-size:18px;font-weight:300;-webkit-letter-spacing:-0.054px;-moz-letter-spacing:-0.054px;-ms-letter-spacing:-0.054px;letter-spacing:-0.054px;line-height:28px;margin-bottom:48px;}/*!sc*/
+@media (min-width:768px){.cZgAvk{font-size:20px;}}/*!sc*/
+.cZgAvk *{margin:0;margin-block-end:0;margin-block-start:0;padding:0;}/*!sc*/
+.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{font-family:"Lucida Sans","Lucida Sans Regular","Lucida Grande","Lucida Sans Unicode",Geneva,Verdana,sans-serif;-webkit-letter-spacing:-0.66px;-moz-letter-spacing:-0.66px;-ms-letter-spacing:-0.66px;letter-spacing:-0.66px;margin-top:8px;margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk h2,.cZgAvk h3,.cZgAvk h4{margin-bottom:16px;}}/*!sc*/
+.cZgAvk figure,.cZgAvk .gatsby-highlight{left:-24px;position:relative;width:100vw;}/*!sc*/
+@media (min-width:768px){.cZgAvk figure,.cZgAvk .gatsby-highlight{left:0;width:auto;}}/*!sc*/
+.cZgAvk a{color:#c4170c;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.cZgAvk a:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+.cZgAvk blockquote{color:rgba(0,0,0,0.54);font-style:italic;}/*!sc*/
+.cZgAvk code{font-size:16px;}/*!sc*/
+.cZgAvk figcaption{color:rgba(0,0,0,0.54);font-size:16px;line-height:20px;padding:16px 24px 0;text-align:center;}/*!sc*/
+.cZgAvk h2{font-size:26px;font-weight:600;line-height:32px;margin-bottom:28px;}/*!sc*/
+.cZgAvk h3{color:#333;font-size:22px;font-weight:300;line-height:28px;}/*!sc*/
+.cZgAvk h4{color:rgba(0,0,0,0.54);font-size:16;font-weight:300;line-height:24px;}/*!sc*/
+.cZgAvk iframe{display:block;margin:0 auto 28px auto;}/*!sc*/
+@media (min-width:768px){.cZgAvk iframe{margin-bottom:42px;}}/*!sc*/
+.cZgAvk img{display:block;margin:0 auto;}/*!sc*/
+.cZgAvk p{margin-bottom:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk p{margin-bottom:42px;}}/*!sc*/
+.cZgAvk pre{font-size:16px;margin-bottom:28px;padding:24px 16px;}/*!sc*/
+@media (min-width:768px){.cZgAvk pre{margin-bottom:42px;}}/*!sc*/
+.cZgAvk ol,.cZgAvk ul{margin-left:28px;}/*!sc*/
+@media (min-width:768px){.cZgAvk ol,.cZgAvk ul{margin-bottom:42px;}}/*!sc*/
+.cZgAvk li{margin-bottom:8px;}/*!sc*/
+@media (min-width:768px){.cZgAvk li{margin-bottom:16px;}}/*!sc*/
+data-styled.g15[id="article__Content-sc-1bof3w4-1"]{content:"cZgAvk,"}/*!sc*/
+.lhlkLZ{border-top:1px solid #f4f4f4;margin-bottom:24px;padding-top:24px;}/*!sc*/
+data-styled.g16[id="article__DiscussionWrapper-sc-1bof3w4-2"]{content:"lhlkLZ,"}/*!sc*/
+.hnJNBS{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:rgba(0,0,0,0.54);display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;float:left;font-size:14px;margin-bottom:32px;}/*!sc*/
+data-styled.g17[id="article__Meta-sc-1bof3w4-3"]{content:"hnJNBS,"}/*!sc*/
+.cTbbvU{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+data-styled.g18[id="article__MetaText-sc-1bof3w4-4"]{content:"cTbbvU,"}/*!sc*/
+.lhqEXT{border-radius:60px;margin-right:16px;}/*!sc*/
+data-styled.g19[id="article__StyledAvatar-sc-1bof3w4-5"]{content:"lhqEXT,"}/*!sc*/
+.dtcUmd{color:rgba(0,0,0,0.84);font-weight:600;-webkit-letter-spacing:-0.93px;-moz-letter-spacing:-0.93px;-ms-letter-spacing:-0.93px;letter-spacing:-0.93px;margin:0 0 4px 0;font-size:30px;font-weight:400;margin-bottom:32px;}/*!sc*/
+@media (min-width:768px){.dtcUmd{font-size:40px;}}/*!sc*/
+data-styled.g20[id="article__StyledTitle-sc-1bof3w4-6"]{content:"dtcUmd,"}/*!sc*/
+.bfwjqj{margin:0 auto;max-width:640px;padding:0 24px;}/*!sc*/
+data-styled.g21[id="container-sc-1o2is99-0"]{content:"bfwjqj,"}/*!sc*/
+.iyjQQp{-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;color:#c4170c;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;font-family:Arial,Helvetica,sans-serif;height:36px;width:36px;}/*!sc*/
+data-styled.g22[id="page-header-brand__Brand-ofbkek-0"]{content:"iyjQQp,"}/*!sc*/
+.hPHtvI{display:none;}/*!sc*/
+@media (min-width:768px){.hPHtvI{display:block;}}/*!sc*/
+data-styled.g23[id="page-header-brand__BrandFragment-ofbkek-1"]{content:"hPHtvI,"}/*!sc*/
+.exgtKg{color:#333;display:inline-block;margin-left:4px;}/*!sc*/
+.exgtKg:first-child{margin-left:0;margin-right:4px;}/*!sc*/
+data-styled.g24[id="page-header-brand__Bracket-ofbkek-2"]{content:"exgtKg,"}/*!sc*/
+.fUa-dQJ{color:#333;width:22px;}/*!sc*/
+data-styled.g25[id="page-header__GreyMail-sc-1ef23a-0"]{content:"fUa-dQJ,"}/*!sc*/
+.GBaPr{box-shadow:0 -8px 16px 0 rgba(0,0,0,0.54);font-size:1.1rem;margin-bottom:24px;}/*!sc*/
+@media (min-width:768px){.GBaPr{margin-bottom:64px;}}/*!sc*/
+data-styled.g26[id="page-header__Header-sc-1ef23a-1"]{content:"GBaPr,"}/*!sc*/
+.ktLFvT{margin:0 auto;max-width:640px;padding:0 24px;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:56px;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;max-width:974px;}/*!sc*/
+data-styled.g27[id="page-header__HeaderContainer-sc-1ef23a-2"]{content:"ktLFvT,"}/*!sc*/
+.gbnbN{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g28[id="page-header__StyledLink-sc-1ef23a-3"]{content:"gbnbN,"}/*!sc*/
+.hJnaIf{-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+data-styled.g29[id="page-header__StyledA-sc-1ef23a-4"]{content:"hJnaIf,"}/*!sc*/
+.eZHcyp{border-top:1px solid #f4f4f4;color:rgba(0,0,0,0.54);font-size:14px;padding:24px 0;text-align:center;}/*!sc*/
+@media (min-width:768px){.eZHcyp{text-align:right;}}/*!sc*/
+data-styled.g30[id="page-footer__Footer-sc-1jesc4c-0"]{content:"eZHcyp,"}/*!sc*/
+.hCZhVV{color:rgba(0,0,0,0.84);-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+.hCZhVV:hover{-webkit-text-decoration:underline;text-decoration:underline;}/*!sc*/
+data-styled.g31[id="page-footer__Link-sc-1jesc4c-1"]{content:"hCZhVV,"}/*!sc*/
+body{color:rgba(0,0,0,0.84);font-family:Arial,Helvetica,sans-serif;margin:0;}/*!sc*/
+data-styled.g51[id="sc-global-eLbNMD1"]{content:"sc-global-eLbNMD1,"}/*!sc*/
+</style><title data-react-helmet="true">Uma ode ao Docker - Parte 2 | Klaus Laube</title><meta data-react-helmet="true" name="description" content="No post anterior
+falamos sobre o Docker, e arranhamos um pouco sobre a diferença entre
+virtualização com Hypervisor e Container. Nesse post…"/><meta data-react-helmet="true" property="og:title" content="Uma ode ao Docker - Parte 2"/><meta data-react-helmet="true" property="og:description" content="No post anterior
+falamos sobre o Docker, e arranhamos um pouco sobre a diferença entre
+virtualização com Hypervisor e Container. Nesse post…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="Klaus Peter Laube"/><meta data-react-helmet="true" name="twitter:title" content="Uma ode ao Docker - Parte 2"/><meta data-react-helmet="true" name="twitter:description" content="No post anterior
+falamos sobre o Docker, e arranhamos um pouco sobre a diferença entre
+virtualização com Hypervisor e Container. Nesse post…"/><meta data-react-helmet="true" name="keywords" content="infraestrutura,virtualizacao,containerizacao,docker,nginx"/><meta data-react-helmet="true" property="og:image" content="https://klauslaube.com.br/static/e04fca1f269af5284f335b29e184323f/docker-logo-2.png"/><link rel="icon" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=36b7df61fef254bef7f8fee13b1f890b"/><link rel="alternate" type="application/rss+xml" title="Klaus Laube" href="/feed/rss.xml"/><link as="script" rel="preload" href="/webpack-runtime-74a6d0a7c3b7aca6f059.js"/><link as="script" rel="preload" href="/framework-15c64f04ece7e16d9319.js"/><link as="script" rel="preload" href="/styles-72b9aca6a03bf971c27e.js"/><link as="script" rel="preload" href="/app-e7e259d06d29a943bae9.js"/><link as="script" rel="preload" href="/commons-d19a5247b9c341fd9cf4.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"/><link as="fetch" rel="preload" href="/page-data/2017/05/01/uma-ode-ao-docker-parte-2.html/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="page-header__Header-sc-1ef23a-1 GBaPr"><div class="container-sc-1o2is99-0 page-header__HeaderContainer-sc-1ef23a-2 ktLFvT"><a class="page-header__StyledLink-sc-1ef23a-3 gbnbN" href="/"><div class="page-header-brand__Brand-ofbkek-0 iyjQQp"><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">{</span>k<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">laus</span>l<span class="page-header-brand__BrandFragment-ofbkek-1 hPHtvI">aube</span><span class="page-header-brand__Bracket-ofbkek-2 exgtKg">}</span></div></a><div><a href="https://about.me/klauslaube" title="Contato" class="page-header__StyledA-sc-1ef23a-4 hJnaIf"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" class="sc-AxjAm dQgIel page-header__GreyMail-sc-1ef23a-0 fUa-dQJ"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></a></div></div></div><div><div class="container-sc-1o2is99-0 bfwjqj"><h1 class="typograph__Title-sc-4kf6ch-1 article__StyledTitle-sc-1bof3w4-6 dtcUmd">Uma ode ao Docker - Parte 2</h1><div class="article__Meta-sc-1bof3w4-3 hnJNBS"><img src="https://en.gravatar.com/userimage/12163112/d3ae0c6239980b01ff1f1730b65c2ebe.jpg" width="48" height="48" alt="Avatar" class="avatar-sc-46srdf-0 article__StyledAvatar-sc-1bof3w4-5 lhqEXT"/><div class="article__MetaText-sc-1bof3w4-4 cTbbvU"><div class="article__AuthorName-sc-1bof3w4-0 gfJCPa">Klaus Peter Laube</div>2 de Maio de 2017<!-- --> - <!-- -->6 minutos<!-- --> de leitura</div></div><div class="article-share__SocialWrapper-sc-1s9obkn-5 hKQQPE"><a href="https://twitter.com/intent/tweet?url=https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html&amp;text=Uma ode ao Docker - Parte 2" target="_blank" rel="noreferrer" title="Compartilhe no Twitter" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__TwitterStyled-sc-1s9obkn-2 kBgYvV"><path d="M19.633 7.997c.013.175.013.349.013.523 0 5.325-4.053 11.461-11.46 11.461-2.282 0-4.402-.661-6.186-1.809.324.037.636.05.973.05a8.07 8.07 0 005.001-1.721 4.036 4.036 0 01-3.767-2.793c.249.037.499.062.761.062.361 0 .724-.05 1.061-.137a4.027 4.027 0 01-3.23-3.953v-.05c.537.299 1.16.486 1.82.511a4.022 4.022 0 01-1.796-3.354c0-.748.199-1.434.548-2.032a11.457 11.457 0 008.306 4.215c-.062-.3-.1-.611-.1-.923a4.026 4.026 0 014.028-4.028c1.16 0 2.207.486 2.943 1.272a7.957 7.957 0 002.556-.973 4.02 4.02 0 01-1.771 2.22 8.073 8.073 0 002.319-.624 8.645 8.645 0 01-2.019 2.083z"></path></svg></a><a href="https://www.facebook.com/sharer/sharer.php?u=https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html" target="_blank" rel="noreferrer" title="Compartilhe no Facebook" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__FacebookStyled-sc-1s9obkn-0 dLmtYS"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h8.615v-6.96h-2.338v-2.725h2.338v-2c0-2.325 1.42-3.592 3.5-3.592.699-.002 1.399.034 2.095.107v2.42h-1.435c-1.128 0-1.348.538-1.348 1.325v1.735h2.697l-.35 2.725h-2.348V21H20a1 1 0 001-1V4a1 1 0 00-1-1z"></path></svg></a><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html&amp;title=Uma ode ao Docker - Parte 2" target="_blank" rel="noreferrer" title="Compartilhe no Linkedin" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__LinkedinStyled-sc-1s9obkn-1 cXEKcd"><path d="M20 3H4a1 1 0 00-1 1v16a1 1 0 001 1h16a1 1 0 001-1V4a1 1 0 00-1-1zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 110-3.096 1.548 1.548 0 010 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"></path></svg></a><a href="https://api.whatsapp.com/send?text=https://klauslaube.com.br/2017/05/01/uma-ode-ao-docker-parte-2.html" target="_blank" rel="noreferrer" title="Compartilhe no Whatsapp" class="article-share__SocialLink-sc-1s9obkn-4 hUktyW"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="sc-AxjAm dQgIel article-share__WhatsappStyled-sc-1s9obkn-3 jVnceN"><path fill-rule="evenodd" d="M18.403 5.633A8.919 8.919 0 0012.053 3c-4.948 0-8.976 4.027-8.978 8.977 0 1.582.413 3.126 1.198 4.488L3 21.116l4.759-1.249a8.981 8.981 0 004.29 1.093h.004c4.947 0 8.975-4.027 8.977-8.977a8.926 8.926 0 00-2.627-6.35m-6.35 13.812h-.003a7.446 7.446 0 01-3.798-1.041l-.272-.162-2.824.741.753-2.753-.177-.282a7.448 7.448 0 01-1.141-3.971c.002-4.114 3.349-7.461 7.465-7.461a7.413 7.413 0 015.275 2.188 7.42 7.42 0 012.183 5.279c-.002 4.114-3.349 7.462-7.461 7.462m4.093-5.589c-.225-.113-1.327-.655-1.533-.73-.205-.075-.354-.112-.504.112s-.58.729-.711.879-.262.168-.486.056-.947-.349-1.804-1.113c-.667-.595-1.117-1.329-1.248-1.554s-.014-.346.099-.458c.101-.1.224-.262.336-.393.112-.131.149-.224.224-.374s.038-.281-.019-.393c-.056-.113-.505-1.217-.692-1.666-.181-.435-.366-.377-.504-.383a9.65 9.65 0 00-.429-.008.826.826 0 00-.599.28c-.206.225-.785.767-.785 1.871s.804 2.171.916 2.321c.112.15 1.582 2.415 3.832 3.387.536.231.954.369 1.279.473.537.171 1.026.146 1.413.089.431-.064 1.327-.542 1.514-1.066.187-.524.187-.973.131-1.067-.056-.094-.207-.151-.43-.263" clip-rule="evenodd"></path></svg></a></div><div class="article__Content-sc-1bof3w4-1 cZgAvk"><p>No <a href="/2017/01/14/uma-ode-ao-docker-parte-1.html" title="Uma ode ao Docker - Parte 1"><em>post</em> anterior</a>
+falamos sobre o <em>Docker</em>, e arranhamos um pouco sobre a diferença entre
+virtualização com <em>Hypervisor</em> e <em>Container</em>. Nesse <em>post</em>,
+vamos explorar um pouquinho mais alguns conceitos, mostrando como funciona essa
+ferramenta que é sensação quando o assunto é <em>virtual machines</em>.</p>
+<p>Mas antes, vamos relembrar o que é o <em>Docker</em>:</p>
+<blockquote>
+<p>"Docker is an open platform for building, shipping and running distributed
+applications. It gives programmers, development teams, and operations engineers
+the common toolbox they need to take advantage of the distributed and networked
+nature of modern applications."</p>
+</blockquote>
+<p>Em uma linguagem mais simples, <em>Docker</em> lhe dá a habilidade de executar
+aplicações dentro de um ambiente controlado, conhecido como <em>Container</em>.
+<em>Containers</em> são similares às tradicionais máquinas virtuais, contudo, eles
+compartilham o mesmo sistema operacional e provém um conjunto de comandos
+que permitem a execução e controle da sua aplicação ou processo.</p>
+<p><a href="https://www.youtube.com/watch?v=pGYAg7TMmp0" title="Docker Tutorial - What is Docker &#x26; Docker Containers, Images, etc?">Veja a diferença entre <em>Vagrant</em> e <em>Docker</em></a>.</p>
+<h2>Instalando</h2>
+<p>Talvez você se depare com alguns artigos na <em>Internet</em>, que ao falar sobre a
+instalação do <em>Docker</em>, também mencionem <strong>boot2docker</strong> ou a necessidade do
+<strong>docker-machine</strong>. Houve um tempo onde utilizar <em>Docker</em> em máquinas
+<em>Windows</em> ou <em>OSX</em> não era tão trivial assim... mas esse tempo ficou para trás.</p>
+<p>Hoje, basta acessar a <a href="https://www.docker.com/community-edition#/download" title="Baixe o Docker Community Edition">página de <em>download</em></a>,
+selecionar o seu sistema operacional, e seguir o passo a passo
+(que geralmente consiste em uma série de "next-next-finish").</p>
+<p><a href="https://docs.docker.com/docker-for-mac/docker-toolbox/" title="Docker for Mac vs. Docker Toolbox">Entenda a diferença entre o Docker Toolbox e Docker for Mac</a>.</p>
+<p>Uma vez instalado, através do terminal execute o seguinte comando:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker images
 
-REPOSITORY   TAG   IMAGE  ID   CREATED   SIZE
-</pre></div> <p>Esse é o momento ideal para falarmos de outro conceito muito importante dentro do <em>Docker</em>: <strong>Images</strong>.</p> <h2>Imagens</h2> <p>Segundo a documentação oficial:</p> <blockquote> <p>An image is a lightweight, stand-alone, executable package that includes everything needed to run a piece of software, including the code, a runtime, libraries, environment variables, and config files.</p> </blockquote> <p>Ou seja, um <em>Docker Image</em> é um binário que inclui todos os requisitos necessários para rodar um <em>Container</em>. Podemos pensar sobre esse conceito como uma tecnologia para empacotamento (ou até mesmo como uma espécie <em>snapshot</em>), onde não só definimos nossa distribuição <em>Linux</em> ou serviços utilizados (como <em>Postgres</em> ou <em>Nginx</em>, por exemplo), como também adicionamos a nossa própria aplicação ao pacote.</p> <p>Uma imagem é imutável, ou seja, <em>read only</em>. Imagens geralmente são compostas por outras camadas de imagens (<em>image layers</em>). Isso é um <em>approach</em> interessante, já que uma vez que uma camada seja baixada ela não precisará ser baixada novamente, mesmo se outras imagens utilizarem da mesma camada:</p> <p><img class=align-center-keep-size src=/images/blog/docker-image-container.jpg width=610 height=424 title="Esquema representando o Sistema de Arquivo (docs.docker.com)" alt="Esquema representando o Sistema de Arquivo (docs.docker.com)"></p> <p>Um <em>Docker Container</em> em vias práticas é uma "instância" da imagem... é o que a imagem se torna em memória ao ser executada. De forma preguiçosa, podemos fazer a analogia com a <a href=https://klauslaube.com.br/tag/oop.html title="Leia mais sobre OOP">Orientação a Objetos</a>, onde a imagem pode ser comparada com uma classe, e a instância com um <em>Container</em>. Podemos ter tantos <em>containers</em> quanto necessário para uma mesma imagem.</p> <h2>Um pouco de prática</h2> <p>Vamos baixar a nossa primeira imagem <em>Docker</em>. Para isso, execute o seguinte comando:</p> <div class=highlight><pre><span></span>$ docker pull docker/whalesay
-</pre></div> <p>O comando <code>docker pull</code> fará o <em>download</em> da imagem <code>docker/whalesay</code> para o seu computador. Essa imagem está hospedada (por padrão) no <a href=https://hub.docker.com/r/docker/whalesay/ ><em>Docker Hub</em></a>, uma espécie de "Github para imagens Docker".</p> <p><a href=https://hub.docker.com/ title="Docker Hub">Leia mais sobre o <em>Docker Hub</em></a>.</p> <p>É possível visualizarmos a imagem através do comando <code>docker images</code>:</p> <div class=highlight><pre><span></span>$ docker images
+REPOSITORY   TAG   IMAGE  ID   CREATED   SIZE</code></pre></div>
+<p>Esse é o momento ideal para falarmos de outro conceito muito importante dentro
+do <em>Docker</em>: <strong>Images</strong>.</p>
+<h2>Imagens</h2>
+<p>Segundo a documentação oficial:</p>
+<blockquote>
+<p>An image is a lightweight, stand-alone, executable package that includes
+everything needed to run a piece of software, including the code, a runtime,
+libraries, environment variables, and config files.</p>
+</blockquote>
+<p>Ou seja, um <em>Docker Image</em> é um binário que inclui todos os requisitos
+necessários para rodar um <em>Container</em>. Podemos pensar sobre esse
+conceito como uma tecnologia para empacotamento (ou até mesmo como uma espécie <em>snapshot</em>),
+onde não só definimos nossa distribuição <em>Linux</em> ou serviços utilizados
+(como <em>Postgres</em> ou <em>Nginx</em>, por exemplo), como também adicionamos a nossa própria aplicação
+ao pacote.</p>
+<p>Uma imagem é imutável, ou seja, <em>read only</em>. Imagens
+geralmente são compostas por outras camadas de imagens (<em>image layers</em>). Isso é um
+<em>approach</em> interessante, já que uma vez que uma camada seja baixada ela não precisará ser
+baixada novamente, mesmo se outras imagens utilizarem da mesma camada:</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8e197844bf74ca6668d7b39d88ad54d5/073a0/docker-image-container.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 69.27083333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHZV1YuML//xAAZEAADAQEBAAAAAAAAAAAAAAABAgMAESH/2gAIAQEAAQUCardlQs3maI05hTv/xAAVEQEBAAAAAAAAAAAAAAAAAAAQIf/aAAgBAwEBPwGn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQETFB/9oACAEBAAY/AuFONZacf//EABoQAAIDAQEAAAAAAAAAAAAAAAERACFREEH/2gAIAQEAAT8hDIayVZSyMIyTcbjUD5fP/9oADAMBAAIAAwAAABDnz//EABcRAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQMBAT8QC2x//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EFMn/8QAHRABAQABBAMAAAAAAAAAAAAAAREAECExwUFRcf/aAAgBAQABPxABMCCn39xavMJHeBIJl0ocA8uXkpsB1p//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="&quot;Esquema representando o Sistema de Arquivo (docs.docker.com)&quot;"
+        title="Esquema representando o Sistema de Arquivo (docs.docker.com)"
+        src="/static/8e197844bf74ca6668d7b39d88ad54d5/073a0/docker-image-container.jpg"
+        srcset="/static/8e197844bf74ca6668d7b39d88ad54d5/7809d/docker-image-container.jpg 192w,
+/static/8e197844bf74ca6668d7b39d88ad54d5/4ecad/docker-image-container.jpg 384w,
+/static/8e197844bf74ca6668d7b39d88ad54d5/073a0/docker-image-container.jpg 610w"
+        sizes="(max-width: 610px) 100vw, 610px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Esquema representando o Sistema de Arquivo (docs.docker.com)</figcaption>
+  </figure></p>
+<p>Um <em>Docker Container</em> em vias práticas é uma "instância" da imagem... é o que a imagem se torna em memória
+ao ser executada. De forma preguiçosa, podemos fazer a analogia com a <a href="/tag/oop.html" title="Leia mais sobre OOP">Orientação a Objetos</a>,
+onde a imagem pode ser comparada com uma classe, e a instância com um <em>Container</em>. Podemos ter
+tantos <em>containers</em> quanto necessário para uma mesma imagem.</p>
+<h2>Um pouco de prática</h2>
+<p>Vamos baixar a nossa primeira imagem <em>Docker</em>. Para isso, execute o seguinte comando:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker pull docker/whalesay</code></pre></div>
+<p>O comando <code class="language-text">docker pull</code> fará o <em>download</em> da imagem <code class="language-text">docker/whalesay</code>
+para o seu computador. Essa imagem está hospedada (por padrão) no <a href="https://hub.docker.com/r/docker/whalesay/"><em>Docker Hub</em></a>,
+uma espécie de "Github para imagens Docker".</p>
+<p><a href="https://hub.docker.com/" title="Docker Hub">Leia mais sobre o <em>Docker Hub</em></a>.</p>
+<p>É possível visualizarmos a imagem através do comando <code class="language-text">docker images</code>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker images
 
 REPOSITORY         TAG       IMAGE ID        CREATED          SIZE
-docker/whalesay    latest    6b362a9f73eb    <span class=m>23</span> months ago    <span class=m>247</span> MB
-</pre></div> <p>É uma prática comum o repositório/nome da imagem ser chamado de <code>&lt;repositório&gt;/&lt;nome de imagem&gt;</code>. Isso evita que haja duplicidade no <em>Docker Hub</em>. Para executar a imagem (e por consequência criar um <em>Container</em>), temos o comando <code>docker run</code>:</p> <div class=highlight><pre><span></span>$ docker run docker/whalesay cowsay boo
+docker/whalesay    latest    6b362a9f73eb    23 months ago    247 MB</code></pre></div>
+<p>É uma prática comum o repositório/nome da imagem ser chamado de
+<code class="language-text">&lt;repositório&gt;/&lt;nome de imagem&gt;</code>. Isso evita que haja duplicidade no <em>Docker Hub</em>. Para
+executar a imagem (e por consequência criar um <em>Container</em>), temos o comando <code class="language-text">docker run</code>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker run docker/whalesay cowsay boo
  _____
 &lt; boo &gt;
  -----
-    <span class=se>\</span>
-     <span class=se>\</span>
-      <span class=se>\</span>
-                    <span class=c1>##        .</span>
-              <span class=c1>## ## ##       ==</span>
-           <span class=c1>## ## ## ##      ===</span>
-       /<span class=s2>&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>___/ <span class=o>===</span>
-  ~~~ <span class=o>{</span>~~ ~~~~ ~~~ ~~~~ ~~ ~ /  <span class=o>===</span>- ~~~
-       <span class=se>\_</span>_____ o          __/
-        <span class=se>\ </span>   <span class=se>\ </span>       __/
-          <span class=se>\_</span>___<span class=se>\_</span>_____/
-</pre></div> <p>Também é possível executarmos através do <code>ID</code> da imagem:</p> <div class=highlight><pre><span></span>$ docker run 6b362a9f73eb cowsay boo2
-</pre></div> <h2>Welcome to Nginx!</h2> <p>É claro que o <em>Docker</em> é muito mais poderoso do que isso. Por exemplo, vamos baixar o <a href=https://klauslaube.com.br/tag/nginx.html title="Leia mais sobre o Nginx"><em>Nginx</em></a> e ver como podemos receber uma simpática tela de "It's working":</p> <div class=highlight><pre><span></span>$ docker pull nginx
-</pre></div> <p>Notou a ausência do <code>&lt;repositório&gt;/</code>? Repositórios oficiais no <em>Docker Hub</em> não necessitam de um prefixo, e você pode encontrá-los na interface <em>web</em> através do <em>path</em> <code>_/&lt;nome da imagem&gt;</code>. Por exemplo, o endereço do <em>Nginx</em> no <em>Docker Hub</em> é <a href=https://hub.docker.com/_/nginx/ >https://hub.docker.com/_/nginx/</a>.</p> <p><img class=align-center-keep-size src=/images/blog/memento-docker.png width=610 height=458 title="Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br)" alt="Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br)"></p> <p>Vamos executar o <em>Nginx</em>:</p> <div class=highlight><pre><span></span>$ docker run -p <span class=m>5000</span>:80 nginx
-</pre></div> <p>Mapemos a porta <code>5000</code> da nossa máquina para apontar para a porta <code>80</code> do <em>Container</em>. Logo, ao acessarmos o <code>http://localhost:5000</code>, recebemos a simpática tela de boas vindas ao <em>Nginx</em>.</p> <p>Podemos dar um nome ao processo, e ainda executá-lo em modo <em>daemon</em>:</p> <div class=highlight><pre><span></span>$ docker run --name docker-nginx -p <span class=m>5000</span>:80 -d nginx
+    \
+     \
+      \
+                    ##        .
+              ## ## ##       ==
+           ## ## ## ##      ===
+       /&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;___/ ===
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+       \______ o          __/
+        \    \        __/
+          \____\______/</code></pre></div>
+<p>Também é possível executarmos através do <code class="language-text">ID</code> da imagem:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker run 6b362a9f73eb cowsay boo2</code></pre></div>
+<h2>Welcome to Nginx!</h2>
+<p>É claro que o <em>Docker</em> é muito mais poderoso do que isso. Por exemplo, vamos baixar o
+<a href="/tag/nginx.html" title="Leia mais sobre o Nginx"><em>Nginx</em></a> e ver como podemos receber uma simpática tela de "It's working":</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker pull nginx</code></pre></div>
+<p>Notou a ausência do <code class="language-text">&lt;repositório&gt;/</code>? Repositórios oficiais no <em>Docker Hub</em> não necessitam
+de um prefixo, e você pode encontrá-los na interface <em>web</em> através do <em>path</em> <code class="language-text">_/&lt;nome da imagem&gt;</code>.
+Por exemplo, o endereço do <em>Nginx</em> no <em>Docker Hub</em> é <a href="https://hub.docker.com/_/nginx/">https://hub.docker.com/_/nginx/</a>.</p>
+<p><figure class="gatsby-resp-image-figure" style="">
+    <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;"
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fb8a561d8561fc395633a751c6b93aa5/5aae9/memento-docker.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAADnklEQVQozwGTA2z8AFhYVGdqaYaFh5iVl4+NjtXKx8nDwezr3eTj1ePh0+Xj1+Hc1NbPztTQ0crFyMbBwtHKzMrEx8e+wsO6vwDU1duvs7ucoa6NlaB4f4W0vMeSmqWiq7DY2tPZ08rSy8jSzMvHtrOXfHObh4bHwcTJxcrNyMu6tLikm6UA1dDRtLK0x8fKzNDQwMTC197eq7KztLu829/X5+vg5uzl2NjTsIyLmGJff1JIqp6Yu8DNq663zNHYpKayAGNiboJ8hYh/gZKSkl9iXrWyr9/b2tjV083My9TS0qWopmxiXI5kZpBjZYxgXWlNP35/gWJqdXB0eYKFigAWGRRTVFQxLyYmLSBUW1kxNTNycnNSUlE6Ojg0NDJpbnCHfICCU1WRX2KPX11gQjVfXFxub3JISUlHSksAUVNPcG1rTEtDOUAxWlpNZVpMYFtSRkg8PUA3ODs0YGVhdWdhgFZRek9IbkM6cU5Jem9nf3VzdXN0cnFwAGRmZGRiXXFtaHx4dnZwa29oXmllXGxpX21uZm5vaV5dUUBCPUlHR2lkXkoyJ11WUWFfV1pVSVlYS1VXUQBcXlpWVEtcVEiOhIOUh4Z+c2tPU0hhX1FoY1RjW0tcV0csMDNHREQvLi5wTkl1aWdpZmJyYlNxYE9vXlMAd2plfGxlhG9pgXFukYB/l4B6d2leeW5khnJilHxvjXFrODI1ISYpLCssVExWh3p/oYWDk3p0l3t3j3t/AH9wdIN1d4t7fYt6fI17fpeDhp6JjZ2JjJuJjKSEgn9bUzk0NS4tLxQSEEpHT42Bh5iIjZuLkJqHjYt4fwCBfYRmaXJucHdscXlqb3dscHdscXZzdXqYkpWAamI7JhovHhQ3IRg7IRplS0N2bm1oY2N6cnOIe31/dnoAu62wiISLVF1lXWZtXmhuXmhtWmVqZGtvfX6BVElDPTIoSkM6UjQkdEk7bE5AUlNKXFxXamdmZmNea2doAHl4fdjMyqilpmFpb2FqbmJqbl1ma319gXh6fSgtOjI2MTlFQS4lI1Q2JXRRRV1aU0tPR1BTS1JRSGRiYgBVXGF2eXuXlZZrcXRdZmphaWxtcHNscGxOWE0sMiwnLSUqMCgZIy0tKSVPRjxpaGRYWFFBRTxQT0hVVVIAUVpdS1ZaS1ZaVGBjVWFlX2doV11WPkc7LC8iIiMWISQYICEaHCYsLDQvPUU8SVBIYWFbWltWVVVPVFVTJc2TKg08qrQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="&quot;Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br)&quot;"
+        title="Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br)"
+        src="/static/fb8a561d8561fc395633a751c6b93aa5/5aae9/memento-docker.png"
+        srcset="/static/fb8a561d8561fc395633a751c6b93aa5/8514f/memento-docker.png 192w,
+/static/fb8a561d8561fc395633a751c6b93aa5/804b2/memento-docker.png 384w,
+/static/fb8a561d8561fc395633a751c6b93aa5/5aae9/memento-docker.png 610w"
+        sizes="(max-width: 610px) 100vw, 610px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+      />
+  </a>
+    </span>
+    <figcaption class="gatsby-resp-image-figcaption">Assim como em Memento, o Docker também depende de imagens e tem memória curta (problemasfilosoficos.blogspot.com.br)</figcaption>
+  </figure></p>
+<p>Vamos executar o <em>Nginx</em>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker run -p 5000:80 nginx</code></pre></div>
+<p>Mapemos a porta <code class="language-text">5000</code> da nossa máquina para apontar para a porta <code class="language-text">80</code> do <em>Container</em>. Logo, ao acessarmos
+o <code class="language-text">http://localhost:5000</code>, recebemos a simpática tela de boas vindas ao <em>Nginx</em>.</p>
+<p>Podemos dar um nome ao processo, e ainda executá-lo em modo <em>daemon</em>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker run --name docker-nginx -p 5000:80 -d nginx
 
-796ab2f0a662c045d0cfc99ff836a364a384406b8c6eaf03bcfb65e6cfd87751
-</pre></div> <p>O valor de retorno é o <em>ID</em> do <em>Container</em>. Note a presença dos parâmetros <code>--name</code> e <code>-d</code>.</p> <p>Para listar os <em>Containers</em> ativos, usamos o comando <code>ps</code>:</p> <div class=highlight><pre><span></span>$ docker ps
+796ab2f0a662c045d0cfc99ff836a364a384406b8c6eaf03bcfb65e6cfd87751</code></pre></div>
+<p>O valor de retorno é o <em>ID</em> do <em>Container</em>. Note a presença dos parâmetros <code class="language-text">--name</code> e <code class="language-text">-d</code>.</p>
+<p>Para listar os <em>Containers</em> ativos, usamos o comando <code class="language-text">ps</code>:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker ps
 
 CONTAINER ID    IMAGE    COMMAND
-796ab2f0a662    nginx    <span class=s2>&quot;nginx -g &#39;daemon ...&quot;</span>
+796ab2f0a662    nginx    &quot;nginx -g &#39;daemon ...&quot;
 CREATED           STATUS           PORTS                  NAMES
-<span class=m>12</span> seconds ago    Up <span class=m>11</span> seconds    <span class=m>0</span>.0.0.0:5000-&gt;80/tcp   docker-nginx
-</pre></div> <p>Para parar o serviço:</p> <div class=highlight><pre><span></span>$ docker stop docker-nginx
-</pre></div> <p>Pronto! Simples como as melhores coisas da vida.</p> <h2>Considerações finais</h2> <p>Lembro até hoje do momento em que ouvi falar sobre <em>Docker</em> pela primeira vez, e me questionei: Onde é que eu encaixo a minha ferramenta de provisionamento?</p> <p>Pois bem, não se faz necessário ter uma ferramenta de provisionamento uma vez que a sua aplicação seja empacotada em uma imagem <em>Docker</em>. A forma de pensar no <em>deploy</em> da aplicação muda, uma vez que ela esteja "containerizada".</p> <p>No próximo <em>post</em> da série vamos utilizar <em>Docker</em> em uma aplicação <a href=https://klauslaube.com.br/tag/python.html title="Leia mais sobre Python"><em>Python</em></a> e <a href=https://klauslaube.com.br/tag/django.html title="Leia mais sobre Django"><em>Django</em></a>, e nos deparar com algumas peculiaridades de ambientes <em>Docker</em> (como por exemplo, os ambiente efêmeros).</p> <p>Até a próxima!</p> <h2>Referências</h2> <ul> <li><a href=https://docs.docker.com/get-started/ ><em>Docker Docs</em> - <em>Get started, Part 1: Orientation and Setup</em></a></li> <li><a href=http://www.mundodocker.com.br/o-que-e-uma-imagem/ ><em>MundoDocker</em> - O que é uma imagem?</a></li> <li><a href=https://docs.openshift.com/enterprise/3.0/architecture/core_concepts/containers_and_images.html#docker-images><em>Openshift</em> - <em>Docker images</em></a></li> <li><a href=https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application><em>Semaphore</em> - <em>Dockerizing a Python Django web Application</em></a></li> <li><a href=http://stackoverflow.com/questions/23735149/docker-image-vs-container><em>Stackoverflow</em> - <em>Docker image vs container</em></a></li> </ul> </div> </span> <div class=Article-tags> <span class=Article-tagLabel>Tags:</span> <span itemprop=keywords> <a href=https://klauslaube.com.br/tag/infraestrutura.html title="Leia mais sobre" class=Article-tagLink>infraestrutura</a> <a href=https://klauslaube.com.br/tag/virtualizacao.html title="Leia mais sobre" class=Article-tagLink>virtualizacao</a> <a href=https://klauslaube.com.br/tag/containerizacao.html title="Leia mais sobre" class=Article-tagLink>containerizacao</a> <a href=https://klauslaube.com.br/tag/docker.html title="Leia mais sobre" class=Article-tagLink>docker</a> <a href=https://klauslaube.com.br/tag/nginx.html title="Leia mais sobre" class=Article-tagLink>nginx</a> </span> </div> <div class=Article-comments> <div id=disqus_thread></div> <script type=text/javascript>
-        var disqus_shortname = "klauslaube";
-        var disqus_identifier = "2017/05/01/uma-ode-ao-docker-parte-2.html";
-
-        (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script> <noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript rel=nofollow>comments powered by Disqus.</a></noscript> </div> </article> </div> <footer class="PageFooter pure-u-1"> <div class=u-box> <p>O conteúdo deste blog está sob a licença <a class=PageFooter-link href=http://creativecommons.org/licenses/by/3.0/deed.pt_BR title="Distribua, adapte, use. Mas mencione o autor." rel=nofollow>Creative Commons Attribution 3.0</a>.</p> <p>O código está disponível em <a class=PageFooter-link href=https://github.com/kplaube/blog/ title=Contribute! rel=nofollow>GitHub</a>.</p> </div> </footer> </div> <script>
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-19657400-1');ga('send','pageview');
-    </script> </body> </html>
+12 seconds ago    Up 11 seconds    0.0.0.0:5000-&gt;80/tcp   docker-nginx</code></pre></div>
+<p>Para parar o serviço:</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">$ docker stop docker-nginx</code></pre></div>
+<p>Pronto! Simples como as melhores coisas da vida.</p>
+<h2>Considerações finais</h2>
+<p>Lembro até hoje do momento em que ouvi falar sobre <em>Docker</em> pela primeira vez,
+e me questionei: Onde é que eu encaixo a minha ferramenta de provisionamento?</p>
+<p>Pois bem, não se faz necessário ter uma ferramenta de provisionamento uma vez que a sua
+aplicação seja empacotada em uma imagem <em>Docker</em>. A forma de pensar no <em>deploy</em> da
+aplicação muda, uma vez que ela esteja "containerizada".</p>
+<p>No próximo <em>post</em> da série vamos utilizar <em>Docker</em> em uma aplicação <a href="/tag/python.html" title="Leia mais sobre Python"><em>Python</em></a>
+e <a href="/tag/django.html" title="Leia mais sobre Django"><em>Django</em></a>, e nos deparar com
+algumas peculiaridades de ambientes <em>Docker</em> (como por exemplo, os ambiente efêmeros).</p>
+<p>Até a próxima!</p>
+<h2>Referências</h2>
+<ul>
+<li><a href="https://docs.docker.com/get-started/"><em>Docker Docs</em> - <em>Get started, Part 1: Orientation and Setup</em></a></li>
+<li><a href="http://www.mundodocker.com.br/o-que-e-uma-imagem/"><em>MundoDocker</em> - O que é uma imagem?</a></li>
+<li><a href="https://docs.openshift.com/enterprise/3.0/architecture/core_concepts/containers_and_images.html#docker-images"><em>Openshift</em> - <em>Docker images</em></a></li>
+<li><a href="https://semaphoreci.com/community/tutorials/dockerizing-a-python-django-web-application"><em>Semaphore</em> - <em>Dockerizing a Python Django web Application</em></a></li>
+<li><a href="http://stackoverflow.com/questions/23735149/docker-image-vs-container"><em>Stackoverflow</em> - <em>Docker image vs container</em></a></li>
+</ul></div><div class="article-tags__Tags-lfitfk-0 gKRNvs"><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/infraestrutura.html">infraestrutura</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/virtualizacao.html">virtualizacao</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/containerizacao.html">containerizacao</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/docker.html">docker</a><a class="article-tags__Tag-lfitfk-1 kdcwKK" href="/tag/nginx.html">nginx</a></div><div class="article__DiscussionWrapper-sc-1bof3w4-2 lhlkLZ"><div shortname="klauslaube" config="[object Object]" id="disqus_thread"></div></div></div></div><footer class="page-footer__Footer-sc-1jesc4c-0 eZHcyp"><div class="container-sc-1o2is99-0 bfwjqj"><p>O conteúdo desse blog está sob a licença<!-- --> <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Creative Commons Attribution</a>.</p><p><a href="https://github.com/kplaube/blog" class="page-footer__Link-sc-1jesc4c-1 hCZhVV">Fork me on Github</a>.</p></div></footer></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2017/05/01/uma-ode-ao-docker-parte-2.html";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-e7e259d06d29a943bae9.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7be79c03a887a02ef403.js"],"component---src-templates-blog-list-js":["/component---src-templates-blog-list-js-0712dae6686d19cfe871.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-37944ec4ec91a7d47898.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bf5e10cca5c03eb48f60.js"]};/*]]>*/</script><script src="/component---src-templates-blog-post-js-7be79c03a887a02ef403.js" async=""></script><script src="/commons-d19a5247b9c341fd9cf4.js" async=""></script><script src="/app-e7e259d06d29a943bae9.js" async=""></script><script src="/styles-72b9aca6a03bf971c27e.js" async=""></script><script src="/framework-15c64f04ece7e16d9319.js" async=""></script><script src="/webpack-runtime-74a6d0a7c3b7aca6f059.js" async=""></script></body></html>

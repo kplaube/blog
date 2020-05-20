@@ -1,24 +1,1221 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - microservices</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Thu, 15 Mar 2018 18:15:00 -0300</lastBuildDate><item><title>Swagger na prática</title><link>https://klauslaube.com.br/2018/03/15/swagger-na-pratica.html</link><description>&lt;p&gt;Voltamos a falar de &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre APIs"&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, e voltamos a falar sobre especificações.
-Para continuar o assunto sobre &lt;a href="https://klauslaube.com.br/2017/11/25/swagger-e-o-open-api-initiative.html" title="Swagger e o OAI"&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - microservices]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Swagger na prática]]></title><description><![CDATA[Voltamos a falar de APIs, e voltamos a falar sobre especificações.
+Para continuar o assunto sobre Swagger,
+hoje vamos abordar o tema de uma maneira prática. Afinal, é com ela que a gente vê as principais
+vantagens de utilizar Swagger + Open API Spec, em relação aos concorrentes. Não deixe de…]]></description><link>https://klauslaube.com.br/2018/03/15/swagger-na-pratica.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/03/15/swagger-na-pratica.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 15 Mar 2018 18:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Voltamos a falar de &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;, e voltamos a falar sobre especificações.
+Para continuar o assunto sobre &lt;a href=&quot;/2017/11/25/swagger-e-o-open-api-initiative.html&quot; title=&quot;Swagger e o OAI&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;,
 hoje vamos abordar o tema de uma maneira prática. Afinal, é com ela que a gente vê as principais
 vantagens de utilizar &lt;em&gt;Swagger&lt;/em&gt; + &lt;em&gt;Open API Spec&lt;/em&gt;, em relação aos concorrentes.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Não deixe de conferir uma abordagem prática ao &lt;a href=&quot;/tag/raml.html&quot; title=&quot;Leia mais sobre RAML&quot;&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;, no &lt;em&gt;post&lt;/em&gt;
+&quot;&lt;a href=&quot;/2017/01/31/ramilificando-as-suas-apis.html&quot; title=&quot;Leia o artigo completo&quot;&gt;Ramilificando as suas APIs&lt;/a&gt;&quot;.&lt;/p&gt;
+&lt;h2&gt;Aquecendo&lt;/h2&gt;
+&lt;p&gt;E mais uma vez vamos usar o nosso &lt;a href=&quot;/2016/05/20/rest-parte-2.html&quot; title=&quot;REST - Parte 2&quot;&gt;mini &lt;em&gt;IMDB&lt;/em&gt;&lt;/a&gt; como exemplo.&lt;/p&gt;
+&lt;p&gt;Além disso, vamos aproveitar as ferramentas que o pessoal do &lt;em&gt;Swagger&lt;/em&gt; disponibiliza gratuitamente. A começar pelo
+&lt;a href=&quot;https://swagger.io/swagger-editor/&quot; title=&quot;API Development Tools&quot;&gt;&lt;em&gt;Swagger Editor&lt;/em&gt;&lt;/a&gt;. Não é necessário fazer
+nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor através do &lt;em&gt;link&lt;/em&gt; &quot;Online Editor&quot;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQBBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHnpqJqZpP/xAAaEAADAQADAAAAAAAAAAAAAAABAgMAEiIy/9oACAEBAAEFAo0ZdU8bMxYg9n1PX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAMAAwEAAAAAAAAAAAAAAAABERASQYH/2gAIAQEABj8C1i9KlCsvc//EABsQAQACAwEBAAAAAAAAAAAAAAEAESFBUTGR/9oACAEBAAE/IUPkExipyOfRiNq5XcWV27m/oT//2gAMAwEAAgADAAAAEHsf/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEx/9oACAEDAQE/ENR//8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxDHS0//xAAbEAEBAAIDAQAAAAAAAAAAAAABEQAhMUFRcf/aAAgBAQABPxB+kZru06xBUEkzfK/d4hS8i5Sk6Xu+3EBrBqa8Yls7Qvus/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Um Vogon, do filme O Guia do Mochileiro das Galáxias&amp;quot;&quot;
+        title=&quot;Aguenta um pouco mais dessa poesia Vogon (imagilendo.wordpress.com)&quot;
+        src=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg&quot;
+        srcset=&quot;/static/38bde1abbcaf123f1744a17ab3a04572/7809d/poesia-vogon.jpg 192w,
+/static/38bde1abbcaf123f1744a17ab3a04572/4ecad/poesia-vogon.jpg 384w,
+/static/38bde1abbcaf123f1744a17ab3a04572/b4294/poesia-vogon.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Aguenta um pouco mais dessa poesia Vogon (imagilendo.wordpress.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ele trará um exemplo de especificação. Vamos limpar o editor e começar do zero.&lt;/p&gt;
+&lt;h2&gt;Como começar?&lt;/h2&gt;
+&lt;p&gt;Como explicado no &lt;em&gt;post&lt;/em&gt; anterior, &lt;em&gt;Swagger&lt;/em&gt; é um padrão de &lt;em&gt;API Spec&lt;/em&gt; mas também é um conjunto de ferramentas que podem trabalhar tanto com &lt;em&gt;Swagger Spec&lt;/em&gt; quanto com &lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification&quot; title=&quot;The OpenAPI Specification&quot;&gt;&lt;em&gt;Open API Spec&lt;/em&gt;&lt;/a&gt;. Vamos começar o documento deixando clara a nossa escolha:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;openapi&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;3.0.1&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md&quot; title=&quot;Open API Spec Version 3.0.1&quot;&gt;Confira a versão 3.0.1 do &lt;em&gt;OAI&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A essa altura o editor já deve ter apontado alguns erros. Por exemplo, é obrigatória a presença de um atributo &lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#infoObject&quot; title=&quot;Veja na especificação&quot;&gt;&lt;em&gt;info&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#pathsObject&quot;&gt;&lt;em&gt;path&lt;/em&gt;&lt;/a&gt;. Vamos corrigí-los:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;openapi&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;3.0.1&quot;&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;info&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movies API
+  &lt;span class=&quot;token key atrule&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; v1
+&lt;span class=&quot;token key atrule&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; A set of movies&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Em &lt;code class=&quot;language-text&quot;&gt;info&lt;/code&gt;, descrevemos o título da nossa &lt;em&gt;API&lt;/em&gt; e sobre qual versão da mesma estamos falando (nesse caso, &lt;code class=&quot;language-text&quot;&gt;v1&lt;/code&gt;). Em &lt;code class=&quot;language-text&quot;&gt;paths&lt;/code&gt;, descreveremos os &lt;em&gt;endpoints&lt;/em&gt;. Com a adição dessas duas propriedades, podemos progredir com a construção da &lt;em&gt;API&lt;/em&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/01b0d8a9683947a281984003c7d4d709/6af66/swagger-editor-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 23.958333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQ0lEQVQY002PTU7CYBCGewVXQlyIYhRbWlqoBSVRY6ILN249BRoiXsGFxsSiG09iFH8S8Agu1KgJRhdsoEXU0pbHDzTEmTyZmXcybzLSSUXjtGpxfC2zdzbCwcUY++cRDivjlK9msS8T2DcT2LVRjqq/2LUI5dso5VoUuz9XIwOt30ubS/OsreRZXF3AtFSMjIJhyqTNJHOWTkKeYme3AHzjBS7dsM2n18L9bNDxGni+y7fvDHZfQpc2rBzLZpZMxiKpaMizCoqsDlCTKWKxSbYK2zw91bm7e+T+4UXUZ17f67S9N/5HrwfSai7HusDKWuTzC4I8RtrAMAxMM8PMzDSlUgk/8Gk2mziuw0fnQxz3/kzCQd/PIAiQkqqKrmmkUqkhqtD66LpOPB6nWCwKw4BWS7zqujiOQ9f3/wx7Q/MwDPkBuzAN0EfEXB8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo Swagger Editor&amp;quot;&quot;
+        title=&quot;Exemplo Swagger Editor&quot;
+        src=&quot;/static/01b0d8a9683947a281984003c7d4d709/6af66/swagger-editor-example.png&quot;
+        srcset=&quot;/static/01b0d8a9683947a281984003c7d4d709/8514f/swagger-editor-example.png 192w,
+/static/01b0d8a9683947a281984003c7d4d709/804b2/swagger-editor-example.png 384w,
+/static/01b0d8a9683947a281984003c7d4d709/6af66/swagger-editor-example.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo Swagger Editor&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#openapi-object&quot; title=&quot;Leia na especificação&quot;&gt;Conheça os atributos do &lt;em&gt;OpenAPI Object&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Descrevendo os dados&lt;/h2&gt;
+&lt;p&gt;Antes mesmo de adicionarmos os &lt;em&gt;endpoints&lt;/em&gt; na propriedade &lt;code class=&quot;language-text&quot;&gt;paths&lt;/code&gt;, vamos parar e descrever o &lt;em&gt;schema&lt;/em&gt; dos nossos dados. Nesse exemplo, o uso da propriedade &lt;code class=&quot;language-text&quot;&gt;components&lt;/code&gt; pode ser um &quot;overhead&quot;, mas para &lt;em&gt;APIs&lt;/em&gt; grandes, com vários &lt;em&gt;endpoints&lt;/em&gt;, essa separação ajudará na legibilidade e reaproveitamento de código:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
 
-&lt;p&gt;Não deixe de …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 15 Mar 2018 18:15:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2018-03-15:/2018/03/15/swagger-na-pratica.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>microservices</category><category>apis</category><category>swagger</category><category>oai</category></item><item><title>Swagger e o Open API Initiative</title><link>https://klauslaube.com.br/2017/11/25/swagger-e-o-open-api-initiative.html</link><description>&lt;p&gt;Já falamos sobre &lt;a href="https://klauslaube.com.br/tag/raml.html" title="Leia mais sobre RAML"&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt; aqui no &lt;em&gt;blog&lt;/em&gt;. Uma maneira
+&lt;span class=&quot;token key atrule&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; A set of movies
+
+&lt;span class=&quot;token key atrule&quot;&gt;components&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;schemas&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; id
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; title
+      &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; object&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt; é um objeto e possui três propriedades: &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;description&lt;/code&gt;, e as duas primeiras são obrigatórias. Você pode estar estranhando o &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; ser do tipo &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt;. Nesse exemplo estamos assumindo que os identificadores são &lt;code class=&quot;language-text&quot;&gt;uuids&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aa469e31e48b67482451d806b46f4142/6af66/swagger-editor-example-2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB5ElEQVQoz22RXWvTYBiG8wM8FaFTSMUqW5Lmq8laaudcO4ThoYK/xwPFqRu0TX+IaMWDeaT+AkW3FToPHIilXZM0aZu0t8/7tolVfODi/SDvxf3kEQ7b63CODBy8u4HHry7h6ZsrePL6Mp61M3jxVsR+W8Th+6twPmXQ+JBB82OG9mvENdqv8btVhAeVEvbulrG1W4Zla9AMaYkM01Jx81YWDecArMKJi0nkYxQO4QY/MY4uMI0DYpQiVHQTZaMAg5DlPDbWJUiSwlEUFdnsdTzff4nu2Q98/nKCr986OD7+jvNfHUziC/xbQs22UTVNGLoG27YIG0qeyWSoKhNSwkadf9wfDOB6HoIgSAXz+YyYpwj37E3cJ4mqadB1nZIaJFMo7R9hvb4QDpjQdQkPs9nfolS4bVl4WCyhSEImkSSJr0yaCJvNJqbTaZqMPWTCOI5TxuMxvxNkenSHUu1SUmuziPwyXSIURRGtVgthGOKs24Xv+/Co7X5/SKvPzwtGC6FCybZ1A49ub6G2U03bXU3oOA5Pdnpyil6vx4WdzjmGQ5dEHj8zKW+ZPdopFLBXKqFAayJM/iFLyFpm5S0HwgjDIN0n8IRsCBVqtVqr8YEwiUapGSZNP5fL8ZZZRVH030Gs8htcgSXS1NDfcwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Editor do Swagger exibindo a seção models&amp;quot;&quot;
+        title=&quot;Editor do Swagger exibindo a seção models&quot;
+        src=&quot;/static/aa469e31e48b67482451d806b46f4142/6af66/swagger-editor-example-2.png&quot;
+        srcset=&quot;/static/aa469e31e48b67482451d806b46f4142/8514f/swagger-editor-example-2.png 192w,
+/static/aa469e31e48b67482451d806b46f4142/804b2/swagger-editor-example-2.png 384w,
+/static/aa469e31e48b67482451d806b46f4142/6af66/swagger-editor-example-2.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Editor do Swagger exibindo a seção models&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#schemaObject&quot; title=&quot;Veja na especificação&quot;&gt;Saiba mais sobre &lt;em&gt;Schema Objects&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Descrevendo os endpoints&lt;/h2&gt;
+&lt;p&gt;Os principais &lt;em&gt;endpoints&lt;/em&gt; que imaginamos para esse projeto são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /movies&lt;/code&gt;: Listagem de filmes;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;POST /movies&lt;/code&gt;: Adição de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /movies/{id}&lt;/code&gt;: Detalhes de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;PUT /movies/{id}&lt;/code&gt;: Atualização de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;DELETE /movies/{id}&lt;/code&gt;: Remoção de um filme.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A listagem é um bom ponto de partida.&lt;/p&gt;
+&lt;h3&gt;Listando filmes&lt;/h3&gt;
+&lt;p&gt;Voltando à propriedade &lt;code class=&quot;language-text&quot;&gt;paths&lt;/code&gt;, vamos melhorar a definição do &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; A set of movies
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Get a list of movies
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;&apos;200&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie list response
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; array
+                &lt;span class=&quot;token key atrule&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                  &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;#/components/schemas/Movie&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Através do &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;, dentro de &lt;code class=&quot;language-text&quot;&gt;paths&lt;/code&gt;, estamos descrevendo o &lt;em&gt;endpoint&lt;/em&gt;. Com o uso de &lt;code class=&quot;language-text&quot;&gt;get:&lt;/code&gt;, declaramos que o &lt;em&gt;endpoint&lt;/em&gt; aceitará o método &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;. Ainda abusando da indentação do &lt;em&gt;YAML&lt;/em&gt;, deixamos claro que existe uma resposta &lt;code class=&quot;language-text&quot;&gt;200&lt;/code&gt; (sucesso), que o seu conteúdo é &lt;code class=&quot;language-text&quot;&gt;application/json&lt;/code&gt;, e que dentro desse conteúdo haverá uma listagem de filmes.&lt;/p&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;$ref&lt;/code&gt; somos capazes de referenciar um &lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#pathItemObject&quot; title=&quot;Leia mais na especificação&quot;&gt;&lt;em&gt;Path Item Object&lt;/em&gt;&lt;/a&gt; do próprio arquivo que estamos trabalhando (nesse caso, o &lt;code class=&quot;language-text&quot;&gt;#/components/schemas/Movie&lt;/code&gt; está referência ao bloco de &lt;em&gt;YAML&lt;/em&gt; que criamos no capítulo anterior) ou até mesmo recursos externos. O que possibilita quebrar a &lt;em&gt;spec&lt;/em&gt; em diferentes arquivos.&lt;/p&gt;
+&lt;p&gt;Se você já conhece o &lt;a href=&quot;http://json-schema.org/&quot; title=&quot;a vocabulary that allows you to annotate and validate JSON documents&quot;&gt;&lt;em&gt;JSON Schema&lt;/em&gt;&lt;/a&gt;, essa notação não lhe parecerá estranha.&lt;/p&gt;
+&lt;h3&gt;Criando filmes&lt;/h3&gt;
+&lt;p&gt;Ainda em &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;, ao enviar um &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;, somos capazes de criar um novo filme. Se você já leu sobre &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt; sabe que essa prática é recomendada. Vamos adicionar o seguinte bloco abaixo do &lt;code class=&quot;language-text&quot;&gt;get&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+      &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Add a new movie to the set
+        &lt;span class=&quot;token key atrule&quot;&gt;requestBody&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;#/components/schemas/Movie&apos;&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;&apos;201&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the new movie
+            &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                  &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;#/components/schemas/Movie&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;post:&lt;/code&gt;, temos a necessidade do uso de uma nova propriedade chamada &lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#requestBodyObject&quot; title=&quot;Veja mais na spec&quot;&gt;&lt;em&gt;requestBody&lt;/em&gt;&lt;/a&gt;. É com ela que descreveremos quais parâmetros o usuário precisará passar para criar um filme. Já o &lt;code class=&quot;language-text&quot;&gt;responses&lt;/code&gt; descreve o retorno de um &lt;code class=&quot;language-text&quot;&gt;201&lt;/code&gt; (created), com o recém criado filme como um &lt;em&gt;JSON&lt;/em&gt; como conteúdo da resposta.&lt;/p&gt;
+&lt;p&gt;Opa! Temos um problema aqui! Nosso tipo &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt; tem um campo &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; que é obrigatório por padrão. Esse campo não deveria ser enviado pelo cliente. Precisamos corrigir esse comportamento:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+      &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Add a new movie to the set
+        &lt;span class=&quot;token key atrule&quot;&gt;requestBody&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean important&quot;&gt;true&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;application/json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;schema&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;#/components/schemas/NewMovie&apos;&lt;/span&gt;
+
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;components&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;schemas&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;allOf&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;$ref&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;#/components/schemas/NewMovie&apos;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; id
+          &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+              &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+    &lt;span class=&quot;token key atrule&quot;&gt;NewMovie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;required&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; title&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o uso do tipo &lt;code class=&quot;language-text&quot;&gt;NewMovie&lt;/code&gt;, o &lt;em&gt;request&lt;/em&gt; feito pelo usuário está descrito da maneira correta (sem &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;). Note que em &lt;code class=&quot;language-text&quot;&gt;components&lt;/code&gt; aproveitamos todas as características de &lt;code class=&quot;language-text&quot;&gt;NewMovie&lt;/code&gt;, e adicionamos uma nova (ter &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;) para o tipo &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;. Isso tudo graças ao &lt;code class=&quot;language-text&quot;&gt;$ref&lt;/code&gt; e ao &lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#composition-and-inheritance-polymorphism&quot; title=&quot;Leia mais na spec&quot;&gt;&lt;em&gt;allOf&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/79970f53880d3bd1bca06e24ada5594d/6af66/swagger-editor-example-3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.8125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAADCUlEQVQoz1WS7W9TZRjG+x/4zZBJIm11bPTlnJ7Tnreu3RIVwWkIDg1+0T9BDURRNJOAWUwwUTbjF/8CvvjBqIBBxloGUz+oWSThba5rGe36utPTV7Yf9woxMU+u3Oc8yXPluq778s1eUpm7HOfLC89x+oenmPlxFzM/Pc0XP+/m7MUAZy8EmcsE+GZxF3PXhpi9tpvZ7DOce4KvM0P/4Vx2CN/UeJJXkwa6oWI5OrYTR4ntQ9XC6AmFkdEg2aXrzK/CLzeb5IoPyJU2WBMUKhXKTY+y26S02cTtePgMVWPKtBgzbCw7iSMwEiaRcJRwKELQHyRzY4nzxTXOr9xmrVIjV62zVmuQF6y7HtVen41OD6+/hS8ciXAgZTOVHsPUNAzLxDQNbNtCj+sEAwEuZ66w6N7iSuFPUVKl7NWp7KDVYMOtki+vk68WhbCDLxpViCkKR2ybAwmDlB5HjapoMQ1VUfHv8XM1s4Db73JvvUCj38bb6tHa7tNhi6bcF+sVHjSqtB/28ClCNhIOk4zFeDOZEtsWiqYQjUUlV529o8PMZxeod1vcya9Skseb8p0vl1i5n5dZpNJsDAi9nig0hSgtVlWZ45aNPWbjpGVKDFbaYiQ0MiDssU3V26QrtrbllGpVcuv3KdYquG2Pilt/TBiJRnnLcXh7fIKkZRAXy3pMR9d0FInD/+yeAeG/omThj99YWv6bv+7e4p/Ve9zMrQzm8sodllfv4vba+EJC6Ii6o7bD/nichJDsC4UICaISR8Dv5/rvS3z17Xe8+NJhXj/yDpOvHSU1MYmTOshY+hWp2svsn3yDjUZNMhQCJ6FzUFQ6RoJEysCQXpopk+QLSUYjo2RvLPL9xUscOzHNyVMzfDT9Occ//oz3PviE9z/8lHePn+TE9Bmqzc3HtZmQmhx2JDfZrC05mqYptZEMLWuw5V8X5iU18NjZ7PYAXfnvPUFf0Ja71sMuPlVVB1kdEqJDojIttlWxurP9mBZjePh5rmYzNCT4XKFAs9OmJeF73f/D7bbpSG0eAbg2eBExfWCnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Editor Swagger exibindo a documentação dos endpoints&amp;quot;&quot;
+        title=&quot;Editor Swagger exibindo a documentação dos endpoints&quot;
+        src=&quot;/static/79970f53880d3bd1bca06e24ada5594d/6af66/swagger-editor-example-3.png&quot;
+        srcset=&quot;/static/79970f53880d3bd1bca06e24ada5594d/8514f/swagger-editor-example-3.png 192w,
+/static/79970f53880d3bd1bca06e24ada5594d/804b2/swagger-editor-example-3.png 384w,
+/static/79970f53880d3bd1bca06e24ada5594d/6af66/swagger-editor-example-3.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Editor Swagger exibindo a documentação dos endpoints&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A essa altura, descrever os demais métodos e &lt;em&gt;endpoints&lt;/em&gt; não será nenhum mistério. Portanto, vamos dar um &quot;fast forward&quot;.&lt;/p&gt;
+&lt;h2&gt;Segurança&lt;/h2&gt;
+&lt;p&gt;Segurança é importante, e tão importante quanto é deixar explícito para os desenvolvedores e usuários quais protocolos de autenticação/autorização que estão sendo praticados pela &lt;em&gt;API&lt;/em&gt;. No nosso caso, vamos descrever o uso do protocolo &lt;a href=&quot;/2018/02/06/oauth20-autorizacao-simples-or-is-it.html&quot; title=&quot;Leia mais sobre OAuth 2.0&quot;&gt;&lt;em&gt;OAuth 2.0&lt;/em&gt;&lt;/a&gt;, com o &lt;code class=&quot;language-text&quot;&gt;grant type&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;password&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;components&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  &lt;span class=&quot;token key atrule&quot;&gt;securitySchemes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;OAuth2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; oauth2
+      &lt;span class=&quot;token key atrule&quot;&gt;flows&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;tokenUrl&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//example.com/oauth/token
+          &lt;span class=&quot;token key atrule&quot;&gt;scopes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Grants read access
+            &lt;span class=&quot;token key atrule&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Grants write access&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Falta anotar a propriedade &lt;code class=&quot;language-text&quot;&gt;security&lt;/code&gt; em cada &lt;em&gt;endpoint&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; A set of movies
+    &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Get a list of movies
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+      &lt;span class=&quot;token key atrule&quot;&gt;security&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;OAuth2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; read
+    &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Add a new movie to the set
+      &lt;span class=&quot;token key atrule&quot;&gt;requestBody&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+      &lt;span class=&quot;token key atrule&quot;&gt;security&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token key atrule&quot;&gt;OAuth2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt; write&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Um ícone de cadeado deve ter aparecido no &lt;em&gt;preview&lt;/em&gt; do &lt;em&gt;Swagger Editor&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Outras ferramentas Swagger&lt;/h2&gt;
+&lt;p&gt;Com a especificação acima temos o suficiente para publicar a documentação da nossa &lt;em&gt;API&lt;/em&gt;, e até mesmo gerar algum código &lt;em&gt;client&lt;/em&gt;. O &lt;em&gt;Swagger Editor&lt;/em&gt; quebrou um grande galho, auxiliando na escrita do documento, e é altamente recomendável o seu uso.&lt;/p&gt;
+&lt;p&gt;Um &lt;em&gt;disclaimer&lt;/em&gt; especial vai para a versão do &lt;em&gt;OpenAPI Spec&lt;/em&gt; que usamos nos exemplos. Infelizmente, nem toda ferramenta suporta a versão mais recente da especificação, logo, você terá que usar versões mais antigas caso queira utilizar as demais ferramentas que o &lt;em&gt;Swagger&lt;/em&gt; disponibiliza.&lt;/p&gt;
+&lt;h3&gt;Gerando código com o &lt;em&gt;Codegen&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;O &lt;a href=&quot;https://github.com/swagger-api/swagger-codegen&quot; title=&quot;Veja o repositório no Github&quot;&gt;&lt;em&gt;Swagger Code Generator&lt;/em&gt;&lt;/a&gt; é um projeto super bacana que interpreta a especificação e gera código para diferentes linguagens. Infelizmente, a versão estável do &lt;em&gt;swagger-codegen&lt;/em&gt; só suporta até a versão &lt;code class=&quot;language-text&quot;&gt;2.0&lt;/code&gt; do &lt;em&gt;OpenAPI Spec&lt;/em&gt;, e o &lt;em&gt;snapshot&lt;/em&gt; mais recente ainda não possui uma gama grande de linguagens disponíveis.&lt;/p&gt;
+&lt;p&gt;Construir &lt;em&gt;SDKs&lt;/em&gt; nunca foi tão fácil:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;java -jar ~/Downloads/swagger-codegen-cli-3.0.0-20180314.142155-42.jar generate &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -i ~/Downloads/openapi.yaml &lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;
+    -l java -o ~/Projects/java/mini-imdb&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se você quer usufruir dessa ferramenta, é recomendado que utilize as versões do &lt;em&gt;OpenAPI Spec&lt;/em&gt; descritas no repositório do projeto: &lt;a href=&quot;https://github.com/swagger-api/swagger-codegen#compatibility&quot; title=&quot;Veja a grade de compatibilidade do codegen&quot;&gt;https://github.com/swagger-api/swagger-codegen#compatibility&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/swagger-api/swagger-codegen/wiki/api-client-generator-howto&quot; title=&quot;Veja mais no Wiki do projeto&quot;&gt;API client generator HOWTO&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Gerando documentação com o &lt;em&gt;UI&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;Com o &lt;a href=&quot;https://github.com/swagger-api/swagger-ui&quot; title=&quot;Veja o repositório no Gihub&quot;&gt;&lt;em&gt;Swagger UI&lt;/em&gt;&lt;/a&gt;, a partir da especificação recém criada, podemos gerar documentações elegantes e acessíveis ao nosso usuário final. O projeto é em &lt;em&gt;NodeJS&lt;/em&gt;, e necessita de algum &quot;Javascript-fu&quot; para executá-lo.&lt;/p&gt;
+&lt;p&gt;A maneira mais fácil de usá-lo é através da plataforma &lt;a href=&quot;https://swaggerhub.com/&quot; title=&quot;The Platform for Designing and Documenting APIs with Swagger&quot;&gt;&lt;em&gt;SwaggerHub&lt;/em&gt;&lt;/a&gt;. Onde você pode criar um usuário gratuitamente e ter 1 (um) projeto publicado no plano &lt;em&gt;free&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bc74de6f5871d19eee65089989c1308a/6af66/swagger-ui-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB10lEQVQoz6WTy2sUQRCH93/2qCcv/g1evAU8eRQloARByEHwBSGSTXZ3dp493fPqmZ7ZeXzW7G4kBBMPFvNRRVdPUfXr7sUyumCjl8RJiGtqumbHJvtA5i442MQfmySexiOTfIMg8ThRdyVt37B4+v4JLz4+5/PPL6yDFFVadNmjipa0qtG2FdyeyJQEuiCcMQWeVgQmZx0qtonGdTsWsbYEqsJLMjaxYR1pNlEqXhHnc8FOCrd75vgu6W1OfFa3lK5lwX9Y1Tu2jSbuCrSzVK47FJx1mMa/MK/vtbrPQcNu6Gn6lnbYYdu5Qyl4s/JQ2jCIsP0wHpkOjHf8fWR9/mc81N7rVzYy8utv8OmqJ0hy0dHiK0uSd+QNostE1jzEbR7RcSDSJbmtWbxcnfEu/CFXJeUmS1jlao9XGUJXEDSPM+/x65ytScnkVixe/XKcri0rOdlrOem1KlhJt0HhSN2IagaUewDJzXtiu8PXOdnc4fev5yyXlyiVkCQROlWkEhujqW31b2qLrQpUqg8d8vYZ4/kJuX9N6V1SB1dY/4pG/Kg9EWrLZB7imE/XZImPsfJShpM3tKdnsu5TeD42CKn8kDqMGHTGKC9hNNkj5AzSnYllKhn5N/qylAPFCAhlAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo Swagger UI&amp;quot;&quot;
+        title=&quot;Exemplo Swagger UI&quot;
+        src=&quot;/static/bc74de6f5871d19eee65089989c1308a/6af66/swagger-ui-example.png&quot;
+        srcset=&quot;/static/bc74de6f5871d19eee65089989c1308a/8514f/swagger-ui-example.png 192w,
+/static/bc74de6f5871d19eee65089989c1308a/804b2/swagger-ui-example.png 384w,
+/static/bc74de6f5871d19eee65089989c1308a/6af66/swagger-ui-example.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo Swagger UI&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://app.swaggerhub.com/apis/kplaube/movies-api/v1&quot; title=&quot;Veja no SwaggerHub&quot;&gt;Confira o exemplo no &lt;em&gt;SwaggerHub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vale notar que a documentação é &quot;viva&quot;, ou seja, ela interage com os endpoints do seu serviço. Para que esse recurso funcione corretamente, você precisa anotar a propriedade &lt;code class=&quot;language-text&quot;&gt;servers&lt;/code&gt; na especificação da &lt;em&gt;API&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#serverObject&quot; title=&quot;Veja na documentação oficial&quot;&gt;Leia mais sobre &lt;em&gt;Server Object&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Testando com &lt;em&gt;Inspector&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;Se você já usou o &lt;a href=&quot;https://insomnia.rest/&quot; title=&quot;Debug APIs like a human, not a robot&quot;&gt;&lt;em&gt;Insomnia&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;https://www.getpostman.com/&quot; title=&quot;Postman Makes API Development Simple&quot;&gt;&lt;em&gt;Postman&lt;/em&gt;&lt;/a&gt;, vai se sentir em casa com o &lt;a href=&quot;https://inspector.swagger.io/builder&quot; title=&quot;Veja a aplicação&quot;&gt;&lt;em&gt;Swagger Inspector&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Inspector&lt;/em&gt; é uma &lt;em&gt;GUI&lt;/em&gt; que auxilia nos testes de &lt;em&gt;endpoints&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt;. Com ele, fica mais fácil inspecionar &lt;em&gt;endpoints&lt;/em&gt; e validar o contrato e comportamento dos mesmos.&lt;/p&gt;
+&lt;p&gt;Confesso que acho o &lt;em&gt;Postman&lt;/em&gt; muito mais eficiente nesse quesito. Mas infelizmente, o aplicativo só suporta até a versão &lt;code class=&quot;language-text&quot;&gt;2.0&lt;/code&gt; do &lt;em&gt;Swagger Spec&lt;/em&gt;. Nada que impeça que você configure os &lt;em&gt;requests&lt;/em&gt; para os &lt;em&gt;endpoints&lt;/em&gt; manualmente.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;A &lt;em&gt;spec&lt;/em&gt; final você encontra &lt;a href=&quot;https://gist.github.com/kplaube/509c52f13dc966c915600733db60c2bb&quot; title=&quot;Veja o exemplo completo&quot;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O ambiente em torno do &lt;em&gt;OpenAPI&lt;/em&gt; é rico, e vale a pena considerar escrever suas próximas especificações de &lt;em&gt;APIs&lt;/em&gt; com esse padrão. Se você, assim como eu, vem de outros formatos (como o &lt;em&gt;RAML&lt;/em&gt; ou &lt;em&gt;JSON Schema&lt;/em&gt;), não notará grande diferença na forma de escrita com o &lt;em&gt;OAI&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;É claro que não é só o pessoal do &lt;em&gt;Swagger&lt;/em&gt; que cria ferramentas para &lt;em&gt;Swagger Spec&lt;/em&gt; e &lt;em&gt;OpenAPI Spec&lt;/em&gt;. Você pode conferir as diversas ferramentas criadas pela comunidade em &lt;a href=&quot;https://swagger.io/open-source-integrations/#community-driven-language-integrations-2&quot; title=&quot;Veja mais em swagger.io&quot;&gt;&lt;em&gt;Tools and Integrations&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Sem dúvida, falaremos sobre &lt;em&gt;Python&lt;/em&gt; + &lt;em&gt;Swagger&lt;/em&gt; nos próximos &lt;em&gt;posts&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até lá.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Swagger e o Open API Initiative]]></title><description><![CDATA[Já falamos sobre RAML aqui no blog. Uma maneira
+de descrever APIs, facilitando a vida de clientes, fornecedores, e até mesmo
+máquinas. Acontece que há uma alternativa muito mais popular,
+chamada Swagger,
+que na minha opinião tem por principal ponto positivo ser base para a criação da
+OpenAPI…]]></description><link>https://klauslaube.com.br/2017/11/25/swagger-e-o-open-api-initiative.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/11/25/swagger-e-o-open-api-initiative.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sat, 25 Nov 2017 20:52:00 GMT</pubDate><content:encoded>&lt;p&gt;Já falamos sobre &lt;a href=&quot;/tag/raml.html&quot; title=&quot;Leia mais sobre RAML&quot;&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt; aqui no &lt;em&gt;blog&lt;/em&gt;. Uma maneira
 de descrever &lt;em&gt;APIs&lt;/em&gt;, facilitando a vida de clientes, fornecedores, e até mesmo
 máquinas. Acontece que há uma alternativa muito mais popular,
-chamada &lt;a href="https://swagger.io/" title="The world's most popular API tooling"&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;,
+chamada &lt;a href=&quot;https://swagger.io/&quot; title=&quot;The world&amp;#x27;s most popular API tooling&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;,
 que na minha opinião tem por principal ponto positivo ser base para a criação da
-&lt;a href="https://github.com/OAI/OpenAPI-Specification" title="The OpenAPI Spec repository"&gt;&lt;em&gt;OpenAPI Specification&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;Se …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sat, 25 Nov 2017 20:52:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-11-25:/2017/11/25/swagger-e-o-open-api-initiative.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>microservices</category><category>apis</category><category>swagger</category><category>oai</category></item><item><title>Ramilificando as suas APIs</title><link>https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html</link><description>&lt;p&gt;Você já tem a sua &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre APIs"&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;! Ela é &lt;a href="https://klauslaube.com.br/tag/rest.html" title="Leia mais sobre REST"&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification&quot; title=&quot;The OpenAPI Spec repository&quot;&gt;&lt;em&gt;OpenAPI Specification&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Se até aqui tudo isso pareceu &quot;sopa de letrinhas&quot;, &lt;em&gt;keep calm&lt;/em&gt;! Vamos abrir o glossário e detalhar
+termo por termo.&lt;/p&gt;
+&lt;h2&gt;Swagger: Um framework completo&lt;/h2&gt;
+&lt;p&gt;As vantagens de utilizar o &lt;em&gt;Swagger&lt;/em&gt; são basicamente as mesmas de usar &lt;em&gt;RAML&lt;/em&gt; (ou
+&lt;a href=&quot;https://apiblueprint.org/&quot; title=&quot;Powerful high-level API description language&quot;&gt;&lt;em&gt;API Blueprint&lt;/em&gt;&lt;/a&gt;):
+Modelar e documentar &lt;em&gt;APIs&lt;/em&gt; &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Swagger&lt;/em&gt; é um &lt;em&gt;framework&lt;/em&gt;, composto por diferentes ferramentas, que ajudam no desenvolvimento
+de &lt;em&gt;APIs&lt;/em&gt;. Dentre essas ferramentas podemos destacar as de código aberto:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://swagger.io/swagger-editor/&quot; title=&quot;Design, describe, and document your API on the first open source editor fully dedicated to Swagger-based APIs&quot;&gt;&lt;em&gt;Swagger Editor&lt;/em&gt;&lt;/a&gt;:
+Um editor poderosíssimo que pode ser usado &lt;em&gt;online&lt;/em&gt;, e que facilita (e muito) na escrita de arquivos
+&lt;em&gt;Swagger&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://swagger.io/swagger-ui/&quot;&gt;&lt;em&gt;Swagger UI&lt;/em&gt;&lt;/a&gt;:
+Uma plataforma para a geração e publicação da documentação de &lt;em&gt;APIs&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://swagger.io/swagger-codegen/&quot;&gt;&lt;em&gt;Swagger Codegen&lt;/em&gt;&lt;/a&gt;: Esse aqui é o meu favorito. Através
+da especificação da sua &lt;em&gt;API&lt;/em&gt;, cria &lt;em&gt;SDKs&lt;/em&gt; para diferentes linguagens.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://swagger.io/swagger-inspector/&quot;&gt;&lt;em&gt;Swagger Inspector&lt;/em&gt;&lt;/a&gt;: Para fechar com chave de ouro.
+O &lt;em&gt;Inspector&lt;/em&gt; é um serviço que testa &lt;em&gt;APIs&lt;/em&gt; com base em um contrato &lt;em&gt;Swagger&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Além disso temos o &lt;a href=&quot;https://swaggerhub.com/&quot; title=&quot;The platform for designing and documenting APIs with Swagger&quot;&gt;&lt;em&gt;SwaggerHub&lt;/em&gt;&lt;/a&gt;,
+que &quot;empacota&quot; isso tudo em um &lt;em&gt;Software As A Service&lt;/em&gt;, prometendo aumentar produtividade e
+colaboração entre times no que tange desenvolvimento de &lt;em&gt;APIs&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nos items acima citei &quot;arquivos &lt;em&gt;Swagger&lt;/em&gt;&quot; e &quot;contrato &lt;em&gt;Swagger&lt;/em&gt;&quot;. Bem...
+hoje o &lt;em&gt;Swagger&lt;/em&gt; (&lt;em&gt;framework&lt;/em&gt;) é apto a trabalhar com o &lt;em&gt;Swagger&lt;/em&gt; (especificação). Mas não
+é apenas essa especificação que ele suporta.&lt;/p&gt;
+&lt;p&gt;E é aqui que a &lt;em&gt;SmartBear&lt;/em&gt; (empresa por trás do desenvolvimento da &quot;marca&quot; &lt;em&gt;Swagger&lt;/em&gt;) aparece e merece aplausos.&lt;/p&gt;
+&lt;h2&gt;Swagger Specification vira OpenAPI Specification&lt;/h2&gt;
+&lt;p&gt;Deixa eu corrigir o primeiro parágrafo do capítulo anterior:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As vantagens de utilizar o &lt;em&gt;OpenAPI Spec&lt;/em&gt; são basicamente as mesmas de usar &lt;em&gt;RAML Spec&lt;/em&gt;,
+&lt;em&gt;Swagger Spec&lt;/em&gt;, ou &lt;em&gt;API Blueprint Spec&lt;/em&gt;: Modelar e documentar &lt;em&gt;APIs&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Com uma vantagem a mais: Ser aberta*. (note o asterisco)&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Swagger Specification&lt;/em&gt; desde o seu princípio é de código aberto. Mas sempre teve uma empresa
+vinculada ao seu desenvolvimento (mais ou menos o que acontece com a &lt;a href=&quot;https://www.mulesoft.com/&quot; title=&quot;We connect. You unnovate.&quot;&gt;&lt;em&gt;MuleSoft&lt;/em&gt;&lt;/a&gt;
+e o &lt;em&gt;RAML&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Em janeiro de 2016, a &lt;em&gt;SmartBear Software&lt;/em&gt; renomeou a &lt;em&gt;Swagger Specification&lt;/em&gt; para &lt;em&gt;OpenAPI Specification&lt;/em&gt;.
+Disponibilizando-a no &lt;em&gt;Github&lt;/em&gt; em &lt;a href=&quot;https://github.com/OAI/OpenAPI-Specification&quot; title=&quot;The OpenAPI Specification Repository&quot;&gt;github.com/OAI/OpenAPI-Specification&lt;/a&gt;,
+e tornando-a assim em uma especificação &quot;vendor-neutral&quot;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2abf22c3cf4464db47fafa95964dbada/c08c5/oai-avengers.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAYPJJLDE/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAECAzEy/9oACAEBAAEFAs7cqt6Y+z5Ef//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAMBAQAAAAAAAAAAAAAAAAABEBEx/9oACAEBAAY/AtRwcU//xAAaEAACAgMAAAAAAAAAAAAAAAAAARBBETFR/9oACAEBAAE/IbwpWYNocVxsaH//2gAMAwEAAgADAAAAEHcP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAEDAQE/EBF//8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAECAQE/EDV//8QAGxAAAgIDAQAAAAAAAAAAAAAAAREAIUFRsRD/2gAIAQEAAT8QZQAkWyqUQksEnaDvUVhIsjudfPtP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Vingadores reunidos&amp;quot;&quot;
+        title=&quot;A OAI é tipo os Avengers do mundo das APIs (bestbuy.com)&quot;
+        src=&quot;/static/2abf22c3cf4464db47fafa95964dbada/c08c5/oai-avengers.jpg&quot;
+        srcset=&quot;/static/2abf22c3cf4464db47fafa95964dbada/7809d/oai-avengers.jpg 192w,
+/static/2abf22c3cf4464db47fafa95964dbada/4ecad/oai-avengers.jpg 384w,
+/static/2abf22c3cf4464db47fafa95964dbada/c08c5/oai-avengers.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;A OAI é tipo os Avengers do mundo das APIs (bestbuy.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Isso tudo, claro, com supervisão do consórcio que a mesma &lt;em&gt;SmartBear&lt;/em&gt; ajudou a construir:
+O &lt;a href=&quot;https://www.openapis.org/&quot; title=&quot;OAI Consortium&quot;&gt;&lt;em&gt;Open API Initiative&lt;/em&gt;&lt;/a&gt;. Que é também &quot;curador&quot;
+do &lt;em&gt;OpenAPI Specification&lt;/em&gt; e tem como integrantes alguns gigantes da indústria como &lt;em&gt;Google&lt;/em&gt;, &lt;em&gt;IBM&lt;/em&gt;, &lt;em&gt;Microsoft&lt;/em&gt;,
+e as próprias &lt;em&gt;MuleSoft&lt;/em&gt; e &lt;em&gt;SmartBear&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Swagger &amp;#x26; OpenAPI&lt;/h2&gt;
+&lt;p&gt;Novamente, deixa eu corrigir o parágrafo do primeiro capítulo:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As vantagens de utilizar &lt;em&gt;Swagger&lt;/em&gt; com &lt;em&gt;OpenAPI Spec&lt;/em&gt; são: Além de confiar
+em uma especificação aberta e &lt;em&gt;vendor-neutral&lt;/em&gt;, você ainda conta com o poderoso ferramental
+de código aberto provido pelo Swagger.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O &lt;em&gt;Swagger&lt;/em&gt; &quot;gira em torno&quot; do &lt;em&gt;OpenAPI&lt;/em&gt;, provendo ferramentas para a modelagem e documentação.
+É sem dúvida uma combinação espetacular, e não a toa é a mais famosa e eficiente no momento.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Confesso que eu tive problemas para entender o relacionamento entre &lt;em&gt;RAML&lt;/em&gt;, &lt;em&gt;Swagger&lt;/em&gt; e &lt;em&gt;OpenAPI&lt;/em&gt;,
+principalmente por ter adotado o &lt;em&gt;RAML&lt;/em&gt; e não seguido o desenvolvimento do &lt;em&gt;Swagger&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Hoje, se você for usar &lt;em&gt;OpenAPI&lt;/em&gt; (você deveria) é improvável que não recorra ao &lt;em&gt;Swagger&lt;/em&gt;
+para produzir os seus documentos. Portanto, não é incomum vermos muitos materiais onde esses
+dois conceitos se misturam e aparentam ser um só.&lt;/p&gt;
+&lt;p&gt;No próximo &lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;Swagger&lt;/em&gt;, vamos para uma abordagem mais prática, mostrando como utilizar
+as ferramentas com &lt;em&gt;OpenAPI&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.caelum.com.br/modelando-apis-rest-com-swagger/&quot;&gt;Caelum - Modelando APIs REST com Swagger&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://cloud.google.com/endpoints/docs/open-api-spec?hl=pt-br&quot;&gt;Google Cloud Platform - A especificação OpenAPI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.openapis.org/about&quot;&gt;Open API Initiative - About&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://swagger.io/&quot;&gt;Swagger - The world&apos;s most popular API tooling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/OpenAPI_Specification&quot;&gt;Wikipedia - OpenAPI Specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Swagger_(software)&quot;&gt;Wikipedia - Swagger (software)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Ramilificando as suas APIs]]></title><description><![CDATA[Você já tem a sua API! Ela é REST,
 performa muito bem, e todos os seus aplicativos estão
 conversando com a mesma. Vem uma oportunidade de negócio de abrí-la para consumo
 de parceiros. Agora não basta só a técnica perfeita, você precisa de especificação, documentações,
-exemplos de uso e validadores …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 31 Jan 2017 21:30:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-01-31:/2017/01/31/ramilificando-as-suas-apis.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>microservices</category><category>apis</category><category>raml</category></item><item><title>REST - Parte 2</title><link>https://klauslaube.com.br/2016/05/20/rest-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2016/01/06/rest-parte-1.html" title="Leia a parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, demos uma pequena introdução
-ao conceito de &lt;em&gt;REST&lt;/em&gt; e fizemos um raso comparativo com o seu "rival", o &lt;em&gt;SOAP&lt;/em&gt;.
+exemplos de uso e validadores…]]></description><link>https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/01/31/ramilificando-as-suas-apis.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 31 Jan 2017 21:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Você já tem a sua &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;! Ela é &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;,
+performa muito bem, e todos os seus aplicativos estão
+conversando com a mesma. Vem uma oportunidade de negócio de abrí-la para consumo
+de parceiros. Agora não basta só a técnica perfeita, você precisa de especificação, documentações,
+exemplos de uso e validadores para garantir que os contratos da sua &lt;em&gt;API&lt;/em&gt; não sofram alterações drásticas,
+deixando seu cliente na mão.&lt;/p&gt;
+&lt;p&gt;Essa é a realidade da &lt;a href=&quot;http://loadsmart.com&quot; title=&quot;Book a truck with Loadsmart&quot;&gt;&lt;em&gt;Loadsmart&lt;/em&gt;&lt;/a&gt; no momento da
+publicação desse &lt;em&gt;post&lt;/em&gt;. Lá, optamos por seguir os mesmos passos do &lt;a href=&quot;http://spotify.com&quot; title=&quot;Você já sabe o que é isso :)&quot;&gt;&lt;em&gt;Spotify&lt;/em&gt;&lt;/a&gt;
+e utilizar o &lt;em&gt;RAML&lt;/em&gt; para descrever as nossas &lt;em&gt;APIs&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;RAML é quase YAML&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;RAML&lt;/em&gt; (RESTful API Modeling Language) é uma maneira simples
+de descrever/projetar suas &lt;em&gt;APIs&lt;/em&gt;. Através de uma linguagem concisa, baseada
+em YAML, você é capaz de escrever especificações que podem ser usadas como
+documentação, ferramenta de &lt;em&gt;build&lt;/em&gt; e de testes automatizados.&lt;/p&gt;
+&lt;p&gt;Ao invés de tentar cultivar a motivação para a utilização do &lt;em&gt;RAML&lt;/em&gt;, vou descrever
+de forma prática os principais aspectos do padrão. Para tanto, já começo
+recomendando a instalação do &lt;a href=&quot;http://apiworkbench.com/&quot; title=&quot;IDE for designing APIs&quot;&gt;&lt;em&gt;API Workbench&lt;/em&gt;&lt;/a&gt;,
+um excelente &lt;em&gt;plugin&lt;/em&gt; para o &lt;em&gt;Atom&lt;/em&gt; que facilita (e muito) a escrita de documentos &lt;em&gt;RAML&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Como começar?&lt;/h2&gt;
+&lt;p&gt;Vamos voltar ao nosso &quot;mini IMDB&quot;, exemplo utilizado em &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Veja os posts sobre REST&quot;&gt;alguns &lt;em&gt;posts&lt;/em&gt;&lt;/a&gt; aqui do &lt;em&gt;blog&lt;/em&gt;.
+Os principais &lt;em&gt;endpoints&lt;/em&gt; que temos são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /movies&lt;/code&gt;: Listagem de filmes;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;POST /movies&lt;/code&gt;: Adição de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /movies/{id}&lt;/code&gt;: Detalhes de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;PUT /movies/{id}&lt;/code&gt;: Atualização de um filme;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;DELETE /movies/{id}&lt;/code&gt;: Remoção de um filme.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Podemos começar criando um arquivo &lt;code class=&quot;language-text&quot;&gt;api.raml&lt;/code&gt; com o seguinte conteúdo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#%RAML 1.0&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movies API&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No momento desse artigo, o &lt;em&gt;RAML&lt;/em&gt; possui duas especificações ativas: a &lt;code class=&quot;language-text&quot;&gt;0.8&lt;/code&gt; e a &lt;code class=&quot;language-text&quot;&gt;1.0&lt;/code&gt;. Dependendo
+das ferramentas que você for utilizar posteriormente, talvez seja interessante optar pela especificação &lt;code class=&quot;language-text&quot;&gt;0.8&lt;/code&gt;.
+Nesse exemplo utilizaremos a &lt;code class=&quot;language-text&quot;&gt;1.0&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos continuar descrevendo a nossa &lt;em&gt;API&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;#%RAML 1.0&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movies API
+&lt;span class=&quot;token key atrule&quot;&gt;version&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; v1
+&lt;span class=&quot;token key atrule&quot;&gt;baseUri&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//api.movies.com/&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;version&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token key atrule&quot;&gt;mediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; application/json&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Setamos a versão da &lt;em&gt;API&lt;/em&gt; como &lt;code class=&quot;language-text&quot;&gt;v1&lt;/code&gt;, atendendo pelo endereço &lt;code class=&quot;language-text&quot;&gt;https://api.movies.com/v1&lt;/code&gt;. Trabalharemos
+com objetos &lt;em&gt;JSON&lt;/em&gt;. Caso a &lt;em&gt;API&lt;/em&gt; necessite trabalhar com mais de um tipo (&lt;em&gt;XML&lt;/em&gt;, por exemplo),
+é possível declará-lo no &lt;code class=&quot;language-text&quot;&gt;mediaType&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;&lt;span class=&quot;token key atrule&quot;&gt;mediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;application/json&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; application/xml&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Descrevendo os dados&lt;/h2&gt;
+&lt;p&gt;Se você optar pela versão &lt;code class=&quot;language-text&quot;&gt;0.8&lt;/code&gt; do padrão, a palavra &lt;code class=&quot;language-text&quot;&gt;schemas&lt;/code&gt; aparecerá com certa frequência durante
+a construção do documento. Com a &lt;code class=&quot;language-text&quot;&gt;1.0&lt;/code&gt;, a comunidade depreciou o termo em prol da palavra-chave &lt;code class=&quot;language-text&quot;&gt;types&lt;/code&gt;, e é com
+ela que descreveremos o tipo &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;description?&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt; possui três propriedades do tipo &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt;: &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;description&lt;/code&gt;. O &lt;code class=&quot;language-text&quot;&gt;?&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;description?&lt;/code&gt;
+indica que essa última é uma propriedade opcional (ao contrário de &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; que são obrigatórias).&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;RAML&lt;/em&gt; suporta uma série de tipos &lt;em&gt;built-in&lt;/em&gt;, para saber mais, leia sobre &lt;a href=&quot;https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#defining-types&quot;&gt;definição de tipos&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Descrevendo os endpoints&lt;/h2&gt;
+&lt;p&gt;Agora que temos um tipo definido, podemos partir para a descrição dos nossos &lt;em&gt;endpoints&lt;/em&gt;. Em &lt;em&gt;RAML&lt;/em&gt;,
+a semântica correta é chamarmos um &lt;em&gt;endpoint&lt;/em&gt; de &lt;em&gt;Resource&lt;/em&gt;. Vamos iniciar pelo &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; A set of movies.
+
+  &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Get a list of movies.
+    &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Add a new movie to the set.
+    &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+    &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;201&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the new movie.
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Começamos ao criar um bloco &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;. Nele, além de adicionarmos uma descrição através da propriedade
+&lt;code class=&quot;language-text&quot;&gt;description&lt;/code&gt;, também deixamos explícito a possibilidade de enviarmos dois métodos: &lt;code class=&quot;language-text&quot;&gt;get&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;post&lt;/code&gt;.
+Em &lt;code class=&quot;language-text&quot;&gt;get&lt;/code&gt;, podemos ter como resposta um &lt;em&gt;status code&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;200&lt;/code&gt; e uma lista de &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt; (por isso o sufixo &lt;code class=&quot;language-text&quot;&gt;[]&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Já em &lt;code class=&quot;language-text&quot;&gt;post&lt;/code&gt;, além de deixar claro que retornaremos o objeto recém criado, apontamos que a resposta
+será um &lt;code class=&quot;language-text&quot;&gt;201&lt;/code&gt; com um único &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;. Note que nesse caso descrevemos que o &lt;code class=&quot;language-text&quot;&gt;post&lt;/code&gt; também possui um tipo,
+através da palavra-chave &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt;. Isso quer dizer que, ao fazermos &lt;code class=&quot;language-text&quot;&gt;POST /movies/&lt;/code&gt;, precisamos
+passar um objeto que atenda as especificações do tipo &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e838b044ee5537cedc7d18d8a7c0d732/c08c5/raml-vogons.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.70833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGJ0FEZEB//xAAbEAABBAMAAAAAAAAAAAAAAAAAAQIDERITIv/aAAgBAQABBQKOZ6j22UpGvWyjM//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAICAwAAAAAAAAAAAAAAAAABAhEQITH/2gAIAQEABj8Cim9WXA6IpY//xAAZEAADAQEBAAAAAAAAAAAAAAABESEAQWH/2gAIAQEAAT8hKeLgaQQsXMXUcuUxIUSrEjS3v//aAAwDAQACAAMAAAAQ/wD/AP/EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/EKf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQIBAT8QrX//xAAcEAEAAwACAwAAAAAAAAAAAAABABEhMUGBofH/2gAIAQEAAT8Qw/A1Aq9sOfMV0rgYntPWRq0GYWQgNrJU4cKg7VfZRokavc//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;RAML pode parecer poesia Vogon, mas não entre em pânico! (fundividedattention)&amp;quot;&quot;
+        title=&quot;RAML pode parecer poesia Vogon, mas não entre em pânico! (fundividedattention)&quot;
+        src=&quot;/static/e838b044ee5537cedc7d18d8a7c0d732/c08c5/raml-vogons.jpg&quot;
+        srcset=&quot;/static/e838b044ee5537cedc7d18d8a7c0d732/7809d/raml-vogons.jpg 192w,
+/static/e838b044ee5537cedc7d18d8a7c0d732/4ecad/raml-vogons.jpg 384w,
+/static/e838b044ee5537cedc7d18d8a7c0d732/c08c5/raml-vogons.jpg 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;RAML pode parecer poesia Vogon, mas não entre em pânico! (fundividedattention)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Caso a sua regra de negócio vá além da criação de um elemento, é possível descrevê-la
+também. Por exemplo, vamos imaginar que exista a necessidade de verificar se o filme já existe no
+banco de dados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+      &lt;span class=&quot;token key atrule&quot;&gt;201&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the new movie.
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+      &lt;span class=&quot;token key atrule&quot;&gt;409&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; The movie already exists in our database.
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note que o padrão &lt;em&gt;RAML&lt;/em&gt; é flexível. Nesse caso não criamos um tipo &lt;code class=&quot;language-text&quot;&gt;Error&lt;/code&gt;, apenas descrevemos o corpo
+da resposta através das palavras-chave &lt;code class=&quot;language-text&quot;&gt;body&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;properties&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos finalizar descrevendo os dois métodos restantes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  /&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;uriParameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; The Movie identifier.
+        &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+
+     &lt;span class=&quot;token key atrule&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+       &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Gets a specific movie.
+       &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+         &lt;span class=&quot;token key atrule&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+           &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the specific movie.
+           &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+
+    &lt;span class=&quot;token key atrule&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+      &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Updates an already created movie.
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Returns the updated movie.
+          &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Movie
+
+    &lt;span class=&quot;token key atrule&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Deletes the movie.
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;204&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Confirms the deletion.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dentro de &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;, criamos um novo bloco chamado &lt;code class=&quot;language-text&quot;&gt;/{id}&lt;/code&gt;. Através da propriedade &lt;code class=&quot;language-text&quot;&gt;uriParameters&lt;/code&gt; deixamos
+claro que &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; é na verdade uma &lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt; (no nosso caso, estamos usando um &lt;code class=&quot;language-text&quot;&gt;uuid&lt;/code&gt;). Além disso, descrevemos
+os métodos &lt;code class=&quot;language-text&quot;&gt;get&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;put&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;delete&lt;/code&gt; para &lt;code class=&quot;language-text&quot;&gt;/movies/{id}&lt;/code&gt;, que não diferem tanto assim dos demais explicados
+anteriormente.&lt;/p&gt;
+&lt;h2&gt;Descrevendo sem se repetir&lt;/h2&gt;
+&lt;p&gt;No nosso &lt;a href=&quot;/2017/01/06/construindo-apis-em-django-com-restless.html&quot; title=&quot;Construindo APIs em Django com Restless&quot;&gt;exemplo utilizando &lt;em&gt;Restless&lt;/em&gt;&lt;/a&gt;,
+ao fazer um &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt; com dados inválidos, retornamos um &lt;code class=&quot;language-text&quot;&gt;BadRequest&lt;/code&gt;. Podemos especificar esse
+comportamento para o recurso &lt;code class=&quot;language-text&quot;&gt;POST movies/&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;PUT movies/{id}&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Logo após o bloco &lt;code class=&quot;language-text&quot;&gt;types&lt;/code&gt;, vamos adicionar um novo bloco chamado &lt;code class=&quot;language-text&quot;&gt;traits&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;mediaType&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; application/json
+
+&lt;span class=&quot;token key atrule&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;traits&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;dataValidation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;400&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; A BadRequest happens when data validation fails.
+        &lt;span class=&quot;token key atrule&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token key atrule&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Através de &lt;code class=&quot;language-text&quot;&gt;traits&lt;/code&gt; somos capazes de escrever regras de uso que podem ser reaproveitadas por dados e recursos.
+No exemplo acima, dizemos que recursos que utilizarem esse &lt;em&gt;trait&lt;/em&gt; terão como resposta o &lt;em&gt;status code&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;400&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Agora basta apontarmos nossos recursos ao &lt;em&gt;trait&lt;/em&gt; de nome &lt;code class=&quot;language-text&quot;&gt;dataValidation&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;/movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataValidation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+  (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  /&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  (&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+    &lt;span class=&quot;token key atrule&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataValidation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Traits&lt;/em&gt; são extremamente úteis para descrever comportamentos que são comuns entre recursos (por exemplo, listagens
+que possuem paginação). Outro conceito similar é o &lt;em&gt;Resource Types&lt;/em&gt;, no qual você pode ler mais sobre na &lt;a href=&quot;https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md/#declaration-resource-types-and-traits&quot; title=&quot;Resource Types and Traits&quot;&gt;documentação oficial&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Descrevendo a segurança&lt;/h2&gt;
+&lt;p&gt;Para finalizar nosso exemplo. Vamos supor que o acesso à &lt;em&gt;API&lt;/em&gt; é limitado, e o usuário precisa ter uma
+conta para acessá-la. Para não reinventar a roda, vamos supor que optamos pelo padrão &lt;a href=&quot;https://aaronparecki.com/oauth-2-simplified/&quot; title=&quot;OAuth 2 simplified&quot;&gt;&lt;em&gt;OAuth 2&lt;/em&gt;&lt;/a&gt;
+para autenticação e autorização.&lt;/p&gt;
+&lt;p&gt;Abaixo da propriedade &lt;code class=&quot;language-text&quot;&gt;mediaType&lt;/code&gt; vamos criar um novo bloco chamado &lt;code class=&quot;language-text&quot;&gt;securitySchemes&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+&lt;span class=&quot;token key atrule&quot;&gt;securitySchemes&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token key atrule&quot;&gt;oauth_2_0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; We support OAuth 2.0 for authenticating all API requests.
+    &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; OAuth 2.0
+    &lt;span class=&quot;token key atrule&quot;&gt;describedBy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;Authorization&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+             Used to send a valid OAuth 2 access token. Do not use
+             with the &quot;access_token&quot; query string parameter.&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;queryParameters&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;access_token&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+             Used to send a valid OAuth 2 access token.
+             Do not use with the &quot;Authorization&quot; header.&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; string
+      &lt;span class=&quot;token key atrule&quot;&gt;responses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;401&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+              Bad or expired token. This can happen if the
+              user or Movie API revoked or expired an access
+              token. To fix, re-authenticate the user.&lt;/span&gt;
+        &lt;span class=&quot;token key atrule&quot;&gt;403&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+          &lt;span class=&quot;token key atrule&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;token scalar string&quot;&gt;
+              Bad OAuth request (wrong consumer key, bad nonce,
+              expired timestamp...). Unfortunately,
+              re-authenticating the user won&apos;t help here.&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;settings&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;authorizationUri&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//www.movies.com/1/oauth2/authorize
+      &lt;span class=&quot;token key atrule&quot;&gt;accessTokenUri&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; https&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;//api.movies.com/1/oauth2/token
+      &lt;span class=&quot;token key atrule&quot;&gt;authorizationGrants&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt; authorization_code&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; implicit &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Serei sincero com você, caro leitor, o código acima é uma receita de bolo para descrever
+o &lt;code class=&quot;language-text&quot;&gt;securitySchemes&lt;/code&gt; do tipo &lt;em&gt;OAuth 2&lt;/em&gt;. Nada de muito diferente do que a gente viu até aqui,
+com exceção do uso do &lt;code class=&quot;language-text&quot;&gt;|&lt;/code&gt;, que nesse caso serve para fazer textos em bloco, e da
+propriedade &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt; com valor &lt;code class=&quot;language-text&quot;&gt;OAuth 2.0&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;No nosso cenário, apenas temos intenção de proteger a escrita de dados na &lt;em&gt;API&lt;/em&gt;. Para tanto,
+Vamos adicionar a propriedade &lt;code class=&quot;language-text&quot;&gt;securedBy&lt;/code&gt; aos blocos &lt;code class=&quot;language-text&quot;&gt;post&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;put&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;yaml&quot;&gt;&lt;pre class=&quot;language-yaml&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+  &lt;span class=&quot;token key atrule&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataValidation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token key atrule&quot;&gt;securedBy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;oauth_2_0&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)
+
+    &lt;span class=&quot;token key atrule&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;dataValidation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;token key atrule&quot;&gt;securedBy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;oauth_2_0&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+(&lt;span class=&quot;token punctuation&quot;&gt;...&lt;/span&gt;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! A especificação da nossa &lt;em&gt;API&lt;/em&gt; está completa! Temos uma documentação forte, que pode ser lida
+por humanos e máquinas. Para fins didáticos não utilizei recursos
+interessantes como a propriedade &lt;code class=&quot;language-text&quot;&gt;example&lt;/code&gt; ou a ferramenta &lt;code class=&quot;language-text&quot;&gt;!include&lt;/code&gt;. Mas você pode ler sobre
+eles na &lt;a href=&quot;https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md&quot;&gt;especificação do &lt;em&gt;RAML&lt;/em&gt; 1.0&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/kplaube/post-raml/blob/8e580fa4d328a3f5f9e89e23d8b283ec04cf9637/api.raml&quot;&gt;Veja como ficou a versão final do nosso arquivo api.raml&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Através de uma linguagem clara fomos capazes de construir uma especificação legível para a nossa &lt;em&gt;API&lt;/em&gt;.
+Com isso, outros desenvolvedores (ou até mesmo máquinas) serão capazes de entender como funciona cada &lt;em&gt;endpoint&lt;/em&gt;.
+Com a adição de ferramentas como o &lt;a href=&quot;https://github.com/cybertk/abao&quot; title=&quot;REST API automated testing tool&quot;&gt;&lt;em&gt;Abao&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://github.com/raml2html/raml2html&quot; title=&quot;RAML to HTML documentation generator&quot;&gt;&lt;em&gt;raml2html&lt;/em&gt;&lt;/a&gt;, os resultados
+do uso do &lt;em&gt;RAML&lt;/em&gt; podem ser surpreendentes, como no exemplo abaixo:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7ff9fbba0eafbab830fbc156798eb2bd/6af66/example-raml.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAABp0lEQVQoz4WSTVOCUBiF+actayYBv0AQP9Df0qZFOxct2pTi2KTZrhpScXIYBRoDgUAEOkgLi6bO3GHgcp/3PefeSxSLxXK5zLJsqVTCO0Xmzs4vLu/km9v7+9GdLMsvGWFyNpsNh0OCoqhcLkeSJE3T+Xyepsira+nVjXV76/l+FP+iKEqmdV0nWq0Wz/Mcx/EcL4pivV6/liTFCh7U9wfVfDLc57ePHwOT8nvwOFeJWq0GstFoAGs2mxxX6Un9jbfTzY293blBmB3OdreNY3WlESALhQKeqAKeYRhJkuDsw3XiKIyi8C/bAIS90Ba2EQGwbduaphuGrq2dIExWHyoMk4qaphFgGJYVhLq4VwobhuE4ju/7ruumS7OdE7gliiel6hFZqWDP+CRCr9dbLpeKoqiqalnWP/BphT5mTqtVXqgKOOput2uaJv55npea3H1XEASAV6tVYhuBcUmw4e12G7b7/b692YyGo/F4PJlOkR+1rAPhE6EWi0UCQyAROD3zwWCQulqv1yDDjND8y7Z4IMBw0el0UFXZC9dwmtFkMpnP5/D1CVzWOmRB+U3BAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Exemplo de documentação gerada pelo raml2html&amp;quot;&quot;
+        title=&quot;Exemplo de documentação gerada pelo raml2html&quot;
+        src=&quot;/static/7ff9fbba0eafbab830fbc156798eb2bd/6af66/example-raml.png&quot;
+        srcset=&quot;/static/7ff9fbba0eafbab830fbc156798eb2bd/8514f/example-raml.png 192w,
+/static/7ff9fbba0eafbab830fbc156798eb2bd/804b2/example-raml.png 384w,
+/static/7ff9fbba0eafbab830fbc156798eb2bd/6af66/example-raml.png 640w&quot;
+        sizes=&quot;(max-width: 640px) 100vw, 640px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de documentação gerada pelo raml2html&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/raml-org/raml-spec/blob/master/versions/raml-10/raml-10.md&quot;&gt;Github: RAML Version 1.0 specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sitepoint.com/raml-restful-api-modeling-language/&quot;&gt;Sitepoint: RAML, the RESTful API modeling language&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[REST - Parte 2]]></title><description><![CDATA[No post anterior, demos uma pequena introdução
+ao conceito de REST e fizemos um raso comparativo com o seu "rival", o SOAP.
+Nesse artigo falaremos mais sobre como interagir com APIs REST utilizando
+os verbos do protocolo HTTP, e a biblioteca hug,
+que nos ajudará a ilustrar como uma API funciona na…]]></description><link>https://klauslaube.com.br/2016/05/20/rest-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/05/20/rest-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 20 May 2016 12:35:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2016/01/06/rest-parte-1.html&quot; title=&quot;Leia a parte 1&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, demos uma pequena introdução
+ao conceito de &lt;em&gt;REST&lt;/em&gt; e fizemos um raso comparativo com o seu &quot;rival&quot;, o &lt;em&gt;SOAP&lt;/em&gt;.
 Nesse artigo falaremos mais sobre como interagir com &lt;em&gt;APIs&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt; utilizando
-os verbos do protocolo &lt;em&gt;HTTP&lt;/em&gt;, e a biblioteca &lt;a href="http://www.hug.rest/" title="Embrace APIs of the future"&gt;&lt;em&gt;hug&lt;/em&gt;&lt;/a&gt;,
-que nos ajudará a ilustrar como uma &lt;em&gt;API …&lt;/em&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 20 May 2016 12:35:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-05-20:/2016/05/20/rest-parte-2.html</guid><category>desenvolvimento</category><category>rest</category><category>microservices</category><category>apis</category></item><item><title>REST - Parte 1</title><link>https://klauslaube.com.br/2016/01/06/rest-parte-1.html</link><description>&lt;p&gt;Em tempos onde os &lt;a href="http://www.infoq.com/br/news/2015/04/microservices-current-state" title="O estado da arte em micro serviços"&gt;microservices&lt;/a&gt; ganham cada vez mais força, e &lt;a href="https://dev.twitter.com/rest/public" title="Conheça a API do Twitter"&gt;aplicações de sucesso&lt;/a&gt; liberam a sua &lt;em&gt;API&lt;/em&gt; para desenvolvedores construírem um ecossistema ao redor delas, não considerar seguir boas práticas na construção de um serviço pode ser uma tomada de decisão arriscada, tanto no quesito do negócio, quanto no …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 06 Jan 2016 13:00:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-01-06:/2016/01/06/rest-parte-1.html</guid><category>desenvolvimento</category><category>rest</category><category>microservices</category><category>apis</category></item></channel></rss>
+os verbos do protocolo &lt;em&gt;HTTP&lt;/em&gt;, e a biblioteca &lt;a href=&quot;http://www.hug.rest/&quot; title=&quot;Embrace APIs of the future&quot;&gt;&lt;em&gt;hug&lt;/em&gt;&lt;/a&gt;,
+que nos ajudará a ilustrar como uma &lt;em&gt;API&lt;/em&gt; funciona na prática.&lt;/p&gt;
+&lt;p&gt;Segundo o &lt;a href=&quot;https://www.infoq.com/br/articles/rest-introduction&quot; title=&quot;Introdução ao REST&quot;&gt;&lt;em&gt;InfoQ&lt;/em&gt;&lt;/a&gt;,
+o &lt;em&gt;REST&lt;/em&gt; possui cinco princípios fundamentais:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Dê a todas as coisas um identificador&lt;/li&gt;
+&lt;li&gt;Vincule as coisas&lt;/li&gt;
+&lt;li&gt;Utilize métodos padronizados&lt;/li&gt;
+&lt;li&gt;Recursos com múltiplas representações&lt;/li&gt;
+&lt;li&gt;Comunique sem estado&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Esses cinco itens nos guiarão daqui para frente.&lt;/p&gt;
+&lt;h2&gt;O Uniform Resource Identifier&lt;/h2&gt;
+&lt;p&gt;Você já parou para pensar que na &lt;em&gt;Internet&lt;/em&gt; tudo tem um &quot;endereço único&quot;?
+Do formulário de contato do seu &lt;em&gt;blog&lt;/em&gt; até um vídeo no &lt;em&gt;Youtube&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;Todo recurso tem um nome e pode ser identificado de forma única.
+Esse conceito é conhecido por &lt;em&gt;Uniform Resource Identifier&lt;/em&gt; (&lt;em&gt;URI&lt;/em&gt;) e é
+composto pelo &lt;em&gt;Uniform Resource Locator&lt;/em&gt; (&lt;em&gt;URL&lt;/em&gt;) e &lt;em&gt;Uniform Resource Name&lt;/em&gt; (&lt;em&gt;URN&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Logo, quando falamos do endereço &lt;code class=&quot;language-text&quot;&gt;http://google.com/index.html&lt;/code&gt;, podemos assumir a seguinte
+estrutura:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://google.com/index.html
+|------ URL -----|-- URN --|
+|----------- URI ----------|&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como uma &lt;em&gt;API&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt; é um recurso disponível na &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;,
+essa regra não é diferente. Daremos identificadores únicos para cada recurso exposto.&lt;/p&gt;
+&lt;p&gt;Utilizaremos o &lt;code class=&quot;language-text&quot;&gt;localhost:8000&lt;/code&gt; para os exemplos a seguir. Portanto, vamos imaginar que
+temos uma &lt;em&gt;API&lt;/em&gt; de filmes, e gostaríamos de listar todos os filmes. Uma boa prática
+é utilizarmos o substantivo no plural. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/movies/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos supor que o filme &quot;The Matrix&quot;, dentro da nossa base de dados, tenha o &lt;em&gt;ID&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;20&lt;/code&gt;.
+Na nossa &lt;em&gt;API&lt;/em&gt; poderíamos acessá-lo através da seguinte &lt;em&gt;URI&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/movies/20/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Consequentemente, outro filme teria um identificador diferente. Por exemplo, para acessarmos
+o filme &quot;Swordfish&quot;, que no nosso exemplo possui o &lt;em&gt;ID&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;55&lt;/code&gt;, temos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/movies/55/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Outra boa prática é utilizarmos &lt;a href=&quot;https://en.wikipedia.org/wiki/Universally_unique_identifier&quot; title=&quot;Leia mais sobre UUID&quot;&gt;&lt;em&gt;UUIDs&lt;/em&gt;&lt;/a&gt;
+ao invés das chaves primárias do nosso banco de dados. Isso obscurece o funcionamento da
+aplicação, tornando-a ligeiramente mais segura:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Legal! Já tenho como acessar o filme &lt;em&gt;The Matrix&lt;/em&gt;, dentro da nossa &quot;&lt;em&gt;API&lt;/em&gt; imaginária&quot;. Será
+que temos alguma maneira fácil de acessar, por exemplo, os atores que fazem parte desse
+filme?&lt;/p&gt;
+&lt;h2&gt;Hipermídia&lt;/h2&gt;
+&lt;p&gt;O conceito de hipermídia pode ser bastante abstrato. Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hipermídia é a reunião de várias mídias num ambiente computacional, suportada por sistemas eletrônicos
+de comunicação. Hipermídia, diferentemente de multimídia, não é a mera reunião dos meios existentes, e
+sim a fusão desses meios a partir de elementos não-lineares.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A melhor forma de entender esse conceito é se olharmos para uma forma de hipermídia muito conhecida: o hipertexto (sim,
+o &quot;H&quot; do &lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;Hypertext Markup Language&lt;/em&gt;&lt;/a&gt;). Nele, temos um &quot;texto interativo&quot;,
+não necessariamente linear e composto por diferentes outras mídias (como som, vídeo, imagens, etc).&lt;/p&gt;
+&lt;p&gt;Mas o ponto que mais ilustra o que é um hipertexto é a capacidade de um texto referenciar a outro. Esse
+conceito, chamado de hiperlinks (ou somente &lt;em&gt;links&lt;/em&gt;, para os mais jovens) permite com que eu seja capaz de navegar
+entre documentos apenas seguindo as suas referências, sem conhecer previamente o destino do meu passo seguinte.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 619px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3c33d9c73b53a52b480dad1527ce9c9d/a530b/social-network-movie.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAc8aRwgoK//EABsQAAEEAwAAAAAAAAAAAAAAAAABAxESAhAh/9oACAEBAAEFAqmaJFZHhzmv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAABABAhEx/9oACAEBAAY/AjanVC//xAAbEAEAAgIDAAAAAAAAAAAAAAABACERMUFhgf/aAAgBAQABPyHAzlJyoLUNgPZXVUTRKOots//aAAwDAQACAAMAAAAQH8//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8Qq4//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QCxv/xAAaEAEBAAMBAQAAAAAAAAAAAAABEQAhMVFB/9oACAEBAAE/ECUtEiOkwC8HlddLksD4gjcM+gM1TCINHZoO8bs9c//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)&amp;quot;&quot;
+        title=&quot;Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)&quot;
+        src=&quot;/static/3c33d9c73b53a52b480dad1527ce9c9d/a530b/social-network-movie.jpg&quot;
+        srcset=&quot;/static/3c33d9c73b53a52b480dad1527ce9c9d/7809d/social-network-movie.jpg 192w,
+/static/3c33d9c73b53a52b480dad1527ce9c9d/4ecad/social-network-movie.jpg 384w,
+/static/3c33d9c73b53a52b480dad1527ce9c9d/a530b/social-network-movie.jpg 619w&quot;
+        sizes=&quot;(max-width: 619px) 100vw, 619px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Aqui de boas fazendo umas APIs com os meus amigos (cosmopolitan.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Quando esse conceito é aplicado ao contexto de &lt;em&gt;REST&lt;/em&gt;, temos o que chamamos de &lt;em&gt;Hypermedia as the Engine
+of Application State&lt;/em&gt; (&lt;a href=&quot;https://en.wikipedia.org/wiki/HATEOAS&quot; title=&quot;Leia mais sobre HATEOAS&quot;&gt;&lt;em&gt;HATEOAS&lt;/em&gt;&lt;/a&gt;).
+Segundo ele, nosso cliente deve ser capaz de interagir com a nossa aplicação
+(e até mesmo demais aplicações vinculadas a ela) através de hipermídia. Dessa forma, eu não preciso necessariamente
+conhecer todos os &lt;em&gt;endpoints&lt;/em&gt; de uma &lt;em&gt;API&lt;/em&gt;, ela me informará dada uma determinada &lt;em&gt;URI&lt;/em&gt;, para onde eu posso navegar.&lt;/p&gt;
+&lt;p&gt;Pegando a nossa &lt;em&gt;API&lt;/em&gt; de filmes, eu deveria ter dentro da resposta do filme &quot;The Matrix&quot; alguma informação me dizendo
+que para listar os atores desse filme, eu deveria acessar &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/&lt;/code&gt;.
+E uma vez eu estando nessa listagem, deveria haver um &lt;em&gt;link&lt;/em&gt; me dizendo que para ver os detalhes da
+&lt;a href=&quot;http://www.imdb.com/name/nm0005251/&quot; title=&quot;Carrie-Anne Moss no IMDB&quot;&gt;&lt;em&gt;Carrie-Anne Moss&lt;/em&gt;&lt;/a&gt;, por exemplo,
+eu devo acessar a &lt;em&gt;URI&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/actors/A3531BF5-C089-4A44-8A92-5A5AC08261AA/&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;xml&quot;&gt;&lt;pre class=&quot;language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;uuid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;DED621D5-08F4-4D32-ADFA-84375BA415B9&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;uuid&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;The Matrix&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;title&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;actors&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;/&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ou em uma resposta em &lt;em&gt;JSON&lt;/em&gt;, poderíamos ter algo parecido com o exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;uuid&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;The Matrix&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+  &lt;span class=&quot;token property&quot;&gt;&quot;_links&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;actors&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/actors/&quot;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Um pouquinho de prática&lt;/h2&gt;
+&lt;p&gt;Antes de falarmos sobre os verbos &lt;em&gt;HTTP&lt;/em&gt;, vamos utilizar o &lt;em&gt;hug&lt;/em&gt; para uma abordagem um
+pouco mais prática. Iniciamos com a instalação da biblioteca:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip3 install hug&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para tornar as coisas simples, vamos simular o acesso ao banco de dados com o uso de dicionários &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# api.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; hug
+
+MOVIES &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;DED621D5-08F4-4D32-ADFA-84375BA415B9&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;The Matrix&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A &lt;em&gt;URI&lt;/em&gt; por si só não significa nada. Precisamos de métodos para acessá-la (e manipulá-la), e o protocolo &lt;em&gt;HTTP&lt;/em&gt;
+possui alguns verbos que podem executar essas operações para nós.&lt;/p&gt;
+&lt;h3&gt;Listagem e detalhes&lt;/h3&gt;
+&lt;p&gt;O &lt;em&gt;GET&lt;/em&gt; é sem dúvida o mais famoso deles. É através dele que somos capazes de &quot;pegar&quot; os recursos da &lt;em&gt;web&lt;/em&gt;, incluindo
+páginas na Internet como essa que você está lendo. Com esse verbo, podemos listar e visualizar mais detalhes de um
+determinado recurso na &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos começar retornando a listagem de filmes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# api.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; hug
+
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@hug&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&apos;objects&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; MOVIES&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para executar a &lt;em&gt;API&lt;/em&gt; no seu ambiente local, utilize o seguinte comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hug -f api.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora, ao acessar a &lt;em&gt;URI&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/movies/&lt;/code&gt;, obtemos a seguinte resposta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;objects&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;The Matrix&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos ilustrar como seria o acesso via &lt;em&gt;GET&lt;/em&gt; para ver detalhes do recurso &quot;The Matrix&quot;. Primeiro,
+criamos o método na aplicação que é responsável por dar detalhes de um filme:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; hug
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; falcon &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; HTTP_404
+
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@hug&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/movies/{movie_id}/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;movie_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  movie_ids &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;lambda&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; MOVIES&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; movie_id &lt;span class=&quot;token keyword&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; movie_ids&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; HTTP_404
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Not found&apos;&lt;/span&gt;
+
+  movie &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MOVIES&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;movie_ids&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;movie_id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Seguindo uma boa prática, visualizar detalhes de um determinado recurso deveria ter um endereço
+composto pelo seu nome (no caso, &lt;code class=&quot;language-text&quot;&gt;movies&lt;/code&gt;), mais o seu identificador (no caso, &lt;code class=&quot;language-text&quot;&gt;DED621D5-08F4-4D32-ADFA-84375BA415B9&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/
+
+HTTP/1.0 200 OK
+Date: Fri, 13 May 2016 00:58:57 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-type: application/json
+content-length: 221
+
+{&amp;quot;description&amp;quot;: &amp;quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;The Matrix&amp;quot;, &amp;quot;id&amp;quot;: &amp;quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Adicionando&lt;/h3&gt;
+&lt;p&gt;Outro verbo bem conhecido do protocolo é o &lt;em&gt;POST&lt;/em&gt;. Quem aqui nunca submeteu um formulário &lt;em&gt;web&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;O princípio desse método é o envio de dados, do cliente para o servidor. Vamos aproveitar dessa sua
+natureza para adicionar o filme &quot;Swordish&quot; à nossa &lt;em&gt;API&lt;/em&gt;. Para isso, precisamos alterar nossa função &lt;code class=&quot;language-text&quot;&gt;movies&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; hug
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; uuid
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; falcon &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; HTTP_201&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; HTTP_404
+
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@hug&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_post&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;movies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;method &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;GET&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&apos;objects&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; MOVIES&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# We are assuming it&apos;s a POST&lt;/span&gt;
+    movie &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&apos;uuid&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;uuid&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;uuid4&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_param&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_param&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    MOVIES&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;append&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;movie&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; HTTP_201
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; movie
+
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como é possível reparar no código acima, pretendemos adicionar um filme e o destino da nossa requisição
+será o &lt;code class=&quot;language-text&quot;&gt;/movies/&lt;/code&gt;. Desse modo, o &lt;em&gt;GET&lt;/em&gt; lista e o &lt;em&gt;POST&lt;/em&gt; adiciona novos filmes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -XPOST -d &amp;quot;title=Swordfish&amp;amp;description=Some hackish description...&amp;quot; http://localhost:8000/movies
+
+HTTP/1.0 201 Created
+Date: Fri, 13 May 2016 01:51:43 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-type: application/json
+content-length: 116
+
+{&amp;quot;title&amp;quot;: &amp;quot;Swordfish&amp;quot;, &amp;quot;uuid&amp;quot;: &amp;quot;a96e7212-6a29-478a-a24e-07720a286944&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;Some hackish description...&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora temos dois filmes cadastrados na nossa API:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;objects&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;The Matrix&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;DED621D5-08F4-4D32-ADFA-84375BA415B9&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;description&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Some hackish description...&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;title&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Swordfish&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;a96e7212-6a29-478a-a24e-07720a286944&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Atualizando e removendo&lt;/h3&gt;
+&lt;p&gt;Uma vez que &lt;em&gt;POST&lt;/em&gt; e &lt;em&gt;GET&lt;/em&gt; acontecem no &lt;em&gt;endpoint&lt;/em&gt; responsável por &quot;listar&quot; os nossos filmes,
+é natural assumirmos que o &lt;em&gt;PUT&lt;/em&gt; e &lt;em&gt;DELETE&lt;/em&gt; acontecerão no &lt;em&gt;endpoint&lt;/em&gt; responsável por
+&quot;detalhar&quot; determinado filme.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;PUT&lt;/em&gt; é o método &lt;em&gt;HTTP&lt;/em&gt; responsável por atualizar um determinado recurso. Assim como o &lt;em&gt;POST&lt;/em&gt;,
+ele permite a passagem de parâmetros que podem ser interpretados como &quot;campos&quot;.&lt;/p&gt;
+&lt;p&gt;Já o &lt;em&gt;DELETE&lt;/em&gt;, como o nome sugere, é o método padrão quando insinuamos a remoção de um determinado
+recurso à nossa &lt;em&gt;API&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Na prática, para suportar esses dois verbos, nossa função &lt;code class=&quot;language-text&quot;&gt;movie&lt;/code&gt; ficará assim:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@hug&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;/movies/{movie_id}/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; accept&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;get&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;put&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;delete&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;movie&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;movie_id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; response&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+  movie_ids &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;lambda&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;id&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; MOVIES&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; movie_id &lt;span class=&quot;token keyword&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; movie_ids&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    response&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;status &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; HTTP_404
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Not found&apos;&lt;/span&gt;
+
+  movie &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MOVIES&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;movie_ids&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;index&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;movie_id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;method &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;DELETE&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    MOVIES&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;remove&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;movie&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Deleted&apos;&lt;/span&gt;
+
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;method &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;PUT&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    movie&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_param&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;title&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    movie&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_param&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;description&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; movie
+
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; movie&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora podemos atualizar o filme &quot;Swordfish&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -i -XPUT -d &amp;quot;title=A Senha&amp;amp;description=Um filme sobre Hackers&amp;quot; http://localhost:8000/movies/a96e7212-6a29-478a-a24e-07720a286944/
+
+HTTP/1.0 200 OK
+Date: Fri, 13 May 2016 02:25:42 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-type: application/json
+content-length: 107
+
+{&amp;quot;title&amp;quot;: &amp;quot;A Senha&amp;quot;, &amp;quot;id&amp;quot;: &amp;quot;a96e7212-6a29-478a-a24e-07720a286944&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;Um filme sobre Hackers&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E até mesmo apagá-lo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -i -XDELETE http://localhost:8000/movies/a96e7212-6a29-478a-a24e-07720a286944/
+
+HTTP/1.0 200 OK
+Date: Fri, 13 May 2016 02:26:52 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-type: application/json
+content-length: 9
+
+&amp;quot;Deleted&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E com isso fechamos as operações de &lt;em&gt;CRUD&lt;/em&gt; através dos métodos &lt;em&gt;POST&lt;/em&gt;, &lt;em&gt;GET&lt;/em&gt;, &lt;em&gt;PUT&lt;/em&gt; e &lt;em&gt;DELETE&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Ser JSON, ou não ser...&lt;/h2&gt;
+&lt;p&gt;Uma das premissas do &lt;em&gt;REST&lt;/em&gt; é que um recurso possa ser apresentado de diferentes maneiras.
+Por exemplo, o nosso filme se acessado pelo navegador, poderia ser representado através de
+um &lt;em&gt;HTML&lt;/em&gt;. Por outro lado, se ele fosse acessado por uma requisição &lt;em&gt;Ajax&lt;/em&gt;, ele poderia
+ser representado por um &lt;em&gt;JSON&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Uma terceira modalidade de entrega poderia ser em &lt;em&gt;XML&lt;/em&gt;, ou em qualquer formato
+que tanto cliente quanto fornecedor entendam. Esse &quot;acordo&quot; entre as partes é realizado
+através do cabeçalho de requisição &lt;code class=&quot;language-text&quot;&gt;Accept&lt;/code&gt;, e pelo cabeçalho de resposta &lt;code class=&quot;language-text&quot;&gt;content-type&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -v -H &amp;quot;Accept: application/json&amp;quot; http://localhost:8000/movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/
+
+GET /movies/DED621D5-08F4-4D32-ADFA-84375BA415B9/ HTTP/1.1
+Host: localhost:8000
+User-Agent: curl/7.43.0
+Accept: application/json
+
+HTTP/1.0 200 OK
+Date: Fri, 13 May 2016 02:41:07 GMT
+Server: WSGIServer/0.2 CPython/3.4.4
+content-length: 221
+content-type: application/json&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com isso, permitimos que tanto cliente quanto fornecedor conversem livremente,
+desde que em um mesmo dialeto. Embora não haja um padrão formal, é comum vermos
+&lt;em&gt;APIs&lt;/em&gt; dando suporte a renderizações em &lt;em&gt;JSON&lt;/em&gt; e &lt;em&gt;XML&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Isso pode parecer até um exagero, e uma complexidade questionável na sua aplicação.
+A boa notícia é que a maioria das bibliotecas &lt;em&gt;REST&lt;/em&gt; dão suporte &lt;em&gt;built-in&lt;/em&gt; a essa
+funcionalidade.&lt;/p&gt;
+&lt;h2&gt;Stateless&lt;/h2&gt;
+&lt;p&gt;Uma das premissas do &lt;em&gt;REST&lt;/em&gt; é a comunicação sem estados. Isso significa que,
+assim como o próprio &lt;a href=&quot;/2012/04/05/entendendo-os-cookies-e-sessoes.html&quot; title=&quot;Leia mais sobre stateless, Cookies e Sessions&quot;&gt;protocolo &lt;em&gt;HTTP&lt;/em&gt;&lt;/a&gt;,
+não &quot;conserva-se informações&quot; entre as requisições.&lt;/p&gt;
+&lt;p&gt;Na prática, isso significa que cliente pode enviar múltiplas requisições
+para o servidor, no entanto, cada uma delas deve ser independente. Cada uma
+deve possuir toda a informação necessária para que o servidor possa interpretá-las
+completamente (e separadamente).&lt;/p&gt;
+&lt;p&gt;Isso facilita o &lt;a href=&quot;/2012/05/14/o-cache-e-o-http.html&quot; title=&quot;O Cache e o HTTP&quot;&gt;&lt;em&gt;caching&lt;/em&gt;&lt;/a&gt; e
+escalabilidade da sua solução.&lt;/p&gt;
+&lt;p&gt;Caso estados precisem ser armazenados, é uma responsabilidade do cliente fazê-los.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Chegamos ao fim desse artigo, e uma pergunta fica: Mas o que é &lt;em&gt;RESTful&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;Uma &lt;em&gt;API RESTful&lt;/em&gt; na verdade é uma &lt;em&gt;API&lt;/em&gt; que segue os princípios do &lt;em&gt;REST&lt;/em&gt; de
+forma mais &quot;fiel&quot;. Enquadrando-se plenamente nas seguintes regras:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cliente/servidor&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Stateless&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Cacheável&lt;/li&gt;
+&lt;li&gt;Interface uniforme para comunicação entre o cliente e o servidor&lt;/li&gt;
+&lt;li&gt;Uso de camadas (facilitando escalabilidade, confiabilidade e segurança)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;No fim das contas, sendo &lt;em&gt;REST&lt;/em&gt; ou &lt;em&gt;RESTful&lt;/em&gt;, utilizar os conceitos
+é uma boa forma de criar serviços (de baixo custo) para as suas aplicações,
+que podem ser aplicados, por exemplo, dentro de uma arquitetura de microserviços.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.hug.rest/website/quickstart&quot;&gt;&lt;em&gt;Hug - Embrace APIs from the future&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://imasters.expert/rest-architecture-model-definition-constraints-benefits/&quot;&gt;&lt;em&gt;iMasters - REST Architecture Model: Definition, Constraints and Benefits&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.infoq.com/br/articles/rest-introduction&quot;&gt;&lt;em&gt;InfoQ - REST Introduction&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/HATEOAS&quot;&gt;&lt;em&gt;Wikipedia - HATEOAS&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Hiperm%C3%ADdia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - Hipermídia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Hipertexto&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - Hipertexto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/URI&quot;&gt;&lt;em&gt;Wikipedia - URI&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[REST - Parte 1]]></title><description><![CDATA[Em tempos onde os microservices ganham cada vez mais força, e aplicações de sucesso liberam a sua API para desenvolvedores construírem um ecossistema ao redor delas, não considerar seguir boas práticas na construção de um serviço pode ser uma tomada de decisão arriscada, tanto no quesito do negócio…]]></description><link>https://klauslaube.com.br/2016/01/06/rest-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/01/06/rest-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 06 Jan 2016 13:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Em tempos onde os &lt;a href=&quot;http://www.infoq.com/br/news/2015/04/microservices-current-state&quot; title=&quot;O estado da arte em micro serviços&quot;&gt;microservices&lt;/a&gt; ganham cada vez mais força, e &lt;a href=&quot;https://dev.twitter.com/rest/public&quot; title=&quot;Conheça a API do Twitter&quot;&gt;aplicações de sucesso&lt;/a&gt; liberam a sua &lt;em&gt;API&lt;/em&gt; para desenvolvedores construírem um ecossistema ao redor delas, não considerar seguir boas práticas na construção de um serviço pode ser uma tomada de decisão arriscada, tanto no quesito do negócio, quanto no quesito técnico.&lt;/p&gt;
+&lt;p&gt;A &lt;em&gt;Internet&lt;/em&gt; já passou por muita coisa quando o assunto é &lt;em&gt;API&lt;/em&gt;, desde a total falta de padrões até a criação de protocolos exageradamente complexos. O &lt;em&gt;REST&lt;/em&gt; vem como uma solução elegante que está longe de ser &quot;anárquica&quot;, porém mais longe ainda de ser complicada.&lt;/p&gt;
+&lt;h2&gt;Serviços web podem ser burocráticos&lt;/h2&gt;
+&lt;p&gt;Antes de mais nada é preciso dizer que a &quot;&lt;em&gt;internet&lt;/em&gt; é maior que a &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;&quot;. Ou seja, quando digo que você deveria utilizar &lt;em&gt;REST&lt;/em&gt;, estou sendo específico para um determinado tipo de solução na camada &lt;em&gt;HTTP&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Quando falo sobre serviços na &lt;em&gt;web&lt;/em&gt;, automaticamente sou remetido a &lt;a href=&quot;https://en.wikipedia.org/wiki/Service-oriented_architecture&quot; title=&quot;Leia mais sobre SOA&quot;&gt;&lt;em&gt;SOA&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;https://pt.wikipedia.org/wiki/SOAP&quot; title=&quot;Leia mais sobre SOAP&quot;&gt;&lt;em&gt;SOAP&lt;/em&gt;&lt;/a&gt;. Até então, nunca consegui pensar nesses dois termos de forma dissociada, mas não é bem assim que as coisas funcionam...&lt;/p&gt;
+&lt;p&gt;A Arquitetura Orientada a Serviço (SOA) é um padrão onde aplicações provém serviços para demais componentes através de protocolos de comunicação. Uma arquitetura &lt;em&gt;SOA&lt;/em&gt; vai além de definir uma &lt;a href=&quot;https://en.wikipedia.org/wiki/Application_programming_interface&quot; title=&quot;Leia mais sobre API&quot;&gt;&lt;em&gt;API&lt;/em&gt;&lt;/a&gt;, ela define a interface em termos de protocolo e funcionalidade, provendo assim uma maior interoperabilidade do seu serviço.&lt;/p&gt;
+&lt;p&gt;Mas o que necessariamente significa o termo &quot;serviço&quot;? Segundo o &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Open_Group&quot; title=&quot;Leia mais sobre o Open Group&quot;&gt;&lt;em&gt;Open Group&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is a logical representation of a repeatable business activity that has a specified outcome (e.g., check customer credit, provide weather data, consolidate drilling reports).
+Is self-contained.
+May be composed of other services.
+Is a &quot;black box&quot; to consumers of the service.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Já o &lt;em&gt;SOAP&lt;/em&gt;, de forma bem resumida, é um protocolo que utiliza a linguagem de marcação &lt;em&gt;XML&lt;/em&gt; e baseia-se nos protocolos de comunicação &lt;em&gt;RPC&lt;/em&gt; e &lt;em&gt;HTTP&lt;/em&gt; para negociação e transmissão de mensagens. Quem já trabalhou com a tecnologia pode até duvidar, mas a sua premissa é simplicidade e independência de linguagem, modelo e transporte.&lt;/p&gt;
+&lt;p&gt;Com o passar do tempo os termos acima ficaram estigmatizados por serem &quot;bloated&quot;. O excesso de &quot;corporativismo&quot; para construir um serviço e distribuir dados pode terminar em um processo muito bem documentado, porém, é uma &quot;carga&quot; de banda e desenvolvimento que nem sempre estamos dispostos a pagar.&lt;/p&gt;
+&lt;p&gt;É aí que entra o &lt;em&gt;REST&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Serviços web podem ser simples&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;REpresentational State Transfer&lt;/em&gt; (&lt;em&gt;REST&lt;/em&gt;) é um estilo de arquitetura amplamente utilizado no desenvolvimento de serviços &lt;em&gt;web&lt;/em&gt;. Segundo o &lt;em&gt;InfoQ&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;REST é um conjunto de princípios que definem como Web Standards como HTTP e URIs devem ser usados (o que freqüentemente difere um pouco do que muitas pessoas atualmente fazem). A promessa é que se você aderir a princípios REST enquanto estiver desenhando sua aplicação, você terá um sistema que explora a arquitetura da Web em seu benefício.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em outras palavras, você não precisa de um programa específico no lado do &lt;em&gt;back-end&lt;/em&gt; e um &lt;em&gt;client&lt;/em&gt; exclusivo no &lt;em&gt;front-end&lt;/em&gt; para consumir serviços &lt;em&gt;REST&lt;/em&gt;... Basta lermos arquivos &lt;em&gt;XML&lt;/em&gt; ou &lt;em&gt;JSON&lt;/em&gt; utilizando os verbos (&lt;em&gt;GET&lt;/em&gt;, &lt;em&gt;POST&lt;/em&gt;, &lt;em&gt;PUT&lt;/em&gt; e &lt;em&gt;DELETE&lt;/em&gt;) do protocolo &lt;em&gt;HTTP&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/59463921aa4b2519d11ccc59fd9e4978/b4294/soap-vs-rest-lawrence.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 93.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAATABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAECAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAB7FbxLqLMtwA//8QAFxABAQEBAAAAAAAAAAAAAAAAAgEQEv/aAAgBAQABBQJMxRHFx1AcZlWf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAHBAAAgICAwAAAAAAAAAAAAAAAQIAMRAREmFi/9oACAEBAAY/AlBtovrC8tboQUNVLidHP//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExUUGB/9oACAEBAAE/IbqsgfI7ZfME1yO5sNvYQw4XkOS9pmwlSif/2gAMAwEAAgADAAAAEKsAAP/EABcRAAMBAAAAAAAAAAAAAAAAAAERIEH/2gAIAQMBAT8QC2P/xAAVEQEBAAAAAAAAAAAAAAAAAAAgIf/aAAgBAgEBPxCj/8QAHBABAQADAAMBAAAAAAAAAAAAAREAITFBUWGB/9oACAEBAAE/EBjo1XwrmmhTfJMMQIaZYlWOhGw/DBPcuwduvNYgtGMbMJurepGdyPRnwM//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Considere o Martin Lawrence como seu dado (stackoverflow.com)&amp;quot;&quot;
+        title=&quot;Considere o Martin Lawrence como seu dado (stackoverflow.com)&quot;
+        src=&quot;/static/59463921aa4b2519d11ccc59fd9e4978/b4294/soap-vs-rest-lawrence.jpg&quot;
+        srcset=&quot;/static/59463921aa4b2519d11ccc59fd9e4978/7809d/soap-vs-rest-lawrence.jpg 192w,
+/static/59463921aa4b2519d11ccc59fd9e4978/4ecad/soap-vs-rest-lawrence.jpg 384w,
+/static/59463921aa4b2519d11ccc59fd9e4978/b4294/soap-vs-rest-lawrence.jpg 600w&quot;
+        sizes=&quot;(max-width: 600px) 100vw, 600px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Considere o Martin Lawrence como seu dado (stackoverflow.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Na verdade, espera-se que o consumidor e produtor do serviço não possuam qualquer vínculo maior que o &quot;respeito&quot; ao contrato daquela determinada &lt;em&gt;API&lt;/em&gt;, reduzindo consideravelmente o consumo de banda, limitando o número de operações ao número de verbos do protocolo e evitando ambigüidade.&lt;/p&gt;
+&lt;p&gt;Na &lt;strong&gt;parte 2&lt;/strong&gt; desse artigo iremos explorar de forma prática a utilização de &lt;em&gt;REST&lt;/em&gt; para a construção de uma &lt;em&gt;API&lt;/em&gt; na &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima...&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.infoq.com/br/articles/rest-introduction&quot;&gt;&lt;em&gt;InfoQ&lt;/em&gt;: Uma rápida introdução ao &lt;em&gt;REST&lt;/em&gt; &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.salesforce.com/page/REST_API&quot;&gt;&lt;em&gt;Salesfoce Developers: REST API&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/209905/representational-state-transfer-rest-and-simple-object-access-protocol-soap&quot;&gt;&lt;em&gt;Stackoverflow: Representational state transfer (REST) and Simple Object Access Protocol (SOAP)&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://searchsoa.techtarget.com/definition/REST&quot;&gt;&lt;em&gt;TechTarget: REST (representational state transfer) definition&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.webopedia.com/TERM/A/API.html&quot;&gt;&lt;em&gt;Webopedia: API - application program interface&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Service-oriented_architecture&quot; title=&quot;Leia sobre SOA no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia: Service-oriented Architecture&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/SOAP&quot;&gt;&lt;em&gt;Wikipedia: SOAP&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

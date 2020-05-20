@@ -1,9 +1,266 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - ordenacao</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Fri, 10 May 2019 10:45:00 -0300</lastBuildDate><item><title>Algoritmos de ordenação - Parte 1</title><link>https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</link><description>&lt;p&gt;Voltamos a falar sobre &lt;a href="https://klauslaube.com.br/tag/algoritmos.html" title="Leia mais sobre Algoritmos"&gt;algoritmos&lt;/a&gt;, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - ordenacao]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Algoritmos de ordenação - Parte 1]]></title><description><![CDATA[Voltamos a falar sobre algoritmos, e
+dessa vez o tópico é sobre ordenação de elementos. As linguagens de programação abstraem
+toda a complexidade envolvida para nós, mas mais que fundamental, compreender como tais algoritmos funcionam é mais um passo
+adiante no aprendizado das Ciências da Computação…]]></description><link>https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 10 May 2019 10:45:00 GMT</pubDate><content:encoded>&lt;p&gt;Voltamos a falar sobre &lt;a href=&quot;/tag/algoritmos.html&quot; title=&quot;Leia mais sobre Algoritmos&quot;&gt;algoritmos&lt;/a&gt;, e
 dessa vez o tópico é sobre ordenação de elementos. As linguagens de programação abstraem
 toda a complexidade envolvida para nós, mas mais que fundamental, compreender como tais algoritmos funcionam é mais um passo
 adiante no aprendizado das Ciências da Computação.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;h2&gt;Definição&lt;/h2&gt;
-&lt;p&gt;Algoritmos de ordenação …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Fri, 10 May 2019 10:45:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-05-10:/2019/05/10/algoritmos-de-ordenacao-parte-1.html</guid><category>desenvolvimento</category><category>estrutura-de-dados</category><category>ordenacao</category><category>algoritmos</category></item></channel></rss>
+&lt;p&gt;Algoritmos de ordenação (ou &lt;em&gt;Sorting Algorithms&lt;/em&gt;) podem ser &lt;a href=&quot;https://brilliant.org/wiki/sorting-algorithms/&quot; title=&quot;Sorting Algorithms no Brilliant&quot;&gt;definidos como&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) an algorithm made up of a series of instructions that takes an array as input, performs specified operations on the array, sometimes called a list, and outputs a sorted array. (...) There are many factors to consider when choosing a sorting algorithm to use.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Resumidamente, é o tipo de algoritmo que tem por entrada um &lt;em&gt;array&lt;/em&gt; e organiza os seus items seguindo uma ordem. Um fator a se considerar é que, as dimensões do &lt;em&gt;array&lt;/em&gt;, e as limitações de espaço, podem influenciar na escolha do algoritmo que será utilizado.&lt;/p&gt;
+&lt;h2&gt;Bubble sort&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Bubble sort&lt;/em&gt; é a escolha mais comum quando começamos a estudar sobre algoritmos e ordenação, por sua simplicidade e por dar uma ideia geral sobre como funcionam tais algoritmos.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/d4c88b8cc620af6af67c33910899fcf7/algoritmos-bubble-sort.gif&quot; alt=&quot;Passos do Bubble sort (wikipedia.org)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Os passos são os seguintes:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Compare &lt;code class=&quot;language-text&quot;&gt;A[0]&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;A[1]&lt;/code&gt;. Se &lt;code class=&quot;language-text&quot;&gt;A[0]&lt;/code&gt; for maior que &lt;code class=&quot;language-text&quot;&gt;A[1]&lt;/code&gt;, troque os elementos;&lt;/li&gt;
+&lt;li&gt;Vá para &lt;code class=&quot;language-text&quot;&gt;A[1]&lt;/code&gt;. Se &lt;code class=&quot;language-text&quot;&gt;A[1]&lt;/code&gt; for maior que &lt;code class=&quot;language-text&quot;&gt;A[2]&lt;/code&gt;, troque os elementos; Repita o processo para cada par de elementos até o final do &lt;em&gt;array&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Repita os passos &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;2&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt; vezes.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;E é daí que vem seu nome: Pegue o valor mais alto, e &quot;bubble it up&quot; até o fim do &lt;em&gt;array&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Abaixo o algoritmo representado em código &lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;bubble_sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+    Teste de mesa
+    -------------
+
+    array = []:
+        - `i` é `-1`, não cai no laço `while` e retorna array sem modificações
+
+    array = [1]:
+        - `i` é `0`, não cai no laço `while` e retorna array sem modificações
+
+    array = [1, 2]:
+        - `i` é `1`, entra no laço `while`
+        - `range(1)` resulta em `[0]`
+        - `j` é `0`. `j[0]` é menor que `j[1]`. Não faz swap
+        - Sai do laço `for`
+        - `i` é `0`. Sai do laço `while`
+        - Retorna array sem modificações
+
+    array = [3, 1, 2, 4]:
+        - `i` é `3`, entra no laço `while`
+        - `range(3)` resulta em `[0, 1, 2]`
+        - `j` é `0`. `j[0]` é maior que `j[1]`. Faz swap
+        - `array` fica [1, 3, 2, 4]
+        - `j` é `1`. `j[1]` é maior que `j[2]`. Faz swap
+        - `array` fica [1, 2, 3, 4]
+        - `j` é `2`. `j[2]` é menor que `j[3]`. Não faz swap
+        - Sai do laço `for`
+        - `i` é `2`, entra no laço `for [0, 1]`. Itens estão ordenados. Não faz swap
+        - Sai do laço `for`
+        - `i` é `1`, entra no laço `for [0]`. Itens estão ordenados. Não faz swap
+        - `i` é `0`. Sai do laço `while`
+        - Retorna array ordenado
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; j&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+    i &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; i &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; j &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                swap&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; j&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        i &lt;span class=&quot;token operator&quot;&gt;-=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;# Ao alterar o array in-place, não há reais motivos para retorná-lo&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Running-time complexity&lt;/em&gt;: Para cada elemento do &lt;em&gt;array&lt;/em&gt;, o algoritmo faz &lt;code class=&quot;language-text&quot;&gt;n - 1&lt;/code&gt; comparações. Considerando que ele percorre todo o array fazendo &lt;code class=&quot;language-text&quot;&gt;n - 1&lt;/code&gt; comparações, em &lt;a href=&quot;/2018/11/09/analise-assintotica.html&quot; title=&quot;Análise assintótica&quot;&gt;&lt;em&gt;big O notation&lt;/em&gt;&lt;/a&gt; temos &lt;code class=&quot;language-text&quot;&gt;O(n^2)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Space complexity&lt;/em&gt;: Como operamos a troca de elementos (&lt;code class=&quot;language-text&quot;&gt;swap&lt;/code&gt;), não precisamos de nenhuma outra estrutura de dados para armazenar o resultado da operação, com isso, temos complexidade de espaço de &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Selection sort&lt;/h2&gt;
+&lt;p&gt;Outro algoritmo simples e intuitivo, e &lt;a href=&quot;https://www.quora.com/Which-is-faster-selection-sort-or-bubble-sort&quot; title=&quot;Which is faster: selection sort or bubble sort?&quot;&gt;ligeiramente mais performático&lt;/a&gt;, é o &lt;em&gt;Selection sort&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/f20b8898585b3ca03843d93ce2c35a68/algoritmos-selection-sort.gif&quot; alt=&quot;Passos do Selection Sort (wikipedia.org)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Os passos podem ser resumidos em:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Encontre o menor valor;&lt;/li&gt;
+&lt;li&gt;Troque o menor valor com o primeiro item do &lt;em&gt;array&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Encontre o segundo menor valor;&lt;/li&gt;
+&lt;li&gt;Troque o segundo menor valor com o segundo item do &lt;em&gt;array&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Repita a operação até o &lt;em&gt;array&lt;/em&gt; estar ordenado.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b94efd9b044adf58624b636b64642a67/07f3a/mad-max-ordem.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHojqeHbFwP/8QAGRABAQADAQAAAAAAAAAAAAAAAgEDEjEh/9oACAEBAAEFAn4VkNYp1zW7jp5//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAESQf/aAAgBAwEBPwHVIf/EABgRAAIDAAAAAAAAAAAAAAAAAAABERIh/9oACAECAQE/AZwuz//EABkQAAIDAQAAAAAAAAAAAAAAAAABAhAhQf/aAAgBAQAGPwIXcFpK/wD/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhQTH/2gAIAQEAAT8hYlvJtlcOwRO+z3DgVAKuDM//2gAMAwEAAgADAAAAELsv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREQ/9oACAEDAQE/EIEGH//EABYRAQEBAAAAAAAAAAAAAAAAAAEREP/aAAgBAgEBPxCmnD//xAAbEAEAAgIDAAAAAAAAAAAAAAABABEhMUFRcf/aAAgBAQABPxCj4tV7C84ERnvEIlU23cAARhmqvccgKDUJSf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Image do filme MadMax&quot;
+        title=&quot;Um mundo sem ordem é um mundo infeliz (tasteofcinema.com)&quot;
+        src=&quot;/static/b94efd9b044adf58624b636b64642a67/07f3a/mad-max-ordem.jpg&quot;
+        srcset=&quot;/static/b94efd9b044adf58624b636b64642a67/7809d/mad-max-ordem.jpg 192w,
+/static/b94efd9b044adf58624b636b64642a67/4ecad/mad-max-ordem.jpg 384w,
+/static/b94efd9b044adf58624b636b64642a67/07f3a/mad-max-ordem.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Um mundo sem ordem é um mundo infeliz (tasteofcinema.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;No algoritmo anterior tínhamos como finalidade mover o maior valor para o final do &lt;em&gt;array&lt;/em&gt;. Nesse, a finalidade é selecionar o valor mais baixo no &lt;em&gt;array&lt;/em&gt;, e movê-lo para o começo da estrutura.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;selection_sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+    Teste de mesa
+    -------------
+
+    array = []:
+        - `len(array)` é `0`, não cai no primeiro no laço `for` e retorna array sem modificações
+
+    array = [1]:
+        - `len(array)` é `1`, entra no primeiro laço `for`
+        - `min_index` é `0`, não entra no segundo laço
+        - Retorna array sem modificações
+
+    array = [1, 2]:
+        - `len(array)` é `2`, entra no primeiro laço `for`
+        - `i` é `0` e `min_index` é `0`. Entra no segundo laço `for`
+        - `j` é `1`. `array[0]` não é maior que `array[1]`
+        - Sai do segundo laço `for`
+        - Faz swap `0` (`i`) e `0` (`min_index`)
+        - Retorna array sem modificações
+
+    array = [3, 1, 2, 4]:
+        - `len(array)` é `4`, entra no primeiro laço `for`
+        - `i` é `0` e `min_index` é `0`. Entra no segundo laço `for`
+        - `j` é `1`. `array[0]` é maior que `array[1]`
+        - `min_index` é `1`
+        - `j` é `2`. `array[1]` não é maior que `array[2]`
+        - `j` é `3`. `array[1]` não é maior que `array[3]`
+        - Sai do segundo laço `for`
+        - Faz swap `0` (`i`) e `1` (`min_index`)
+        - `array` fica [1, 3, 2, 4]
+        - `i` é `1` e `min_index` é `1`. Entra no segundo laço `for`
+        - `j` é `2`. `array[1]` é maior que `array[2]`
+        - `min_index` é `2`
+        - `j` é `3`. `array[2]` não é maior que `array[3]`
+        - Sai do segundo laço `for`
+        - Faz swap `1` (`i`) e `2` (`min_index`)
+        - `array` fica [1, 2, 3, 4]
+        - `i` é `2` e `min_index` é `2`. Entra no segundo laço `for`
+        - `j` é `3`. `array[2]` não é maior que `array[3]`
+        - Sai do segundo laço `for`
+        - Faz swap `2` (`i`) e `2` (`min_index`)
+        - `i` é `3` e `min_index` é `3`. Não entra no segundo laço `for`
+        - Faz swap `3` (`i`) e `3` (`min_index`)
+        - Sai do primeiro laço `for`
+        - Retorna array ordenado
+    &quot;&quot;&quot;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;swap&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; j&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;i
+
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        min_index &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; i
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; j &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;min_index&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;j&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+                min_index &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; j
+
+        swap&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;i&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; min_index&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;# Ao alterar o array in-place, não há reais motivos para retorná-lo&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Running-time complexity&lt;/em&gt;: Ao percebermos os dois &lt;em&gt;loops&lt;/em&gt; alinhados, percorrendo a dimensão do &lt;em&gt;array&lt;/em&gt; cada, podemos concluir que a complexidade é de &lt;code class=&quot;language-text&quot;&gt;O(n^2)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Space complexity&lt;/em&gt;: Como operamos a troca de elementos (&lt;code class=&quot;language-text&quot;&gt;swap&lt;/code&gt;), não precisamos de nenhuma outra estrutura de dados para armazenar o resultado da operação, com isso, temos complexidade de espaço de &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Insertion sort&lt;/h2&gt;
+&lt;p&gt;Para finalizar essa primeira parte do artigo, apresentamos o &lt;em&gt;Insertion sort&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/6e67d1c722106442b422ee53e98575b3/algoritmos-insertion-sort.gif&quot; alt=&quot;Passos do Insertion sort (wikipedia.org)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Embora ele se compare aos dois algoritmos acima em &lt;em&gt;running time&lt;/em&gt;, na minha opinião, imaginar o seu funcionamento demanda um pouquinho mais de esforço. Nesse algoritmo, o propósito é achar o lugar onde o elemento deveria estar no &lt;em&gt;array&lt;/em&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Para cada elemento &lt;code class=&quot;language-text&quot;&gt;A[i]&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Se &lt;code class=&quot;language-text&quot;&gt;A[i] &amp;gt; A[i + 1]&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Troque os elementos até &lt;code class=&quot;language-text&quot;&gt;A[i] &amp;lt;= A[i + 1]&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Abaixo a implementação em &lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;insertion_sort&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token triple-quoted-string string&quot;&gt;&quot;&quot;&quot;
+    Teste de mesa
+    -------------
+
+    array = []:
+        - `len(array)` é `0`, não cai no laço `for` e retorno array sem modificações
+
+    array = [1]:
+        - `len(array)` é `1`, mas `range(1, len(array))` resulta em `[]`
+        - Retorna array sem modificações
+
+    array = [1, 2]:
+        - `len(array)` é `2`, entra no laço `for`
+        - `slot` é `1`. `value` é `2` e `test_slot` é `0`
+        - `test_slot` é maior que `-1`, mas `array[0]` não é maior que `2`
+        - `array[1]` recebe `2` (mesmo valor)
+        - Retorna array sem modificações
+
+    array = [3, 1, 2, 4]:
+        - `len(array)` é `4`, entra no laço `for`
+        - `slot` é `1`, `value` é `1` e `test_slot` é `0`
+        - `test_slot` é maior que `-1` e `array[0]` é maior que `1`. Entra no laço `while`
+        - `array[1]` recebe `array[0]`
+        - `test_slot` é `-1`
+        - `array` fica [3, 3, 2, 4]
+        - `test_slot` não é maior que `-1`. Sai do laço `while`
+        - `array[0]` recebe `1`
+        - `array` fica [1, 3, 2, 4]
+        - `slot` é `2`, `value` é `2` e `test_slot` é `1`
+        - `test_slot` é maior que `-1` e `array[1]` é maior que `2`. Entra no laço `while`
+        - `array[2]` recebe `3`
+        - `test_slot` é `0`
+        - `array` fica [1, 3, 3, 4]
+        - `test_slot` é maior que `-1`, mas `array[0]` não é maior que `2`. Sai do laço `while`
+        - `array[1]` recebe `2`
+        - `array` fica [1, 2, 3, 4]
+        - `slot` é `3`, `value` é `4` e `test_slot` é `2`
+        - `test_slot` é maior que `-1`, mas `array[2]` não é maior que `4`. Não entra no laço `while`
+        - `array[3]` recebe `4` (mesmo valor). Sai do laço `for`
+        - Retorna array ordenado
+    &quot;&quot;&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; slot &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;array&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;slot&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+        test_slot &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; slot &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;while&lt;/span&gt; test_slot &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;and&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test_slot&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test_slot &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test_slot&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+            test_slot &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; test_slot &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+        array&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;test_slot &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; value
+
+    &lt;span class=&quot;token comment&quot;&gt;# Ao alterar o array in-place, não há reais motivos para retorná-lo&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; array&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Running-time complexity&lt;/em&gt;: No melhor cenário, o algoritmo terá complexidade &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;. O mesmo apresenta complexidade &lt;code class=&quot;language-text&quot;&gt;O(n^2)&lt;/code&gt; como pior cenário.&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Space complexity&lt;/em&gt;: Como operamos a troca de elementos (&lt;code class=&quot;language-text&quot;&gt;swap&lt;/code&gt;), não precisamos de nenhuma outra estrutura de dados para armazenar o resultado da operação, com isso, temos complexidade de espaço de &lt;code class=&quot;language-text&quot;&gt;O(1)&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Os algoritmos listados nesse artigo não possuem performance atrativa, mas são a escolha perfeita para introduzir o conceito de algoritmos e ordenação de elementos. E por mais que você sinta-se tentado a defender a ótima característica de &lt;em&gt;space complexity&lt;/em&gt; que eles possuem, ainda assim há soluções mais práticas para os problemas de ordenação do cotidiano.&lt;/p&gt;
+&lt;p&gt;Nos próximos artigos vamos explorar algumas delas, como o &lt;em&gt;Merge&lt;/em&gt; e &lt;em&gt;Quicksort&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://brilliant.org/wiki/bubble-sort/&quot;&gt;Brilliant - Bubble sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://brilliant.org/wiki/insertion/&quot;&gt;Brilliant - Insertion sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://brilliant.org/wiki/sorting-algorithms/&quot;&gt;Brilliant - Sorting Algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/selection-sort/&quot;&gt;GeeksForGeeks - Selection sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@george.seif94/a-tour-of-the-top-5-sorting-algorithms-with-python-code-43ea9aa02889&quot;&gt;George Seif - A tour of the top 5 sorting algorithms with Python code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.khanacademy.org/computing/computer-science/algorithms/sorting-algorithms/a/selection-sort-pseudocode&quot;&gt;Khan Academy - Selection sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.cs.cmu.edu/~adamchik/15-121/lectures/Sorting%20Algorithms/sorting.html&quot;&gt;Victor S. Adamchick - Sorting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Bubble_sort&quot;&gt;Wikipedia - Bubble sort&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Insertion_sort&quot;&gt;Wikipedia - Insertion sort&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

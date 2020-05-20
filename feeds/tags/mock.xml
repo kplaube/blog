@@ -1,15 +1,356 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - mock</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 29 Jun 2015 12:30:00 -0300</lastBuildDate><item><title>Os testes e os dublês - Parte 2</title><link>https://klauslaube.com.br/2015/06/29/os-testes-e-os-dubles-parte-2.html</link><description>&lt;p&gt;No &lt;a href="https://klauslaube.com.br/2014/08/07/os-testes-e-os-dubles-parte-1.html" title="Os testes e os Dublês - Parte 1"&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, vimos um dos
-cenários de testes utilizados por times da &lt;a href="http://globo.com" title="Absolutamente tudo sobre notícias, esportes e entretenimento"&gt;&lt;em&gt;Globo.com&lt;/em&gt;&lt;/a&gt;, onde não escrevemos testes "isolados"
-(famigerados &lt;em&gt;&lt;a href="https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&amp;amp;album=theBasics&amp;amp;devLanguage=Java" title="Testing Single Responsibilities at High Speed"&gt;microtests&lt;/a&gt;&lt;/em&gt;),
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - mock]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Os testes e os dublês - Parte 2]]></title><description><![CDATA[No post anterior, vimos um dos
+cenários de testes utilizados por times da Globo.com, onde não escrevemos testes "isolados"
+(famigerados microtests),
+e abusamos da integração entre classes e serviços. Mas até mesmo para nós existe um limite que não podemos ultrapassar: O caso
+de uma consulta a uma…]]></description><link>https://klauslaube.com.br/2015/06/29/os-testes-e-os-dubles-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2015/06/29/os-testes-e-os-dubles-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 29 Jun 2015 12:30:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2014/08/07/os-testes-e-os-dubles-parte-1.html&quot; title=&quot;Os testes e os Dublês - Parte 1&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, vimos um dos
+cenários de testes utilizados por times da &lt;a href=&quot;http://globo.com&quot; title=&quot;Absolutamente tudo sobre notícias, esportes e entretenimento&quot;&gt;&lt;em&gt;Globo.com&lt;/em&gt;&lt;/a&gt;, onde não escrevemos testes &quot;isolados&quot;
+(famigerados &lt;em&gt;&lt;a href=&quot;https://elearning.industriallogic.com/gh/submit?Action=AlbumContentsAction&amp;#x26;album=theBasics&amp;#x26;devLanguage=Java&quot; title=&quot;Testing Single Responsibilities at High Speed&quot;&gt;microtests&lt;/a&gt;&lt;/em&gt;),
 e abusamos da integração entre classes e serviços.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-
 &lt;p&gt;Mas até mesmo para nós existe um limite que não podemos ultrapassar: O caso
-de uma consulta a uma &lt;em&gt;API …&lt;/em&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 29 Jun 2015 12:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2015-06-29:/2015/06/29/os-testes-e-os-dubles-parte-2.html</guid><category>desenvolvimento</category><category>testes</category><category>mock</category><category>python</category></item><item><title>Os testes e os dublês - Parte 1</title><link>https://klauslaube.com.br/2014/08/07/os-testes-e-os-dubles-parte-1.html</link><description>&lt;p&gt;Em tempos onde &lt;a href="http://martinfowler.com/articles/is-tdd-dead/" title="Is TDD dead?"&gt;discussões envolvendo a relevância&lt;/a&gt; dos &lt;a href="https://klauslaube.com.br/tag/testes.html" title="Leia mais sobre testes"&gt;testes&lt;/a&gt; têm
-causado furor nos diferentes campos da área do desenvolvimento de &lt;em&gt;software&lt;/em&gt;,
-nada mais justo do que "chovermos no molhado", e falarmos sobre testes, &lt;em&gt;mocks&lt;/em&gt;,
-&lt;em&gt;stubs&lt;/em&gt; e todos os seus primos menos famosos.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+de uma consulta a uma &lt;em&gt;API&lt;/em&gt; externa, por exemplo. Nesse cenário, precisamos
+fingir que estamos fazendo isso, sem perder a segurança em nossas asserções.&lt;/p&gt;
+&lt;h2&gt;Dublês ao resgate&lt;/h2&gt;
+&lt;p&gt;Como já mencionado, os &lt;em&gt;test doubles&lt;/em&gt; têm por finalidade substituir um objeto
+real, afim de validar algum conceito em nossos testes.&lt;/p&gt;
+&lt;p&gt;Para auxiliar-nos nessa demanda, vamos utilizar a &lt;strong&gt;Python Mock&lt;/strong&gt;, biblioteca
+de &lt;em&gt;mocking&lt;/em&gt; padrão do &lt;em&gt;Python 3&lt;/em&gt;. Com ela, poderemos fingir integrações
+complexas da nossa aplicação, com o objetivo de testar um determinado
+comportamento em &quot;custo&quot; e tempos atrativos.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 500px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6d2937bb703c3aaac5ccb2f7c3921185/41099/testing-vader.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcKmVgkA/8QAGRABAAIDAAAAAAAAAAAAAAAAAQIQABEh/9oACAEBAAEFAh0s4tGcr//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAAGAwAAAAAAAAAAAAAAAAABAhARMRIyYf/aAAgBAQAGPwKpEYILpNY2b//EABoQAQACAwEAAAAAAAAAAAAAAAEAIRExYUH/2gAIAQEAAT8hIFHDDd543mMxW8IiL15G5//aAAwDAQACAAMAAAAQK8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAACAgMBAQAAAAAAAAAAAAAAAREhMUFRYXH/2gAIAQEAAT8QQwEvB/RTaLphJCt4kyE1rdqRyg47GbTZ/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;I find your lack of tests disturbing (jasonpolites.github.io)&amp;quot;&quot;
+        title=&quot;I find your lack of tests disturbing (jasonpolites.github.io)&quot;
+        src=&quot;/static/6d2937bb703c3aaac5ccb2f7c3921185/41099/testing-vader.jpg&quot;
+        srcset=&quot;/static/6d2937bb703c3aaac5ccb2f7c3921185/7809d/testing-vader.jpg 192w,
+/static/6d2937bb703c3aaac5ccb2f7c3921185/4ecad/testing-vader.jpg 384w,
+/static/6d2937bb703c3aaac5ccb2f7c3921185/41099/testing-vader.jpg 500w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;I find your lack of tests disturbing (jasonpolites.github.io)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Se você (assim como eu) ainda está no &lt;em&gt;Python 2.7.X&lt;/em&gt;, podemos instalar a &lt;em&gt;lib&lt;/em&gt;
+através do &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install mock&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.voidspace.org.uk/python/mock/#installing&quot; title=&quot;Mock - Installing&quot;&gt;Mais instruções para instalação da &lt;em&gt;Mock&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Uma vez instalada, podemos partir para conceituar de forma prática cada um dos
+tipos de dublês listados no &lt;em&gt;post&lt;/em&gt; anterior.&lt;/p&gt;
+&lt;h2&gt;Dummys&lt;/h2&gt;
+&lt;p&gt;Um &lt;em&gt;Dummy Object&lt;/em&gt; é um tipo de dublê muito simples, que é usado apenas para
+preencher passagens de parâmetros:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Carro&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    rodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;
 
-&lt;p&gt;Nessa primeira parte, vamos conceituar toda essa "sopa …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Thu, 07 Aug 2014 23:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2014-08-07:/2014/08/07/os-testes-e-os-dubles-parte-1.html</guid><category>desenvolvimento</category><category>testes</category><category>mock</category><category>python</category></item></channel></rss>
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; descricao
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fabricante
+
+&lt;span class=&quot;token comment&quot;&gt;# Teste&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_usando_dummy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;None&lt;/span&gt;
+    carro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Carro&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Fusca&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; carro&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;rodas &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como observado, um &lt;em&gt;Dummy&lt;/em&gt; não precisa ser necessariamente um &lt;em&gt;mock&lt;/em&gt;. Um valor
+em branco, nulo, uma string vazia, qualquer coisa usada para substituir um
+objeto real em uma passagem de parâmetro, pode ser considerado um &lt;em&gt;Dummy&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Fakes&lt;/h2&gt;
+&lt;p&gt;Um &lt;em&gt;Fake&lt;/em&gt; é um objeto com certa funcionalidade, muito útil para resolver
+alguma dependência em testes, mas que não é ideal para o ambiente de
+produção:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Carro&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    rodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; descricao
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fabricante
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;{0} ({1})&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Teste&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FabricanteFake&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    descricao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Volkswagen&apos;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;get_descricao&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_usando_fake&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; FabricanteFake&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    carro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Carro&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Fusca&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;carro&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Fusca (Volkswagen)&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No exemplo acima, (ainda) não utilizamos nenhum recurso da &lt;strong&gt;Mock&lt;/strong&gt;. Dependendo
+do contexto, não precisamos de uma biblioteca para criarmos um &lt;em&gt;Fake&lt;/em&gt;, e isso
+pode ser encarado de forma positiva, pois fica muito clara a nossa intenção
+no teste.&lt;/p&gt;
+&lt;p&gt;É relativamente comum vermos &lt;em&gt;Fakes&lt;/em&gt; sendo utilizados para &quot;dublar&quot; acessos
+a um banco de dados. Quando falamos de testes em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;,
+geralmente utilizamos uma persistência mais leve (como um banco &lt;em&gt;SQLite&lt;/em&gt;, por exemplo)
+que substitui um banco mais complexo, tornando a nossa suíte de testes
+mais simples.&lt;/p&gt;
+&lt;h2&gt;Mocks&lt;/h2&gt;
+&lt;p&gt;Um tipo de dublê criado para um teste específico. Com ele, somos capazes
+de setar retornos de valores pré-definidos, bem como verificar se algum
+método foi chamado durante a execução do teste:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Carro&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    rodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; descricao
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fabricante
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;{0} ({1})&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Teste&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_usando_mock&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MagicMock&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;return_value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Volkswagen&apos;&lt;/span&gt;
+    carro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Carro&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Fusca&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;carro&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Fusca (Volkswagen)&apos;&lt;/span&gt;
+    fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;assert_called_once_with&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Mocks&lt;/em&gt; são fundamentais quando estamos lidando com interações
+das quais não podemos (ou fica muito custoso) prever o comportamento.
+Particularmente, gosto de usar &lt;em&gt;Mocks&lt;/em&gt; para garantir que o contrato entre o
+meu método/classe e meu serviço/&lt;em&gt;API&lt;/em&gt; esteja coerente.&lt;/p&gt;
+&lt;h2&gt;Stubs&lt;/h2&gt;
+&lt;p&gt;Semelhantes aos &lt;em&gt;Mocks&lt;/em&gt;, com os &lt;em&gt;Stubs&lt;/em&gt; temos a capacidade de retornar
+respostas pré-definidas durante a execução de um teste. A principal diferença
+entre ambos é que com &lt;em&gt;Stubs&lt;/em&gt;, não costumamos checar se eles foram propriamente
+executados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Carro&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    rodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; descricao
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fabricante
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;{0} ({1})&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Teste&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; mock &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; MagicMock
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_usando_stub&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MagicMock&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;return_value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Volkswagen&apos;&lt;/span&gt;
+    carro &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Carro&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Fusca&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;carro&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Fusca (Volkswagen)&apos;&lt;/span&gt;
+
+test_usando_stub&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Stubs&lt;/em&gt; são excelentes para fingir interações com bibliotecas &lt;em&gt;third-party&lt;/em&gt;. Não
+precisamos compreender a sua complexidade, apenas fingimos que ela está lá e
+retornando valores para os nossos &lt;em&gt;test cases&lt;/em&gt;. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; datetime &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; date
+&lt;span class=&quot;token keyword&quot;&gt;with&lt;/span&gt; patch&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;mymodule.date&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; mock_date&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    mock_date&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;today&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;return_value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; date&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2010&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    mock_date&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;side_effect &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;**&lt;/span&gt;kw&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; date&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;args&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;**&lt;/span&gt;kw&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; mymodule&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;date&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;today&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; date&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2010&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; mymodule&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;date&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2009&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; date&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2009&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Spies&lt;/h2&gt;
+&lt;p&gt;Com &lt;em&gt;Spies&lt;/em&gt;, ao invés de setarmos expectativas, armazenamos as chamadas
+realizadas por colaboradores:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Carro&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    rodas &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;4&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; descricao
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; fabricante
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;__str__&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;{0} ({1})&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;descricao&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token comment&quot;&gt;# Teste&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; mock &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; MagicMock
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_usando_spy&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    fabricante &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; MagicMock&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;return_value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Volkswagen&apos;&lt;/span&gt;
+
+    fusca &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Carro&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Fusca&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    gol &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Carro&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;Gol&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token builtin&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;fusca&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token builtin&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;gol&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; fabricante&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get_descricao&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;call_count &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Costumo usar &lt;em&gt;Spies&lt;/em&gt; com frequência em testes &lt;em&gt;front-end&lt;/em&gt;,
+principalmente utilizando &lt;a href=&quot;https://qunitjs.com/&quot; title=&quot;Conheça a suíte de testes JS, QUnit&quot;&gt;&lt;em&gt;QUnit&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;http://sinonjs.org/&quot; title=&quot;Spies, stubs and mocks for Javascript&quot;&gt;&lt;em&gt;Sinon.JS&lt;/em&gt;&lt;/a&gt;,
+para garantir a chamada de um determinado método dentro de eventos complexos,
+onde não consigo ter certeza sobre o resultado esperado.&lt;/p&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Já dizia o filósofo que &quot;mockar é uma arte&quot;. A verdade é que o uso de &lt;em&gt;doubles&lt;/em&gt;
+nos ajuda muito quando estamos trabalhando dentro de um contexto de &lt;em&gt;TDD&lt;/em&gt;,
+simplificando assim um relacionamento complexo entre classes/objetos, afim de
+agilizar o nosso desenvolvimento e facilitar os nosso testes.&lt;/p&gt;
+&lt;p&gt;Recentemente participei de um treinamento da &lt;a href=&quot;http://www.industriallogic.com/&quot; title=&quot;Developing Software Doesn&amp;#x27;t Have To Be Slow, Stressful And Filled With Unpleasant Surprises&quot;&gt;&lt;em&gt;Industrial Logic&lt;/em&gt;&lt;/a&gt;, sobre &lt;em&gt;Refactoring&lt;/em&gt;, e a lição que ficou foi:
+Use &lt;em&gt;mocks&lt;/em&gt; moderadamente. Sempre dê preferência a uma alteração na arquitetura
+do seu &lt;em&gt;software&lt;/em&gt; (como por exemplo, o uso de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_depend%C3%AAncia&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;Injeção de Dependência&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Se o uso de dublês for inevitável, prefira tipos mais simples
+(&lt;em&gt;Dummys&lt;/em&gt; e &lt;em&gt;Fakes&lt;/em&gt;). Dessa forma, os seus testes ficarão simples, legíveis e
+mais fáceis de manter.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&quot;https://nirajrules.wordpress.com/2011/08/27/dummy-vs-stub-vs-spy-vs-fake-vs-mock/&quot; title=&quot;Leia o artigo completo sobre as nomenclaturas&quot;&gt;Niraj Bhatt - Dummy vs. Stub vs. Spy vs. Fake vs. Mock&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&quot;http://stackoverflow.com/questions/346372/whats-the-difference-between-faking-mocking-and-stubbing&quot; title=&quot;Leia mais no StackOverflow&quot;&gt;StackOverflow - What&apos;s the difference between faking, mocking, and stubbing?&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&quot;http://code.tutsplus.com/articles/tdd-terminology-simplified--net-30626&quot; title=&quot;Leia mais sobre TDD no Tuts+&quot;&gt;Tuts+ - TDD Terminology Simplified&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Os testes e os dublês - Parte 1]]></title><description><![CDATA[Em tempos onde discussões envolvendo a relevância dos testes têm
+causado furor nos diferentes campos da área do desenvolvimento de software,
+nada mais justo do que "chovermos no molhado", e falarmos sobre testes, mocks,
+stubs e todos os seus primos menos famosos. Nessa primeira parte, vamos…]]></description><link>https://klauslaube.com.br/2014/08/07/os-testes-e-os-dubles-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2014/08/07/os-testes-e-os-dubles-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Thu, 07 Aug 2014 23:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Em tempos onde &lt;a href=&quot;http://martinfowler.com/articles/is-tdd-dead/&quot; title=&quot;Is TDD dead?&quot;&gt;discussões envolvendo a relevância&lt;/a&gt; dos &lt;a href=&quot;/tag/testes.html&quot; title=&quot;Leia mais sobre testes&quot;&gt;testes&lt;/a&gt; têm
+causado furor nos diferentes campos da área do desenvolvimento de &lt;em&gt;software&lt;/em&gt;,
+nada mais justo do que &quot;chovermos no molhado&quot;, e falarmos sobre testes, &lt;em&gt;mocks&lt;/em&gt;,
+&lt;em&gt;stubs&lt;/em&gt; e todos os seus primos menos famosos.&lt;/p&gt;
+&lt;p&gt;Nessa primeira parte, vamos conceituar toda essa &quot;sopa de letrinhas&quot; e detalhar
+a forma peculiar como os testes são tratados dentro de um dos times
+da &lt;a href=&quot;http://globo.com&quot; title=&quot;Absolutamente tudo sobre notícias, esportes e entretenimento&quot;&gt;&lt;em&gt;Globo.com&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Qual causa, motivo, razão ou circunstância?&lt;/h2&gt;
+&lt;p&gt;Eu gosto muito da linha de pensamento que colegas como &lt;em&gt;&lt;a href=&quot;http://twitter.com/rafael_mws&quot; title=&quot;Siga o Cabra no Twitter&quot;&gt;Rafael Martins&lt;/a&gt;&lt;/em&gt; e
+&lt;em&gt;&lt;a href=&quot;https://twitter.com/romulojales&quot; title=&quot;Siga o Rômulo&quot;&gt;Rômulo Jales&lt;/a&gt;&lt;/em&gt;, têm em relação a testes automatizados: Pare de perder tempo
+separando-os em unitários, funcionais, aceitação ou regressão, e vá escrevê-los.&lt;/p&gt;
+&lt;p&gt;Particularmente, acho vantajoso praticar o &lt;a href=&quot;/tag/tdd.html&quot; title=&quot;Leia mais sobre TDD&quot;&gt;&lt;em&gt;TDD&lt;/em&gt;&lt;/a&gt;, deixando com que os
+testes me ajudem a montar a arquitetura da aplicação. Quando roubamos um pouco
+da filosofia do parágrafo anterior, temos um foco maior na resolução de um
+requisito do que na &quot;minúcia&quot; de uma classe/módulo/pacote. Organicamente
+conseguimos atingir um desenvolvimento focado no funcional, muito próximo de
+propostas como a do &lt;a href=&quot;/tag/bdd.html&quot; title=&quot;Leia mais sobre BDD&quot;&gt;&lt;em&gt;BDD&lt;/em&gt;&lt;/a&gt;, sem precisar recorrer a artifícios
+como &lt;em&gt;user stories&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ok... deixamos de ser tão &quot;unitários&quot;, e aprendemos a lidar com o todo. Mas e
+os acessos ao banco de dados? Ao &lt;em&gt;&lt;a href=&quot;/tag/memcached.html&quot; title=&quot;Leia mais sobre Memcached&quot;&gt;Memcached&lt;/a&gt;&lt;/em&gt; ou &lt;em&gt;Redis&lt;/em&gt;? E as interações
+entre meus serviços e &lt;em&gt;APIs&lt;/em&gt; internas? E as escritas em disco? E as sessões
+do usuário?&lt;/p&gt;
+&lt;p&gt;Como lidar com tudo isso?&lt;/p&gt;
+&lt;h2&gt;O Case de Esportes 1&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Esportes 1&lt;/em&gt; é um dos 3 times que compõe o núcleo de desenvolvimento da área
+de esportes, da &lt;em&gt;Globo.com&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;No time, decidimos que a maioria dessas interações deve estar lá em tempo de
+execução dos testes. Ou seja, (&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/testing/tools/&quot; title=&quot;Testing Tools&quot;&gt;com uma ajudinha do &lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;) nossos testes
+consultam o banco de dados, interagem com a camada de cache, escrevem em
+disco, etc.&lt;/p&gt;
+&lt;p&gt;Somos tão preguiçosos que os testes chegam a consultar os ambientes de
+teste/desenvolvimento dos serviços criados por outros times, como dados
+semânticos, de dados esportivos, de vídeos, etc.&lt;/p&gt;
+&lt;p&gt;Obviamente temos o &lt;em&gt;trade-off&lt;/em&gt; dos tempos de execução, que até o momento não
+chegaram a ser um problema tão grande para a equipe.&lt;/p&gt;
+&lt;h3&gt;Um lugar escuro e frio&lt;/h3&gt;
+&lt;p&gt;Concluímos que nossos testes não são nem de longe isolados. Estamos mais
+preocupados em validar o comportamento de uma funcionalidade do que de um
+objeto em específico.&lt;/p&gt;
+&lt;p&gt;Batemos no peito, orgulhosos de nossa decisão, e começamos a encarar o mundo
+com olhos marejados pelo árduo caminho que percorremos para chegar até aqui.&lt;/p&gt;
+&lt;p&gt;Mas existe a &quot;borda&quot; da aplicação. Dali para fora, você não tem controle algum
+sobre o que acontece. Você apenas tem a promessa de que aquela &lt;em&gt;API&lt;/em&gt; vai
+funcionar. Deixar com que os testes batam nesses serviços &quot;estrangeiros&quot; pode
+custar muito tempo (e claro, dinheiro), tornando inviável a execução dos mesmos
+em tempo de desenvolvimento.&lt;/p&gt;
+&lt;p&gt;E é aí meu amigo, depois dessa justificativa gigante, que entram os &lt;em&gt;mocks&lt;/em&gt;,
+&lt;em&gt;stubs&lt;/em&gt;, &lt;em&gt;spies&lt;/em&gt;, etc.&lt;/p&gt;
+&lt;h2&gt;Don&apos;t mock me!&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 612px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/09fe506dca4f5502d60a2e5374b42e52/a18e1/dubles.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEA//EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABxmRjVCgZ/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIDERIAIv/aAAgBAQABBQI5McYMbvH6rsWA9L//xAAXEQADAQAAAAAAAAAAAAAAAAAAARJR/9oACAEDAQE/AYJWn//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAMAAgMAAAAAAAAAAAAAAAABMQKRESIj/9oACAEBAAY/Al6Vway6jujkors//8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPyHFK+Ih26Oyxq2wVNPajoX92bSyl+J//9oADAMBAAIAAwAAABAD/wD/xAAXEQEBAQEAAAAAAAAAAAAAAAABACHw/9oACAEDAQE/EMA3Iv/EABgRAAMBAQAAAAAAAAAAAAAAAAABESFR/9oACAECAQE/EKnTeH//xAAcEAEBAAIDAQEAAAAAAAAAAAABEQAhMUFRYYH/2gAIAQEAAT8QCuz2PcC++S5OAU3Lt1HsyUjRu4/ROnCkGSBkZpxAYUuLbvG5bRGOfPzP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Entram os dublês!&amp;quot;&quot;
+        title=&quot;Entram os dublês!&quot;
+        src=&quot;/static/09fe506dca4f5502d60a2e5374b42e52/a18e1/dubles.jpg&quot;
+        srcset=&quot;/static/09fe506dca4f5502d60a2e5374b42e52/7809d/dubles.jpg 192w,
+/static/09fe506dca4f5502d60a2e5374b42e52/4ecad/dubles.jpg 384w,
+/static/09fe506dca4f5502d60a2e5374b42e52/a18e1/dubles.jpg 612w&quot;
+        sizes=&quot;(max-width: 612px) 100vw, 612px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Entram os dublês!&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Vamos abrir um parênteses aqui para esclarecer o conceito de &quot;mock&quot;.
+Na &lt;a href=&quot;http://www.voidspace.org.uk/python/mock/#terminology&quot; title=&quot;Biblioteca de mock do Python&quot;&gt;documentação da biblioteca de &lt;em&gt;mock&lt;/em&gt; do &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, temos a seguinte
+(e incrivelmente sucinta) definição:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A “mock object” is an object used to replace a real one in a system under test.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Ou, &lt;a href=&quot;http://www.infoq.com/br/articles/mocks-Arent-Stubs&quot; title=&quot;A diferença entre Mocks e Stubs&quot;&gt;nas palavras de &lt;em&gt;Martin Fowler&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) objetos pré-programados com informações que formam uma especificação das chamadas que esperam receber.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O termo &lt;em&gt;mock&lt;/em&gt; faz parte de um conceito mais genérico, conhecido por
+&lt;em&gt;Test Double&lt;/em&gt;. Segundo &lt;em&gt;Fowler&lt;/em&gt;, esse termo é usado para qualquer objeto que
+tem por finalidade, em um teste, substituir um objeto real.&lt;/p&gt;
+&lt;p&gt;Logo, quando em &lt;em&gt;Esportes1&lt;/em&gt; consumimos um recurso externo, &quot;mentimos&quot; para o
+sistema. Além do &lt;strong&gt;Mock&lt;/strong&gt;, existem outros dublês que nos ajudam nessa tarefa:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Dummy:&lt;/strong&gt; Objetos com o propósito apenas de &quot;ocupar espaço&quot;, geralmente usados em passagens de parâmetros;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Fake:&lt;/strong&gt; Objetos funcionais, mas inadequados para um ambiente de produção;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stubs:&lt;/strong&gt; Providenciam respostas pré-configuradas, e normalmente não respondem a nada que não esteja programado para o teste;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spies:&lt;/strong&gt; Você pega um objeto real, substituindo o comportamento apenas de alguns métodos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O &lt;em&gt;InfoQ&lt;/em&gt; possui um artigo do &lt;em&gt;Martin Fowler&lt;/em&gt;, &lt;a href=&quot;http://www.infoq.com/br/articles/mocks-Arent-Stubs&quot; title=&quot;Mocks não são Stubs&quot;&gt;traduzido para o Português&lt;/a&gt;,
+onde ele conceitua bem os diferentes tipos de dublês, principalmente o &lt;em&gt;mock&lt;/em&gt;
+e &lt;em&gt;stub&lt;/em&gt;. Vale a leitura.&lt;/p&gt;
+&lt;p&gt;Na segunda parte deste &lt;em&gt;post&lt;/em&gt;, utilizaremos cada conceito de forma prática, e
+discutiremos um pouco mais sobre o grande dilema: Mockar ou não mockar.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.infoq.com/br/articles/mocks-Arent-Stubs&quot; title=&quot;Leia o artigo do Martin Fowler, traduzido para pt-BR&quot;&gt;&lt;em&gt;Info Q&lt;/em&gt; - &lt;em&gt;Mocks&lt;/em&gt; não são &lt;em&gt;Stubs&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.voidspace.org.uk/python/mock/#terminology&quot; title=&quot;Leia sobre a terminologia usada pela lib mock&quot;&gt;&lt;em&gt;Mock&lt;/em&gt; - &lt;em&gt;Mocking and Testing Library&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://docs.mockito.googlecode.com/hg/latest/org/mockito/Mockito.html#13&quot; title=&quot;Definição de Spies pela Mockito&quot;&gt;&lt;em&gt;Mockito&lt;/em&gt; - &lt;em&gt;Spying on real objects&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

@@ -1,11 +1,291 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - mson</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 05 Apr 2020 07:40:00 -0300</lastBuildDate><item><title>API Blueprint: Markdown é vida!</title><link>https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html</link><description>&lt;p&gt;Estamos falando sobre escrever especificações de &lt;a href="https://klauslaube.com.br/tag/apis.html" title="Leia mais sobre APIs"&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;
-há um bom tempo aqui no &lt;em&gt;blog&lt;/em&gt;. &lt;a href="https://klauslaube.com.br/tag/raml.html" title="Leia mais sobre RAML"&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;,
-&lt;a href="https://klauslaube.com.br/tag/swagger.html" title="Leia mais sobre Swagger"&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt; e
-&lt;a href="https://klauslaube.com.br/tag/oai.html" title="Leia mais sobre OpenAPI"&gt;&lt;em&gt;OpenAPI Specification&lt;/em&gt;&lt;/a&gt; já foram explorados, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - mson]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API Blueprint: Markdown é vida!]]></title><description><![CDATA[Estamos falando sobre escrever especificações de APIs
+há um bom tempo aqui no blog. RAML,
+Swagger e
+OpenAPI Specification já foram explorados, e
+com os dois últimos encontramos um ecossistema rico com ferramentas extremamente
+interessantes. Há um outro simpático player no mercado, o API Blueprint,
+e…]]></description><link>https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/04/05/api-blueprint-markdown-e-vida.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 05 Apr 2020 07:40:00 GMT</pubDate><content:encoded>&lt;p&gt;Estamos falando sobre escrever especificações de &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt;
+há um bom tempo aqui no &lt;em&gt;blog&lt;/em&gt;. &lt;a href=&quot;/tag/raml.html&quot; title=&quot;Leia mais sobre RAML&quot;&gt;&lt;em&gt;RAML&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;/tag/oai.html&quot; title=&quot;Leia mais sobre OpenAPI&quot;&gt;&lt;em&gt;OpenAPI Specification&lt;/em&gt;&lt;/a&gt; já foram explorados, e
 com os dois últimos encontramos um ecossistema rico com ferramentas extremamente
 interessantes.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Há um outro simpático &lt;em&gt;player&lt;/em&gt; no mercado, o &lt;a href=&quot;https://apiblueprint.org/&quot; title=&quot;Visite a página oficial do projeto&quot;&gt;&lt;em&gt;API Blueprint&lt;/em&gt;&lt;/a&gt;,
+e o &lt;em&gt;post&lt;/em&gt; de hoje é sobre essa prática ferramenta.&lt;/p&gt;
+&lt;h2&gt;A menor curva de aprendizado do Oeste&lt;/h2&gt;
+&lt;p&gt;Um colega de trabalho, há muito tempo atrás, me apresentou o &lt;em&gt;API Blueprint&lt;/em&gt;. Na
+ótica dele, um dos aspectos mais interessantes era a escrita utilizando &lt;em&gt;Markdown&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d9895f02d96126045e65f1a5f55eadd5/07f3a/westworld-antony-hopkins.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEDAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAAB5XiY0GF//8QAHBAAAgICAwAAAAAAAAAAAAAAAAIBAxESISMx/9oACAEBAAEFAvCzsfWC0Xl4XJ//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAADAAMAAAAAAAAAAAAAAAAAAQIQMXH/2gAIAQEABj8CngjZIlj/xAAcEAACAgIDAAAAAAAAAAAAAAAAARFBIZExYXH/2gAIAQEAAT8hxJaQeQn0S20Nsj22CJzZ/9oADAMBAAIAAwAAABCjP//EABYRAAMAAAAAAAAAAAAAAAAAABARQf/aAAgBAwEBPxBwf//EABcRAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQIBAT8QDLj/xAAaEAEBAQEBAQEAAAAAAAAAAAABEQAhMVGR/9oACAEBAAE/EEM2MxLwVxlHlMjr1Sb8ZO+EfCZLjBVPzAqsiOb/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Antony Hopkins em Westworld&quot;
+        title=&quot;É um formato para máquinas? É um formato para humanos? Que diferença faz? (tvguide.com)&quot;
+        src=&quot;/static/d9895f02d96126045e65f1a5f55eadd5/07f3a/westworld-antony-hopkins.jpg&quot;
+        srcset=&quot;/static/d9895f02d96126045e65f1a5f55eadd5/7809d/westworld-antony-hopkins.jpg 192w,
+/static/d9895f02d96126045e65f1a5f55eadd5/4ecad/westworld-antony-hopkins.jpg 384w,
+/static/d9895f02d96126045e65f1a5f55eadd5/07f3a/westworld-antony-hopkins.jpg 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;É um formato para máquinas? É um formato para humanos? Que diferença faz? (tvguide.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Sim! É verdade! Claro que utilizando o formato/extensão específico há ganhos
+como &lt;em&gt;syntax highlighting&lt;/em&gt;, mas ainda assim é possível escrever a especificação de uma &lt;em&gt;API&lt;/em&gt; somente
+com &lt;em&gt;Markdown&lt;/em&gt;, o que torna a leitura do documento mais amigável, e interoperável com ferramentas
+como o seu editor de textos, ou o próprio &lt;em&gt;Github&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b3654afe467166066f097fd131340a36/50383/api-blueprint-github-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAABYlAAAWJQFJUiTwAAABoElEQVQoz5VTi26jMBDk///vrmpCQxUMfmH8tvEDuE1oK7WNdO1oZGy8g3dnTSOcQ1xfiWDSch25rT5t7jF3X3YVymQCm63QobEx09k/n07a6VxKqbXU9SFhd0kZmHI52DgXZqmcj9o4pe2x/Z0Qqo3lQnIxz8po663zTcoZljnn/R3bJ+x3bu/jdgQcYxNCPJ/b59P5z9+nl0vXXrr9Z7iJ4UxCKSYEDSNwHDGfVY/5QISQWilljJFSWWuVPmCUVlKpWtcmxIgJJZRRykZMMJDJYTJXqidpvfc2LO6AdcZApTeAreu6gWFuGBCjBE7FoCYYIUQgEUCPrv0AKYQQ7mowycEcxEf5TUxl5Gbkmk/TgBkicgb3ldLGQIYw45wJMRvI2zl9LwGa4lPdQezD8nIlXU8mzmJMJlTI55vhX/FmWCmZ8PkV8Z6ZkD616kvn3pbHm0MM4+TWXm69XJGsqW6/aBUU1rYtHseuu8BkWZZfiKFEqTRYwvgEfYLuPYx7LIZHXBLlE+PC+fBx6f/L2yWBD4C9oF+WVG9/T/0hQfUPlRmcUoQ5/qIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Como o documento é apresentado pelo Github&quot;
+        title=&quot;Como o documento é apresentado pelo Github&quot;
+        src=&quot;/static/b3654afe467166066f097fd131340a36/50383/api-blueprint-github-example.png&quot;
+        srcset=&quot;/static/b3654afe467166066f097fd131340a36/8514f/api-blueprint-github-example.png 192w,
+/static/b3654afe467166066f097fd131340a36/804b2/api-blueprint-github-example.png 384w,
+/static/b3654afe467166066f097fd131340a36/50383/api-blueprint-github-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Como o documento é apresentado pelo Github&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Para quem já tem um &lt;code class=&quot;language-text&quot;&gt;README.md&lt;/code&gt; em seu repositório, ter um &lt;code class=&quot;language-text&quot;&gt;api.md&lt;/code&gt; não parece ser
+nenhum grande sacrifício. E dependendo do seu público alvo, ter a &quot;documentação final gerada&quot;
+pode ser tão simples quanto compartilhar o &lt;em&gt;link&lt;/em&gt; da especificação no &lt;em&gt;Github&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Mas o que é API Blueprint mesmo?&lt;/h2&gt;
+&lt;p&gt;A documentação oficial o define da seguinte forma:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) is simple and accessible to everybody involved in the API lifecycle. Its syntax is concise yet expressive. With API Blueprint you can quickly design and prototype APIs to be created or document and test already deployed mission-critical APIs.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Assim como os já citados &lt;em&gt;RAML&lt;/em&gt; e &lt;em&gt;Swagger&lt;/em&gt;, o &lt;em&gt;API Blueprint&lt;/em&gt; é uma linguagem de &lt;em&gt;design&lt;/em&gt; utilizada para
+descrever &lt;em&gt;APIs&lt;/em&gt;. O seu propósito é o de encorajar o diálogo e colaboração, logo, uma ferramenta
+mais que ideal para adoção no seu processo de &lt;em&gt;API-First&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para ter os ganhos que citei anteriormente, o &lt;em&gt;API Blueprint&lt;/em&gt; usa um &quot;melhoramento&quot; do &lt;em&gt;Markdown&lt;/em&gt;
+chamado de &lt;em&gt;MSON&lt;/em&gt; (&lt;em&gt;Markdown Syntax for Object Notation&lt;/em&gt;). É com essa notação que utilizamos a síntaxe
+do &lt;em&gt;Markdown&lt;/em&gt; para descrever estruturas de dados, heranças e recursos.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/apiaryio/mson/blob/master/MSON%20Specification.md&quot; title=&quot;Leia no Github&quot;&gt;Leia a especificação do &lt;em&gt;MSON&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Começando&lt;/h2&gt;
+&lt;p&gt;Voltando ao bom e velho exemplo do &lt;a href=&quot;/2016/05/20/rest-parte-2.html&quot; title=&quot;REST: Parte 2&quot;&gt;&lt;em&gt;mini IMDB&lt;/em&gt;&lt;/a&gt;, vamos criar um arquivo &lt;code class=&quot;language-text&quot;&gt;api.md&lt;/code&gt;
+e pôr a mão na massa.&lt;/p&gt;
+&lt;p&gt;Começamos por definir qual versão do &lt;em&gt;API Blueprint&lt;/em&gt; utilizaremos, bem como descrevendo o nome da &lt;em&gt;API&lt;/em&gt; e seu propósito:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;FORMAT: A1
 
-&lt;p&gt;Há um outro simpático &lt;em&gt;player&lt;/em&gt; no mercado, o &lt;a href="https://apiblueprint.org/" title="Visite a página oficial do projeto"&gt;&lt;em&gt;API Blueprint&lt;/em&gt;&lt;/a&gt;,
-e o &lt;em&gt;post&lt;/em&gt; de hoje …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 05 Apr 2020 07:40:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2020-04-05:/2020/04/05/api-blueprint-markdown-e-vida.html</guid><category>desenvolvimento</category><category>web</category><category>rest</category><category>apis</category><category>api-first</category><category>api-blueprint</category><category>mson</category></item></channel></rss>
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;#&lt;/span&gt; Movies API&lt;/span&gt;
+
+This is an API Blueprint example describing a movies API.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;#&lt;/code&gt;, no &lt;em&gt;Markdown&lt;/em&gt;, é associado a um &quot;título de nível 1&quot;. Ou seja, o &lt;code class=&quot;language-text&quot;&gt;# Movies API&lt;/code&gt; se convertido em &lt;em&gt;HTML&lt;/em&gt; produziria um &lt;code class=&quot;language-text&quot;&gt;&amp;lt;h1&amp;gt;Movies API&amp;lt;/h1&amp;gt;&lt;/code&gt;.
+Nesse caso, o &lt;code class=&quot;language-text&quot;&gt;#&lt;/code&gt; produz o título da &lt;em&gt;API&lt;/em&gt;. O &lt;code class=&quot;language-text&quot;&gt;#&lt;/code&gt; também é utilizado para agrupar recursos, mas nesse caso, ele necessita da &lt;em&gt;keyword&lt;/em&gt;
+&lt;code class=&quot;language-text&quot;&gt;Group&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;FORMAT: A1
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;#&lt;/span&gt; Movies API&lt;/span&gt;
+
+This is an API Blueprint example describing a movies API.
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;#&lt;/span&gt; Group Movies&lt;/span&gt;
+
+Resources related to movies in the API.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Descrevendo recursos&lt;/h2&gt;
+&lt;p&gt;O próximo passo é descrever o recurso e seus &lt;em&gt;endpoints&lt;/em&gt;. Começaremos pelo
+&lt;em&gt;endpoint&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;. Para descrever o recurso, utilizamos o &lt;code class=&quot;language-text&quot;&gt;##&lt;/code&gt;, já a ação
+é representada através de 3 &lt;em&gt;hashtags&lt;/em&gt; (&lt;code class=&quot;language-text&quot;&gt;###&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;(...)
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;##&lt;/span&gt; Movie collection [/movies]&lt;/span&gt;
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;###&lt;/span&gt; List all Movies [GET]&lt;/span&gt;
+
+List movies in reverse order of publication.
+
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Response 200 (application/json)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Quando o recurso &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt; receber uma requisição &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt;, ele responderá com
+o &lt;em&gt;status code&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;200&lt;/code&gt;, e com o &lt;code class=&quot;language-text&quot;&gt;content-type&lt;/code&gt; &lt;code class=&quot;language-text&quot;&gt;application/json&lt;/code&gt;. Essa última
+parte é descrita através da linha &lt;code class=&quot;language-text&quot;&gt;+ Response 200 (application/json)&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1ccb40308c7e420169072dffda7afd73/50383/api-blueprint-resource-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 65.625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAABYlAAAWJQFJUiTwAAABPklEQVQoz41Sy07DMBD0L/KL3PgJkDhzqdQK1JZETdo4zsuuHceP2Bs2VBwKSuloFFn2zuwjSzjnTdO0bdv3fVVVxpjpbhClFCoZY+gihPDewzVuiaWUqEH9JT+ltPxGXdfoiF4YBAsgqEmS5HA4YDQana8hl4FtEoygJTsVBZYtpRJcdHhQSg+D1rpf5jAMhHftMd0Xebbb7lhJzxwvGmftv9Oay26FfF7t1mmeZnmntIFpCKAD9GPUy8RXHyKhOjw8fTyuqorzdyY23F247uxfbrh9Y/o1Vy+5YtoT48fPU5kci5yyrCiPJX5pmp+UsR4mF+E3A9gAWJ3DzH4c94jtFueDfcQYYpg53fzDiBAjsSFmQleMOefu3y24iDFzkia4G7gi8F+2nzlPtQ5z2RHAeG+9d+MYAO6kn9uLX99W7HtoYgL2AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de representação do endpoint&quot;
+        title=&quot;Exemplo de representação do endpoint&quot;
+        src=&quot;/static/1ccb40308c7e420169072dffda7afd73/50383/api-blueprint-resource-example.png&quot;
+        srcset=&quot;/static/1ccb40308c7e420169072dffda7afd73/8514f/api-blueprint-resource-example.png 192w,
+/static/1ccb40308c7e420169072dffda7afd73/804b2/api-blueprint-resource-example.png 384w,
+/static/1ccb40308c7e420169072dffda7afd73/50383/api-blueprint-resource-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de representação do endpoint&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Podemos também descrever como será o &lt;em&gt;payload&lt;/em&gt; dessa resposta.&lt;/p&gt;
+&lt;h2&gt;Descrevendo os dados&lt;/h2&gt;
+&lt;p&gt;É possível utilizar &lt;a href=&quot;https://json-schema.org/&quot; title=&quot;A vocabulary that allows you to annotate and validate JSON documents&quot;&gt;&lt;em&gt;JSON Schema&lt;/em&gt;&lt;/a&gt;
+para descrever o &lt;em&gt;payload&lt;/em&gt; de requisições e respostas. Como ilustrado nesse exemplo tirado da documentação oficial:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;###&lt;/span&gt; Create a New Question [POST]&lt;/span&gt;
+
+You may create your own question using this action. It takes a JSON object
+containing a question and a collection of answers in the form of choices.
+
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Request (application/json)
+
+  &lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Body
+
+&lt;span class=&quot;token code keyword&quot;&gt;          {
+            &quot;question&quot;: &quot;Favourite language?&quot;
+            &quot;choices&quot;: [
+              &quot;Swift&quot;,
+              &quot;Objective-C&quot;
+            ]
+          }&lt;/span&gt;
+
+  &lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Schema
+
+&lt;span class=&quot;token code keyword&quot;&gt;          {
+            &quot;$schema&quot;: &quot;http://json-schema.org/draft-04/schema#&quot;,
+            &quot;type&quot;: &quot;object&quot;,
+            &quot;properties&quot;: {
+              &quot;question&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;choices&quot;: {
+                &quot;type&quot;: &quot;array&quot;,
+                &quot;items&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;minItems&quot;: 2
+              }
+            }
+          }&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;JSON Schema&lt;/em&gt; é um vocabulário poderoso para anotar e validar documentos &lt;em&gt;JSON&lt;/em&gt;. No entanto, ele pode &quot;destoar&quot; do resto do seu documento.&lt;/p&gt;
+&lt;p&gt;Há uma alternativa utilizando o próprio &lt;em&gt;MSON&lt;/em&gt;. Através da seção &lt;code class=&quot;language-text&quot;&gt;## Data structure&lt;/code&gt;, conseguimos algo semelhante com o ilustrado acima.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;(...)
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;##&lt;/span&gt; Data structures&lt;/span&gt;
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;###&lt;/span&gt; Movie&lt;/span&gt;
+
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; id: 810b43d0-fc0d-4199-8a79-25b471c880bf (string, required)
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; title: Avengers: Endgame (string, required)
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; description (string)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Descrevemos a estrutura &lt;code class=&quot;language-text&quot;&gt;Movie&lt;/code&gt;, informando o seu &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; (&lt;code class=&quot;language-text&quot;&gt;string&lt;/code&gt; e obrigatória),
+&lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;description&lt;/code&gt;. Note que este último, além de não ser obrigatório, não
+possui nenhum exemplo informado (como os dois outro campos).&lt;/p&gt;
+&lt;p&gt;Para associar a estrutura acima com a resposta de &lt;code class=&quot;language-text&quot;&gt;/movies&lt;/code&gt;, utilizamos
+&lt;code class=&quot;language-text&quot;&gt;Attributes&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;markdown&quot;&gt;&lt;pre class=&quot;language-markdown&quot;&gt;&lt;code class=&quot;language-markdown&quot;&gt;(...)
+
+&lt;span class=&quot;token title important&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;###&lt;/span&gt; List all Movies [GET]&lt;/span&gt;
+
+List movies in reverse order of publication.
+
+&lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Response 200 (application/json)
+
+  &lt;span class=&quot;token list punctuation&quot;&gt;-&lt;/span&gt; Attributes (array[Movie])
+
+(...)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com ajuda do tipo &lt;code class=&quot;language-text&quot;&gt;array&lt;/code&gt;, descrevemos o &lt;em&gt;payload&lt;/em&gt; da resposta do &lt;em&gt;endpoint&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5419a6bd7d33f1938a995e924d60cc45/50383/api-blueprint-data-example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 132.8125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAABYlAAAWJQFJUiTwAAACeUlEQVQ4y5VU2W7bMBDU9/Uj+9QP6UOBPhZFYddp4iS2boriTZHipa7k2C0SO3YGA4ISOeRyuMsMY4wWcM6bptFaT9OUUppuQCaE6LoOxIQQ0IPYOTeOo/ce2hjjFTFj7LA/rFIfcegPwwBRhBDiOWQg2+12RVH0fQ9T9QKllFwgLgNGMwi1qqqyLDuMIYR+Afw8LaShc46AjFFa5buqzHfPz6htKel73JlhuGobjGYdYd9XD6vH/f3TDnM5TtMQk/ZJuaj8eUoXhYvGxyyX7tOX1ecfLWb8TyfWzK+Z23C/puOK2FdcE/sTm2+F/JqLO2oy63yOcN60Fer2VV22KK+bp7xkanBpGmN6SxuSXdrMeb+5u9tsfoOzMQbv3Uw3phTfz5AIZ7YhFkw1dW2snT6CkJadt4+PZVFAVtySlYcZ3AYxhsyH0CKkjYmz+enGbWOafEyzGFWVxNgrbbTUA9eDABo7J/l7CLBzjCMXqmllVVPcYlr0tMGkZLyH5NIXAPlrnctgAS5lmj6M2TCoPbAKitCNL+GMt2EO2/nAoUSASgrJpORLtJD7Rqk5vLOAkrKjm8Vy0KysWVVX6GFX/8KkJqztaQ1z3jvzQSy0ElUtt098v0ftvu62Tbct2w0XdLjg2VEcAsTwUr0KwjXHsC9a/U8M90wpNcZAhixvy/kX5y3gjmcxuD1YC7cV45xj6dCeOsdPGH0thjNDDLrDAnWME7CKMNTPhjWLbQ1l3ZI2FRfsjdshwEvEVhuS5xW6R/2e8o7QBtwmrCG0phxBi0kBF3nObaW1tTMHMxh7oDHj0hlPn1A8p9dvVjifxeVdh3NdJ0z7nyn9BTx/E9oa47lwAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Exemplo de representação do payload&quot;
+        title=&quot;Exemplo de representação do payload&quot;
+        src=&quot;/static/5419a6bd7d33f1938a995e924d60cc45/50383/api-blueprint-data-example.png&quot;
+        srcset=&quot;/static/5419a6bd7d33f1938a995e924d60cc45/8514f/api-blueprint-data-example.png 192w,
+/static/5419a6bd7d33f1938a995e924d60cc45/804b2/api-blueprint-data-example.png 384w,
+/static/5419a6bd7d33f1938a995e924d60cc45/50383/api-blueprint-data-example.png 740w&quot;
+        sizes=&quot;(max-width: 740px) 100vw, 740px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de representação do payload&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;No fim das contas, um &lt;em&gt;JSON body&lt;/em&gt; e &lt;em&gt;JSON Schema&lt;/em&gt; é gerado através dos
+atributos &lt;em&gt;MSON&lt;/em&gt;. Por isso do bloco &lt;code class=&quot;language-text&quot;&gt;Schema&lt;/code&gt;, exibido na imagem acima.&lt;/p&gt;
+&lt;p&gt;Visite o &lt;a href=&quot;https://apiblueprint.org/documentation/tutorial.html&quot; title=&quot;Tutorial com demais verbos&quot;&gt;tutorial do &lt;em&gt;API Blueprint&lt;/em&gt;&lt;/a&gt;
+e veja como aplicar a especificação para os demais verbos &lt;em&gt;HTTP&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/kplaube/8cb39a98e0a2892412f060ad6c61704b&quot; title=&quot;Veja o exemplo completo no Gist&quot;&gt;O exemplo completo pode ser conferido aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As imagens representando a especificação foram extraídas do &lt;em&gt;plugin&lt;/em&gt; &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=develiteio.api-blueprint-viewer&quot;&gt;&lt;em&gt;API Blueprint Viewer&lt;/em&gt;&lt;/a&gt;, para o &lt;a href=&quot;/tag/vscode.html&quot; title=&quot;LEia mais sobre VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Na página de &lt;a href=&quot;https://apiblueprint.org/tools.html&quot; title=&quot;Visite o site oficial do API Blueprint&quot;&gt;&lt;em&gt;Tools&lt;/em&gt; do site oficial&lt;/a&gt; é
+possível conhecer as diferentes ferramentas à disposição, que vão desde editores até &lt;em&gt;mock servers&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nesse quesito, uma das ferramentas que me conquistou foi o &lt;a href=&quot;https://github.com/apiaryio/dredd&quot; title=&quot;Visite o repositório no Github&quot;&gt;&lt;em&gt;Dredd&lt;/em&gt;&lt;/a&gt;,
+que é utilizado para validar especificação, e funciona tanto com o &lt;em&gt;API Blueprint&lt;/em&gt; quanto com o &lt;em&gt;OpenAPI&lt;/em&gt;. Aliás,
+&lt;em&gt;OpenAPI&lt;/em&gt;/&lt;em&gt;Swagger&lt;/em&gt; ainda são &quot;campeões&quot; no quesito ferramentas disponíveis.&lt;/p&gt;
+&lt;p&gt;Pela característica do &lt;em&gt;Markdown&lt;/em&gt;, e de ser relativamente mais barato de escrever, eu tive a oportunidade de utilizar o &lt;em&gt;API Blueprint&lt;/em&gt;
+da seguinte forma:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Propostas de adições, remoções e alterações são escritas através de &lt;em&gt;API Blueprint&lt;/em&gt; e discutidas com os &lt;em&gt;stakeholders&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;A solução é escrita e o contrato é validado através do &lt;em&gt;Dredd&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Mas a especificação pública é gerada através do código-fonte, com o &lt;em&gt;Swagger&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;E a partir dessa especificação é gerada a documentação final e &lt;em&gt;SDKs&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A facilidade de escrita de documentos &lt;em&gt;API Blueprint&lt;/em&gt; faz dele uma ótima opção e um &lt;em&gt;player&lt;/em&gt; mais que interessante
+no cenário de &lt;em&gt;specs&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt;. Um terreno ainda dominado pelo &lt;em&gt;Swagger&lt;/em&gt;...&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;</content:encoded></item></channel></rss>

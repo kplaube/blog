@@ -1,5 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - material-design-lite</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Wed, 19 Apr 2017 12:00:00 -0300</lastBuildDate><item><title>Eu me rendo: Material Design</title><link>https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</link><description>&lt;p&gt;Lembro como se fosse hoje de um camarada dos tempos de &lt;em&gt;Globo.com&lt;/em&gt; me falando de
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - material-design-lite]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Eu me rendo: Material Design]]></title><description><![CDATA[Lembro como se fosse hoje de um camarada dos tempos de Globo.com me falando de
+modo efusivo: Você deveria experimentar o MaterializeCSS, vai te poupar muito
+tempo e te entregar uma interface elegante; Na época eu estava munido da minha
+ignorância, e acabei não seguindo o conselho do nobre amigo…]]></description><link>https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</link><guid isPermaLink="false">https://klauslaube.com.br/2017/04/19/eu-me-rendo-material-design.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 19 Apr 2017 12:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Lembro como se fosse hoje de um camarada dos tempos de &lt;em&gt;Globo.com&lt;/em&gt; me falando de
 modo efusivo: Você deveria experimentar o &lt;em&gt;MaterializeCSS&lt;/em&gt;, vai te poupar muito
 tempo e te entregar uma interface elegante; Na época eu estava munido da minha
-ignorância, e acabei não seguindo o conselho do nobre …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Wed, 19 Apr 2017 12:00:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2017-04-19:/2017/04/19/eu-me-rendo-material-design.html</guid><category>desenvolvimento</category><category>web</category><category>mobile</category><category>android</category><category>css</category><category>material-design</category><category>materializecss</category><category>material-design-lite</category><category>eu-me-rendo</category></item></channel></rss>
+ignorância, e acabei não seguindo o conselho do nobre amigo.&lt;/p&gt;
+&lt;p&gt;Pouco tempo se passou, e entrei em um projeto muito importante da empresa. Nele,
+houve um complexo trabalho por parte do time de estratégia e de &lt;em&gt;UX&lt;/em&gt; para determinar
+a arquitetura da informação e &lt;em&gt;design&lt;/em&gt;. Imagine a minha surpresa quando descobri que o
+&lt;em&gt;Material Design&lt;/em&gt; foi usado como base para uma série de decisões tomadas. Uma luz amarela
+acendeu-se em minha cabeça, mas ainda não tinha sido o suficiente para saber mais.&lt;/p&gt;
+&lt;p&gt;Finalmente, ao inscrever-me no &lt;a href=&quot;https://br.udacity.com/course/android-basics-nanodegree-by-google--nd803/&quot; title=&quot;Android Basics&quot;&gt;&lt;em&gt;Nanodegree&lt;/em&gt; de &lt;em&gt;Android&lt;/em&gt; do &lt;em&gt;Udacity&lt;/em&gt;&lt;/a&gt;,
+que eu desisti e me rendi ao &lt;em&gt;Material Design&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O Material Design&lt;/h2&gt;
+&lt;p&gt;Diretamente do &lt;a href=&quot;http://material.io&quot; title=&quot;Visite o site oficial&quot;&gt;material.io&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Material Design is a unified system that combines theory, resources, and tools for crafting digital experiences.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em uma definição mais descritiva, podemos dizer que o &lt;em&gt;Material Design&lt;/em&gt; é
+uma completíssima &quot;linguagem de design&quot;. Criado a partir de um profundo estudo de
+&lt;em&gt;branding&lt;/em&gt;, &lt;em&gt;interaction&lt;/em&gt; e &lt;em&gt;motion&lt;/em&gt;, o &lt;em&gt;Material&lt;/em&gt; é uma compilação de estilos
+e princípios que funcionam consistentemente em diferentes soluções.&lt;/p&gt;
+&lt;p&gt;Com sua origem no universo &lt;em&gt;Mobile&lt;/em&gt; da &lt;em&gt;Google&lt;/em&gt;, a partir da versão 2.1 do
+&lt;em&gt;Android&lt;/em&gt;, hoje é possível apreciarmos o &lt;em&gt;Material Design&lt;/em&gt; sendo utilizado
+também em soluções &lt;em&gt;web&lt;/em&gt;. Existem duas bibliotecas bem-quistas em &quot;traduzir&quot;
+a especificação para os &lt;em&gt;browsers&lt;/em&gt;: &lt;a href=&quot;http://materializecss.com/&quot; title=&quot;Leia mais sobre o Materialize&quot;&gt;&lt;em&gt;MaterializeCSS&lt;/em&gt;&lt;/a&gt;
+e &lt;a href=&quot;https://getmdl.io/index.html&quot; title=&quot;Leia mais sobre o MDL&quot;&gt;&lt;em&gt;Material Design Lite&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;MaterializeCSS ou Material Design Lite?&lt;/h2&gt;
+&lt;p&gt;Sem rodeios:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MaterializeCSS&lt;/strong&gt;: Iniciativa &lt;em&gt;open source&lt;/em&gt;, com mais de 25 mil &lt;em&gt;stars&lt;/em&gt; no
+&lt;a href=&quot;https://github.com/dogfalo/materialize/&quot; title=&quot;Veja o repositório&quot;&gt;&lt;em&gt;Github&lt;/em&gt;&lt;/a&gt;. Possui como dependência o &lt;em&gt;jQuery&lt;/em&gt;,
+tornando-a uma opção ligeiramente &quot;pesada&quot;. Possui uma documentação fácil de ler, mas
+infelizmente o seu &lt;em&gt;showcase&lt;/em&gt; está desatualizado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;MDL&lt;/strong&gt;: A biblioteca &quot;oficial&quot; da &lt;em&gt;Google&lt;/em&gt;. Também &lt;em&gt;open source&lt;/em&gt;, com cerca de 26 mil &lt;em&gt;stars&lt;/em&gt; no
+&lt;a href=&quot;https://github.com/google/material-design-lite&quot;&gt;&lt;em&gt;Github&lt;/em&gt;&lt;/a&gt;, não possui dependência de outras bibliotecas e é
+declarada como opção mais fiel às especificações do &lt;em&gt;Material Design&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Não vou fazer uma análise profunda entre os dois, pois para ser sincero, só tive
+um contato mais íntimo com o &lt;em&gt;MaterializeCSS&lt;/em&gt;. O que posso dizer é que ambos
+cumprem bem a sua proposta (e possuem uma boa camada de customização através de &lt;a href=&quot;/tag/sass.html&quot; title=&quot;Leia mais sobre Sass&quot;&gt;&lt;em&gt;Sass&lt;/em&gt;&lt;/a&gt;),
+e (na minha opinião) a biblioteca do &lt;em&gt;Google&lt;/em&gt; leva certa vantagem por ser ligeiramente
+mais leve, não ter o &lt;em&gt;jQuery&lt;/em&gt; como dependência, e ainda por cima usar
+&lt;a href=&quot;http://getbem.com/&quot; title=&quot;Saiba o que é o BEM e como ele pode te ajudar a escrever CSS&quot;&gt;&lt;em&gt;BEM&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABSJp6z1zPB//EABsQAAIDAAMAAAAAAAAAAAAAAAECAAMREiIj/9oACAEBAAEFAidrZjtR62+bLA/Gf//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAABAAIQMRMhQf/aAAgBAQAGPwIsFlVrkY2kz//EABwQAQADAAIDAAAAAAAAAAAAAAEAESExQVFxgf/aAAgBAQABPyHaHlDCLwd1Ac059zqB23zKiOv2VqCf/9oADAMBAAIAAwAAABCX7//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QiaRn/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/EK1//8QAHBABAQACAwEBAAAAAAAAAAAAAREAMSFBUWHh/9oACAEBAAE/EN8gxqBK01+5GhI0cw9+y4Vnkc6Q7xrglObW9uF6UUB0xI8LWPef/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Ao contrário do Batman, eu me rendi&amp;quot;&quot;
+        title=&quot;Ao contrário do Batman, eu me rendi&quot;
+        src=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg&quot;
+        srcset=&quot;/static/d3b12e92557b0a1f6834bdaa10f190a7/7809d/batman-fear-face.jpg 192w,
+/static/d3b12e92557b0a1f6834bdaa10f190a7/4ecad/batman-fear-face.jpg 384w,
+/static/d3b12e92557b0a1f6834bdaa10f190a7/073a0/batman-fear-face.jpg 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Ao contrário do Batman, eu me rendi&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Em defesa do &lt;em&gt;Materialize&lt;/em&gt;, acho a curva de aprendizagem menor que a do concorrente,
+e uma rápida leitura do seu &lt;em&gt;getting started&lt;/em&gt; já te dá conteúdo o suficiente para ter
+as suas primeiras páginas escritas.&lt;/p&gt;
+&lt;p&gt;Se você deseja uma análise mais completa, recomendo o &lt;a href=&quot;https://andreapaiola.name/2015-07-materialize-css-vs-material-design-lite/&quot;&gt;&lt;em&gt;Google release Material Design Lite, time to switch?&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Acredito que ter qualquer uma das duas bibliotecas no seu &lt;em&gt;toolbox&lt;/em&gt; é recomendado, principalmente
+se a sua solução for flertar com o ambiente &lt;em&gt;Mobile&lt;/em&gt;. Então, no seu próximo projeto, antes
+de ir &quot;por padrão&quot; no &lt;em&gt;Bootstrap&lt;/em&gt; ou &lt;em&gt;Foundation&lt;/em&gt;, dê uma chance ao &lt;em&gt;Material&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se você estiver usando &lt;em&gt;React&lt;/em&gt;, o &lt;a href=&quot;http://www.material-ui.com/&quot;&gt;&lt;em&gt;Material-UI&lt;/em&gt;&lt;/a&gt; pode
+ser uma boa pedida. Para a galera do &lt;em&gt;Angular&lt;/em&gt;, existe o &lt;a href=&quot;https://material.angular.io/&quot;&gt;&lt;em&gt;Angular Material&lt;/em&gt;&lt;/a&gt;
+que cumpre bem o seu papel. O &lt;em&gt;Vue&lt;/em&gt; não fica de fora com o &lt;a href=&quot;https://vuematerial.github.io/&quot;&gt;&lt;em&gt;Vue Material&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://material.io/&quot;&gt;&lt;em&gt;Material Design.io&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://getmdl.io/&quot;&gt;&lt;em&gt;Material Design Lite&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://materializecss.com/&quot;&gt;&lt;em&gt;Materialize&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.myway.com.br/material-design-o-que-e-e-sua-aplicacao/&quot;&gt;&lt;em&gt;MyWay&lt;/em&gt; - &lt;em&gt;Material Design&lt;/em&gt;: O que é e sua aplicação&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Material_Design&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt; - &lt;em&gt;Material Design&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

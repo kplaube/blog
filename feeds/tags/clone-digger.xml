@@ -1,7 +1,35 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - clone-digger</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 16 Oct 2011 22:10:00 -0200</lastBuildDate><item><title>Assegure a qualidade do seu código Python - Clone Digger</title><link>https://klauslaube.com.br/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html</link><description>&lt;p&gt;Mesmo que você possa verificar a qualidade do seu
-código com &lt;a href="https://klauslaube.com.br/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html" title="Assegure a qualidade do seu código Python – pep8"&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, &lt;a href="https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html" title="Assegure a qualidade do seu código Python – Pylint"&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt; e &lt;a href="https://klauslaube.com.br/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html" title="Assegure a qualidade do seu código Python – Pyflakes"&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;, uma das virtudes
-de um projeto de &lt;em&gt;software&lt;/em&gt; é não possuir código duplicado (leia mais
-sobre &lt;a href="http://pt.wikipedia.org/wiki/Don%27t_repeat_yourself" title="Leia mais sobre Don't Repeat Yourself no Wikipedia"&gt;&lt;em&gt;DRY&lt;/em&gt;&lt;/a&gt;). O fato é que tanto intencionalmente como
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - clone-digger]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Clone Digger]]></title><description><![CDATA[Mesmo que você possa verificar a qualidade do seu
+código com pep8, Pylint e Pyflakes, uma das virtudes
+de um projeto de software é não possuir código duplicado (leia mais
+sobre DRY). O fato é que tanto intencionalmente como
 propositalmente, podemos duplicar um trecho de código e acabar
-prejudicando manutenções …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 16 Oct 2011 22:10:00 -0200</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2011-10-16:/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html</guid><category>desenvolvimento</category><category>ambiente-de-desenvolvimento</category><category>python</category><category>qualidade</category><category>clone-digger</category></item></channel></rss>
+prejudicando…]]></description><link>https://klauslaube.com.br/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 16 Oct 2011 22:10:00 GMT</pubDate><content:encoded>&lt;p&gt;Mesmo que você possa verificar a qualidade do seu
+código com &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Assegure a qualidade do seu código Python – pep8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, &lt;a href=&quot;/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html&quot; title=&quot;Assegure a qualidade do seu código Python – Pylint&quot;&gt;&lt;em&gt;Pylint&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html&quot; title=&quot;Assegure a qualidade do seu código Python – Pyflakes&quot;&gt;&lt;em&gt;Pyflakes&lt;/em&gt;&lt;/a&gt;, uma das virtudes
+de um projeto de &lt;em&gt;software&lt;/em&gt; é não possuir código duplicado (leia mais
+sobre &lt;a href=&quot;http://pt.wikipedia.org/wiki/Don%27t_repeat_yourself&quot; title=&quot;Leia mais sobre Don&amp;#x27;t Repeat Yourself no Wikipedia&quot;&gt;&lt;em&gt;DRY&lt;/em&gt;&lt;/a&gt;). O fato é que tanto intencionalmente como
+propositalmente, podemos duplicar um trecho de código e acabar
+prejudicando manutenções futuras (atire a primeira pedra quem nunca deu
+aquele &lt;code class=&quot;language-text&quot;&gt;CTRL+C&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;CTRL+V&lt;/code&gt;, e prometeu um &lt;em&gt;refactoring&lt;/em&gt; depois).&lt;/p&gt;
+&lt;p&gt;Para facilitar a busca por código duplicado, podemos utilizar uma
+ferramenta chamada &lt;strong&gt;&lt;em&gt;Clone Digger&lt;/em&gt;&lt;/strong&gt;. Prático, rápido e muito simples.
+Agora ficou fácil “caçar” código duplicado em projetos &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Na prática&lt;/h2&gt;
+&lt;p&gt;Por tratar-se de uma ferramenta bem objetiva, não há muito o que falar
+sobre o &lt;a href=&quot;http://clonedigger.sourceforge.net/index.html&quot; title=&quot;Página oficial do projeto Clone Digger&quot;&gt;&lt;em&gt;Clone Digger&lt;/em&gt;&lt;/a&gt;. Então, vamos direto para a parte prática.&lt;/p&gt;
+&lt;p&gt;Para iniciar a análise, basta chamar o executável apontando para o
+diretório do seu projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ clonedigger meuprojeto/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Será gerado um arquivo chamado &lt;code class=&quot;language-text&quot;&gt;output.html&lt;/code&gt;, com um relatório
+detalhado (&lt;a href=&quot;http://clonedigger.sourceforge.net/examples/nltk_first_50.html&quot; title=&quot;Exemplo de relatório do Clone Digger&quot;&gt;como este&lt;/a&gt;). Serão apresentadas informações como a
+quantidade de arquivos analisados, quantidade de “clones”, de linhas
+duplicadas e um apontamento com os trechos de código que a ferramenta
+concluiu como “clones” (não necessariamente iguais, mas semelhantes).&lt;/p&gt;
+&lt;p&gt;Particularmente, a ferramenta me ajuda bastante a determinar se certos
+trechos de código não poderiam ser herdados por uma classe pai, ou
+algumas rotinas costumeiras não poderiam ser encapsuladas em funções.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://clonedigger.sourceforge.net/index.html&quot; title=&quot;Página oficial do projeto Clone Digger&quot;&gt;&lt;em&gt;Clone Digger: Discovers duplicate code in Python and Java&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.andrewsmedina.com/2011/01/31/analise-de-codigo-em-python/&quot; title=&quot;Excelente post do Andrews Medina sobre ferramentas de análise de código em Python&quot;&gt;&lt;em&gt;Andrews Medina:&lt;/em&gt; Análise de código em &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Até a próxima…&lt;/p&gt;</content:encoded></item></channel></rss>

@@ -1,5 +1,180 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - grunt</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Mon, 22 Feb 2016 12:35:00 -0300</lastBuildDate><item><title>Vivendo sem o Grunt</title><link>https://klauslaube.com.br/2016/02/22/vivendo-sem-o-grunt.html</link><description>&lt;p&gt;No meu primeiro contato com o &lt;em&gt;Grunt&lt;/em&gt;, ele não me convenceu. Qual era a
-necessidade de um &lt;em&gt;task runner&lt;/em&gt; se eu já tinha o &lt;code&gt;Makefile&lt;/code&gt;? O mesmo valia
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - grunt]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Vivendo sem o Grunt]]></title><description><![CDATA[No meu primeiro contato com o Grunt, ele não me convenceu. Qual era a
+necessidade de um task runner se eu já tinha o ? O mesmo valia
+para o build de estáticos... Frameworks como o Django já possuíam um
+pipeline de concatenação e minificação, não sendo necessário que um processo
+externo interferisse…]]></description><link>https://klauslaube.com.br/2016/02/22/vivendo-sem-o-grunt.html</link><guid isPermaLink="false">https://klauslaube.com.br/2016/02/22/vivendo-sem-o-grunt.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 22 Feb 2016 12:35:00 GMT</pubDate><content:encoded>&lt;p&gt;No meu primeiro contato com o &lt;em&gt;Grunt&lt;/em&gt;, ele não me convenceu. Qual era a
+necessidade de um &lt;em&gt;task runner&lt;/em&gt; se eu já tinha o &lt;code class=&quot;language-text&quot;&gt;Makefile&lt;/code&gt;? O mesmo valia
 para o &lt;em&gt;build&lt;/em&gt; de estáticos... &lt;em&gt;Frameworks&lt;/em&gt; como o &lt;em&gt;Django&lt;/em&gt; já possuíam um
-&lt;em&gt;pipeline&lt;/em&gt; de concatenação e minificação, não sendo necessário que um …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Mon, 22 Feb 2016 12:35:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2016-02-22:/2016/02/22/vivendo-sem-o-grunt.html</guid><category>desenvolvimento</category><category>web</category><category>javascript</category><category>node</category><category>npm</category><category>grunt</category></item></channel></rss>
+&lt;em&gt;pipeline&lt;/em&gt; de concatenação e minificação, não sendo necessário que um processo
+externo interferisse em algo que (até então) funcionava muito bem.&lt;/p&gt;
+&lt;p&gt;Foi ao trabalhar com &lt;em&gt;Single Page Applications&lt;/em&gt; que o &lt;em&gt;Grunt&lt;/em&gt; me conquistou.
+Coisas que iam da otimização de imagens a deploy para ambientes passaram a
+ser responsabilidade da ferramenta, e a partir desse momento eu a carreguei
+para todo projeto que participei.&lt;/p&gt;
+&lt;p&gt;Mas o &lt;em&gt;Grunt&lt;/em&gt; não é &quot;bala de prata&quot;. Se para determinados problemas ele funciona
+muito bem, para outros ele representa um &quot;peso&quot; questionável na sua &lt;em&gt;stack&lt;/em&gt;. Aumentando
+tempo de desenvolvimento (alguém aí já sofreu com o &lt;code class=&quot;language-text&quot;&gt;grunt-contrib-watch&lt;/code&gt;?),
+&lt;em&gt;build&lt;/em&gt; e &lt;em&gt;setup&lt;/em&gt; do seu ambiente.&lt;/p&gt;
+&lt;p&gt;É baseado nesse contexto que &lt;a href=&quot;https://www.google.com.br/search?q=stop%20using%20grunt&amp;#x26;oq=stop%20using%20grunt&amp;#x26;aqs=chrome..69i57j0l5.1498j0j7&amp;#x26;sourceid=chrome&amp;#x26;es_sm=91&amp;#x26;ie=UTF-8&quot; title=&quot;Stop using Grunt&quot;&gt;faço coro com alguns &lt;em&gt;developers&lt;/em&gt; espalhados por aí&lt;/a&gt;:
+Talvez o seu projeto não precise do &lt;em&gt;Grunt&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O que há de errado com o ele?&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Nada!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Grunt&lt;/em&gt;, &lt;em&gt;Gulp&lt;/em&gt;, &lt;em&gt;Brocolli&lt;/em&gt;, &lt;em&gt;Brunch&lt;/em&gt;, etc. são ferramentas super bacanas que
+cumprem com louvor o seu objetivo. Só que assim como o &lt;em&gt;jQuery&lt;/em&gt;, para
+determinados casos elas podem ser &quot;too much&quot;.&lt;/p&gt;
+&lt;p&gt;Assim como há uma frente defendendo o &lt;a href=&quot;http://www.codemag.com/article/1501101&quot; title=&quot;Why Micro JavaScript Library Should Be Used in Your Next Application&quot;&gt;uso de &lt;em&gt;microlibs&lt;/em&gt;&lt;/a&gt;
+ao invés de &lt;em&gt;fat frameworks&lt;/em&gt;, há uma frente defendendo o uso do &lt;a href=&quot;http://www.sitepoint.com/guide-to-npm-as-a-build-tool/&quot; title=&quot;Give Grunt the Boot! A Guide to Using npm as a Build Tool&quot;&gt;&lt;em&gt;NPM&lt;/em&gt; como ferramenta de &lt;em&gt;build&lt;/em&gt;&lt;/a&gt;.
+E por mais que possa parecer &quot;&lt;a href=&quot;https://www.youtube.com/watch?v=tSUtPkJhvOU&quot; title=&quot;Chora mais&quot;&gt;mimimi&lt;/a&gt;&quot;,
+alguns argumentos fazem certo sentido. Como por exemplo, o do
+&lt;em&gt;Keith Cirkel&lt;/em&gt; no &quot;&lt;a href=&quot;http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/&quot; title=&quot;Você deveria parar de usar Grunt&quot;&gt;Why we should stop using Grunt &amp;#x26; Gulp&lt;/a&gt;&quot;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;None of these build tools work without plugins. Just found an awesome new
+tool which will revolutionise your build process? Great! Now just wait for
+someone to write a wrapper for Grunt/Gulp/Brocolli, or write it yourself.
+Rather than just learning the command line for the tool you want to use,
+you now have to learn its programatic API, plus the API for your build tool.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;Flamewars&lt;/em&gt; e &quot;discursos de ódio&quot; à parte, a pergunta que fica é: Será que é tão difícil assim
+montar um &lt;em&gt;pipeline&lt;/em&gt; de &lt;em&gt;build&lt;/em&gt; sem o uso de &lt;em&gt;Grunt&lt;/em&gt; e &lt;em&gt;Gulp&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8652d59b005c92b42347b9272cb2622d/073a0/king-baratheon.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAdXGUoZLEf/EABsQAAICAwEAAAAAAAAAAAAAAAECAyEAERIx/9oACAEBAAEFAutLI4dTeNIxDUB5/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAQAlFh/9oACAEBAAY/AnLRO0C3/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARITFhQVH/2gAIAQEAAT8hy42MCP3b2IpwqN0qeAmvBP/aAAwDAQACAAMAAAAQuw//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQMBAT8QEX//xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAgEBPxCn/8QAGxABAAMBAQEBAAAAAAAAAAAAAQARITFxQeH/2gAIAQEAAT8QDaBU+ENjdy3uD9mxXDiKBX5ffYwABdWMUWa+z//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Nem todo mundo gosta de Javalis (br.ign.com)&amp;quot;&quot;
+        title=&quot;Nem todo mundo gosta de Javalis (br.ign.com)&quot;
+        src=&quot;/static/8652d59b005c92b42347b9272cb2622d/073a0/king-baratheon.jpg&quot;
+        srcset=&quot;/static/8652d59b005c92b42347b9272cb2622d/7809d/king-baratheon.jpg 192w,
+/static/8652d59b005c92b42347b9272cb2622d/4ecad/king-baratheon.jpg 384w,
+/static/8652d59b005c92b42347b9272cb2622d/073a0/king-baratheon.jpg 610w&quot;
+        sizes=&quot;(max-width: 610px) 100vw, 610px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Nem todo mundo gosta de Javalis (br.ign.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ter uma ferramenta a menos na &lt;em&gt;stack&lt;/em&gt; do projeto pode tornar-ser um diferencial
+ao reduzir atrito e curva de aprendizado. Mas tirar o &lt;em&gt;Grunt&lt;/em&gt; da jogada não
+significa necessariamente ter menos complexidade no seu projeto...
+Apenas significa fazer a mesma coisa com uma dependência a menos.&lt;/p&gt;
+&lt;h2&gt;NPM como ferramenta de build&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;&lt;a href=&quot;https://www.npmjs.com/package/livereload&quot; title=&quot;LiveReload server&quot;&gt;Livereload&lt;/a&gt;&lt;/em&gt;
+é uma biblioteca escrita em &lt;em&gt;Node&lt;/em&gt; que levanta um servidor que monitora alterações
+no seu projeto e promove um &lt;em&gt;refresh&lt;/em&gt; no navegador &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Podemos executá-lo através da linha de comando:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ livereload meuprojeto/static/css&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;É possível usar o &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt; como um &quot;centralizador&quot; de operações, assim
+como fazemos com o nosso &lt;code class=&quot;language-text&quot;&gt;Makefile&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run livereload&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para tanto, no arquivo &lt;code class=&quot;language-text&quot;&gt;package.json&lt;/code&gt;, precisamos adicionar a chave &lt;code class=&quot;language-text&quot;&gt;scripts&lt;/code&gt;
+com as instruções de execução para o comando &lt;code class=&quot;language-text&quot;&gt;livereload&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// package.json&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;livereload&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;livereload meuprojeto/static/css&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Talvez haja a necessidade da execução de um comando mais complexo. Para isso,
+podemos utilizar um &lt;em&gt;script&lt;/em&gt; &lt;em&gt;Node&lt;/em&gt; como ajuda:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// build/livereload.js&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; livereload &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;livereload&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;PATH_CSS&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;meuprojeto/build/static/css&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;PATH_JS&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;meuprojeto/build/static/js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; server &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; livereload&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createServer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+server&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;watch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;PATH_CSS&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;PATH_JS&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E o nosso arquivo de configuração ficaria assim:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// package.json&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;livereload&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;node buid/livereload&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vale lembrar que o &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt; já possui alguns comandos padrões, que não necessitam
+da instrução &lt;code class=&quot;language-text&quot;&gt;run&lt;/code&gt;. Por exemplo, temos a execução de testes através do comando &lt;code class=&quot;language-text&quot;&gt;npm test&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Um exemplo mais complexo&lt;/h3&gt;
+&lt;p&gt;O exemplo acima é simples e questionável. Vamos partir de uma necessidade
+mais palpável e complexa: Quero compilar componentes escritos em &lt;em&gt;React&lt;/em&gt; e &lt;em&gt;ES6&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para ilustrar, usaremos as bibliotecas &lt;em&gt;&lt;a href=&quot;https://facebook.github.io/react/&quot; title=&quot;A Javascript library for building UI&quot;&gt;React&lt;/a&gt;&lt;/em&gt;,
+&lt;em&gt;&lt;a href=&quot;https://github.com/babel/babelify&quot; title=&quot;Browserify transform for Babel&quot;&gt;Babelify&lt;/a&gt;&lt;/em&gt; e
+&lt;em&gt;&lt;a href=&quot;https://github.com/mishoo/UglifyJS2&quot; title=&quot;JavaScript parser / mangler / compressor / beautifier toolkit&quot;&gt;UglifyJS&lt;/a&gt;&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm install react --save
+$ npm install babelify babel-preset-react babel-preset-es2015 uglify-js --save-dev&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Podemos criar dois comandos diferentes na nossa chave &lt;code class=&quot;language-text&quot;&gt;scripts&lt;/code&gt;, um para
+&lt;em&gt;transpiling&lt;/em&gt; de &lt;em&gt;Javascript&lt;/em&gt; e outro para minificação:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// package.json&lt;/span&gt;
+
+&lt;span class=&quot;token string&quot;&gt;&quot;compile-js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;browserify meuprojeto/js/script.js -o meuprojeto/build/static/js/bundle.js -t [ babelify --presets [ es2015 react ] ]&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+&lt;span class=&quot;token string&quot;&gt;&quot;minify-js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;uglifyjs meuprojeto/build/static/js/bundle.js -o meuprojeto/build/static/js/bundle.min.js&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Grande demais? É possível isolar esses comandos em &lt;em&gt;scripts&lt;/em&gt;, como no exemplo do &lt;em&gt;livereload&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// package.json&lt;/span&gt;
+
+&lt;span class=&quot;token string&quot;&gt;&quot;compile-js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;node build/compile-js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;minify-js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;node build/minify-js&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para tornar mais simples a execução, vamos criar uma &lt;em&gt;task&lt;/em&gt; genérica de &lt;em&gt;build&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// package.json&lt;/span&gt;
+
+&lt;span class=&quot;token string&quot;&gt;&quot;compile-js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;node build/compile-js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;minify-js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;node build/minify-js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;npm run compile-js &amp;amp;&amp;amp; npm run minify-js&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com uma ajudinha da &lt;em&gt;lib&lt;/em&gt; &lt;em&gt;&lt;a href=&quot;https://www.npmjs.com/package/watch&quot; title=&quot;Utilities for watching file trees&quot;&gt;Watch&lt;/a&gt;&lt;/em&gt;,
+podemos incrementar ainda mais o nosso processo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// package.json&lt;/span&gt;
+
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token string&quot;&gt;&quot;scripts&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;compile-js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;node build/compile-js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;minify-js&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;node build/minify-js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;build&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;npm run compile-js &amp;amp;&amp;amp; npm run minify-js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;watch&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;watch &apos;npm run build&apos; meuprojeto/static/js&quot;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Agora temos os comandos &lt;code class=&quot;language-text&quot;&gt;npm run build&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;npm run watch&lt;/code&gt; que nos ajudarão na demanda
+de &quot;transpilar&quot; e minificar componentes escritos em &lt;em&gt;React&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Não foi tããããão difícil assim... Certo? Bastou abrir a documentação de
+cada ferramenta e perder alguns minutinhos lendo.&lt;/p&gt;
+&lt;p&gt;&quot;Mas você teve que escrever mais linhas que escreveria utilizando um &lt;em&gt;plugin&lt;/em&gt;
+do &lt;em&gt;Grunt&lt;/em&gt;.&quot;&lt;/p&gt;
+&lt;p&gt;Possivelmente. Bem como é possível que eu nunca mais vá mexer nessas linhas escritas,
+uma vez que o processo já esteja montado e operacional.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O mérito dos exemplos acima não está necessariamente na utilização do &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt;
+como ferramenta de &lt;em&gt;build&lt;/em&gt;, mas sim nos incríveis pacotes que a comunidade
+&lt;em&gt;Javascript&lt;/em&gt; tem construído para agilizar a construção de aplicações.&lt;/p&gt;
+&lt;p&gt;Ferramentas como o &lt;em&gt;Grunt&lt;/em&gt;, em seu tempo, fizeram uma revolução no que tange o
+desenvolvimento de aplicações &lt;em&gt;web&lt;/em&gt; (e não há dúvida que ainda o fazem).
+Mas com o advento do &lt;em&gt;webpack&lt;/em&gt;, &lt;em&gt;Browserify&lt;/em&gt; e &lt;em&gt;PostCSS&lt;/em&gt;,
+o seu uso passou de essencial para opcional.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://addyosmani.com/blog/prosconsmicroframeworks/&quot;&gt;Addy Osmani: The Pros And Cons Of JavaScript Micro-Frameworks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://engineering.hobsons.com/2015/06/26/build-tools-vs-npm-scripts-why-not-both/&quot;&gt;Hobsons Engineering: Build Tools vs npm Scripts: Why Not Both?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@dabit3/introduction-to-using-npm-as-a-build-tool-b41076f488b0#.hc5o17p1p&quot;&gt;Nader Dabit: Introduction to Using NPM as a Build Tool&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@nickheiner/maybe-you-should-stop-using-grunt-40ac57fd6ad9#.cpc7pdvwr&quot;&gt;Nick Heiner: Maybe you should stop using Grunt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.keithcirkel.co.uk/why-we-should-stop-using-grunt/&quot;&gt;Keith Cirkel: Why we should stop using Grunt &amp;#x26; Gulp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lucasmreis.github.io/blog/npm-is-an-amazing-build-tool/&quot;&gt;Lucas M Reis: NPM is an amazing build tool (And solves 90% of the build issues)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.sitepoint.com/guide-to-npm-as-a-build-tool/&quot;&gt;Sitepoint: Give Grunt the Boot! A Guide to Using npm as a Build Tool&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/28503800/grunt-is-extremely-slow-100-cpu&quot;&gt;Stackoverflow: Grunt is extremely slow - 100% CPU&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/29244671/less-compiling-slow-with-grunt&quot;&gt;Stackoverflow: Less compiling slow with Grunt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - spring]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Engatinhando em Java para a web: Spring Boot]]></title><description><![CDATA[No post anterior, finalizamos a introdução
+a alguns aspectos utilizados pelo Java EE para construção de aplicações web. Se você acompanhou
+os artigos até aqui, e achou tudo muito doloroso, você não está sozinho. Desenvolvedores, com o passar do tempo, ansiavam por alternativas menos burocráticas…]]></description><link>https://klauslaube.com.br/2020/05/20/engatinhando-em-java-web-spring-boot.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/05/20/engatinhando-em-java-web-spring-boot.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 20 May 2020 05:25:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2019/12/10/engatinhando-em-java-web-parte-3.html&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, finalizamos a introdução
+a alguns aspectos utilizados pelo &lt;em&gt;Java EE&lt;/em&gt; para construção de aplicações &lt;em&gt;web&lt;/em&gt;. Se você acompanhou
+os artigos até aqui, e achou tudo muito doloroso, você não está sozinho.&lt;/p&gt;
+&lt;p&gt;Desenvolvedores, com o passar do tempo, ansiavam por alternativas menos burocráticas para
+desenvolver suas soluções. E foi em 2003, seguindo essa premissa, que &lt;em&gt;Rob Johnson&lt;/em&gt; lançava a versão 1.0 do &lt;em&gt;Spring&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Antes do Boot. O que é Spring?&lt;/h2&gt;
+&lt;p&gt;Como a maioria das coisas do mundo &lt;em&gt;Java&lt;/em&gt;, a resposta para essa pergunta pode ser mais complicada do que parece.&lt;/p&gt;
+&lt;p&gt;Uma das definições da &lt;a href=&quot;https://spring.io/why-spring&quot;&gt;documentação oficial&lt;/a&gt; é a seguinte:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring makes programming Java quicker, easier, and safer for everybody. Spring’s focus on speed, simplicity, and productivity has made it the world&apos;s most popular Java framework.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O &lt;em&gt;Spring&lt;/em&gt; começou como uma resposta à complexidade do &lt;em&gt;J2EE&lt;/em&gt;. Atualmente ele deve ser compreendido
+como um &quot;complemento&quot; à mesma, ou seja, a comunidade do &lt;em&gt;Spring&lt;/em&gt; de fato adota partes da especificação &lt;em&gt;Java EE&lt;/em&gt;,
+e com isso torna possível desenvolver aplicações &quot;enterprise&quot; com maior facilidade.&lt;/p&gt;
+&lt;p&gt;Flexibilidade, modularização, retrocompatibilidade, uma grande e ativa comunidade, e evolução contínua
+(além da sua famosa &lt;a href=&quot;/2015/10/24/injecao-de-dependencia.html&quot; title=&quot;DI explicada com Angular&quot;&gt;&lt;em&gt;Dependency Injection&lt;/em&gt;&lt;/a&gt;),
+fazem do &lt;em&gt;Spring&lt;/em&gt; um dos &lt;em&gt;frameworks&lt;/em&gt; &lt;em&gt;Java&lt;/em&gt; mais famosos do mercado.&lt;/p&gt;
+&lt;p&gt;Logo, como tantos outros &lt;em&gt;frameworks&lt;/em&gt; espalhados por aí, o propósito do &lt;em&gt;Spring&lt;/em&gt; é facilitar e acelerar o desenvolvimento, provendo
+bibliotecas e ferramentas que te permitam focar no negócio. No entanto, quando falamos em &quot;Spring&quot;,
+provavelmente estamos falando de todo o seu ecossistema.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ce9d25f7605c402a2fc1faee4491aad5/3dde1/spring-hierarchy.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACn0lEQVQoz12SaU8USxSG51fpN/WfqDESTdAoidGgxhuvcd8Fd0UQGQSEWaCZhe6Znumtunt6memZHriIC8l1+ROPxRA/6Ie3znuq3lN13pPKjK4E7LmncGC8zL6xP3FoxuDYvODwrM2xBcHQnM3Bdwb7/9Lt1O69rzCS88mclssVrc+4vcUDc3OAhzvR2GQy2OaZkTKmxYzXOry0N5jwvwzOf2NH/8TZ4nwp4Yh8OHO2GPDc32au94Ns8o3Z5PsgznT+Z0by59YGj9SIR/LSV+LjYC/b+SY133e1kn9If3LP2hq4yYzkW4xqG9wWX7lmfuJK8yM37C/cEttcsz5zqZpwoegxmhdcrvUHe9cldrVbg/yOrB0p9Tg655AZXW5RsDvUvDarbpcHazEF3WVhVSNrtHmshhhBl3qryxMtYslOpLZDPexzXfHR/C7NoMes0eG4nHHmn9WQtLeOUVaIgoh50Sd2BXa1hBGl5JyEQFfx9DorrXVqpotWzOObJhN6m8/9lK9pl1b3P4YXZIdnch53Sz7TZo/xtYiReZMXWshUo83VouDcos1bI+FNM5Hc4qbiMin5M9n5cLbJ60ZC1lnn34L8Be9lh5eUACtIWKtUMbyIKVlsWg51VaUi7Uw3Y0xdp6E3mLU6aHI01XIFX7p5Wovx/IBKqUxZdDjxQXZ4rhhTD9bRDQ896DOmtmnIWTatkIK7yctaD0fENKxIWuzLRzalNsAJN7hTiRBhitZwyMnZDs15ZLSuw1ps0exZqHGDUmhLlKhEK+TdPEtiCbW9my86ixS9HNVYoRwqKC2HWtvESB2qkaDSlpbjdBrbWsYQExJv8N0qhdowinkKzb0ocYHl5klUscPPy7ibL2lDRC0N253BaU3hiQphMskvW0m2ITUq0uMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Organograma do ecossistema Spring&quot;
+        title=&quot;Conheça a família Spring (pluralsight.com)&quot;
+        src=&quot;/static/ce9d25f7605c402a2fc1faee4491aad5/e5715/spring-hierarchy.png&quot;
+        srcset=&quot;/static/ce9d25f7605c402a2fc1faee4491aad5/8514f/spring-hierarchy.png 192w,
+/static/ce9d25f7605c402a2fc1faee4491aad5/804b2/spring-hierarchy.png 384w,
+/static/ce9d25f7605c402a2fc1faee4491aad5/e5715/spring-hierarchy.png 768w,
+/static/ce9d25f7605c402a2fc1faee4491aad5/3dde1/spring-hierarchy.png 1018w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Conheça a família Spring (pluralsight.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Chegaremos no &lt;em&gt;Spring Boot&lt;/em&gt;, mas antes, vamos por partes, como diria aquele famoso &lt;em&gt;serial killer&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O Spring Framework&lt;/h2&gt;
+&lt;p&gt;A definição do &lt;em&gt;Spring&lt;/em&gt; como plataforma pode ser utilizada para compreender o &lt;em&gt;Spring&lt;/em&gt; como &lt;em&gt;framework&lt;/em&gt;. Segundo
+a &lt;a href=&quot;https://spring.io/projects/spring-framework&quot; title=&quot;Spring Framework documentation&quot;&gt;documentação oficial&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Spring Framework provides a comprehensive programming and configuration model for modern Java-based enterprise applications - on any kind of deployment platform.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Uma de suas principais características é lidar com aspectos de aplicações &lt;em&gt;enterprise&lt;/em&gt;,
+para que desenvolvedores possam focar em lógica de negócio a nível de aplicação. Outros
+benefícios podem ser resumidos em:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Promove &lt;em&gt;loose coupling&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Oferece ferramentas que facilitam a escrita de testes;&lt;/li&gt;
+&lt;li&gt;Diminui a quantidade de &lt;em&gt;boilerplate code&lt;/em&gt; para &lt;em&gt;singletons&lt;/em&gt; e &lt;em&gt;factories&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;Suporta configuração via &lt;em&gt;XML&lt;/em&gt; e de forma programática via &lt;em&gt;annotations&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Há outros fatores cruciais do &lt;em&gt;framework&lt;/em&gt;, como o já citado &lt;em&gt;Dependency Injection&lt;/em&gt;
+(e &lt;em&gt;Inversion of Control&lt;/em&gt;). Com tais características, e com a premissa de abordar diferentes áreas de uma aplicação, é inevitável que o &lt;em&gt;Spring&lt;/em&gt; torne-se
+algo complexo.&lt;/p&gt;
+&lt;p&gt;Logo, o &lt;em&gt;framework&lt;/em&gt; é separado em seis &quot;áreas fundamentais&quot;.&lt;/p&gt;
+&lt;h3&gt;1: Core&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f1ab33dcd8dbef349722e51782c6697e/9b29b/spring-core-hierarchy.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 30.729166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABvklEQVQY0zWOwUtTARzHH3ToH4gOHaJD0KEWdDAIglHpe2+2YUUmE6II2njqHLGiDLtYXSocdtk8ZaMyWuZK5x5vTyvbXrPaCEGdh4LSxorSUjfRmJ/eHnT48IUf38+Xn7BR+sPG7Hsq+Qx8naK4ssqb+QXG534xu1BmuVxg/mfWYqn8jUJhmemZIjP57ywulvj96QvFj9P8mMyztrSCUNHvU2nawvqZHeCzERh8hXBLZdOdOHv6DGKZC9x9YaNnaC+xtz4uXR6hqTnCsVMRQj06ww3neHCwkb59R8lH4wjEQ+Deyl/FBi27OP9IRbitsTmosq13nIFMG72JGsLqfgYML63tMU6f7eeE+yHdN0d4Xuvm8aFm7u0WmYo8Q1ifiLPqq6HkPwDXGwi+/MD28Cg7wxqNgzkS724QGjpMePgIiYkuuoOvUXxP8LZFifZnGPNf4+lJhehxD5/1FMLVzk7sdjsOWUKWZRz19YiSRK0o4nK5CAQuorQoeLwe/O1+nE4ndXUioiiZXYflyJJsbVzp6EDI5cwvVJWkrqMlk2iahm5m0qSahmFYpFIp0um0df9PtVt1dNNVzY1sNss/BZ9PrhOKLMoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Organograma do Spring Framework mostrando suas seis áreas&quot;
+        title=&quot;Spring Core e sua relação com os demais módulos (pluralsight.com)&quot;
+        src=&quot;/static/f1ab33dcd8dbef349722e51782c6697e/e5715/spring-core-hierarchy.png&quot;
+        srcset=&quot;/static/f1ab33dcd8dbef349722e51782c6697e/8514f/spring-core-hierarchy.png 192w,
+/static/f1ab33dcd8dbef349722e51782c6697e/804b2/spring-core-hierarchy.png 384w,
+/static/f1ab33dcd8dbef349722e51782c6697e/e5715/spring-core-hierarchy.png 768w,
+/static/f1ab33dcd8dbef349722e51782c6697e/4ad3a/spring-core-hierarchy.png 1152w,
+/static/f1ab33dcd8dbef349722e51782c6697e/71c1d/spring-core-hierarchy.png 1536w,
+/static/f1ab33dcd8dbef349722e51782c6697e/9b29b/spring-core-hierarchy.png 3840w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Spring Core e sua relação com os demais módulos (pluralsight.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O curso da &lt;em&gt;Pluralsight&lt;/em&gt;, &lt;a href=&quot;https://www.pluralsight.com/courses/spring-big-picture&quot; title=&quot;Curso mais do que recomendado&quot;&gt;&quot;Spring: The Big Picture&quot;&lt;/a&gt;, define o &lt;em&gt;Spring Core&lt;/em&gt; como:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Core is a dependency injection container.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Mais uma vez voltamos a citar &lt;em&gt;Dependency Injection&lt;/em&gt;. E se esse &lt;em&gt;pattern&lt;/em&gt; ainda soa exotérico para você,
+recomendo o ótimo &lt;a href=&quot;https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;A quick intro to Dependency Injection: what it is, and when to use it&quot;&lt;/a&gt;, do &lt;em&gt;freeCodeCamp&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Além disso, é o módulo que fornece funcionalidades como &lt;em&gt;i18n&lt;/em&gt;, validações, &lt;em&gt;data binding&lt;/em&gt;, conversores, etc. De maneira geral, é a
+&quot;cola&quot; e o fundamento de todo o &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;2: Web&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e09cae30de5240d9bce6b13f6bf93de4/4cd6f/spring-mvc-request-response.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACAUlEQVQoz22RTUiTcRzHnzqUHaJDb1DRYYQhEUh2zFMsiRob1CFf6hBEL2CXkiA8dch0OzRYL7pNS6EOleXEMN0G9jLFQ2WguWKWSOqeNXHP0zMXe/7Pp79blEF/+P2/tw+/z++r8M+ziv/HYSz/Jax7V7ECDfDoBksLKklVJWNkmdaW+JrJouWy6Nk5NGNOZhJhmSiGkWNuXiWlptEzGrll4O16OKhgHVuP6VgDNRt5GfBgP1SFuzfKOl8UxR2mdbSPzoH9eHsr6AhXFaDK7Owi4+MJJia+8G0mRfIHCLkdrhI4tQNRvRXO2Bjyuzly1EHTszCrvYMoTQP4hkP4+0ppfmKjtf+ABM6j/FdZAkXNFsT5veRP74KzpbwOeqiuraO5J0JZV4ydbW+4NdLL46Eq2sMOuqIuNKmvWJb1lyfMArIArNuGqK8gf24PXCjjVcBNjQRe6w5T/mAEWyCGN9bDw0glHRGXVD5cBJqmiabphckZRhEYuAzOtXByO+LE5t/KLTgcTq5L5VUrlIPPy3A/3U1bf2VReWZmgbGxT7x9N8nnyWnSPyXwzkWwy2sc34BwylvWbvpTSksoSokvUijlrizl/ot93AyV0z5oL5YixAplqS+WIz6KCDYgOhsR7Veg24OemicxNUVyUedDSue9qvHdyJDW4qiZuMwEpsjzC+SJ9WonyrTJAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diagrama com requisição e resposta através do Spring MVC&quot;
+        title=&quot;Fluxo de requisições e respostas através do Spring MVC (pluralsight.com)&quot;
+        src=&quot;/static/e09cae30de5240d9bce6b13f6bf93de4/e5715/spring-mvc-request-response.png&quot;
+        srcset=&quot;/static/e09cae30de5240d9bce6b13f6bf93de4/8514f/spring-mvc-request-response.png 192w,
+/static/e09cae30de5240d9bce6b13f6bf93de4/804b2/spring-mvc-request-response.png 384w,
+/static/e09cae30de5240d9bce6b13f6bf93de4/e5715/spring-mvc-request-response.png 768w,
+/static/e09cae30de5240d9bce6b13f6bf93de4/4ad3a/spring-mvc-request-response.png 1152w,
+/static/e09cae30de5240d9bce6b13f6bf93de4/71c1d/spring-mvc-request-response.png 1536w,
+/static/e09cae30de5240d9bce6b13f6bf93de4/4cd6f/spring-mvc-request-response.png 2449w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Fluxo de requisições e respostas através do Spring MVC (pluralsight.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O módulo &lt;em&gt;Spring Web&lt;/em&gt; é responsável por lidar com requisições &lt;em&gt;web&lt;/em&gt;. Isso pode ser feito através de dois &lt;em&gt;frameworks&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Spring Web MVC&lt;/strong&gt;: Que fornece ferramental para atender requisições e prover respostas através de &lt;em&gt;Servlets&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Spring WebFlux&lt;/strong&gt;: A forma de fazer aplicações &lt;em&gt;web&lt;/em&gt; reativas (&lt;em&gt;non-blocking&lt;/em&gt;) com &lt;em&gt;Java&lt;/em&gt; e &lt;em&gt;Spring&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O primeiro é a forma mais comum de fazer &lt;em&gt;web&lt;/em&gt;, já o segundo envolve conceitos de requisições não-bloqueantes, que
+pretendo abordar melhor em &lt;em&gt;posts&lt;/em&gt; vindouros.&lt;/p&gt;
+&lt;h3&gt;3: AOP&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;AOP&lt;/em&gt; é acrônimo para o pomposo &lt;em&gt;Aspect-Oriented Programming&lt;/em&gt;, que tem por finalidade
+aumentar a modularidade ao permitir a separação de &lt;em&gt;cross-cutting concerns&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ou, como muito bem define a &lt;a href=&quot;https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_orientada_a_aspecto&quot; title=&quot;Programação Orientada a Aspectos&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Em Ciência da Computação, programação orientada a aspectos ou POA, é um paradigma de programação de computadores, criado por Gregor Kiczales e equipe na Xerox PARC (divisão de pesquisa da empresa Xerox), que permite aos desenvolvedores de software organizar o código fonte de acordo com a importância de uso na aplicação e separar em módulos (separation of concerns). Em contrapartida aos programas escritos no paradigma orientado a objetos, que possui código alheio a implementação do comportamento do objeto; todo código utilizado para implementar funcionalidades secundárias e que se encontra espalhado por toda a aplicação (crosscutting concern). A POA permite que esse código seja encapsulado e modularizado.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;E se ainda está complicado de compreender, imagine a necessidade de aplicar a checagem
+de permissões por operações do usuário. É o tipo de responsabilidade que pode ficar
+espalhada pela aplicação. Com &lt;em&gt;Spring AOP&lt;/em&gt; temos algo como abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@PreAuthorize&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;hasRole(&apos;admin&apos;)&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;sensitiveOperation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Os detalhes da implementação de segurança não interessam ao &lt;code class=&quot;language-text&quot;&gt;sensitiveOperation&lt;/code&gt;, assim
+como o inverso.&lt;/p&gt;
+&lt;h3&gt;4: Data&lt;/h3&gt;
+&lt;p&gt;Com o &lt;em&gt;Spring Data&lt;/em&gt;, interagir com dados fica muita mais simples. Abaixo, um exemplo
+de &lt;code class=&quot;language-text&quot;&gt;SELECT&lt;/code&gt; utilizando &lt;em&gt;JDBC&lt;/em&gt; &quot;na unha&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// Exemplo de database query com JDBC&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token class-name&quot;&gt;Statement&lt;/span&gt; stmnt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; conn&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;createStatement&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;ResultSet&lt;/span&gt; rs &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; stmnt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;executeQuery&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;token string&quot;&gt;&quot;SELECT COUNT(*) FROM foo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            rs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; cnt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; rs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;finally&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            rs&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;finally&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        stmnt&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SQLException&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// handle error&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;finally&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        conn&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;SQLException&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// handle error&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora o mesmo ensaio, só que com &lt;em&gt;Spring Data&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; cnt &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;JdbcTemplate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ds&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;queryForInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;SELECT COUNT(*) FROM foo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nem preciso mencionar que gerenciar transações também fica muito mais simples:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Transactional&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;operation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 1 ou mais queries&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para finalizar, controle de erros e inclusive ferramental para testes automatizados,
+são garantias fornecidas pelo &lt;em&gt;Spring Data&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;5: Integration&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1a714cf6158bcc94b2ef1a6ac10d34df/72923/spring-integration.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABBUlEQVQoz41RW46DMBDjTAtJELulhQba8gYB4v4XcceRWFFKV/thZeTJ2PPwwjCEMQZ8V5jQCCQW3nyfoH9i6NPZxY5zf8KXmhXen4JaQ18sgqxEcO+g0ptw6v+Ce2EW6+sD6nqHPqdQ9uG4F/Ndza/gVlQpBcXuAh9f0pUvCJIcfnITLpC85CR/1Mhbh1EUwVqLLMscrOCSJIjjGGmauhyRCMe/e1Fvv4M8zzEMA+Z5Rtd1WJYFfd+jrmt5OzRNg2maHEdDdvo28nYfFGRB27ZOmAIsZlwUBcqydEar4McdbkfmR45XVRXGcXRiqwl5mnLso4N+PoqA47CY49KEMbk1f3SUJ3weNIQ0lBI/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Imagem com a afirmação: Integração é sobre fazer diferentes sistemas e aplicações funcionarem juntos&quot;
+        title=&quot;Integração é sobre fazer diferentes sistemas e aplicações funcionarem juntos (pluralsight.com)&quot;
+        src=&quot;/static/1a714cf6158bcc94b2ef1a6ac10d34df/e5715/spring-integration.png&quot;
+        srcset=&quot;/static/1a714cf6158bcc94b2ef1a6ac10d34df/8514f/spring-integration.png 192w,
+/static/1a714cf6158bcc94b2ef1a6ac10d34df/804b2/spring-integration.png 384w,
+/static/1a714cf6158bcc94b2ef1a6ac10d34df/e5715/spring-integration.png 768w,
+/static/1a714cf6158bcc94b2ef1a6ac10d34df/4ad3a/spring-integration.png 1152w,
+/static/1a714cf6158bcc94b2ef1a6ac10d34df/71c1d/spring-integration.png 1536w,
+/static/1a714cf6158bcc94b2ef1a6ac10d34df/72923/spring-integration.png 3114w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Integração é sobre fazer diferentes sistemas e aplicações funcionarem juntos (pluralsight.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A intenção do &lt;em&gt;Spring Integration&lt;/em&gt; é fazer com que sistemas se conversem. Não é só sobre expor suas soluções, mas também sobre consumir outros serviços.&lt;/p&gt;
+&lt;p&gt;Por exemplo, para criar um &lt;em&gt;endpoint&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt;, anotações como &lt;code class=&quot;language-text&quot;&gt;RestController&lt;/code&gt;
+e &lt;code class=&quot;language-text&quot;&gt;GetMapping&lt;/code&gt; são ferramentas essenciais, fornecidas por esse módulo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@RestController&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;AccountController&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@GetMapping&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/account/{id}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Account&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@PathVariable&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;int&lt;/span&gt; id&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Outro companheiro fiel é o &lt;code class=&quot;language-text&quot;&gt;RestTemplate&lt;/code&gt;, que você pode
+&lt;a href=&quot;https://www.baeldung.com/rest-template&quot; title=&quot;The Guide to RestTemplate&quot;&gt;ler mais aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;6: Testing&lt;/h3&gt;
+&lt;p&gt;O &lt;em&gt;Dependency Injection&lt;/em&gt; é uma excelente ideia para garantir modularização e
+diminuir as amarras do acoplamento.&lt;/p&gt;
+&lt;p&gt;Com o &lt;em&gt;Spring Testing&lt;/em&gt;, utilizar &lt;a href=&quot;/2014/08/07/os-testes-e-os-dubles-parte-1.html&quot; title=&quot;Os testes e os dublês&quot;&gt;&lt;em&gt;mocks&lt;/em&gt;, &lt;em&gt;stubs&lt;/em&gt; e &lt;em&gt;spies&lt;/em&gt;&lt;/a&gt;, como dependências
+injetáveis, fica muito mais fácil. Testar unitariamente (ou até mesmo de forma integrada) a sua aplicação é algo
+prático e factível.&lt;/p&gt;
+&lt;h2&gt;O Spring Boot&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/068a89a9df9ed09f4d388e7a09c9e81d/82f58/spring-boot-starter-dependencies.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.14583333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABgklEQVQoz41S226rMBDk///tqD0hTQMESICYgC9rbAy+AOlG6kOlplKs8WpexjO76+j+8tETFbruVUVVhcRYiF5UrutdanKD9MT2BfvoINOmf0m8bRuKmaobkbRwQtT8KMfut3jD65zpVdkOxW14VK5r50ML55TGBTsgjv1/Pt6eOK/bfZzUFZKcfZT8M+eHThbWe9CkE1kPeQ8FEm3on2JQFz5cqCyxgqqXZSWy/KRvKdtlLN53/5gmUVgc002va4pV1ch98MoMdMjRNmVxAylXl3VdnDeTHWanEEh8mCPvp5zGCX0/0V1GdyXbWzdP1ghVgWqkatAW9BXFvzNGOEgfpvADy7opI28yQ9sj3RX8gA+FYAfT8fEqRoKQIwno/LRnM2s05N+ohrG1biIixYBJ/57Qt/MjoI6eLfUuR8hwMDTO2B79K5E4Z53XzimEd3q2w7L453vGRoQm8IjXwtgq0892Ivg3IK0gvYgEp+j89Or39MERWTQS9dlZpFd5QvEXMvjlWT7pFT4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Imagem com as dependências do spring-boot-starter-web&quot;
+        title=&quot;Árvore de dependências do Spring Boot (journaldev.com)&quot;
+        src=&quot;/static/068a89a9df9ed09f4d388e7a09c9e81d/e5715/spring-boot-starter-dependencies.png&quot;
+        srcset=&quot;/static/068a89a9df9ed09f4d388e7a09c9e81d/8514f/spring-boot-starter-dependencies.png 192w,
+/static/068a89a9df9ed09f4d388e7a09c9e81d/804b2/spring-boot-starter-dependencies.png 384w,
+/static/068a89a9df9ed09f4d388e7a09c9e81d/e5715/spring-boot-starter-dependencies.png 768w,
+/static/068a89a9df9ed09f4d388e7a09c9e81d/4ad3a/spring-boot-starter-dependencies.png 1152w,
+/static/068a89a9df9ed09f4d388e7a09c9e81d/82f58/spring-boot-starter-dependencies.png 1387w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Árvore de dependências do Spring Boot (journaldev.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ok. Finalmente! O que é o &lt;em&gt;Spring Boot&lt;/em&gt;?&lt;/p&gt;
+&lt;p&gt;A documentação oficial &lt;a href=&quot;https://spring.io/projects/spring-boot&quot; title=&quot;Spring Boot documentation&quot;&gt;define da seguinte forma&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Spring Boot makes it easy to create stand-alone, production-grade Spring based Applications that you can &quot;just run&quot;.&lt;/p&gt;
+&lt;p&gt;We take an opinionated view of the Spring platform and third-party libraries so you can get started with minimum fuss. Most Spring Boot applications need minimal Spring configuration.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Imagine que para utilizar o &lt;em&gt;Spring&lt;/em&gt;, cada módulo descrito acima é uma dependência
+que precisa ser instalada e configurada. E com isso, você vai ter uma porção de código
+&lt;em&gt;boilerplate&lt;/em&gt; para executar o seu projeto.&lt;/p&gt;
+&lt;p&gt;Com &lt;em&gt;Spring Boot&lt;/em&gt;, a biblioteca toma algumas decisões por você, configurando e declarando
+quais dependências seu projeto utilizará. Assim, com o mínimo de esforço você consegue
+ter a sua aplicação &lt;em&gt;web&lt;/em&gt; funcionando em tempo recorde. Com alguns outros agrados, como métricas,
+&lt;em&gt;health check&lt;/em&gt;, utilitários para &lt;em&gt;deployment&lt;/em&gt;, etc.&lt;/p&gt;
+&lt;p&gt;Além do &quot;auto-configuration&quot;, outro aspecto marcante do &lt;em&gt;Spring Boot&lt;/em&gt; é que
+ele é &lt;em&gt;standalone&lt;/em&gt;. Ou seja, toda aquela dança que tivemos com o &lt;em&gt;Tomcat&lt;/em&gt;
+nos &lt;em&gt;posts&lt;/em&gt; anteriores não é necessária aqui. O &lt;em&gt;Spring Boot&lt;/em&gt; &quot;embeda&quot;
+o servidor &lt;em&gt;web&lt;/em&gt;, e se encarrega disso para você.&lt;/p&gt;
+&lt;p&gt;É instalar e sair escrevendo código para o negócio, aos invés de
+escrever código para o &lt;em&gt;framework&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Esse &lt;em&gt;post&lt;/em&gt; foi completamente baseado no curso &lt;a href=&quot;https://www.pluralsight.com/courses/spring-big-picture&quot;&gt;&lt;em&gt;Spring: The Big Picture&lt;/em&gt;&lt;/a&gt;, da plataforma de ensino &lt;a href=&quot;https://www.pluralsight.com/&quot;&gt;&lt;em&gt;Pluralsight&lt;/em&gt;&lt;/a&gt;. Se você quiser dar os seus primeiros passos com &lt;em&gt;Java&lt;/em&gt;
+para &lt;em&gt;web&lt;/em&gt;, utilizando &lt;em&gt;Spring&lt;/em&gt;, esse curso é mais do que recomendado.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Spring Boot&lt;/em&gt; é sem dúvida a maneira mais indolor de começar a desenvolver para a &lt;em&gt;web&lt;/em&gt;
+utilizando &lt;em&gt;Java&lt;/em&gt;. Comece por ele, e vá customizando o conjunto de dependências e
+configurações sempre que necessário.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://spring.io/guides/gs/spring-boot/&quot;&gt;Escreva a sua primeira aplicação em &lt;em&gt;Spring Boot&lt;/em&gt; agora&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.baeldung.com/spring-vs-spring-boot&quot;&gt;Baeldung - A Comparison Between Spring and Spring Boot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dzone.com/articles/understanding-the-basics-of-spring-vs-spring-boot&quot;&gt;DZone - Understanding the Basics of Spring vs. Spring Boot&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.pluralsight.com/courses/spring-big-picture&quot;&gt;Pluralsight - Spring: The Big Picture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Programa%C3%A7%C3%A3o_orientada_a_aspecto&quot;&gt;Wikipedia - Programação orientada a aspecto&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Spring_Framework&quot;&gt;Wikipedia - Spring Framework&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zoltanraffai.com/blog/what-is-spring-framework-in-java/&quot;&gt;Zoltán Raffai - Getting started with Java Spring&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

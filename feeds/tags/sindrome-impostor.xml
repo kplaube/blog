@@ -1,2 +1,132 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - sindrome-impostor</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Tue, 30 Apr 2019 17:30:00 -0300</lastBuildDate><item><title>Peça ajuda!</title><link>https://klauslaube.com.br/2019/04/30/peca-ajuda.html</link><description>&lt;p&gt;Desde que assisti ao (razoável) &lt;a href="https://www.imdb.com/title/tt0480249/" title="I Am Legend"&gt;Eu Sou a Lenda&lt;/a&gt;, uma pergunta instalou-se em minha cabeça: E se eu fosse o último ser humano vivo depois de um apocalipse zumbi? Alguns bons anos depois da estreia do filme, posso dizer com toda a sobriedade que, se eu o fosse, seria por …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Tue, 30 Apr 2019 17:30:00 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2019-04-30:/2019/04/30/peca-ajuda.html</guid><category>profissao</category><category>carreira</category><category>desenvolvedor</category><category>sindrome-impostor</category></item></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - sindrome-impostor]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Peça ajuda!]]></title><description><![CDATA[Desde que assisti ao (razoável) Eu Sou a Lenda, uma pergunta instalou-se em minha cabeça: E se eu fosse o último ser humano vivo depois de um apocalipse zumbi? Alguns bons anos depois da estreia do filme, posso dizer com toda a sobriedade que, se eu o fosse, seria por muita sorte, e possivelmente…]]></description><link>https://klauslaube.com.br/2019/04/30/peca-ajuda.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/04/30/peca-ajuda.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 30 Apr 2019 17:30:00 GMT</pubDate><content:encoded>&lt;p&gt;Desde que assisti ao (razoável) &lt;a href=&quot;https://www.imdb.com/title/tt0480249/&quot; title=&quot;I Am Legend&quot;&gt;Eu Sou a Lenda&lt;/a&gt;, uma pergunta instalou-se em minha cabeça: E se eu fosse o último ser humano vivo depois de um apocalipse zumbi? Alguns bons anos depois da estreia do filme, posso dizer com toda a sobriedade que, se eu o fosse, seria por muita sorte, e possivelmente não viveria muito tempo mais.&lt;/p&gt;
+&lt;h2&gt;Quantas pessoas é preciso para construir um lápis?&lt;/h2&gt;
+&lt;p&gt;As vezes esquecemos que no mundo globalizado em que vivemos, é muito raro sermos os únicos agentes por trás de uma ideia ou produto. O lápis, que você usa diariamente e nem nota a tamanha importância que tem, &lt;a href=&quot;https://www.sucessonetwork.com.br/licoes-aprenda-com-o-lapis-e-como-construir-confianca-por-gilberto-suzuki/&quot; title=&quot;Aprenda com o Lápis e Como construir confiança&quot;&gt;passou pela mão de centenas de pessoas&lt;/a&gt; antes de chegar à sua mesa. Não é incomum olharmos algo simples, e automaticamente assumirmos como fácil.&lt;/p&gt;
+&lt;p&gt;Algumas semanas atrás eu estava enfrentando uma daquelas tarefas &quot;toca do coelho da Alice&quot;. Na primeira estimativa do time parecia algo trivial, de baixa complexidade. Com o tempo, e descobrindo mais sobre os requisitos (de produto e técnicos), a complexidade foi crescendo exponencialmente. Logo, aquele &lt;em&gt;ticket&lt;/em&gt; que teoricamente seria resolvido em uma iteração, estava em seu terceiro &lt;em&gt;sprint&lt;/em&gt;, e sem grandes perspectivas de acabar.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/23e393d3a98246d5a742a40fd7b09c6d/828fb/help-starwars.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcxxMsIg/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAECERAS/9oACAEBAAEFAmpIUeNjms0//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRABAAIDAAAAAAAAAAAAAAAAAQARICEy/9oACAEBAAY/AmgmwnBh/8QAGhAAAwADAQAAAAAAAAAAAAAAAAERIUFRMf/aAAgBAQABPyFrQaHGeBmsilQr6S8ZXT//2gAMAwEAAgADAAAAEAPf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAEDAQE/EK1//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAh/9oACAECAQE/EDGf/8QAGhABAQEBAQEBAAAAAAAAAAAAAREAITFBYf/aAAgBAQABPxCnF10ex+ZQB6B2XzTSmWgt66zauARQ/HBkHv/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Cena de Star Wars onde Leia pede ajuda a Obi-Wan&quot;
+        title=&quot;Help me, Obi-Wan (starwars.com)&quot;
+        src=&quot;/static/23e393d3a98246d5a742a40fd7b09c6d/828fb/help-starwars.jpg&quot;
+        srcset=&quot;/static/23e393d3a98246d5a742a40fd7b09c6d/7809d/help-starwars.jpg 192w,
+/static/23e393d3a98246d5a742a40fd7b09c6d/4ecad/help-starwars.jpg 384w,
+/static/23e393d3a98246d5a742a40fd7b09c6d/828fb/help-starwars.jpg 630w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Help me, Obi-Wan (starwars.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Cada &lt;em&gt;daily meeting&lt;/em&gt; era uma tortura. Era como reconhecer que eu estava falhando como desenvolvedor, e que não tinha a capacidade de entregar uma história teoricamente simples. O medo de mostrar vulnerabilidade trouxe a necessidade de ser menos transparente em relação aos reais motivos por trás do atraso. No fim, só conseguia enxergar que eu era o culpado por todo aquele atraso, e que era o fim da linha para mim como desenvolvedor na empresa que eu havia acabado de ingressar.&lt;/p&gt;
+&lt;p&gt;Era como correr de um zumbi, sem realmente ter um plano para escapar dele.&lt;/p&gt;
+&lt;h2&gt;A Síndrome do Impostor ou Efeito Dunning-Kruger?&lt;/h2&gt;
+&lt;p&gt;Nem preciso dizer que toda essa dinâmica resultou em picos altíssimos de ansiedade, e quando menos percebi estava preso no círculo vicioso da &lt;a href=&quot;https://pt.wikipedia.org/wiki/S%C3%ADndrome_do_impostor&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;Síndrome do Impostor&lt;/a&gt;. Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;As pessoas que sofrem este tipo de síndrome, de forma permanente, temporária ou frequente, parecem incapazes de internalizar os seus feitos na vida. Não importando o nível de sucesso alcançado em sua área de estudo ou trabalho, ou quaisquer que sejam as provas externas de suas competências, essas pessoas permanecem convencidas de que não merecem o sucesso alcançado e que de fato são nada menos do que fraudes.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;O medo de descobrirem a &quot;fraude&quot; me colocou na defensiva. Uma cortina de fumaça. Se eu conseguisse resolver aquele problema, sem ajuda nenhuma, eu ganharia tempo, e todo esse episódio seria esquecido.&lt;/p&gt;
+&lt;p&gt;Hoje fica fácil olhar para trás e reconhecer que na época, eu tinha pouca experiência com a plataforma &lt;em&gt;Java&lt;/em&gt;, e que eu deveria adicionar isso como argumento no momento da estimativa. Eu &quot;achava que sabia o que eu não sabia&quot;, uma espécie de &lt;a href=&quot;https://pt.wikipedia.org/wiki/Efeito_Dunning-Kruger&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;Efeito Dunning-Kruger&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) é o fenômeno pelo qual indivíduos que possuem pouco conhecimento sobre um assunto acreditam saber mais que outros mais bem preparados, fazendo com que tomem decisões erradas e cheguem a resultados indevidos; é a sua incompetência que os restringe da habilidade de reconhecer os próprios erros. Estas pessoas sofrem de superioridade ilusória.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&quot;Isso é fácil! Resolvo em um sprint, sem dúvida. Sou um excelente desenvolvedor&quot;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 625px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/19fd5f0161b7ef5b7dae555fa572e192/dfe3c/help-zombieland.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAEDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHGglrCf//EABcQAQEBAQAAAAAAAAAAAAAAAAEAAhH/2gAIAQEAAQUCwDcJv//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAEFAAAAAAAAAAAAAAAAAAABESExUf/aAAgBAQAGPwJXwsg//8QAGhAAAgIDAAAAAAAAAAAAAAAAAREAITFBUf/aAAgBAQABPyHcOQgYrBciuzE//9oADAMBAAIAAwAAABCP/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAwEBPxCH/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8QZ//EABkQAQEBAQEBAAAAAAAAAAAAAAERADEhUf/aAAgBAQABPxD3oYwvHV4AEQCL0b8wEhDsDf/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Imagem do filme Zumbilandia - Seja um herói&quot;
+        title=&quot;Não! Não seja um herói! (anythingzombie.com)&quot;
+        src=&quot;/static/19fd5f0161b7ef5b7dae555fa572e192/dfe3c/help-zombieland.jpg&quot;
+        srcset=&quot;/static/19fd5f0161b7ef5b7dae555fa572e192/7809d/help-zombieland.jpg 192w,
+/static/19fd5f0161b7ef5b7dae555fa572e192/4ecad/help-zombieland.jpg 384w,
+/static/19fd5f0161b7ef5b7dae555fa572e192/dfe3c/help-zombieland.jpg 625w&quot;
+        sizes=&quot;(max-width: 625px) 100vw, 625px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não! Não seja um herói! (anythingzombie.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;É essa mesma superioridade ilusória que faz você acreditar que sim, sobreviveria a um &lt;em&gt;outbreak&lt;/em&gt; zumbi.&lt;/p&gt;
+&lt;h2&gt;Somos um exército de um homem só&lt;/h2&gt;
+&lt;p&gt;Só aprendi a controlar o ego através da &quot;dor&quot;. Somente após viver cercado de profissionais muito mais capazes do que eu o era, e que diariamente me provocavam um &lt;em&gt;reality check&lt;/em&gt;. Em algum momento desse período eu compreendi que era mais fácil adotar uma postura humilde, me aproximar de tais profissionais, e aprender o que fosse possível com eles.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/60d3d6498dc690335ad21ed3276d3957/be796/help-i-am-legend.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGNkmZXE4f/xAAZEAACAwEAAAAAAAAAAAAAAAAAAQIDEhH/2gAIAQEAAQUCrlkptza5demNs6z/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAABBQEAAAAAAAAAAAAAAAABAAIQITFB/9oACAEBAAY/AqpPJ6DGxq//xAAZEAEBAQEBAQAAAAAAAAAAAAABABExIeH/2gAIAQEAAT8h3IkX2VLQU9YHikJqzp1f/9oADAMBAAIAAwAAABAD7//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EKr/xAAWEQEBAQAAAAAAAAAAAAAAAAAAETH/2gAIAQIBAT8Q1H//xAAdEAEBAQABBQEAAAAAAAAAAAABEQAhMVGBodHw/9oACAEBAAE/EIqxEez+mnidY+R70Z1FVHIEFeY6jKNKvDvqG//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Will Smith em Eu sou a lenda&quot;
+        title=&quot;Nem Will Smith aguenta sozinho (looper.com)&quot;
+        src=&quot;/static/60d3d6498dc690335ad21ed3276d3957/212bf/help-i-am-legend.jpg&quot;
+        srcset=&quot;/static/60d3d6498dc690335ad21ed3276d3957/7809d/help-i-am-legend.jpg 192w,
+/static/60d3d6498dc690335ad21ed3276d3957/4ecad/help-i-am-legend.jpg 384w,
+/static/60d3d6498dc690335ad21ed3276d3957/212bf/help-i-am-legend.jpg 768w,
+/static/60d3d6498dc690335ad21ed3276d3957/be796/help-i-am-legend.jpg 780w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Nem Will Smith aguenta sozinho (looper.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Mas a competividade no setor de Tecnologia da Informação é alta, e isso pode resultar em ambientes tóxicos. Empresas que não te permitem errar, que possuem um sistema de evolução de carreira baseado somente em avaliações 360 e produtividade, ou colegas de trabalho que pecam em &lt;em&gt;soft skills&lt;/em&gt; com um &quot;como é que você não sabe isso?&quot;. Pedir ajuda em um ambiente como esse não é nada atrativo, e o empenho de resolver um problema sozinho pode parecer mais recompensador.&lt;/p&gt;
+&lt;p&gt;Mas a dura realidade é que, mesmo que você sobreviva ao &lt;em&gt;outbreak&lt;/em&gt; zumbi, você não seria capaz de fabricar um lápis sozinho.&lt;/p&gt;
+&lt;h2&gt;Help!&lt;/h2&gt;
+&lt;p&gt;Como eu resolvi o meu problema? Pedindo ajuda, claro.&lt;/p&gt;
+&lt;p&gt;Tenho o privilégio de trabalhar na Dinamarca atualmente, um país com níveis de &lt;em&gt;work-life balance&lt;/em&gt; impressionantes. Grande parte dos meus colegas de trabalho têm por filosofia de vida o &quot;existe vida lá fora&quot; com pitadas de &quot;não se leve tão a sério&quot; e &quot;você não é o seu crachá&quot;. O que resulta em um ambiente de trabalho relativamente leve, te dando segurança para mostrar suas vulnerabilidades, e de aprender com os próprios erros.&lt;/p&gt;
+&lt;p&gt;Ser vulnerável não é algo ruim. Sair da zona de conforto e &quot;lutar a boa luta&quot; exige energia, exige movimento, proatividade. Quebre esse círculo vicioso da insegurança e peça ajuda!&lt;/p&gt;
+&lt;h2&gt;Antes de ir&lt;/h2&gt;
+&lt;p&gt;A grande lição que fica disso é que, ao se levar muito a sério, você deixa de fazer algo que deveria ser muito comum no meio &lt;em&gt;Agile&lt;/em&gt;: Errar.&lt;/p&gt;
+&lt;p&gt;Se você estiver nadando em um mar de angústia e ansiedade, espero que esse depoimento te motive a quebrar o círculo vicioso, e a pedir ajuda. Não há &quot;desonra&quot; nisso, e bobear você aprende algo novo por tabela.&lt;/p&gt;
+&lt;p&gt;Permita-se &quot;ligar o fod*-se&quot; de vez em quando.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.boanoiteinternet.com.br/&quot;&gt;Boa Noite Internet - Um podcast procurando respostas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>

