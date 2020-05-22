@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - quarentena]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Fri, 22 May 2020 15:04:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[5 práticas para ajudar na produtividade durante a quarentena]]></title><description><![CDATA[Esse post é inspirado em uma conversa que tive com a minha sobrinha, há alguns
+dias atrás, relacionado à foco e concentração durante essa época de quarentena. Ela está assistindo às aulas de forma remota, e está lutando a mesma luta de todo
+desenvolvedor que trabalha remoto: Manter o foco com tantas…]]></description><link>https://klauslaube.com.br/2020/05/22/5-ferramentas-para-ajudar-na-produtividade-durante-a-quarentena.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/05/22/5-ferramentas-para-ajudar-na-produtividade-durante-a-quarentena.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 22 May 2020 12:01:00 GMT</pubDate><content:encoded>&lt;p&gt;Esse &lt;em&gt;post&lt;/em&gt; é inspirado em uma conversa que tive com a minha sobrinha, há alguns
+dias atrás, relacionado à foco e concentração durante essa época de quarentena.&lt;/p&gt;
+&lt;p&gt;Ela está assistindo às aulas de forma remota, e está lutando a mesma luta de todo
+desenvolvedor que trabalha remoto: Manter o foco com tantas distrações e interrupções.&lt;/p&gt;
+&lt;p&gt;E trabalhar remoto virou uma realidade (ainda maior, com a pandemia de &lt;em&gt;COVID-19&lt;/em&gt;) para praticamente todo o mercado de
+desenvolvimento de &lt;em&gt;software&lt;/em&gt;. Tem gente que gosta, tem gente que não suporta a ideia. Mas o fato é que empresas como
+o &lt;em&gt;Twitter&lt;/em&gt;, &lt;a href=&quot;https://www.terra.com.br/noticias/tecnologia/twitter-permitira-home-office-permanente-para-parte-de-seus-funcionarios,f1d771029e9e95268393c8989574f9139gzz6l5b.html&quot; title=&quot;Twitter permitirá &amp;#x27;home-office&amp;#x27; permanente para parte de seus funcionários&quot;&gt;já estão mostrando que esse modo de trabalho pode ser a regra daqui para frente&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Voltando à minha sobrinha, recomendei a técnica &lt;em&gt;Pomodoro&lt;/em&gt;, e com isso veio a ideia de escrever (novamente) sobre o assunto.&lt;/p&gt;
+&lt;p&gt;Sem mais delongas, vamos ao que interessa.&lt;/p&gt;
+&lt;h2&gt;1. Lista de tarefas&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/454f3d4dc7d1011e6699c94c5fdc79ef/77090/produtividade-glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQCA//EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGl3wMCYz//xAAZEAADAAMAAAAAAAAAAAAAAAABAgMAEjH/2gAIAQEAAQUCWSjLKNEghUc7lHO//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAIREv/aAAgBAwEBPwGmov/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAgEBPwGpr//EABsQAAICAwEAAAAAAAAAAAAAAAABESECEDJx/9oACAEBAAY/ArOZ8Jyp6hjP/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARITFB/9oACAEBAAE/IfUJH4aOEg7V6LUVwhmslYOGbs//2gAMAwEAAgADAAAAEHAv/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAh/9oACAEDAQE/EAEOF//EABYRAQEBAAAAAAAAAAAAAAAAABEAIf/aAAgBAgEBPxBM+t//xAAcEAEAAgMAAwAAAAAAAAAAAAABABEhMWFBUYH/2gAIAQEAAT8QSOMLR9h3i0SApeZJv1KGzZGqewfJBs0lBWx2f//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Pessoa escrevendo num bloco de notas o seu todo list&quot;
+        title=&quot;Tenha prioridades (unsplash.com)&quot;
+        src=&quot;/static/454f3d4dc7d1011e6699c94c5fdc79ef/212bf/produtividade-glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg&quot;
+        srcset=&quot;/static/454f3d4dc7d1011e6699c94c5fdc79ef/7809d/produtividade-glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg 192w,
+/static/454f3d4dc7d1011e6699c94c5fdc79ef/4ecad/produtividade-glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg 384w,
+/static/454f3d4dc7d1011e6699c94c5fdc79ef/212bf/produtividade-glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg 768w,
+/static/454f3d4dc7d1011e6699c94c5fdc79ef/5ef17/produtividade-glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg 1152w,
+/static/454f3d4dc7d1011e6699c94c5fdc79ef/ac99c/produtividade-glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg 1536w,
+/static/454f3d4dc7d1011e6699c94c5fdc79ef/77090/produtividade-glenn-carstens-peters-RLw-UC03Gwc-unsplash.jpg 4256w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Tenha prioridades (unsplash.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Fazer uma lista com os afazeres do dia é um bom primeiro passo em direção a ter algo feito. Pode parecer simplista, mas compreender o que precisa
+ser feito, e acima de tudo, o que precisa ser feito primeiro, é uma das práticas mais básicas para combater a procrastinação.&lt;/p&gt;
+&lt;p&gt;Os detalhes de como você fará essa lista podem variar de acordo com os diferentes autores. Dirão que você deveria
+começar pelas coisas mais difíceis, ou que você deveria realizar tudo o que é importante antes de almoçar, ou ainda que você deveria planejar o dia seguinte antes
+de dormir.&lt;/p&gt;
+&lt;p&gt;Não importando a prática escolhida, deve-se ter cuidado com o seguinte: &lt;strong&gt;Quando tudo é importante, nada é importante&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Já me vi várias vezes com uma lista de tarefas tão grande, que fazê-las começou a perder o sentido, e entrei no espectro da procrastinação da sensação
+de ter coisas demais para fazer, e não conseguir motivação para começar.&lt;/p&gt;
+&lt;p&gt;Para evitar o desperdício e a frustração que essa situação pode ocasionar, existe a prática chamada &quot;Caixa de Eisenhower&quot; (ou &quot;Matriz de Eisenhower&quot;).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2c809b2463f953246b5e851e415a6297/4017f/produtividade-eisenhower-box.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 80.72916666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHcQ6eWwCj/xAAYEAACAwAAAAAAAAAAAAAAAAABAhASIf/aAAgBAQABBQJsFxD6tGj/xAAVEQEBAAAAAAAAAAAAAAAAAAAREP/aAAgBAwEBPwEZ/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/ATV//8QAFRABAQAAAAAAAAAAAAAAAAAAECH/2gAIAQEABj8CY//EABoQAQEAAgMAAAAAAAAAAAAAAAERABAhMaH/2gAIAQEAAT8hRVwoce6DDthcs1//2gAMAwEAAgADAAAAEOvP/8QAFxEAAwEAAAAAAAAAAAAAAAAAARARMf/aAAgBAwEBPxAbWL//xAAWEQEBAQAAAAAAAAAAAAAAAAABECH/2gAIAQIBAT8QQcn/xAAaEAEBAQADAQAAAAAAAAAAAAABEQAhMdFx/9oACAEBAAE/EJgX4zSdCp2vdMs7hxTjEdQIsHzG/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diagrama ilustrando a Caixa de Eisenhower&quot;
+        title=&quot;Separe suas tarefas em quatro quadrantes, descarte o que for classificado como não importante/não urgente (jamesclear.com)&quot;
+        src=&quot;/static/2c809b2463f953246b5e851e415a6297/212bf/produtividade-eisenhower-box.jpg&quot;
+        srcset=&quot;/static/2c809b2463f953246b5e851e415a6297/7809d/produtividade-eisenhower-box.jpg 192w,
+/static/2c809b2463f953246b5e851e415a6297/4ecad/produtividade-eisenhower-box.jpg 384w,
+/static/2c809b2463f953246b5e851e415a6297/212bf/produtividade-eisenhower-box.jpg 768w,
+/static/2c809b2463f953246b5e851e415a6297/4017f/produtividade-eisenhower-box.jpg 990w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Separe suas tarefas em quatro quadrantes, descarte o que for classificado como não importante/não urgente (jamesclear.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Separe a sua lista em quatro quadrantes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Importante, urgente:&lt;/strong&gt; Faça, e faça agora&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Importante, não urgente:&lt;/strong&gt; Agende um tempo para fazer isso&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Não importante, urgente:&lt;/strong&gt; Ache alguém para fazer isso para você&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Não importante, não urgente:&lt;/strong&gt; Descarte&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Papel e caneta são o suficiente para começar. Há inúmeras aplicações que auxiliam na criação de &lt;em&gt;todo lists&lt;/em&gt;, que vão desde soluções mais simples
+como o &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.google.android.apps.tasks&amp;#x26;hl=en_US&quot; title=&quot;Veja mais no Google Play Store&quot;&gt;&lt;em&gt;Google Tasks&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;https://support.apple.com/en-us/HT205890&quot; title=&quot;Leia mais sobre o Apple Reminders&quot;&gt;&lt;em&gt;Reminders&lt;/em&gt;&lt;/a&gt;, até soluções mais arrojadas como o &lt;a href=&quot;https://trello.com/&quot; title=&quot;Boards, lists and cards&quot;&gt;&lt;em&gt;Trello&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://todoist.com/&quot; title=&quot;Organize it all with Todoist&quot;&gt;&lt;em&gt;Todoist&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://get.todoist.help/hc/pt-br/articles/210762449-Matriz-de-Eisenhower-com-Todoist&quot;&gt;Leia mais sobre a Matriz de Eisenhower no blog do Todoist&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;2. Tenha um horário para começar e terminar&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fe285940faaee5111f5472bc33e59d18/c83bb/produtividade-laura-chouette-PfJfQgseAHI-unsplash.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAABaTXNJgBT/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAECAxL/2gAIAQEAAQUCu+RWnJrnVE46yI//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8BNX//xAAZEAEAAgMAAAAAAAAAAAAAAAABABECECH/2gAIAQEABj8C4S9Dg0xrM7r/xAAbEAADAAIDAAAAAAAAAAAAAAAAARExUSFhof/aAAgBAQABPyFypWvhxg7oUmBihUd7h3ZSSuT/2gAMAwEAAgADAAAAEJQP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAR/9oACAEDAQE/EBF//8QAFxEAAwEAAAAAAAAAAAAAAAAAARARIf/aAAgBAgEBPxAqxf/EABwQAQEAAgIDAAAAAAAAAAAAAAERACFBcTFhkf/aAAgBAQABPxCgGvPHbnBUVInaOJBopY8ZZCu27+ZRMW0L2KYAoQbfef/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Demonstração do despertar pela manhã com café&quot;
+        title=&quot;Tenha um horário para acordar e começar o seu dia (unsplash.com)&quot;
+        src=&quot;/static/fe285940faaee5111f5472bc33e59d18/212bf/produtividade-laura-chouette-PfJfQgseAHI-unsplash.jpg&quot;
+        srcset=&quot;/static/fe285940faaee5111f5472bc33e59d18/7809d/produtividade-laura-chouette-PfJfQgseAHI-unsplash.jpg 192w,
+/static/fe285940faaee5111f5472bc33e59d18/4ecad/produtividade-laura-chouette-PfJfQgseAHI-unsplash.jpg 384w,
+/static/fe285940faaee5111f5472bc33e59d18/212bf/produtividade-laura-chouette-PfJfQgseAHI-unsplash.jpg 768w,
+/static/fe285940faaee5111f5472bc33e59d18/5ef17/produtividade-laura-chouette-PfJfQgseAHI-unsplash.jpg 1152w,
+/static/fe285940faaee5111f5472bc33e59d18/ac99c/produtividade-laura-chouette-PfJfQgseAHI-unsplash.jpg 1536w,
+/static/fe285940faaee5111f5472bc33e59d18/c83bb/produtividade-laura-chouette-PfJfQgseAHI-unsplash.jpg 4608w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Tenha um horário para acordar e começar o seu dia (unsplash.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Consigo até imaginar você revirando os olhos nesse momento.&lt;/p&gt;
+&lt;p&gt;Mas sim, tão importante quanto saber o que você tem que fazer, e em qual ordem, é saber quando começar e parar. Principalmente se fará parte do
+seu cotidiano fazer &lt;em&gt;home-office&lt;/em&gt;, ou estudar de casa.&lt;/p&gt;
+&lt;p&gt;Com um horário para começar, você se predispõe a começar a executar os itens da sua lista de tarefas em um determinado período. Com o tempo e a repetição,
+vem a rotina. E aquilo que no início era doloroso passa a fazer parte do seu cotidiano.&lt;/p&gt;
+&lt;p&gt;Tão crucial quanto, é saber quando parar. Estar remoto não significa que você tenha que trabalhar mais horas, ou que tenha que ficar
+até tarde. O descanso é fundamental para que você mantenha-se produtivo no dia seguinte. Mas além disso, é uma questão de saúde! Imagine
+que você está indo para o escritório, ou para a escola.&lt;/p&gt;
+&lt;p&gt;Atente-se aos horários de entrada e saída.&lt;/p&gt;
+&lt;h2&gt;3. Pomodoro&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0e659a6b88216355905a0a665efa021d/4b190/produtividade-processo-pomodoro.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 112.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAXABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB60bmsITUCg//xAAYEAADAQEAAAAAAAAAAAAAAAAAARARMf/aAAgBAQABBQIUW6Lgp//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABkQAAIDAQAAAAAAAAAAAAAAABAhAAEgMf/aAAgBAQAGPwKOsMdH/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAERITEQQVFhcf/aAAgBAQABPyFeErouhrosTjbSUMGIRqZyfAz/2gAMAwEAAgADAAAAEOv/AMP/xAAZEQADAAMAAAAAAAAAAAAAAAAAAREQITH/2gAIAQMBAT8Q4PThcf/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EABsQAAMBAQEBAQAAAAAAAAAAAAERIQAxUYFh/9oACAEBAAE/EAEBFKFZzxeBYwGGA+Y4CUM+/MebifUN4uWKaBDQJEMVDIf5v//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Descrição do processo do Pomodoro&quot;
+        title=&quot;O ciclo aplicado através da técnica (simplesfica.com)&quot;
+        src=&quot;/static/0e659a6b88216355905a0a665efa021d/212bf/produtividade-processo-pomodoro.jpg&quot;
+        srcset=&quot;/static/0e659a6b88216355905a0a665efa021d/7809d/produtividade-processo-pomodoro.jpg 192w,
+/static/0e659a6b88216355905a0a665efa021d/4ecad/produtividade-processo-pomodoro.jpg 384w,
+/static/0e659a6b88216355905a0a665efa021d/212bf/produtividade-processo-pomodoro.jpg 768w,
+/static/0e659a6b88216355905a0a665efa021d/4b190/produtividade-processo-pomodoro.jpg 800w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;O ciclo aplicado através da técnica (simplesfica.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/2017/06/29/pomodoro-ftw.html&quot; title=&quot;Pomodoro FTW!&quot;&gt;Já falamos sobre &lt;em&gt;Pomodoro&lt;/em&gt; por aqui&lt;/a&gt;, e a prática resume-se em:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Escolha uma tarefa&lt;/li&gt;
+&lt;li&gt;Programe o seu despertador para despertar em 25 minutos&lt;/li&gt;
+&lt;li&gt;Trabalhe nessa tarefa durante os 25 minutos&lt;/li&gt;
+&lt;li&gt;Faça uma pausa de 5 minutos&lt;/li&gt;
+&lt;li&gt;Repita do início&lt;/li&gt;
+&lt;li&gt;A cada quatro intervalos de 25 minutos, faça uma pausa de 15 minutos&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A dinâmica aqui te força a focar no processo (algo perfeitamente alcançável), ao invés de focar no resultado da tarefa (algo por vezes difícil de alcançar). Os
+benefícios são muito bem explicados na fantástica &lt;em&gt;webcomic&lt;/em&gt; &lt;a href=&quot;http://mel-meow.com/uma-longa-noite-aprendendo/&quot; title=&quot;Veja em quadrinhos como aplicar o Pomodoro&quot;&gt;Uma Longe Noite Aprendendo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.moosti.com/&quot; title=&quot;Conheça  o moosti&quot;&gt;Moosti&lt;/a&gt; e &lt;a href=&quot;https://apps.apple.com/us/app/be-focused-focus-timer/id973130201&quot;&gt;Be Focused&lt;/a&gt; são
+&lt;em&gt;apps&lt;/em&gt; gratuítos bem interessantes. Mas qualquer dispositivo que você possa programar
+um alarme é mais do que o suficiente.&lt;/p&gt;
+&lt;h2&gt;4. Flowtime&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c0a7c28f8d759dec57b62c844918f8e9/2cefc/produtividade-processo-flowtime.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAd0lEQVQI14WJaw7CIBAGuf+hqlATK9QmQE8CLI9Q1C8Qjf862WxmZ9lz2+y+q3WdLpNUyljLhcBoa0acb7M2mgt+FRzfh5SI92WBs5RSKYUiee9jjDlnSAgBQkTOueH/EY4NZ69Oa+3dGeeQ08iOTq31+PLz0/gB7QrfOt6aD7wAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Planilha mostrando como funciona o Flowtime&quot;
+        title=&quot;Com uma planilha, ou até mesmo bloco de notas, fica fácil por em prática (medium.com)&quot;
+        src=&quot;/static/c0a7c28f8d759dec57b62c844918f8e9/e5715/produtividade-processo-flowtime.png&quot;
+        srcset=&quot;/static/c0a7c28f8d759dec57b62c844918f8e9/8514f/produtividade-processo-flowtime.png 192w,
+/static/c0a7c28f8d759dec57b62c844918f8e9/804b2/produtividade-processo-flowtime.png 384w,
+/static/c0a7c28f8d759dec57b62c844918f8e9/e5715/produtividade-processo-flowtime.png 768w,
+/static/c0a7c28f8d759dec57b62c844918f8e9/4ad3a/produtividade-processo-flowtime.png 1152w,
+/static/c0a7c28f8d759dec57b62c844918f8e9/2cefc/produtividade-processo-flowtime.png 1400w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Com uma planilha, ou até mesmo bloco de notas, fica fácil por em prática (medium.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Ainda no campo da gestão de tempo, existe a técnica &lt;em&gt;Flowtime&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://medium.com/@lightsandcandy/abandoning-pomodoros-part-one-the-pros-and-cons-of-pomos-e3f3e9342ac9#.49nl4ljyp&quot; title=&quot;Abandoning Pomodoros, Part One: The Pros and Cons of Pomos&quot;&gt;Segundo a autora&lt;/a&gt;,
+ela se sentia frustrada com a (podemos dizer) rigidez do método &lt;em&gt;Pomodoro&lt;/em&gt;. Coisas que vão desde a indivisibilidade das sessões, até o que ela chama de &quot;tirania do despertador&quot;,
+onde estamos empolgados com alguma tarefa e somos obrigados a pará-la para tirar os 5 minutos de pausa.&lt;/p&gt;
+&lt;p&gt;Quem já trabalhou com &lt;em&gt;Pomodoro&lt;/em&gt; e desenvolvimento de &lt;em&gt;software&lt;/em&gt; deve ter se identificado aqui. Estar no meio de uma lógica, e ser &quot;obrigado&quot; a parar é completamente
+frustrante.&lt;/p&gt;
+&lt;p&gt;A prática foca nas três principais características do &lt;em&gt;Pomodoro&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Monitorar tempo&lt;/li&gt;
+&lt;li&gt;Foco em uma tarefa por vez&lt;/li&gt;
+&lt;li&gt;Pausas periódicas&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Com a adição de uma nova característica: &lt;em&gt;flow&lt;/em&gt;. Ou seja, se você estiver embalado realizando uma tarefa, continue!&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f8202624904fa099e5936f7d11a216ed/d165a/produtividade-processo-flowtime2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75.52083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAgABBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHpJyUSh//EABkQAAIDAQAAAAAAAAAAAAAAAAIQAAERIf/aAAgBAQABBQLUQ0U4/wD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAXEAADAQAAAAAAAAAAAAAAAAAAASAx/9oACAEBAAY/AjFP/8QAGxABAAICAwAAAAAAAAAAAAAAAQARIUFhgeH/2gAIAQEAAT8hbaHqIeEUtCJssrG2VxP/2gAMAwEAAgADAAAAEIjf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAEDAQE/EIx//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxCcW//EABsQAQADAQEBAQAAAAAAAAAAAAEAESExcWGR/9oACAEBAAE/EEKIPDLmflgnDK4S2tv1iDDh1ewDtt+z/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Foto de um bloco de notas com o Flowtime em prática&quot;
+        title=&quot;Flowtime na prática com um bloco de notas (medium.com)&quot;
+        src=&quot;/static/f8202624904fa099e5936f7d11a216ed/212bf/produtividade-processo-flowtime2.jpg&quot;
+        srcset=&quot;/static/f8202624904fa099e5936f7d11a216ed/7809d/produtividade-processo-flowtime2.jpg 192w,
+/static/f8202624904fa099e5936f7d11a216ed/4ecad/produtividade-processo-flowtime2.jpg 384w,
+/static/f8202624904fa099e5936f7d11a216ed/212bf/produtividade-processo-flowtime2.jpg 768w,
+/static/f8202624904fa099e5936f7d11a216ed/5ef17/produtividade-processo-flowtime2.jpg 1152w,
+/static/f8202624904fa099e5936f7d11a216ed/d165a/produtividade-processo-flowtime2.jpg 1400w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Flowtime na prática com um bloco de notas (medium.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Portanto, o processo é mais ou menos o seguinte:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Escolha uma tarefa, e escreva a hora de início&lt;/li&gt;
+&lt;li&gt;Descanse quando você sentir necessidade, e escreva a hora da pausa&lt;/li&gt;
+&lt;li&gt;Agende o alarme para o fim da pausa&lt;/li&gt;
+&lt;li&gt;Mantenha um registro do número de interrupções&lt;/li&gt;
+&lt;li&gt;Mantenha um registro das horas trabalhadas e das pausas&lt;/li&gt;
+&lt;li&gt;Repita&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As pausas são definidas por você. Podem ser proporcionais à quantidade de horas que você trabalhou, ou até mesmo ao tipo de tarefa que você está executando.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;https://toggl.com/&quot; title=&quot;Free time tracking&quot;&gt;&lt;em&gt;Toggl&lt;/em&gt;&lt;/a&gt; é um &lt;em&gt;app&lt;/em&gt; incrível, que usei muito quando trabalhava remoto, e que parece se encaixar bem com essa prática.&lt;/p&gt;
+&lt;p&gt;Confira o &lt;a href=&quot;https://medium.com/@lightsandcandy/the-flowtime-technique-cheat-sheet-30168b2e31d9#.8qjqfvenq&quot; title=&quot;The Flowtime Technique Cheat Sheet&quot;&gt;&lt;em&gt;cheat sheet&lt;/em&gt; da técnica &lt;em&gt;Flowtime&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;5. Noisli e as playlists para foco&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/271eb85d27be64d86a2b6d8d7049b890/857b3/produtividade-matt-collamer-RDBQonsuiU4-unsplash.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAABynSLtaBED//EABsQAAIDAAMAAAAAAAAAAAAAAAIDAAESEyEj/9oACAEBAAEFAk45PI2kpZXQ9TM//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8Bp//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAICAgMAAAAAAAAAAAAAAAERAAIDEBIykf/aAAgBAQAGPwIcn5LBoHrHXIAI9//EABgQAAMBAQAAAAAAAAAAAAAAAAABMREh/9oACAEBAAE/IU7TdQqtJriZrPYmdu5pul0//9oADAMBAAIAAwAAABCTH//EABgRAAMBAQAAAAAAAAAAAAAAAAABESFR/9oACAEDAQE/EKWQj4f/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCH/8QAHhABAAIBBAMAAAAAAAAAAAAAAREhADFBUXFhgaH/2gAIAQEAAT8QCYzQgBne9MBNKiFRDLxZ9yDjApJFX3E+8JkBCDrFsHnGw2+M/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Programador com um notebook e uma representação de ondas sonoras&quot;
+        title=&quot;Manter o foco também está relacionado com estímulos sonoros (unsplash.com)&quot;
+        src=&quot;/static/271eb85d27be64d86a2b6d8d7049b890/212bf/produtividade-matt-collamer-RDBQonsuiU4-unsplash.jpg&quot;
+        srcset=&quot;/static/271eb85d27be64d86a2b6d8d7049b890/7809d/produtividade-matt-collamer-RDBQonsuiU4-unsplash.jpg 192w,
+/static/271eb85d27be64d86a2b6d8d7049b890/4ecad/produtividade-matt-collamer-RDBQonsuiU4-unsplash.jpg 384w,
+/static/271eb85d27be64d86a2b6d8d7049b890/212bf/produtividade-matt-collamer-RDBQonsuiU4-unsplash.jpg 768w,
+/static/271eb85d27be64d86a2b6d8d7049b890/5ef17/produtividade-matt-collamer-RDBQonsuiU4-unsplash.jpg 1152w,
+/static/271eb85d27be64d86a2b6d8d7049b890/ac99c/produtividade-matt-collamer-RDBQonsuiU4-unsplash.jpg 1536w,
+/static/271eb85d27be64d86a2b6d8d7049b890/857b3/produtividade-matt-collamer-RDBQonsuiU4-unsplash.jpg 6000w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Manter o foco também está relacionado com estímulos sonoros (unsplash.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Não vai importar muito ter a melhor ferramenta de gestão de tempo disponível, mas ficar se distraindo com o barulho da televisão na sala,
+ou com o vizinho reformando o apartamento à base de marretadas e furadeira.&lt;/p&gt;
+&lt;p&gt;Eu passo horas com fones de ouvido (invista em um bom dispositivo, &lt;a href=&quot;https://veja.abril.com.br/saude/fones-de-ouvido-contribuem-para-a-perda-da-audicao-em-jovens/&quot; title=&quot;Fones de ouvido contribuem para a perda da audição em jovens&quot;&gt;e tome muito cuidado com eles!&lt;/a&gt;),
+algumas vezes apenas tirando proveito do &lt;em&gt;noise reduction&lt;/em&gt;, mas em grande parte ouvindo música, &lt;em&gt;podcasts&lt;/em&gt; e &quot;barulhos&quot;.&lt;/p&gt;
+&lt;p&gt;Com barulhos estou me referindo ao &lt;a href=&quot;https://www.noisli.com/&quot; title=&quot;Improve focus and boost productivity&quot;&gt;&lt;em&gt;Noisli&lt;/em&gt;&lt;/a&gt;, que é um &lt;em&gt;app&lt;/em&gt; que está no
+mercado há certo tempo, e que te permite criar um conjunto de sons que vão preencher o espaço e aumentar o foco.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/740377fe206d15c6a1f505c6dbb12490/0d98f/produtividade-noisli.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 84.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAABYlAAAWJQFJUiTwAAACQklEQVQ4y61US08TYRSdf1mZznSmiC2mVdGgvKImRo0bdKHRCAtXLliItoBiedWgBkIgaozGhSSF6XTajlb5A8dzv/Yrw6RETFyc9H639577HqPff4kztUW4/gKS1TlY/vw/Iem3fRz6pwgjF5QwUi8jQ1KzWoRVpSGJkyeAtkuRMEv/gdorGKZXRKJaQB8jJSUiDcwTEkYhycivYTNNa68I9/sLWLvPYXtzcL152H8pX4I7Xhvik/LaOsOuLeDU7jOkP83A/jwDp1JEpsJ+7hdV1ma1N/oId4+oMHClAGe/rTekD/2s/XpzHbfCd7hN3Gy+xXijjEH25UKwhIvBsoLI0qtc7TWGKJ9XKKlfNVxfekjCfK2EBz+2MNXaQeHgGx63tvGQ7/FgDSPBKibDDdwLN5V8OVhRuFp/g6mfO7jRWMcY7c6RI+cvwpDUhxh9mn8++fUBswdfMfv7C562PmIiKGOUJHea7xXG6mtdwgluxl0GuUZiIZSk8szckD3Kkvl+cxOPwi1Mh9sKk40NVZqUKgTDxCXKZ1myOIusdVL+AEvOSMk2JyNlJ7wC0pz4FWYk409wDY4bSC/o9VGE1n+EIjxcTn0BRxe8u3vxS4notNwllDt02Qf9FgO5b6dz41ondjqABGzf8KFPt4dyy3nuVJqkZieA3HmWg9HZijzK/XQ7NuI7XF/lHi6r95GShUCWM5q+kKciGYp8mkegPwriO8ggkkwyThj/KOiS4j00Yz0zYzoj2rN48497Wz18tO4PNFz8HjJ+73oAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Screenshot do Noisli&quot;
+        title=&quot;Barulho de vento, de trem, de chuva, etc (noisli.com)&quot;
+        src=&quot;/static/740377fe206d15c6a1f505c6dbb12490/e5715/produtividade-noisli.png&quot;
+        srcset=&quot;/static/740377fe206d15c6a1f505c6dbb12490/8514f/produtividade-noisli.png 192w,
+/static/740377fe206d15c6a1f505c6dbb12490/804b2/produtividade-noisli.png 384w,
+/static/740377fe206d15c6a1f505c6dbb12490/e5715/produtividade-noisli.png 768w,
+/static/740377fe206d15c6a1f505c6dbb12490/4ad3a/produtividade-noisli.png 1152w,
+/static/740377fe206d15c6a1f505c6dbb12490/0d98f/produtividade-noisli.png 1276w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Barulho de vento, de trem, de chuva, etc (noisli.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;O meu favorito é o barulho de cafeteria. Melhor ainda é usar essa &lt;em&gt;sample&lt;/em&gt; dentro de uma cafeteria real. Mas como estamos em quarentena,
+faça um café na sua própria cozinha e aproveite o ambiente.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Playlists&lt;/em&gt; especializadas em foco e produtividade tem ganhado popularidade nos &lt;em&gt;players&lt;/em&gt; de música. &lt;a href=&quot;https://www.spotify.com/&quot; title=&quot;Music for everyone&quot;&gt;&lt;em&gt;Spotify&lt;/em&gt;&lt;/a&gt;,
+&lt;a href=&quot;https://www.apple.com/apple-music/&quot; title=&quot;Lose yourself in 60 million songs&quot;&gt;&lt;em&gt;Apple Music&lt;/em&gt;&lt;/a&gt; e &lt;a href=&quot;https://music.youtube.com/&quot; title=&quot;Música, só que no Youtube&quot;&gt;&lt;em&gt;YouTube Music&lt;/em&gt;&lt;/a&gt;,
+tem boas opções para diferentes gêneros e gostos.&lt;/p&gt;
+&lt;p&gt;A minha favorita é a &lt;a href=&quot;https://open.spotify.com/playlist/0OleqFIhjQzAPG6oEEvpn1?si=GqLXuDqMQu2x6gWUj6NaCA&quot; title=&quot;Ouça no Spotify&quot;&gt;Epic Reading Session&lt;/a&gt;,
+criada por um usuário do &lt;em&gt;Spotify&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6b26d6613ba8548049e0119293ff1073/1105b/produtividade-spotify.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.97916666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAABYlAAAWJQFJUiTwAAABI0lEQVQoz42PTUvDQBiE9xcUkaSbNJ/Nd0KsTSlqe62otYLtIUkRKQjVa734+8fMQkUv6uFh9x1mZ94VHy9v2L8ecL+6w2RS4Xw8xmg0+sG406bT6b8Qj89P2DZrbG6usF4u0WxqbNsWdV2jaRq03X2xWCDPcxRF8Sditb/F7v0BmdZDMT/Dxe4as/kMk6pC1VGWJbIsg+/7vxIEgUJEeYgw9XHaO4EeW5CXAaRhQNd1haZp6jQ6jUgpFcf5qDFsOBxCyL6E53rwu8HsGzA1icFgoIy2bSOKIrUBNcuy1Ez9u8dxHHUSYZomwjBEmqaI4xhxEiNJEtXouq66s9nzPMWXr4Mzw1jIHBYKtlCggQ8pErYxkGU0H7/JmdDPd/QylBuTT4RgzNzd8Ow6AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Screenshot da playlist &amp;quot;Epic Reading Session&amp;quot;, do Spotify&quot;
+        title=&quot;Curte trilha sonora de filmes? Tenho certeza que você vai gostar dessa playlist (spotify.com)&quot;
+        src=&quot;/static/6b26d6613ba8548049e0119293ff1073/e5715/produtividade-spotify.png&quot;
+        srcset=&quot;/static/6b26d6613ba8548049e0119293ff1073/8514f/produtividade-spotify.png 192w,
+/static/6b26d6613ba8548049e0119293ff1073/804b2/produtividade-spotify.png 384w,
+/static/6b26d6613ba8548049e0119293ff1073/e5715/produtividade-spotify.png 768w,
+/static/6b26d6613ba8548049e0119293ff1073/4ad3a/produtividade-spotify.png 1152w,
+/static/6b26d6613ba8548049e0119293ff1073/71c1d/produtividade-spotify.png 1536w,
+/static/6b26d6613ba8548049e0119293ff1073/1105b/produtividade-spotify.png 2940w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Curte trilha sonora de filmes? Tenho certeza que você vai gostar dessa playlist (spotify.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Que grande privilégio que muitos desenvolvedores de &lt;em&gt;software&lt;/em&gt; têm de, colaborar com a quarentena ficando em casa,
+e ainda assim poder trabalhar.&lt;/p&gt;
+&lt;p&gt;Se você é desenvolvedor, e a sua empresa não está incentivando o trabalho remoto, faça questão de mostrar
+o exemplo de outros gigantes da indústria ao promoverem essa modalidade, e que há ferramentas para manter-se
+produtivo mesmo fazendo &lt;em&gt;home-office&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Ficar em casa é um ato de humanidade.&lt;/p&gt;
+&lt;p&gt;Mas lembre-se: É impossível ser produtivo
+o tempo todo. Procrastinar também faz parte. Tente sempre que possível achar um equilíbrio.&lt;/p&gt;
+&lt;p&gt;Permita-se sentir tédio, permita-se não fazer nada. E se &quot;passar tempo demais com você mesmo&quot; está te fazendo subir pelas
+paredes, &lt;a href=&quot;https://www.headspace.com/&quot; title=&quot;Be kind to your mind&quot;&gt;tente &lt;em&gt;mindfullness&lt;/em&gt;&lt;/a&gt;, ou consulte um psicólogo.&lt;/p&gt;
+&lt;p&gt;Para os céticos (em relação ao Corona), fica esse excelente vídeo do &lt;em&gt;Jovem Nerd&lt;/em&gt; falando sobre o &quot;presente cyberpunk distópico&quot;:&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/PbmNvQ5Iwus&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;E você? Tem alguma sugestão de ferramenta ou prática para dar? Deixe a sua contribuição nos comentários abaixo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#fiqueemcasa&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://jamesclear.com/eisenhower-box&quot;&gt;James Clear - How to be More Productive and Eliminate Time Wasting Activities by Using the “Eisenhower Box&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@lightsandcandy/abandoning-pomodoros-part-one-the-pros-and-cons-of-pomos-e3f3e9342ac9#.49nl4ljyp&quot;&gt;Medium - Abandoning Pomodoros, Part One: The Pros and Cons of Pomos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@lightsandcandy/the-flowtime-technique-7685101bd191&quot;&gt;Medium - The Flowtime Technique&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://simplesfica.com/como-a-tecnica-pomodoro-mudou-a-nossa-rotina/&quot;&gt;Simplefica.com - Como a técnica Pomodoro mudou a nossa rotina&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://get.todoist.help/hc/pt-br/articles/210762449-Matriz-de-Eisenhower-com-Todoist&quot;&gt;Todoist - Matriz de Eisenhower com Todoist&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>
