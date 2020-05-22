@@ -54,6 +54,7 @@ const Content = styled.div`
   }
 
   figure,
+  iframe,
   .gatsby-highlight {
     left: -24px;
     position: relative;
@@ -115,9 +116,12 @@ const Content = styled.div`
   iframe {
     display: block;
     margin: 0 auto 28px auto;
+    height: 260px;
 
     @media ${devices.tablet} {
       margin-bottom: 42px;
+      height: 315px;
+      width: 560px;
     }
   }
 

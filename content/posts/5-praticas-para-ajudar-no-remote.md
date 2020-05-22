@@ -185,7 +185,7 @@ paredes, [tente _mindfullness_](https://www.headspace.com/ "Be kind to your mind
 
 Para os céticos (em relação ao Corona), fica esse excelente vídeo do _Jovem Nerd_ falando sobre o "presente cyberpunk distópico":
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PbmNvQ5Iwus" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/PbmNvQ5Iwus" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 E você? Tem alguma sugestão de ferramenta ou prática para dar? Deixe a sua contribuição nos comentários abaixo.
 
