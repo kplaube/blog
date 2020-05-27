@@ -25,10 +25,6 @@ const BlogList = ({
           content: ["desenvolvimento-web", "python", "django"],
         },
         {
-          name: "robots",
-          content: "noindex,follow",
-        },
-        {
           property: `og:image`,
           content: author.gravatar,
         },

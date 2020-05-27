@@ -21,15 +21,7 @@ const Tags = ({
 }) => {
   return (
     <Layout>
-      <SEO
-        title={`Posts com ${tag}`}
-        meta={[
-          {
-            name: "robots",
-            content: "noindex,follow",
-          },
-        ]}
-      />
+      <SEO title={`Posts com ${tag}`} />
 
       <Container>
         <PageTitle>{`Posts disponíveis em "${tag}"`}</PageTitle>
