@@ -55,7 +55,11 @@ const PaginationNumbers = styled.div`
 
 export default ({ currentPage, numPages, prefix }) => {
   const resolveUrl = (page) =>
-    page > 1 ? `/${prefix}${page}.html` : `/${prefix}.html`;
+    page > 1
+      ? `/${prefix}${page}.html`
+      : prefix === "index"
+      ? `/`
+      : `/${prefix}.html`;
 
   const pages = Array.from({ length: numPages }).map((_, i) => {
     const page = i + 1;
