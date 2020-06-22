@@ -89,8 +89,6 @@ mas ainda assim, uma complexidade a mais.
 
 ## Como funciona?
 
-## Um pouquinho de prática
-
 ## Então devo adotar o GraphQL?
 
 Possivelmente. E isso não significa necessariamente abandonar o _REST_.
@@ -129,15 +127,9 @@ Como o livro ["GraphQL or Bust: To Use It Or Not: That is the Question"](https:/
 
 > GraphQL has often been sold as a perfect solution for every problem, but the reality is that it meets one requirement better than most other, and if that’s not part of your requirements, it may not be the best solution for your implementation.
 
+A discussão continua nas referências abaixo. Não deixe de conferir!
+
 Até a próxima.
-
-https://graphql.org/learn/
-
-https://medium.com/@paigen11/what-is-graphql-really-76c48e720202#:~:text=GraphQL%20does%20not.&text=One%20thing%20that%20cannot%20be,where%20an%20API%20is%20used.
-
-https://www.howtographql.com/basics/1-graphql-is-the-better-rest/
-
-https://graphql.org/swapi-graphql
 
 ## Referências
 
@@ -147,9 +139,11 @@ https://graphql.org/swapi-graphql
 - [DZone: GraphQL - Core Features, Architecture, Pros, and Cons](https://dzone.com/articles/graphql-core-features-architecture-pros-and-cons)
 - [GetNinjas: Sharing data in a Microservices Architecture using GraphQL](https://labs.getninjas.com.br/sharing-data-in-a-microservices-architecture-using-graphql-97db59357602)
 - [Gitconnected: GraphQL is the New API Gateway](https://levelup.gitconnected.com/graphql-is-the-new-api-gateway-383edeed4bcd)
+- [Hitch: GraphQL - 3 reasons not to use it](https://blog.hitchhq.com/graphql-3-reasons-not-to-use-it-7715f60cb934#.j0xhx31xg)
 - [How to GraphQL](https://www.howtographql.com/)
 - [Medium: What is GraphQL, really?](https://medium.com/@paigen11/what-is-graphql-really-76c48e720202)
 - [Moesif: REST vs GraphQL APIs, the Good, the Bad, the Ugly](https://www.moesif.com/blog/technical/graphql/REST-vs-GraphQL-APIs-the-good-the-bad-the-ugly/)
+- [OPENGraphQL: Moving existing API from REST to GraphQL](https://medium.com/open-graphql/moving-existing-api-from-rest-to-graphql-205bab22c184)
 - [Stable Kernel: Advantages and Disadvantages of GraphQL](https://stablekernel.com/article/advantages-and-disadvantages-of-graphql/)
 - [Stackoverflow: Are there any disadvantages to GraphQL?](https://stackoverflow.com/questions/40689858/are-there-any-disadvantages-to-graphql)
 - [ThoughyWorks: Technology Radar - GraphQL](https://www.thoughtworks.com/radar/languages-and-frameworks/graphql)
