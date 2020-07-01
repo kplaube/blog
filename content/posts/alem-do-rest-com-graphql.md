@@ -41,8 +41,7 @@ Segundo [_Adriano Lisboa_](https://adrianolisboa.com/o-minimo-que-voce-precisa-s
 
 > Resumidamente, GraphQL é uma especificação open-source de uma linguagem de consulta criada pelo Facebook.
 
-Hoje mantido pela [_GraphQL Foundation_](https://foundation.graphql.org/ "An open and neutral home for the GraphQL community"), sob a licença [_OWFa 1.0_](https://github.com/graphql/graphql-spec/blob/master/signed-agreements/Facebook-GraphQL-OWFa1.0.pdf "Open Web Foundation License"), o _GraphQL_
-(_Graph Query Language_, ou Linguagem de Consulta de Grafos) não só é uma linguagem de consulta, como também de manipulação.
+Hoje mantido pela [_GraphQL Foundation_](https://foundation.graphql.org/ "An open and neutral home for the GraphQL community"), sob a licença [_OWFa 1.0_](https://github.com/graphql/graphql-spec/blob/master/signed-agreements/Facebook-GraphQL-OWFa1.0.pdf "Open Web Foundation License"), o _GraphQL_ não só é uma linguagem de consulta, como também de manipulação.
 
 É possível fazer uma analogia ao _SQL_ (Linguagem de Consulta Estruturada), que também é uma especificação que
 possui diferentes implementações, e que realiza consulta e manipulação de dados. Só que ao contrário (das implementações) do _SQL_, o _GraphQL_ não é um banco de dados em si,
