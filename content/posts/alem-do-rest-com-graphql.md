@@ -1,7 +1,7 @@
 ---
 title: Além do REST com GraphQL
-date: 2020-06-01 12:00:00
-tags: ["desenvolvimento-web", "rest", "graphql", "api"]
+date: 2020-07-01 17:17:00
+tags: ["desenvolvimento-web", "rest", "graphql", "api", "pokemon"]
 slug: alem-do-rest-com-graphql
 thumbnail: ./images/graphql-logo.png
 serie: Além do REST
@@ -15,6 +15,8 @@ escolher uma biblioteca ou _framework_ com bom suporte a [_REST_](/tag/rest.html
 Em tempos de [_API-First_](/tag/api-first.html "Leia mais sobre API-First"), debater arquitetura, _design_, e considerar
 opções deve fazer parte da concepção de um produto (por mais "padrãozinho" que ele possa parecer). E nessa etapa,
 questionar a adoção do _REST_ pode resultar em impactos positivos, dependendo do contexto e público alvo.
+
+![Grafos, árvores e florestas](./images/graph.jpg "Grafos! Grafos everywhere! (sitepoint.com)")
 
 Uma das alternativas é o _GraphQL_. E agora, com o _hype_ ao redor da tecnologia um pouco mais frio, dá para falar
 sobre ela com menos paixão e mais razão.
@@ -43,7 +45,7 @@ Hoje mantido pela [_GraphQL Foundation_](https://foundation.graphql.org/ "An ope
 (_Graph Query Language_, ou Linguagem de Consulta de Grafos) não só é uma linguagem de consulta, como também de manipulação.
 
 É possível fazer uma analogia ao _SQL_ (Linguagem de Consulta Estruturada), que também é uma especificação que
-possui diferentes implementações, e que realiza consulta e manipulação de dados. Só que ao contrário (das implementações) do _SQL_, o _GraphQL_ não é um banco de dados,
+possui diferentes implementações, e que realiza consulta e manipulação de dados. Só que ao contrário (das implementações) do _SQL_, o _GraphQL_ não é um banco de dados em si,
 como ilustra o [_How to GraphQL_](https://www.howtographql.com/basics/0-introduction/ "Basics Tutorial - Introduction"):
 
 > GraphQL is often confused with being a database technology. This is a misconception, GraphQL is a query language for APIs - not databases. In that sense it’s database agnostic and effectively can be used in any context where an API is used.
@@ -87,7 +89,484 @@ mas ainda assim, uma complexidade a mais.
 
 [Veja mais desvantagens em relação ao _REST_](https://www.moesif.com/blog/technical/graphql/REST-vs-GraphQL-APIs-the-good-the-bad-the-ugly/ "REST vs GraphQL APIs, the Good, the Bad, the Ugly").
 
-## Como funciona?
+## Falando GraphQL
+
+Possivelmente a melhor forma de adicionar o _GraphQL_ ao seu projeto é através de plataformas como o [_Apollo_](https://www.apollographql.com/ "Simplify app development by combining APIs, databases, and microservices into a single data graph that you can query with GraphQL"), ou com a utilização de bibliotecas, como é o caso (para _servers_ em [_Django_](/tag/django.html "Leia mais sobre Django")) da [_graphene-django_](https://github.com/graphql-python/graphene-django "A Django integration for Graphene") e
+(para _clients_ em _Javascript_) da [_Relay_](https://relay.dev/ "The production-ready GraphQL client for React").
+
+![Diagrama exibindo uma arquitetura com Serverless e Apollo Platform](./images/graphql-apollo-serverless-architecture.png "Exemplo de arquitetura GraphQL e Serverless com Apollo-Server-Lambda (serverless.com)")
+
+Por tratar-se de uma especificação, implementações existirão para diferentes linguagens, arquiteturas, e fins (o próprio [_Gatsby_](https://www.gatsbyjs.org/ "Fast in every way that matters") é um bom exemplo).
+
+Não vamos focar em como desenvolver sua _API_ com _GraphQL_, e sim em como utilizar a _query language_. [Esse repositório no _Github_](https://github.com/APIs-guru/graphql-apis "Public GraphQL APIs")
+disponibiliza algumas _APIs_ públicas na qual podemos utilizar para exercitar esse _skill_. A [_GraphQL Pokémon_](https://github.com/lucasbento/graphql-pokemon "Visite o repositório") parece
+uma boa candidata para este momento do artigo.
+
+### Tipos
+
+Partimos do princípio que queremos definir os tipos que serão servidos pela nossa _API_. O _GraphQL_ possui uma sintaxe específica para definição de tipos chamada _Schema Definition Language_ (_SDL_). No caso
+do exemplo do _Pokémon_, temos o seguinte:
+
+```graphql
+type Pokemon {
+  id: ID!
+  number: String
+  name: String
+  weight: PokemonDimension
+  height: PokemonDimension
+  classification: String
+  types: [String]
+  resistant: [String]
+  attacks: PokemonAttack
+  weaknesses: [String]
+  fleeRate: Float
+  maxCP: Int
+  evolutions: [Pokemon]
+  evolutionRequirements: PokemonEvolutionRequirement
+  maxHP: Int
+  image: String
+}
+```
+
+[Veja o _schema_ na íntegra](https://github.com/lucasbento/graphql-pokemon/blob/master/schemas/schema.graphql "Veja o arquivo no Github").
+
+Para quem já teve o mínimo contato com [_Swagger_](/tag/swagger.html "Leia mais sobre Swagger"), a sintaxe acima não é estranha. A estrutura consiste em basicamente
+`field: type`. Onde em `field` damos o nome do campo, e `type` descrevemos o tipo.
+
+Além dos tipos básicos
+(como `String`, `ID`, `Int`), temos estruturas mais complexas, como as listas `[String]` e `[Pokemon]`. `PokemonDimension`, `PokemonAttack` e `PokemonEvolutionRequirement`,
+são tipos customizados criados com a mesma sintaxe usada no próprio `Pokemon`. Por exemplo, na linha `evolutions: [Pokemon]`, está expresso o relacionamento
+de um `Pokemon` para muitas evoluções (que tratam-se de outras "instâncias" do tipo `Pokemon`).
+
+Por fim, vale notar o `!` em `ID`, que anota o campo como `required`.
+
+### Consulta
+
+Todas as _queries_ abaixo podem ser reproduzidas na interface [_Pokémon GraphiQL_](https://graphql-pokemon.now.sh/ "Execute as queries agora!"). Ou ainda,
+se você preferir, através de _API calls_.
+
+Para aquecer, vamos visualizar o _schema_:
+
+```graphql
+{
+  __schema {
+    types {
+      name
+    }
+  }
+}
+```
+
+Ou utilizando o `curl`:
+
+```
+curl 'https://graphql-pokemon.now.sh/?' \
+  -H 'content-type: application/json' \
+  --data-binary '{"query":"{ __schema { types{ name } } }", "variables":null, "operationName":null}'
+```
+
+Como resultado teremos o seguinte:
+
+```json
+{
+  "data": {
+    "__schema": {
+      "types": [
+        {
+          "name": "Query"
+        },
+        {
+          "name": "Int"
+        },
+        {
+          "name": "Pokemon"
+        },
+        {
+          "name": "ID"
+        },
+        {
+          "name": "String"
+        },
+        {
+          "name": "PokemonDimension"
+        },
+        {
+          "name": "PokemonAttack"
+        },
+        {
+          "name": "Attack"
+        },
+        {
+          "name": "Float"
+        },
+        {
+          "name": "PokemonEvolutionRequirement"
+        },
+        {
+          "name": "__Schema"
+        },
+        {
+          "name": "__Type"
+        },
+        {
+          "name": "__TypeKind"
+        },
+        {
+          "name": "Boolean"
+        },
+        {
+          "name": "__Field"
+        },
+        {
+          "name": "__InputValue"
+        },
+        {
+          "name": "__EnumValue"
+        },
+        {
+          "name": "__Directive"
+        },
+        {
+          "name": "__DirectiveLocation"
+        }
+      ]
+    }
+  }
+}
+```
+
+Através do `__schema` descobrimos quais tipos são utilizados pelo servidor. Não muito útil para o propósito desse artigo,
+mas ainda assim, uma boa forma de olharmos pela primeira vez para uma resposta. Além do fato dela ser em _JSON_, repare o "envelopamento"
+do _payload_ através da chave `data`.
+
+Para compreender os tipos listados acima, podemos utilizar outra ferramenta de introspecção, chamada `__type`:
+
+```graphql
+{
+  __type(name: "ID") {
+    name
+    kind
+  }
+}
+```
+
+E como resposta, temos a descrição do tipo `ID` como `SCALAR`:
+
+```json
+{
+  "data": {
+    "__type": {
+      "name": "ID",
+      "kind": "SCALAR"
+    }
+  }
+}
+```
+
+Vamos listar todos os 151 _Pokémons_ originais:
+
+```graphql
+{
+  pokemons(first: 151) {
+    name
+  }
+}
+```
+
+A resposta será algo semelhante com o _JSON_ abaixo:
+
+```json
+{
+  "data": {
+    "pokemons": [
+      {
+        "name": "Bulbasaur"
+      },
+
+      (...)
+
+      {
+        "name": "Mew"
+      }
+    ]
+  }
+}
+```
+
+Com o parâmetro `first`, estamos solicitando todos os `n` primeiros resultados. Essa _query_ é declarada na linha `88` do `schema.graphql`:
+
+```graphql
+type Query {
+  query: Query
+  pokemons(first: Int!): [Pokemon]
+  pokemon(id: String, name: String): Pokemon
+}
+```
+
+Com o `type Query` estamos expressando quais serão as consultas que poderemos executar. Em `pokemons`, o atributo `first` é do tipo inteiro e obrigatório.
+A sua resposta será uma lista de instâncias do tipo `Pokemon`. É possível também requisitar um _Pokémon_ através do seu `id` ou `name`, como
+explícito na instrução `pokemon`, dentro do bloco `Query`:
+
+```graphql
+{
+  pokemon(name: "Pikachu") {
+    id
+    number
+    name
+    weight {
+      maximum
+      minimum
+    }
+    height {
+      maximum
+      minimum
+    }
+    classification
+    types
+    resistant
+    attacks {
+      fast {
+        name
+        type
+        damage
+      }
+      special {
+        name
+        type
+        damage
+      }
+    }
+    weaknesses
+    fleeRate
+    maxCP
+    evolutions {
+      id
+      number
+      name
+    }
+    evolutionRequirements {
+      amount
+      name
+    }
+    maxHP
+    image
+  }
+}
+```
+
+E como resultado teremos todos os dados do nosso queridíssimo _Pikachu_.
+
+### Mutações
+
+Além de requisitar informação, podemos também manusear dados. Isso é realizado através do conceito de _Mutations_.
+
+Para esse exemplo vamos utilizar a [_GraphQL Jobs API_](https://graphql.jobs/docs/api/ "Veja o projeto rodando"), acessível
+através [dessa interface](https://api.graphql.jobs/ "Veja o Playground do projeto").
+
+Vamos dar `subscribe` na _API_, para que assim possamos receber propostas de empregos que envolvam _GraphQL_:
+
+```graphql
+mutation {
+  subscribe(input: { name: "<seu-nome>", email: "<seu-email>" }) {
+    id
+    name
+    email
+  }
+}
+```
+
+Como resposta, temos um _JSON_ com `id`, `name` e `email`:
+
+```JSON
+{
+  "data": {
+    "subscribe": {
+      "id": "ckc3r7uqs004w0725u5sf0g1o",
+      "name": "John Doe",
+      "email": "myamazingemail@mail.com"
+    }
+  }
+}
+```
+
+Ok... Aqui pode ter ficado um pouco confuso. Vamos verificar quais _Mutations_ temos disponíveis:
+
+```graphql
+{
+  __schema {
+    mutationType {
+      fields {
+        name
+        args {
+          name
+          type {
+            kind
+            ofType {
+              name
+              kind
+              inputFields {
+                name
+                type {
+                  ofType {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+        type {
+          kind
+          ofType {
+            name
+            fields {
+              name
+              type {
+                kind
+                ofType {
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+O resultado, de forma resumida, será o seguinte:
+
+```json
+{
+  "data": {
+    "__schema": {
+      "mutationType": {
+        "fields": [
+          {
+            "name": "subscribe",
+            "args": [
+              {
+                "name": "input",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "name": "SubscribeInput",
+                    "kind": "INPUT_OBJECT",
+                    "inputFields": [
+                      {
+                        "name": "name",
+                        "type": {
+                          "ofType": {
+                            "name": "String"
+                          }
+                        }
+                      },
+                      {
+                        "name": "email",
+                        "type": {
+                          "ofType": {
+                            "name": "String"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "name": "User",
+                "fields": [
+                  {
+                    "name": "id",
+                    "type": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "name": "ID"
+                      }
+                    }
+                  },
+                  {
+                    "name": "name",
+                    "type": {
+                      "kind": "SCALAR",
+                      "ofType": null
+                    }
+                  },
+                  {
+                    "name": "email",
+                    "type": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "name": "String"
+                      }
+                    }
+                  },
+                  {
+                    "name": "subscribe",
+                    "type": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "name": "Boolean"
+                      }
+                    }
+                  },
+                  {
+                    "name": "createdAt",
+                    "type": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "name": "DateTime"
+                      }
+                    }
+                  },
+                  {
+                    "name": "updatedAt",
+                    "type": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "name": "DateTime"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+A _query_ ficou um pouco mais clara agora. A _Mutation_ `subscribe` aceita um parâmetro com nome `input`, do
+tipo `SubscribeInput`. Esse, além de ser obrigatório (`NON_NULL`), possui dois campos: `name` e `email`. Isso
+explica a linha `subscribe(input: { name: "<seu-nome>", email: "<seu-email>" }) {`, na consulta anterior.
+
+`subscribe` retorna um tipo `User`, também obrigatório. Esse tipo possui os campos `id`, `name`, `subscribe`,
+`createdAt`, e `updatedAt`. Como especificamos dentro do bloco `subscribe` os campos `id`, `name`, e `email`,
+esse é o resultado que obtemos no _JSON_ de resposta. Que representa a _subscription_ sendo efetuada, e meus
+dados como usuário sendo retornados.
+
+### Por baixo dos panos
+
+Existem outros conceitos não explorados nesse artigo, como por exemplo as [_Subscriptions_](https://www.digitalocean.com/community/tutorials/graphql-mutations-subscriptions "Mutations and Subscriptions in GraphQL"). O que
+pode estar confuso para você é como que o servidor interpreta o _GraphQL_, e coleta os dados para formar
+a resposta da requisição.
+
+![Imagem do filme Detective Pikachu, mostrando o Pikachu com uma lupa](./images/detective-pikachu.jpg "Será que conseguimos encontrar um emprego de detetive, para Pokémons, utilizando GraphQL? (www.geekgirlauthority.com/)")
+
+Comigo o "click" aconteceu depois de checar o código dos repositórios abaixo:
+
+- [lucasbento/graphql-pokemon](https://github.com/lucasbento/graphql-pokemon "Confira o repositório no Github")
+- [igorlima/todo-mongo-graphql-server](https://github.com/igorlima/todo-mongo-graphql-server "Confira o repositório no Github")
+
+Não é feitiçaria...
 
 ## Então devo adotar o GraphQL?
 
@@ -110,7 +589,7 @@ O que talvez precise ficar claro na sua tomada de decisão é que um não substi
 > However, that does not mean that in GitHub’s case, pushing out a public GraphQL API was the right choice. In an effort to reduce calls, they are giving up the very layers of flexibility that I believe will drive future APIs. In essence, they chose a solution to one problem they were facing, but in doing so disregarded solutions for the problems REST was designed to solve (...)
 
 Dependendo da sua _stack_, disponibilizar os dois formatos não é nenhum sacrifício. Aliás, ter o _GraphQL_ como uma
-espécie de _API Gateway_, agregando o resultado de demais _endpoints_ _REST_, [parece ser uma tendência](https://levelup.gitconnected.com/graphql-is-the-new-api-gateway-383edeed4bcd "GraphQL is the New API Gateway").
+espécie de _API Gateway_, agregando o resultado de demais _endpoints_ _REST_ [parece ser uma tendência](https://levelup.gitconnected.com/graphql-is-the-new-api-gateway-383edeed4bcd "GraphQL is the New API Gateway").
 
 ![Topologia de serviços quando adicionado GraphQL como API Gateway](./images/graphql-api-gateway.png "Exemplo de uso de GraphQL como API Gateway, à frente de outras APIs GraphQL e REST (labs.getninjas.com.br)")
 
@@ -136,14 +615,17 @@ Até a próxima.
 - [Adriano Lisboa: O mínimo que você precisa saber sobre GraphQL para não passar vergonha em uma conversa](https://adrianolisboa.com/o-minimo-que-voce-precisa-saber-sobre-graphql-para-nao-passar-vergonha-em-uma-conversa/)
 - [API Evangelist: GraphQL Seems Like We Do Not Want To Do The Hard Work Of API Design](http://apievangelist.com/2016/08/30/graphql-seems-like-we-do-not-want-to-do-the-hard-work-of-api-design/)
 - [Apollo Blog: GraphQL - The next generation of API design](https://www.apollographql.com/blog/graphql-the-next-generation-of-api-design-f24b1689756a#.6hh9mb30w)
+- [Digital Ocean - Mutations and Subscriptions in GraphQL](https://www.digitalocean.com/community/tutorials/graphql-mutations-subscriptions)
 - [DZone: GraphQL - Core Features, Architecture, Pros, and Cons](https://dzone.com/articles/graphql-core-features-architecture-pros-and-cons)
 - [GetNinjas: Sharing data in a Microservices Architecture using GraphQL](https://labs.getninjas.com.br/sharing-data-in-a-microservices-architecture-using-graphql-97db59357602)
 - [Gitconnected: GraphQL is the New API Gateway](https://levelup.gitconnected.com/graphql-is-the-new-api-gateway-383edeed4bcd)
+- [Github: Public GraphQL APIs](https://github.com/APIs-guru/graphql-apis)
 - [Hitch: GraphQL - 3 reasons not to use it](https://blog.hitchhq.com/graphql-3-reasons-not-to-use-it-7715f60cb934#.j0xhx31xg)
 - [How to GraphQL](https://www.howtographql.com/)
 - [Medium: What is GraphQL, really?](https://medium.com/@paigen11/what-is-graphql-really-76c48e720202)
 - [Moesif: REST vs GraphQL APIs, the Good, the Bad, the Ugly](https://www.moesif.com/blog/technical/graphql/REST-vs-GraphQL-APIs-the-good-the-bad-the-ugly/)
 - [OPENGraphQL: Moving existing API from REST to GraphQL](https://medium.com/open-graphql/moving-existing-api-from-rest-to-graphql-205bab22c184)
+- [Serverless: Running a scalable & reliable GraphQL endpoint with Serverless](https://www.serverless.com/blog/running-scalable-reliable-graphql-endpoint-with-serverless/)
 - [Stable Kernel: Advantages and Disadvantages of GraphQL](https://stablekernel.com/article/advantages-and-disadvantages-of-graphql/)
 - [Stackoverflow: Are there any disadvantages to GraphQL?](https://stackoverflow.com/questions/40689858/are-there-any-disadvantages-to-graphql)
 - [ThoughyWorks: Technology Radar - GraphQL](https://www.thoughtworks.com/radar/languages-and-frameworks/graphql)
