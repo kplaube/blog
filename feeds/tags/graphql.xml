@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - graphql]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 01 Jul 2020 20:23:34 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Além do REST com GraphQL]]></title><description><![CDATA[Construir APIs virou uma das coisas mais comuns no que tange
+o desenvolvimento web. Não obstante,
+escolher uma biblioteca ou framework com bom suporte a REST
+é parte fundamental da tomada de decisão ao iniciar um projeto. Em tempos de API-First, debater arquitetura, design, e considerar
+opções deve…]]></description><link>https://klauslaube.com.br/2020/07/01/alem-do-rest-com-graphql.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/07/01/alem-do-rest-com-graphql.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 01 Jul 2020 17:17:00 GMT</pubDate><content:encoded>&lt;p&gt;Construir &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre API&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt; virou uma das coisas mais comuns no que tange
+o &lt;a href=&quot;/tag/desenvolvimento-web.html&quot; title=&quot;Leia mais sobre Desenvolvimento Web&quot;&gt;desenvolvimento &lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Não obstante,
+escolher uma biblioteca ou &lt;em&gt;framework&lt;/em&gt; com bom suporte a &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;
+é parte fundamental da tomada de decisão ao iniciar um projeto.&lt;/p&gt;
+&lt;p&gt;Em tempos de &lt;a href=&quot;/tag/api-first.html&quot; title=&quot;Leia mais sobre API-First&quot;&gt;&lt;em&gt;API-First&lt;/em&gt;&lt;/a&gt;, debater arquitetura, &lt;em&gt;design&lt;/em&gt;, e considerar
+opções deve fazer parte da concepção de um produto (por mais &quot;padrãozinho&quot; que ele possa parecer). E nessa etapa,
+questionar a adoção do &lt;em&gt;REST&lt;/em&gt; pode resultar em impactos positivos, dependendo do contexto e público alvo.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/dac3490bcce8498d625c88aa1a1cf667/72e01/graph.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe9NQoP/xAAWEAEBAQAAAAAAAAAAAAAAAAARACD/2gAIAQEAAQUCZz//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAXEAEBAQEAAAAAAAAAAAAAAAAAEQFB/9oACAEBAAE/Id6aVER//9oADAMBAAIAAwAAABBQD//EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/EKf/xAAWEQADAAAAAAAAAAAAAAAAAAABEGH/2gAIAQIBAT8QFX//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhUTFh/9oACAEBAAE/EABooc2McArWA3Sz2JUbYEV237KcJ//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Grafos, árvores e florestas&quot;
+        title=&quot;Grafos! Grafos everywhere! (sitepoint.com)&quot;
+        src=&quot;/static/dac3490bcce8498d625c88aa1a1cf667/212bf/graph.jpg&quot;
+        srcset=&quot;/static/dac3490bcce8498d625c88aa1a1cf667/7809d/graph.jpg 192w,
+/static/dac3490bcce8498d625c88aa1a1cf667/4ecad/graph.jpg 384w,
+/static/dac3490bcce8498d625c88aa1a1cf667/212bf/graph.jpg 768w,
+/static/dac3490bcce8498d625c88aa1a1cf667/72e01/graph.jpg 1024w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Grafos! Grafos everywhere! (sitepoint.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Uma das alternativas é o &lt;em&gt;GraphQL&lt;/em&gt;. E agora, com o &lt;em&gt;hype&lt;/em&gt; ao redor da tecnologia um pouco mais frio, dá para falar
+sobre ela com menos paixão e mais razão.&lt;/p&gt;
+&lt;h2&gt;Antes de ir: O que é REST, mesmo?&lt;/h2&gt;
+&lt;p&gt;Para a comparação ficar mais rica, é fundamental que haja um entendimento sobre o que é &lt;em&gt;REST&lt;/em&gt;. Já exploramos
+o conceito nos dois artigos abaixo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/01/06/rest-parte-1.html&quot; title=&quot;Leia mais sobre o conceito e um comparativo com SOAP&quot;&gt;REST - Parte 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/05/20/rest-parte-2.html&quot; title=&quot;Veja uma aplicação prática com Python e Hug&quot;&gt;REST - Parte 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ou se você preferir, o &lt;a href=&quot;https://en.wikipedia.org/wiki/Representational_state_transfer&quot; title=&quot;REST na Wikipedia&quot;&gt;artigo na &lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt;
+é uma referência bem completa.&lt;/p&gt;
+&lt;h2&gt;O que é GraphQL?&lt;/h2&gt;
+&lt;p&gt;Bom, definitivamente não é mais um &lt;em&gt;framework&lt;/em&gt; &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt;.
+E dizer que é unicamente um &lt;em&gt;query language&lt;/em&gt; é uma afirmação incompleta.&lt;/p&gt;
+&lt;p&gt;Segundo &lt;a href=&quot;https://adrianolisboa.com/o-minimo-que-voce-precisa-saber-sobre-graphql-para-nao-passar-vergonha-em-uma-conversa/&quot; title=&quot;O mínimo que você precisa saber sobre GraphQL para não passar vergonha em uma conversa&quot;&gt;&lt;em&gt;Adriano Lisboa&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Resumidamente, GraphQL é uma especificação open-source de uma linguagem de consulta criada pelo Facebook.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Hoje mantido pela &lt;a href=&quot;https://foundation.graphql.org/&quot; title=&quot;An open and neutral home for the GraphQL community&quot;&gt;&lt;em&gt;GraphQL Foundation&lt;/em&gt;&lt;/a&gt;, sob a licença &lt;a href=&quot;https://github.com/graphql/graphql-spec/blob/master/signed-agreements/Facebook-GraphQL-OWFa1.0.pdf&quot; title=&quot;Open Web Foundation License&quot;&gt;&lt;em&gt;OWFa 1.0&lt;/em&gt;&lt;/a&gt;, o &lt;em&gt;GraphQL&lt;/em&gt;
+(&lt;em&gt;Graph Query Language&lt;/em&gt;, ou Linguagem de Consulta de Grafos) não só é uma linguagem de consulta, como também de manipulação.&lt;/p&gt;
+&lt;p&gt;É possível fazer uma analogia ao &lt;em&gt;SQL&lt;/em&gt; (Linguagem de Consulta Estruturada), que também é uma especificação que
+possui diferentes implementações, e que realiza consulta e manipulação de dados. Só que ao contrário (das implementações) do &lt;em&gt;SQL&lt;/em&gt;, o &lt;em&gt;GraphQL&lt;/em&gt; não é um banco de dados em si,
+como ilustra o &lt;a href=&quot;https://www.howtographql.com/basics/0-introduction/&quot; title=&quot;Basics Tutorial - Introduction&quot;&gt;&lt;em&gt;How to GraphQL&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;GraphQL is often confused with being a database technology. This is a misconception, GraphQL is a query language for APIs - not databases. In that sense it’s database agnostic and effectively can be used in any context where an API is used.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;E por ser uma linguagem de consulta para &lt;em&gt;APIs&lt;/em&gt;, que ela se encaixa como uma alternativa ao &lt;em&gt;REST&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Qual a sua principal vantagem em relação ao REST?&lt;/h2&gt;
+&lt;p&gt;Um dos problemas fundamentais do &lt;em&gt;REST&lt;/em&gt; é a flexibilidade do dado sendo transmitido. Quando diferentes
+clientes, com diferentes necessidades, começam a consumir a sua &lt;em&gt;API&lt;/em&gt;, é possível que você enfrente um fenômeno
+conhecido por &lt;em&gt;over-fetching&lt;/em&gt; e &lt;em&gt;under-fetching&lt;/em&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;over-fetching:&lt;/strong&gt; É quando você está recebendo dados demais, não necessários para o seu propósito, em sua requisição;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;under-fetching:&lt;/strong&gt; O oposto. Quando você não recebe dados o suficiente, e precisa realizar outras chamadas para cumprir o seu propósito.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f02fbf1fdad736c5ea5cd5225bac197e/f238d/graphql-rest-calls.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 81.77083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsSAAALEgHS3X78AAABtklEQVQoz2WTOY7CQBBF+4jEHIAEQY4skXIKlqP4AAgSAggQktlBbGaxGS/MU3/Tg4YfWNXV9Wv5XTYvi9vttlqt+GInSZLneZqmWZblFniiKIrj+Mfi+XwStlgszP1+x5pOp71ebzabcbfb7Yg7HA7n8xnjYRFbkI7g4/HY6XTa7bYZj8fw4fi+r5TUuVwuYRjSiKLpgivV5xgEQalUqlQqBi+NETSfz10oI+z3e/hEq3+y84XPF+d6vR4Oh0Yz52+ILENJMURO3sDGeTqdjFR5fcAxnR/DSQUYnuKMZhSx2WwGgwFSOfIn6EVPIKgyY5rlcskZ3bvdLjaNkJL0SH29XlVHaqsstO1222w2W61WoTYcBNBsDEMoasGRSDj1VFoEKpXL5VqtVghGED07tRGTd2YWnhQOHvjSD3As2v6WilL0TDtU1kM6waS23pyhzLc8qv8vqVNbX81VkOl5NBqxGNhcIwkelHMvryVxx2K3J5MJmdCZdeWsO8gwIwu3YXowAti/arXaaDQMli76/b7EoB8tM0gt1CdfhKA4lHq97nnen9rIy4VWR3+VDNWXSJpcbdPsL2GKiZKn1xBwAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diagrama com três diferentes chamadas REST para os endpoints de perfil do usuário, artigos, e seguidores&quot;
+        title=&quot;Imagine uma aplicação com a necessidade de exibir o perfil do usuário, seus artigos e seguidores, em uma mesma visualização (howtographql.com)&quot;
+        src=&quot;/static/f02fbf1fdad736c5ea5cd5225bac197e/e5715/graphql-rest-calls.png&quot;
+        srcset=&quot;/static/f02fbf1fdad736c5ea5cd5225bac197e/8514f/graphql-rest-calls.png 192w,
+/static/f02fbf1fdad736c5ea5cd5225bac197e/804b2/graphql-rest-calls.png 384w,
+/static/f02fbf1fdad736c5ea5cd5225bac197e/e5715/graphql-rest-calls.png 768w,
+/static/f02fbf1fdad736c5ea5cd5225bac197e/4ad3a/graphql-rest-calls.png 1152w,
+/static/f02fbf1fdad736c5ea5cd5225bac197e/71c1d/graphql-rest-calls.png 1536w,
+/static/f02fbf1fdad736c5ea5cd5225bac197e/f238d/graphql-rest-calls.png 2078w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Imagine uma aplicação com a necessidade de exibir o perfil do usuário, seus artigos e seguidores, em uma mesma visualização (howtographql.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Já com a flexibilidade do &lt;em&gt;GraphQL&lt;/em&gt;, é possível obter toda a informação necessária através de uma consulta, como ilustrado
+no diagrama abaixo:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/85b85e0b1d2d0b3c85bfdc060c64d58c/e405b/graphql-query.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAABVElEQVQoz41Sy27CMBD0D/E15S/4Ci7lwP9w6JEzAiQkoFJPHEpImhg78WP9Std2EY+qFWMpstYzuzOrkP4ewfvP5vTFqVaaUso511r3f4B470MItyXwplJnYy3Wf7/eiX+XrHMU2hakFBIAstg5BxrQBVZsgjGGbDab/X5/9RYCPihvfJzqr3YA0IPz2MSZBLyQ8Xg8nU6FEMgQCcgTneCMxWkAyNMJ8E5DDZTRyetkNBotFguyWq3W6zUqu66rqqppGmSXVVkUBSqllErK6Fdp8XYIH+2xPg1fhoPBYDabkd1ut91ucyqlVNOeY85kOKfNX8zqwfU+oIXlcjmfz8uyJDiqrutIiieUglYd5YxjI3sB6qN5E1eGl5+9Wvu4bZzQWqmMxvAYpE1AHj75C3LHuLCQcCs+iFPRlMWxyJp/8DgZXQmrFWjGWHb47E+SzfRP4xvWJ7GHciyOMwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diagrama com apenas uma requisição HTTP, utilizando GraphQL, e consultando por perfil do usuário, seus artigos e seguidores&quot;
+        title=&quot;Através de uma requisição HTTP, o cliente é capaz de obter os dados na medida certa (howtographql.com)&quot;
+        src=&quot;/static/85b85e0b1d2d0b3c85bfdc060c64d58c/e5715/graphql-query.png&quot;
+        srcset=&quot;/static/85b85e0b1d2d0b3c85bfdc060c64d58c/8514f/graphql-query.png 192w,
+/static/85b85e0b1d2d0b3c85bfdc060c64d58c/804b2/graphql-query.png 384w,
+/static/85b85e0b1d2d0b3c85bfdc060c64d58c/e5715/graphql-query.png 768w,
+/static/85b85e0b1d2d0b3c85bfdc060c64d58c/4ad3a/graphql-query.png 1152w,
+/static/85b85e0b1d2d0b3c85bfdc060c64d58c/71c1d/graphql-query.png 1536w,
+/static/85b85e0b1d2d0b3c85bfdc060c64d58c/e405b/graphql-query.png 1566w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Através de uma requisição HTTP, o cliente é capaz de obter os dados na medida certa (howtographql.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Vale lembrar que existe complementos ao &lt;em&gt;REST&lt;/em&gt; que possibilitam uma maior flexibilidade do
+&lt;em&gt;payload&lt;/em&gt; (como por exemplo, passar quais campos você quer coletar através de &lt;em&gt;query string&lt;/em&gt;),
+ainda assim é necessário salientar a legibilidade e até mesmo elegância da consulta realizada no exemplo acima.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://dev.to/mshossain110/3-major-rest-api-problem-can-solve-using-graphql-1dg2&quot; title=&quot;3 major REST API problem can solve using GraphQL&quot;&gt;Leia sobre outras vantagens do &lt;em&gt;GraphQL&lt;/em&gt; em comparação ao &lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Qual a sua principal desvantagem em relação ao REST?&lt;/h2&gt;
+&lt;p&gt;&quot;Cada escolha uma renúncia&quot;, já dizia o poeta.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;GraphQL&lt;/em&gt; não é bala de prata, e possui desvantagens quando comparado ao &lt;em&gt;REST&lt;/em&gt;. &lt;a href=&quot;https://stackoverflow.com/questions/40689858/are-there-any-disadvantages-to-graphql&quot; title=&quot;Are there any disadvantages to GraphQL?&quot;&gt;Essa &lt;em&gt;thread&lt;/em&gt; no &lt;em&gt;Stackoverflow&lt;/em&gt; lista algumas delas&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Talvez a mais popular seja a ausência de &lt;em&gt;cache built-in&lt;/em&gt;. Com &lt;em&gt;REST&lt;/em&gt;, por utilizarmos o protocolo &lt;em&gt;HTTP&lt;/em&gt;, os mecanismos
+para &lt;em&gt;caching&lt;/em&gt; já estão lá. &lt;a href=&quot;/2012/05/14/o-cache-e-o-http.html&quot; title=&quot;O cache e o HTTP&quot;&gt;Dos cabeçalhos utilizados para indicar &lt;em&gt;caching&lt;/em&gt; à compreensão dos clientes&lt;/a&gt;. Diferentes recursos podem ter estratégias de &lt;em&gt;caching&lt;/em&gt; diferentes, uma
+vez que eles são servidos em diferentes &lt;em&gt;endpoints&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Com o &lt;em&gt;GraphQL&lt;/em&gt; utilizamos apenas um &lt;em&gt;endpoint&lt;/em&gt;. Portanto, precisamos implementar uma camada extra de &lt;em&gt;caching&lt;/em&gt;. &lt;a href=&quot;https://graphql.org/learn/caching/&quot; title=&quot;GraphQL: Caching&quot;&gt;Nada impossível de ser alcançado&lt;/a&gt;,
+mas ainda assim, uma complexidade a mais.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.moesif.com/blog/technical/graphql/REST-vs-GraphQL-APIs-the-good-the-bad-the-ugly/&quot; title=&quot;REST vs GraphQL APIs, the Good, the Bad, the Ugly&quot;&gt;Veja mais desvantagens em relação ao &lt;em&gt;REST&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Falando GraphQL&lt;/h2&gt;
+&lt;p&gt;Possivelmente a melhor forma de adicionar o &lt;em&gt;GraphQL&lt;/em&gt; ao seu projeto é através de plataformas como o &lt;a href=&quot;https://www.apollographql.com/&quot; title=&quot;Simplify app development by combining APIs, databases, and microservices into a single data graph that you can query with GraphQL&quot;&gt;&lt;em&gt;Apollo&lt;/em&gt;&lt;/a&gt;, ou com a utilização de bibliotecas, como é o caso (para &lt;em&gt;servers&lt;/em&gt; em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt;) da &lt;a href=&quot;https://github.com/graphql-python/graphene-django&quot; title=&quot;A Django integration for Graphene&quot;&gt;&lt;em&gt;graphene-django&lt;/em&gt;&lt;/a&gt; e
+(para &lt;em&gt;clients&lt;/em&gt; em &lt;em&gt;Javascript&lt;/em&gt;) da &lt;a href=&quot;https://relay.dev/&quot; title=&quot;The production-ready GraphQL client for React&quot;&gt;&lt;em&gt;Relay&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7f843a01006d17649701911547d17fd0/0d1a4/graphql-apollo-serverless-architecture.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoUlEQVQoz51TS0oDQRDNGbyG4A3EvRs3bkRcCW70COpCVwqeQPCDEncqgjsR8ZNAJAn5aETURIbESTKDmu6enp6ZnmfPxGg+KmpB0VRV9+PVq+oI/mC+7/fkHJtCMOO9DkSCSy1vf/RdnnMOxigsxsC4g9juPGLrIxC0FtYj3Qw6vBtYOaEUruvC81xIVb9P7eHudEUxbTQBHccBeXmBEOJXbTPS6IjLBkWuaLYYIcIsC9knA+ZrA9LzFLAdMitmDhHfHgepFiBVwlM5PXGA/OIwXq/P4IQKeJhYiGJgegcVkzUZBi1c3JbwVDMgbFtpQ0EtBzeX+4htT6BaSoMLF6RM8LC/hdTsEJ4zR7AUohQWxuY20T+1gbJJm4CByFe5LAghHVpWa3UkkynU6nUElEVch515hl6vQsrPaT9qFSTSeXVHfj+UwKSUMAwzPMNYsfZtV7G1P1YksPOchrXjOxBVCwG71+OrfWuPG0prS+lucaW1yzE4s4q+yQOcFIyvAX/cQ7/JPNgMoTwYylL0DKPLJ9BM3tvyv36K4NAr2kf9DcTDRouucaRUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diagrama exibindo uma arquitetura com Serverless e Apollo Platform&quot;
+        title=&quot;Exemplo de arquitetura GraphQL e Serverless com Apollo-Server-Lambda (serverless.com)&quot;
+        src=&quot;/static/7f843a01006d17649701911547d17fd0/e5715/graphql-apollo-serverless-architecture.png&quot;
+        srcset=&quot;/static/7f843a01006d17649701911547d17fd0/8514f/graphql-apollo-serverless-architecture.png 192w,
+/static/7f843a01006d17649701911547d17fd0/804b2/graphql-apollo-serverless-architecture.png 384w,
+/static/7f843a01006d17649701911547d17fd0/e5715/graphql-apollo-serverless-architecture.png 768w,
+/static/7f843a01006d17649701911547d17fd0/0d1a4/graphql-apollo-serverless-architecture.png 1036w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de arquitetura GraphQL e Serverless com Apollo-Server-Lambda (serverless.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Por tratar-se de uma especificação, implementações existirão para diferentes linguagens, arquiteturas, e fins (o próprio &lt;a href=&quot;https://www.gatsbyjs.org/&quot; title=&quot;Fast in every way that matters&quot;&gt;&lt;em&gt;Gatsby&lt;/em&gt;&lt;/a&gt; é um bom exemplo).&lt;/p&gt;
+&lt;p&gt;Não vamos focar em como desenvolver sua &lt;em&gt;API&lt;/em&gt; com &lt;em&gt;GraphQL&lt;/em&gt;, e sim em como utilizar a &lt;em&gt;query language&lt;/em&gt;. &lt;a href=&quot;https://github.com/APIs-guru/graphql-apis&quot; title=&quot;Public GraphQL APIs&quot;&gt;Esse repositório no &lt;em&gt;Github&lt;/em&gt;&lt;/a&gt;
+disponibiliza algumas &lt;em&gt;APIs&lt;/em&gt; públicas na qual podemos utilizar para exercitar esse &lt;em&gt;skill&lt;/em&gt;. A &lt;a href=&quot;https://github.com/lucasbento/graphql-pokemon&quot; title=&quot;Visite o repositório&quot;&gt;&lt;em&gt;GraphQL Pokémon&lt;/em&gt;&lt;/a&gt; parece
+uma boa candidata para este momento do artigo.&lt;/p&gt;
+&lt;h3&gt;Tipos&lt;/h3&gt;
+&lt;p&gt;Partimos do princípio que queremos definir os tipos que serão servidos pela nossa &lt;em&gt;API&lt;/em&gt;. O &lt;em&gt;GraphQL&lt;/em&gt; possui uma sintaxe específica para definição de tipos chamada &lt;em&gt;Schema Definition Language&lt;/em&gt; (&lt;em&gt;SDL&lt;/em&gt;). No caso
+do exemplo do &lt;em&gt;Pokémon&lt;/em&gt;, temos o seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pokemon&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ID&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String
+  &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String
+  &lt;span class=&quot;token attr-name&quot;&gt;weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; PokemonDimension
+  &lt;span class=&quot;token attr-name&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; PokemonDimension
+  &lt;span class=&quot;token attr-name&quot;&gt;classification&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String
+  &lt;span class=&quot;token attr-name&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;String&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;resistant&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;String&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;attacks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; PokemonAttack
+  &lt;span class=&quot;token attr-name&quot;&gt;weaknesses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;String&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;fleeRate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Float
+  &lt;span class=&quot;token attr-name&quot;&gt;maxCP&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Int
+  &lt;span class=&quot;token attr-name&quot;&gt;evolutions&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;Pokemon&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;evolutionRequirements&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; PokemonEvolutionRequirement
+  &lt;span class=&quot;token attr-name&quot;&gt;maxHP&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Int
+  &lt;span class=&quot;token attr-name&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/lucasbento/graphql-pokemon/blob/master/schemas/schema.graphql&quot; title=&quot;Veja o arquivo no Github&quot;&gt;Veja o &lt;em&gt;schema&lt;/em&gt; na íntegra&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para quem já teve o mínimo contato com &lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;, a sintaxe acima não é estranha. A estrutura consiste em basicamente
+&lt;code class=&quot;language-text&quot;&gt;field: type&lt;/code&gt;. Onde em &lt;code class=&quot;language-text&quot;&gt;field&lt;/code&gt; damos o nome do campo, e &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt; descrevemos o tipo.&lt;/p&gt;
+&lt;p&gt;Além dos tipos básicos
+(como &lt;code class=&quot;language-text&quot;&gt;String&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;ID&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Int&lt;/code&gt;), temos estruturas mais complexas, como as listas &lt;code class=&quot;language-text&quot;&gt;[String]&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;[Pokemon]&lt;/code&gt;. &lt;code class=&quot;language-text&quot;&gt;PokemonDimension&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;PokemonAttack&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;PokemonEvolutionRequirement&lt;/code&gt;,
+são tipos customizados criados com a mesma sintaxe usada no próprio &lt;code class=&quot;language-text&quot;&gt;Pokemon&lt;/code&gt;. Por exemplo, na linha &lt;code class=&quot;language-text&quot;&gt;evolutions: [Pokemon]&lt;/code&gt;, está expresso o relacionamento
+de um &lt;code class=&quot;language-text&quot;&gt;Pokemon&lt;/code&gt; para muitas evoluções (que tratam-se de outras &quot;instâncias&quot; do tipo &lt;code class=&quot;language-text&quot;&gt;Pokemon&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Por fim, vale notar o &lt;code class=&quot;language-text&quot;&gt;!&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;ID&lt;/code&gt;, que anota o campo como &lt;code class=&quot;language-text&quot;&gt;required&lt;/code&gt;.&lt;/p&gt;
+&lt;h3&gt;Consulta&lt;/h3&gt;
+&lt;p&gt;Todas as &lt;em&gt;queries&lt;/em&gt; abaixo podem ser reproduzidas na interface &lt;a href=&quot;https://graphql-pokemon.now.sh/&quot; title=&quot;Execute as queries agora!&quot;&gt;&lt;em&gt;Pokémon GraphiQL&lt;/em&gt;&lt;/a&gt;. Ou ainda,
+se você preferir, através de &lt;em&gt;API calls&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para aquecer, vamos visualizar o &lt;em&gt;schema&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  __schema &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    types &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      name
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ou utilizando o &lt;code class=&quot;language-text&quot;&gt;curl&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl &amp;#39;https://graphql-pokemon.now.sh/?&amp;#39; \
+  -H &amp;#39;content-type: application/json&amp;#39; \
+  --data-binary &amp;#39;{&amp;quot;query&amp;quot;:&amp;quot;{ __schema { types{ name } } }&amp;quot;, &amp;quot;variables&amp;quot;:null, &amp;quot;operationName&amp;quot;:null}&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como resultado teremos o seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;__schema&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;types&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Query&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Int&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Pokemon&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ID&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;String&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;PokemonDimension&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;PokemonAttack&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Attack&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Float&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;PokemonEvolutionRequirement&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__Schema&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__Type&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__TypeKind&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Boolean&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__Field&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__InputValue&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__EnumValue&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__Directive&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__DirectiveLocation&quot;&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Através do &lt;code class=&quot;language-text&quot;&gt;__schema&lt;/code&gt; descobrimos quais tipos são utilizados pelo servidor. Não muito útil para o propósito desse artigo,
+mas ainda assim, uma boa forma de olharmos pela primeira vez para uma resposta. Além do fato dela ser em &lt;em&gt;JSON&lt;/em&gt;, repare o &quot;envelopamento&quot;
+do &lt;em&gt;payload&lt;/em&gt; através da chave &lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Para compreender os tipos listados acima, podemos utilizar outra ferramenta de introspecção, chamada &lt;code class=&quot;language-text&quot;&gt;__type&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  __type&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ID&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    name
+    kind
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E como resposta, temos a descrição do tipo &lt;code class=&quot;language-text&quot;&gt;ID&lt;/code&gt; como &lt;code class=&quot;language-text&quot;&gt;SCALAR&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;__type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ID&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SCALAR&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos listar todos os 151 &lt;em&gt;Pokémons&lt;/em&gt; originais:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  pokemons&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;151&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    name
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A resposta será algo semelhante com o &lt;em&gt;JSON&lt;/em&gt; abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;pokemons&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Bulbasaur&quot;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+
+      (...)
+
+      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Mew&quot;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o parâmetro &lt;code class=&quot;language-text&quot;&gt;first&lt;/code&gt;, estamos solicitando todos os &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt; primeiros resultados. Essa &lt;em&gt;query&lt;/em&gt; é declarada na linha &lt;code class=&quot;language-text&quot;&gt;88&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;schema.graphql&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Query&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Query
+  &lt;span class=&quot;token attr-name&quot;&gt;pokemons&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Int&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;Pokemon&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;pokemon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Pokemon
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;type Query&lt;/code&gt; estamos expressando quais serão as consultas que poderemos executar. Em &lt;code class=&quot;language-text&quot;&gt;pokemons&lt;/code&gt;, o atributo &lt;code class=&quot;language-text&quot;&gt;first&lt;/code&gt; é do tipo inteiro e obrigatório.
+A sua resposta será uma lista de instâncias do tipo &lt;code class=&quot;language-text&quot;&gt;Pokemon&lt;/code&gt;. É possível também requisitar um &lt;em&gt;Pokémon&lt;/em&gt; através do seu &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt;, como
+explícito na instrução &lt;code class=&quot;language-text&quot;&gt;pokemon&lt;/code&gt;, dentro do bloco &lt;code class=&quot;language-text&quot;&gt;Query&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  pokemon&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Pikachu&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    id
+    number
+    name
+    weight &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      maximum
+      minimum
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    height &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      maximum
+      minimum
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    classification
+    types
+    resistant
+    attacks &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      fast &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        name
+        &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;damage&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      special &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        name
+        &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;damage&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    weaknesses
+    fleeRate
+    maxCP
+    evolutions &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      id
+      number
+      name
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    evolutionRequirements &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      amount
+      name
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    maxHP
+    image
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E como resultado teremos todos os dados do nosso queridíssimo &lt;em&gt;Pikachu&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Mutações&lt;/h3&gt;
+&lt;p&gt;Além de requisitar informação, podemos também manusear dados. Isso é realizado através do conceito de &lt;em&gt;Mutations&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Para esse exemplo vamos utilizar a &lt;a href=&quot;https://graphql.jobs/docs/api/&quot; title=&quot;Veja o projeto rodando&quot;&gt;&lt;em&gt;GraphQL Jobs API&lt;/em&gt;&lt;/a&gt;, acessível
+através &lt;a href=&quot;https://api.graphql.jobs/&quot; title=&quot;Veja o Playground do projeto&quot;&gt;dessa interface&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Vamos dar &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; na &lt;em&gt;API&lt;/em&gt;, para que assim possamos receber propostas de empregos que envolvam &lt;em&gt;GraphQL&lt;/em&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;mutation&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  subscribe&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;seu-nome&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;seu-email&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    id
+    name
+    email
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como resposta, temos um &lt;em&gt;JSON&lt;/em&gt; com &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;email&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;subscribe&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ckc3r7uqs004w0725u5sf0g1o&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;John Doe&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;myamazingemail@mail.com&quot;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ok... Aqui pode ter ficado um pouco confuso. Vamos verificar quais &lt;em&gt;Mutations&lt;/em&gt; temos disponíveis:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  __schema &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    mutationType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      fields &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        name
+        args &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          name
+          &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            kind
+            ofType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+              name
+              kind
+              inputFields &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                name
+                &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                  ofType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    name
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          kind
+          ofType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            name
+            fields &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+              name
+              &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                kind
+                ofType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                  name
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O resultado, de forma resumida, será o seguinte:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;__schema&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;&quot;mutationType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;&quot;fields&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;subscribe&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token property&quot;&gt;&quot;args&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;input&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NON_NULL&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SubscribeInput&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;INPUT_OBJECT&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;inputFields&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                          &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                            &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;String&quot;&lt;/span&gt;
+                          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                          &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                            &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;String&quot;&lt;/span&gt;
+                          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NON_NULL&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+              &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;User&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                &lt;span class=&quot;token property&quot;&gt;&quot;fields&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NON_NULL&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ID&quot;&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;SCALAR&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token null keyword&quot;&gt;null&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;email&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NON_NULL&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;String&quot;&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;subscribe&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NON_NULL&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Boolean&quot;&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;createdAt&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NON_NULL&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;DateTime&quot;&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;updatedAt&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;&quot;type&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;kind&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;NON_NULL&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+                      &lt;span class=&quot;token property&quot;&gt;&quot;ofType&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;token property&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;DateTime&quot;&lt;/span&gt;
+                      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+              &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+          &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A &lt;em&gt;query&lt;/em&gt; ficou um pouco mais clara agora. A &lt;em&gt;Mutation&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; aceita um parâmetro com nome &lt;code class=&quot;language-text&quot;&gt;input&lt;/code&gt;, do
+tipo &lt;code class=&quot;language-text&quot;&gt;SubscribeInput&lt;/code&gt;. Esse, além de ser obrigatório (&lt;code class=&quot;language-text&quot;&gt;NON_NULL&lt;/code&gt;), possui dois campos: &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;email&lt;/code&gt;. Isso
+explica a linha &lt;code class=&quot;language-text&quot;&gt;subscribe(input: { name: &amp;quot;&amp;lt;seu-nome&amp;gt;&amp;quot;, email: &amp;quot;&amp;lt;seu-email&amp;gt;&amp;quot; }) {&lt;/code&gt;, na consulta anterior.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; retorna um tipo &lt;code class=&quot;language-text&quot;&gt;User&lt;/code&gt;, também obrigatório. Esse tipo possui os campos &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt;,
+&lt;code class=&quot;language-text&quot;&gt;createdAt&lt;/code&gt;, e &lt;code class=&quot;language-text&quot;&gt;updatedAt&lt;/code&gt;. Como especificamos dentro do bloco &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; os campos &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt;, e &lt;code class=&quot;language-text&quot;&gt;email&lt;/code&gt;,
+esse é o resultado que obtemos no &lt;em&gt;JSON&lt;/em&gt; de resposta. Que representa a &lt;em&gt;subscription&lt;/em&gt; sendo efetuada, e meus
+dados como usuário sendo retornados.&lt;/p&gt;
+&lt;h3&gt;Por baixo dos panos&lt;/h3&gt;
+&lt;p&gt;Existem outros conceitos não explorados nesse artigo, como por exemplo as &lt;a href=&quot;https://www.digitalocean.com/community/tutorials/graphql-mutations-subscriptions&quot; title=&quot;Mutations and Subscriptions in GraphQL&quot;&gt;&lt;em&gt;Subscriptions&lt;/em&gt;&lt;/a&gt;. O que
+pode estar confuso para você é como que o servidor interpreta o &lt;em&gt;GraphQL&lt;/em&gt;, e coleta os dados para formar
+a resposta da requisição.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4a6836ebc99a7bcc07a68b5400d3863e/e5166/detective-pikachu.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.041666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAcdpWWWsBv/EABsQAAIBBQAAAAAAAAAAAAAAAAECAwAQERIh/9oACAEBAAEFAgMvNxHOzLUhJt//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAWEQADAAAAAAAAAAAAAAAAAAAQESH/2gAIAQIBAT8BVH//xAAbEAABBAMAAAAAAAAAAAAAAAARAAEQIUFRgf/aAAgBAQAGPwLqvaIEW+Xj/8QAGhAAAwADAQAAAAAAAAAAAAAAAAExESFRYf/aAAgBAQABPyF6FVyZWZCdV4RpC4Psx0//2gAMAwEAAgADAAAAEHcv/8QAFxEAAwEAAAAAAAAAAAAAAAAAARARIf/aAAgBAwEBPxC4V//EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxB0J//EABsQAQEAAwADAAAAAAAAAAAAAAERACExQVGh/9oACAEBAAE/EBeQhVpqYQxTyprsfeLBSF2H3E9E46xuQwKM2YQ4M//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Imagem do filme Detective Pikachu, mostrando o Pikachu com uma lupa&quot;
+        title=&quot;Será que conseguimos encontrar um emprego de detetive, para Pokémons, utilizando GraphQL? (www.geekgirlauthority.com/)&quot;
+        src=&quot;/static/4a6836ebc99a7bcc07a68b5400d3863e/212bf/detective-pikachu.jpg&quot;
+        srcset=&quot;/static/4a6836ebc99a7bcc07a68b5400d3863e/7809d/detective-pikachu.jpg 192w,
+/static/4a6836ebc99a7bcc07a68b5400d3863e/4ecad/detective-pikachu.jpg 384w,
+/static/4a6836ebc99a7bcc07a68b5400d3863e/212bf/detective-pikachu.jpg 768w,
+/static/4a6836ebc99a7bcc07a68b5400d3863e/5ef17/detective-pikachu.jpg 1152w,
+/static/4a6836ebc99a7bcc07a68b5400d3863e/e5166/detective-pikachu.jpg 1200w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Será que conseguimos encontrar um emprego de detetive, para Pokémons, utilizando GraphQL? (www.geekgirlauthority.com/)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Comigo o &quot;click&quot; aconteceu depois de checar o código dos repositórios abaixo:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/lucasbento/graphql-pokemon&quot; title=&quot;Confira o repositório no Github&quot;&gt;lucasbento/graphql-pokemon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/igorlima/todo-mongo-graphql-server&quot; title=&quot;Confira o repositório no Github&quot;&gt;igorlima/todo-mongo-graphql-server&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Não é feitiçaria...&lt;/p&gt;
+&lt;h2&gt;Então devo adotar o GraphQL?&lt;/h2&gt;
+&lt;p&gt;Possivelmente. E isso não significa necessariamente abandonar o &lt;em&gt;REST&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;A retórica do &quot;GraphQL ser o substituto do REST&quot;, inclusive, foi um dos motivos do meu ceticismo em relação ao mesmo por muito tempo.&lt;/p&gt;
+&lt;p&gt;Uma das análises mais sóbrias que encontrei foi da &lt;a href=&quot;https://www.thoughtworks.com/radar/languages-and-frameworks/graphql&quot; title=&quot;Technology Radar&quot;&gt;&lt;em&gt;ThoughtWorks&lt;/em&gt;&lt;/a&gt;, que categoriza o &lt;em&gt;GraphQL&lt;/em&gt; como &lt;code class=&quot;language-text&quot;&gt;ASSESS&lt;/code&gt; (ou seja, recomendada a exploração para compreender
+como ele impactará o seu &lt;em&gt;business&lt;/em&gt;):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;We&apos;ve seen many successful GraphQL implementations on our projects. We&apos;ve seen some interesting patterns of use too, including GraphQL for server-side resource aggregation. That said, we&apos;ve concerns about misuse of this framework and some of the problems that can occur. Examples include performance gotchas around N+1 queries and lots of boilerplate code needed when adding new models, leading to complexity. There are workarounds to these gotchas such as query caching. Even though it&apos;s not a silver bullet, we still think it&apos;s worth assessing as part of your architecture.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Se o seu produto compartilha do mesmo contexto do &lt;em&gt;Facebook&lt;/em&gt;, de ter controle total do &lt;em&gt;backend&lt;/em&gt; e do
+&lt;em&gt;client&lt;/em&gt; (&lt;em&gt;web&lt;/em&gt; e &lt;em&gt;mobile&lt;/em&gt;), utilizar o &lt;em&gt;GraphQL&lt;/em&gt; faz muito sentido. Ou ainda, se a sua motivação for de reduzir o número de chamadas &lt;em&gt;HTTP&lt;/em&gt;, assim como foi a do
+&lt;em&gt;Github&lt;/em&gt;, é um argumento completamente válido para a adoção da linguagem.&lt;/p&gt;
+&lt;p&gt;O que talvez precise ficar claro na sua tomada de decisão é que um não substitui o outro completamente, como afirma
+&lt;a href=&quot;https://www.programmableweb.com/news/just-because-github-has-graphql-api-doesnt-mean-you-should-too/analysis/2016/09/21&quot; title=&quot;Just Because Github Has a GraphQL API Doesn’t Mean You Should Too&quot;&gt;&lt;em&gt;Mike Stowe, no ProgrammableWeb&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;However, that does not mean that in GitHub’s case, pushing out a public GraphQL API was the right choice. In an effort to reduce calls, they are giving up the very layers of flexibility that I believe will drive future APIs. In essence, they chose a solution to one problem they were facing, but in doing so disregarded solutions for the problems REST was designed to solve (...)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Dependendo da sua &lt;em&gt;stack&lt;/em&gt;, disponibilizar os dois formatos não é nenhum sacrifício. Aliás, ter o &lt;em&gt;GraphQL&lt;/em&gt; como uma
+espécie de &lt;em&gt;API Gateway&lt;/em&gt;, agregando o resultado de demais &lt;em&gt;endpoints&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt; &lt;a href=&quot;https://levelup.gitconnected.com/graphql-is-the-new-api-gateway-383edeed4bcd&quot; title=&quot;GraphQL is the New API Gateway&quot;&gt;parece ser uma tendência&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7de39de94c321c5ef5ad1991b63fc1ee/e8950/graphql-api-gateway.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAABZklEQVQoz4VRXW8TMRC8//+GEIhfg3hBRaSUBySq43pqm0Caj8udY3s/vONesUlUCfrAarWatWfWq3Fjp0iGbPGAoatJo7G34aZiPhq5Mw574LGST9GctWqPT7a+ypdv5s+v5s03TPf48m4u7XiLfYvLt/Pi9by6yPNTJf8lfo5yIdGUazJlJiSxJNBY6j/cF2LDnxHJEsCdo86JKkXWMhX/FZ8iw6LQ+yV/WC37u+v2um1b7z2AF2KcF64PpupHBWqh96EPIiosRFTA6fxZ0liuvSqgyAT1JgGxuO2QQhaX2WUaITGnAERDsUBRRwBNmjh+3KQhrom7LTko3zj+tIsmt45WTghCF1vpp8G02/FWJO0jFcmRG53YL36lkTYx/ng4hJzoboxXD6Ta78f7YWLV+HUjSzcm+f5ztw0hHaJfrNVxU7b3HBLK+la+JReTVQLHAspyUM3IrFwMyYWqglQ9OVIo9TePzzpP+VoO0QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Topologia de serviços quando adicionado GraphQL como API Gateway&quot;
+        title=&quot;Exemplo de uso de GraphQL como API Gateway, à frente de outras APIs GraphQL e REST (labs.getninjas.com.br)&quot;
+        src=&quot;/static/7de39de94c321c5ef5ad1991b63fc1ee/e5715/graphql-api-gateway.png&quot;
+        srcset=&quot;/static/7de39de94c321c5ef5ad1991b63fc1ee/8514f/graphql-api-gateway.png 192w,
+/static/7de39de94c321c5ef5ad1991b63fc1ee/804b2/graphql-api-gateway.png 384w,
+/static/7de39de94c321c5ef5ad1991b63fc1ee/e5715/graphql-api-gateway.png 768w,
+/static/7de39de94c321c5ef5ad1991b63fc1ee/4ad3a/graphql-api-gateway.png 1152w,
+/static/7de39de94c321c5ef5ad1991b63fc1ee/71c1d/graphql-api-gateway.png 1536w,
+/static/7de39de94c321c5ef5ad1991b63fc1ee/e8950/graphql-api-gateway.png 2000w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de uso de GraphQL como API Gateway, à frente de outras APIs GraphQL e REST (labs.getninjas.com.br)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Para mim, a linguagem brilhou quando migrei o &lt;em&gt;blog&lt;/em&gt; para &lt;a href=&quot;https://www.gatsbyjs.org/&quot; title=&quot;GatsbyJS&quot;&gt;&lt;em&gt;Gatsby&lt;/em&gt;&lt;/a&gt;. A flexibilidade e assertividade que ela me proporcionou,
+mesmo em um ambiente de &lt;a href=&quot;/tag/static-site-generators.html&quot; title=&quot;Leia mais sobre sites estáticos&quot;&gt;&lt;em&gt;static site generator&lt;/em&gt;&lt;/a&gt;, me deixou impressionado e até mesmo apaixonado por toda a ideia por trás da tecnologia.&lt;/p&gt;
+&lt;p&gt;E esse caso de uso, na minha opinião, é motivação o suficiente para pelo menos compreendermos a linguagem.
+Se há ceticismo em relação ao uso dela em uma solução que já existe, talvez ele dê uma abrandada quando
+você experimentá-la em um contexto diferente.&lt;/p&gt;
+&lt;p&gt;Como o livro &lt;a href=&quot;https://www.goodreads.com/book/show/40861856-graphql-or-bust&quot; title=&quot;Veja no Goodreads&quot;&gt;&quot;GraphQL or Bust: To Use It Or Not: That is the Question&quot;&lt;/a&gt; dá a entender, não tem almoço grátis:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;GraphQL has often been sold as a perfect solution for every problem, but the reality is that it meets one requirement better than most other, and if that’s not part of your requirements, it may not be the best solution for your implementation.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A discussão continua nas referências abaixo. Não deixe de conferir!&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://adrianolisboa.com/o-minimo-que-voce-precisa-saber-sobre-graphql-para-nao-passar-vergonha-em-uma-conversa/&quot;&gt;Adriano Lisboa: O mínimo que você precisa saber sobre GraphQL para não passar vergonha em uma conversa&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://apievangelist.com/2016/08/30/graphql-seems-like-we-do-not-want-to-do-the-hard-work-of-api-design/&quot;&gt;API Evangelist: GraphQL Seems Like We Do Not Want To Do The Hard Work Of API Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.apollographql.com/blog/graphql-the-next-generation-of-api-design-f24b1689756a#.6hh9mb30w&quot;&gt;Apollo Blog: GraphQL - The next generation of API design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/graphql-mutations-subscriptions&quot;&gt;Digital Ocean - Mutations and Subscriptions in GraphQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dzone.com/articles/graphql-core-features-architecture-pros-and-cons&quot;&gt;DZone: GraphQL - Core Features, Architecture, Pros, and Cons&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://labs.getninjas.com.br/sharing-data-in-a-microservices-architecture-using-graphql-97db59357602&quot;&gt;GetNinjas: Sharing data in a Microservices Architecture using GraphQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://levelup.gitconnected.com/graphql-is-the-new-api-gateway-383edeed4bcd&quot;&gt;Gitconnected: GraphQL is the New API Gateway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/APIs-guru/graphql-apis&quot;&gt;Github: Public GraphQL APIs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.hitchhq.com/graphql-3-reasons-not-to-use-it-7715f60cb934#.j0xhx31xg&quot;&gt;Hitch: GraphQL - 3 reasons not to use it&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.howtographql.com/&quot;&gt;How to GraphQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/@paigen11/what-is-graphql-really-76c48e720202&quot;&gt;Medium: What is GraphQL, really?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.moesif.com/blog/technical/graphql/REST-vs-GraphQL-APIs-the-good-the-bad-the-ugly/&quot;&gt;Moesif: REST vs GraphQL APIs, the Good, the Bad, the Ugly&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/open-graphql/moving-existing-api-from-rest-to-graphql-205bab22c184&quot;&gt;OPENGraphQL: Moving existing API from REST to GraphQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.serverless.com/blog/running-scalable-reliable-graphql-endpoint-with-serverless/&quot;&gt;Serverless: Running a scalable &amp;#x26; reliable GraphQL endpoint with Serverless&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stablekernel.com/article/advantages-and-disadvantages-of-graphql/&quot;&gt;Stable Kernel: Advantages and Disadvantages of GraphQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/40689858/are-there-any-disadvantages-to-graphql&quot;&gt;Stackoverflow: Are there any disadvantages to GraphQL?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.thoughtworks.com/radar/languages-and-frameworks/graphql&quot;&gt;ThoughyWorks: Technology Radar - GraphQL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/GraphQL&quot;&gt;Wikipedia: GraphQL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>
