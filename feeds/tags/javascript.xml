@@ -1,4 +1,373 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - javascript]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 01 Jul 2020 20:25:36 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - javascript]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Fri, 09 Oct 2020 09:14:01 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Você precisa de uma API?]]></title><description><![CDATA[Nos últimos anos tenho advogado em prol do API-First. Não apenas
+por acreditar nos impactos econômicos que a prática pode apresentar, como também nos benefícios de arquitetura,
+organização e integração. Sem falar no "supracitado" Developer eXperience, que vem quase que embutido ao
+realizar o design…]]></description><link>https://klauslaube.com.br/2020/10/09/voce-precisa-de-uma-api.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/10/09/voce-precisa-de-uma-api.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 09 Oct 2020 06:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Nos últimos anos tenho advogado em prol do &lt;a href=&quot;/tag/api-first.html&quot; title=&quot;Leia mais sobre API-First&quot;&gt;&lt;em&gt;API-First&lt;/em&gt;&lt;/a&gt;. Não apenas
+por acreditar nos impactos econômicos que a prática pode apresentar, como também nos benefícios de arquitetura,
+organização e integração. Sem falar no &quot;supracitado&quot; &lt;em&gt;Developer eXperience&lt;/em&gt;, que vem quase que embutido ao
+realizar o &lt;em&gt;design&lt;/em&gt; de suas &lt;a href=&quot;/tag/api.html&quot; title=&quot;Leia mais sobre APIs&quot;&gt;&lt;em&gt;APIs&lt;/em&gt;&lt;/a&gt; antes mesmo de implementá-las.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2020/02/21/o-api-first.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;O API-First&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2020/03/02/api-first-processo-e-ferramentas.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;API-First: Processo e ferramentas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2020/04/05/api-blueprint-markdown-e-vida.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;API Blueprint: Markdown é vida!&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/11/25/swagger-e-o-open-api-initiative.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;Swagger e o Open API Initiative&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2018/03/15/swagger-na-pratica.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;Swagger na prática&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2017/01/31/ramilificando-as-suas-apis.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;Ramilificando as suas APIs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Como nem tudo em desenvolvimento pode ser considerado &quot;bala de prata&quot; (estou olhando para você, &lt;em&gt;microservices&lt;/em&gt;),
+o propósito desse artigo é estressar a motivação por trás da construção de uma &lt;em&gt;API&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;O que é uma API?&lt;/h2&gt;
+&lt;p&gt;Segundo &lt;a href=&quot;https://medium.com/@TebbaVonMathenstien/what-is-an-api-and-why-should-i-use-one-863c3365726b&quot; title=&quot;What Is an API and Why Should I Use One?&quot;&gt;&lt;em&gt;Tyler Elliot&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In general, APIs define the rules that programmers must follow in order to interact with a programming language, a software library, or any other software tool. Lately though, the term API is most often used to describe a particular kind of web interface. These Web APIs are a set of rules for interacting with a webserver (such as a Salesforce server), with the most common use case being data retrieval.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6111b39bbdd735b487901e9aab0240dc/faddd/what-is-an-api.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgAF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAHbKCKlZf/EABgQAQEBAQEAAAAAAAAAAAAAAAECEQAh/9oACAEBAAEFAt9aAHTmJoDO/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAwADAAAAAAAAAAAAAAAAAAERAhAh/9oACAEBAAY/Aju5kqiI/8QAGhABAAMAAwAAAAAAAAAAAAAAAQARQSExcf/aAAgBAQABPyHDZanRKRNiHc8EBgACg4J//9oADAMBAAIAAwAAABBzP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAABAh/9oACAECAQE/EIf/xAAcEAEBAAICAwAAAAAAAAAAAAABEQAhMUFhcYH/2gAIAQEAAT8QRyHguIC2grN/clIgpvFOm/eSUpaPOQ4OB0Z//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Ilustração sobre o que é uma API&quot;
+        title=&quot;Uma máquina normalmente consome uma API. Já uma pessoa, geralmente, uma interface visual (callr.com)&quot;
+        src=&quot;/static/6111b39bbdd735b487901e9aab0240dc/212bf/what-is-an-api.jpg&quot;
+        srcset=&quot;/static/6111b39bbdd735b487901e9aab0240dc/7809d/what-is-an-api.jpg 192w,
+/static/6111b39bbdd735b487901e9aab0240dc/4ecad/what-is-an-api.jpg 384w,
+/static/6111b39bbdd735b487901e9aab0240dc/212bf/what-is-an-api.jpg 768w,
+/static/6111b39bbdd735b487901e9aab0240dc/faddd/what-is-an-api.jpg 850w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Uma máquina normalmente consome uma API. Já uma pessoa, geralmente, uma interface visual (callr.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Em outras palavras, você acessa o &lt;em&gt;Gmail&lt;/em&gt; diariamente do seu &lt;em&gt;browser&lt;/em&gt; através da interface &lt;a href=&quot;/tag/web.html&quot; title=&quot;Leia mais sobre web&quot;&gt;&lt;em&gt;web&lt;/em&gt;&lt;/a&gt;. Porém, integrações com outras máquinas são realizadas através de &lt;em&gt;APIs&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Na verdade, mesmo o &lt;em&gt;Gmail&lt;/em&gt; aberto em seu navegador depende de &lt;em&gt;APIs&lt;/em&gt; para funcionar. Possivelmente as mesmas &lt;em&gt;APIs&lt;/em&gt; que alimentam a &lt;em&gt;app mobile&lt;/em&gt; do próprio &lt;em&gt;Google&lt;/em&gt;,
+ou clientes terceiros (como o &lt;em&gt;Mail&lt;/em&gt;, da &lt;em&gt;Apple&lt;/em&gt;).&lt;/p&gt;
+&lt;h2&gt;Mashup, SaaS, e economia&lt;/h2&gt;
+&lt;p&gt;E o primeiro argumento gira em torno dessa oportunidade de integrações e negócios com terceiros.&lt;/p&gt;
+&lt;p&gt;O termo &lt;em&gt;Mashup&lt;/em&gt; ganhou popularidade após a &lt;a href=&quot;https://pt.wikipedia.org/wiki/Web_2.0&quot;&gt;&lt;em&gt;Web 2.0&lt;/em&gt;&lt;/a&gt; (entreguei a idade nessa referência) transformar a forma como a &lt;em&gt;web&lt;/em&gt; era desenvolvida. &lt;em&gt;Mashups&lt;/em&gt; são &lt;em&gt;APIs&lt;/em&gt;, &lt;em&gt;websites&lt;/em&gt; ou serviços que misturam diferentes fontes afim de entregar uma solução. Um bom exemplo de &lt;em&gt;mashup&lt;/em&gt; é a interface de busca do &lt;em&gt;Airbnb&lt;/em&gt;, integrada ao &lt;em&gt;Google Maps&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8e8d838f1bd37aabc1a4391ac5322c2b/07b5d/interface-airbnb.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 51.041666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsSAAALEgHS3X78AAACUElEQVQozzWSS0/bQBSF82u7765dVmxYVmVVIVVCPEp5B1oeoUArIGrFq6EpJE7sOLEd23FixwkQ29j+OnHaK41mNDr67p1zJhf5Q8IgIIwi4jgmTRGVMgwTZC9BcgLankfv0cNyDXodHf9xgPvUp/vkZntv4GN4PlXrgZzdsdF1Hcs08X2f6DnOgJKbsFRJWZHg2uih9xUunWuOFItLQ+ZMMylqGmW7wq2psq888bkWkovCiCh6JhaTpUlCLBbESN4YlrJehxM1pGTLHDUtlqpQ1F0Upy3uLO4diZPWkNUarEvP5GZnppmaes3awgx7qzOcHX3hcCfPcanJRgM2akkmXqsJeG0MDzhWHpG6FcpOlZJzy17jge+tkLyckjsvbLK4OEdha4782jy723m2VlY4/DUBrksJG/VUAOHGGKJ0+lmDi7aF6sr8ce44aAQZbKzLPY3CcQoEYSxCSYjiiYfKEJarKZv1yWRjsWr3qBs2PxQP1WhRtnQKjYHQkDXMgMFoRBCMMmg6iTgryU35JE2Am/8mLBk+N60eN1qfouyJyYTPY+/E2qxNNLnlhVnW5t9xWzrn7uon71c2ePHqJcuFU3Y00VmKM+GSSLvYeqRm9vmmRpyK83Y94msj5Ldtcmu0udD8MfADx/t5mnWJRrXC0voq02/fsHtdYUudhHGgPFNUB9zpNoalIRkNmrZEta2iuS2anozWVXF9h1ySTJ45fHhgJD74/1KFhx+FhwV5hNw06IoP3XEsWh2NhnNPuX2FZJZRujJGr42qNzEdk78z5c2ynPxDGQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Interface de busca do Airbnb com o Google Maps&quot;
+        title=&quot;Na interface web, no desktop, é possível buscar por proximidade e ter auxílio do Google Maps para encontrar um lugar&quot;
+        src=&quot;/static/8e8d838f1bd37aabc1a4391ac5322c2b/e5715/interface-airbnb.png&quot;
+        srcset=&quot;/static/8e8d838f1bd37aabc1a4391ac5322c2b/8514f/interface-airbnb.png 192w,
+/static/8e8d838f1bd37aabc1a4391ac5322c2b/804b2/interface-airbnb.png 384w,
+/static/8e8d838f1bd37aabc1a4391ac5322c2b/e5715/interface-airbnb.png 768w,
+/static/8e8d838f1bd37aabc1a4391ac5322c2b/4ad3a/interface-airbnb.png 1152w,
+/static/8e8d838f1bd37aabc1a4391ac5322c2b/71c1d/interface-airbnb.png 1536w,
+/static/8e8d838f1bd37aabc1a4391ac5322c2b/07b5d/interface-airbnb.png 2551w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Na interface web, no desktop, é possível buscar por proximidade e ter auxílio do Google Maps para encontrar um lugar&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Integrações com terceiros fazem parte do cotidiano dos desenvolvedores &lt;em&gt;web&lt;/em&gt;, e não é raro tais integrações se materializarem na forma de &lt;em&gt;APIs&lt;/em&gt;. Além disso, o conceito
+de &quot;Software Como Serviço&quot; (&lt;a href=&quot;https://www.techradar.com/news/what-is-saas&quot; title=&quot;What is SaaS&quot;&gt;&lt;em&gt;SaaS&lt;/em&gt;&lt;/a&gt;) está amplamente estabelecido no mercado, e há uma certa expectativa que
+o seu produto possua algumas de suas características.&lt;/p&gt;
+&lt;p&gt;Oras! Você já é um desenvolvedor &lt;em&gt;web&lt;/em&gt;, desenvolvendo para a nuvem. O que te custa fazer disso um serviço e disponibilizar alguns endereços para que um cliente
+conecte-se com a sua solução?&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 512px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6f194806efb0212ff924af7e867e2ef7/01e7c/saas-vs-soa.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsSAAALEgHS3X78AAADBklEQVQ4y41Va1PaQBTt//8JnX5qO+1Mq2XGCoohJDxMEPKCRCWQ0ABCeCigPEIieHpJq7VCbBcWdjd7z5577t6bN/jdHh4eNr/Pxr/aer3eOX7cs/l/vv/Nrg2bFtwHmC4GEIssPnx6i4+f36FsCOHa/f39TpsnwJcPFt4U5fM85AoDUToClzvAt4P3OJOTkMoMTEvGah3sBN1i6PseziQGqcw+kuxXsJkYKpdZ6NQVPQ1N5yFpDM0F+IEfzXDz2XzdoYUz5ZjYpaHqHEpqipidICsc0gF7SGdjYLh9FNUkbibtLR3/cnm5XKDZVaEQWL6QgGZwcDoy8mICRZmh9RRYPkbzY1jNEtquTnoG2y4/TqbzEYxqNmRU0k5gOhKMmgTFKEE1ZVxYCmqODKF4hJwYDw+Zze+iASd3Q2KooO4UYTQqECoqvjMMjnkOe3FyOZ9DtdOCZkqkYyqUZDa7jQacL27RdFXoto50QURaPEWcSyGZ5ZEpFpCXi7Qu0JgOrJfRHRjwSKZIwBXpYTarkGtVMBkeyQyHBMsgwZyAyWWQJoZJLo2CrkGxTFjt2sY4TIcIwBXs3hDJHE9upnHMsiEAm8uCFwXEUyfgieERHcKSB63hZPc9fHLZW6I7WZJGdqifVD0He5rHEcciJeSRU0rQbBOioVGQbLi011v60YC3swU64yX6dwExvYbpXuFUleiS89Q5CKpMQenAGUwwnK/RHXshiVcY+lAuG5D1OiTq7esZGv0RzHYPtbYLu3uNRm+MctVB+aKB81qL0vQVwIA0rDd70KtNSjeH+g+6l020BlMMZiv0iLlGa6fFChrdMdzxfKtQ/Em9cP6A/miKq5sFLu0upV8dzcEd3FsfTm9C+etALtegGhZatGc880KbjW1kcVhRzbNafWLiUDGow3ZHJL4PndzTzVYIJukW2v3xU338j/K1JIMJRdyniDv4EosjdsjA7ozQGXm4oqD4/j/L1wumqxWmXkCadqjCiMiKMmXRNQUu2AKJrNgvQR9fCbta1CvgJ5uR0Wg6fk8tAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diferenças e similaridades entre SaaS e SOA&quot;
+        title=&quot;Diferenças e similaridades entre SaaS e SOA (tecnetit.com.br)&quot;
+        src=&quot;/static/6f194806efb0212ff924af7e867e2ef7/01e7c/saas-vs-soa.png&quot;
+        srcset=&quot;/static/6f194806efb0212ff924af7e867e2ef7/8514f/saas-vs-soa.png 192w,
+/static/6f194806efb0212ff924af7e867e2ef7/804b2/saas-vs-soa.png 384w,
+/static/6f194806efb0212ff924af7e867e2ef7/01e7c/saas-vs-soa.png 512w&quot;
+        sizes=&quot;(max-width: 512px) 100vw, 512px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Diferenças e similaridades entre SaaS e SOA (tecnetit.com.br)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E aqui é possível enxergar que além da técnica em relação à integrações, há um fator econômico que precisa ser levado em consideração. &lt;em&gt;Jennifer Riggins&lt;/em&gt;, no &lt;a href=&quot;https://www.programmableweb.com/news/how-to-design-great-apis-api-first-design-and-raml/how-to/2015/07/10&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&lt;em&gt;How To Design Great APIs With API-First Design&lt;/em&gt;&lt;/a&gt;, explora um pouco mais dessa vertente. &lt;a href=&quot;https://www.mulesoft.com/resources/api/what-is-an-api-economy&quot; title=&quot;What is the API Economy&quot;&gt;Mas uma das melhores definições vem do pessoal da &lt;em&gt;MuleSoft&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The innovative power of APIs has led to the realization that APIs can be a critical component of enterprise solutions that impact the operational bottom line, contributing to efficiencies, growth, and innovation. That, in turn, has created the API economy, which is loosely defined as the way APIs can positively affect an organization&apos;s profitability.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Portanto, se você estiver construindo um produto onde tais integrações podem ser um novo canal de distribuição (ou até mesmo o principal canal de distribuição), ter uma &lt;em&gt;API&lt;/em&gt; faz todo o sentido.&lt;/p&gt;
+&lt;h3&gt;Em contrapartida...&lt;/h3&gt;
+&lt;p&gt;Embora seja de conhecimento público que a &lt;a href=&quot;https://netflixtechblog.com/tagged/microservices&quot; title=&quot;Leia mais no blog técnico do Netflix&quot;&gt;&lt;em&gt;Netflix&lt;/em&gt; utilize microsserviços&lt;/a&gt;
+(e os serviços possuam &lt;em&gt;APIs&lt;/em&gt; para uso interno), a &quot;locadora vermelha&quot; não possui &lt;em&gt;API&lt;/em&gt; pública (até o momento da escrita desse artigo). E esse
+exemplo pode servir como argumento para ilustrar que nem tudo precisa ser concebido com uma ideia de integração desde o seu princípio.&lt;/p&gt;
+&lt;p&gt;No entanto, assim como no exemplo do &lt;em&gt;Gmail&lt;/em&gt;, para entregar um conteúdo de forma coesa para tantos clientes diferentes (&lt;em&gt;TV&lt;/em&gt;, &lt;em&gt;mobile&lt;/em&gt;, &lt;em&gt;web&lt;/em&gt;, etc), há uma necessidade técnica que fortalece o argumento
+do uso de protocolos de comunicação.&lt;/p&gt;
+&lt;h2&gt;Front-end x Mobile x Back-end&lt;/h2&gt;
+&lt;p&gt;No caso do &lt;em&gt;Gmail&lt;/em&gt;, por exemplo, o protocolo &lt;a href=&quot;https://pt.wikipedia.org/wiki/Post_Office_Protocol&quot; title=&quot;Leia mais no Wikipedia&quot;&gt;&lt;em&gt;POP&lt;/em&gt;&lt;/a&gt;
+seria o suficiente para conectar um cliente com o servidor, afim de ler os e-mails. Ao falarmos de soluções &lt;em&gt;web&lt;/em&gt;, e portanto, funcionando sobre a camada &lt;em&gt;HTTP&lt;/em&gt;,
+esse tipo de interação é comumente efetuada através de &lt;a href=&quot;/tag/rest.html&quot; title=&quot;Leia mais sobre REST&quot;&gt;&lt;em&gt;APIs REST&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 602px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/873febc6cd552df522d1d5dc20ed2ef0/e49d1/front-back-end.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 85.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGAABAQADAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHvRUG0GQAf/8QAGRAAAQUAAAAAAAAAAAAAAAAAAQAQICEx/9oACAEBAAEFAkLY5H//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AR//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AR//xAAXEAADAQAAAAAAAAAAAAAAAAAAATAx/9oACAEBAAY/AjXD/8QAGxABAAICAwAAAAAAAAAAAAAAAQARIDEhYXH/2gAIAQEAAT8hTtnIwCjdy+kLH3H/2gAMAwEAAgADAAAAEGDAAP/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8QH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8QH//EABsQAQACAgMAAAAAAAAAAAAAAAEAESFhIDFx/9oACAEBAAE/ELba/GIIBWyYi2zGF2YTucuP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Ilustração separando front-end de back-end&quot;
+        title=&quot;Full-stack ou Fool-stack? (quora.com)&quot;
+        src=&quot;/static/873febc6cd552df522d1d5dc20ed2ef0/e49d1/front-back-end.jpg&quot;
+        srcset=&quot;/static/873febc6cd552df522d1d5dc20ed2ef0/7809d/front-back-end.jpg 192w,
+/static/873febc6cd552df522d1d5dc20ed2ef0/4ecad/front-back-end.jpg 384w,
+/static/873febc6cd552df522d1d5dc20ed2ef0/e49d1/front-back-end.jpg 602w&quot;
+        sizes=&quot;(max-width: 602px) 100vw, 602px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Full-stack ou Fool-stack? (quora.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Há nem tanto tempo atrás, &lt;em&gt;full-stack developers&lt;/em&gt; eram comuns no mercado de desenvolvimento &lt;em&gt;web&lt;/em&gt;. Soluções eram basicamente
+&lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTMLs&lt;/em&gt;&lt;/a&gt; sendo entregues com a interface tendo apenas intervenções de &lt;a href=&quot;/tag/javascript.html&quot; title=&quot;Leia mais sobre Javascript&quot;&gt;&lt;em&gt;Javascript&lt;/em&gt;&lt;/a&gt; para enriquecer a experiência.&lt;/p&gt;
+&lt;p&gt;Com os navegadores evoluindo cada vez mais, as interfaces &lt;em&gt;web&lt;/em&gt; ficando cada vez mais complexas, e demandas nos domínios de &lt;em&gt;front-end&lt;/em&gt; e &lt;em&gt;back-end&lt;/em&gt; exigindo
+maior especialidade; Hoje o padrão de mercado é encontrarmos desenvolvedores especializados em &lt;em&gt;front-end&lt;/em&gt;, ou em &lt;em&gt;back-end&lt;/em&gt;, ou até mesmo &lt;em&gt;mobile&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Full-stack developers&lt;/em&gt;
+são considerados &quot;unicórnios&quot;, e por mais que eu tenha passado a maior parte da minha carreira como um, admito que hoje
+em dia é muito difícil ficar nessa posição e manter-se atualizado com as novidades e tendências (&lt;a href=&quot;https://medium.com/better-programming/do-not-follow-javascript-trends-ca2f0dc19ec1&quot; title=&quot;Don’t Follow JavaScript Trends&quot;&gt;principalmente no mercado &lt;em&gt;front-end&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 318px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ed27fc6f5330fe62b08032e4d37f5171/2debd/ria.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.45833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABQAB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAAWYfEFImi//EABsQAAIDAAMAAAAAAAAAAAAAAAECAAMREhMy/9oACAEBAAEFAjij1OD6bnMFrgd7z//EABcRAQEBAQAAAAAAAAAAAAAAAAEAAhP/2gAIAQMBAT8BdDdb/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAESE//aAAgBAgEBPwGss3//xAAZEAACAwEAAAAAAAAAAAAAAAAAARExoZH/2gAIAQEABj8CbkTkvRyy8LXD/8QAGxAAAwEBAAMAAAAAAAAAAAAAAAERITFRYdH/2gAIAQEAAT8hVGibrOJfODok6ESVT9IQEkSk4J/Af//aAAwDAQACAAMAAAAQ/wAf/8QAGREAAgMBAAAAAAAAAAAAAAAAABEBIVGh/9oACAEDAQE/EIS2LnD/xAAXEQEBAQEAAAAAAAAAAAAAAAABABFR/9oACAECAQE/EAm12//EABwQAQACAwADAAAAAAAAAAAAAAEAIRExYUHh8P/aAAgBAQABPxBXFjXwQxrzZU36iFQKeofWkjcYOQUwwHgzrUVIbPqp/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Anúncio de muito tempo atrás mostrando tecnologias ligadas ao Rich Internet Application&quot;
+        title=&quot;Deixa eu pegar esse pergaminho aqui que cita tecnologias usadas para construir interfaces ricas para a internet (dotcom-monitor.com)&quot;
+        src=&quot;/static/ed27fc6f5330fe62b08032e4d37f5171/2debd/ria.jpg&quot;
+        srcset=&quot;/static/ed27fc6f5330fe62b08032e4d37f5171/7809d/ria.jpg 192w,
+/static/ed27fc6f5330fe62b08032e4d37f5171/2debd/ria.jpg 318w&quot;
+        sizes=&quot;(max-width: 318px) 100vw, 318px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Deixa eu pegar esse pergaminho aqui que cita tecnologias usadas para construir interfaces ricas para a internet (dotcom-monitor.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Portanto, é bem provável que o time de &lt;em&gt;front-end&lt;/em&gt; do seu projeto adote &lt;em&gt;React&lt;/em&gt; ou &lt;em&gt;Vue.js&lt;/em&gt;, e demande
+do time de &lt;em&gt;back-end&lt;/em&gt; algumas &lt;em&gt;APIs&lt;/em&gt; (&lt;a href=&quot;/2020/07/01/alem-do-rest-com-graphql.html&quot; title=&quot;Além do REST com GraphQL&quot;&gt;&lt;em&gt;REST&lt;/em&gt; ou não&lt;/a&gt;) para que possam
+entregar conteúdo dinâmico ao usuário final. É certo que essa demanda acontecerá se, por exemplo, o seu produto tiver uma versão &lt;em&gt;mobile&lt;/em&gt; nativa.&lt;/p&gt;
+&lt;h3&gt;Em contrapartida...&lt;/h3&gt;
+&lt;p&gt;Há um debate em torno de especialidades e do papel de um &lt;em&gt;full-stack&lt;/em&gt;. &lt;em&gt;David Humphrey&lt;/em&gt; sugere que nessa condição, &lt;a href=&quot;https://blog.humphd.org/fool-stack-programmer/&quot; title=&quot;How to become a Fool Stack Programmer&quot;&gt;deveríamos
+ser capazes de &quot;subir ou descer&quot;, e oferecer ajuda, independente da &lt;em&gt;expertise&lt;/em&gt; em cada nível de uma &lt;em&gt;stack&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) is not about becoming an expert at every level of the stack. Rather, its goal is to erase the boundary between the levels such that you can reach up or down in order to offer help, even if that help is only to offer a kind word of encouragement when the problem is particularly hard: these are our problems, after all.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Outro argumento gira em torno do excesso de complexidade que virou desenvolver (qualquer coisa) para a &lt;em&gt;web&lt;/em&gt;.&lt;/p&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/SWEts0rlezA&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;Com um time multidisciplinar, é possível que você não precise confiar em uma &lt;em&gt;API&lt;/em&gt; para conectar as duas especialidades, e com
+o bom e velho modo de fazer &lt;em&gt;web&lt;/em&gt; (por exemplo, &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; entregando &lt;em&gt;HTML&lt;/em&gt;)
+seu time seja capaz de entregar um produto (ainda assim) interessante.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 500px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/677faf277ec5a099b9f55044cb4b1308/41099/fool-stack.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEAv/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAABep3imKCP/8QAGhABAQADAQEAAAAAAAAAAAAAAQIAAxMEEv/aAAgBAQABBQIoD7CNm9K5lZykl80Z/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAECESExEv/aAAgBAQAGPwLXR6WmMVt8Jazsj//EABoQAAMBAQEBAAAAAAAAAAAAAAABETFRQWH/2gAIAQEAAT8hwiXwb2K9JR0hdso9INR5RqPw6j//2gAMAwEAAgADAAAAEOAv/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8QAJ//xAAVEQEBAAAAAAAAAAAAAAAAAAABAP/aAAgBAgEBPxBGC//EABwQAQEAAgMBAQAAAAAAAAAAAAERACExYYFB8P/aAAgBAQABPxAWmWHLzEAotzXzIOiJJvBy2iTy+YWsxFFHnrrG03/lrP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Piada com full-stack e fool-stack&quot;
+        title=&quot;Pela graça da piada, deixo esse meme para mexer com o seu brio (devrant.com)&quot;
+        src=&quot;/static/677faf277ec5a099b9f55044cb4b1308/41099/fool-stack.jpg&quot;
+        srcset=&quot;/static/677faf277ec5a099b9f55044cb4b1308/7809d/fool-stack.jpg 192w,
+/static/677faf277ec5a099b9f55044cb4b1308/4ecad/fool-stack.jpg 384w,
+/static/677faf277ec5a099b9f55044cb4b1308/41099/fool-stack.jpg 500w&quot;
+        sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Pela graça da piada, deixo esse meme para mexer com o seu brio (devrant.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Só para não parecer um &lt;em&gt;post&lt;/em&gt; &quot;anti-SPA&quot; ou &quot;anti-React&quot;, &lt;a href=&quot;https://macwright.com/2020/05/10/spa-fatigue.html&quot; title=&quot;Second-guessing the modern web&quot;&gt;faço das palavras de &lt;em&gt;Tom MacWright&lt;/em&gt; as minhas&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I don’t think that everyone’s using the SPA pattern for no reason. For large corporations, it allows teams to work independently: the “frontend engineers” can “consume” “APIs” from teams that probably work in a different language and can only communicate through the hierarchy. For heavily interactive applications, it has real benefits in modularity, performance, and structure. And it’s beneficial for companies to shift computing requirements from their servers to their customers browsers: a real win for reducing their spend on infrastructure.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Se você acha que sua empresa ou produto não se encaixa nos critérios levantados na citação a cima,
+&lt;a href=&quot;https://m.signalvnoise.com/stimulus-1-0-a-modest-javascript-framework-for-the-html-you-already-have/&quot; title=&quot;Stimulus 1.0: A modest JavaScript framework for the HTML you already have&quot;&gt;&lt;em&gt;HTML&lt;/em&gt; renderizado no &lt;em&gt;server side&lt;/em&gt;, com pitadas de &lt;em&gt;Javascript&lt;/em&gt;, ainda é uma realidade&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Microservices&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;Microservices&lt;/em&gt; foi uma das ondas que sacudiu o mundo do desenvolvimento &lt;em&gt;back-end&lt;/em&gt; recentemente. O conceito de computação distribuída
+não é velho, mas com a popularização de ferramentas como &lt;em&gt;Kubernetes&lt;/em&gt; e &lt;a href=&quot;/tag/docker.html&quot; title=&quot;Leia mais sobre Docker&quot;&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/a&gt;, fica difícil resistir à
+tentação de mover toda uma solução para microsserviços.&lt;/p&gt;
+&lt;p&gt;O portal da &lt;em&gt;Red Hat&lt;/em&gt; &lt;a href=&quot;https://www.redhat.com/pt-br/topics/microservices/what-are-microservices&quot; title=&quot;O que são os microsserviços?&quot;&gt;define a arquitetura da seguinte forma&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Microsserviços são uma abordagem de arquitetura para a criação de aplicações. O que diferencia a arquitetura de microsserviços das abordagens monolíticas tradicionais é como ela decompõe a aplicação por funções básicas. Cada função é denominada um serviço e pode ser criada e implantada de maneira independente. Isso significa que cada serviço individual pode funcionar ou falhar sem comprometer os demais.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;As vantagens são numerosas, dentre elas:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Habilidade de escalar horizontalmente qualquer um de seus componentes;&lt;/li&gt;
+&lt;li&gt;Serviços são independentes. O que significa maior liberdade de desenvolvimento;&lt;/li&gt;
+&lt;li&gt;A arquitetura é plugável, permitindo maior flexibilidade no gerenciamento de serviços internos e externos.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Uma arquitetura baseada em microsserviços fatalmente te levará a construir &lt;em&gt;APIs&lt;/em&gt;. Embora haja outras formas
+de fazer com que os serviços dentro da mesma se comuniquem, &lt;em&gt;APIs REST&lt;/em&gt; são a forma mais comum para esse tipo de comunicação.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d084a44a068510bf7c7a22d87b45a69c/ce92a/microservice-diagram.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAABcRAAAXEQHKJvM/AAACjUlEQVQ4y5VVW08TQRTeP6I/wQd98UJi1OCbxoA2SmJiCBKbiMZo9MUHlfjig0ZMNIrxQU1ARTSAARUiLb1SfLCAFA2SFHoJ7dZuu223l+3nnCGzbWkX8CSTmT1zzjffucyshAZSLpdr5u3ukUgwEeFQKBThGnVgetwNXdc3BTMFJAfh9OBGD3bvsGDPTguedvdyna6X/4+hYBJZCqJ51zmcOHYbp0/eRcveDoSC0RqbOkDBpjo3wliJyWjddx5Hmq7h0P4raD/ahVQyvW6nV/yqh2SWaLGeHLLh1IFOtB20wjPuNbUTs1Qq6XX5KxZL0HJ55LIa8oUSwizMaGgNGluTTtPy3GZjdBSZRFUcfGeHxzXPjTKZHHIMjA7KMmdVzTLQIgMp8PX6XonPmYzGfIrweRbw/o2Nd4SUZ4aXLvTgbd83fopgnOVMCnyQIQ2yJea0J6pN8uzxMG5ef85teQ5XV2JIyCkjbGJCAKIPyZFGPl/gOopEUVQDOJXKIBKWK1UmSSZVTNn8kOOKkZPvvkX8/rVqHLT8JwKv+ycHVtUcZFmB2zHH14KxURSPcx4dZ+8hsBDk3+lUFl2dD9H/esIA7H0ygsvWRzx3JIuBFViO38Kcf7lSFMGGKDvsfiiMKemIBZ0uGJJu9scSZqYDRgTRaAJO+6yRrro+FEVJs5yIfFGihVDuSGgvnc4a3zV92OiGiCpTa8RjSXwZ9eHr2Az+JtK8D0lffU2rMaSNnS4aVYD3vZrAYXbtmpuuYuSjq8amka9k9tZR85IM9E/C2n4fF1mBxj55G7La9LURJwvAly8+40zLHbS1duPDwFQNYKMnbMsHNhyKY2jQiWEWbmwtWfdebhtwq1+AmfwDXGnkfx0eHkYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diagrama de uma arquitetura orientada a microsserviços&quot;
+        title=&quot;Uma visão muito simplista de uma arquitetura baseada em microsserviços (jaxenter.com)&quot;
+        src=&quot;/static/d084a44a068510bf7c7a22d87b45a69c/e5715/microservice-diagram.png&quot;
+        srcset=&quot;/static/d084a44a068510bf7c7a22d87b45a69c/8514f/microservice-diagram.png 192w,
+/static/d084a44a068510bf7c7a22d87b45a69c/804b2/microservice-diagram.png 384w,
+/static/d084a44a068510bf7c7a22d87b45a69c/e5715/microservice-diagram.png 768w,
+/static/d084a44a068510bf7c7a22d87b45a69c/4ad3a/microservice-diagram.png 1152w,
+/static/d084a44a068510bf7c7a22d87b45a69c/ce92a/microservice-diagram.png 1459w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Uma visão muito simplista de uma arquitetura baseada em microsserviços (jaxenter.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Não importando se as &lt;em&gt;APIs&lt;/em&gt; serão públicas ou privadas (como no exemplo do &lt;em&gt;Netflix&lt;/em&gt;), a sua necessidade é clara. Mais que isso, elas são
+partes fundamentais da arquitetura em si, e proporcionam o tipo de interface e abstração que faz com que a arquitetura de microsserviços fique
+cada dia mais popular, principalmente em empresas com uma grande quantidade de desenvolvedores e projetos.&lt;/p&gt;
+&lt;h3&gt;Em contrapartida...&lt;/h3&gt;
+&lt;p&gt;Você não é o &lt;em&gt;Netflix&lt;/em&gt;. Ou o &lt;em&gt;Google&lt;/em&gt;. Ou o &lt;em&gt;Uber&lt;/em&gt;. &lt;a href=&quot;https://m.signalvnoise.com/the-majestic-monolith/&quot;&gt;Nas palavras de &lt;em&gt;David Heinemeier Hansson&lt;/em&gt;&lt;/a&gt;,
+&lt;em&gt;microservices&lt;/em&gt; é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a great pattern. No, really. Not being sarcastic here. If you’re Amazon or Google or any other software organization with thousands of developers, it’s a wonderful way to parallelize opportunities for improvement. Each service can be its own team with its own timeline, staff, and objectives. It can evolve independently, at least somewhat, of whatever else the rest of the constellation is doing.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Todos os prós de utilizar microsserviços vêm com um preço, e reverter essa decisão não costuma ser uma das experiências mais prazerosas,
+como descreve &lt;em&gt;Thomas Betts&lt;/em&gt;, no &lt;a href=&quot;https://www.infoq.com/news/2020/04/microservices-back-again/&quot; title=&quot;Leia na íntegra no InfoQ&quot;&gt;&lt;em&gt;To Microservices and Back Again - Why Segment Went Back to a Monolith&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Tive a oportunidade de trabalhar por dois anos em uma empresa que utiliza esse tipo de arquitetura, e confesso que o isolamento do teu domínio, juntamente com
+a flexibilidade e controle sobre o que você está executando e entregando, é incrível. Mas sem um time de &lt;em&gt;DevOps&lt;/em&gt; para dar o devido suporte,
+não consigo nem imaginar o quão traumática essa experiência poderia ser.&lt;/p&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/y8OnoxKotPQ&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;Todo o &lt;em&gt;buzz&lt;/em&gt; em volta de &lt;em&gt;SOA&lt;/em&gt; e &lt;em&gt;microservices&lt;/em&gt; fez com que automaticamente aplicações monolíticas passasem a ser &quot;o que há de pior na sua stack&quot;.
+Se ontem lemos um artigo sobre todo o &lt;em&gt;lore&lt;/em&gt; dos microsserviços, &lt;a href=&quot;https://changelog.com/posts/monoliths-are-the-future&quot; title=&quot;Monoliths are the future&quot;&gt;amanhã estamos com um serrote desmembrando um monolito&lt;/a&gt;, e no fim do dia a motivação era porque não aguentamos
+mais lidar com conflitos no &lt;em&gt;Git&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Se &lt;em&gt;APIs&lt;/em&gt; for pura e simplesmente um efeito colateral da decisão de &quot;provar&quot; o mundo dos microsserviços, eu volto a citar o &lt;em&gt;DHH&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Run a small team, not a tech behemoth? Embrace the monolith and make it majestic. You Deserve It!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Agora, se &lt;em&gt;microservices&lt;/em&gt; é a resposta para os seus problemas, &lt;em&gt;API FTW&lt;/em&gt;!&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;A motivação para esse artigo veio depois de uma palestra que dei sobre &lt;em&gt;API-First&lt;/em&gt;, no &lt;a href=&quot;https://www.youtube.com/watch?v=cx8JGC_vrM8&amp;#x26;list=PLEpW1LzVyQWhqb_OoWtURF5cfKSGof0It&amp;#x26;index=3&quot; title=&quot;API First Design and Django&quot;&gt;&lt;em&gt;DjangoDay 2020&lt;/em&gt;&lt;/a&gt;. Nos
+corredores, conversei com alguns participantes do evento e sob a ótica deles eu pude ter um vislumbre do quão
+&quot;desconfortável&quot; pode ser a adoção de um processo mais rígido visando a sua prática.&lt;/p&gt;
+&lt;p&gt;Em um dos diálogos, a analogia com &lt;a href=&quot;/tag/tdd.html&quot; title=&quot;Leia mais sobre TDD&quot;&gt;&lt;em&gt;TDD&lt;/em&gt;&lt;/a&gt; e &lt;em&gt;test-first&lt;/em&gt; apareceu. E se por um
+lado ela pode ser encarada como algo positivo, por se referir a uma excelente ferramenta de &lt;em&gt;design&lt;/em&gt; e engenharia de &lt;em&gt;software&lt;/em&gt;;
+Por outro me fez refletir sobre todo o esforço e frustração que tenho até hoje em praticar &lt;em&gt;test-first&lt;/em&gt; (o que não me impede de ter cobertura de testes, e utilizar testes como ferramenta de &lt;em&gt;design&lt;/em&gt; de código).&lt;/p&gt;
+&lt;p&gt;No final, é tudo uma questão de contexto (e do famigerado &quot;depende&quot;). &lt;em&gt;APIs&lt;/em&gt; nem sempre fazem parte da necessidade de projeto em seu início, mas passam a ser depois de alguns &lt;em&gt;sprints&lt;/em&gt;
+e descobertas que o time vai fazendo. Portanto, dependendo do ponto específico no tempo em que seu projeto esteja, você não precisa de uma &lt;em&gt;API&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;E está tudo bem! Lembre-se que &lt;a href=&quot;https://www.exceptionnotfound.net/kiss-dry-yagni-good-code-basic-training/&quot; title=&quot;KISS, DRY, YAGNI - Good Code Basic Training&quot;&gt;&lt;em&gt;YAGNI&lt;/em&gt;&lt;/a&gt;
+é um bom padrão para se ter embaixo do braço.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/better-programming/do-not-follow-javascript-trends-ca2f0dc19ec1&quot;&gt;Better Programming - Don&apos;t follow Javascript trends&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://changelog.com/posts/monoliths-are-the-future&quot;&gt;Changelog - Monoliths are the future&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.humphd.org/fool-stack-programmer/&quot;&gt;David Humphrey - How to become a Fool Stack Programmer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.freecodecamp.org/news/how-to-build-your-first-saas/&quot;&gt;FreeCodeCamp - The SaaS Handbook: How to Build Your First Software-as-a-Service Product Step-By-Step&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://hackernoon.com/how-microservices-saved-the-internet-30cd4b9c6230&quot;&gt;Hackernoon - How Microservices Saved the Internet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.infoq.com/news/2020/04/microservices-back-again/&quot;&gt;InfoQ - To Microservices and Back Again - Why Segment Went Back to a Monolith&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.lifewire.com/what-is-a-mashup-3486655&quot;&gt;Lifewire - What is a Web Mashup?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mulesoft.com/resources/api/what-is-an-api-economy&quot;&gt;MuleSoft - What is the API Economy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.redhat.com/pt-br/topics/microservices/what-are-microservices&quot;&gt;Red Hat - O que são os microsserviços?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://m.signalvnoise.com/stimulus-1-0-a-modest-javascript-framework-for-the-html-you-already-have/&quot;&gt;Signal V. Noise - Stimulus 1.0: A modest JavaScript framework for the HTML you already have&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://m.signalvnoise.com/the-majestic-monolith/&quot;&gt;Signal V. Noise - The Majestic Monolith&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sitepoint.com/do-you-need-an-api/&quot;&gt;Sitepoint - Do you need an API?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://macwright.com/2020/05/10/spa-fatigue.html&quot;&gt;Tom MacWright - Second-guessing the modern web&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
 mas depois de alguns "Hello world" em Go
 admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
 programador para isso, é uma ideia excelente. Em Go temos o , que
@@ -305,7 +674,7 @@ store&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span clas
 Se executarmos o comando &lt;code class=&quot;language-text&quot;&gt;manage.py compress&lt;/code&gt;, provavelmente não teremos nenhum problema,
 e o &lt;a href=&quot;/tag/html.html&quot; title=&quot;Leia mais sobre HTML&quot;&gt;&lt;em&gt;HTML&lt;/em&gt;&lt;/a&gt; de resposta será algo parecido com isso:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;&amp;lt;!-- index.html --&gt;&lt;/span&gt;
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text/javascript&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/static/CACHE/js/3ffb288f8747.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;script&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;text/javascript&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/static/CACHE/js/3ffb288f8747.js&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token script&quot;&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Mas o &lt;em&gt;ES6&lt;/em&gt; ainda não é amplamente suportado pelos navegadores... logo, teremos
 que usar &quot;transpiladores&quot; para que o código seja traduzido em algo &quot;entendível&quot; pelos &lt;em&gt;browsers&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;Hello NPM my old friend&lt;/h2&gt;
