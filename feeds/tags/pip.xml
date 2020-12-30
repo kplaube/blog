@@ -1,4 +1,219 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pip]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Fri, 09 Oct 2020 09:14:01 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Tchau, requirements. Olá, Pipfile!]]></title><description><![CDATA[Admito que no começo fui cético em relação ao Pipfile. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o pip, o virtualenv e até mesmo o pyenv. Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o…]]></description><link>https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 11 Jun 2018 16:40:00 GMT</pubDate><content:encoded>&lt;p&gt;Admito que no começo fui cético em relação ao &lt;a href=&quot;https://github.com/pypa/pipfile&quot; title=&quot;The replacement for requirements.txt&quot;&gt;&lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt;. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o &lt;a href=&quot;/tag/pip.html&quot; title=&quot;Leia mais sobre pip&quot;&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt;, o &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e até mesmo o &lt;a href=&quot;%7Btag%7D&quot; title=&quot;Leia mais sobre Pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o potencial da ferramenta no seu primeiro momento.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pip]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 30 Dec 2020 10:01:51 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Poesia pythonista com Poetry]]></title><description><![CDATA[O pip tem dado passos importantes em relação à
+sua evolução, sendo um dos mais notórios deles a
+adoção por padrão de backtracking.
+Ainda assim, por suas atribuições serem exclusivamente de um gerenciador de dependências, ele pode deixar
+um gostinho de "quero mais" no seu flow de desenvolvimento. E é…]]></description><link>https://klauslaube.com.br/2020/12/30/poesia-pythonista-com-poetry.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/12/30/poesia-pythonista-com-poetry.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 30 Dec 2020 07:00:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;/tag/pip.html&quot; title=&quot;Leia mais sobre pip&quot;&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt; tem dado passos importantes em relação à
+sua evolução, sendo um dos mais notórios deles a
+&lt;a href=&quot;https://pip.pypa.io/en/stable/user_guide/#dependency-resolution-backtracking&quot; title=&quot;Dependency resolution backtracking&quot;&gt;adoção por padrão de &lt;em&gt;backtracking&lt;/em&gt;&lt;/a&gt;.
+Ainda assim, por suas atribuições serem exclusivamente de um gerenciador de dependências, ele pode deixar
+um gostinho de &quot;quero mais&quot; no seu &lt;em&gt;flow&lt;/em&gt; de desenvolvimento. E é nessas necessidades não atendidas
+que algumas opções se apresentam como alternativas/complementos ao simpático utilitário de linha de comando.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&quot;/tag/pipfile.html&quot; title=&quot;Leia mais sobre Pipfile&quot;&gt;&lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt; é uma delas, e já falamos
+sobre no &lt;a href=&quot;/2018/06/11/tchau-requirements-ola-pipfile.html&quot; title=&quot;Leia o post na íntegra&quot;&gt;&quot;Tchau, requirements. Olá, Pipfile!&quot;&lt;/a&gt;. Demorou um pouco, mas hoje vamos falar do seu concorrente direto,
+o &lt;a href=&quot;https://python-poetry.org/&quot; title=&quot;Python packaging and dependency management made easy&quot;&gt;&lt;em&gt;Poetry&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Determinismo é só o começo&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I built Poetry because I wanted a single tool to manage my Python projects from start to finish.
+I wanted something reliable and intuitive that the community could use and enjoy.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Essas são as palavras do criador do &lt;em&gt;Poetry&lt;/em&gt;, &lt;em&gt;Sébastien Eustace&lt;/em&gt;. O mesmo argumento usado no artigo sobre
+&lt;em&gt;Pipfile&lt;/em&gt;, acerca de &lt;em&gt;build&lt;/em&gt; determinístico, se sustenta aqui. E assim como o &lt;em&gt;Pipenv&lt;/em&gt;, há uma camada extra
+de funcionalidades que &quot;adoçam&quot; o &lt;em&gt;build&lt;/em&gt; e o controle de &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;&lt;em&gt;virtualenvs&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 423px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d0eada5525bea4e90e5434f08ea62378/b7bea/determinism-meme.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 173.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAjABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMEAgH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABwdzuuUE6+aoyuRm7LJA//8QAHBAAAgICAwAAAAAAAAAAAAAAAQIAEQMSECEx/9oACAEBAAEFAgzQliC5iKdzjUqVlxT1VxDjm2GF1vw7Ecf/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAgEAABAgYDAQAAAAAAAAAAAAABAAIQESIxMpESIDNx/9oACAEBAAY/AsisjtZHaqIA+o8XzV276GbXOXi9UkgQvD//xAAfEAACAgICAwEAAAAAAAAAAAABEQAhMUFRYRBxoeH/2gAIAQEAAT8hRf0gRk1AZWHtCE62BUIAyGAhC0xHhIYC+X1CypRGdKlKtHuNOABfsZomt4f/2gAMAwEAAgADAAAAEBTGs/vv/8QAGBEAAwEBAAAAAAAAAAAAAAAAARARACH/2gAIAQMBAT8QvEDNQ//EABcRAAMBAAAAAAAAAAAAAAAAAAAQEQH/2gAIAQIBAT8QihNf/8QAIBABAAMAAgAHAAAAAAAAAAAAAQARITFBEGGBkaHR8P/aAAgBAQABPxDsHQXf7nM06I332DmiA/DLU9y3DrLmIWVoU7u8WXsU3hfM89u7glAYsVc9wEQpdbDlmRQw7wdgJBnV6fTnJtjKpeoU7pHUw34f/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Meme de Guerra Civil com Capitão América e Homem de Ferro&quot;
+        title=&quot;Não há razão para flamewar entre pip x {pipenv, poetry} (freethinkingministries.com)&quot;
+        src=&quot;/static/d0eada5525bea4e90e5434f08ea62378/b7bea/determinism-meme.jpg&quot;
+        srcset=&quot;/static/d0eada5525bea4e90e5434f08ea62378/7809d/determinism-meme.jpg 192w,
+/static/d0eada5525bea4e90e5434f08ea62378/4ecad/determinism-meme.jpg 384w,
+/static/d0eada5525bea4e90e5434f08ea62378/b7bea/determinism-meme.jpg 423w&quot;
+        sizes=&quot;(max-width: 423px) 100vw, 423px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Não há razão para flamewar entre pip x {pipenv, poetry} (freethinkingministries.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;A sua instalação pode ocorrer de maneiras diferentes, dependendo do SO que você estiver utilizando. Portanto,
+&lt;a href=&quot;https://python-poetry.org/docs/#installation&quot; title=&quot;Leia mais sobre como instalar o Poetry&quot;&gt;uma visita à sua documentação é essencial&lt;/a&gt;. Ainda
+assim, nada que o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; (que ironia) não resolva:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install --user poetry&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para compreender como a ferramenta funciona de fato, vamos seguir os mesmos passos do &lt;em&gt;getting started&lt;/em&gt; da documentação oficial:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry new poetry-demo
+$ cd poetry-demo/
+$ ls
+README.rst     poetry_demo    pyproject.toml tests&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Aqui nos deparamos com a primeira peculiaridade: o arquivo &lt;code class=&quot;language-text&quot;&gt;pyproject.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;h2&gt;Pyproject? TOML?&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;pip&lt;/em&gt; utiliza o &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt;, o &lt;em&gt;Pipenv&lt;/em&gt; utiliza o &lt;code class=&quot;language-text&quot;&gt;Pipfile&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;Pipfile.lock&lt;/code&gt;, e o &lt;em&gt;Poetry&lt;/em&gt; o &lt;code class=&quot;language-text&quot;&gt;pyproject.toml&lt;/code&gt;
+e &lt;code class=&quot;language-text&quot;&gt;poetry.lock&lt;/code&gt;.
+Todos os arquivos citados são utilizados pelas respectivas ferramentas de controle de pacotes para
+gerenciar atualizações e instalar novas dependências.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;TOML&lt;/em&gt; (&lt;em&gt;Tom&apos;s Obvious, Minimal Language&lt;/em&gt;) é um formato utilizado para a escrita de arquivos de configuração. Segundo o &lt;a href=&quot;https://toml.io/en/&quot; title=&quot;Leia mais sobre TOML&quot;&gt;site oficial&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;TOML aims to be a minimal configuration file format that&apos;s easy to read due to obvious semantics. TOML is designed to map unambiguously to a hash table. TOML should be easy to parse into data structures in a wide variety of languages.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Se você já conhece o &lt;em&gt;Pipfile&lt;/em&gt;, a sintaxe utilizada no arquivo é a mesma. Mas qual é
+a motivação por trás do arquivo &lt;code class=&quot;language-text&quot;&gt;pyproject&lt;/code&gt;?&lt;/p&gt;
+&lt;h3&gt;Senta que lá vem a história.&lt;/h3&gt;
+&lt;p&gt;Antes do ano de 1998 havia o vazio, quando o assunto era empacotamento em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.
+A partir dos anos 2000, instalar, buildar, ou distribuir pacotes começou a ganhar
+um novo sentido através da inserção da biblioteca &lt;code class=&quot;language-text&quot;&gt;distutils&lt;/code&gt; ao &lt;em&gt;standard lib&lt;/em&gt;, e
+da convenção de uso do &lt;em&gt;entrypoint&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;setup.py&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/85b8f2f09ad9890f8ea22dda1e6ddd33/302a4/py-dev-cycle.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 46.35416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAABgElEQVQoz21R20rDQBDNh/glvvkRfoA++hc+CdKH+h3Vqg+CIrYVQSgoRaUibU1ik9rcms1e0t1kb26aUhQ8D8PMzpwzw1lLV1Cz3vb9ieV2dkwhpZp6Xhwnq04V6GhG3hz9B6ahrDqDw33vdgsMD0xRFAVKkxxnmJAsy0rO5TTRi1xIkec553wjYLHoMpscI6cpy2S9SMsnG7y4GS9YklT7e71ep9utdRljQkqRhpJAS5RQFAmGQX/wkWZEcTb4DPZOzq/umloFQQTMfLvdbrValNJ0seBS4SRi3ZZ+fajP1ohQ7zsilPpT1wlz972hZ0cEwzCKsAFCBEJzcFkUQghWsOfrG384XJNJHHNKFSGVD0pTHCAMuNBRGIKc8NFYjCeIEACAIQvO5zFYZNjSUhhy2T/Dh7vLx9MQ5gShWlFKuVwuTRLbdmRXbhtiWZZKqbVhtUkSzdOLBjcRQIRg9QGrCcP3fd+Zfk1s2/M841/9Xkdr47vQ/4PVoBXM2t+tH3na9cP0WwycAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Diagrama de fluxo com os passos para distribuição de pacotes&quot;
+        title=&quot;Overview do workflow de desenvolvimento Python (py-generic-project.readthedocs.io)&quot;
+        src=&quot;/static/85b8f2f09ad9890f8ea22dda1e6ddd33/e5715/py-dev-cycle.png&quot;
+        srcset=&quot;/static/85b8f2f09ad9890f8ea22dda1e6ddd33/8514f/py-dev-cycle.png 192w,
+/static/85b8f2f09ad9890f8ea22dda1e6ddd33/804b2/py-dev-cycle.png 384w,
+/static/85b8f2f09ad9890f8ea22dda1e6ddd33/e5715/py-dev-cycle.png 768w,
+/static/85b8f2f09ad9890f8ea22dda1e6ddd33/302a4/py-dev-cycle.png 1080w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Overview do workflow de desenvolvimento Python (py-generic-project.readthedocs.io)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Quatro anos depois, somos apresentados ao &lt;code class=&quot;language-text&quot;&gt;setuptools&lt;/code&gt;, que introduz o pacote no formato
+&lt;code class=&quot;language-text&quot;&gt;egg&lt;/code&gt; e a possibilidade de declarar e instalar dependências. Já em 2008, o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; é lançado
+como uma alternativa aprimorada ao seu primo mais velho,
+o &lt;code class=&quot;language-text&quot;&gt;easy_install&lt;/code&gt;, que possibilitava a
+instalação de pacotes consultando um índice centralizado na &lt;em&gt;internet&lt;/em&gt;, chamado &lt;em&gt;Python Package Index&lt;/em&gt; (&lt;em&gt;pypi&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;E após indas e vindas (e um novo formato, chamado &quot;wheel&quot;), em 2014
+o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt; e o &lt;code class=&quot;language-text&quot;&gt;setuptools&lt;/code&gt; viram finalmente o padrão para empacotamento em &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Confira a &lt;em&gt;timeline&lt;/em&gt; completa no &lt;a href=&quot;https://www.pypa.io/en/latest/history/&quot; title=&quot;Veja na ïntegra&quot;&gt;&lt;em&gt;Packaging History&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;O ovo ou a galinha?&lt;/h3&gt;
+&lt;p&gt;A &lt;a href=&quot;https://www.python.org/dev/peps/pep-0518/&quot; title=&quot;Leia a proposta na íntegra&quot;&gt;&lt;em&gt;PEP 518&lt;/em&gt;&lt;/a&gt; é
+quem apresenta o arquivo &lt;code class=&quot;language-text&quot;&gt;pyproject.toml&lt;/code&gt;. &lt;a href=&quot;https://snarky.ca/what-the-heck-is-pyproject-toml/&quot; title=&quot;Leia mas sobre a motivação por trás da PEP 518&quot;&gt;Segundo &lt;em&gt;Brett Cannon&lt;/em&gt;&lt;/a&gt;,
+criador da proposta:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) the purpose of PEP 518 was to come up with a way for projects to specify what build tools they required. That&apos;s it, real simple and straightforward.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Antes dela, não havia uma forma (prática) de dizer quais ferramentas de &lt;em&gt;build&lt;/em&gt; que um projeto requer para gerar um pacote &lt;code class=&quot;language-text&quot;&gt;wheel&lt;/code&gt;. Embora
+o &lt;code class=&quot;language-text&quot;&gt;setuptools&lt;/code&gt; possua um argumento &lt;code class=&quot;language-text&quot;&gt;setup_requires&lt;/code&gt; para este fim, você não consegue ler esse parâmetro sem antes ter o próprio &lt;code class=&quot;language-text&quot;&gt;setuptools&lt;/code&gt; instalado,
+e não havia um lugar onde você pudesse especificar que precisa do &lt;code class=&quot;language-text&quot;&gt;setuptools&lt;/code&gt; para ler a configuração dentro do &lt;code class=&quot;language-text&quot;&gt;setuptools&lt;/code&gt; (notou o problema do ovo-galinha?).&lt;/p&gt;
+&lt;p&gt;E como vivemos até então sem nos preocupar com esse problema? Simples! Ferramentas como o próprio &lt;em&gt;pip&lt;/em&gt; injetam o &lt;code class=&quot;language-text&quot;&gt;setuptools&lt;/code&gt; e o &lt;code class=&quot;language-text&quot;&gt;wheel&lt;/code&gt;
+quando executando um arquivo &lt;code class=&quot;language-text&quot;&gt;setup.py&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;E se então tivéssemos um lugar para dizer ao &lt;em&gt;pip&lt;/em&gt; sobre a necessidade dessas ferramentas?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;toml&quot;&gt;&lt;pre class=&quot;language-toml&quot;&gt;&lt;code class=&quot;language-toml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# pyproject.toml&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token table class-name&quot;&gt;build-system&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;setuptools &gt;= 40.6.0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;wheel&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;build-backend&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;setuptools.build_meta&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Booomm!!! Se amanhã &lt;a href=&quot;https://flit.readthedocs.io/en/latest/index.html&quot; title=&quot;Conheça o Flit&quot;&gt;alternativas mais interessantes ao &lt;em&gt;setuptools&lt;/em&gt;&lt;/a&gt; ou &lt;em&gt;pip&lt;/em&gt;
+aparecerem, estaremos preparados.&lt;/p&gt;
+&lt;h3&gt;E o que o Poetry tem a ver com isso?&lt;/h3&gt;
+&lt;p&gt;O &lt;em&gt;Poetry&lt;/em&gt; declara qual será o &lt;em&gt;build backend&lt;/em&gt; através da utilização das PEPs
+518 (citada acima) e &lt;a href=&quot;https://www.python.org/dev/peps/pep-0517/&quot; title=&quot;Leia a proposta na íntegra&quot;&gt;517&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;toml&quot;&gt;&lt;pre class=&quot;language-toml&quot;&gt;&lt;code class=&quot;language-toml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# pyproject.toml&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token table class-name&quot;&gt;tool.poetry&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;poetry-demo&quot;&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;version&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;0.1.0&quot;&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;description&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;authors&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Klaus Laube &amp;lt;mail@mail.com&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token table class-name&quot;&gt;tool.poetry.dependencies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;python&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^3.7&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token table class-name&quot;&gt;tool.poetry.dev-dependencies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;pytest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^5.2&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token table class-name&quot;&gt;build-system&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;requires&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;poetry-core&gt;=1.0.0&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;build-backend&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;poetry.core.masonry.api&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O cliente, também instalado através do &lt;code class=&quot;language-text&quot;&gt;pip install&lt;/code&gt; anterior, sabe se comunicar
+com o &lt;code class=&quot;language-text&quot;&gt;poetry.core&lt;/code&gt;, explicitamente declarado na seção &lt;code class=&quot;language-text&quot;&gt;[build-system]&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;E com isso o &lt;em&gt;Poetry&lt;/em&gt; não apenas cuidará das dependências do seu projeto,
+como também se responsabilizará por buildar o seu app ou &lt;em&gt;lib&lt;/em&gt;, e distribuí-lo
+no &lt;em&gt;Python Package Index&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Continuando a poesia&lt;/h2&gt;
+&lt;p&gt;Para adicionar uma dependência ao projeto, passamos a utilizar o comando &lt;code class=&quot;language-text&quot;&gt;poetry add&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry add django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Com isso, o &lt;em&gt;Django&lt;/em&gt; passa a ser adicionado ao &quot;requirements&quot;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;toml&quot;&gt;&lt;pre class=&quot;language-toml&quot;&gt;&lt;code class=&quot;language-toml&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# pyproject.toml&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token table class-name&quot;&gt;tool.poetry.dependencies&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;python&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^3.7&quot;&lt;/span&gt;
+&lt;span class=&quot;token key property&quot;&gt;Django&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;^3.1.4&quot;&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por consequência um arquivo &lt;code class=&quot;language-text&quot;&gt;poetry.lock&lt;/code&gt; foi criado, e é ele quem garantirá o determinismo durante
+a instalação de dependências do projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry install
+
+Installing dependencies from lock file&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Outra consequência do comando &lt;code class=&quot;language-text&quot;&gt;add&lt;/code&gt; foi a criação automática de um &lt;em&gt;virtualenv&lt;/em&gt;. Agora, através do comando
+&lt;code class=&quot;language-text&quot;&gt;poetry run&lt;/code&gt;, podemos executar dependências &lt;em&gt;Python&lt;/em&gt; diretamente do ambiente virtual:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry run django-admin.py -h&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ou ainda através do comando &lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry shell
+$ which django-admin.py
+/Users/klauslaube/Library/Caches/pypoetry/virtualenvs/poetry-demo-IqTsQBT7-py3.9/bin/django-admin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note que em um ambiente diferente de &lt;em&gt;development&lt;/em&gt;, &lt;a href=&quot;https://python-poetry.org/docs/basic-usage/#installing-dependencies-only&quot; title=&quot;Installing dependencies only&quot;&gt;talvez você precise do parâmetro &lt;code class=&quot;language-text&quot;&gt;--no-root&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry install --no-root&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Conclusão&lt;/h2&gt;
+&lt;p&gt;Há cerca de 3 meses eu retornei do &lt;em&gt;Java&lt;/em&gt; ao &lt;em&gt;Python&lt;/em&gt;, e tinha esquecido (ou nunca de fato notado)
+o quão não intuitivo é a dança entre &lt;em&gt;pyenv&lt;/em&gt;, &lt;em&gt;virtualenv&lt;/em&gt; e &lt;em&gt;pip&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Nisso, tanto &lt;em&gt;Pipenv&lt;/em&gt; quanto &lt;em&gt;Poetry&lt;/em&gt; são fenomenais. O &lt;em&gt;Pipenv&lt;/em&gt; leva certa vantagem, uma vez que
+é capaz de &lt;a href=&quot;https://stackoverflow.com/questions/50161551/set-python-version-when-creating-virtualenv-using-pipenv#:~:text=When%20setting%20up%20your%20pipenv,6.&amp;#x26;text=to%20the%20specific%20version%20of%20Python%20you%20want.&quot; title=&quot;Leia a thread no Stackoverflow&quot;&gt;gerenciar até mesmo a versão do &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; (com &lt;em&gt;Poetry&lt;/em&gt;, ainda necessitamos do &lt;em&gt;pyenv&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Aparentemente há planos do &lt;em&gt;pip&lt;/em&gt; suportar um argumento &lt;code class=&quot;language-text&quot;&gt;--pipfile&lt;/code&gt;, o que faria do &lt;em&gt;Pipfile&lt;/em&gt; (e por consequência &lt;em&gt;Pipenv&lt;/em&gt;) uma opção ainda mais
+atraente que o concorrente.&lt;/p&gt;
+&lt;p&gt;Mas tenho certeza que o &lt;em&gt;Poetry&lt;/em&gt; será uma mão na roda caso você esteja escrevendo &lt;em&gt;libs&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://snarky.ca/clarifying-pep-518/&quot;&gt;Brett Cannon - Clarifying PEP 518 (a.k.a. pyproject.toml)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://snarky.ca/what-the-heck-is-pyproject-toml/&quot;&gt;Brett Cannon - What the heck is pyproject.toml?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.pypa.io/en/latest/history/&quot;&gt;PyPA - Packaging History&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.python.org/dev/peps/pep-0517/&quot;&gt;PEP 517 - A build-system independent format for source trees&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.python.org/dev/peps/pep-0518/&quot;&gt;PEP 518 - Specifying Minimum Build System Requirements for Python Projects&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.python.org/dev/peps/pep-0621/&quot;&gt;PEP 621 - Storing project metadata in pyproject.toml&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.python.org/dev/peps/pep-0633/&quot;&gt;PEP 633 - Dependency specification in pyproject.toml using an exploded TOML table&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/62983756/what-is-pyproject-toml&quot;&gt;Stackoverflow - What is pyproject.toml?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/history.html&quot;&gt;The Hitchhiker&apos;s Guide to Packaging&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://towardsdatascience.com/solving-dependency-management-in-python-with-poetry-165b92069e9d&quot;&gt;Towards Data Science - Solving dependency management in Python with Poetry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://vinayak.io/2020/08/17/day-6-some-pep-talk/&quot;&gt;Vinayak Mehta - Some PEP talk, or: What is a pyproject.toml?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/TOML&quot;&gt;Wikipedia - TOML&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Tchau, requirements. Olá, Pipfile!]]></title><description><![CDATA[Admito que no começo fui cético em relação ao Pipfile. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o pip, o virtualenv e até mesmo o pyenv. Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o…]]></description><link>https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</link><guid isPermaLink="false">https://klauslaube.com.br/2018/06/11/tchau-requirements-ola-pipfile.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 11 Jun 2018 16:40:00 GMT</pubDate><content:encoded>&lt;p&gt;Admito que no começo fui cético em relação ao &lt;a href=&quot;https://github.com/pypa/pipfile&quot; title=&quot;The replacement for requirements.txt&quot;&gt;&lt;em&gt;Pipfile&lt;/em&gt;&lt;/a&gt;. Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o &lt;a href=&quot;/tag/pip.html&quot; title=&quot;Leia mais sobre pip&quot;&gt;&lt;em&gt;pip&lt;/em&gt;&lt;/a&gt;, o &lt;a href=&quot;/tag/virtualenv.html&quot; title=&quot;Leia mais sobre virtualenv&quot;&gt;&lt;em&gt;virtualenv&lt;/em&gt;&lt;/a&gt; e até mesmo o &lt;a href=&quot;%7Btag%7D&quot; title=&quot;Leia mais sobre Pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;. Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o potencial da ferramenta no seu primeiro momento.&lt;/p&gt;
 &lt;p&gt;Se você está na dúvida, assim como eu estive, vem comigo que te mostro as principais vantagens do &lt;em&gt;Pipfile&lt;/em&gt; (e do &lt;em&gt;Pipenv&lt;/em&gt;).&lt;/p&gt;
 &lt;h2&gt;O que há de errado com o requirements.txt?&lt;/h2&gt;
 &lt;p&gt;Esse foi o meu &quot;turning point&quot; em relação ao &lt;em&gt;Pipfile&lt;/em&gt;. E foi o &lt;a href=&quot;https://twitter.com/rcmachado&quot; title=&quot;Perfil no Twitter&quot;&gt;&lt;em&gt;@rcmachado&lt;/em&gt;&lt;/a&gt; quem respondeu essa pergunta:&lt;/p&gt;
