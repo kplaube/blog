@@ -127,7 +127,7 @@ Se você acha que sua empresa ou produto não se encaixa nos critérios levantad
 ## Microservices
 
 _Microservices_ foi uma das ondas que sacudiu o mundo do desenvolvimento _back-end_ recentemente. O conceito de computação distribuída
-não é velho, mas com a popularização de ferramentas como _Kubernetes_ e [_Docker_](/tag/docker.html "Leia mais sobre Docker"), fica difícil resistir à
+não é novo, mas com a popularização de ferramentas como _Kubernetes_ e [_Docker_](/tag/docker.html "Leia mais sobre Docker"), fica difícil resistir à
 tentação de mover toda uma solução para microsserviços.
 
 O portal da _Red Hat_ [define a arquitetura da seguinte forma](https://www.redhat.com/pt-br/topics/microservices/what-are-microservices "O que são os microsserviços?"):
