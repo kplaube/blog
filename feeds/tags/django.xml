@@ -1,4 +1,366 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - django]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Sun, 10 Jan 2021 13:56:52 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Construindo APIs em Django com Django REST Framework]]></title><description><![CDATA[No post anterior
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - django]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Sun, 24 Jan 2021 20:39:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O popular e poderoso Pytest]]></title><description><![CDATA[Ok. Eu admito. O primeiro post de 2021 será só para cumprir tabela. Afinal,
+se você já programa em Python, provavelmente já ouviu falar do
+Pytest.
+E é pela sua popularidade, mas acima de tudo sua versatilidade, que eu me sinto na
+obrigação de pelo menos arranhar o assunto. 10 anos de blog, e escrevi…]]></description><link>https://klauslaube.com.br/2021/01/24/o-popular-e-poderoso-pytest.html</link><guid isPermaLink="false">https://klauslaube.com.br/2021/01/24/o-popular-e-poderoso-pytest.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 24 Jan 2021 17:37:00 GMT</pubDate><content:encoded>&lt;p&gt;Ok. Eu admito. O primeiro &lt;em&gt;post&lt;/em&gt; de 2021 será só para cumprir tabela. Afinal,
+se você já programa em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, provavelmente já ouviu falar do
+&lt;a href=&quot;https://docs.pytest.org/en/stable/&quot; title=&quot;helps you write better programs&quot;&gt;&lt;em&gt;Pytest&lt;/em&gt;&lt;/a&gt;.
+E é pela sua popularidade, mas acima de tudo sua versatilidade, que eu me sinto na
+obrigação de pelo menos arranhar o assunto.&lt;/p&gt;
+&lt;p&gt;10 anos de &lt;em&gt;blog&lt;/em&gt;, e &lt;a href=&quot;https://www.google.com/search?sxsrf=ALeKk01qQM8UPLiwJ7HSSqmN5BBbdsb_DQ%3A1609852895254&amp;#x26;ei=32f0X_WHD_-GwPAP9pClgAw&amp;#x26;q=klauslaube.com.br+%22pytest%22&amp;#x26;oq=klauslaube.com.br+%22pytest%22&amp;#x26;gs_lcp=CgZwc3ktYWIQAzoECAAQRzoECCMQJ1D9gQFY-ZQBYKCXAWgAcAJ4AIABeYgB0QGSAQMxLjGYAQCgAQGqAQdnd3Mtd2l6yAECwAEB&amp;#x26;sclient=psy-ab&amp;#x26;ved=0ahUKEwi189iv8YTuAhV_AxAIHXZICcAQ4dUDCA0&amp;#x26;uact=5&quot;&gt;escrevi quase nada sobre a ferramenta&lt;/a&gt;. Shame!&lt;/p&gt;
+&lt;h2&gt;Um baita framework de testes&lt;/h2&gt;
+&lt;p&gt;Já falamos sobre os benefícios de escrever testes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;/2011/01/27/tdd-desenvolvimento-orientado-testes.html&quot; title=&quot;Leia na íntegra&quot;&gt;TDD: Desenvolvimento Orientado a Testes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2011/07/18/ferramentas-de-testes-em-django-parte-1.html&quot; title=&quot;Leia na íntegra&quot;&gt;Ferramentas de testes em Django - Parte 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2011/07/23/ferramentas-de-testes-em-django-parte-2.html&quot; title=&quot;Leia na íntegra&quot;&gt;Ferramentas de testes em Django - Parte 2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2016/02/03/bdd-com-django-e-behave.html&quot; title=&quot;Leia na íntegra&quot;&gt;BDD com Django e Behave&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2018/01/05/testando-apps-django-com-tox.html&quot; title=&quot;Leia na íntegra&quot;&gt;Testando apps Django com Tox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2014/08/07/os-testes-e-os-dubles-parte-1.html&quot; title=&quot;Leia na íntegra&quot;&gt;Os testes e os dublês - Parte 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/2015/06/29/os-testes-e-os-dubles-parte-2.html&quot; title=&quot;Leia na íntegra&quot;&gt;Os testes e os dublês - Parte 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Então podemos partir do princípio que testes são mais do que essenciais como ferramenta de &lt;em&gt;design&lt;/em&gt; e desenvolvimento.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Pytest&lt;/em&gt; se considera um &lt;em&gt;framework&lt;/em&gt; que tem por objetivo te permitir escrever testes pequenos de maneira fácil, e ainda assim
+ser possível escalar o seu uso para testes funcionais complexos.&lt;/p&gt;
+&lt;p&gt;Livre e de código-aberto (&lt;a href=&quot;https://github.com/pytest-dev/pytest/blob/master/LICENSE&quot; title=&quot;Leia na íntegra&quot;&gt;MIT&lt;/a&gt;), é hoje
+uma alternativa &lt;a href=&quot;https://www.jetbrains.com/lp/python-developers-survey-2019/#FrameworksLibraries&quot; title=&quot;Veja o resultado do survey de 2019&quot;&gt;mais popular que o próprio &lt;em&gt;unittest&lt;/em&gt;&lt;/a&gt; (que faz parte da &lt;em&gt;standard lib&lt;/em&gt;). Rico em &lt;em&gt;plugins&lt;/em&gt;, com ele é possível escrever
+testes em diferentes formatos, para diferentes fins.&lt;/p&gt;
+&lt;h2&gt;Mão na massa!&lt;/h2&gt;
+&lt;p&gt;Vamos aproveitar o &lt;a href=&quot;/2020/12/30/poesia-pythonista-com-poetry.html&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&lt;em&gt;Poetry&lt;/em&gt;&lt;/a&gt; e iniciar um projeto:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry new my_calc
+$ cd my_calc/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Pytest&lt;/em&gt; já é listado como uma dependência de projetos criados via &lt;code class=&quot;language-text&quot;&gt;poetry&lt;/code&gt;. Portanto, um &lt;code class=&quot;language-text&quot;&gt;poetry install&lt;/code&gt; é o suficiente para
+instalá-lo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry install&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ou com o &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install pytest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Vamos ativar o virtualenv com o &lt;em&gt;Poetry&lt;/em&gt;, para que assim as instruções daqui para frente sejam as mesmas para os não-usuários da ferramenta:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ poetry shell&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Encontrando os testes&lt;/h2&gt;
+&lt;p&gt;Por padrão, o &lt;em&gt;Pytest&lt;/em&gt; espera que o seus arquivos de teste comecem com &lt;code class=&quot;language-text&quot;&gt;test_&lt;/code&gt;, ou terminem com &lt;code class=&quot;language-text&quot;&gt;_test.py&lt;/code&gt;. Customizações &lt;a href=&quot;https://docs.pytest.org/en/stable/example/pythoncollection.html#changing-naming-conventions&quot; title=&quot;Changing naming conventions&quot;&gt;são possíveis&lt;/a&gt;, mas o padrão já nos atende.&lt;/p&gt;
+&lt;p&gt;Vamos começar o teste pela forma convencional, utilizando &lt;code class=&quot;language-text&quot;&gt;unittest&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tests/test_my_calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; unittest &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; TestCase
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TestSum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;TestCase&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_one_plus_one_is_equal_two&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;assertEqual&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainda com a &lt;code class=&quot;language-text&quot;&gt;unittest&lt;/code&gt;, executamos o teste:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python -m unittest
+E
+======================================================================
+ERROR: test_one_plus_one_is_equal_two (tests.test_my_calc.TestSum)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File &amp;quot;/Users/klauslaube/Workspace/my_calc/tests/test_my_calc.py&amp;quot;, line 7, in test_one_plus_one_is_equal_two
+    result = calc(1, &amp;quot;+&amp;quot;, 1)
+NameError: name &amp;#39;calc&amp;#39; is not defined
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora utilizando o utilitário de linha de comando, &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pytest
+======================================================================================== test session starts =========================================================================================
+platform darwin -- Python 3.8.1, pytest-5.4.3, py-1.10.0, pluggy-0.13.1
+rootdir: /Users/klauslaube/Workspace/my_calc
+collected 1 item
+
+tests/test_my_calc.py F                                                                                                                                                                        [100%]
+
+============================================================================================== FAILURES ==============================================================================================
+_______________________________________________________________________________ TestSum.test_one_plus_one_is_equal_two _______________________________________________________________________________
+
+self = &amp;lt;tests.test_my_calc.TestSum testMethod=test_one_plus_one_is_equal_two&amp;gt;
+
+    def test_one_plus_one_is_equal_two(self):
+&amp;gt;       result = calc(1, &amp;quot;+&amp;quot;, 1)
+E       NameError: name &amp;#39;calc&amp;#39; is not defined
+
+tests/test_my_calc.py:7: NameError
+====================================================================================== short test summary info =======================================================================================
+FAILED tests/test_my_calc.py::TestSum::test_one_plus_one_is_equal_two - NameError: name &amp;#39;calc&amp;#39; is not defined
+========================================================================================= 1 failed in 0.10s ==========================================================================================&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Como é possível notar, o &lt;em&gt;output&lt;/em&gt; é um pouco mais &lt;em&gt;verbose&lt;/em&gt;. Mas o ponto alto aqui é que, mesmo que o seu projeto esteja
+utilizando &lt;code class=&quot;language-text&quot;&gt;unittest&lt;/code&gt; como biblioteca de testes, o &lt;em&gt;test runner&lt;/em&gt; do &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; ainda assim
+consegue identificar e executá-los.&lt;/p&gt;
+&lt;p&gt;Fazer o teste passar vai demandar a criação da função &lt;code class=&quot;language-text&quot;&gt;calc&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# my_calc/calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; operation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E importar a mesma nos testes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tests/test_my_calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; unittest &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; TestCase
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; my_calc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;calc &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; cal
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Executar novamente o &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; deve trazer um resultado positivo dessa vez.&lt;/p&gt;
+&lt;h2&gt;Escrevendo os testes&lt;/h2&gt;
+&lt;p&gt;E se quisermos abrir mão do uso da &lt;code class=&quot;language-text&quot;&gt;unittest&lt;/code&gt;? É perfeitamente possível. O &lt;em&gt;Pytest&lt;/em&gt;
+(por padrão) busca por classes de teste com prefixo &lt;code class=&quot;language-text&quot;&gt;Test&lt;/code&gt;, e prefixo &lt;code class=&quot;language-text&quot;&gt;test&lt;/code&gt; para os métodos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tests/test_my_calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; my_calc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;calc &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; calc
+
+
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TestSum&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_one_plus_one_is_equal_two&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Podemos ir além, e ao invés de métodos utilizar funções. Isso simplificará bastante o
+&lt;em&gt;boilterplate&lt;/em&gt; de código necessário para escrever um teste simples:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tests/test_my_calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; my_calc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;calc &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; calc
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_one_plus_one_is_equal_two&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Antes de ir, vamos refatorar a solução:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# my_calc/calc.py&lt;/span&gt;
+
+OPERATIONS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;lambda&lt;/span&gt; x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; x &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; y
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; operation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; OPERATIONS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;operation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;Fixtures&lt;/h3&gt;
+&lt;p&gt;Para apresentar o conceito de &lt;em&gt;fixtures&lt;/em&gt;, vamos deixar a calculadora ainda mais &quot;maluca&quot; (para esconder a falta de criatividade de quem vos escreve). Vamos supor que há a seguinte demanda:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tests/test_my_calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; dataclasses &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; dataclass
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; my_calc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;calc &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; calc
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@dataclass&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FakeWrappedValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;None&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_wrapper_object_with_twenty_plus_one_is_equal_to_twenty_one&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    wrapped_value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; FakeWrappedValue&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wrapped_value&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Os testes vão obviamente falhar. Vamos corrigir a função &lt;code class=&quot;language-text&quot;&gt;calc&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; operation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;getattr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num1&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; OPERATIONS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;operation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ainda precisamos garantir que &lt;code class=&quot;language-text&quot;&gt;num2&lt;/code&gt; possa também receber um objeto com atributo &lt;code class=&quot;language-text&quot;&gt;value&lt;/code&gt;.
+Para fins didáticos, vamos escrever um novo teste:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tests/test_my_calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_one_plus_wrapper_object_with_twentyis_equal_to_twenty_one&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    wrapped_value &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; FakeWrappedValue&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; wrapped_value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; resul&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O testes falharão novamente. Corrigimos novamente a função:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;calc&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; operation&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;getattr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num1&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num1&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;getattr&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;num2&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;value&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; num2&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; OPERATIONS&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;operation&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; y&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pronto! Testes passando novamente, e enfim podemos falar sobre &lt;em&gt;fixtures&lt;/em&gt;. Segundo o
+&lt;a href=&quot;https://realpython.com/pytest-python-testing/&quot; title=&quot;Leia o excelente artigo sobre Pytest&quot;&gt;&lt;em&gt;Real Python&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;fixtures&lt;/em&gt; são:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;(...) a way of providing data, test doubles, or state setup to your tests. Fixtures are functions that can return a wide range of values. Each test that depends on a fixture must explicitly accept that fixture as an argument.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Com auxílio do &lt;em&gt;decorator&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;@fixture&lt;/code&gt;, somos capazes de escrever uma função que pode
+ser reaproveitada por diferentes testes. Faremos isso com a instância de &lt;code class=&quot;language-text&quot;&gt;FakeWrappedValue&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tests/test_my_calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; pytest
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; dataclasses &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; dataclass
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; my_calc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;calc &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; calc
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@dataclass&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FakeWrappedValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;None&lt;/span&gt;
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fixture&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wrapped_value_with_twenty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; FakeWrappedValue&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_one_plus_one_is_equal_two&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_wrapper_object_with_twenty_plus_one_is_equal_to_twenty_one&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_one_plus_wrapper_object_with_twentyis_equal_to_twenty_one&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note a função &lt;code class=&quot;language-text&quot;&gt;wrapped_value_with_twenty&lt;/code&gt; decorada com &lt;code class=&quot;language-text&quot;&gt;pytest.fixture&lt;/code&gt;. Outro ponto importante é que as funções que utilizam esse parâmetro agora recebem ele como argumento.
+Por exemplo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_wrapper_object_with_twenty_plus_one_is_equal_to_twenty_one&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Fixtures&lt;/em&gt; podem ajudar a abstrair complexidades que não fazem sentido serem evidenciadas
+no corpo do teste. Por exemplo (e perceba que esse é um exemplo infinitamente bobo), podemos esconder a &quot;complexidade&quot; de instanciar um objeto com &lt;code class=&quot;language-text&quot;&gt;value&lt;/code&gt; vazio:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fixture&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;empty_wrapped_value&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; FakeWrappedValue&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;None&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_wrapper_object_with_empty_value_plus_one_is_equal_to_one&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;empty_wrapped_value&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;empty_wrapped_value&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Os testes vão quebrar. Ficará ao seu encargo resolver essa aí ;)&lt;/p&gt;
+&lt;h3&gt;Escopos&lt;/h3&gt;
+&lt;p&gt;Juntamente com as &lt;em&gt;fixtures&lt;/em&gt; vem o conceito de &lt;em&gt;scopes&lt;/em&gt;. É possível encontrar cinco tipos diferentes,
+e podemos começar pelo já explorado &quot;function&quot;.&lt;/p&gt;
+&lt;p&gt;No exemplo de &lt;em&gt;fixtures&lt;/em&gt; da seção anterior, utilizamos esse tipo de escopo. Por padrão, &lt;em&gt;fixtures&lt;/em&gt; são definidas
+com o escopo de função, significando que a &lt;em&gt;fixture&lt;/em&gt; será executada por &lt;em&gt;test function&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;O escopo &lt;code class=&quot;language-text&quot;&gt;class&lt;/code&gt; traz um comportamento um pouco diferente. Quando aplicado a uma classe,
+ele funciona como o &lt;code class=&quot;language-text&quot;&gt;setUpClass&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;unittest&lt;/code&gt;. Vamos mudar o arquivo de testes para
+vislumbrar a diferença entre esses dois tipos de escopo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tests/test_my_calc.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; dataclasses &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; dataclass
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; pytest
+&lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; my_calc&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;calc &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; calc
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@dataclass&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;FakeWrappedValue&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    value&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;None&lt;/span&gt;
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fixture&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;wrapped_value_with_twenty&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Function fixture&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; FakeWrappedValue&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;value&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fixture&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scope&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;class&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;x_and_y&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Class fixture&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;mark&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;usefixtures&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;x_and_y&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TestAddingThingsUp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_one_plus_one_is_equal_two&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_wrapper_object_with_twenty_plus_one_is_equal_to_twenty_one&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result
+
+    &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;test_one_plus_wrapper_object_with_twentyis_equal_to_twenty_one&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; calc&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;+&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; wrapped_value_with_twenty&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Alguns pontos importantes não podem passar em branco:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Note o uso do argumento &lt;code class=&quot;language-text&quot;&gt;scope=&amp;quot;class&amp;quot;&lt;/code&gt; decorando a assinatura da &lt;em&gt;fixture&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;x_and_y&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;pytest.mark.usefixtures&lt;/code&gt; é quem ativa o uso da &lt;em&gt;fixture&lt;/em&gt; na classe &lt;code class=&quot;language-text&quot;&gt;TestAddingThingsUp&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Para visualizar o resultado dos &lt;code class=&quot;language-text&quot;&gt;print&lt;/code&gt;, é preciso executar o &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; com o parâmetro &lt;code class=&quot;language-text&quot;&gt;-s&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Note que esse é outro exemplo bobo (:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Já que temos o comportamento do &lt;code class=&quot;language-text&quot;&gt;setUp&lt;/code&gt;, conseguimos ter o &lt;code class=&quot;language-text&quot;&gt;tearDown&lt;/code&gt;? Sim! Com um &lt;code class=&quot;language-text&quot;&gt;yield&lt;/code&gt;
+dentro da &lt;em&gt;fixture&lt;/em&gt;, você consegue &quot;agendar&quot; código a ser executado como parte do
+&lt;em&gt;off-load&lt;/em&gt; da mesma:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fixture&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scope&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;class&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;x_and_y&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Class fixture&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;cls&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;y &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;yield&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Tearing things down!!!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uma vez que fica claro o funcionamento dos &lt;em&gt;scopes&lt;/em&gt;, os três restantes são quase intuitivos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Module:&lt;/strong&gt; Executa a &lt;em&gt;fixture&lt;/em&gt; por módulo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Package:&lt;/strong&gt; Executa a &lt;em&gt;fixture&lt;/em&gt; por pacote;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Session:&lt;/strong&gt; Cada vez que você executa o &lt;em&gt;Pytest&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para fins didáticos, vamos utilizar outro argumento na construção das &lt;em&gt;fixtures&lt;/em&gt;
+que exemplificarão como esses escopos funcionam. Estamos falando do &lt;code class=&quot;language-text&quot;&gt;autouse&lt;/code&gt;, e sem
+nenhuma surpresa, ele faz a &lt;em&gt;fixture&lt;/em&gt; ser executada automaticamente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fixture&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scope&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;module&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; autouse&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;saying_hello_per_module&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Module fixture&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fixture&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scope&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;package&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; autouse&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;saying_hello_per_package&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Package fixture&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token decorator annotation punctuation&quot;&gt;@pytest&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;fixture&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scope&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;session&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; autouse&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;True&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;saying_hello_per_session&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Session fixture&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Agora com o &lt;code class=&quot;language-text&quot;&gt;pytest -s&lt;/code&gt;, podemos ver na prática o que acontece:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pytest -s
+
+(...)
+
+tests/test_my_calc.py Session fixture
+Package fixture
+Module fixture
+Class fixture
+.Function fixture
+.Function fixture
+.Tearing things down!!!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Baterias inclusas + plugins == sucesso!&lt;/h2&gt;
+&lt;p&gt;Há muitos outros conceitos por trás do &lt;em&gt;Pytest&lt;/em&gt;. Do arquivo &lt;em&gt;conftest.py&lt;/em&gt; ao
+&lt;a href=&quot;https://stribny.name/blog/pytest/#parametrized-tests&quot; title=&quot;Testing Python applications with Pytest&quot;&gt;@parametrize&lt;/a&gt;, você vai encontrar funcionalidades incríveis que aumentarão
+a sua produtividade escrevendo testes.&lt;/p&gt;
+&lt;p&gt;E quando adicionamos os &lt;em&gt;plugins&lt;/em&gt; do &lt;em&gt;Pytest&lt;/em&gt; à equação, tudo fica mais divertido.
+Para começar, se você está escrevendo testes em &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django&lt;/em&gt;&lt;/a&gt; e quer utilizar &lt;em&gt;Pytest&lt;/em&gt;, o &lt;a href=&quot;https://pytest-django.readthedocs.io/en/latest/&quot; title=&quot;Leia a documentação da biblioteca&quot;&gt;pytest-django&lt;/a&gt; é mais que obrigatório. Ele resolverá tudo o que precisa-se resolver (banco de dados, sessões, transações, etc)
+&lt;em&gt;out of the box&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Outros grande &lt;em&gt;plugins&lt;/em&gt; são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pytest-dev/pytest-bdd&quot; title=&quot;Acesse o repositório no Github&quot;&gt;pytest-bdd&lt;/a&gt;: &lt;em&gt;BDD&lt;/em&gt; sem precisar de outro &lt;em&gt;test runner&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pytest-dev/pytest-cov&quot; title=&quot;Acesse o repositório no Github&quot;&gt;pytest-cov&lt;/a&gt;: Relatório de &lt;em&gt;test coverage&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ktosiek/pytest-freezegun&quot; title=&quot;Acesse o repositório no Github&quot;&gt;pytest-freezegun&lt;/a&gt;: Congele o tempo com essa integração com o &lt;em&gt;Freezegun&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pytest-dev/pytest-instafail&quot; title=&quot;Acesse o repositório no Github&quot;&gt;pytest-instafail&lt;/a&gt;: Mostra falhas e erros antes do fim da sessão de testes&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/miketheman/pytest-socket&quot; title=&quot;Acesse o repositório no Gihub&quot;&gt;pytest-socket&lt;/a&gt;: Previna &lt;em&gt;network calls&lt;/em&gt; indesejadas&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Teemu/pytest-sugar&quot; title=&quot;Acesse o repositório no Github&quot;&gt;pytest-sugar&lt;/a&gt;: Progress bar e uma melhor visualização de falhas e erros&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pytest-dev/pytest-xdist&quot; title=&quot;Acesse o repositório no Github&quot;&gt;pytest-xdist&lt;/a&gt;: Paralelize a execução dos testes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&quot;https://awesomeopensource.com/projects/pytest&quot; title=&quot;Veja projetos relacionados com Pytest&quot;&gt;A lista é imensa&lt;/a&gt;, e garanto que há um &lt;em&gt;plugin&lt;/em&gt; por aí pronto para resolver os seus problemas.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Pytest&lt;/em&gt; faz parte daquele seleto grupo de bibliotecas que instalamos imediatamente após iniciar um projeto. É rico, poderoso, flexível,
+e faz do desenvolvimento orientado a testes uma experiência muito mais satisfatória, do que com a opção utilizando a &lt;em&gt;standard lib&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Atualmente na &lt;a href=&quot;https://www.sonofatailor.com/&quot; title=&quot;Custom fitted T-shirts&quot;&gt;&lt;em&gt;Son of a Tailor&lt;/em&gt;&lt;/a&gt;, estamos aumentando o nosso &lt;em&gt;coverage&lt;/em&gt; e gradativamente
+adotando as baterias inclusas do &lt;em&gt;Pytest&lt;/em&gt;. Todos os testes, no entanto, utilizam a &lt;code class=&quot;language-text&quot;&gt;django.tests.TestCase&lt;/code&gt;. Mesmo assim, fomos capazes de trocar o &lt;em&gt;test runner&lt;/em&gt; para o &lt;em&gt;Pytest&lt;/em&gt;,
+e tirar proveito de seus &lt;em&gt;plugins&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Sem nenhum problema.&lt;/p&gt;
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/better-programming/understand-5-scopes-of-pytest-fixtures-1b607b5c19ed&quot;&gt;BetterProgramming: Understand 5 Scopes of Pytest Fixtures&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://realpython.com/pytest-python-testing/&quot;&gt;Real Python: Effective Python Testing with Pytest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://semaphoreci.com/community/tutorials/testing-python-applications-with-pytest&quot;&gt;Semaphore: Testing Python Applications with Pytest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stribny.name/blog/pytest/&quot;&gt;Software development and beyond: Testing Python applications with Pytest&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Construindo APIs em Django com Django REST Framework]]></title><description><![CDATA[No post anterior
 tive a oportunidade de "destilar" a minha simpatia pelo Django REST Framework,
 e de salientar alguns aspectos positivos da ferramenta. A praticidade
 é sem dúvida um de seus pontos mais altos, e nesse post vamos explorá-la através

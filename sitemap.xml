@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://klauslaube.com.br/2021/01/24/o-popular-e-poderoso-pytest.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/2020/12/30/poesia-pythonista-com-poetry.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/2020/10/09/voce-precisa-de-uma-api.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/2020/07/01/alem-do-rest-com-graphql.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -135,6 +136,13 @@
 <url> <loc>https://klauslaube.com.br/tag/python3.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/python4.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/python5.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://klauslaube.com.br/tag/testes.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://klauslaube.com.br/tag/tdd.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://klauslaube.com.br/tag/pytest.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://klauslaube.com.br/tag/django.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://klauslaube.com.br/tag/django2.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://klauslaube.com.br/tag/django3.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://klauslaube.com.br/tag/bdd.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/pip.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/virtualenv.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/poetry.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -178,9 +186,6 @@
 <url> <loc>https://klauslaube.com.br/tag/swagger.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/drf.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/oai.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://klauslaube.com.br/tag/django.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://klauslaube.com.br/tag/django2.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://klauslaube.com.br/tag/django3.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/eu-me-rendo.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/qualidade.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/linter.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -222,8 +227,6 @@
 <url> <loc>https://klauslaube.com.br/tag/oauth.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/oauth-2.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/auth.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://klauslaube.com.br/tag/testes.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://klauslaube.com.br/tag/tdd.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/tox.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/editores-de-texto.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/opiniao.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -268,7 +271,6 @@
 <url> <loc>https://klauslaube.com.br/tag/node.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/npm.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/grunt.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://klauslaube.com.br/tag/bdd.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/aceitacao.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/behave.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://klauslaube.com.br/tag/splinter.html</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
