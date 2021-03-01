@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - asgi]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Do WSGI ao ASGI - Parte 1]]></title><description><![CDATA[O Django 3 veio para sacudir as estruturas! Parece que foi ontem, mas
+a versão já está aí desde 2019. Entre todas as suas adições,
+a de maior destaque certamente é a adoção de capacidades async através do ASGI (Asynchronous Server Gateway Interface). Se você, assim como eu, não vê motivos para…]]></description><link>https://klauslaube.com.br/2021/03/01/do-wsgi-ao-asgi-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2021/03/01/do-wsgi-ao-asgi-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 01 Mar 2021 17:45:00 GMT</pubDate><content:encoded>&lt;p&gt;O &lt;a href=&quot;/tag/django.html&quot; title=&quot;Leia mais sobre Django&quot;&gt;&lt;em&gt;Django 3&lt;/em&gt;&lt;/a&gt; veio para sacudir as estruturas! Parece que foi ontem, mas
+a versão já está aí desde 2019. Entre todas as suas adições,
+a de maior destaque certamente é a adoção de capacidades &lt;em&gt;async&lt;/em&gt; através do &lt;em&gt;ASGI&lt;/em&gt; (&lt;em&gt;Asynchronous Server Gateway Interface&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Se você, assim como eu, não vê motivos para largar o &lt;a href=&quot;/2012/11/02/entendendo-o-cgi-fastcgi-e-wsgi.html&quot; title=&quot;Entendendo o CGI, FastCGI e WSGI&quot;&gt;&lt;em&gt;WSGI&lt;/em&gt;&lt;/a&gt; (&lt;em&gt;Web Server Gateway Interface&lt;/em&gt;),
+e ainda tem dificuldades para compreender o que é de fato esse novo &lt;em&gt;Gateway Interface&lt;/em&gt;, vem comigo!&lt;/p&gt;
+&lt;p&gt;Mas antes de mergulhar na prática, essa é uma boa oportunidade para falarmos sobre &lt;em&gt;async&lt;/em&gt;, &lt;em&gt;threads&lt;/em&gt;, concorrência e paralelismo.&lt;/p&gt;
+&lt;h2&gt;CPU, cores, processos e threads&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;CPU&lt;/em&gt; é a cabeça por trás de todo o processamento. Ele funciona em ciclos que correspondem ao tempo necessário para a execução de uma operação. Um
+&lt;em&gt;CPU&lt;/em&gt; pode ter múltiplos &lt;em&gt;cores&lt;/em&gt;, e cada &lt;em&gt;core&lt;/em&gt; é capaz de executar múltiplos processos.&lt;/p&gt;
+&lt;p&gt;No caso dos processos &lt;em&gt;Python&lt;/em&gt;, cada um possui um interpretador &lt;em&gt;Python&lt;/em&gt;, &lt;em&gt;memory space&lt;/em&gt;, e o famigerado &lt;em&gt;GIL&lt;/em&gt; (mais a seguir).&lt;/p&gt;
+&lt;p&gt;Quando executamos o processo &lt;em&gt;Python&lt;/em&gt;, ele:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Pode executar múltiplos subprocessos.&lt;/li&gt;
+&lt;li&gt;A partir da &lt;em&gt;main thread&lt;/em&gt;, pode iniciar múltiplas &lt;em&gt;threads&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9be65b84d1ac7c8037599acba7d77908/5205c/python-thread-multiprocessing.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 43.75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAABCElEQVQoz5WS6YqEQAyEff+HVBTFY/A+xyuzX5YahP21gWCSTqoq3Qb2Y/d987G+7y1JEsvz3LZts+eZvjJ64zi2LMvsuq5vPaBRzcMw2Ov1cl/X9Qv0BH2/37bvu83z7P045PQfx/ELKKvr2sqytDRNbRzHP4Dnefogedu2VhSFVVXldRwyB1QB5mmafIiYVXABEuucL+pYnRjF1ANkag1iDpTjukspRDk9y7J8gdkMcGoB0gkAY6DrOh9Qzjk5MQohk1qU00cMsa8cRZHhgMIehqE77LASc04zAFKHoQ4iQJn1R6FRL6QVyXWnzxxABpumcUD+Bl0Pj+mA9g9jNd0dRMQiRDnAH6mxvWhfd6+MAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama mostrando a diferença entre multithreading e multiprocessing&amp;quot;&quot;
+        title=&quot;Multithreading vs. Multiprocessing&quot;
+        src=&quot;/static/9be65b84d1ac7c8037599acba7d77908/e5715/python-thread-multiprocessing.png&quot;
+        srcset=&quot;/static/9be65b84d1ac7c8037599acba7d77908/8514f/python-thread-multiprocessing.png 192w,
+/static/9be65b84d1ac7c8037599acba7d77908/804b2/python-thread-multiprocessing.png 384w,
+/static/9be65b84d1ac7c8037599acba7d77908/e5715/python-thread-multiprocessing.png 768w,
+/static/9be65b84d1ac7c8037599acba7d77908/5205c/python-thread-multiprocessing.png 833w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Multithreading vs. Multiprocessing&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Uma &lt;em&gt;thread&lt;/em&gt; é uma unidade de execução dentro de um processo. Cada &lt;em&gt;thread&lt;/em&gt; utiliza o espaço de memória do mesmo, compartilhando-o com as demais.&lt;/p&gt;
+&lt;h2&gt;Concorrência e paralelismo&lt;/h2&gt;
+&lt;p&gt;A motivação por trás do uso de &lt;em&gt;threads&lt;/em&gt; e subprocessos é permitir que diferentes tarefas aconteçam ao mesmo tempo. E &quot;ao mesmo tempo&quot; pode significar
+que a intenção seja de um resultado simultâneo, mas na prática, não necessariamente ocorrendo no mesmo instante.&lt;/p&gt;
+&lt;p&gt;Complicado? Para fins didáticos
+vamos utilizar o exemplo proposto pelo &lt;a href=&quot;https://medium.com/fintechexplained/advanced-python-concurrency-and-parallelism-82e378f26ced&quot; title=&quot;Advanced Python: Concurrency And Parallelism&quot;&gt;&lt;em&gt;FinTechExplained&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Eu estou esperando 10 amigos para almoçar, e eu tenho 3 horas para cozinhar o suficiente para 10 pessoas.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Os passos para um prato são:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Começo lavando os vegetais (~5 minutos);&lt;/li&gt;
+&lt;li&gt;Corto os vegetais (~13 minutos);&lt;/li&gt;
+&lt;li&gt;Cozinho os mesmos (~30 minutos);&lt;/li&gt;
+&lt;li&gt;Sirvo (~2 minutos).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 623px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e1761b77eba92b809d031991a52c7821/6114d/cooking-sync.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABG0lEQVQoz6WSW0+DQBCF+f//TGvjk0pboMulpaXYpSnC3tjjgaqx0Rijk5yHb2Z3di4beO/xZymFdxt5tGCCN30Ef/B9Nh2tYDNxlTSwSQyXpRjyFFYkMElEFhgmpdBxRF88sUsFNOM6ZqJ0Dfv0gH52A71awhtzqfC8K9EcKhzKEudyixexhqwqHMk11ZGNlDju9zjVNcxzDZVnUG0LSZ+zFmoRQt3PMZwaBHKzwZ7K1glkkaNlFbuiwFYIFFRHNk2DMs9R8QEjj9CbAl17xo4+5xzUcoF+PoNrJFuOlnCswvOiZXuawYE8iW2NrHlmZMeRqNWCCcJpDDZ8RHd3yzMhvNaXlv03S/j1Ujg7w0eulvKfbzP0/Zdv8wqX/mfFPYFxXAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Fluxograma mostrando os passos iniciando pela lavagem e terminando em servir&quot;
+        title=&quot;O fluxo de forma linear&quot;
+        src=&quot;/static/e1761b77eba92b809d031991a52c7821/6114d/cooking-sync.png&quot;
+        srcset=&quot;/static/e1761b77eba92b809d031991a52c7821/8514f/cooking-sync.png 192w,
+/static/e1761b77eba92b809d031991a52c7821/804b2/cooking-sync.png 384w,
+/static/e1761b77eba92b809d031991a52c7821/6114d/cooking-sync.png 623w&quot;
+        sizes=&quot;(max-width: 623px) 100vw, 623px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;O fluxo de forma linear&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Imagine que temos apenas uma boca no fogão, e que só conseguimos cozinhar um prato por vez.
+Se pensarmos de forma linear, um prato leva aproximadamente 50 minutos para ficar pronto. Se multiplicarmos
+pelo número de amigos, precisaremos de &lt;code class=&quot;language-text&quot;&gt;8 horas&lt;/code&gt; cozinhando para atender a demanda.&lt;/p&gt;
+&lt;h3&gt;Concorrência&lt;/h3&gt;
+&lt;p&gt;Para reduzir o tempo total, uma possibilidade é adquirirmos outro fogão. Continuamos
+a cortar os vegetais de forma sequencial, mas o passo de cozimento pode acontecer de uma
+maneira na qual eu possa ter as duas bocas funcionando, e checar periodicamente o estado de cozimento
+de cada prato.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 623px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6447e2ceb197d9da597ce04369a68e21/6114d/concurrency.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABO0lEQVQoz4VSi07CQBC8//8tlaDGGAkxgrS9QqEtKC2P9t437qG8GqOXTO7mdnZvtl3mvcdfQAAt/4PD+RiXEujcsa74kp9g7Tl2cdbRBGbKr3KZiSPYaQo3S2F4DB1PiHO4cEe74gl026Jar7HdbGDJlXwfky6CHLygfbyHTRN4Y+CcA9sVOerVEqs8xy5foKEC1XKJNfEPQpty6O0WxXyOMstg6hpN7xbi7gZiOIDVGlVZQuz3cEqBVUFImCYxqmyGPRUoKHHBObI0RUNuxEMf+vkJmmKSknVRQJcFBLUcigR9Q48Gl8xMxrDkypPYkECNR3DED6BWAlejN8jXIcymxiclRkkCQe0p0jf9HunoO2oFFwp2fwB+4cdlyY2VAka0h1YlPaSDGX9Wsv/G5mqEvufjtHsq3h2bL+NWZ+MValtFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Com duas bocas, consigo ter concorrência no cozimento&amp;quot;&quot;
+        title=&quot;Com duas bocas, consigo ter concorrência no cozimento&quot;
+        src=&quot;/static/6447e2ceb197d9da597ce04369a68e21/6114d/concurrency.png&quot;
+        srcset=&quot;/static/6447e2ceb197d9da597ce04369a68e21/8514f/concurrency.png 192w,
+/static/6447e2ceb197d9da597ce04369a68e21/804b2/concurrency.png 384w,
+/static/6447e2ceb197d9da597ce04369a68e21/6114d/concurrency.png 623w&quot;
+        sizes=&quot;(max-width: 623px) 100vw, 623px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Com duas bocas, consigo ter concorrência no cozimento&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://diogommartins.wordpress.com/2017/04/07/concorrencia-e-paralelismo-threads-multiplos-processos-e-asyncio-parte-1/&quot; title=&quot;CONCORRÊNCIA E PARALELISMO – THREADS, MÚLTIPLOS PROCESSOS E ASYNCIO – PARTE 1&quot;&gt;&lt;em&gt;Diogo M. Martins&lt;/em&gt; define concorrência como&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Quando duas ou mais tarefas podem começar a ser executadas e terminar em espaços de tempo que se sobrepõem,
+não significando que elas precisam estar em execução necessariamente no mesmo instante.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Logo, ao invés de 60 minutos (2 pratos x 30 minutos de cozimento) podemos alcançar um tempo menor.&lt;/p&gt;
+&lt;h3&gt;Paralelismo&lt;/h3&gt;
+&lt;p&gt;Com dois cozinheiros, cada um trabalhando de sua casa, conseguimos dividir a carga, e portanto, em &lt;code class=&quot;language-text&quot;&gt;4 horas&lt;/code&gt; seremos capazes de atender a demanda.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 623px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f80ff0676dbbd83c47510ccda5d70ff9/6114d/parallelism.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 77.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAACSElEQVQ4y51Ui27bMAzM/3/WgK7dgGFd0aR5J05s5+lnYsuWbd2OfqROCxTDBBwsUpR0Io8eGGPQh4woirBcLuE4Dg6HA7abDWzbhr3dAr04Gf198h2gN7owlec4+z6iywVhHMMPQwS8RHzdqNIUFdc+Hjqo4ghli4oHCAyBJGmgUiBt5/zWMZwXjg314xHFzr1jO8gXMxTbTY1sNoGajKE3FgoiXy2RjobI1itoa4XcWkONXpEtF4xZ32xN2xRFw9DjM1zPw3q3Q3w6ITrs4dJn0d7v9yi4dsk1LMdFSgb6eETFjTvPR0Jb2KYP36Dns+bAZDrBdTHHhY6U7NR0jCtvjGdTXAk1HkGRoawrYfQ2Qk47YYzYGdfz+RSGeW9yGPiowqBF2HyD4OYrBWQsvtL3aIcoo7BOkXp8QGFv73OI/xx1lXn4pyqbqkIfMnzmbTQcYrlY1JjPZlgQ08mk0WEv1rQHfslQQrOyRM5NujLIZU6I7xZDmUnl+8+tGUouKtdBRT1JPgRiY7+DaX2dLV/NeE0NFisW5ecTMhbJZNk7wwvbKmKgz7ZKWD2psNgBN0aWVWsupVR8ztX5jIzV1qcjYtdFxhzmvFD9/oXSOzcMfWptT81ZPFiCIvbsjj7p3wMvKajLmC22Wa+RsBCal5VK1RpNyKykStKn73Uz1Adqaq0ks4qayjl/t1co5Vnjt7oTxNbUq+guo+5Kmb88Q/15vrH7XOXur/Oh6nd2m/xCnv/6AkPWfekMTFf6f0UnEXaGaave1+FfOrbML5BQxW4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Com dois cozinheiros, consigo paralelizar o trabalho&amp;quot;&quot;
+        title=&quot;Com dois cozinheiros, consigo paralelizar o trabalho&quot;
+        src=&quot;/static/f80ff0676dbbd83c47510ccda5d70ff9/6114d/parallelism.png&quot;
+        srcset=&quot;/static/f80ff0676dbbd83c47510ccda5d70ff9/8514f/parallelism.png 192w,
+/static/f80ff0676dbbd83c47510ccda5d70ff9/804b2/parallelism.png 384w,
+/static/f80ff0676dbbd83c47510ccda5d70ff9/6114d/parallelism.png 623w&quot;
+        sizes=&quot;(max-width: 623px) 100vw, 623px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Com dois cozinheiros, consigo paralelizar o trabalho&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E talvez essa seja a forma mais simplista de definir paralelismo: Quando duas ou mais tarefas são executadas literalmente ao mesmo tempo.&lt;/p&gt;
+&lt;p&gt;Bom... se a motivação por trás das &lt;em&gt;threads&lt;/em&gt; e subprocessos é permitir que tarefas aconteçam ao mesmo tempo, podemos
+utilizar qualquer um deles para alcançar paralelismo, certo?&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 510px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/34c33f191a9ad0f896382106ff682d5c/18815/concurrency-parallelism.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.645833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHcTiWgH//EABcQAQEBAQAAAAAAAAAAAAAAAAEQACH/2gAIAQEAAQUCXdiF/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhABAQEAAAAAAAAAAAAAAAAAEDFB/9oACAEBAAY/AsY//8QAGxABAAICAwAAAAAAAAAAAAAAAQARECExQVH/2gAIAQEAAT8hYeYvyQutx20XO8f/2gAMAwEAAgADAAAAEPDP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAICAwEAAAAAAAAAAAAAAQARITFRYbFx/9oACAEBAAE/EKAfJc+yn1uNWpfUPWOSZhpg3xAAoKJ//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama com a diferença de execução entre concorrência e paralelismo&amp;quot;&quot;
+        title=&quot;Uma imagem pode valer mais que mil palavras (stackoverflow.com)&quot;
+        src=&quot;/static/34c33f191a9ad0f896382106ff682d5c/18815/concurrency-parallelism.jpg&quot;
+        srcset=&quot;/static/34c33f191a9ad0f896382106ff682d5c/7809d/concurrency-parallelism.jpg 192w,
+/static/34c33f191a9ad0f896382106ff682d5c/4ecad/concurrency-parallelism.jpg 384w,
+/static/34c33f191a9ad0f896382106ff682d5c/18815/concurrency-parallelism.jpg 510w&quot;
+        sizes=&quot;(max-width: 510px) 100vw, 510px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Uma imagem pode valer mais que mil palavras (stackoverflow.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Não necessariamente.&lt;/p&gt;
+&lt;h2&gt;GIL (Global Interpreter Lock)&lt;/h2&gt;
+&lt;p&gt;O &lt;em&gt;Python Global Interpreter Lock&lt;/em&gt; (ou &lt;em&gt;GIL&lt;/em&gt;) é uma &quot;trava&quot; que permite que apenas uma &lt;em&gt;thread&lt;/em&gt; tenha controle sobre o interpretador. Ou seja,
+apenas uma &lt;em&gt;thread&lt;/em&gt; executa por vez, mesmo em uma arquitetura &lt;em&gt;multi-thread&lt;/em&gt; com mais de um &lt;em&gt;core&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Infame? No mínimo. Mas há uma boa motivação para essa trava existir. De forma resumida, ela está relacionada
+com a forma como a linguagem &lt;a href=&quot;https://stackify.com/python-garbage-collection/&quot; title=&quot;Leia sobre o gerenciamento de memória em Python&quot;&gt;gerencia memória&lt;/a&gt;, e previne
+problemas de &lt;em&gt;memory leak&lt;/em&gt; e &lt;em&gt;deadlocks&lt;/em&gt;, ao mesmo tempo que oferece números interessantes de performance.&lt;/p&gt;
+&lt;p&gt;O artigo do &lt;em&gt;RealPython&lt;/em&gt;,
+&lt;a href=&quot;https://realpython.com/python-gil/&quot; title=&quot;Leia o artigo na íntegra&quot;&gt;&quot;What Is the Python Global Interpreter Lock (GIL)?&quot;&lt;/a&gt;,
+é uma excelente referência para você saber tudo a respeito.&lt;/p&gt;
+&lt;p&gt;Para o bem ou para o mal, na prática você não consegue atingir paralelismo utilizando &lt;em&gt;threads&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt; (e note, essa é uma realidade específica da linguagem).
+Ainda assim, fazer &lt;code class=&quot;language-text&quot;&gt;multithreading&lt;/code&gt; te dará o resultado concorrente que você deseja.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 553px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fe93b4fbfc08ea6eb2319840fce81a40/74cfa/gil-lock.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 72.39583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsSAAALEgHS3X78AAACXklEQVQ4y31Ua1PUMBTl//8R9Yt80Q8oMgMigjhsQRT20S5td/vYvrdtmrRpjzeBXRHQzNxp7klyck9O0h1QG4ZBfZBlGfq+1/1OtsiKFHEaIaFopdB4K2qkcYg8i5ERzptSEWzX7SiyDSFjDJvWyQ6ev8TcmcOy7yC6VuOcN7DvLDi2CW/pgNWlxreEeNTqmqEWFUqxBpM1ml7lCc3OMbRUvUipmrWiJYxwSXmXQwqlTN4Ttm2LKIrQNA1VWGMajfH55ggHo32czM6wCM+A/ARDcYYhP0Vk7cEbv0MdHAIa+0pj5+hlc08opdRnxznXku9SC9/Nbzj5eYwL20CQXAHrC/TFSEfqHiEwD1CvTqlYhdHY+ooI+UuSa8hBPoYQkQGCVyS1xaCN6R9G1Ll3GHpBZOK5KSqU7LpMYc8nWJAZoe8gXvnI8+L+4IkkyRM4CwfmnEwJPV2A8vRFQkaEysU4jpEmKxRFQRiD63kYHuoSgtMGGULaqKqqrZJ/ujyIiNzzaaVL3wAiccEsCyxcIih9rKoQSRNhxXzELEKwJqwMIOmaaUIhBBzHoV1zbcqwNuDd7uL2/DWyxR6qm0/49eoNJvvvYfgGjOUIH0cfsHv4Fl8mxzC8Ea48A7xr/kjuuk6XrE2pLbT5JXhyCVldgy9+oDQukY6vMUumMOMppuEY4+AGs2iCGeXzxNQv65lkVWFFslnDddSsQanzBg1dq4ZyFZzGVCgTVc5oTpZm2oe/TNlch00/SRJYpkmTU2ze/NP5itS2bbiuq5XuPP45PF2gQl38/40PDz8GFar/G45HMPkhu+8DAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Fluxograma de como a GIL funciona&amp;quot;&quot;
+        title=&quot;GIL e o gerenciamento de threads&quot;
+        src=&quot;/static/fe93b4fbfc08ea6eb2319840fce81a40/74cfa/gil-lock.png&quot;
+        srcset=&quot;/static/fe93b4fbfc08ea6eb2319840fce81a40/8514f/gil-lock.png 192w,
+/static/fe93b4fbfc08ea6eb2319840fce81a40/804b2/gil-lock.png 384w,
+/static/fe93b4fbfc08ea6eb2319840fce81a40/74cfa/gil-lock.png 553w&quot;
+        sizes=&quot;(max-width: 553px) 100vw, 553px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;GIL e o gerenciamento de threads&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E como conseguimos de fato paralelismo então? Utilizando processos!&lt;/p&gt;
+&lt;p&gt;Com a biblioteca de &lt;code class=&quot;language-text&quot;&gt;multiprocessing&lt;/code&gt;, ao invés de iniciarmos
+uma &lt;em&gt;thread&lt;/em&gt;, iniciamos um novo processo &lt;em&gt;Python&lt;/em&gt; que se encarregará de executar o que for requisitado. E citando o início desse artigo:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;No caso dos processos Python, cada um possui um interpretador Python, memory space, e o famigerado GIL.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Logo, não sofremos a limitação da trava uma vez que estamos
+falando de processos à parte, gerenciados pelo Sistema Operacional.&lt;/p&gt;
+&lt;h2&gt;Multithreading e Multiprocessing&lt;/h2&gt;
+&lt;p&gt;Para ficar um pouco mais claro, vamos a um exemplo prático. Verificaremos o tamanho de alguns sites.&lt;/p&gt;
+&lt;p&gt;A forma mais recomendada de dar os primeiros passos com &lt;em&gt;threads&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt; é através da biblioteca &lt;code class=&quot;language-text&quot;&gt;concurrent.futures&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# thread.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; concurrent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;futures
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; urllib&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;request
+
+URLS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;http://www.foxnews.com/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;http://www.cnn.com/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;http://www.bbc.co.uk/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;load_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; timeout&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;with&lt;/span&gt; urllib&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urlopen&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; timeout&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;timeout&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; conn&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; conn&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;read&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;with&lt;/span&gt; concurrent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;futures&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ThreadPoolExecutor&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_workers&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; executor&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        future_to_url &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;executor&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;submit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;load_url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; url &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; url &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; URLS&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; future &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; concurrent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;futures&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;as_completed&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;future_to_url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            url &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; future_to_url&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;future&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+            data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; future&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;%r tem %d bytes&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; __name__ &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    main&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Caso você queira saber mais sobre a sintaxe, vale a pena conferir a &lt;a href=&quot;https://docs.python.org/3.6/library/concurrent.futures.html#concurrent.futures.ThreadPoolExecutor&quot; title=&quot;Leia sobre ThreadPoolExecutor&quot;&gt;documentação
+oficial do &lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A execução deve apresentar um resultado parecido com o abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;#39;http://www.bbc.co.uk/&amp;#39; tem 361696 bytes
+&amp;#39;http://www.cnn.com/&amp;#39; tem 1143256 bytes
+&amp;#39;http://www.foxnews.com/&amp;#39; tem 334772 bytes&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;code class=&quot;language-text&quot;&gt;ThreadPoolExecutor&lt;/code&gt; estende do tipo &lt;code class=&quot;language-text&quot;&gt;Executor&lt;/code&gt;. Possuímos também o filho &lt;code class=&quot;language-text&quot;&gt;ProcessPoolExecutor&lt;/code&gt;, que tem uma interface semelhante, mas utiliza o módulo &lt;code class=&quot;language-text&quot;&gt;multiprocessing&lt;/code&gt;
+por baixo dos panos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# process.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; concurrent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;futures
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; urllib&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;request
+
+URLS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;http://www.foxnews.com/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;http://www.cnn.com/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;http://www.bbc.co.uk/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;load_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; timeout&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;with&lt;/span&gt; urllib&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urlopen&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; timeout&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;timeout&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; conn&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; conn&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;read&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;with&lt;/span&gt; concurrent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;futures&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;ProcessPoolExecutor&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;max_workers&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; executor&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        future_to_url &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;executor&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;submit&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;load_url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;60&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; url &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; url &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; URLS&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; future &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; concurrent&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;futures&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;as_completed&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;future_to_url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+            url &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; future_to_url&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;future&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+            data &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; future&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;%r tem %d bytes&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; __name__ &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    main&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Para maiores detalhes sobre a implementação, &lt;a href=&quot;https://docs.python.org/3.6/library/concurrent.futures.html#concurrent.futures.ProcessPoolExecutor&quot; title=&quot;Leia mais sobre&quot;&gt;confira a documentação do &lt;em&gt;ProcessPoolExecutor&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Com auxílio da ferramenta de linha de comando &lt;code class=&quot;language-text&quot;&gt;time&lt;/code&gt;, podemos calcular quanto tempo
+cada &lt;em&gt;script&lt;/em&gt; leva para executar as tarefas concorrentemente:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ time python thread.py
+&amp;#39;http://www.bbc.co.uk/&amp;#39; tem 360652 bytes
+&amp;#39;http://www.foxnews.com/&amp;#39; tem 336778 bytes
+&amp;#39;http://www.cnn.com/&amp;#39; tem 1143341 bytes
+python thread.py  0.15s user 0.06s system 38% cpu 0.555 total
+
+$ time python process.py
+&amp;#39;http://www.bbc.co.uk/&amp;#39; tem 360652 bytes
+&amp;#39;http://www.cnn.com/&amp;#39; tem 1143341 bytes
+&amp;#39;http://www.foxnews.com/&amp;#39; tem 336779 bytes
+python process.py  0.41s user 0.12s system 74% cpu 0.715 total&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E surpreendentemente vemos que o exemplo com &lt;em&gt;threads&lt;/em&gt; (&lt;code class=&quot;language-text&quot;&gt;0.15s&lt;/code&gt;) leva
+menos tempo que o com subprocessos (&lt;code class=&quot;language-text&quot;&gt;0.41s&lt;/code&gt;).&lt;/p&gt;
+&lt;h2&gt;I/O-bound e CPU-bound&lt;/h2&gt;
+&lt;p&gt;Pela ideia de que &lt;em&gt;threads&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt; não são paralelas, podemos chegar erroneamente à conclusão de que &lt;em&gt;multiprocessing&lt;/em&gt; é a solução
+definitiva.&lt;/p&gt;
+&lt;p&gt;Depende do tipo de problema que estamos tentando resolver. Há duas categorias distintas
+que influenciam na decisão:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Problemas &lt;em&gt;CPU-bound&lt;/em&gt;: Onde o progresso do processo é limitado pela velocidade da &lt;em&gt;CPU&lt;/em&gt; .&lt;/li&gt;
+&lt;li&gt;Problemas &lt;em&gt;I/O-bound&lt;/em&gt;: O progresso é limitado pela velocidade do subsistema de entrada/saída.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Um exemplo do primeiro é um conjunto de operações matemáticas complexas, que dependem exclusivamente do uso da &lt;em&gt;CPU&lt;/em&gt;. O código
+da seção anterior é um exemplo de &lt;em&gt;I/O-bound&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Threads e I/O&lt;/h3&gt;
+&lt;p&gt;O Sistema Operacional é responsável pelo gerenciamento de uma &lt;em&gt;thread&lt;/em&gt;. &lt;a href=&quot;https://en.wikipedia.org/wiki/Preemption_%28computing%29#Preemptive_multitasking&quot; title=&quot;Preemption (computing)&quot;&gt;Ele a interrompe a qualquer momento, salva o seu estado, e executa qualquer outra em seu lugar,
+podendo resumi-la ao fim do processo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Larry Hastings&lt;/em&gt;, no &lt;a href=&quot;https://www.youtube.com/watch?t=11m40s&amp;#x26;v=4zeHStBowEk&amp;#x26;feature=youtu.be&quot; title=&quot;Veja o talk no Youtube&quot;&gt;&quot;Python&apos;s Infamous GIL&quot;&lt;/a&gt;, descreve
+como o gerenciamento da &lt;em&gt;GIL&lt;/em&gt; funciona do ponto de vista da linguagem:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The way Python threads work with the GIL is with a simple counter. With every 100 byte codes executed the
+GIL is supposed to be released by the thread currently executing in order to give other threads a chance to execute code.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Quando acessamos um banco de dados em outro servidor, um serviço &lt;em&gt;web&lt;/em&gt;, ou um arquivo em um sistema de arquivos, estamos
+realizando uma operação &lt;em&gt;I/O-bound&lt;/em&gt;. Qualquer ação que demande comunicação com o &lt;em&gt;hardware&lt;/em&gt; (como os &lt;em&gt;sockets&lt;/em&gt;), envolve comunicação
+com o &lt;em&gt;kernel&lt;/em&gt; da máquina, e essa operação é mais lenta que as operações de uma &lt;em&gt;CPU&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a3efed2b8019b2972a3207772d1cdbab/d326d/iobound.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoklEQVQoz2VSa0/bQBD0//8lbSHqZxCFVuUVlajCoaUhzgMs2/j9vtye7QxrO44SdaXT6u5mZ+duVgNHXddtwna7PcpUFkjHdwi+X+Lxyyf8HZ3Au/oGcXsNGQRouG7ADnVanufQdR1tHg4HUJamiD0XMgoR3FzDubyAfvIZz19H8H9cgSa/QIGPbUvcNF2NJqVEFEUoy3JP2OxIq6pXnhcFMt8HMS64+Qnr4hzT0SmeWLHD6sXkARTHPSEO4lB+f9BAETFx1W0Lbpr5HoiVp66DTRJDcBPFeynEMeFAlpY15maM2drDyk52t0ysFK8KLWpDCrO3EIJqqIo6xEYSolz1T3ZdF8QFbVghYTJzMdaXOB8voc/fsbKioe1e7dIpECY5nhcOSkEQrHDtSWimacIwDKxfX/mFNeyIUFL/wQsrwe1vA2f3C0wNF/9WHiupjn5lYeeI0gLTFwtzW0AbXG12LsUsu5R1p2ZfxMQPf97w+PIOqZr/pqGNuZXB9MWxKW0oRd24ZFmGlHOSJCjZZSKJkEfEcexuxNIDTJfZIJ8N+wDIv63gtY/EQQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama de tempo comparando I/O waiting e CPU processing com Threads&amp;quot;&quot;
+        title=&quot;I/O e CPU em um contexto I/O-Bound com Threads (realpython.com)&quot;
+        src=&quot;/static/a3efed2b8019b2972a3207772d1cdbab/e5715/iobound.png&quot;
+        srcset=&quot;/static/a3efed2b8019b2972a3207772d1cdbab/8514f/iobound.png 192w,
+/static/a3efed2b8019b2972a3207772d1cdbab/804b2/iobound.png 384w,
+/static/a3efed2b8019b2972a3207772d1cdbab/e5715/iobound.png 768w,
+/static/a3efed2b8019b2972a3207772d1cdbab/4ad3a/iobound.png 1152w,
+/static/a3efed2b8019b2972a3207772d1cdbab/d326d/iobound.png 1197w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;I/O e CPU em um contexto I/O-Bound com Threads (realpython.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Como resultado, a maioria das operações &lt;em&gt;I/O-bound&lt;/em&gt; ficará em um estado de &quot;espera&quot; até o momento em que ela receba um resultado. E como afirma &lt;em&gt;Cody Piersall&lt;/em&gt;,
+nessa &lt;a href=&quot;https://stackoverflow.com/questions/32256775/how-does-the-gil-in-python-affect-the-downloading-of-webpages-in-parallel&quot; title=&quot;How does the GIL in python affect the downloading of webpages in parallel?&quot;&gt;incrivelmente simples resposta no &lt;em&gt;Stackoverflow&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The GIL won&apos;t hurt you here.&lt;/p&gt;
+&lt;p&gt;For I/O bound tasks (like downloading webpages), the GIL is not a problem. Python releases the GIL when I/O is happening,
+which means all the threads will be able execute the requests in parallel.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Em outras palavras, a &lt;em&gt;thread&lt;/em&gt; que necessita pegar dados de uma fonte externa irá adquirir a &lt;em&gt;GIL&lt;/em&gt;. Subseqüentemente o &lt;em&gt;lock&lt;/em&gt; é liberado
+e é adquirido por outra &lt;em&gt;thread&lt;/em&gt; que inicia outro código &lt;em&gt;I/O-bound&lt;/em&gt; (por exemplo). Quando a &lt;em&gt;GIL&lt;/em&gt; é adquirida novamente pela primeira &lt;em&gt;thread&lt;/em&gt;, possivelmente
+ela já tenha recebido os dados.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9936bc4be1cba43e506c44266381f21d/264eb/gil-lock-threads.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 78.125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsSAAALEgHS3X78AAABkklEQVQoz4VT206EQAzd//8oX3zzwcREzRoXRG4uzCIDc2eYwbOMWTGy0odJU3p62p6y67pOKeWnqe97QohzbhgGznlZlnAmmPcTPvvpr+3mVPEWxX3XG2OOx+MhiqryQ3A+bdkOtEJK3lJrTHs6RYeDkGKQ0pozrWN8JKexJl6p7y6WYLCN4wgP/b8nCV74CKo526aFvrs3D4/us10Bn5mF0FoD1jQNJscgiBit8XnYv8qbW/P8Yp72Ni+dkL/A3vvAnCRJkedwsC1UDNtyPXOkcRUZm9YPg58zf8AXD5x1UbbNZ1EUVVUDL6UcrG062lC6vrCLB35sGM1TSvGiFia31nLG8G6AobDS85KsBXmWZYhgKDRwVaqLhzw5GxoOnNhiz5gJp7KQYAW8rBLWFsexbKmR0s/BMsvyPAd+nG0dHAyT16SGjIxSpbVgbOQCEqjZghZXwYFfG4PJgxZpluH4l/3v/r/ecDBBNgyCEuGoNpiDIZVzFg4JeHSBEkCiCiIbYADAE1pI0zTMAhh+PtT9Aj0vpXvOED8pAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Fluxograma com threads e os passos de acquire GIL, waiting for GIL, e releasing GIL&amp;quot;&quot;
+        title=&quot;Exemplo onde a GIL é aquirida e liberada em diferentes threads (medium.com/fintechexplained)&quot;
+        src=&quot;/static/9936bc4be1cba43e506c44266381f21d/e5715/gil-lock-threads.png&quot;
+        srcset=&quot;/static/9936bc4be1cba43e506c44266381f21d/8514f/gil-lock-threads.png 192w,
+/static/9936bc4be1cba43e506c44266381f21d/804b2/gil-lock-threads.png 384w,
+/static/9936bc4be1cba43e506c44266381f21d/e5715/gil-lock-threads.png 768w,
+/static/9936bc4be1cba43e506c44266381f21d/264eb/gil-lock-threads.png 867w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo onde a GIL é aquirida e liberada em diferentes threads (medium.com/fintechexplained)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Some isso ao fato de que &lt;a href=&quot;https://stackoverflow.com/questions/3044580/multiprocessing-vs-threading-python%5D&quot; title=&quot;Multiprocessing vs Threading Python [duplicate]&quot;&gt;criar novos processos é normalmente mais caro do que &lt;em&gt;threads&lt;/em&gt;&lt;/a&gt;, e temos uma resposta satisfatória aos números
+apresentados no experimento anterior.&lt;/p&gt;
+&lt;p&gt;Portanto, se:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;CPU-bound&lt;/em&gt;: Use &lt;em&gt;multiprocessing&lt;/em&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;I/O-bound&lt;/em&gt;: Use &lt;em&gt;threads&lt;/em&gt; ou &lt;em&gt;asyncio&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Ah! Claro! asyncio!&lt;/h2&gt;
+&lt;p&gt;E voltamos ao &lt;em&gt;asynchronous&lt;/em&gt;, afinal esse é um &lt;em&gt;post&lt;/em&gt; sobre &lt;em&gt;ASGI&lt;/em&gt; :)&lt;/p&gt;
+&lt;p&gt;Segundo &lt;em&gt;Miguel Grinberg&lt;/em&gt;, no &lt;em&gt;talk&lt;/em&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=iG6fr81xHKA&quot; title=&quot;Veja a apresentação na íntegra&quot;&gt;&quot;Asynchronous Python for the Complete Beginner&quot;&lt;/a&gt;, &lt;em&gt;async&lt;/em&gt;
+é:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A style of concurrent programming in which tasks release the CPU during waiting
+periods, so that other tasks can use it.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;É importante salientar que:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;Async&lt;/em&gt; (&lt;em&gt;async IO&lt;/em&gt;, &lt;em&gt;asynchoronous&lt;/em&gt;, ou &lt;em&gt;asynchronous IO&lt;/em&gt;) e &lt;em&gt;asyncio&lt;/em&gt; não são exatamente a mesma coisa;&lt;/li&gt;
+&lt;li&gt;O &lt;em&gt;asynchronous IO&lt;/em&gt;, de forma geral, é um estilo de programação concorrente;&lt;/li&gt;
+&lt;li&gt;Já o &lt;a href=&quot;https://docs.python.org/3/library/asyncio.html&quot; title=&quot;Leia mais na documentação oficial&quot;&gt;&lt;em&gt;asyncio&lt;/em&gt;&lt;/a&gt; é uma das implementações &lt;em&gt;Python&lt;/em&gt; desse estilo (há outras implementações,
+como o &lt;a href=&quot;http://github.com/MagicStack/uvloop&quot; title=&quot;Veja o repositório&quot;&gt;&lt;em&gt;uvloop&lt;/em&gt;&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Continuamos dentro dos domínios da concorrência, mas ainda assim, apresentando uma técnica completamente diferente.&lt;/p&gt;
+&lt;h3&gt;Event loop&lt;/h3&gt;
+&lt;p&gt;De forma simplista, imagine que há um objeto &lt;em&gt;Python&lt;/em&gt; chamado de &lt;em&gt;event loop&lt;/em&gt;, e esse camarada é
+quem controla como e quando cada &lt;em&gt;task&lt;/em&gt; irá rodar. Ele é consciente de cada &lt;em&gt;task&lt;/em&gt;,
+e sabe em qual estado cada uma está.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/868e2dbfba60262f09a26c4b9517c56a/e8950/python-event-loop.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACZUlEQVQoz21S20sUURyev6FnY8vSxIJywQxJQguj6EGLwAdB0h6kngJDeuwtiEgDJSqELj4UYl62HkTUNS287Mraiqvb7Nnd2Zndndmdvcxt58y5dDTCNfo4D+f8fpzf+c73fRwlhGBIKSX76wCkbHOocQCO2PrkpxdiXGQHB+Oyu5hNZZMJRX8qFsKCLCG7RBxkKVmCMIcISUX5gpqNm06kYKD9R2AJqT9JeMoKTWnKKrUUJBvmWlL1x6WtqBQRYx/nJ6Btc9Qx52bey0rWoDSgFGVNRxCFp+zBXs+tlt72lu5HHcNgLZ22jNmdmFayIaFKPrsOggghDmG8G/DnY2EB+P3JPOOQ89FnPdOuqurKM3UVpxuPHHXdu9ufXsTfgvFAQt77EabExthxOC3Gry6Ni8mUd+Ld8lZYsFBo1Lh9qae2/qL7zvPu/r6rzWdPVjXOP41GI/oiEORiQZCEuZUFaFmcllF8y94MCDPlQEHbTCu+N/mbTZ2V568Nvb6/PX35RmvD8Wr35OONtIhErZAsWjsJMLk+C6HDUWj+Cv0QReB5O7Cyy49HNsIe1Nf+xFVT29XZ3NXWVHXqXMuFNv/LXEo1Y0V9j/Zf8zgI7YWvYxKIGrohZNV1JRNPmKEVcP1KR8WJumM17ob61pEHi+omNanzPZYuaoahayC0jZlg1LHl5I4OnaCOQTG3lBBCOZlPSoEP6qv+meGHXxYGhUwAI7LnNsjrASnLJ6Ij3rGSVeJgSf88OpTgI6wJEWZ0eFWMFyQWDStFTJFZyWji8pDZtq3kMhhjjhWZ6AQ5hzP5f/yT1N9+UVqiDH6zPwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Ilustração mostrando de forma subjetiva como o event loop funciona&quot;
+        title=&quot;O event loop é um pouco abstrato, e não consegui pensar em nenhum diagrama para explicá-lo (fadeevab.com)&quot;
+        src=&quot;/static/868e2dbfba60262f09a26c4b9517c56a/e5715/python-event-loop.png&quot;
+        srcset=&quot;/static/868e2dbfba60262f09a26c4b9517c56a/8514f/python-event-loop.png 192w,
+/static/868e2dbfba60262f09a26c4b9517c56a/804b2/python-event-loop.png 384w,
+/static/868e2dbfba60262f09a26c4b9517c56a/e5715/python-event-loop.png 768w,
+/static/868e2dbfba60262f09a26c4b9517c56a/4ad3a/python-event-loop.png 1152w,
+/static/868e2dbfba60262f09a26c4b9517c56a/71c1d/python-event-loop.png 1536w,
+/static/868e2dbfba60262f09a26c4b9517c56a/e8950/python-event-loop.png 2000w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;O event loop é um pouco abstrato, e não consegui pensar em nenhum diagrama para explicá-lo (fadeevab.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Por exemplo, o estado &quot;pronto&quot; indica que a tarefa tem trabalho a fazer e está pronta para rodar. O &quot;esperando&quot; indica
+que a tarefa está esperando que alguma coisa externa termine, como as &lt;em&gt;I/O-bounds operations&lt;/em&gt; que discutimos anteriormente.&lt;/p&gt;
+&lt;p&gt;Para deixar as coisas simples, vamos imaginar que o &lt;em&gt;event loop&lt;/em&gt; mantenha uma lista para tarefas &quot;prontas para executar&quot;, e outra para &quot;esperando&quot;. Ele
+pega uma das &lt;em&gt;tasks&lt;/em&gt; prontas para executar e bota para rodar. E aqui vai um detalhe importante: &lt;a href=&quot;https://en.wikipedia.org/wiki/Cooperative_multitasking&quot; title=&quot;Cooperative multitasking&quot;&gt;A tarefa terá total controle da execução até o momento que
+ela, cooperativamente, devolve o controle para o &lt;em&gt;event loop&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Quando a tarefa devolve o controle para o &lt;em&gt;event loop&lt;/em&gt;, ele a coloca na determinada fila dependendo do seu estado. Ele (o &lt;em&gt;event loop&lt;/em&gt;) percorre a lista de tarefas &quot;esperando&quot;
+para checar se o &lt;em&gt;I/O&lt;/em&gt; de alguma delas já acabou, e portanto, se o seu estado agora é &quot;pronta para executar&quot;. Essa tarefa é então movida para a lista de prontos para executar,
+e o &lt;em&gt;event loop&lt;/em&gt; pega a próxima tarefa dessa mesma lista.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2a93ebfd4c3925f285434e70ae26e35a/dc616/iobound-asyncio.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.8125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACBUlEQVQoz2VSi3KTUBTk/z9DrY+OTsdWZ9Ta1mjTUduSyRNsGpMAERICaQivCxfWcyFEUs/MDq89e/bsRcrzHAKi9u4Zg3f5Ff5lA+2Xz3H77Ankg6e4f3uE4OoSD+efwVyn5GbZrk9aLBYwTfM/Qde2MZZl8F4XzsUZhu+O0Xl9iNH7E+ifPsD+co5NuwW2mO/1St1uFwKu6+4+iIqiCH6SwO73EN5ew2lcoHP4CvKLAyhHbzA7/Qjn7BSefAO2XJJLXjpM0xQJNQrUBTnniMIQ+mwGT9cQ/fyO8PoHeiTWJqc3FIN6cgz3WwMbGphSRIUgalWIVYJi0JY0GY2wplhSz0O8WiGibQJyFa9cxJRj4q2RVQ6r3esHk/AcYcTgBzE2foj1xsfjckh4os/wWzMwJsxtB1lec1gJJmkGxYgIMQZ07esRVN0vnBeDs5IXhBF6kzXaYw8dQk8LoP5hkHRdh2EYu8ksyaDOGO6sjMDxy+S4M8XqOcpESkFGg+/nKYbznJAVEHxJURQIqKpa5CAcloK8JhhvBf9FEyccQyvZ8SpI4jSLE6XfRFgQggNac0CiCqFvMKhGWK5MQlmxck6CKQ0mnlHyKr70OGzR4EccQZwV8Akhy/dyrkq8r/M21Ld3ylVDmjDMLXMHq4AFTdPQbDYxnU6LZ2v7fbm00WrJWD+s8Bc8j4vSfuQZJwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Diagrama de tempo comparando I/O waiting e CPU processing com asyncio&amp;quot;&quot;
+        title=&quot;I/O e CPU em um contexto I/O-Bound com asyncio (realpython.com)&quot;
+        src=&quot;/static/2a93ebfd4c3925f285434e70ae26e35a/e5715/iobound-asyncio.png&quot;
+        srcset=&quot;/static/2a93ebfd4c3925f285434e70ae26e35a/8514f/iobound-asyncio.png 192w,
+/static/2a93ebfd4c3925f285434e70ae26e35a/804b2/iobound-asyncio.png 384w,
+/static/2a93ebfd4c3925f285434e70ae26e35a/e5715/iobound-asyncio.png 768w,
+/static/2a93ebfd4c3925f285434e70ae26e35a/dc616/iobound-asyncio.png 933w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;I/O e CPU em um contexto I/O-Bound com asyncio (realpython.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;E o processo se repete.&lt;/p&gt;
+&lt;h3&gt;asyncio x multithreading&lt;/h3&gt;
+&lt;p&gt;O &lt;em&gt;async&lt;/em&gt; e &lt;em&gt;threads&lt;/em&gt; podem até parecer ter algumas semelhanças, mas há muitas diferenças. Para começar, as &quot;tarefas&quot; no contexto
+do &lt;em&gt;asyncio&lt;/em&gt; são chamadas de &lt;em&gt;coroutines&lt;/em&gt;. Recorremos ao &lt;a href=&quot;https://stackoverflow.com/questions/1934715/difference-between-a-coroutine-and-a-thread&quot; title=&quot;Difference between a “coroutine” and a “thread”?&quot;&gt;&lt;em&gt;Stackoverflow&lt;/em&gt; para deixar as coisas mais claras&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;With threads, the operating system switches running threads preemptively according to its scheduler, which is an algorithm in
+the operating system kernel. With coroutines, the programmer and programming language determine when to switch coroutines;
+in other words, tasks are cooperatively multitasked by pausing and resuming functions at set points, typically (but not
+necessarily) within a single thread.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Duas coisas importantes precisam ser observadas com essa afirmação:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Tarefas nunca são interrompidas no meio de uma operação, portanto, é mais fácil e seguro compartilhar recursos com &lt;em&gt;asyncio&lt;/em&gt; em comparação com &lt;em&gt;threads&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;É isso mesmo que você leu: Tipicamente (mas não necessariamente) dentro de uma única &lt;em&gt;thread&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Outro ponto importante é que assim como &lt;em&gt;threads&lt;/em&gt;, corrotinas são mais leves que subprocessos. Mas aposto que você ainda está chocado com o &lt;em&gt;single-thread&lt;/em&gt;, então
+vamos voltar a ele.&lt;/p&gt;
+&lt;h3&gt;O exemplo da enxadrista&lt;/h3&gt;
+&lt;p&gt;O &lt;em&gt;asyncio&lt;/em&gt; é (&lt;a href=&quot;https://docs.python.org/3/library/asyncio-dev.html#concurrency-and-multithreading&quot; title=&quot;Concurrency and Multithreading&quot;&gt;por padrão&lt;/a&gt;) &lt;em&gt;single-threaded&lt;/em&gt; e &lt;em&gt;single-process&lt;/em&gt;. Como ele consegue ser uma alternativa tão interessante quanto os seus primos?&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c3bb25e3bbc3a415256c9afebe6b824d/b17f8/queens-gambit.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABAv/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAARdD3O2RYf8A/8QAGhAAAgIDAAAAAAAAAAAAAAAAAQIDEBIiQf/aAAgBAQABBQJZmA1y7f8A/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8BJ//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAEEAwAAAAAAAAAAAAAAAAEAAhEhAxIg/9oACAEBAAY/AriAg7GKR2rj/8QAGhABAQEAAwEAAAAAAAAAAAAAAREAITFBUf/aAAgBAQABPyH0icnuhuPlyNktbJc9X3VM97//2gAMAwEAAgADAAAAEDzP/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAh/9oACAEDAQE/EAFl/8QAFhEBAQEAAAAAAAAAAAAAAAAAACEB/9oACAECAQE/ENqv/8QAHBABAQACAwEBAAAAAAAAAAAAAREAMSFBkWGh/9oACAEBAAE/EHkiXsdM9wSy3L6bDenn8xCy8JTV38xLfZa4yAoCOJUq+5//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;&amp;quot;Protagonista de Gambit&amp;#39;s Queen jogando xadresz&amp;quot;&quot;
+        title=&quot;Achou que não ia ter referência ao Gambito? (lifestyleasia.com)&quot;
+        src=&quot;/static/c3bb25e3bbc3a415256c9afebe6b824d/212bf/queens-gambit.jpg&quot;
+        srcset=&quot;/static/c3bb25e3bbc3a415256c9afebe6b824d/7809d/queens-gambit.jpg 192w,
+/static/c3bb25e3bbc3a415256c9afebe6b824d/4ecad/queens-gambit.jpg 384w,
+/static/c3bb25e3bbc3a415256c9afebe6b824d/212bf/queens-gambit.jpg 768w,
+/static/c3bb25e3bbc3a415256c9afebe6b824d/5ef17/queens-gambit.jpg 1152w,
+/static/c3bb25e3bbc3a415256c9afebe6b824d/ac99c/queens-gambit.jpg 1536w,
+/static/c3bb25e3bbc3a415256c9afebe6b824d/b17f8/queens-gambit.jpg 1600w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Achou que não ia ter referência ao Gambito? (lifestyleasia.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Voltamos a citar o &lt;em&gt;RealPython&lt;/em&gt;, &lt;a href=&quot;https://realpython.com/async-io-python/&quot; title=&quot;Async IO in Python&quot;&gt;trazendo o exemplo da enxadrista&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Chess master Judit Polgár hosts a chess exhibition in which she plays multiple amateur players.
+She has two ways of conducting the exhibition: synchronously and asynchronously.&lt;/p&gt;
+&lt;p&gt;Assumptions&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;24 opponents&lt;/li&gt;
+&lt;li&gt;Judit makes each chess move in 5 seconds&lt;/li&gt;
+&lt;li&gt;Opponents each take 55 seconds to make a move&lt;/li&gt;
+&lt;li&gt;Games average 30 pair-moves (60 moves total)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Synchronous version:&lt;/strong&gt; Judit plays one game at a time, never two at the same time, until the game is complete.
+Each game takes (55 + 5) * 30 == 1800 seconds, or 30 minutes. The entire exhibition takes 24 * 30 == 720 minutes, or &lt;strong&gt;12 hours&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Asynchronous version:&lt;/strong&gt; Judit moves from table to table, making one move at each table. She leaves the table and lets the opponent
+make their next move during the wait time. One move on all 24 games takes Judit 24 * 5 == 120 seconds, or 2 minutes.
+The entire exhibition is now cut down to 120 * 30 == 3600 seconds, or just &lt;strong&gt;1 hour&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Temos apenas uma &lt;em&gt;Judit&lt;/em&gt;, que pode fazer um movimento por vez por ela mesma. Ela jogar cada jogo de forma síncrona limita ela
+também ao tempo que o outro enxadrista tem para respondê-la. Mas de forma assíncrona, ela consegue lidar com múltiplas tarefas acontecendo concorrentemente,
+em turnos que permitem que ao tempo que um enxadrista está pensando em uma resposta, ela se move para o próximo, e retorna quando o primeiro estiver pronto.&lt;/p&gt;
+&lt;p&gt;Imagine que &lt;em&gt;Judit&lt;/em&gt; é o &lt;em&gt;event loop&lt;/em&gt;, e que as jogadas com os 24 oponentes são tarefas acontecendo concorrentemente.&lt;/p&gt;
+&lt;h3&gt;async/await&lt;/h3&gt;
+&lt;p&gt;Mas como?&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;Python&lt;/em&gt; apresenta algumas palavras reservadas que permitem informar ao &lt;em&gt;event loop&lt;/em&gt; o estado da tarefa sendo executada.
+Você provavelmente já ouviu falar das principais: &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Com a primeira, indicamos ao &lt;em&gt;Python&lt;/em&gt; que uma função trata-se de uma corrotina (ou um &lt;a href=&quot;https://www.python.org/dev/peps/pep-0525/&quot; title=&quot;Leia a PEP 525&quot;&gt;&lt;em&gt;generator&lt;/em&gt; assíncrono&lt;/a&gt;).
+Já com o &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;, estamos dando o controle de volta ao &lt;em&gt;event loop&lt;/em&gt;, e sinalizando que podemos esperar pelo resultado de determinada operação.&lt;/p&gt;
+&lt;p&gt;Ou seja, com o código abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    r &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; r&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Queremos dizer:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Suspenda a execução de g(),
+até que o que quer que a gente esteja esperando em f()
+seja retornado.
+
+Nesse meio tempo, vá executar alguma outra coisa...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;E note que bibliotecas para &lt;em&gt;I/O&lt;/em&gt; precisam suportar essa forma de escrita, caso contrário não estaremos de fato fazendo uso das propriedades do &lt;em&gt;async&lt;/em&gt;.&lt;/p&gt;
+&lt;h3&gt;Na prática&lt;/h3&gt;
+&lt;p&gt;Voltamos ao mesmo exemplo usado com &lt;em&gt;threads&lt;/em&gt; e &lt;em&gt;multiprocessing&lt;/em&gt;, mas agora reescrito para utilizar a biblioteca &lt;code class=&quot;language-text&quot;&gt;asyncio&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# async.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; asyncio
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; httpx
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; itertools
+
+URLS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;http://www.foxnews.com/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;http://www.cnn.com/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;http://www.bbc.co.uk/&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;measure_url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;client&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    resp &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; client&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;get&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    length &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;resp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;text&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;with&lt;/span&gt; httpx&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;AsyncClient&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;as&lt;/span&gt; client&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        results &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;await&lt;/span&gt; asyncio&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;gather&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+            &lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;token builtin&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;measure_url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; itertools&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;repeat&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;client&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; URLS&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; length&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; results&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string-interpolation&quot;&gt;&lt;span class=&quot;token string&quot;&gt;f&quot;&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; tem &lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;length&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt; bytes&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+
+
+&lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; __name__ &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;__main__&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    asyncio&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;run&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;main&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note o uso das palavras reservadas &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;, e do inicializador do &lt;em&gt;event loop&lt;/em&gt;. Além, claro,
+do uso de bibliotecas não bloqueantes como o caso da &lt;a href=&quot;https://www.python-httpx.org&quot; title=&quot;A next-generation HTTP client for Python&quot;&gt;&lt;em&gt;httpx&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;E como fica o comparativo com &lt;em&gt;threads&lt;/em&gt; e processos? Mais uma vez rodando com &lt;code class=&quot;language-text&quot;&gt;time&lt;/code&gt;, temos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ time python async.py
+http://www.foxnews.com/ tem 339756 bytes
+http://www.cnn.com/ tem 1145150 bytes
+http://www.bbc.co.uk/ tem 317556 bytes
+python async.py  0.22s user 0.07s system 13% cpu 2.151 total&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nada mal. Quase metade do tempo usando &lt;code class=&quot;language-text&quot;&gt;multiprocessing&lt;/code&gt;, e um pouco mais que usando &lt;em&gt;threads&lt;/em&gt;. Isso não quer
+dizer que &lt;em&gt;asyncio&lt;/em&gt; é necessariamento mais lento, &lt;a href=&quot;https://stackoverflow.com/questions/8546273/is-non-blocking-i-o-really-faster-than-multi-threaded-blocking-i-o-how&quot; title=&quot;Is non-blocking I/O really faster than multi-threaded blocking I/O? How?&quot;&gt;apenas que o contexto desse experimento favoreceu o exemplo com &lt;em&gt;threads&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O propósito do comparativo com &lt;code class=&quot;language-text&quot;&gt;time&lt;/code&gt; nesse artigo é apenas ilustrar que há diferença entre as opções possíveis. Mas se
+você não está satisfeito com o resultado, o &lt;em&gt;Stackoverflow&lt;/em&gt; &lt;a href=&quot;https://stackoverflow.com/questions/27435284/multiprocessing-vs-multithreading-vs-asyncio-in-python-3&quot; title=&quot;multiprocessing vs multithreading vs asyncio in Python 3&quot;&gt;pode ajudar novamente&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU Bound =&gt; Multi Processing&lt;/li&gt;
+&lt;li&gt;I/O Bound, Fast I/O, Limited Number of Connections =&gt; Multi Threading&lt;/li&gt;
+&lt;li&gt;I/O Bound, Slow I/O, Many connections =&gt; Asyncio&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Vai depender do contexto do problema sendo resolvido.&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Eu lembro de estar em mais de uma entrevista de emprego, e ser perguntado
+sobre como fazer &lt;em&gt;CPU-bound&lt;/em&gt; e &lt;em&gt;IO-bound&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;. &lt;/p&gt;
+&lt;p&gt;Agora sabemos o básico sobre os principais conceitos relacionados à concorrência em &lt;em&gt;Python&lt;/em&gt;. Temos uma perspectiva
+mais detalhada sobre a &lt;em&gt;GIL&lt;/em&gt;, e não entramos no mérito de debater se ela é boa ou ruim.
+Entender a natureza das &lt;em&gt;threads&lt;/em&gt; na linguagem é mais importante, e é crucial para decidirmos da melhor forma como solucionar
+problemas concorrentes.&lt;/p&gt;
+&lt;p&gt;E optar pelo &lt;em&gt;async/ASGI&lt;/em&gt; faz parte disso também. Portanto, agora que temos todo o contexto de concorrência e paralelismo,
+no próximo &lt;em&gt;post&lt;/em&gt; vamos revisitar o funcionamento do &lt;em&gt;WSGI&lt;/em&gt;, compará-lo com o seu primo mais novo, e compreender a motivação por trás da alternativa.&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referências&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://callhub.io/understanding-python-gil/&quot;&gt;CallHub - Understanding Python GIL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.to/mervynlee94/multi-threading-vs-event-loop-in-python-1h4h&quot;&gt;Dev.to - Multi-threading vs Event Loop in Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://diogommartins.wordpress.com/2017/04/07/concorrencia-e-paralelismo-threads-multiplos-processos-e-asyncio-parte-1/&quot;&gt;Diogo M Martins - Concorrência e paralelismo: Threads, múltiplos processos e asyncio - Parte 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/fintechexplained/advanced-python-concurrency-and-parallelism-82e378f26ced&quot;&gt;FinTechExplained - Advanced Python: Concurrency And Parallelism&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://medium.com/fullstackai/concurrency-in-python-cooperative-vs-preemptive-scheduling-5feaed7f6e53&quot;&gt;FullStackAI - Concurrency in Python: Cooperative vs Preemptive Scheduling&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://levelup.gitconnected.com/diy-multithreading-vs-multiprocessing-in-python-fb93698ca7f3&quot;&gt;Gitconnected - DIY: Multithreading vs Multiprocessing in Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://blog.miguelgrinberg.com/post/sync-vs-async-python-what-is-the-difference&quot;&gt;Miguel Grinberg - Sync vs. Async Python: What is the Difference?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.blopig.com/blog/2019/01/making-the-most-of-your-cpus-when-using-python/&quot;&gt;Oxford Protein Informatics Group - Making the most of your CPUs when using python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://realpython.com/async-io-python/&quot;&gt;RealPython - Async IO in Python: A Complete Walkthrough&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://realpython.com/python-concurrency/&quot;&gt;RealPython - Speed Up Your Python Program With Concurrency&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://realpython.com/python-gil/&quot;&gt;RealPython - What Is the Python Global Interpreter Lock (GIL)?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackify.com/python-garbage-collection/&quot;&gt;Stackify - Python Garbage Collection: What It Is and How It Works&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/1934715/difference-between-a-coroutine-and-a-thread&quot;&gt;Stackoverflow - Difference between a “coroutine” and a “thread”?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/33352298/how-does-python-handle-thread-locking-context-switching&quot;&gt;Stackoverflow - How does python handle thread locking / context switching?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/8546273/is-non-blocking-i-o-really-faster-than-multi-threaded-blocking-i-o-how&quot;&gt;Stackoverflow - Is non-blocking I/O really faster than multi-threaded blocking I/O? How?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/27435284/multiprocessing-vs-multithreading-vs-asyncio-in-python-3&quot;&gt;Stackoverflow - multiprocessing vs multithreading vs asyncio in Python 3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3044580/multiprocessing-vs-threading-python&quot;&gt;Stackoverflow - Multiprocessing vs Threading Python [duplicate]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/868568/what-do-the-terms-cpu-bound-and-i-o-bound-mean&quot;&gt;Stackoverflow - What do the terms “CPU bound” and “I/O bound” mean?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism&quot;&gt;Stackoverflow - What is the difference between concurrency and parallelism?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://testdriven.io/blog/python-concurrency-parallelism/&quot;&gt;Testdriven.io - Parallelism, Concurrency, and AsyncIO in Python - by example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://timber.io/blog/multiprocessing-vs-multithreading-in-python-what-you-need-to-know/&quot;&gt;Timber - Multiprocessing Vs. Threading In Python: What You Need To Know.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=iG6fr81xHKA&quot;&gt;Youtube - Miguel Grinberg Asynchronous Python for the Complete Beginner PyCon 2017&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item></channel></rss>
