@@ -165,7 +165,7 @@ não consigo nem imaginar o quão traumática essa experiência poderia ser.
 
 <iframe src="https://www.youtube.com/embed/y8OnoxKotPQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Todo o _buzz_ em volta de _SOA_ e _microservices_ fez com que automaticamente aplicações monolíticas passasem a ser "o que há de pior na sua stack".
+Todo o _buzz_ em volta de _SOA_ e _microservices_ fez com que automaticamente aplicações monolíticas passassem a ser "o que há de pior na sua stack".
 Se ontem lemos um artigo sobre todo o _lore_ dos microsserviços, [amanhã estamos com um serrote desmembrando um monolito](https://changelog.com/posts/monoliths-are-the-future "Monoliths are the future"), e no fim do dia a motivação era porque não aguentamos
 mais lidar com conflitos no _Git_.
 
