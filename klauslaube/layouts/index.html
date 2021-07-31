@@ -1,0 +1,83 @@
+{{ define "main" }}
+<div class="mt-20 max-w-2xl px-6 mx-auto">
+  <div class="text-center">
+    <h2 class="text-3xl font-semibold text-gray-800">
+      Olá! Me chamo
+      <span class="bg-red-600 text-white rounded px-1">Klaus Laube</span>.
+    </h2>
+
+    <p class="text-gray-600 mt-4">
+      Escrevo sobre Python, Django, engenharia de software e desenvolvimento
+      web.<br />Eu também escrevo lá no
+      <a
+        href="https://medium.com/@kplaube"
+        class="text-red-700 hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Medium</a
+      >.
+    </p>
+
+    <div class="flex items-end justify-center mt-8">
+      <img
+        src="https://avatars.githubusercontent.com/u/477202?v=4"
+        alt="Avatar"
+        class="w-36 h-36 rounded-full"
+      />
+    </div>
+  </div>
+
+  <div class="pt-20 bg-white">
+    <h2 class="text-2xl font-semibold text-gray-800 text-center">
+      Últimos posts
+    </h2>
+    {{ with .Site.GetPage "/posts" }} {{ range (first 4 .Pages) }}
+    <div class="mt-6">
+      <a
+        class="max-w-2xl w-full block bg-white shadow-md rounded-md border-t-4 border-red-400 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+        href="{{ .Permalink }}"
+      >
+        <div class="pb-4 pt-4 px-6">
+          <h3 class="text-lg font-medium text-gray-700">
+            {{ .Title }} •
+
+          <time
+            class="text-gray-600 font-light text-sm"
+            datetime="{{ .PublishDate.Format `2006-01-02T15:05:05` | safeHTML }}">
+            {{ partial "publish_date.html" . }}
+          </time>
+          </h3>
+          <p class="hidden md:block md:pb-4 mt-2 text-gray-600">
+            {{ .Summary }}
+          </p>
+        </div>
+      </a>
+    </div>
+    {{ end }}
+
+    <div class="flex items-center justify-center mt-12">
+      <a
+        class="flex items-center text-gray-600 hover:text-red-700"
+        href="{{ .Permalink }}"
+      >
+        <span>Veja todos</span>
+
+        <svg
+          class="h-5 w-5 ml-1"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          ></path>
+        </svg>
+      </a>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

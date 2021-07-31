@@ -1,0 +1,37 @@
+{{ define "main" }}
+<div class="mt-20 max-w-2xl px-6 mx-auto">
+  <h1 class="text-3xl font-semibold text-gray-800 text-center">
+    {{ .Title }}{{ if gt .Paginator.PageNumber 1 }}<small class="block text-xs">(Página {{ .Paginator.PageNumber }})</small>{{ end }}
+  </h1>
+
+  <div class="pt-10">
+    {{ range .Paginator.Pages }}
+    <article class="max-w-md mx-auto mt-10 rounded-md shadow-md overflow-hidden md:max-w-2xl border-t-4 border-red-400">
+      <div class="md:flex">
+        <div class="md:flex-shrink-0">
+          <img class="h-48 md:h-full w-full md:w-48 object-cover" src="{{ .Params.Thumbnail }}" />
+        </div>
+        <div class="p-8">
+          <h2 class="text-xl font-medium text-gray-700">
+            <a href="{{ .Permalink }}"
+              >{{ .Title }} •
+              <time
+                class="text-gray-600 font-light text-sm"
+                datetime="{{ .PublishDate.Format `2006-01-02T15:05:05` | safeHTML }}">
+                {{ partial "publish_date.html" . }}
+              </time>
+            </a>
+          </h2>
+
+          <p class="mt-4 text-gray-500">
+            {{ .Summary }}
+          </p>
+        </div>
+      </div>
+    </article>
+    {{ end }}
+
+    {{ partial "pagination.html" . }}
+  </div>
+</div>
+{{ end }}

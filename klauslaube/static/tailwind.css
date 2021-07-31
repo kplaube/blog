@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.content {
+    @apply text-lg;
+}
+
+.content .highlight {
+    @apply border-t-2 border-b-2 mt-8 overflow-x-auto;
+}
+
+.content .highlight pre {
+    @apply p-6;
+}
+
+.content > blockquote,
+.content > pre {
+    @apply block p-6 bg-gray-50 mt-8 text-gray-600 overflow-x-scroll;
+}
+
+.content > blockquote p {
+    @apply mt-8 text-gray-600;
+}
+.content > blockquote p:first-child {
+    @apply mt-0;
+}
+
+.content p > code {
+    @apply bg-gray-200 text-gray-600 rounded px-1;
+}
+
+.content a {
+    @apply text-red-600 hover:underline;
+}
+
+.content h2 {
+    @apply text-2xl font-semibold text-gray-800 mt-10;
+}
+
+.content h3 {
+    @apply text-xl font-semibold text-gray-600 mt-10;
+}
+
+.content p {
+    @apply text-gray-600 mt-8;
+}
+
+.content ul {
+    @apply list-disc list-inside pt-2;
+}
+
+.content li {
+    @apply mt-2 text-gray-600;
+}
+
+.content img {
+    @apply mx-auto;
+}
+
+.content figcaption {
+    @apply text-center text-gray-400 text-sm mt-4;
+}

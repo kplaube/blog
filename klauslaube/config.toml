@@ -1,0 +1,15 @@
+baseURL = "https://klauslaube.com.br/"
+languageCode = "pt-br"
+title = "Klaus Laube"
+uglyurls = true
+
+[permalinks]
+  posts = "/:year/:month/:day/:slug"
+  tags = "/tag/:slug"
+
+[markup]
+  [markup.highlight]
+    style = "xcode"
+
+[params]
+  contactURL = "https://about.me/klauslaube"

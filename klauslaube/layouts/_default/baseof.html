@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ $.Site.LanguageCode | default "en " }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ block "title" . }}{{ with .Params.Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body class="font-sans bg-white">
+    <div class="w-full">
+      {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+      {{ block "main" . }}{{ end }}
+      {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
+    </div>
+  </body>
+</html>

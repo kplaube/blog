@@ -1,0 +1,69 @@
+<header class="shadow">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <a href="/" class="flex items-center text-gray-800 hover:text-red-700">
+        <span class="font-medium text-sm md:text-base">
+          {
+          <span class="text-red-700"
+            >{{ replaceRE "(\\s)" "" .Site.Title | lower }}</span
+          >
+          }
+        </span>
+      </a>
+      <div class="flex items-center -mx-2">
+        <a
+          href="https://www.linkedin.com/in/klauslaube/"
+          class="flex items-center mx-2 text-gray-400 hover:text-red-700"
+          target="_blank"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+            />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
+        </a>
+        <a
+          href="https://github.com/kplaube"
+          class="flex items-center mx-2 text-gray-400 hover:text-red-700"
+          target="_blank"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+            />
+          </svg>
+        </a>
+        <a
+          href="{{ .Site.Params.ContactURL }}"
+          class="flex items-center mx-2 text-gray-400 hover:text-red-700"
+          target="_blank"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 96 96" fill="currentColor">
+            <path
+              d="M80,12H16C9.373,12,4,17.373,4,24v48c0,6.627,5.373,12,12,12h64c6.627,0,12-5.373,12-12V24C92,17.373,86.627,12,80,12z   M80,20c0.459,0,0.893,0.093,1.303,0.235L48,46.877L14.697,20.235C15.108,20.093,15.541,20,16,20H80z M80,76H16c-2.21,0-4-1.79-4-4  V28.323l33.501,26.8C46.231,55.708,47.116,56,48,56s1.769-0.292,2.499-0.877L84,28.323V72C84,74.21,82.21,76,80,76z"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
