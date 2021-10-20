@@ -15,19 +15,19 @@ Make sure you have Node.js >= 11.
 The `install` task will resolve the dependencies like Gatsby, React, Styled Components, etc.
 
 ```
-npm install
+yarn install
 ```
 
 To run the development server:
 
 ```
-npm start
+yarn start
 ```
 
 And to deploy:
 
 ```
-npm run deploy
+yarn run deploy
 ```
 
 Contributions are very welcome!
