@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - design-de-software]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Software Design x Software Architecture]]></title><description><![CDATA[Uma das características que eu mais gosto no agile
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - design-de-software]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Software Design x Software Architecture]]></title><description><![CDATA[Uma das características que eu mais gosto no agile
 é o conhecimento compartilhado nos times. E eu não falo apenas dos desenvolvedores generalistas,
 falo também das responsabilidades que em um modelo mais parecido com o
 waterfall seriam atribuídas a um indivíduo apenas, mas que no ágil são diluídas…]]></description><link>https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/01/07/software-design-software-architecture.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 07 Jan 2020 16:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Uma das características que eu mais gosto no &lt;a href=&quot;/tag/agile.html&quot; title=&quot;Leia mais sobre ágil&quot;&gt;&lt;em&gt;agile&lt;/em&gt;&lt;/a&gt;
@@ -19,7 +19,7 @@ Quem pensa no longo prazo? Na comunicação entre serviços e componentes?&lt;/p
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 733px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 733px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -30,7 +30,7 @@ Quem pensa no longo prazo? Na comunicação entre serviços e componentes?&lt;/p
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.77083333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGZlUVhYuh//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAECAxIhI0H/2gAIAQEAAQUCyo9sZWSIrcf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAAEAECMSH/2gAIAQEABj8C6sMgqv/EABsQAQACAwEBAAAAAAAAAAAAAAEAESExUWGR/9oACAEBAAE/IVQCrnAT1fJQDBfIWrRiWz//2gAMAwEAAgADAAAAEIQf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QR//EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAgBAgEBPxCMf//EAB4QAAEEAQUAAAAAAAAAAAAAAAEAESExQWFxkaHx/9oACAEBAAE/EG2CA8QBIviaL2mb7CKNicNUTAihDZW1wF//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.77083333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGZlTXhUuh//8QAGxAAAgIDAQAAAAAAAAAAAAAAAAIBEQMSM0H/2gAIAQEAAQUCm4X3RjKJ2s//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAEAAgMAAAAAAAAAAAAAAAAAITEBEGH/2gAIAQEABj8ClClMc1//xAAbEAADAQADAQAAAAAAAAAAAAAAAREhMVFhkf/aAAgBAQABPyFoMUjwh6PgqcUS9Cp5cMKP/9oADAMBAAIAAwAAABADH//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EEf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8QjH//xAAdEAEAAgICAwAAAAAAAAAAAAABABEhMVFhcZHh/9oACAEBAAE/EFYg0ghuKYb3KPohy+F8McUWOGKqdh6J/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -64,7 +64,7 @@ em escalas diferentes.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 734px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 734px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -75,7 +75,7 @@ em escalas diferentes.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.14583333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIBAwQF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB5Trfm8ZJR//EABkQAAIDAQAAAAAAAAAAAAAAAAECABIhA//aAAgBAQABBQJRH5kLkTBe0JIb/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQElFx/9oACAEBAAY/AhPVFjgz/8QAGxABAQEAAgMAAAAAAAAAAAAAAREAITFBUaH/2gAIAQEAAT8hKOEPVNRwmPtNkcMA/WIL53//2gAMAwEAAgADAAAAEH/v/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EFxn/8QAGxABAQACAwEAAAAAAAAAAAAAAREAUSExgbH/2gAIAQEAAT8QgEOqzBPSDS2MZ9yYBQ73l+wDIJ6OFewgTbWvMNNRczvP/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.14583333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB5U1fm8Qyj//EABkQAQADAQEAAAAAAAAAAAAAAAEAAhIhA//aAAgBAQABBQKpL+SHJTld6io//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEQElFhcf/aAAgBAQAGPwITyots4M//xAAbEAEAAgIDAAAAAAAAAAAAAAABABExQSFRof/aAAgBAQABPyEKYBcWS8HUPceFMEAfUMr3P//aAAwDAQACAAMAAAAQzC//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAXEQEBAQEAAAAAAAAAAAAAAAABABEh/9oACAECAQE/EFxu3//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExUYFhccH/2gAIAQEAAT8QqyGC2oXiUOLvNNevsRAMirDfmbCaEE1wy6XABOXF66gJ0Xc//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -104,7 +104,7 @@ em escalas diferentes.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 559px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 559px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -115,7 +115,7 @@ em escalas diferentes.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsSAAALEgHS3X78AAADHklEQVQozw2S7U8aBwCHL0sWV1l1Nd0al7KqvBx33nGewAl6JyDj5Ricgt4pOakileEocgKHaO2sGvDA3vnSERydkTkNTbXbsm6fljRpsi/rX1X+gF/y/J48AGIahHEENRth3EC5rQRlgoYNrsAYzVA96i8DDP3h7Zv/ri9pv6fjC1X3vbvd93owAiKdBEHhADRk4KJBh5v8euA+5RkfsdvuD6hH7CPDpLnjzucJnvtHeXoQCzHjI5/eutV5W9XZfdtoMTp9dhA1AFanaTkxNcW6+qD++Vgg/iikMWr4pclcPtrV2xNlvOfrcYmnOWp4wNDfq+5V9XRPsq518eGYywJAGAwaIb3RoIG1QwQG47AO0VooHDFBn6g67JTtbDuzk2ARWNsG+ayrU3Wnq30Qs6CYBQFMY3jyhwjNONX6Pi7KMDM+te6BL+xhF8J2ryv/pChLu0J6ObOe42PzpIO62/sV6R6NPAzjVhwYnTD7v6OcXpseA6fnPCzn0WP6eJr//e/Wu//fv/7rOlvM7Uh7F62L6z9vWjevZiIz/ikqneIcPhsAYzBG4FoE/Eb3YNCEgkODbXOPxdTVzW+NZr328kWz9et+pZwVhdrL+p60F08sQZhBg4CQEQLo6W9FMRaa9aEEKhRiyytzZrtVOqqeXTQazdPKYeX8spleS8knz+UXslBYTSTj0TibzS9N+O2AkyaHCdRM4kYr6nRbLaNokAsqtcOjutIeH9WUxvnP8k/y6S/17fL247VkYTM3w/lDYYcrQAK4DXd4ne1I+sCBca+dmQ3lirnCZl6pydUjqXoo1c/qklIpH5TErfyjlVg6kwiFA0bLEIiAALc4VRQXwxGvL+i+bDVe/fH6+Ylc2MyeNE7EjXz1sHJ8erxdfvZkdyu7ISyvLJYqu82ri51ynp0PAp6gQw9rLKN47an45ri8MM9Os5OpteS+UuLmQrvS3o70LCUkBXG1zRzhw1Wp9O/V6VYhwczS7cKsDtpBkMRBgs/MBjW6fu2gbkX4nhy3urxOSdkvHZQy+dWFJT5XFKa5gLKRfSv/yDMTesTwETw6CZE8kmlTAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 64.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAADHUlEQVQozx2SfVMSCQCHd7oZmzMnJ9Gcq7vAtV1YcWFdFnlZVmAPDkLpEBcV3TAQFcFYoAMFXwCFUyghxACB5NKyZprGuZqaqT/6sy/QF8r6AM/8Zp7fA8jUuFCCoAQqVaCUUaHUESJcaHXQxlF1R+8135Ln26cPH0+PJYS0nXe183p3zx/XZWqUNpODMgTA1diEcxRTYAIRqPlLKxke4sMCpV4lwsXtXVf3Yty7XHzPwyixwUttbe0dVzq7u3AVTtKkAOoDTOPaBysOg4WEpNCSn5maMfeJwUCEve+1tfM6E/POo9DszpTRrJAIhH283u6umz3ueVskwooJBJDKpf0DEDQII5hIQgyihBhGb5N6GYJBQNsvLubus4Qvxo7d/L33166OtiuXeTd6UGJgWIPDKARQRvXC4rRcg0MS2MHepQzkLUhgnRo1/G2QqRWb28l8Oh7ifPeXvZbxMRgR8n7r0Vu0VsYCDcCAwUrZ7TRJy1EFOue22hgDJIVX08Hzj28+f/3SOnvuC/rzpccnr07evj+vNWr0HZ2TNXNB55BaAqAyVIiJ+TAIIv0wikAowof5249SZ29fNE/r1WaldfZfMr21kdqoNKrZfNYxPdE/AIqkSL8IBGzTln+ibsqoGh4hItF5u9OiMlDlevn4tPG0Wd4v7zdajaXAwmH9MJPPRGKcy83e8zDLK7OYEgOMVq1KMySncKWeMFk0JI2zXle5fnBw9KTWqpYqxWqzWjgsVJqVeCoefOgPxzjGYWJdoxdFXPwsG9aqQeSHcPmIwjppC0dDG+lEqfYkV9wr/sRyhVw2nwmvhbzL7gfcIqUjRZhYcJsPsF77ZsKrM5MTTtvp62evzt9kcjub24lirbS6HruAi0+LyX9T69vr4bWg1zf3uPTooHa4thXQmTTAn3coEQrRBvL1fraVS7rmZpgpWzy1urWzPuua3CvmktmNALcUXg35gwszLHNyXP+/WYjFLvY0gEqvUtHkyIjyiJu/N0YLwFuYYoiLrsgIyeSsY7ewu5PLLPo9iz5PMBoYt5me76ZfbgXtYzQfAr8DBQMH4Y+zFBsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -148,7 +148,7 @@ em escalas diferentes.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -159,7 +159,7 @@ em escalas diferentes.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHE9V5IxWD/xAAaEAACAgMAAAAAAAAAAAAAAAAAAQIRAxAS/9oACAEBAAEFAuWyWOii9M//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAXEAADAQAAAAAAAAAAAAAAAAAAATEg/9oACAEBAAY/AoQjx//EABkQAQEBAQEBAAAAAAAAAAAAAAERACExcf/aAAgBAQABPyEp74o8uRQfh2azlPmFq5N3/9oADAMBAAIAAwAAABD4/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxCq/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EABwQAQACAwADAAAAAAAAAAAAAAEAESExUUFh8P/aAAgBAQABPxBR2qC1m4DXFvamZqiGkUfXc7Y9vEFi1P/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABxWNJyJhsH//EABoQAAICAwAAAAAAAAAAAAAAAAABERICAxD/2gAIAQEAAQUCq2Za4Kk8Z//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAIDAAAAAAAAAAAAAAAAAAAxASAy/9oACAEBAAY/AkZFNP/EABkQAQEBAQEBAAAAAAAAAAAAAAERACFRcf/aAAgBAQABPyEt74o8yKCkOzUct8wvdXJu/9oADAMBAAIAAwAAABC7/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxCq/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExEEFRYfD/2gAIAQEAAT8QaY6gs23A6qb21maYBpsD83xT5uoLFqf/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -192,7 +192,7 @@ em escalas diferentes.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -203,7 +203,7 @@ em escalas diferentes.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 38.541666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA5UlEQVQY051QSY6EMAzk/6/jC8AgBKOQjTg7nupE6kXq0/jglO2qSuKBv8XdQkpZSun4K224rgsHSCGEnDNAbgGgtU4p9U7P3vtay0s8TROOGCNc3i+ptVproXm+BR2tjffpQwx7DJB7KwRP5EupEEBMRLGNUDacfcBlTayUAgPi2BvM1jrCvLGRnXPkbC+B8fyUOXTxuq74LbpwwZeQCVzH2sA+SXmivNyt9J1iUUoSBUyV4VJ5GMcRAiHEPM8Ay7KcpxCKt/2xCCwcvqfi/ZdjKsdxGGO3g6cfzpmHfccOAv8r/gA6tdMljHwOFQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 38.541666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAA4UlEQVQY051QyXLDIAz1//+dv6A+2NNOAgSzS2DUl9AknmlP1QG0vEUwya/ovR/H0VozxuBEjo78FZO1FletNaVUnzHI+74jRzKaRBRjRPkmr+uKCwOQz+YAhRDOUCzknCc6kZdlGVbMjBoJ5FPKSIAHOcYA6deIuaYihR5k7/3wgcTQDzER8UseG+Ucxzo5Z/wHgFx/nD9yLnie1hrCSilYWSfGSikFJZbffTe3XqhqjWm+7aIMFpFpnmfnHJjbtkHicVowL0rwEHTghhJo5qbvWunrKuunNJCvl8BM8q/4Bvw60xnCZDY3AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -236,7 +236,7 @@ com a camada mais próxima de negócios (&lt;em&gt;high-level&lt;/em&gt;, mais c
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -247,7 +247,7 @@ com a camada mais próxima de negócios (&lt;em&gt;high-level&lt;/em&gt;, mais c
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABwNwjYWGv/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAIDAUFD/9oACAEBAAEFAlXCiZN9lM8qHP/EABYRAQEBAAAAAAAAAAAAAAAAAAARQf/aAAgBAwEBPwHEf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAEDBQAAAAAAAAAAAAAAAAEAAhAhMUFygf/aAAgBAQAGPwJpuCqZh/E3UR//xAAdEAACAgEFAAAAAAAAAAAAAAAAARExIRBRcaGx/9oACAEBAAE/IZzosTQpqidDzwmkLM2/rSFTg//aAAwDAQACAAMAAAAQDA//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8Q2EP/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAIAQIBAT8QjX//xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFRYYGx/9oACAEBAAE/EKA3IeC7D3M97HAmt5h1qmAzuaqb6ajUurVHjJkDCnyf/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABwNwjYWGv/8QAGRAAAwEBAQAAAAAAAAAAAAAAAQIDADFD/9oACAEBAAEFAlUaqCbmU940w5//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPwFH/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAQQDAAAAAAAAAAAAAAAAAQACEEEhcoH/2gAIAQEABj8CaaKxcP4m6iP/xAAcEAEAAwACAwAAAAAAAAAAAAABABExECFRobH/2gAIAQEAAT8hvNTpeQGYHqPehCHdnn64jCf/2gAMAwEAAgADAAAAEAwP/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAB/9oACAEDAQE/ENCF/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8QJ//EAB0QAAICAgMBAAAAAAAAAAAAAAERACExQVFhgbH/2gAIAQEAAT8QQN6BxNge1GagA0kWuCJXKAOpzJJerQiQxwjqpQAoIfJ//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -296,7 +296,7 @@ Para que eu consiga ouví-las com facilidade e maior frequência.&lt;/code&gt;&l
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 580px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 580px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -307,7 +307,7 @@ Para que eu consiga ouví-las com facilidade e maior frequência.&lt;/code&gt;&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 61.45833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAeRNZhI//8QAGRAAAgMBAAAAAAAAAAAAAAAAADEBAhEi/9oACAEBAAEFAmS2bwWf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFRABAQAAAAAAAAAAAAAAAAAAICH/2gAIAQEABj8Ci//EABsQAAIDAAMAAAAAAAAAAAAAAAERACExEEGh/9oACAEBAAE/ISCAQ5AGIcM+xlL7Ubs3fH//2gAMAwEAAgADAAAAEGvP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPxBG1W5CaUUGvWXsAorQMrtPh5WMunQDs6z/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 61.45833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHIVqiRQ//EABkQAAIDAQAAAAAAAAAAAAAAAAAxAQIRIv/aAAgBAQABBQJks3jSz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABsQAQADAQADAAAAAAAAAAAAAAEAESExEEGh/9oACAEBAAE/IUSIPIDjCO1b9lqt+6ltXd8f/9oADAMBAAIAAwAAABBbz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQADAQEBAAAAAAAAAAAAAAEAITERQVH/2gAIAQEAAT8QspuiEsoC3WeaEOAgZvnw85TOmgDZrP/Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -350,7 +350,7 @@ relação aos desenvolvedores. Algumas decisões de &lt;em&gt;design&lt;/em&gt; 
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 694px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 694px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -361,7 +361,7 @@ relação aos desenvolvedores. Algumas decisões de &lt;em&gt;design&lt;/em&gt; 
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 40.10416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABF0lEQVQY04WQW2uDMBTH/f5fZux1bLDtYYXB2OWhVKoVV7WJxltuJvEkLur6UOjYj0M4Obf8cwJjRsbldMZaixFy1q7XEuM0TZXS0zUC0IxXUVl3AOMaMuPoFryPMI7iiHF+0WTn1ORcQMkRyOfN4ysTwkdgGGhdGyFAKUmIW9ucs8Y4PxRgPlcDCA77neyObx9fBCHVtOiQVEmCt9s+yxRjehigp8C4FcKbM+ZCdp7ns1SjfSntelI3ymiMSx/0Pl/k+BV4ob92ZpZ9+o5rFN7ePx+Lgitoqex6SghpmjbPC6O18A8u/7+yMNkVTbp52LxnRWHcxJTt2VxNKfXpnScMpz8I3CjbKrl7etlH8bJqKwe1CPyfHzuWzHl1k7e7AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 40.10416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABJElEQVQY03VQ207EIBDt/3+Mj/rgw8ZEo0ajiVk37rp1u6690gstFCiXQShJY6KekGEOHM7MEEmpRiastWA9lFJZlkEg1tYIOSqltH8hkrwn6ND2xBgdjqYf0jRNd9stpaN3XyxDAhCN7adAL2dXD1z4+loIgrGLWkpW18BY0IFSoDUYA1L5fKZREr/RJrl/fG6rijdtHsfVfl+u1/3pJAiRnCvca0L9ogRcU6H8HKMszdxmtBIDGTCum0ZMU1mWfuC6paOvDNrArIe5iQDfdvH1URfx+eomr9DAZDcw3A8Ioa7r0jTTSjuvILXLzMuHjc0RJXeXt095WU7GDlz3ZDTGYIzdm83rZrd7t/8gAkmbIr5YXR+OieNCGcbFcu1c4FfBBd9xHsyJ43DSpgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

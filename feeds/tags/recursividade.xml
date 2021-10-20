@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - recursividade]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Recursividade e o "dividir e conquistar"]]></title><description><![CDATA[Sabe aquelas pessoas que têm problemas em determinar qual lado é o "esquerdo" e qual lado é o "direito"?
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - recursividade]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Recursividade e o "dividir e conquistar"]]></title><description><![CDATA[Sabe aquelas pessoas que têm problemas em determinar qual lado é o "esquerdo" e qual lado é o "direito"?
 Admito, sem orgulho algum, que tenho o mesmo problema com recursividade. Meu cérebro simplesmente se embaralha,
 e preciso fazer um grande esforço para imaginar o que está acontecendo. A boa…]]></description><link>https://klauslaube.com.br/2019/03/25/recursividade-e-dividir-e-conquistar.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/03/25/recursividade-e-dividir-e-conquistar.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 25 Mar 2019 18:55:00 GMT</pubDate><content:encoded>&lt;p&gt;Sabe aquelas pessoas que têm problemas em determinar qual lado é o &quot;esquerdo&quot; e qual lado é o &quot;direito&quot;?
 Admito, sem orgulho algum, que tenho o mesmo problema com recursividade. Meu cérebro simplesmente se embaralha,
@@ -16,7 +16,7 @@ e preciso fazer um grande esforço para imaginar o que está acontecendo.&lt;/p&
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -27,7 +27,7 @@ e preciso fazer um grande esforço para imaginar o que está acontecendo.&lt;/p&
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAB1c2sIhbf/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIBEwQRM//aAAgBAQABBQK5SWsVm1Jjj9P/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERL/2gAIAQMBAT8BjL//xAAXEQADAQAAAAAAAAAAAAAAAAAAARES/9oACAECAQE/AdVwp//EABsQAAIBBQAAAAAAAAAAAAAAAAABAhARIjFx/9oACAEBAAY/AtmLLOkiXT//xAAbEAACAwADAAAAAAAAAAAAAAAAAREhMRBBcf/aAAgBAQABPyFqcOw+XN3cE/Qxd+8Dvcf/2gAMAwEAAgADAAAAEOTf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EMhsBL//xAAVEQEBAAAAAAAAAAAAAAAAAAABAP/aAAgBAgEBPxAcFjf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUFR/9oACAEBAAE/EOObtC1KgwEolBc0fY8gmx5ZHCrGG8n/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAP/2gAMAwEAAhADEAAAAbTNbzUCQr//xAAaEAACAgMAAAAAAAAAAAAAAAAAAgETBBEz/9oACAEBAAEFArlJaxWbUmOP0//EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwGMv//EABgRAAMBAQAAAAAAAAAAAAAAAAABEQIS/9oACAECAQE/AVquHR//xAAbEAACAQUAAAAAAAAAAAAAAAAAAgEQISIxcf/aAAgBAQAGPwLZjJejDdP/xAAbEAABBQEBAAAAAAAAAAAAAAABABEhQXEQMf/aAAgBAQABPyEiLGWIzkbzSfxAoXvAj63X/9oADAMBAAIAAwAAABAPH//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAwEBPxDIbAS//8QAFREBAQAAAAAAAAAAAAAAAAAAAQD/2gAIAQIBAT8QWChv/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPxDjg7SalbIKgVQVdH2NrUJxfpO7YBs//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -69,7 +69,7 @@ FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -80,7 +80,7 @@ FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQozyWQa0hTYRzGD0FQmUu38573Pe973rOds53pZpt5KXOaFzZ1zrykTlFKu5FXSsoGU5NEWhDKEhX8YjcUlMrLvMzrxEviNwu/RtDXqE9B0LfOEp6Pz4/f8/8zXk5XArQdEPQpuFIGXjMqleBVE+mv9nx+PXD0YfxWRrLLSNKBJpAt+dLomwJTt5VUAV0jBsxdnr3Hg04JVYjsJS7OgbUXdJqgt2gv+DQS8P053Poefn84Ppgncu0ppMbIPcmg0/nGOsDe5AHTjeEgRb1W3JKE3CLrNnAp2rNLXc2fhvumfM3fIqEfXw6+To5lYbZYD9pswkCO9LHQ2KHnyoGOmRDRCEX+VNmt4BwKnHroFGGqgDw2s0uhlXZTSZIxS6Z5FNyx0TKzUG2jY4WWV2ZczmqZeYrGBNipGIwxMSkY1iq4QgL5JL7USKb9rVM9D4oknMrGPkwVArnyoyuJ8rk4n0m/IAlBwjGLApwicAZzuwS9teo9BpDNx+UQdtHftB/s/Xu0/3tv8fZle4PC9jgMOzX2TZFsYG5OgCGKmCUCVwhaJnAPwdFEUmRGbpmvt4ovrpcF6ooHOpqGHrfX201VCm5JlyY95l2JX8JcSICzAoyaVXiVwG0Mh0XeI5L2i5YWG7FoThfzGmf8SeXUCa+sCzgt3gT5uSxsUV71hSicE1AUDhO0RqCaTZ7bp2gkgZbJnPr5Z9dc7+7fqLDKVTIYcinb58UNANRyWIAqNa/C6uDV//A6jmZZRE1GmMHFtjmSDwb9P3dC6y/7C3iNP1O/lmtaQXBFQGECVWqBQiYc3YyOyS0ezuhRYwKqNega0syRrtZfq7OR0YALnOnK1E84DOtRU/TMY/k/0eXB+NLo+R0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQozzWRWU8TURSAJz5BwmI7vXPvnTsznZmOtdSWpdRYxULagmDZCUgbYsuDaFADErCohUjiUgMqkLiCWwzRBMMuXai0QYiEiL6Y+GLiP9Doiy++OJiQnKeT853vLFQrpGsZ+gICgwpulEGjAr0i45VxpK3p4+PI19nnXeUldVbFDnJvlcp9xfwzj+GalWsGdDsLqA6sO4fBRRnVCrRNl1vCavM1WZOB+u3711M3+v5+Wf+5Hv/+ZsItolMW1CyDfjs37VHaGF0QA+oqYcZ5NGRme/LZBgl4RVhM57zqDiZGwpPng9uzL79tJD9P3DlKgFcPuguE0TJ5ttIQkmAdoKnXArrHw5DN4JCgnejcAjymh2ZGW2YgLgOpMZISrLEyWo8AzhTwlWpyPxmtME8ZSRPQUgs8muDgFYPenp3l5JDPSOokUMHRJ8zy4lBPdGTQV5R3GGt6bdzNUmnIbbbt1Q5IwpJIHhKGesvBaQLnWGaT4Kk8oVoETqxxEhAb6ExHQr+303824x1HCv2yNuwQ0y3WNZGsEmaOg/M8opYJjBMUJfA9YsZMxGXElQoJWITL9a7BBlf4ZMuloM9vkVtNXMAmPa0yrsl4mYWLHFT5HbMKxwlcY+EjHrfwbO9Bc6eVHMjNPI5zqkCGKWNPs0QPl5vbTfKwnqR4rPoWeTjPoR04RtDKTsAUy2xxaNzAeiVQI8G7/uq58Fmf3aL+/7Zb2bDqVxmgFsc4qFIL3O7YKvmOhUkWRgXUsQ86QHaXs+jTWPjXh+jWk9FylNPvEBJuJY5hnEMxAtU1l3hIqZ0SBCX/k2kMZwQUMEKfRPsLlZXQ6R+xmdSDiEeX2X9I/8IhJglM7N5Ilf8DpovB4B2EEQcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

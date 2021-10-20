@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - banco-de-dados]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[As built-in migrations do Django]]></title><description><![CDATA[Quem usa o Django há mais tempo já ouviu
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - banco-de-dados]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[As built-in migrations do Django]]></title><description><![CDATA[Quem usa o Django há mais tempo já ouviu
 falar do South. Famosa biblioteca
 responsável por trazer o comportamento de migrations
 para o Django. Sem dúvida impactou inúmeros projetos e transformou o processo de
@@ -110,7 +110,7 @@ e o campo &lt;code class=&quot;language-text&quot;&gt;default&lt;/code&gt;, em u
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -121,7 +121,7 @@ e o campo &lt;code class=&quot;language-text&quot;&gt;default&lt;/code&gt;, em u
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQD/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAcsYlIWJB//EABcQAQEBAQAAAAAAAAAAAAAAAAEAERL/2gAIAQEAAQUCULobC1XW6b//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARIT/9oACAEDAQE/Ac1Jf//EABURAQEAAAAAAAAAAAAAAAAAAAAS/9oACAECAQE/AaU//8QAGBAAAgMAAAAAAAAAAAAAAAAAARAAITH/2gAIAQEABj8C2WGF/8QAGxAAAgIDAQAAAAAAAAAAAAAAAAFBUREhMWH/2gAIAQEAAT8h5uitGrkTdHsZhtwXJGiT/9oADAMBAAIAAwAAABCwP//EABcRAQEBAQAAAAAAAAAAAAAAAAEAMWH/2gAIAQMBAT8QCbdL/8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERUf/aAAgBAgEBPxCcqv/EABoQAQADAQEBAAAAAAAAAAAAAAEAESExUYH/2gAIAQEAAT8QtanSsKiI8FRnZZ4i4a4+QwXoxKIGAT//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQD/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAP/2gAMAwEAAhADEAAAAcsYlIWIx//EABcQAQEBAQAAAAAAAAAAAAAAAAEAERL/2gAIAQEAAQUCULobC1bW6b//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARIT/9oACAEDAQE/Ac1Jf//EABURAQEAAAAAAAAAAAAAAAAAAAAS/9oACAECAQE/AaU//8QAGBAAAgMAAAAAAAAAAAAAAAAAAAEgITH/2gAIAQEABj8C0tR//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAERITFRYf/aAAgBAQABPyHNxdoqyJvh6EyW3hlY+h//2gAMAwEAAgADAAAAEIQ//8QAFxEBAQEBAAAAAAAAAAAAAAAAAQAxYf/aAAgBAwEBPxAJt2v/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEWH/2gAIAQIBAT8Qyl//xAAbEAEAAwEAAwAAAAAAAAAAAAABABExIUFhgf/aAAgBAQABPxC0yw4VERzVHNl2Ul6s8X6heb0PD5A0DAPE/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

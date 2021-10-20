@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pylint]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Pylint]]></title><description><![CDATA[Se você precisa de uma ferramenta mais poderosa que o pep8, talvez você
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pylint]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:18 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Pylint]]></title><description><![CDATA[Se você precisa de uma ferramenta mais poderosa que o pep8, talvez você
 precise do Pylint. De forma (bem) resumida, o Pylint analisa de forma minuciosa o código
 do seu projeto Python, lhe retornando uma variedade de relatórios
 (as vezes, detalhistas até demais) sobre todo o tipo de problema que ele…]]></description><link>https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</link><guid isPermaLink="false">https://klauslaube.com.br/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 06 Sep 2011 17:48:00 GMT</pubDate><content:encoded>&lt;p&gt;Se você precisa de uma ferramenta mais poderosa que o &lt;a href=&quot;/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html&quot; title=&quot;Assegure a qualidade do seu código Python – pep8&quot;&gt;&lt;em&gt;pep8&lt;/em&gt;&lt;/a&gt;, talvez você
@@ -29,7 +29,7 @@ seguinte formato:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;C&lt;/strong&gt; é o tipo da mensagem, &lt;strong&gt;1&lt;/strong&gt; é o número da linha (no arquivo) onde
 o problema foi constatado, &lt;strong&gt;Missing docstring&lt;/strong&gt; é a mensagem gerada. O
 &lt;em&gt;Pylint&lt;/em&gt; poderá apresentar os seguintes tipos de mensagens:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[R]efactor for a &amp;quot;good practice&amp;quot; metric violation
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[R]efactor for a &quot;good practice&quot; metric violation
 [C]onvention for coding standard violation
 [W]arning for stylistic problems, or minor programming issues
 [E]rror for important programming issues (i.e. most probably bug)
@@ -54,7 +54,7 @@ pois todas as mensagens que você julgar desnecessárias para a análise
 você adiciona no parâmetro &lt;strong&gt;-–disable&lt;/strong&gt; (separadas por vírgula).&lt;/p&gt;
 &lt;p&gt;Para que não seja necessário passar todos esses parâmetros todas as
 vezes que executar o &lt;em&gt;Pylint&lt;/em&gt; basta gerar um arquivo &lt;strong&gt;.pylintrc&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint --reports=n --include-ids=y --disable=W0232 --generate-rcfile &amp;gt; ~/.pylintrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint --reports=n --include-ids=y --disable=W0232 --generate-rcfile &gt; ~/.pylintrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;É possível gerar este arquivo por projeto, podendo mudar a
 especificidade das métricas de acordo com a necessidade. Quer saber
 mais? &lt;a href=&quot;http://www.logilab.org/card/pylint_tutorial&quot; title=&quot;Pylint tutorial&quot;&gt;Leia este tutorial muito bom&lt;/a&gt;, direto da documentação do

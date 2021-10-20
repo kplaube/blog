@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - nginx]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - nginx]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
 anteriores
 arranhamos um pouco o conceito por trás do Docker,
 bem como introduzimos o utilitário de linha de comando . Nesse último artigo da série, vamos
@@ -24,13 +24,13 @@ $ cd ~/Workspace/helloworld/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install django gunicorn
 (...)
 
-$ pip freeze &amp;gt; requirements.txt
+$ pip freeze &gt; requirements.txt
 $ django-admin startproject helloworld ~/Workspace/helloworld&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Rodamos o &lt;code class=&quot;language-text&quot;&gt;python manage.py runserver&lt;/code&gt; só para termos certeza que está tudo ok:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 680px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -41,7 +41,7 @@ $ django-admin startproject helloworld ~/Workspace/helloworld&lt;/code&gt;&lt;/p
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 19.270833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAq0lEQVQI13WKyw6CMBQF+f8/Mu6MKzcGLuVxKwIWKrQgyEOBKFirGxcmk5PJ5Bjrrb3awB7lMX9SPv6QDkH2iOTyD2MHbAcJBBc37pyogaBSrrcyaYHJPS6WUGjkHIpZy7cYCS8yUbFUJFwyLnNZp1mpylnDs7Juh7afmn5sb9NHmk6V8doNBlimQ2wCYClxiOe5vufGUUgR390G1yHKKfqUojocKCoQfcZOL97B1oafqCcPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 19.270833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqUlEQVQI13XK2Q6CMBAFUP7/m/TRyKPQUgqdCgiWfQdNwW3wWZOTyc29Y+yPbHdwLFEHxRPUskk3QmlQ+pw/wvL9j2GeItOKbGh4NLJwILJBVLZEtpao/OSOT0Hx+slI0iYr+1hVSVqjvBpUjk2Xll1W9Ji7SY+3dZjR8g3LMC3jvPaTNiixXeY4lFJCXMY87voev0QhCB97XDh3JYAEISXgiheBENck/gAIKNcM75UdDwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -83,28 +83,28 @@ Mas felizmente já existem imagens prontas com a linguagem no &lt;em&gt;Docker H
 Vamos com a &lt;a href=&quot;https://hub.docker.com/_/python/&quot; title=&quot;Imagem Python no Docker Hub&quot;&gt;imagem oficial&lt;/a&gt; como base:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Dockerfile&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Quando &quot;buildarmos&quot;, o &lt;em&gt;Docker&lt;/em&gt; baixará a imagem do &lt;em&gt;Python&lt;/em&gt; do repositório (se ela já não existir localmente
 em sua máquina), e dará sequência às instruções encontradas no &lt;code class=&quot;language-text&quot;&gt;Dockerfile&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Uma boa prática é &quot;fecharmos o escopo&quot; de trabalho ao setar explicitamente qual será o
 diretório no qual iremos realizar demais operações como cópia de arquivos ou execução de binários. Para isso
 temos o comando &lt;code class=&quot;language-text&quot;&gt;WORKDIR&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Agora podemos instalar o &lt;em&gt;Django&lt;/em&gt; e o &lt;em&gt;Gunicorn&lt;/em&gt;, assim como fizemos no início desse artigo:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./
-&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;r requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install -r requirements.txt&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Você já deve ter reparado um padrão na escrita do &lt;code class=&quot;language-text&quot;&gt;Dockerfile&lt;/code&gt;, certo? Os comandos (em maiúsculo)
 determinam qual operação será realizada. Os parâmetros (em minúsculo) determinam como isso irá ocorrer.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -137,16 +137,16 @@ determinam qual operação será realizada. Os parâmetros (em minúsculo) deter
 o &lt;em&gt;container&lt;/em&gt;, assim o &lt;em&gt;Docker&lt;/em&gt; será capaz de encontrar o arquivo e realizar a instalação das dependências
 através do comando &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Para finalizar, podemos copiar o resto do projeto e executar o servidor &lt;em&gt;WSGI&lt;/em&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./
-&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;r requirements.txt
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install -r requirements.txt&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; . .
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; . .&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;CMD&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;gunicorn&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;helloworld.wsgi:application&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--bind=0.0.0.0:8000&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--workers=3&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;CMD&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;gunicorn&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;helloworld.wsgi:application&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;--bind=0.0.0.0:8000&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;--workers=3&quot;&lt;/span&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Comandos &lt;code class=&quot;language-text&quot;&gt;RUN&lt;/code&gt; serão executados em tempo de &lt;em&gt;build&lt;/em&gt;. São essenciais para a construção do ambiente,
 e são responsáveis pelos &quot;layers&quot; discutidos nos &lt;em&gt;posts&lt;/em&gt; anteriores. Portanto é bem comum
 vermos comandos como &lt;code class=&quot;language-text&quot;&gt;RUN apt-get dist-upgrade -y&lt;/code&gt;. Já o &lt;code class=&quot;language-text&quot;&gt;CMD&lt;/code&gt; será executado no momento que a sua
@@ -156,12 +156,12 @@ imagem for executada.&lt;/p&gt;
 do &lt;em&gt;Docker&lt;/em&gt; e invalidação do mesmo, como pode ser visto no &lt;a href=&quot;https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy&quot; title=&quot;Dockerfile best practices&quot;&gt;guia de boas práticas&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;&quot;Build&quot; é quase BIRL!&lt;/h3&gt;
 &lt;p&gt;Hora de &quot;buildar&quot;! Execute o seguinte comando:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker build -t &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker build -t &amp;lt;docker-hub-user&gt;/helloworld-django-docker .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Onde:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt;: É o comando para criar uma imagem &lt;em&gt;Docker&lt;/em&gt; a partir de um &lt;em&gt;Dockerfile&lt;/em&gt;;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt;: O parâmetro &lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt; é utilizado para nomear e tagear a imagem em questão.
-É interessante usar o padrão &lt;code class=&quot;language-text&quot;&gt;&amp;lt;usuario-ou-repositorio&amp;gt;/nome-da-imagem&lt;/code&gt;;&lt;/li&gt;
+É interessante usar o padrão &lt;code class=&quot;language-text&quot;&gt;&amp;lt;usuario-ou-repositorio&gt;/nome-da-imagem&lt;/code&gt;;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;.&lt;/code&gt;: O caminho onde encontra-se o &lt;em&gt;Dockerfile&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Se tudo der certo, será possível listar a imagem recém criada:&lt;/p&gt;
@@ -170,11 +170,11 @@ do &lt;em&gt;Docker&lt;/em&gt; e invalidação do mesmo, como pode ser visto no 
 REPOSITORY                         TAG    IMAGE ID
 kplaube/helloworld-django-docker   latest b8d3b0c234a9&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Agora sim seremos capazes de executar a aplicação &lt;em&gt;Django&lt;/em&gt; através de um &lt;em&gt;container&lt;/em&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run -it -p 8000:8000 &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run -it -p 8000:8000 &amp;lt;docker-hub-user&gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E mais uma vez seremos capazes de ver o &quot;It worked!&quot; em &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Belezura! Uma vez que a imagem esteja ok, podemos publicá-la no &lt;em&gt;Docker Hub&lt;/em&gt; (afinal,
 propaganda é a alma do negócio):&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker push &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker push &amp;lt;docker-hub-user&gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E... &lt;em&gt;voilá&lt;/em&gt;! A imagem foi publicada no &lt;a href=&quot;https://hub.docker.com/r/kplaube/helloworld-django-docker/&quot;&gt;&lt;em&gt;Docker Hub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Antes de ir: Efêmero&lt;/h3&gt;
 &lt;p&gt;Nos &lt;em&gt;posts&lt;/em&gt; anteriores demos uma pincelada numa das características dos &lt;em&gt;containers&lt;/em&gt;
@@ -257,7 +257,7 @@ baixada novamente, mesmo se outras imagens utilizarem da mesma camada:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 610px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -268,7 +268,7 @@ baixada novamente, mesmo se outras imagens utilizarem da mesma camada:&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 69.27083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHZV1YuML//xAAZEAADAQEBAAAAAAAAAAAAAAABAgMAESH/2gAIAQEAAQUCardlQs3maI05hTv/xAAVEQEBAAAAAAAAAAAAAAAAAAAQIf/aAAgBAwEBPwGn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQETFB/9oACAEBAAY/AuFONZacf//EABoQAAIDAQEAAAAAAAAAAAAAAAERACFREEH/2gAIAQEAAT8hDIayVZSyMIyTcbjUD5fP/9oADAMBAAIAAwAAABDnz//EABcRAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQMBAT8QC2x//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EFMn/8QAHRABAQABBAMAAAAAAAAAAAAAAREAECExwUFRcf/aAAgBAQABPxABMCCn39xavMJHeBIJl0ocA8uXkpsB1p//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 69.27083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB1us1hxIX/8QAGBAAAwEBAAAAAAAAAAAAAAAAAQIDABD/2gAIAQEAAQUCNW0XLNjFdOYXn//EABYRAAMAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAwEBPwGFf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAIDAQAAAAAAAAAAAAAAAAABEBExIf/aAAgBAQAGPwLTsay1cf/EABoQAQACAwEAAAAAAAAAAAAAAAEAERAhUTH/2gAIAQEAAT8hvunvCLhiVyWS5BGzjeP/2gAMAwEAAgADAAAAEEfP/8QAFxEAAwEAAAAAAAAAAAAAAAAAARARIf/aAAgBAwEBPxAU1f/EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxBTJ//EAB4QAQACAgEFAAAAAAAAAAAAAAEAIRExQRBhcYHR/9oACAEBAAE/EAhSIv7S2OAAOe0BK14mc3rnZz6i15SmHT//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -303,11 +303,11 @@ uma espécie de &quot;Github para imagens Docker&quot;.&lt;/p&gt;
 REPOSITORY         TAG       IMAGE ID        CREATED          SIZE
 docker/whalesay    latest    6b362a9f73eb    23 months ago    247 MB&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;É uma prática comum o repositório/nome da imagem ser chamado de
-&lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&amp;gt;/&amp;lt;nome de imagem&amp;gt;&lt;/code&gt;. Isso evita que haja duplicidade no &lt;em&gt;Docker Hub&lt;/em&gt;. Para
+&lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&gt;/&amp;lt;nome de imagem&gt;&lt;/code&gt;. Isso evita que haja duplicidade no &lt;em&gt;Docker Hub&lt;/em&gt;. Para
 executar a imagem (e por consequência criar um &lt;em&gt;Container&lt;/em&gt;), temos o comando &lt;code class=&quot;language-text&quot;&gt;docker run&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run docker/whalesay cowsay boo
  _____
-&amp;lt; boo &amp;gt;
+&amp;lt; boo &gt;
  -----
     \
      \
@@ -315,7 +315,7 @@ executar a imagem (e por consequência criar um &lt;em&gt;Container&lt;/em&gt;),
                     ##        .
               ## ## ##       ==
            ## ## ## ##      ===
-       /&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;___/ ===
+       /&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;___/ ===
   ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
        \______ o          __/
         \    \        __/
@@ -326,13 +326,13 @@ executar a imagem (e por consequência criar um &lt;em&gt;Container&lt;/em&gt;),
 &lt;p&gt;É claro que o &lt;em&gt;Docker&lt;/em&gt; é muito mais poderoso do que isso. Por exemplo, vamos baixar o
 &lt;a href=&quot;/tag/nginx.html&quot; title=&quot;Leia mais sobre o Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; e ver como podemos receber uma simpática tela de &quot;It&apos;s working&quot;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker pull nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Notou a ausência do &lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&amp;gt;/&lt;/code&gt;? Repositórios oficiais no &lt;em&gt;Docker Hub&lt;/em&gt; não necessitam
-de um prefixo, e você pode encontrá-los na interface &lt;em&gt;web&lt;/em&gt; através do &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;_/&amp;lt;nome da imagem&amp;gt;&lt;/code&gt;.
+&lt;p&gt;Notou a ausência do &lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&gt;/&lt;/code&gt;? Repositórios oficiais no &lt;em&gt;Docker Hub&lt;/em&gt; não necessitam
+de um prefixo, e você pode encontrá-los na interface &lt;em&gt;web&lt;/em&gt; através do &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;_/&amp;lt;nome da imagem&gt;&lt;/code&gt;.
 Por exemplo, o endereço do &lt;em&gt;Nginx&lt;/em&gt; no &lt;em&gt;Docker Hub&lt;/em&gt; é &lt;a href=&quot;https://hub.docker.com/_/nginx/&quot;&gt;https://hub.docker.com/_/nginx/&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 610px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -343,7 +343,7 @@ Por exemplo, o endereço do &lt;em&gt;Nginx&lt;/em&gt; no &lt;em&gt;Docker Hub&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAADnklEQVQozwGTA2z8AFhYVGdqaYaFh5iVl4+NjtXKx8nDwezr3eTj1ePh0+Xj1+Hc1NbPztTQ0crFyMbBwtHKzMrEx8e+wsO6vwDU1duvs7ucoa6NlaB4f4W0vMeSmqWiq7DY2tPZ08rSy8jSzMvHtrOXfHObh4bHwcTJxcrNyMu6tLikm6UA1dDRtLK0x8fKzNDQwMTC197eq7KztLu829/X5+vg5uzl2NjTsIyLmGJff1JIqp6Yu8DNq663zNHYpKayAGNiboJ8hYh/gZKSkl9iXrWyr9/b2tjV083My9TS0qWopmxiXI5kZpBjZYxgXWlNP35/gWJqdXB0eYKFigAWGRRTVFQxLyYmLSBUW1kxNTNycnNSUlE6Ojg0NDJpbnCHfICCU1WRX2KPX11gQjVfXFxub3JISUlHSksAUVNPcG1rTEtDOUAxWlpNZVpMYFtSRkg8PUA3ODs0YGVhdWdhgFZRek9IbkM6cU5Jem9nf3VzdXN0cnFwAGRmZGRiXXFtaHx4dnZwa29oXmllXGxpX21uZm5vaV5dUUBCPUlHR2lkXkoyJ11WUWFfV1pVSVlYS1VXUQBcXlpWVEtcVEiOhIOUh4Z+c2tPU0hhX1FoY1RjW0tcV0csMDNHREQvLi5wTkl1aWdpZmJyYlNxYE9vXlMAd2plfGxlhG9pgXFukYB/l4B6d2leeW5khnJilHxvjXFrODI1ISYpLCssVExWh3p/oYWDk3p0l3t3j3t/AH9wdIN1d4t7fYt6fI17fpeDhp6JjZ2JjJuJjKSEgn9bUzk0NS4tLxQSEEpHT42Bh5iIjZuLkJqHjYt4fwCBfYRmaXJucHdscXlqb3dscHdscXZzdXqYkpWAamI7JhovHhQ3IRg7IRplS0N2bm1oY2N6cnOIe31/dnoAu62wiISLVF1lXWZtXmhuXmhtWmVqZGtvfX6BVElDPTIoSkM6UjQkdEk7bE5AUlNKXFxXamdmZmNea2doAHl4fdjMyqilpmFpb2FqbmJqbl1ma319gXh6fSgtOjI2MTlFQS4lI1Q2JXRRRV1aU0tPR1BTS1JRSGRiYgBVXGF2eXuXlZZrcXRdZmphaWxtcHNscGxOWE0sMiwnLSUqMCgZIy0tKSVPRjxpaGRYWFFBRTxQT0hVVVIAUVpdS1ZaS1ZaVGBjVWFlX2doV11WPkc7LC8iIiMWISQYICEaHCYsLDQvPUU8SVBIYWFbWltWVVVPVFVTJc2TKg08qrQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQozwGTA2z8AG5ubXR3eZCPk5CQlJORktXLyszIxenp3OLf0+Dc0OLe09zWz9PMy9DLzMbAw8W+wNPNzsrEx8W8v8K3vQDb2+CrsLejqLSIkpuDi5GvuMSJk5+eqK7b29PY08vSzcrUz87Aq6eObmSYgoHLxsjDwMbMyMq0sLWfmKIAycTGrquuzsvOzM/NxsnF3OLgub68xMjH3uHY6Ovh5OrizMjCqYCAmmRiflFHppmTtrvJpqqzys/Xp6i0AFJSXXlze3lxcXp8e1JVUqilo9bR0crHxr68vMTCw4+SkGhbVotfYo9iZIpfW2NKPG9ydFpia19jZ3N1egAaHRdYWFckJBkoLyJZYFwsMS1oaWg9PjspKSckIyFuc3aMfICAUVKTYGOIWFRiRTpmZWZ1c3dOTk9PUFEAWVtXc29tU1FKREo9WlhLb2JUZ2JYUFJFTVFIS09JYWdibF1VfFVQd1BHZz82cFJOdmtid25rb25ubW1tAGJkYWFgWnBrZoF8enx1cGtmXGVjWWxoX2prZGpqYltaTDk8O0tMTmJeWUwyKF5bV15eV1tWSVhWSFVWTwBcXVhWUUhiV0yOg4KUh4Z9cGdOUkZfXU5pYlFmXEtbV0ktLzJFQkAtKSl4VlN2amluZmF3ZFN2YlJ0YVgAfGxpgXBqiHNugnFulIGAln96f29ngnNrjXhqmn91i21oMS8yISgrLi0sUk5ajn+Eo4mIlX15mH59jXuAAH5xdYB0d4h6fYh6fYp7fpOBhZmHjJeGipuMj599e25PRzQwMC8pKRMOC1hQVot/g5GCh5eIjZiFi4d2fACEgYdiZ29pbnVpb3dnbXVpbnRnbnNydXqXkZJ2X1U1IhYyIBY9JRtIKiNqUEhvamhnY2F5cXKFeXp7c3gAu62xjoqQVV5lXGZtX2luX2htWmVram5xe3yASj86QjoySUQ7VDUkdEo6a09BT1JJXF1YZ2ZjY2Fba2hoAHd3e9vPzKqnqGFpbmFqbmJpbmBobYOChHB0diEoMzM6NDM/PCskJFM1JHRTSF5cVklORU1QR1JQSWRiYwBTWl9scHOHiIpmbXBcZmliam1ucXNjaWNGT0IqMCgnLSMmLCUYIy4sKiZMSUFpaGVZWVJBRTxRUElTVFEAUFpbSVRYSVVZVF9iVGBjX2ZmT1ZON0A0JygbICAUISQXHiAaHScsLzcvPUY8RU1EYGFaXl5ZWFhRU1RTNXyO35pV+QoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -374,9 +374,9 @@ o &lt;code class=&quot;language-text&quot;&gt;http://localhost:5000&lt;/code&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker ps
 
 CONTAINER ID    IMAGE    COMMAND
-796ab2f0a662    nginx    &amp;quot;nginx -g &amp;#39;daemon ...&amp;quot;
+796ab2f0a662    nginx    &quot;nginx -g &apos;daemon ...&quot;
 CREATED           STATUS           PORTS                  NAMES
-12 seconds ago    Up 11 seconds    0.0.0.0:5000-&amp;gt;80/tcp   docker-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+12 seconds ago    Up 11 seconds    0.0.0.0:5000-&gt;80/tcp   docker-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Para parar o serviço:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker stop docker-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Pronto! Simples como as melhores coisas da vida.&lt;/p&gt;
@@ -470,7 +470,7 @@ que criaremos a seguir:&lt;/p&gt;
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Intuitivo não?! Vamos criar o &lt;em&gt;path&lt;/em&gt; onde armazenaremos o &lt;em&gt;HTML&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;mkdir /var/www/example
-echo &amp;quot;It works! &amp;quot; &amp;gt; /var/www/example/index.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+echo &quot;It works! &quot; &gt; /var/www/example/index.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Basta acessar o endereço &lt;code class=&quot;language-text&quot;&gt;localhost:8080&lt;/code&gt;, e pronto!&lt;/p&gt;
 &lt;p&gt;Como é possível perceber, os arquivos de configuração do &lt;em&gt;Nginx&lt;/em&gt; são
 simples e intuitivos. Existem várias referências na &lt;em&gt;web&lt;/em&gt; ensinando a

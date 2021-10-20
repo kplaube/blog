@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - jstl]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Engatinhando em Java para a web - Parte 2]]></title><description><![CDATA[No post anterior demos uma breve pincelada sobre JDK, JRE, JSE e JEE. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do uso de Maven e Tomcat, vamos partir para uma abordagem mais prática, e finalmente falar sobre os famosos Servlets. Mas antes de continuar, um…]]></description><link>https://klauslaube.com.br/2019/12/02/engatinhando-em-java-web-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/12/02/engatinhando-em-java-web-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 02 Dec 2019 09:15:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2019/11/28/engatinhando-em-java-web-parte-1.html&quot; title=&quot;Engatinhando em Java para a web - Parte 1&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; demos uma breve pincelada sobre &lt;em&gt;JDK&lt;/em&gt;, &lt;em&gt;JRE&lt;/em&gt;, &lt;em&gt;JSE&lt;/em&gt; e &lt;em&gt;JEE&lt;/em&gt;. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do uso de &lt;em&gt;Maven&lt;/em&gt; e &lt;em&gt;Tomcat&lt;/em&gt;, vamos partir para uma abordagem mais prática, e finalmente falar sobre os famosos &lt;em&gt;Servlets&lt;/em&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - jstl]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Engatinhando em Java para a web - Parte 2]]></title><description><![CDATA[No post anterior demos uma breve pincelada sobre JDK, JRE, JSE e JEE. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do uso de Maven e Tomcat, vamos partir para uma abordagem mais prática, e finalmente falar sobre os famosos Servlets. Mas antes de continuar, um…]]></description><link>https://klauslaube.com.br/2019/12/02/engatinhando-em-java-web-parte-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/12/02/engatinhando-em-java-web-parte-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Mon, 02 Dec 2019 09:15:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2019/11/28/engatinhando-em-java-web-parte-1.html&quot; title=&quot;Engatinhando em Java para a web - Parte 1&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt; demos uma breve pincelada sobre &lt;em&gt;JDK&lt;/em&gt;, &lt;em&gt;JRE&lt;/em&gt;, &lt;em&gt;JSE&lt;/em&gt; e &lt;em&gt;JEE&lt;/em&gt;. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do uso de &lt;em&gt;Maven&lt;/em&gt; e &lt;em&gt;Tomcat&lt;/em&gt;, vamos partir para uma abordagem mais prática, e finalmente falar sobre os famosos &lt;em&gt;Servlets&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Mas antes de continuar, um breve &lt;em&gt;disclaimer&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;Disclaimer&lt;/h2&gt;
 &lt;p&gt;Recebi alguns &lt;em&gt;feedbacks&lt;/em&gt; sobre o artigo anterior, questionando sobre a abordagem em relação a &lt;em&gt;Servlets&lt;/em&gt;, &lt;em&gt;JavaServer Pages&lt;/em&gt; e até mesmo ao &lt;em&gt;Tomcat&lt;/em&gt; e &lt;em&gt;Maven&lt;/em&gt;. Existem escolhas mais &quot;sexy&quot; (principalmente aos três últimos citados), e que em relação ao &lt;em&gt;Servlets&lt;/em&gt; a escolha mais natural seria a adoção de algum &lt;em&gt;framework&lt;/em&gt; que abstraia todo esse &quot;javanês&quot; (como &lt;a href=&quot;https://spring.io/projects/spring-boot&quot; title=&quot;Página oficial do Spring Boot&quot;&gt;&lt;em&gt;SpringBoot&lt;/em&gt;&lt;/a&gt; ou &lt;a href=&quot;https://www.playframework.com/&quot; title=&quot;Página oficial do projeto Play&quot;&gt;&lt;em&gt;Play&lt;/em&gt;&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -16,7 +16,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQL/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAW+5TWapmlP/xAAbEAACAgMBAAAAAAAAAAAAAAAAAwECERIhMf/aAAgBAQABBQK7q1EM2jI7jo9P/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhABAAEFAAAAAAAAAAAAAAAAARAAERIiUf/aAAgBAQAGPwLEdqbwh2f/xAAbEAEAAgMBAQAAAAAAAAAAAAABACERMUFRYf/aAAgBAQABPyFJoK12KXca+xeYc0QtuUpHj6T/2gAMAwEAAgADAAAAEGM//8QAFhEBAQEAAAAAAAAAAAAAAAAAERAh/9oACAEDAQE/EAyf/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEhQf/aAAgBAgEBPxBvSH//xAAcEAEAAgMAAwAAAAAAAAAAAAABABEhMUFRYYH/2gAIAQEAAT8QdUtQGnperjQGPZpH3xG4NTmzE6dxXuwjDb0BZ//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQP/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAWukprNUzSn/xAAaEAACAwEBAAAAAAAAAAAAAAABAwACERIx/9oACAEBAAEFArurWIZ0Njhjh6Z//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhABAAEFAAAAAAAAAAAAAAAAARAAERIiUf/aAAgBAQAGPwLEdqbwh2f/xAAbEAEAAgIDAAAAAAAAAAAAAAABACERMRBBYf/aAAgBAQABPyFZRhWu4odxr2LzMhELblKcP//aAAwDAQACAAMAAAAQwz//xAAWEQEBAQAAAAAAAAAAAAAAAAARECH/2gAIAQMBAT8QDJ//xAAWEQEBAQAAAAAAAAAAAAAAAAABEEH/2gAIAQIBAT8QXZ//xAAaEAEAAwEBAQAAAAAAAAAAAAABABExQVGB/9oACAEBAAE/EGFGoDR6Ly43GezSPvkbqpy5qdOxXuhEgtHqCz//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -60,7 +60,7 @@
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 405px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 405px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -71,7 +71,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 108.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAWABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAH3+e4aAgUH/8QAGRAAAwADAAAAAAAAAAAAAAAAAAERECFB/9oACAEBAAEFAh1o2O54f//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABcQAAMBAAAAAAAAAAAAAAAAAAABETD/2gAIAQEABj8CHHHh/8QAGhAAAwADAQAAAAAAAAAAAAAAAAERECExQf/aAAgBAQABPyFuIZEqGnLjryHQQ7NDtR7x/9oADAMBAAIAAwAAABBzADz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAbEAEAAwEBAQEAAAAAAAAAAAABABEhMUFRYf/aAAgBAQABPxC5SLEOigf0vYc2dOPEFqIFZktWwrQH7Vw1gVxSF0X32p//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 108.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAWABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAH3+e4aAgUH/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQESFB/9oACAEBAAEFAh20abPD/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAGBAAAgMAAAAAAAAAAAAAAAAAAAERITD/2gAIAQEABj8CKcPD/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARECFBMWH/2gAIAQEAAT8hdETQuDV49cj63CN8aiNqd/cf/9oADAMBAAIAAwAAABBzwDz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAcEAACAwADAQAAAAAAAAAAAAABEQAhMRBBUYH/2gAIAQEAAT8QMlIhlhFqB8d8aWA6qCyIFVRlcEho9TisJsIQNXs//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -92,7 +92,7 @@
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;init&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;destroy&lt;/code&gt; são chamados apenas uma vez. Por fim, o &lt;em&gt;servlet&lt;/em&gt; é coletado pelo &lt;em&gt;gargabe collector&lt;/em&gt; da &lt;em&gt;JVM&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;Um pouco de prática&lt;/h2&gt;
 &lt;p&gt;Dentro do contexto da linguagem &lt;em&gt;Java&lt;/em&gt;, a &lt;code class=&quot;language-text&quot;&gt;Servlet&lt;/code&gt; também é uma &lt;code class=&quot;language-text&quot;&gt;Interface&lt;/code&gt;. No nosso escopo, falando de desenvolvimento &lt;em&gt;web&lt;/em&gt;, usaremos uma implementação mais especializada para trabalhar com o protocolo &lt;em&gt;HTTP&lt;/em&gt;, chamada &lt;code class=&quot;language-text&quot;&gt;HttpServlet&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Voltando ao projeto &lt;code class=&quot;language-text&quot;&gt;ola-mundo&lt;/code&gt;, criado no artigo anterior, vamos adicionar a &lt;em&gt;servlet API&lt;/em&gt; como dependência do projeto. Antes do nó &lt;code class=&quot;language-text&quot;&gt;&amp;lt;build&amp;gt;&lt;/code&gt;, acrescente o seguinte:&lt;/p&gt;
+&lt;p&gt;Voltando ao projeto &lt;code class=&quot;language-text&quot;&gt;ola-mundo&lt;/code&gt;, criado no artigo anterior, vamos adicionar a &lt;em&gt;servlet API&lt;/em&gt; como dependência do projeto. Antes do nó &lt;code class=&quot;language-text&quot;&gt;&amp;lt;build&gt;&lt;/code&gt;, acrescente o seguinte:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;xml&quot;&gt;&lt;pre class=&quot;language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;maven.compiler.source&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;11&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;maven.compiler.source&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;maven.compiler.target&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;11&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;maven.compiler.target&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -139,7 +139,7 @@
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -150,7 +150,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAmUlEQVQY02OwtPO1cvB39oiwcw4CMmydg1x9ohzcQ60c/c1tfYws3PVNXXAhhinT5kybMW/GzPlTps+ZNnPe3PlLFi5eMWP2wsVLV2/etnvj5h0bNuFEDI8ePXz18sWDB/efP3v6+PGjp0+fPHv2FCj48eOH//////v37z9uwIBLAqjtDyHA8PfvX6C6vxgAv50EbCYGDJxmAOvEmdSOZ6Y1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAjUlEQVQY02OwsvczsfJycA21cQo0t/WxtPdz8gy3dwsBMkysvQzMXXUMHXWMsCOGyVNnT50xb8asBVOmz5k2c97suYsWLl4xa+6ieQuWbd66e+OWnRs27cCFGB4+fPD69avHjx89e/b0xXMg8eTli+dPnzx++/bNf0KAAY/cH0KA4S8O8O/fP4psHsSaAd/VmUKXtqvxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -173,7 +173,7 @@
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -184,7 +184,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAABxXrqMCyP/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIRMQETIf/aAAgBAQABBQKxsa0gXitUn//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAIDAQAAAAAAAAAAAAAAAAEQABJBUv/aAAgBAQAGPwKDoq+4/wD/xAAbEAACAwEBAQAAAAAAAAAAAAAAAREhMWFBcf/aAAgBAQABPyHSh6LW2SeFmXIajg9HZ8n/2gAMAwEAAgADAAAAEAD/AP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCH/8QAHBAAAgMAAwEAAAAAAAAAAAAAAREAITFBUXFh/9oACAEBAAE/EEmzpkZIEFkgGl7RhYKNnGKgAGGFwa36YasngZy54if/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAHi3ngSaP/EABoQAAIDAQEAAAAAAAAAAAAAAAACARExAyH/2gAIAQEAAQUC0aI5pQvitln/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAABEAASQVL/2gAIAQEABj8Cg6Kvr//EABsQAAIDAQEBAAAAAAAAAAAAAAABESExUWFx/9oACAEBAAE/IdKHop9kksyx0heHSz5P/9oADAMBAAIAAwAAABAw/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxBX/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EABwQAQACAgMBAAAAAAAAAAAAAAEAESExQVFxYf/aAAgBAQABPxCg9nTUEKIXMC6r3DGw1lewqENC1fjHf16joNnot0TxJ//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -209,11 +209,11 @@
 &lt;p&gt;Ele veio do arquivo &lt;code class=&quot;language-text&quot;&gt;index.jsp&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cat src/main/webapp/index.jsp
 
-&amp;lt;html&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;html&gt;
+&amp;lt;body&gt;
+&amp;lt;h2&gt;Hello World!&amp;lt;/h2&gt;
+&amp;lt;/body&gt;
+&amp;lt;/html&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;JavaServer Pages (JSP) is a collection of technologies that helps software developers create dynamically generated web pages based on HTML, XML, SOAP, or other document types. (...) JSP is similar to PHP and ASP, but it uses the Java programming language.&lt;/p&gt;
@@ -248,11 +248,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
         (...)
 
-        out.write(&amp;quot;&amp;lt;html&amp;gt;\n&amp;quot;);
-        out.write(&amp;quot;&amp;lt;body&amp;gt;\n&amp;quot;);
-        out.write(&amp;quot;&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;\n&amp;quot;);
-        out.write(&amp;quot;&amp;lt;/body&amp;gt;\n&amp;quot;);
-        out.write(&amp;quot;&amp;lt;/html&amp;gt;\n&amp;quot;);
+        out.write(&quot;&amp;lt;html&gt;\n&quot;);
+        out.write(&quot;&amp;lt;body&gt;\n&quot;);
+        out.write(&quot;&amp;lt;h2&gt;Hello World!&amp;lt;/h2&gt;\n&quot;);
+        out.write(&quot;&amp;lt;/body&gt;\n&quot;);
+        out.write(&quot;&amp;lt;/html&gt;\n&quot;);
 
         (...)
     }
@@ -361,7 +361,7 @@ $ touch src/main/java/webapp/modelo/Tarefa.java&lt;/code&gt;&lt;/pre&gt;&lt;/div
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -372,7 +372,7 @@ $ touch src/main/java/webapp/modelo/Tarefa.java&lt;/code&gt;&lt;/pre&gt;&lt;/div
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAHHYWuF1CBR/8QAGRABAQADAQAAAAAAAAAAAAAAAQIAAxAR/9oACAEBAAEFAtcjjMvIrzGw5//EABcRAAMBAAAAAAAAAAAAAAAAAAIQERL/2gAIAQMBAT8BHMX/xAAWEQEBAQAAAAAAAAAAAAAAAAARARD/2gAIAQIBAT8Bq5//xAAZEAACAwEAAAAAAAAAAAAAAAABEAARIUH/2gAIAQEABj8C3koB4v/EABgQAQADAQAAAAAAAAAAAAAAAAEAESEx/9oACAEBAAE/IbB4FzJBliRNnOljBu1qti2z/9oADAMBAAIAAwAAABCM7//EABcRAAMBAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8QbUcp/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEx/9oACAECAQE/EJyR/8QAHRABAAICAgMAAAAAAAAAAAAAAQARUWEhMUFxof/aAAgBAQABPxDW+M6lQyeY2vkRfsIRBaIVJFT0igKM+5cM/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAHHYVuF1SBR/8QAGRABAQADAQAAAAAAAAAAAAAAAQIAAxAR/9oACAEBAAEFAtcjiS8ivMdgc//EABcRAQADAAAAAAAAAAAAAAAAAAIBEBH/2gAIAQMBAT8BMnK//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/AUdn/8QAGRAAAwADAAAAAAAAAAAAAAAAARARACFB/9oACAEBAAY/AjeZAHpf/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERITFBcf/aAAgBAQABPyGw5S/TNCypoa096qYg7smjdZ//2gAMAwEAAgADAAAAELzv/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAwEBPxDRHKf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQIBAT8Qykf/xAAbEAEBAQACAwAAAAAAAAAAAAABEQAhYUGxwf/aAAgBAQABPxDoFHpprJkUV8jiEatAFE6yRDUWeD66w7//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -525,7 +525,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;

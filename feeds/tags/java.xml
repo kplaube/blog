@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - java]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Engatinhando em Java para a web: Spring Boot]]></title><description><![CDATA[No post anterior, finalizamos a introdução
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - java]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Engatinhando em Java para a web: Spring Boot]]></title><description><![CDATA[No post anterior, finalizamos a introdução
 a alguns aspectos utilizados pelo Java EE para construção de aplicações web. Se você acompanhou
 os artigos até aqui, e achou tudo muito doloroso, você não está sozinho. Desenvolvedores, com o passar do tempo, ansiavam por alternativas menos burocráticas…]]></description><link>https://klauslaube.com.br/2020/05/20/engatinhando-em-java-web-spring-boot.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/05/20/engatinhando-em-java-web-spring-boot.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 20 May 2020 05:25:00 GMT</pubDate><content:encoded>&lt;p&gt;No &lt;a href=&quot;/2019/12/10/engatinhando-em-java-web-parte-3.html&quot;&gt;&lt;em&gt;post&lt;/em&gt; anterior&lt;/a&gt;, finalizamos a introdução
 a alguns aspectos utilizados pelo &lt;em&gt;Java EE&lt;/em&gt; para construção de aplicações &lt;em&gt;web&lt;/em&gt;. Se você acompanhou
@@ -23,7 +23,7 @@ provavelmente estamos falando de todo o seu ecossistema.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -34,7 +34,7 @@ provavelmente estamos falando de todo o seu ecossistema.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACn0lEQVQoz12SaU8USxSG51fpN/WfqDESTdAoidGgxhuvcd8Fd0UQGQSEWaCZhe6Znumtunt6memZHriIC8l1+ROPxRA/6Ie3znuq3lN13pPKjK4E7LmncGC8zL6xP3FoxuDYvODwrM2xBcHQnM3Bdwb7/9Lt1O69rzCS88mclssVrc+4vcUDc3OAhzvR2GQy2OaZkTKmxYzXOry0N5jwvwzOf2NH/8TZ4nwp4Yh8OHO2GPDc32au94Ns8o3Z5PsgznT+Z0by59YGj9SIR/LSV+LjYC/b+SY133e1kn9If3LP2hq4yYzkW4xqG9wWX7lmfuJK8yM37C/cEttcsz5zqZpwoegxmhdcrvUHe9cldrVbg/yOrB0p9Tg655AZXW5RsDvUvDarbpcHazEF3WVhVSNrtHmshhhBl3qryxMtYslOpLZDPexzXfHR/C7NoMes0eG4nHHmn9WQtLeOUVaIgoh50Sd2BXa1hBGl5JyEQFfx9DorrXVqpotWzOObJhN6m8/9lK9pl1b3P4YXZIdnch53Sz7TZo/xtYiReZMXWshUo83VouDcos1bI+FNM5Hc4qbiMin5M9n5cLbJ60ZC1lnn34L8Be9lh5eUACtIWKtUMbyIKVlsWg51VaUi7Uw3Y0xdp6E3mLU6aHI01XIFX7p5Wovx/IBKqUxZdDjxQXZ4rhhTD9bRDQ896DOmtmnIWTatkIK7yctaD0fENKxIWuzLRzalNsAJN7hTiRBhitZwyMnZDs15ZLSuw1ps0exZqHGDUmhLlKhEK+TdPEtiCbW9my86ixS9HNVYoRwqKC2HWtvESB2qkaDSlpbjdBrbWsYQExJv8N0qhdowinkKzb0ocYHl5klUscPPy7ibL2lDRC0N253BaU3hiQphMskvW0m2ITUq0uMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACp0lEQVQozz2Ra2/TZhTH85mmvePyUfYGIXEpKwVN00S3oQnQQKKUAtNKW5a2K21V0iZr09rk4sZOfI3t2E5sV8tWxm3ap/jtxJt48dc5z/P/nfMcH5emKg6fz9U5/0Tl7ILC2ScKZySek/PFbYvLrxwuSLxScbm0Y/PFRrfwJ1zBi84/VfnsYZ2v931KM1WfF/23bMcf2Yw+8FK0+b/20n9Ys3J+MYaiEVv+KZXR35/8gh+8Z1fu7rZzrsrjpRs1nwXnL5aD9yyJlsMPPJf43H/HkuTznZQfVZ/7asAz64/irvCEWZF8UfJy9JHZZs6Xuy6l6Wqfu/qYp/13PLROuWeMeWS/4bH7lge9P/mhkXBPCbhzKNzxiTBvWBBvTthJ3bywP0ntTD3h2qTh7IFPp5+gmy4NJ2ZRi1DaXQ4OX7PdjVnvRLj9AZYfs6QNUIUxLI9uMGJO6eMEMf5gWLDTk4a3D0OGwxxNVbCDhE0zxbNsLK2N4qVUrQSz1cQyurxychq6hbq/j26YLB/HjLOc0zxH7Wf/NZzZdZiXHa31Mh7Jnm7s9FiWSVb1mNs1m1tVm/Veyoo+5KZ4c8KuyvlZK+TqpsFKJ5HalG8qJtcqxYQBoySloxzhhQk7dobX6+K0GzSDjJoVF7lj6FScVD4x4vioTjyIKMvfH/p9dPUI1R1yfW+yw3pE089o2xFHMvbjRojmnaB7ORu933lxnGF44kuzn7VMmDGaM6IdjHkg0xrhpDak3BkwUw0pWVkHI+7RHbXoRC30xETxN1CDDerer6I1moMtXocvOXBXpeG6eCJ/Cz1ypVbDSg302MY5MSj5w3UMYw/dXkS3ylhWjWr7Eor5FU3nW9EsB/o0Lef7Im853/GbPkVNm8JzFbrOCqZXpmfu4o/W+BesjrcMYOxoWAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -77,7 +77,7 @@ algo complexo.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -121,7 +121,7 @@ recomendo o ótimo &lt;a href=&quot;https://www.freecodecamp.org/news/a-quick-in
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -132,7 +132,7 @@ recomendo o ótimo &lt;a href=&quot;https://www.freecodecamp.org/news/a-quick-in
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 39.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACAUlEQVQoz22RTUiTcRzHnzqUHaJDb1DRYYQhEUh2zFMsiRob1CFf6hBEL2CXkiA8dch0OzRYL7pNS6EOleXEMN0G9jLFQ2WguWKWSOqeNXHP0zMXe/7Pp79blEF/+P2/tw+/z++r8M+ziv/HYSz/Jax7V7ECDfDoBksLKklVJWNkmdaW+JrJouWy6Nk5NGNOZhJhmSiGkWNuXiWlptEzGrll4O16OKhgHVuP6VgDNRt5GfBgP1SFuzfKOl8UxR2mdbSPzoH9eHsr6AhXFaDK7Owi4+MJJia+8G0mRfIHCLkdrhI4tQNRvRXO2Bjyuzly1EHTszCrvYMoTQP4hkP4+0ppfmKjtf+ABM6j/FdZAkXNFsT5veRP74KzpbwOeqiuraO5J0JZV4ydbW+4NdLL46Eq2sMOuqIuNKmvWJb1lyfMArIArNuGqK8gf24PXCjjVcBNjQRe6w5T/mAEWyCGN9bDw0glHRGXVD5cBJqmiabphckZRhEYuAzOtXByO+LE5t/KLTgcTq5L5VUrlIPPy3A/3U1bf2VReWZmgbGxT7x9N8nnyWnSPyXwzkWwy2sc34BwylvWbvpTSksoSokvUijlrizl/ot93AyV0z5oL5YixAplqS+WIz6KCDYgOhsR7Veg24OemicxNUVyUedDSue9qvHdyJDW4qiZuMwEpsjzC+SJ9WonyrTJAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 39.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAABYlAAAWJQFJUiTwAAACGElEQVQoz22ST0jTYRyHf6coIww6ZBZBfw4dREEqryNFoVaaBkmmUdDBS4eCjoaZm86EqMhibIlZc2r4JxOGWzmVKEKinMvUMlAc002d8+c2t/f39OYOFfRePreH53n5KvznabNf0Vqq0J5Xoz27Be11bAR8BJdXWFuP4FdjzIcjhGMxItEgaiSAKleIOEokusHCQpBAYIlwaJWYBIo2A+QqaCU7EIVboXgb3uZ68k/qudfRS7plBMXkwPTOTftbHQ/6jmN26AisTqP4fCE8nu+MjU0z+9OPLwxxez0USVDFPkRZGlxKx2M1UnDqNCZbF9ubBlFqXnN7yEmLI5O6lwe4/yqLxdAkyr+xIpncYUI7vwtRmUHiymG4vJ/xp0ZKL1bQaO8ly/aB9CY3hmEX3cN6LAN6rAMFSaCmaX/xEmibwHrEhTTEtaPEKzPh6iHGrQZKy8ox2ro5Zv/IQfMI1W4nnYO5NLvOyuQTEvgNRQgNVVVZW1OJrqtJYGcDnNkC5XsleLdM37OZrC8spqGth9THbpQ7/dQMuWgdyKah6wgP+7KThnNzy3z+MsXoqJcJ7w8Wo1LUVgt58jfOpSKKUqAkRRoa0eXlc1ca7nwyhFLbj2HkDS+cOTT2ZPCoP4dAaAolkRB/zkXaJn7vzBjCfB1huSn3BrRWsT4/w8TkFL7gEp8WVnk/vyJPJyQhXnzLHvwrXuKJCL8Aq131d2apcasAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -220,7 +220,7 @@ são garantias fornecidas pelo &lt;em&gt;Spring Data&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -231,7 +231,7 @@ são garantias fornecidas pelo &lt;em&gt;Spring Data&lt;/em&gt;.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 45.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABBUlEQVQoz41RW46DMBDjTAtJELulhQba8gYB4v4XcceRWFFKV/thZeTJ2PPwwjCEMQZ8V5jQCCQW3nyfoH9i6NPZxY5zf8KXmhXen4JaQ18sgqxEcO+g0ptw6v+Ce2EW6+sD6nqHPqdQ9uG4F/Ndza/gVlQpBcXuAh9f0pUvCJIcfnITLpC85CR/1Mhbh1EUwVqLLMscrOCSJIjjGGmauhyRCMe/e1Fvv4M8zzEMA+Z5Rtd1WJYFfd+jrmt5OzRNg2maHEdDdvo28nYfFGRB27ZOmAIsZlwUBcqydEar4McdbkfmR45XVRXGcXRiqwl5mnLso4N+PoqA47CY49KEMbk1f3SUJ3weNIQ0lBI/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 45.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAABAUlEQVQoz42RaXKDMAyFcyfwAgXCYgMTGJaw3f8kr5ZaOiQknfx482xL+iTBRWsNpRTIdymtnNzZvaswgowSqCiG+op/3jhHP9TsuvwLlBLymsO3Dfy6hzA3fvsY+AxmYGYhHFDFV3YtxWPzp5o/4BEqHUgQzPfgpRaem8wnL26QQkA4Uc6rQU4TBkGAoihYxjg3BmmWIU4SZM6LPOdYmqYIw/AEPQGNAwzDgHVd2bdtw/1+R9M0GMcRXddhWRY+l2X5fuUjkAr6vmcQAQg8TRNDSXSnWF3Xn61MnWmttm0xzzNPszehhlVVcQ7lvl35GBC/H55kreUpCUITHeOvfso3SVY0e0lBpVQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -275,7 +275,7 @@ prático e factível.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -286,7 +286,7 @@ prático e factível.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.14583333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABgklEQVQoz41S226rMBDk///tqD0hTQMESICYgC9rbAy+AOlG6kOlplKs8WpexjO76+j+8tETFbruVUVVhcRYiF5UrutdanKD9MT2BfvoINOmf0m8bRuKmaobkbRwQtT8KMfut3jD65zpVdkOxW14VK5r50ML55TGBTsgjv1/Pt6eOK/bfZzUFZKcfZT8M+eHThbWe9CkE1kPeQ8FEm3on2JQFz5cqCyxgqqXZSWy/KRvKdtlLN53/5gmUVgc002va4pV1ch98MoMdMjRNmVxAylXl3VdnDeTHWanEEh8mCPvp5zGCX0/0V1GdyXbWzdP1ghVgWqkatAW9BXFvzNGOEgfpvADy7opI28yQ9sj3RX8gA+FYAfT8fEqRoKQIwno/LRnM2s05N+ohrG1biIixYBJ/57Qt/MjoI6eLfUuR8hwMDTO2B79K5E4Z53XzimEd3q2w7L453vGRoQm8IjXwtgq0892Ivg3IK0gvYgEp+j89Or39MERWTQS9dlZpFd5QvEXMvjlWT7pFT4AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.14583333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABjUlEQVQoz42SCW+jMBCF+f9/rtuk5HAOTCAQ6ttgwBd0QF1ppaVSrU8jy9LzjN9zMv9uTdOsuhfR+VPeK3mnGptRJL8UhzBJXTYCZSzN2ZGIS9fT5Ic+cZr8PMV5CkCMHsSNxCB78kvJUUZTZci2uB90JS4Pfi4Eeogz1bl1vpbZjaWYnTA7Xslems8NcYxza1QlUA5iDvVEFLYuMF3UHL3EFag4+jv29A+rWBvJFf6UWS1uVGayLUOIT3FH5P3GPm40PTRvomsS54daZYuHa21U7pzTRhB1xfx0pQeYn+tHjMH70XnjfL9iQnCJdQazA9wH9c4OpThbZ83QMp1zXQhdgFK2FVj4/wMTOA3BxuBWYGNDnFQnaokQ/TiRXcaOoi2sG1hbNjpfUJjph/fDtmFdr6EhX9oWTD3gewyjgfkvdL9AdiU/OWe2oppm0VFE/iCyOy+8g+fWjda2bsXbzo4awt/OGVzUPWkH1g20HUg/yn7s4IdkizspInuI2m2O/cN1FoJ4KVx/h4LB/C9Nf+VQACb3owAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -353,7 +353,7 @@ precisamos implementar o método &lt;code class=&quot;language-text&quot;&gt;POS
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -364,7 +364,7 @@ precisamos implementar o método &lt;code class=&quot;language-text&quot;&gt;POS
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAUBBP/EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAGU58NsIwr/xAAYEAADAQEAAAAAAAAAAAAAAAAAAQIDEf/aAAgBAQABBQLXPjymXfMUOnQqaOs//8QAGBEAAgMAAAAAAAAAAAAAAAAAAAESMWH/2gAIAQMBAT8BVksP/8QAGBEAAgMAAAAAAAAAAAAAAAAAABEBEmH/2gAIAQIBAT8BUopp/8QAGhAAAgMBAQAAAAAAAAAAAAAAACEBAjEQEf/aAAgBAQAGPwL2MMQ61HIuf//EABoQAQADAAMAAAAAAAAAAAAAAAEAESExQXH/2gAIAQEAAT8hygE5NGkdMupZ9nNTUZtVFm1n/9oADAMBAAIAAwAAABAQz//EABURAQEAAAAAAAAAAAAAAAAAAAEA/9oACAEDAQE/EEAZCz//xAAYEQADAQEAAAAAAAAAAAAAAAAAASERYf/aAAgBAgEBPxBwbRdj/8QAHBABAAMAAgMAAAAAAAAAAAAAAQARQTFRIXHB/9oACAEBAAE/EAWmwD5fR1H1ACKLe3WcxAeHUfYoKIovImWkprqIEq8rP//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUE/8QAFQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAAZTMNsIwr//EABgQAQADAQAAAAAAAAAAAAAAAAEAAgMR/9oACAEBAAEFAtc+OVat+YkbNoKTrP/EABcRAQADAAAAAAAAAAAAAAAAAAABEjH/2gAIAQMBAT8BjVn/xAAYEQACAwAAAAAAAAAAAAAAAAAAEQESYf/aAAgBAgEBPwFSimn/xAAaEAACAwEBAAAAAAAAAAAAAAAAIQECMRAR/9oACAEBAAY/AvYwxDrQci5//8QAGRABAQEBAQEAAAAAAAAAAAAAAQARITFB/9oACAEBAAE/IeUAnhdnofG0povamd1ZLOrf/9oADAMBAAIAAwAAABDgz//EABYRAQEBAAAAAAAAAAAAAAAAAAEAMf/aAAgBAwEBPxBAGSuX/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEhEWH/2gAIAQIBAT8QcO0XY//EABoQAQACAwEAAAAAAAAAAAAAAAEAESFBYVH/2gAIAQEAAT8QBarCcvQ8i6wAji9vkQHB3cUFEKL1Fy0lNeRAlXKz/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -409,7 +409,7 @@ queremos suportar.&lt;/p&gt;
 
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Note a alteração em &lt;code class=&quot;language-text&quot;&gt;List&amp;lt;Tarefa&amp;gt; tarefas&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Note a alteração em &lt;code class=&quot;language-text&quot;&gt;List&amp;lt;Tarefa&gt; tarefas&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Com a seguinte adição de código ao método &lt;code class=&quot;language-text&quot;&gt;doPost&lt;/code&gt; temos um protótipo que atinge o seu objetivo:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Override&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;protected&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;doPost&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;HttpServletRequest&lt;/span&gt; req&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;HttpServletResponse&lt;/span&gt; resp&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ServletException&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -424,7 +424,7 @@ queremos suportar.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 400px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -454,7 +454,7 @@ queremos suportar.&lt;/p&gt;
     &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Exemplo de POST&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;Ao analisar o código acima, além das possibilidades de melhoria de código (como reaproveitar o
-&lt;code class=&quot;language-text&quot;&gt;req.getRequestDispatcher(&amp;quot;/WEB-INF/index.jsp&amp;quot;)&lt;/code&gt; ao invés de duplicá-lo, ou fazer um &lt;code class=&quot;language-text&quot;&gt;redirect&lt;/code&gt;),
+&lt;code class=&quot;language-text&quot;&gt;req.getRequestDispatcher(&quot;/WEB-INF/index.jsp&quot;)&lt;/code&gt; ao invés de duplicá-lo, ou fazer um &lt;code class=&quot;language-text&quot;&gt;redirect&lt;/code&gt;),
 há algo muito importante que precisa ser salientado: &lt;em&gt;Servlets&lt;/em&gt; não são &quot;thread safe&quot;.&lt;/p&gt;
 &lt;h2&gt;Don&apos;t repeat yourself&lt;/h2&gt;
 &lt;p&gt;Segundo o &lt;a href=&quot;https://www.caelum.com.br/apostila-java-web/servlets/#uma-nica-instncia-de-cada-servlet&quot; title=&quot;Leia mais na apostila da Caelum&quot;&gt;material da &lt;em&gt;Caelum&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
@@ -474,7 +474,7 @@ desses detalhes como a natureza &lt;em&gt;multithreading&lt;/em&gt; que envolve 
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -485,7 +485,7 @@ desses detalhes como a natureza &lt;em&gt;multithreading&lt;/em&gt; que envolve 
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9ALXM3L3a6bnY5s7o8OD0+Or4+vL+/uTw8O/29fv//6eusXFuca3ByZ6utnVydtfZ2/////v8+v7///L8/ABCTV2Qpa/D3eXd+vrp/v74///g5ud5eXuqp6X///+3uLqMjo6wxsybrbV/e4K/xszh6e3t8/Tj7O3f7fEACAkXGh0tP0VReISHo7Gst728iYOIZ2FmgX196/Pvv8nIt8fCu8/On624g36HU01XRTxIrr7BhoqPmqCnABIRHycnMispLSQjJjs6OkZDQVRQT2dhXGFfV2htZXl9eJWdnoWGiouNkFM/PU88NDsvM4mNj3x9f391dQAQEBseHyQnJyknJickJSkhISQlIiUqKCZDQjpDQj49OjiFgn9wbXF4cWltUUJ3X0tCNDNLPEFTRUZtYFoAFhUaMzAuNS8tFhQYJCElJCAhJSIhPjYyMi0uJycqOTQyinp3r6emoKKanoFpmYZyamBjT0RCUERDdWpjADs3OFBKR1FNREVFNVBRPV1cTigkJm5jXW1OSxMQFRYUHGQ2MsOuo9jU1H9lUnttYJeSh7u8uLe6uLu8ugBwcF5naFJqbFiHiXugpaLM099gZWlRSkOBYVRWOTJHKCaUb1eslm6jjW4ZFBgAABY7ODrDwsG/wMO8vLoAcnFqlJKUsbO/x8zdy9PnytTqvsXWtLjHgnhzUzAlfU85kHRatLGkRkA4BAUODhEgOzw/srSxvLq4t7awAMTE1MrK3MnK3MbI2MPI2cHJ28jR5dXh+7W4wlU5LGA4JJWPhs3a7GJkZAoIDh0cIWZgTbazqLq7trO0rADBv8q/vsm8vMS7u8G8vMO/wMm/wcy+wc7DyNizs7muqq6+xM/N1d6ChoQAAQgPEBlkYFCpopS5urSwsqeEXVOjgX+zbAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9AKzC0r7a6Lva6M7o8OH09+v4+fT+/tzm5enu7fv//6mvsnBucaq9xpyutnRxddXX2f////z8+/7///P8/QAzPU2Ak52709ra9vbn/v72///Y3d9wbnKinpz///+6vL2TlpSzys2dr7eCfoW3vcTR2d7m7u/Z4uTX5usACAgXFhcoMTVCZW1xlJ2YqKyqgXp/a2VofXh53OXhvMfEtsfDtsjHn622f3iBSUFKOC05qbm7gYaKk5eeABIRHignMS0sLiMiJTQzNDw6OU5KSWJcVl9dVF5hWW9ybJCWmH99hIiIi1E8OFZCOD0yM4OEh3x8fXxycAARERsgICUnJykmJSYkJCkhISUkIiUpJiVAPzhCQT48ODeGg391cXZ6c2tzV0d4X0xFNzZIOT1QQUJsX1kAFxUaNDAvODEvGRgaKCQnKCUlJSIhRDs3NjAwJCQnNjIxg29ttaypqKuln4FqnYp2c2ptW1JQXFJQfHNsAEQ/QFVRS1RQRUtMOFZXQWhoWisoKWthWnRUTxkTGBQRGmY6M76omtrV0XVeTGpdVI6IfcDCvru/vr6/vQBrbFhkZk9rbVqKjYKlqqrO1uVobXJPSUJ8XlFaOzRPLSmVcVeqlGuahWYWEhYAABYyMTa+vry9vb+6urcAeXh1nZyhuLrIyc7hy9HlxtDkxMzewsfaiIB8TSogeEo0jXJXuLewRUE8BwcPExUiQEFBsbOwu7u4trawAMnJ28zM3sjK3MXH18PH1sHI2cfQ49Pe97q+ylpBNGA5JZiTjM/d8GltbAkHDB0cIWZgTbayprq7trO0qwDBvsm+vse7u8G6ur+7u8G+v8i/v8q9v8zDydm7vsi3tr3AxtPN1N2Gi4gBAQkODxhkYFCnoJG5urSwsqdu6FGLb3JrKwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -609,7 +609,7 @@ cobrimos outros tantos que fazem parte da especificação.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -620,7 +620,7 @@ cobrimos outros tantos que fazem parte da especificação.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAgADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAAB5SGZVlR//8QAHBAAAgEFAQAAAAAAAAAAAAAAAQIDABIhIjEz/9oACAEBAAEFAnl1BzI9zv5ij3//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAAAgEQEWH/2gAIAQEABj8CXkGmi3//xAAcEAACAgIDAAAAAAAAAAAAAAAAASExEUFRYaH/2gAIAQEAAT8hzRzydj2iO2Oe0HmNyw//2gAMAwEAAgADAAAAEIg//8QAFREBAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQMBAT8Qh//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESExcaFBsfD/2gAIAQEAAT8QSxSwVs2mJZbQ8S7bQrgnVe2AEgAa6mXx4n//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAEAAv/aAAwDAQACEAMQAAAByrOhliRH/8QAHBAAAQMFAAAAAAAAAAAAAAAAAgABAxIhIjNB/9oACAEBAAEFAjlxZ7yHUZ62Xf/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAIDAQAAAAAAAAAAAAAAAAACARARYf/aAAgBAQAGPwJeQaaLf//EABoQAQEAAgMAAAAAAAAAAAAAAAEAITERUaH/2gAIAQEAAT8h5MeeyZAdszrF5rZna//aAAwDAQACAAMAAAAQqD//xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAwEBPxCH/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAQACAgMAAAAAAAAAAAAAAREAMXGhIbHw/9oACAEBAAE/EGoigmzXPGsrBy22hODOq9uEACBrrPpxn//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -683,7 +683,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -694,7 +694,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQL/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAW+5TWapmlP/xAAbEAACAgMBAAAAAAAAAAAAAAAAAwECERIhMf/aAAgBAQABBQK7q1EM2jI7jo9P/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhABAAEFAAAAAAAAAAAAAAAAARAAERIiUf/aAAgBAQAGPwLEdqbwh2f/xAAbEAEAAgMBAQAAAAAAAAAAAAABACERMUFRYf/aAAgBAQABPyFJoK12KXca+xeYc0QtuUpHj6T/2gAMAwEAAgADAAAAEGM//8QAFhEBAQEAAAAAAAAAAAAAAAAAERAh/9oACAEDAQE/EAyf/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAEhQf/aAAgBAgEBPxBvSH//xAAcEAEAAgMAAwAAAAAAAAAAAAABABEhMUFRYYH/2gAIAQEAAT8QdUtQGnperjQGPZpH3xG4NTmzE6dxXuwjDb0BZ//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAQP/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAWukprNUzSn/xAAaEAACAwEBAAAAAAAAAAAAAAABAwACERIx/9oACAEBAAEFArurWIZ0Njhjh6Z//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhABAAEFAAAAAAAAAAAAAAAAARAAERIiUf/aAAgBAQAGPwLEdqbwh2f/xAAbEAEAAgIDAAAAAAAAAAAAAAABACERMRBBYf/aAAgBAQABPyFZRhWu4odxr2LzMhELblKcP//aAAwDAQACAAMAAAAQwz//xAAWEQEBAQAAAAAAAAAAAAAAAAARECH/2gAIAQMBAT8QDJ//xAAWEQEBAQAAAAAAAAAAAAAAAAABEEH/2gAIAQIBAT8QXZ//xAAaEAEAAwEBAQAAAAAAAAAAAAABABExQVGB/9oACAEBAAE/EGFGoDR6Ly43GezSPvkbqpy5qdOxXuhEgtHqCz//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -738,7 +738,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 405px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 405px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -749,7 +749,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 108.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAWABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAH3+e4aAgUH/8QAGRAAAwADAAAAAAAAAAAAAAAAAAERECFB/9oACAEBAAEFAh1o2O54f//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8BH//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8BH//EABcQAAMBAAAAAAAAAAAAAAAAAAABETD/2gAIAQEABj8CHHHh/8QAGhAAAwADAQAAAAAAAAAAAAAAAAERECExQf/aAAgBAQABPyFuIZEqGnLjryHQQ7NDtR7x/9oADAMBAAIAAwAAABBzADz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAbEAEAAwEBAQEAAAAAAAAAAAABABEhMUFRYf/aAAgBAQABPxC5SLEOigf0vYc2dOPEFqIFZktWwrQH7Vw1gVxSF0X32p//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 108.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAWABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAH3+e4aAgUH/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQESFB/9oACAEBAAEFAh20abPD/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAGBAAAgMAAAAAAAAAAAAAAAAAAAERITD/2gAIAQEABj8CKcPD/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARECFBMWH/2gAIAQEAAT8hdETQuDV49cj63CN8aiNqd/cf/9oADAMBAAIAAwAAABBzwDz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAcEAACAwADAQAAAAAAAAAAAAABEQAhMRBBUYH/2gAIAQEAAT8QMlIhlhFqB8d8aWA6qCyIFVRlcEho9TisJsIQNXs//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -770,7 +770,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;init&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;destroy&lt;/code&gt; são chamados apenas uma vez. Por fim, o &lt;em&gt;servlet&lt;/em&gt; é coletado pelo &lt;em&gt;gargabe collector&lt;/em&gt; da &lt;em&gt;JVM&lt;/em&gt;.&lt;/p&gt;
 &lt;h2&gt;Um pouco de prática&lt;/h2&gt;
 &lt;p&gt;Dentro do contexto da linguagem &lt;em&gt;Java&lt;/em&gt;, a &lt;code class=&quot;language-text&quot;&gt;Servlet&lt;/code&gt; também é uma &lt;code class=&quot;language-text&quot;&gt;Interface&lt;/code&gt;. No nosso escopo, falando de desenvolvimento &lt;em&gt;web&lt;/em&gt;, usaremos uma implementação mais especializada para trabalhar com o protocolo &lt;em&gt;HTTP&lt;/em&gt;, chamada &lt;code class=&quot;language-text&quot;&gt;HttpServlet&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Voltando ao projeto &lt;code class=&quot;language-text&quot;&gt;ola-mundo&lt;/code&gt;, criado no artigo anterior, vamos adicionar a &lt;em&gt;servlet API&lt;/em&gt; como dependência do projeto. Antes do nó &lt;code class=&quot;language-text&quot;&gt;&amp;lt;build&amp;gt;&lt;/code&gt;, acrescente o seguinte:&lt;/p&gt;
+&lt;p&gt;Voltando ao projeto &lt;code class=&quot;language-text&quot;&gt;ola-mundo&lt;/code&gt;, criado no artigo anterior, vamos adicionar a &lt;em&gt;servlet API&lt;/em&gt; como dependência do projeto. Antes do nó &lt;code class=&quot;language-text&quot;&gt;&amp;lt;build&gt;&lt;/code&gt;, acrescente o seguinte:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;xml&quot;&gt;&lt;pre class=&quot;language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;properties&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;maven.compiler.source&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;11&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;maven.compiler.source&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;maven.compiler.target&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;11&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;maven.compiler.target&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -817,7 +817,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -828,7 +828,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAmUlEQVQY02OwtPO1cvB39oiwcw4CMmydg1x9ohzcQ60c/c1tfYws3PVNXXAhhinT5kybMW/GzPlTps+ZNnPe3PlLFi5eMWP2wsVLV2/etnvj5h0bNuFEDI8ePXz18sWDB/efP3v6+PGjp0+fPHv2FCj48eOH//////v37z9uwIBLAqjtDyHA8PfvX6C6vxgAv50EbCYGDJxmAOvEmdSOZ6Y1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAjUlEQVQY02OwsvczsfJycA21cQo0t/WxtPdz8gy3dwsBMkysvQzMXXUMHXWMsCOGyVNnT50xb8asBVOmz5k2c97suYsWLl4xa+6ieQuWbd66e+OWnRs27cCFGB4+fPD69avHjx89e/b0xXMg8eTli+dPnzx++/bNf0KAAY/cH0KA4S8O8O/fP4psHsSaAd/VmUKXtqvxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -851,7 +851,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -862,7 +862,7 @@ arguments which is not very interesting to me.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAP/aAAwDAQACEAMQAAABxXrqMCyP/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIRMQETIf/aAAgBAQABBQKxsa0gXitUn//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAIDAQAAAAAAAAAAAAAAAAEQABJBUv/aAAgBAQAGPwKDoq+4/wD/xAAbEAACAwEBAQAAAAAAAAAAAAAAAREhMWFBcf/aAAgBAQABPyHSh6LW2SeFmXIajg9HZ8n/2gAMAwEAAgADAAAAEAD/AP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCH/8QAHBAAAgMAAwEAAAAAAAAAAAAAAREAITFBUXFh/9oACAEBAAE/EEmzpkZIEFkgGl7RhYKNnGKgAGGFwa36YasngZy54if/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMCBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAAHi3ngSaP/EABoQAAIDAQEAAAAAAAAAAAAAAAACARExAyH/2gAIAQEAAQUC0aI5pQvitln/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAABEAASQVL/2gAIAQEABj8Cg6Kvr//EABsQAAIDAQEBAAAAAAAAAAAAAAABESExUWFx/9oACAEBAAE/IdKHop9kksyx0heHSz5P/9oADAMBAAIAAwAAABAw/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPxBX/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8QiP/EABwQAQACAgMBAAAAAAAAAAAAAAEAESExQVFxYf/aAAgBAQABPxCg9nTUEKIXMC6r3DGw1lewqENC1fjHf16joNnot0TxJ//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -887,11 +887,11 @@ arguments which is not very interesting to me.&lt;/p&gt;
 &lt;p&gt;Ele veio do arquivo &lt;code class=&quot;language-text&quot;&gt;index.jsp&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cat src/main/webapp/index.jsp
 
-&amp;lt;html&amp;gt;
-&amp;lt;body&amp;gt;
-&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;
-&amp;lt;/body&amp;gt;
-&amp;lt;/html&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;html&gt;
+&amp;lt;body&gt;
+&amp;lt;h2&gt;Hello World!&amp;lt;/h2&gt;
+&amp;lt;/body&gt;
+&amp;lt;/html&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Segundo o &lt;em&gt;Wikipedia&lt;/em&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;JavaServer Pages (JSP) is a collection of technologies that helps software developers create dynamically generated web pages based on HTML, XML, SOAP, or other document types. (...) JSP is similar to PHP and ASP, but it uses the Java programming language.&lt;/p&gt;
@@ -926,11 +926,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
 
         (...)
 
-        out.write(&amp;quot;&amp;lt;html&amp;gt;\n&amp;quot;);
-        out.write(&amp;quot;&amp;lt;body&amp;gt;\n&amp;quot;);
-        out.write(&amp;quot;&amp;lt;h2&amp;gt;Hello World!&amp;lt;/h2&amp;gt;\n&amp;quot;);
-        out.write(&amp;quot;&amp;lt;/body&amp;gt;\n&amp;quot;);
-        out.write(&amp;quot;&amp;lt;/html&amp;gt;\n&amp;quot;);
+        out.write(&quot;&amp;lt;html&gt;\n&quot;);
+        out.write(&quot;&amp;lt;body&gt;\n&quot;);
+        out.write(&quot;&amp;lt;h2&gt;Hello World!&amp;lt;/h2&gt;\n&quot;);
+        out.write(&quot;&amp;lt;/body&gt;\n&quot;);
+        out.write(&quot;&amp;lt;/html&gt;\n&quot;);
 
         (...)
     }
@@ -1039,7 +1039,7 @@ $ touch src/main/java/webapp/modelo/Tarefa.java&lt;/code&gt;&lt;/pre&gt;&lt;/div
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1050,7 +1050,7 @@ $ touch src/main/java/webapp/modelo/Tarefa.java&lt;/code&gt;&lt;/pre&gt;&lt;/div
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAHHYWuF1CBR/8QAGRABAQADAQAAAAAAAAAAAAAAAQIAAxAR/9oACAEBAAEFAtcjjMvIrzGw5//EABcRAAMBAAAAAAAAAAAAAAAAAAIQERL/2gAIAQMBAT8BHMX/xAAWEQEBAQAAAAAAAAAAAAAAAAARARD/2gAIAQIBAT8Bq5//xAAZEAACAwEAAAAAAAAAAAAAAAABEAARIUH/2gAIAQEABj8C3koB4v/EABgQAQADAQAAAAAAAAAAAAAAAAEAESEx/9oACAEBAAE/IbB4FzJBliRNnOljBu1qti2z/9oADAMBAAIAAwAAABCM7//EABcRAAMBAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8QbUcp/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEx/9oACAECAQE/EJyR/8QAHRABAAICAgMAAAAAAAAAAAAAAQARUWEhMUFxof/aAAgBAQABPxDW+M6lQyeY2vkRfsIRBaIVJFT0igKM+5cM/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAHHYVuF1SBR/8QAGRABAQADAQAAAAAAAAAAAAAAAQIAAxAR/9oACAEBAAEFAtcjiS8ivMdgc//EABcRAQADAAAAAAAAAAAAAAAAAAIBEBH/2gAIAQMBAT8BMnK//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/AUdn/8QAGRAAAwADAAAAAAAAAAAAAAAAARARACFB/9oACAEBAAY/AjeZAHpf/8QAGhAAAwEBAQEAAAAAAAAAAAAAAAERITFBcf/aAAgBAQABPyGw5S/TNCypoa096qYg7smjdZ//2gAMAwEAAgADAAAAELzv/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAwEBPxDRHKf/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQIBAT8Qykf/xAAbEAEBAQACAwAAAAAAAAAAAAABEQAhYUGxwf/aAAgBAQABPxDoFHpprJkUV8jiEatAFE6yRDUWeD66w7//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1203,7 +1203,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1254,7 +1254,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1265,7 +1265,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHAomkhi//EABkQAAMAAwAAAAAAAAAAAAAAAAABAhAREv/aAAgBAQABBQIemiKcPusf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxAAAwEAAAAAAAAAAAAAAAAAABAhAf/aAAgBAQAGPwImKP8A/8QAGhAAAgMBAQAAAAAAAAAAAAAAESEAARBBMf/aAAgBAQABPyGqNzmfcKAaigUB5n//2gAMAwEAAgADAAAAEDwv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxCMU//EABsQAQEAAwADAAAAAAAAAAAAAAERACFREIGx/9oACAEBAAE/EJJv1jS0jSXRz54cnQql1iwQ4AatmLWwz//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHAomkhi//EABkQAAMAAwAAAAAAAAAAAAAAAAABAhAREv/aAAgBAQABBQIemiLcPusf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFxAAAwEAAAAAAAAAAAAAAAAAABAhAf/aAAgBAQAGPwImKP8A/8QAGRAAAgMBAAAAAAAAAAAAAAAAAREAEEEh/9oACAEBAAE/IQGZkO0wbhUnxKv/2gAMAwEAAgADAAAAEBwv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxCMU//EABwQAQEAAgIDAAAAAAAAAAAAAAERACEQUUFxof/aAAgBAQABPxCSRfWNreNIOjr6cNICI08YoLqADVsxa2Gf/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1291,7 +1291,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 550px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 550px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1302,7 +1302,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 68.22916666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAcCrNoXDH//EABoQAQACAwEAAAAAAAAAAAAAAAEAAhESIiH/2gAIAQEAAQUCq617wQRPUeZ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8BV//EABoQAAICAwAAAAAAAAAAAAAAAAABEUECIYH/2gAIAQEABj8CeXEbZY07Iog//8QAGRAAAwEBAQAAAAAAAAAAAAAAAAERITGR/9oACAEBAAE/IXU9SBtKbpc6KlRhvQxxCKKfh//aAAwDAQACAAMAAAAQUA//xAAXEQADAQAAAAAAAAAAAAAAAAAAASER/9oACAEDAQE/EJlGj//EABcRAAMBAAAAAAAAAAAAAAAAAAABIRH/2gAIAQIBAT8Quig//8QAHRAAAgMAAgMAAAAAAAAAAAAAAREAITFBYaGx8P/aAAgBAQABPxAExQZoZ33DMixs59ced16CFBHKCFwoLk78gvHULsAgccz/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 68.22916666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAcCo9sFoh//EABoQAQEAAgMAAAAAAAAAAAAAAAECABIRITH/2gAIAQEAAQUCl1l2CfBE7cric//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/AUf/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFX/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAERYQIxQf/aAAgBAQAGPwJ5TRtnRplEH//EABsQAAIDAAMAAAAAAAAAAAAAAAABESExQWGR/9oACAEBAAE/IWa7HRq3EuXoSU7clMNymIRlmf/aAAwDAQACAAMAAAAQIC//xAAXEQADAQAAAAAAAAAAAAAAAAAAESEB/9oACAEDAQE/EHipR//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQIBAT8Q2ig//8QAHRABAAICAgMAAAAAAAAAAAAAAREhADFBoWGR8P/aAAgBAQABPxAvAYT2y59HeWzJNrX15JsXshjlIVHUYx0yBqjrxgMrBOjnP//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1326,7 +1326,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 619px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 619px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1337,7 +1337,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAAB+klEQVQoz42Sb2/SUBTG+zX8Fn5UI77XRGN8ZcyMMzEOFeifW1qYATdmBNzcgAFSenvbe/HCHs+9hWXGadbkl56ePn16ztM6i7Mq5MxDcdkg3H8ipy7UTw9y7v6F7U9LnWPMIFoAj4Asvh0RQ88Z8qEHdRpAnRkYVoT87tv+JgmtzjGTGbOrtAmkDJtlYDG16dl+FkGcNpAzhnm9jvGHKkbVA5wfvEfq++DMhxx7VueYMc0UV2kImRxBZSNIfgGVdMk0pD5NLsjwrAF92Ma3/TcIXzxH7cljeM+eQoQMRRxCTXyrc4qpMQxRJD2IXOJyOsNsvrC1eYGZ1KyS/3CRx8wiogC86SFvMajDCDz2SsNsZ8hJmPRRqDV6vR4GgwHUaoN8cUKGtD6PsaaMxKSOnCK6ed7Vm2Voo7teeb2ktZIhVMEh8xRi0S/X3WYoRx6yjgfRpbyOaUVCHjF7zTsuVtPgzwztg5TZOmF2GlPTXuVHsRnS7xFGUM0IJ3uv8eXlKwz330K32jZHNfZ3X9nV5KzpQSLSZGIxddlr2vuUoc7iQOetQCesoResrpdhQxdtptPY1ZSh1TlQnwF8JXr/gbLEMfCrU7Luluhuea071zpn0n9X4RefKsvzj7eSEhT6AzGuP+Sj2qNsVKvwG2Rb0q2Hc8fjPnHvLsLfVakbXpYt9vcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 58.854166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACBklEQVQoz32T3W7TQBCF/QC8Do9bBOlF4QrCLZQ0ieP/OIkU2iKFqhCr+XOyjndtr7Mhh/G6QBSglj7JOztzPHN2bbBpC/mih2xuPkm+7KGIe8hX5gkUJ7JFnWfs1g4gQoAHRP/fiD52Kxf5Nwty6qCsiFxN8d1GPrVw2Po615ArC0iDOrB18SNxcCCQejpWJ/pIJ10Ix0VsdrBsX2F+1SI+gTsOEr+HcuXopgwZ21r5kHiQ7BoynaLY3mPHho+igRbkX02owQDj5lv4ry/QenEG/80FZBBADBzs4mNBKszZBFwUWK7WYAmH4BwlG1HXHo1MRXfkV+CRtk2DWGC2SWEXMgywDXt/BMtKkEYVSYS8UBiNhoiiCIXco9iM9V5lidpQzqyL/OSwdIwOVVuT/h6ZCpIQnEWQRYZMJMio49rXQO9XxvOxBXFtQ37xNPmtA/HZRnpj6g8eCfb1aAdCbXzsmV+Pmvq1h4I8nJgovRDCdXHbfI+bd01EHz5iHw4pzT720FKkrKgbIqB3X1O91zFac1/xO1NlvqtE31Gx1SHairmmykNPkYeKBLWOUa5tfc+qdp9iz2jMpUXXo+rGhVq7uiu5tKHPIa2tMeL7ywafdRvpQ5vo/AV/6LyigjP6E16KebfxP37lG8CCSIgNwY7gREzMDHqeE8+C7jmtQYgT+GPNxvgJp31Oy9YTG7sAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1359,7 +1359,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 619px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 619px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1370,7 +1370,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsSAAALEgHS3X78AAACCklEQVQoz41S2W7aUBD1X/QX+tFdXFVKq770oapEcGjBO+AQAW2TggmLN9ZgFm9c0tOxsRJC+xBLRzOemXvunJnL3Y2+IZwq2HgitmPpWQgnCoKJ/N84l5JFjorY1v5BNKK4pR1BRTCUwRZVxGOV8kpWlxBC8ndzHVzaWVoM9xJw6oBdJd/AH7eOhVGGXRJglYoYXRQxFklNV0Ey07ImYBuAR+fGDeytGiK6hNt6EpKU0Klh5zbBZl0w54pIa3BkAfWzj5De8Si/eQv3OxGaj4RxXwWzqkgG9E9+MtWIkLQnI5l+uljcLdE1Tax8H4nXwqYtYnkpU6cV+A2aU0tDYJJkkrYZirgqnqFZ+oCu8hnrTgW7mX4gjHPC2XwB0+zB95fYeW3sRzrubRqDY2R2N9QPIMLVoAL9Cw+j8B4/y58wbhXzDk8k7+cHyXtbx5K6Gpyfo1f4ms1wVaXX0JEywshRMsl7khyT5KAnI35CeLIUeAaiHzqc0gUGQoEWIyBsVBF05WyG8clS7u0a4omaSWaBJTNa+wMiS2W+WWZuu8DWtyLbEFK7pNimL7JkrrHQVdh2ILHQSuvJH0qMLmIc4iaA34RfhOvcdrKHO+0Lee46x82RvTmKP+a56a3Ak2x+7Yr8JsfaEXl69Xw8U8mv8NTRq2iqvF6Rn+XdypP6h3MU5575vSS8eE7hX1buEmpYu0mnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVQoz11T227aQBD1c3+mX9w8JEppH1qpkdoECJdgjI25JBJJFaLEDjbG3OwCvoEXOB2vgVIsHe3s2ePjmdmxMO+XEYyq8OwKvKF4gH+E031Iev9I6x3xQjSuIepLWPblExBv1rA0jzjaB0YVmz8qQkvi+0S3orPQTHnBt0XEhgIMWoClAv06j9dmHWO5BKt4i34xD7OQx1QuI9QlrKYyIqOWvpPAbmNlyJwXgmEVsalgazUQ2x2w8TPWVhMbMn7L/YT6OYPS2SdI5xdw5AoCnfSOgtCQwHoKGH04pjV6lzjPDVc9St8xMBpPoOk6/LmLpdHA7KECt1nBRC1j1hIRdGQEWlra5PkW97lLPJa+Qq9fwddEMLf+zzByTAyGI7xpGjdkVpuXnWSOQZNiFcyok1bmhvZjFrWrMzRvLtAVv2H6u4D13vBQ8vAJbPJCJbeorzKm9Tvo2Rto2V8YlAqYt6RDJkGviqUu8/6H2o7nJdupIez/L2XTb8Bvy+jlsmR6zQ2jB5WXnPQquWEM2ul7o3vqpYJ4SoY0O4xGgUWGxMIdaFyY81Jko6c88zSRLbQKm7/esdlrmfnvImOuwnxTZGGvmuoJfo94R2FC7FJ2C7rVuUpoYDOjLP0WtM4PWN1rIKBeErelMywa6eo1saU40Sf7/ZrwgmsUMzTlGc8WM/4O3qCSWU5qmXAs8Zh6dh6OpEuKv+zP6c866Dm34wUgJGwI6yPEBBCWfKXnI+FDt/19x7MT/R5M+AvR9kYVUl2wXAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1419,12 +1419,12 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;li&gt;Tenha certeza que o arquivo &lt;code class=&quot;language-text&quot;&gt;startup.sh&lt;/code&gt; tem permissão de execução;&lt;/li&gt;
 &lt;li&gt;Execute o arquivo;&lt;/li&gt;
 &lt;li&gt;Abra o endereço &lt;code class=&quot;language-text&quot;&gt;http://localhost:8080&lt;/code&gt;;&lt;/li&gt;
-&lt;li&gt;Se tudo estiver certo, você deve ver a mensagem em verde &lt;code class=&quot;language-text&quot;&gt;If you&amp;#39;re seeing this, you&amp;#39;ve successfully installed Tomcat. Congratulations!&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Se tudo estiver certo, você deve ver a mensagem em verde &lt;code class=&quot;language-text&quot;&gt;If you&apos;re seeing this, you&apos;ve successfully installed Tomcat. Congratulations!&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1435,7 +1435,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 27.083333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABH0lEQVQY0yXPXU+CUADGcb5D8aIwtWk6siRBOXAwhiAewDcEJihMTbTVutMLL/ou3VSrvmVna/vd/vfsIZqdnmYOJc1QjGGjeVvpb7j8u7z7ZLcf3OMXl/8U818me6+5z3f24mYQV/V5QfbojoMRYJ6rwd5YvmjRgR/EwN+B2UaPci3Y6dFenW/BdC2Nsno/LAIPK3RdnJESwgg1PMDoyVi+lnt+Y5DAIAfjFPprMM3kcSo6cduJW3bUQivBywR3Jbgpby3w/rUREqI1U1AomlMeoqr0cKUnZf+tMjmXJmfGOdLOiXJOF/axbgclBdFdj+m6RdljwYhVRgTdNpm2Rd+bjGjRgkFK7iWMSXWBUTCmtAQjYcKqOEP/VzFKQtgfOzVL+Z8c9EgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 27.083333333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABJUlEQVQY002OW0+CYABA+Q9+n1lecFZgpqYgIXwqMBU0hA8BL+RlJRcVe6it/9RrbW2tfl2up7az83a2Q1xe3/ACqtSYOte8KJAptIbb72TwDv0PEH7C7RfY/YCHt6JxqKrTUn9GKc4Zr580BkcIHq9b9qM8CeVpWFJsDm8a9h7NngQ3FqYHztmz1rZiRHnJTfN3xyzJapDR4J+J27HPjwPJiwuSQ/fmor3hjYVorQRziawVN/I43WOHk9pwUdbuy+q8OlhQiksiM9+2iKbutfFSHM3plk4J6lV/SVuvRfxCmc857ZDR4owap7o7uuect40cwlnRIEWTRJhsYSJdl3NsN12Ts0z3tIIAqyfkCHT8hBQAKQRyBJUQSBHZMVJsHzKD/9u/WPVNDM5pZd0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1511,7 +1511,7 @@ http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd&lt;span class=&quot;token punc
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;

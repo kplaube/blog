@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - graphql]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Além do REST com GraphQL]]></title><description><![CDATA[Construir APIs virou uma das coisas mais comuns no que tange
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - graphql]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Além do REST com GraphQL]]></title><description><![CDATA[Construir APIs virou uma das coisas mais comuns no que tange
 o desenvolvimento web. Não obstante,
 escolher uma biblioteca ou framework com bom suporte a REST
 é parte fundamental da tomada de decisão ao iniciar um projeto. Em tempos de API-First, debater arquitetura, design, e considerar
@@ -12,7 +12,7 @@ questionar a adoção do &lt;em&gt;REST&lt;/em&gt; pode resultar em impactos pos
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -23,7 +23,7 @@ questionar a adoção do &lt;em&gt;REST&lt;/em&gt; pode resultar em impactos pos
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 70.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe9NQoP/xAAWEAEBAQAAAAAAAAAAAAAAAAARACD/2gAIAQEAAQUCZz//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAXEAEBAQEAAAAAAAAAAAAAAAAAEQFB/9oACAEBAAE/Id6aVER//9oADAMBAAIAAwAAABBQD//EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/EKf/xAAWEQADAAAAAAAAAAAAAAAAAAABEGH/2gAIAQIBAT8QFX//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhUTFh/9oACAEBAAE/EABooc2McArWA3Sz2JUbYEV237KcJ//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 70.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe9NQoP/xAAWEAEBAQAAAAAAAAAAAAAAAAARACD/2gAIAQEAAQUCZz//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAYEAADAQEAAAAAAAAAAAAAAAAAAREQQf/aAAgBAQABPyF9DFITP//aAAwDAQACAAMAAAAQUM//xAAVEQEBAAAAAAAAAAAAAAAAAAAQQf/aAAgBAwEBPxCn/8QAFhEAAwAAAAAAAAAAAAAAAAAAARBh/9oACAECAQE/EBV//8QAGRABAAMBAQAAAAAAAAAAAAAAAQARIVFh/9oACAEBAAE/EADCnmxjgCawDelmMSo7Aiu2+yjk/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -79,7 +79,7 @@ conhecido por &lt;em&gt;over-fetching&lt;/em&gt; e &lt;em&gt;under-fetching&lt;/
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -90,7 +90,7 @@ conhecido por &lt;em&gt;over-fetching&lt;/em&gt; e &lt;em&gt;under-fetching&lt;/
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 81.77083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsSAAALEgHS3X78AAABtklEQVQoz2WTOY7CQBBF+4jEHIAEQY4skXIKlqP4AAgSAggQktlBbGaxGS/MU3/Tg4YfWNXV9Wv5XTYvi9vttlqt+GInSZLneZqmWZblFniiKIrj+Mfi+XwStlgszP1+x5pOp71ebzabcbfb7Yg7HA7n8xnjYRFbkI7g4/HY6XTa7bYZj8fw4fi+r5TUuVwuYRjSiKLpgivV5xgEQalUqlQqBi+NETSfz10oI+z3e/hEq3+y84XPF+d6vR4Oh0Yz52+ILENJMURO3sDGeTqdjFR5fcAxnR/DSQUYnuKMZhSx2WwGgwFSOfIn6EVPIKgyY5rlcskZ3bvdLjaNkJL0SH29XlVHaqsstO1222w2W61WoTYcBNBsDEMoasGRSDj1VFoEKpXL5VqtVghGED07tRGTd2YWnhQOHvjSD3As2v6WilL0TDtU1kM6waS23pyhzLc8qv8vqVNbX81VkOl5NBqxGNhcIwkelHMvryVxx2K3J5MJmdCZdeWsO8gwIwu3YXowAti/arXaaDQMli76/b7EoB8tM0gt1CdfhKA4lHq97nnen9rIy4VWR3+VDNWXSJpcbdPsL2GKiZKn1xBwAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 81.77083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAABwElEQVQoz22SOY4CQQxF637knAJEREIIIQknQEQchASRkEDAIvZN7PvQ3fQyb/pD00LjoORy+dvf32V83w+C4HA4DIfD6/XK1bZtz/Mcx3k+n15o+I/Hg7iCnEDIN6fTCa/T6ZTL5eVyScZut7Msi/N8PoP5Cc0OzXVdkufzeT6fL5VKptfrESW7Xq8HoVEYIiBvtxttiYAhyEktrv1+P5lMZrNZo2KQWa1WAsvf7/dMQU/w5BBkIhyudLrf761WywigyWXqFo9HEmhgzQw7E4fFzQ8tKieMNOOkyvF4fIHH43GtVluv118sokFEW0/qjFhmMpkQms1m1WqVYjygP7VhdblcGA+RmFCiYuqUSqUKhYJhXWKCAKoKBgBSc0otgsDIoYrA6XT6DyxiZNA2YrVYLLbbLWunv9Yr2vozWtBgMDD/TijCGL5UcGKmJxZpvrbytaroKQ4WF6R5dZ5Op41GY7PZ4FMV2vwTPpkKSe2o6Id2u93mAc0rlQr/WW84aCOpI810ktDtdhOJRCaTMXTTj2s2mzxACT5EBFZP622sAKbQzOVyxWLxozYi4WhJ5CE+jtZLkBLS3A2NzNFo9AuC8ojMmPuqnAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -116,7 +116,7 @@ no diagrama abaixo:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -127,7 +127,7 @@ no diagrama abaixo:&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 60.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAABVElEQVQoz41Sy27CMBD0D/E15S/4Ci7lwP9w6JEzAiQkoFJPHEpImhg78WP9Std2EY+qFWMpstYzuzOrkP4ewfvP5vTFqVaaUso511r3f4B470MItyXwplJnYy3Wf7/eiX+XrHMU2hakFBIAstg5BxrQBVZsgjGGbDab/X5/9RYCPihvfJzqr3YA0IPz2MSZBLyQ8Xg8nU6FEMgQCcgTneCMxWkAyNMJ8E5DDZTRyetkNBotFguyWq3W6zUqu66rqqppGmSXVVkUBSqllErK6Fdp8XYIH+2xPg1fhoPBYDabkd1ut91ucyqlVNOeY85kOKfNX8zqwfU+oIXlcjmfz8uyJDiqrutIiieUglYd5YxjI3sB6qN5E1eGl5+9Wvu4bZzQWqmMxvAYpE1AHj75C3LHuLCQcCs+iFPRlMWxyJp/8DgZXQmrFWjGWHb47E+SzfRP4xvWJ7GHciyOMwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 60.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSElEQVQoz41RS27CMBD1gbhPOQWHYEu5Sw5QDoBAYgOLRuqmXSTggmMnjj+JnT7HkPJRK54iZTIzb96bCelu4ZzLjvtvwbTWjDEhBILuDxB0e++vU9Y1VBW2scg/Vm/Ij6m2bQtTlqYGjDGRjClGm/BY0/Sw1pLdbpemqVJqIKOgnHFB9VcWU/DRuvYaZDqdzmYzzjk6ICV7NbwEFyjbHrqH/Sj80YhKzF/nk8lkuVySzWazWq3AlFJSSk+nE7oR5HkeptS1qlXPNfLty71zyo/jl/FoNEqShMDzdruNq4YLiyLs6Rwy/oKzbdN2ziNYr9eLxSLLMgIp6MTWzndUskPF4BmDMC7eJvwCmLfhXsBw1/tr45hlU9dWY4uqqsoeke8uiBMDeTA2kD/lYc/oPssj5x/cK8OebJTSihcF4vM6z5Cjme5p/AAv47GwOSvUWgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -167,7 +167,7 @@ mas ainda assim, uma complexidade a mais.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -178,7 +178,7 @@ mas ainda assim, uma complexidade a mais.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoUlEQVQoz51TS0oDQRDNGbyG4A3EvRs3bkRcCW70COpCVwqeQPCDEncqgjsR8ZNAJAn5aETURIbESTKDmu6enp6ZnmfPxGg+KmpB0VRV9+PVq+oI/mC+7/fkHJtCMOO9DkSCSy1vf/RdnnMOxigsxsC4g9juPGLrIxC0FtYj3Qw6vBtYOaEUruvC81xIVb9P7eHudEUxbTQBHccBeXmBEOJXbTPS6IjLBkWuaLYYIcIsC9knA+ZrA9LzFLAdMitmDhHfHgepFiBVwlM5PXGA/OIwXq/P4IQKeJhYiGJgegcVkzUZBi1c3JbwVDMgbFtpQ0EtBzeX+4htT6BaSoMLF6RM8LC/hdTsEJ4zR7AUohQWxuY20T+1gbJJm4CByFe5LAghHVpWa3UkkynU6nUElEVch515hl6vQsrPaT9qFSTSeXVHfj+UwKSUMAwzPMNYsfZtV7G1P1YksPOchrXjOxBVCwG71+OrfWuPG0prS+lucaW1yzE4s4q+yQOcFIyvAX/cQ7/JPNgMoTwYylL0DKPLJ9BM3tvyv36K4NAr2kf9DcTDRouucaRUAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABsUlEQVQoz51TPUscURSdf+IfsBN/QLC3shFsrJJCLS22CtikUxCEpElASLBQ2EoLi6wECYs6Li4aIVGTHXfdZT9m5r2Z9zVvTt7MuDsbXcF4mTvw7n3ncu6951n4D4vj+FFMRxKRDAd5K/n1fRg0HE9C/TjnHGEQgLEQNGA43C7geGseSpA0bz1kkLu+97xgrDV834eSEkoZjzSqpfe43F8xsYylJU0yJMkl9ay2GRf/nJvdADcNN2+Z0ADVegseoSkjKTPAlV3Eyc4iQteBNgx1Ai4X8WN1DsHvM0TpACVm337GVKEIL8hwlusTfPvloNXpgjMGSgloKFA9+IjDTzNoO+eGlYTfoLj8soaT5Un0qiUwFZvOXLxa2MD4m010CM8KEkJQsW0ElOabM7NyHAfHR2W0O23AgMVBA2GljfrtdTrLvp2e/8TX75WkYcRPLSUxaWZ612ylxROLPA4dKnAz8+xuhilf3KJY/pMuKGX4UDaj9DZ89jzXSIeBCwHBKCZef8DY4h7sG3d0wVE6HMTNp5SCSIoJCa04ltZ3Mf2uhHqPP9bhS14KNZKr1WqD/F98EkZq+ACx7QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -205,22 +205,22 @@ uma boa candidata para este momento do artigo.&lt;/p&gt;
 &lt;p&gt;Partimos do princípio que queremos definir os tipos que serão servidos pela nossa &lt;em&gt;API&lt;/em&gt;. O &lt;em&gt;GraphQL&lt;/em&gt; possui uma sintaxe específica para definição de tipos chamada &lt;em&gt;Schema Definition Language&lt;/em&gt; (&lt;em&gt;SDL&lt;/em&gt;). No caso
 do exemplo do &lt;em&gt;Pokémon&lt;/em&gt;, temos o seguinte:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pokemon&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; ID&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
-  &lt;span class=&quot;token attr-name&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String
-  &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String
-  &lt;span class=&quot;token attr-name&quot;&gt;weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; PokemonDimension
-  &lt;span class=&quot;token attr-name&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; PokemonDimension
-  &lt;span class=&quot;token attr-name&quot;&gt;classification&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String
-  &lt;span class=&quot;token attr-name&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;String&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;token attr-name&quot;&gt;resistant&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;String&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;token attr-name&quot;&gt;attacks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; PokemonAttack
-  &lt;span class=&quot;token attr-name&quot;&gt;weaknesses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;String&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;token attr-name&quot;&gt;fleeRate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Float
-  &lt;span class=&quot;token attr-name&quot;&gt;maxCP&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Int
-  &lt;span class=&quot;token attr-name&quot;&gt;evolutions&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;Pokemon&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;token attr-name&quot;&gt;evolutionRequirements&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; PokemonEvolutionRequirement
-  &lt;span class=&quot;token attr-name&quot;&gt;maxHP&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Int
-  &lt;span class=&quot;token attr-name&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String
+  &lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;ID&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PokemonDimension&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PokemonDimension&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;classification&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;types&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;resistant&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;attacks&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PokemonAttack&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;weaknesses&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;fleeRate&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;Float&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;maxCP&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;Int&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;evolutions&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Pokemon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;evolutionRequirements&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;PokemonEvolutionRequirement&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;maxHP&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;Int&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/lucasbento/graphql-pokemon/blob/master/schemas/schema.graphql&quot; title=&quot;Veja o arquivo no Github&quot;&gt;Veja o &lt;em&gt;schema&lt;/em&gt; na íntegra&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Para quem já teve o mínimo contato com &lt;a href=&quot;/tag/swagger.html&quot; title=&quot;Leia mais sobre Swagger&quot;&gt;&lt;em&gt;Swagger&lt;/em&gt;&lt;/a&gt;, a sintaxe acima não é estranha. A estrutura consiste em basicamente
@@ -235,16 +235,16 @@ de um &lt;code class=&quot;language-text&quot;&gt;Pokemon&lt;/code&gt; para muit
 se você preferir, através de &lt;em&gt;API calls&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Para aquecer, vamos visualizar o &lt;em&gt;schema&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  __schema &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    types &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      name
+  &lt;span class=&quot;token object&quot;&gt;__schema&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token object&quot;&gt;types&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Ou utilizando o &lt;code class=&quot;language-text&quot;&gt;curl&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl &amp;#39;https://graphql-pokemon.now.sh/?&amp;#39; \
-  -H &amp;#39;content-type: application/json&amp;#39; \
-  --data-binary &amp;#39;{&amp;quot;query&amp;quot;:&amp;quot;{ __schema { types{ name } } }&amp;quot;, &amp;quot;variables&amp;quot;:null, &amp;quot;operationName&amp;quot;:null}&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl &apos;https://graphql-pokemon.now.sh/?&apos; \
+  -H &apos;content-type: application/json&apos; \
+  --data-binary &apos;{&quot;query&quot;:&quot;{ __schema { types{ name } } }&quot;, &quot;variables&quot;:null, &quot;operationName&quot;:null}&apos;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como resultado teremos o seguinte:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;token property&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -316,9 +316,9 @@ mas ainda assim, uma boa forma de olharmos pela primeira vez para uma resposta. 
 do &lt;em&gt;payload&lt;/em&gt; através da chave &lt;code class=&quot;language-text&quot;&gt;data&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Para compreender os tipos listados acima, podemos utilizar outra ferramenta de introspecção, chamada &lt;code class=&quot;language-text&quot;&gt;__type&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  __type&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ID&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    name
-    kind
+  &lt;span class=&quot;token property-query&quot;&gt;__type&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;ID&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;kind&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E como resposta, temos a descrição do tipo &lt;code class=&quot;language-text&quot;&gt;ID&lt;/code&gt; como &lt;code class=&quot;language-text&quot;&gt;SCALAR&lt;/code&gt;:&lt;/p&gt;
@@ -332,8 +332,8 @@ do &lt;em&gt;payload&lt;/em&gt; através da chave &lt;code class=&quot;language-
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Vamos listar todos os 151 &lt;em&gt;Pokémons&lt;/em&gt; originais:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  pokemons&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;151&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    name
+  &lt;span class=&quot;token property-query&quot;&gt;pokemons&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;151&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A resposta será algo semelhante com o &lt;em&gt;JSON&lt;/em&gt; abaixo:&lt;/p&gt;
@@ -354,55 +354,55 @@ do &lt;em&gt;payload&lt;/em&gt; através da chave &lt;code class=&quot;language-
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Com o parâmetro &lt;code class=&quot;language-text&quot;&gt;first&lt;/code&gt;, estamos solicitando todos os &lt;code class=&quot;language-text&quot;&gt;n&lt;/code&gt; primeiros resultados. Essa &lt;em&gt;query&lt;/em&gt; é declarada na linha &lt;code class=&quot;language-text&quot;&gt;88&lt;/code&gt; do &lt;code class=&quot;language-text&quot;&gt;schema.graphql&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Query&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token attr-name&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Query
-  &lt;span class=&quot;token attr-name&quot;&gt;pokemons&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Int&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;Pokemon&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;token attr-name&quot;&gt;pokemon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; String&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; Pokemon
+  &lt;span class=&quot;token attr-name&quot;&gt;query&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Query&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;pokemons&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Pokemon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;token attr-name&quot;&gt;pokemon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token scalar&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Pokemon&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Com o &lt;code class=&quot;language-text&quot;&gt;type Query&lt;/code&gt; estamos expressando quais serão as consultas que poderemos executar. Em &lt;code class=&quot;language-text&quot;&gt;pokemons&lt;/code&gt;, o atributo &lt;code class=&quot;language-text&quot;&gt;first&lt;/code&gt; é do tipo inteiro e obrigatório.
 A sua resposta será uma lista de instâncias do tipo &lt;code class=&quot;language-text&quot;&gt;Pokemon&lt;/code&gt;. É possível também requisitar um &lt;em&gt;Pokémon&lt;/em&gt; através do seu &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt; ou &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt;, como
 explícito na instrução &lt;code class=&quot;language-text&quot;&gt;pokemon&lt;/code&gt;, dentro do bloco &lt;code class=&quot;language-text&quot;&gt;Query&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  pokemon&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Pikachu&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    id
-    number
-    name
-    weight &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      maximum
-      minimum
+  &lt;span class=&quot;token property-query&quot;&gt;pokemon&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Pikachu&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;id&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;number&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;token object&quot;&gt;weight&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;maximum&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;minimum&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    height &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      maximum
-      minimum
+    &lt;span class=&quot;token object&quot;&gt;height&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;maximum&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;minimum&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    classification
-    types
-    resistant
-    attacks &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      fast &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        name
+    &lt;span class=&quot;token property&quot;&gt;classification&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;types&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;resistant&lt;/span&gt;
+    &lt;span class=&quot;token object&quot;&gt;attacks&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token object&quot;&gt;fast&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
         &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;damage&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;damage&lt;/span&gt;
       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-      special &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        name
+      &lt;span class=&quot;token object&quot;&gt;special&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
         &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt;
-        &lt;span class=&quot;token class-name&quot;&gt;damage&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;damage&lt;/span&gt;
       &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    weaknesses
-    fleeRate
-    maxCP
-    evolutions &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      id
-      number
-      name
+    &lt;span class=&quot;token property&quot;&gt;weaknesses&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;fleeRate&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;maxCP&lt;/span&gt;
+    &lt;span class=&quot;token object&quot;&gt;evolutions&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;id&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;number&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    evolutionRequirements &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      amount
-      name
+    &lt;span class=&quot;token object&quot;&gt;evolutionRequirements&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;amount&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-    maxHP
-    image
+    &lt;span class=&quot;token property&quot;&gt;maxHP&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;image&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E como resultado teremos todos os dados do nosso queridíssimo &lt;em&gt;Pikachu&lt;/em&gt;.&lt;/p&gt;
@@ -412,10 +412,10 @@ explícito na instrução &lt;code class=&quot;language-text&quot;&gt;pokemon&lt
 através &lt;a href=&quot;https://api.graphql.jobs/&quot; title=&quot;Veja o Playground do projeto&quot;&gt;dessa interface&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Vamos dar &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; na &lt;em&gt;API&lt;/em&gt;, para que assim possamos receber propostas de empregos que envolvam &lt;em&gt;GraphQL&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;mutation&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  subscribe&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;seu-nome&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;seu-email&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    id
-    name
-    email
+  &lt;span class=&quot;token property-query property-mutation&quot;&gt;subscribe&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token attr-name&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;seu-nome&gt;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&amp;lt;seu-email&gt;&quot;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;id&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;email&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como resposta, temos um &lt;em&gt;JSON&lt;/em&gt; com &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;email&lt;/code&gt;:&lt;/p&gt;
@@ -430,22 +430,22 @@ através &lt;a href=&quot;https://api.graphql.jobs/&quot; title=&quot;Veja o Pla
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Ok... Aqui pode ter ficado um pouco confuso. Vamos verificar quais &lt;em&gt;Mutations&lt;/em&gt; temos disponíveis:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;graphql&quot;&gt;&lt;pre class=&quot;language-graphql&quot;&gt;&lt;code class=&quot;language-graphql&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  __schema &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    mutationType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      fields &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-        name
-        args &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-          name
+  &lt;span class=&quot;token object&quot;&gt;__schema&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token object&quot;&gt;mutationType&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token object&quot;&gt;fields&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
+        &lt;span class=&quot;token object&quot;&gt;args&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
           &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            kind
-            ofType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-              name
-              kind
-              inputFields &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                name
+            &lt;span class=&quot;token property&quot;&gt;kind&lt;/span&gt;
+            &lt;span class=&quot;token object&quot;&gt;ofType&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
+              &lt;span class=&quot;token property&quot;&gt;kind&lt;/span&gt;
+              &lt;span class=&quot;token object&quot;&gt;inputFields&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
                 &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                  ofType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                    name
+                  &lt;span class=&quot;token object&quot;&gt;ofType&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
                   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
                 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
               &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
@@ -453,15 +453,15 @@ através &lt;a href=&quot;https://api.graphql.jobs/&quot; title=&quot;Veja o Pla
           &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-          kind
-          ofType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-            name
-            fields &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-              name
+          &lt;span class=&quot;token property&quot;&gt;kind&lt;/span&gt;
+          &lt;span class=&quot;token object&quot;&gt;ofType&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
+            &lt;span class=&quot;token object&quot;&gt;fields&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+              &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
               &lt;span class=&quot;token keyword&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                kind
-                ofType &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-                  name
+                &lt;span class=&quot;token property&quot;&gt;kind&lt;/span&gt;
+                &lt;span class=&quot;token object&quot;&gt;ofType&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+                  &lt;span class=&quot;token property&quot;&gt;name&lt;/span&gt;
                 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
               &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
             &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
@@ -577,7 +577,7 @@ através &lt;a href=&quot;https://api.graphql.jobs/&quot; title=&quot;Veja o Pla
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A &lt;em&gt;query&lt;/em&gt; ficou um pouco mais clara agora. A &lt;em&gt;Mutation&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; aceita um parâmetro com nome &lt;code class=&quot;language-text&quot;&gt;input&lt;/code&gt;, do
 tipo &lt;code class=&quot;language-text&quot;&gt;SubscribeInput&lt;/code&gt;. Esse, além de ser obrigatório (&lt;code class=&quot;language-text&quot;&gt;NON_NULL&lt;/code&gt;), possui dois campos: &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;email&lt;/code&gt;. Isso
-explica a linha &lt;code class=&quot;language-text&quot;&gt;subscribe(input: { name: &amp;quot;&amp;lt;seu-nome&amp;gt;&amp;quot;, email: &amp;quot;&amp;lt;seu-email&amp;gt;&amp;quot; }) {&lt;/code&gt;, na consulta anterior.&lt;/p&gt;
+explica a linha &lt;code class=&quot;language-text&quot;&gt;subscribe(input: { name: &quot;&amp;lt;seu-nome&gt;&quot;, email: &quot;&amp;lt;seu-email&gt;&quot; }) {&lt;/code&gt;, na consulta anterior.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; retorna um tipo &lt;code class=&quot;language-text&quot;&gt;User&lt;/code&gt;, também obrigatório. Esse tipo possui os campos &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt;,
 &lt;code class=&quot;language-text&quot;&gt;createdAt&lt;/code&gt;, e &lt;code class=&quot;language-text&quot;&gt;updatedAt&lt;/code&gt;. Como especificamos dentro do bloco &lt;code class=&quot;language-text&quot;&gt;subscribe&lt;/code&gt; os campos &lt;code class=&quot;language-text&quot;&gt;id&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;name&lt;/code&gt;, e &lt;code class=&quot;language-text&quot;&gt;email&lt;/code&gt;,
 esse é o resultado que obtemos no &lt;em&gt;JSON&lt;/em&gt; de resposta. Que representa a &lt;em&gt;subscription&lt;/em&gt; sendo efetuada, e meus
@@ -589,7 +589,7 @@ a resposta da requisição.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -600,7 +600,7 @@ a resposta da requisição.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 51.041666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQCAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAcdpWWWsBv/EABsQAAIBBQAAAAAAAAAAAAAAAAECAwAQERIh/9oACAEBAAEFAgMvNxHOzLUhJt//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAWEQADAAAAAAAAAAAAAAAAAAAQESH/2gAIAQIBAT8BVH//xAAbEAABBAMAAAAAAAAAAAAAAAARAAEQIUFRgf/aAAgBAQAGPwLqvaIEW+Xj/8QAGhAAAwADAQAAAAAAAAAAAAAAAAExESFRYf/aAAgBAQABPyF6FVyZWZCdV4RpC4Psx0//2gAMAwEAAgADAAAAEHcv/8QAFxEAAwEAAAAAAAAAAAAAAAAAARARIf/aAAgBAwEBPxC4V//EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxB0J//EABsQAQEAAwADAAAAAAAAAAAAAAERACExQVGh/9oACAEBAAE/EBeQhVpqYQxTyprsfeLBSF2H3E9E46xuQwKM2YQ4M//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 51.041666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAHjtK2y5kDf/8QAGxAAAgEFAAAAAAAAAAAAAAAAAQIDABAREiH/2gAIAQEAAQUCAy83EY7MtSEm3//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABYRAAMAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPwFUf//EABsQAAICAwEAAAAAAAAAAAAAAAERABAhQXGB/9oACAEBAAY/Ah2expVk7Nf/xAAaEAADAQADAAAAAAAAAAAAAAAAARExIUFR/9oACAEBAAE/IXqajSraFulXSOGGwP0Y9P/aAAwDAQACAAMAAAAQd+//xAAXEQADAQAAAAAAAAAAAAAAAAABEBEh/9oACAEDAQE/ELhX/8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EHQn/8QAGRABAQEBAQEAAAAAAAAAAAAAAREhAGGh/9oACAEBAAE/EDIQhRx3jC0raez3jhjWk+8laTRzlTDlRmnErO//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -647,7 +647,7 @@ espécie de &lt;em&gt;API Gateway&lt;/em&gt;, agregando o resultado de demais &l
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -658,7 +658,7 @@ espécie de &lt;em&gt;API Gateway&lt;/em&gt;, agregando o resultado de demais &l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsSAAALEgHS3X78AAABZklEQVQoz4VRXW8TMRC8//+GEIhfg3hBRaSUBySq43pqm0Caj8udY3s/vONesUlUCfrAarWatWfWq3Fjp0iGbPGAoatJo7G34aZiPhq5Mw574LGST9GctWqPT7a+ypdv5s+v5s03TPf48m4u7XiLfYvLt/Pi9by6yPNTJf8lfo5yIdGUazJlJiSxJNBY6j/cF2LDnxHJEsCdo86JKkXWMhX/FZ8iw6LQ+yV/WC37u+v2um1b7z2AF2KcF64PpupHBWqh96EPIiosRFTA6fxZ0liuvSqgyAT1JgGxuO2QQhaX2WUaITGnAERDsUBRRwBNmjh+3KQhrom7LTko3zj+tIsmt45WTghCF1vpp8G02/FWJO0jFcmRG53YL36lkTYx/ng4hJzoboxXD6Ta78f7YWLV+HUjSzcm+f5ztw0hHaJfrNVxU7b3HBLK+la+JReTVQLHAspyUM3IrFwMyYWqglQ9OVIo9TePzzpP+VoO0QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZklEQVQoz4VRXW8TMRC8//+GEIhfg3hBRaSUBySq43pqm0Caj8udY3s/vONesUlUCfrAarWatWfWq3Fjp0iGbPGAoatJo7G34aZiPhq5Mw574LGST9GctWqPT7a+ypdv5s+v5s03TPf48m4u7XiLfYvLt/Pi9by6yPNTJf8lfo5yIdGUazJlJiSxJNBY6j/cF2LDnxHJEsCdo86JKkXWMhX/FZ8iw6LQ+yV/WC37u+v2um1b7z2AF2KcF64PpupHBWqh96EPIiosRFTA6fxZ0liuvSqgyAT1JgGxuO2QQhaX2WUaITGnAERDsUBRRwBNmjh+3KQhrom7LTko3zj+tIsmt45WTghCF1vpp8G02/FWJO0jFcmRG53YL36lkTYx/ng4hJzoboxXD6Ta78f7YWLV+HUjSzcm+f5ztw0hHaJfrNVxU7b3HBLK+la+JReTVQLHAspyUM3IrFwMyYWqglQ9OVIo9TePzzpP+VoO0QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

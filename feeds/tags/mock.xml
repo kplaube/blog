@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - mock]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Os testes e os dublês - Parte 2]]></title><description><![CDATA[No post anterior, vimos um dos
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - mock]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:18 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Os testes e os dublês - Parte 2]]></title><description><![CDATA[No post anterior, vimos um dos
 cenários de testes utilizados por times da Globo.com, onde não escrevemos testes "isolados"
 (famigerados microtests),
 e abusamos da integração entre classes e serviços. Mas até mesmo para nós existe um limite que não podemos ultrapassar: O caso
@@ -19,7 +19,7 @@ comportamento em &quot;custo&quot; e tempos atrativos.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 500px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -30,7 +30,7 @@ comportamento em &quot;custo&quot; e tempos atrativos.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 80.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcKmVgkA/8QAGRABAAIDAAAAAAAAAAAAAAAAAQIQABEh/9oACAEBAAEFAh0s4tGcr//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAAGAwAAAAAAAAAAAAAAAAABAhARMRIyYf/aAAgBAQAGPwKpEYILpNY2b//EABoQAQACAwEAAAAAAAAAAAAAAAEAIRExYUH/2gAIAQEAAT8hIFHDDd543mMxW8IiL15G5//aAAwDAQACAAMAAAAQK8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAACAgMBAQAAAAAAAAAAAAAAAREhMUFRYXH/2gAIAQEAAT8QQwEvB/RTaLphJCt4kyE1rdqRyg47GbTZ/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 80.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcKmVgkA/8QAGRABAAIDAAAAAAAAAAAAAAAAAQIQABEh/9oACAEBAAEFAh0s4yozlf/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAAGAwAAAAAAAAAAAAAAAAABAhARMRIyYf/aAAgBAQAGPwKpEYILpNY2b//EABoQAQACAwEAAAAAAAAAAAAAAAEAIRExYXH/2gAIAQEAAT8hIFHDCN765jCLeERGtcjc/9oADAMBAAIAAwAAABArz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAAICAwEAAAAAAAAAAAAAAAERACExUXGB/9oACAEBAAE/EBMQcD2DLwKAUSsk05l5KNLYYbh09DdOESdz/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -292,7 +292,7 @@ em tempo de desenvolvimento.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 612px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 612px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -303,7 +303,7 @@ em tempo de desenvolvimento.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEA//EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABxmRjVCgZ/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIDERIAIv/aAAgBAQABBQI5McYMbvH6rsWA9L//xAAXEQADAQAAAAAAAAAAAAAAAAAAARJR/9oACAEDAQE/AYJWn//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAMAAgMAAAAAAAAAAAAAAAABMQKRESIj/9oACAEBAAY/Al6Vway6jujkors//8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPyHFK+Ih26Oyxq2wVNPajoX92bSyl+J//9oADAMBAAIAAwAAABAD/wD/xAAXEQEBAQEAAAAAAAAAAAAAAAABACHw/9oACAEDAQE/EMA3Iv/EABgRAAMBAQAAAAAAAAAAAAAAAAABESFR/9oACAECAQE/EKnTeH//xAAcEAEBAAIDAQEAAAAAAAAAAAABEQAhMUFRYYH/2gAIAQEAAT8QCuz2PcC++S5OAU3Lt1HsyUjRu4/ROnCkGSBkZpxAYUuLbvG5bRGOfPzP/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABjmRjVC4x/8QAGRAAAgMBAAAAAAAAAAAAAAAAAQIDERIA/9oACAEBAAEFAjgpEDGzR21UMX28D//EABcRAQADAAAAAAAAAAAAAAAAAAACERL/2gAIAQMBAT8BwqL/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAcEAACAgIDAAAAAAAAAAAAAAAAAQIxESEigZH/2gAIAQEABj8CjzeW6GpaKl4ZLEr7P//EABoQAQEBAQADAAAAAAAAAAAAAAERADEhYXH/2gAIAQEAAT8hhh+EbrbJbnRAv1g9PZvc5fOuQpKuf//aAAwDAQACAAMAAAAQVz//xAAYEQEBAAMAAAAAAAAAAAAAAAABACFRkf/aAAgBAwEBPxDAGdjy/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxCp00//xAAcEAEBAAMBAAMAAAAAAAAAAAABEQAhMUFhoeH/2gAIAQEAAT8QtwB0AYb+jvmQXOgC7dSdMvdC+DXonjkCa1AyM7+YSHdDi1d4yAGwVfjP/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oai]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API-First: Processo e ferramentas]]></title><description><![CDATA[No post anterior tive a oportunidade de falar
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oai]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API-First: Processo e ferramentas]]></title><description><![CDATA[No post anterior tive a oportunidade de falar
 de uma forma mais abrangente sobre o API-First.
 O exercício é interessante, uma vez que é possível focar no conceito,
 ao invés de ferramentas e processos. Mas o objetivo
@@ -14,7 +14,7 @@ e &lt;em&gt;Kubernetes&lt;/em&gt;, vamos focar primeiro na especificação.&lt;/
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 422px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 422px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -25,7 +25,7 @@ e &lt;em&gt;Kubernetes&lt;/em&gt;, vamos focar primeiro na especificação.&lt;/
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 70.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsSAAALEgHS3X78AAACE0lEQVQoz6WTXUvbUBjH++H8AAoFL0T03m8giNbBeqFChnSInTDohXdjY4jTrTYtXaxual/WrmkS0qYnabo2aZs0zes5Z4m2pLLdjD38eC7+PD8C/0Mi+D8mEiyEMIQhCHmOU6/VGJqWRFECALruUx4Syr4+hz8QIRYAThRFRWnKMpxdh/OYBLJ3TaHDQ3xygpJJnEy6b5L22RnOZgNI0t/o4sIkM5MGbTcaVv2n3e2GX7ZSqdbCghCNdqJRfmlpsrwMNzb0vb3mzo4Qi/Hb2714HBOvzPfvFCo/yOfM24Ld+zWV3dNTdXGxv7Y2WF3tr6xY6+ve1paTSKgHBz79/X2dILzj40kmrX+70QuUWSl5hjGVYa+HaBpzHGIYzLIeyzqiCCUJy3JAp4MAsOWOMxq6quqqimdZzwqDczyVY7ruyDJ1y7LxH3XNCo9Mu56zEQwyjmHr1Vrp/oFnucd79Pd3HsJBGwkSFkUE2p4gOUA3RrqtjR3N8Mb+Hju67mh+olnD4US1PTuU804uPnxJDAhCI47w0WuY+Kh8qEjlslQsMBRV/3pN+1C3bKEEipVOud6tTpxZYaSd2QSbMX53F7xI4ASBiZT+1jf9u893l+eF8083AVfF9F3re1X+URTvVaM3lRmX/oIuczhLokzaTZPWFac0BLXVUnlx1Jb0tqgFAE0QBk1e4RSj/6ztaWfo336M3/Cz8WcA9s4KAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 70.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAACE0lEQVQoz6WRS08aURzF/W5+ABMWrtwLfgdgYQIEXNimI03ctLEJSUtjhGXRWhzbYpVhmAHSKA9HmBnmwcxc5v24twPFgLFNmvSfk//mnt89N+euof+YtdmCEAXBUhD6rksSBEWSg36/3+sFnjfzrGoJh/iK5rdBVhBGgiCqKitJwaP7D8ne2VkQj8NsNkinYTrtZjL20REql1GphE5Owg2LRbNcMkjCpimLbNgPzBJ2CoXe+no3EhlGIrcbG/rmZhCLTnPZu0Sil0zexuN8KoX2963iB/krPsGrdu2bzXGPycfH+tbWNBYzolGwve3s7HiZjHd4qGOYfnAwxTArn3ffvjHxqlG/Nq5qVqcdOM4CDgAIWBbyPOS4cPs878kyVFUEwEyqGkiSp0xcXfcB8EKz6y6fHbYRPFU4wDBERRFVxXDs1S6ffRV60jWcd8vcM927bptuD/qD5z3DuXUG8z5Hw+ZP1OnAFu012w4taLxiyootA1/TXGViSaFkUxJ1YQw4w9GXyZcuvivu5sa5vcnea5TH0KuP6vvmiKRYEm9fnDc/V6nzKv3lsoM3GKLF0y2eAra2gHHnIjlOpEbpFJfCEPYCvSxo75psg+KokKzUP50SldN6JeTr9zc0T4VHijlZwA8+U4PfCVS/gddXXu3G/jFSGU5jWW0oGJxojgWDDzXWOQ6MhioDLPWvhf3L/C7sF6uI8WUC/ORLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -73,7 +73,7 @@ e repita o processo. &lt;em&gt;API-First&lt;/em&gt; é tão sobre negócios quan
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -84,7 +84,7 @@ e repita o processo. &lt;em&gt;API-First&lt;/em&gt; é tão sobre negócios quan
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 18.229166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAmklEQVQI13WK2QrCMBBF8/+/VvRFcCnYkmaxLRXUbJPJotP63OEwHC6HfffPOWeMqbXuBSyXEiEgRojZOLAOEDNAoHGeJyVFxOQ8YqKMZo8xWb9mAZANkxmklo+5Fe/mog/XsVMvPsierwipKTi2SzdaLnTPRa+eh9vYnNXpvrCPTxbKRvZYXawmkNc/BooJeRszNSSU0d+k/AD1l+RzfKFz7gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 18.229166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAmUlEQVQI13WK2w6CMBBE+/+/ZtQnDfpg6AUoKhFbe91tccVnJpvJ7Jlhy4Zqrc457/2yLVZKzSkiQMroQwoxA2BKMeek9dB3ChBDJCtEiFPrY6YZ7Zm8G6G6fnw24rU7d4eL5sPcCtlyOioGPtrj9cHHD5eKC3lT077RtDy1E5tdtgGNBxPQxmJDMR7Jf3Dlbw8rBLvy//sPXyaB5IHjA/9BAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -147,8 +147,8 @@ e a princípio apresentaremos apenas respostas em &lt;em&gt;JSON&lt;/em&gt;.&lt;
 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Além disso, esboçamos as seguintes rotas:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/channels/&amp;lt;id-do-channel&amp;gt;&lt;/code&gt;: Pega a lista de artigos&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/articles/&amp;lt;id-do-artigo&amp;gt;&lt;/code&gt;: Pega o artigo completo&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/channels/&amp;lt;id-do-channel&gt;&lt;/code&gt;: Pega a lista de artigos&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/articles/&amp;lt;id-do-artigo&gt;&lt;/code&gt;: Pega o artigo completo&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Vamos ocultar complexidades fora do escopo da &lt;em&gt;user story&lt;/em&gt; apresentada (como por exemplo, paginação e
 autenticação). Além disso, propositalmente não definimos um formato &quot;oficial&quot; para &lt;code class=&quot;language-text&quot;&gt;pub_date&lt;/code&gt;, apenas
@@ -259,7 +259,7 @@ se quisermos manter uma linguagem ubíqua é fundamental renomearmos esse elemen
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -270,7 +270,7 @@ se quisermos manter uma linguagem ubíqua é fundamental renomearmos esse elemen
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7ydaX4mWf8A/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAEQMSEyH/2gAIAQEAAQUCxlL6rS+gRZsZ/8QAFhEAAwAAAAAAAAAAAAAAAAAAAhAx/9oACAEDAQE/ASi//8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEQISIx/9oACAEBAAY/AulYow0i8+n/xAAaEAEBAAIDAAAAAAAAAAAAAAABABExIUFR/9oACAEBAAE/ISc8RjD0mMnbbXdkdK//2gAMAwEAAgADAAAAEBQv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEx/9oACAEDAQE/ENEj/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQIBAT8Qo//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExQWH/2gAIAQEAAT8QZPJAefYb2oA7Kklzp2LRMUdlQAAMGf/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7idqX4eWf8A/8QAGRAAAwADAAAAAAAAAAAAAAAAAAECAxET/9oACAEBAAEFAsThPtJD2iR0z//EABYRAAMAAAAAAAAAAAAAAAAAAAIQMf/aAAgBAwEBPwEov//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/ASf/xAAbEAACAgMBAAAAAAAAAAAAAAAAAgERECEiMf/aAAgBAQAGPwLpbIVdQXn0/8QAFxABAQEBAAAAAAAAAAAAAAAAAQAxEf/aAAgBAQABPyFRUQDw0g6HWNsdujV//9oADAMBAAIAAwAAABDz/wD/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQMBAT8Q0SP/xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAgEBPxCj/8QAGRABAAMBAQAAAAAAAAAAAAAAAQAhMRFB/9oACAEBAAE/EERA1XKJuRwHBYnQLObGiJVDX2F4AAMZ/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -326,7 +326,7 @@ uma ferramenta escrita em &lt;em&gt;Javascript&lt;/em&gt;, fácil de instalar e 
 
 $ curl http://127.0.0.1:4010/channels/1/items/1
 
-{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Anthony Mackie fala sobre se tornar o Capitão América&amp;quot;,&amp;quot;pub_date&amp;quot;:&amp;quot;Sat, 29 Feb 2020 19:21:37 +0000&amp;quot;,&amp;quot;summary&amp;quot;:&amp;quot;Quero que o meu Capitão América represente todo mundo, não só um grupo específico de pessoas&amp;quot;,&amp;quot;image&amp;quot;:&amp;quot;https://uploads.jovemnerd.com.br/wp-content/uploads/2020/02/anthony-mackie-capitao-america.jpg&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;Conteúdo completo&amp;quot;,&amp;quot;url&amp;quot;:&amp;quot;https://jovemnerd.com.br/nerdbunker/anthony-mackie-fala-sobre-se-tornar-o-capitao-america/&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+{&quot;id&quot;:1,&quot;title&quot;:&quot;Anthony Mackie fala sobre se tornar o Capitão América&quot;,&quot;pub_date&quot;:&quot;Sat, 29 Feb 2020 19:21:37 +0000&quot;,&quot;summary&quot;:&quot;Quero que o meu Capitão América represente todo mundo, não só um grupo específico de pessoas&quot;,&quot;image&quot;:&quot;https://uploads.jovemnerd.com.br/wp-content/uploads/2020/02/anthony-mackie-capitao-america.jpg&quot;,&quot;content&quot;:&quot;Conteúdo completo&quot;,&quot;url&quot;:&quot;https://jovemnerd.com.br/nerdbunker/anthony-mackie-fala-sobre-se-tornar-o-capitao-america/&quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Isso permite que novas avaliações sejam realizadas, modificações aconteçam com antecedência, casos de uso sejam testados,
 e até mesmo que outros &lt;em&gt;stakeholders&lt;/em&gt; comecem a desenvolver a parte deles sem precisar esperar pelo &lt;em&gt;backend&lt;/em&gt; todo estar pronto.&lt;/p&gt;
 &lt;h2&gt;3: Oficialize a especificação&lt;/h2&gt;
@@ -340,7 +340,7 @@ seja a ferramenta mais estilosa para gerar documentação a partir do &lt;em&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -351,7 +351,7 @@ seja a ferramenta mais estilosa para gerar documentação a partir do &lt;em&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAwUlEQVQY05XNzQ7BQBSG4d4rTUisxV/EApWwsRBX4iaEsJciBJ1qzOi002nn9AztyqqpL89y3jNG01rU+1Oza5mdcbU9KqPSGtZ6k8ZgZogo8ug9ljEA6D9n8IA/XgelFECKf0zjN/45hLky+6bZS4P4yf7KwxgihSWJJJUqzeKNo+drOD3YxQsdHzyh3RCLkQBZlP+8I3q5hbPztu/s6Pg3Kl2ePgMs4HJkIo9tqlcHcFlIqCAsQwW8JRZgEoMkiz9eRbKeMkZCywAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAvElEQVQY05XPuQ6CQBCA4X1LlU4fwKMxFmhiQmn0SXwQrb0aLQSy4VKugT1gVqCyIjD5iinmL4ZMt/vx0tDm69F8PZzpXQxmurbYTFYGEUK6Pk0h5VyonkMY45Z34zIrS+wd/+3Y6Dj1JQFeXKw4YZIXiknsKJdFVRMzVrsTXs3IDoDGIsiVB9jOBQwyrL6s48O5vNvJi4ZPGlkf5iSll2ILN0UfmtgDdXzg28+cL9AP0C8EiQhzbBczRFQ/hiGwedbB1x0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -381,9 +381,9 @@ levantarmos o nosso serviço, e ela operará como uma espécie de &lt;em&gt;Comp
 &lt;p&gt;Executando contra o nosso servidor &lt;em&gt;mockado&lt;/em&gt;, tudo deveria funcionar &quot;out of the box&quot;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ dredd ./openapi.yml http://127.0.0.1:4010
 
-warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:66 (from line 66 column 7 to column 13): &amp;#39;Parameter Object&amp;#39; contains unsupported key &amp;#39;schema&amp;#39;
-warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:73 (from line 73 column 7 to column 13): &amp;#39;Parameter Object&amp;#39; contains unsupported key &amp;#39;schema&amp;#39;
-warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:102 (from line 102 column 7 to column 12): &amp;#39;Schema Object&amp;#39; contains unsupported key &amp;#39;allOf&amp;#39;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:66 (from line 66 column 7 to column 13): &apos;Parameter Object&apos; contains unsupported key &apos;schema&apos;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:73 (from line 73 column 7 to column 13): &apos;Parameter Object&apos; contains unsupported key &apos;schema&apos;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:102 (from line 102 column 7 to column 12): &apos;Schema Object&apos; contains unsupported key &apos;allOf&apos;
 pass: GET (200) /channels duration: 63ms
 pass: GET (200) /channels/1 duration: 20ms
 pass: GET (200) /channels/1/items duration: 14ms
@@ -407,7 +407,7 @@ muito bem:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -418,7 +418,7 @@ muito bem:&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 26.5625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABH0lEQVQY0yWOT0sCQRyG90P1SaprEASd6lAXL0GXCCJED1YQFAQdgiKoU1IrFGWReEkio9VyyVWb3Z3RmW3+7Mz8cu3huT4vr6PfW9r7tAD/amOEVEJIKxWoVKpUCS4pFkIYAKOYpeFISu55uuw6sWVjsWXEUDzWUioThGLOhZQim+u+2MvcWVy5GjWg85Z6jxxANW/gYNaJLI2AhSnpkx6iqEcCQgmOh3KC1qAVc4+L1+7pQJMh+w3HT8BUHp4WZ6azOAbWFbjW81/JTx19B0Oc0EROzgPAIETn22vu3pY/CDq0f9G4v2vW/NvD+ZVNJzKjCDjqtlFhJyzth/kSfq5HNBEZWex/tYrLcyfrS9Wqiy1f3ShM5RYaH+X87tEfcCQF6Xb7oJ8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 26.5625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABJ0lEQVQY0yXOO0vDUBjG8XwcP4uD4Oagm4O7IkVROgiVDkUUdBG8LSIVBCtesK1K6WgFoYKt1jQxjcfmpDm5nHteo8J//fE8Bu9b3LYl6P9EqhjnSUK1lKCkUKmIA2k/D+NhDFKRgf56JZLTbltfnBgexL+loa8JVoGvA8IihLw4oYxSDaAHbVqeP3YvK6NWar2xXisBiF5qeHPc8DTJJOK+iWxn5H6gPiZ+EIRSSi6EUilXrLK3UT09GKnIS6JPEYXAbhrNyYlpI5MYIof7j47ZxoMnZDm+F5KIc8EYAwAXuWfFpepOoWP1TOIePlyV766Dxu5CvvS3DPS738HLa3h1HS/mg/tmdprRzPIMW+Z7cW5qPzdbvz0PQeYKW2MrM7VevbR99AMPyQNmgnC7sAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -475,7 +475,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -486,7 +486,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQBBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHnpqJqZpP/xAAaEAADAQADAAAAAAAAAAAAAAABAgMAEiIy/9oACAEBAAEFAo0ZdU8bMxYg9n1PX//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAMAAwEAAAAAAAAAAAAAAAABERASQYH/2gAIAQEABj8C1i9KlCsvc//EABsQAQACAwEBAAAAAAAAAAAAAAEAESFBUTGR/9oACAEBAAE/IUPkExipyOfRiNq5XcWV27m/oT//2gAMAwEAAgADAAAAEHsf/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEx/9oACAEDAQE/ENR//8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERMf/aAAgBAgEBPxDHS0//xAAbEAEBAAIDAQAAAAAAAAAAAAABEQAhMUFRcf/aAAgBAQABPxB+kZru06xBUEkzfK/d4hS8i5Sk6Xu+3EBrBqa8Yls7Qvus/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABzxe+aWJE/8QAGRAAAwEBAQAAAAAAAAAAAAAAAQIDMgAR/9oACAEBAAEFAo0ZTU+WZiSNP1Nf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgIDAAAAAAAAAAAAAAAAABEBIRASsf/aAAgBAQAGPwLXpVDkef/EABsQAQACAwEBAAAAAAAAAAAAAAEAESExQVFh/9oACAEBAAE/IUlS/BHuJTzER7I1zN3uKles7/Cf/9oADAMBAAIAAwAAABAIH//EABYRAQEBAAAAAAAAAAAAAAAAAAARMf/aAAgBAwEBPxDUf//EABcRAAMBAAAAAAAAAAAAAAAAAAABETH/2gAIAQIBAT8Qx0tP/8QAGxABAQADAQEBAAAAAAAAAAAAAREAITFRQXH/2gAIAQEAAT8QZGtPlafMRtCSeur+7xgFXb3LAjppt9uIAsGt269xK07UX1mf/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -521,7 +521,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -532,7 +532,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 23.958333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABQ0lEQVQY002PTU7CYBCGewVXQlyIYhRbWlqoBSVRY6ILN249BRoiXsGFxsSiG09iFH8S8Agu1KgJRhdsoEXU0pbHDzTEmTyZmXcybzLSSUXjtGpxfC2zdzbCwcUY++cRDivjlK9msS8T2DcT2LVRjqq/2LUI5dso5VoUuz9XIwOt30ubS/OsreRZXF3AtFSMjIJhyqTNJHOWTkKeYme3AHzjBS7dsM2n18L9bNDxGni+y7fvDHZfQpc2rBzLZpZMxiKpaMizCoqsDlCTKWKxSbYK2zw91bm7e+T+4UXUZ17f67S9N/5HrwfSai7HusDKWuTzC4I8RtrAMAxMM8PMzDSlUgk/8Gk2mziuw0fnQxz3/kzCQd/PIAiQkqqKrmmkUqkhqtD66LpOPB6nWCwKw4BWS7zqujiOQ9f3/wx7Q/MwDPkBuzAN0EfEXB8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 23.958333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABMUlEQVQY01WM20oCURhG5xUis5voYCCmTs6Yx1EIgozuuu5pjC5EqVDpInqUKMqsVxAKQi86kKUyMtmk46z2TCG1fxbfz9p7f9JJTeH0NsHxlZ/i2RRHF3Mcns9SuVwSLuBSrc1Trk9Tvva4VOozVG+8Ir3Ce/4h7W5obOayrOdSxFMh1hJBl1gyTFJTCIaXKR7kAZPPYQfT6mKYb+iDZ4yvFwbCDYbv7p1htpF24imysRTRaJxQUGYlEHIzKJDDqywu+NjL79NqPtFoPHB33xTZ4vG1JYra/D32GKTtdJqtZJKEIJPJoGkaqqoIVGKxNfx+P6VSkbF43el20XUd48PAtu2fEuFdxIysEZIsy6iRCIqiTHCcg7P7fD4KhQLO916vR7/fRxdYlvVbaE/KHfcNJXUOn7zZ1hoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -577,7 +577,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -588,7 +588,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB5ElEQVQoz22RXWvTYBiG8wM8FaFTSMUqW5Lmq8laaudcO4ThoYK/xwPFqRu0TX+IaMWDeaT+AkW3FToPHIilXZM0aZu0t8/7tolVfODi/SDvxf3kEQ7b63CODBy8u4HHry7h6ZsrePL6Mp61M3jxVsR+W8Th+6twPmXQ+JBB82OG9mvENdqv8btVhAeVEvbulrG1W4Zla9AMaYkM01Jx81YWDecArMKJi0nkYxQO4QY/MY4uMI0DYpQiVHQTZaMAg5DlPDbWJUiSwlEUFdnsdTzff4nu2Q98/nKCr986OD7+jvNfHUziC/xbQs22UTVNGLoG27YIG0qeyWSoKhNSwkadf9wfDOB6HoIgSAXz+YyYpwj37E3cJ4mqadB1nZIaJFMo7R9hvb4QDpjQdQkPs9nfolS4bVl4WCyhSEImkSSJr0yaCJvNJqbTaZqMPWTCOI5TxuMxvxNkenSHUu1SUmuziPwyXSIURRGtVgthGOKs24Xv+/Co7X5/SKvPzwtGC6FCybZ1A49ub6G2U03bXU3oOA5Pdnpyil6vx4WdzjmGQ5dEHj8zKW+ZPdopFLBXKqFAayJM/iFLyFpm5S0HwgjDIN0n8IRsCBVqtVqr8YEwiUapGSZNP5fL8ZZZRVH030Gs8htcgSXS1NDfcwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB6klEQVQoz22SzW7TQBSF/QYsQWKBEylCEP87ickfSNASWCA2rHgVpACJbcQGXoDSZaVUSEjd9BVK2YHUgoiLWICUIKWOk9ixkxzuTFs3Aa51NNcezeczc0Z4uX0Nr3cKePH+Kp5sXcCzziU87VzE8+3LcN5l0OqIeLWbw+ZHBW/2ZGx8kPF2X8HmvoaNPfZNWpHwoFjGvXIVlVt1GLqJ/HUJUl5GnqQoGsQrBG3ZYBVPE8ySOcJJjGDsY7aI8HcJddNE1TBhkGSZgfKQJIn3qqoim82i2Wzi6PsPfPp8gIPDrzj8coSffQ9h8ptDFotFKuF2qYRGoQBT11Gi3rIscqZwKANmMhm0222+8Nj3MRqNMJlMUkcp7PQR7hLgYcmCpmocoGkad7cCbJ0Cj30EwYhrNputOEsd1sjdoxtl1HQjBS1vWRRFOI6DKIo4iNV8PudKkoSLwUOaZ6Mgk6OKpqNBLi0Cn213Geg6LuI4RvdbF8PhkMAB+v0B9QE/AvbORvYTQaWzqxPwcbWOxp21/wJt2+HOvK6HXq/HF3veLwwG/r9AjWA3Ken75QpM43zb8tIZ2vbJtRmPxwjDkEIJMZ1Gac/Eeg40CVajdNfW11EoFikcFTq5ZmJzuVwOruty4EkQ5+ku11kofwBXWCUqZmkwHQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -702,7 +702,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -713,7 +713,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 57.8125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAADCUlEQVQoz1WS7W9TZRjG+x/4zZBJIm11bPTlnJ7Tnreu3RIVwWkIDg1+0T9BDURRNJOAWUwwUTbjF/8CvvjBqIBBxloGUz+oWSThba5rGe36utPTV7Yf9woxMU+u3Oc8yXPluq778s1eUpm7HOfLC89x+oenmPlxFzM/Pc0XP+/m7MUAZy8EmcsE+GZxF3PXhpi9tpvZ7DOce4KvM0P/4Vx2CN/UeJJXkwa6oWI5OrYTR4ntQ9XC6AmFkdEg2aXrzK/CLzeb5IoPyJU2WBMUKhXKTY+y26S02cTtePgMVWPKtBgzbCw7iSMwEiaRcJRwKELQHyRzY4nzxTXOr9xmrVIjV62zVmuQF6y7HtVen41OD6+/hS8ciXAgZTOVHsPUNAzLxDQNbNtCj+sEAwEuZ66w6N7iSuFPUVKl7NWp7KDVYMOtki+vk68WhbCDLxpViCkKR2ybAwmDlB5HjapoMQ1VUfHv8XM1s4Db73JvvUCj38bb6tHa7tNhi6bcF+sVHjSqtB/28ClCNhIOk4zFeDOZEtsWiqYQjUUlV529o8PMZxeod1vcya9Skseb8p0vl1i5n5dZpNJsDAi9nig0hSgtVlWZ45aNPWbjpGVKDFbaYiQ0MiDssU3V26QrtrbllGpVcuv3KdYquG2Pilt/TBiJRnnLcXh7fIKkZRAXy3pMR9d0FInD/+yeAeG/omThj99YWv6bv+7e4p/Ve9zMrQzm8sodllfv4vba+EJC6Ii6o7bD/nichJDsC4UICaISR8Dv5/rvS3z17Xe8+NJhXj/yDpOvHSU1MYmTOshY+hWp2svsn3yDjUZNMhQCJ6FzUFQ6RoJEysCQXpopk+QLSUYjo2RvLPL9xUscOzHNyVMzfDT9Occ//oz3PviE9z/8lHePn+TE9Bmqzc3HtZmQmhx2JDfZrC05mqYptZEMLWuw5V8X5iU18NjZ7PYAXfnvPUFf0Ja71sMuPlVVB1kdEqJDojIttlWxurP9mBZjePh5rmYzNCT4XKFAs9OmJeF73f/D7bbpSG0eAbg2eBExfWCnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 57.8125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAAC7UlEQVQoz2WSS28TZxSG5y90VxY0CS1WwJeZsedqj52Im1QoSFCUqkt+SKXQQgKiQKoihVTdskCAEEKqBHHSNqG5dUEhQBcpoiEGx7GNHTu+JunDGVeCSh3p1ZnvG82r93KUy3d0Lt01Gb69m6+uf8DgjR2cvvkh39zaydDtTzhz62NGpyP8ML+Xsdk9jM0FZb7H1dm97+B/U446cQ4bNqqmYxoWlmkTDIYIBcNEIho93T1MPZhnegXu/wmv1ypkCzWyxTq5UpP1Oh2UatBog2II0UnXpV/gxOPEBY7toKoq4UiYXT09TEz9yvX8EtdePGK5kOfvYoGXpWIHmUqZfKtBrlmj2m6hhMJhDiYcTqY8HD2KZdtYliXELoZpiMJu7k2M87C2zNSrRQobZUr1KqVGlbKgKOdMPkummKO+2USJiBI1EuGE43DEsknGYmgRFU3VBCrdH3UxPjnBxnab59kMpVZd3lvU5Fxni+pWk7VKiZygviUK/R97QyFsTWMgkRTbLrqhocZUTNcksCfQIVxvN/hrZZl8qUBVSFfWVjvnl7ksBbG9KvY3xLpi6Tr7RFUsGiPpuLgJl3hKskxKlp5DoDfA/cm0aIGy5NQSZf7zpiblFPMUq2Vq7WYnAn8qIbH7hRRxqq8fzzYxhFiXoqKSpyrWu3Z2kf55kqXsCj/JnJib5bc/HrLw5DG/P3vCwtNF5hYfMf/0MRVR3iG0xPaAqDskJViaSlAiCIVDaLrWKWV65gEjoz+S6jvCZ8e+5MChE1jOAaJGPzFzH3q0j0TfYbJvCii+Cs8y+DSRwBVCM2ljezZOysHb70m+vUxO/UJ6ZobT5y5y/vIVhi99z5kLIwwOf8vXcjc4dIGzF7+jUF3/d22SQvi5lJEQm3HZQX9t/F300SUt30uPd3JrsM2mTD/P7f/gH4F/X99qo+hSiiqWj4rl455HSlT666KK9WgsSiCwm7S0XGnUWM5kqDZkbZqN/6Ei983NNm8B98937Cag3B8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -781,7 +781,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -792,7 +792,7 @@ nenhum tipo de cadastro ou instalação no momento, apenas abrir o editor atrav�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB10lEQVQoz6WTy2sUQRCH93/2qCcv/g1evAU8eRQloARByEHwBSGSTXZ3dp493fPqmZ7ZeXzW7G4kBBMPFvNRRVdPUfXr7sUyumCjl8RJiGtqumbHJvtA5i442MQfmySexiOTfIMg8ThRdyVt37B4+v4JLz4+5/PPL6yDFFVadNmjipa0qtG2FdyeyJQEuiCcMQWeVgQmZx0qtonGdTsWsbYEqsJLMjaxYR1pNlEqXhHnc8FOCrd75vgu6W1OfFa3lK5lwX9Y1Tu2jSbuCrSzVK47FJx1mMa/MK/vtbrPQcNu6Gn6lnbYYdu5Qyl4s/JQ2jCIsP0wHpkOjHf8fWR9/mc81N7rVzYy8utv8OmqJ0hy0dHiK0uSd+QNostE1jzEbR7RcSDSJbmtWbxcnfEu/CFXJeUmS1jlao9XGUJXEDSPM+/x65ytScnkVixe/XKcri0rOdlrOem1KlhJt0HhSN2IagaUewDJzXtiu8PXOdnc4fev5yyXlyiVkCQROlWkEhujqW31b2qLrQpUqg8d8vYZ4/kJuX9N6V1SB1dY/4pG/Kg9EWrLZB7imE/XZImPsfJShpM3tKdnsu5TeD42CKn8kDqMGHTGKC9hNNkj5AzSnYllKhn5N/qylAPFCAhlAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAABzElEQVQoz6WSPY/TQBCG/a8pKBAdv4AfQEMDAlEg0F2BkKhCAQKkIwq5xHYcf+z6Y73+Smw/jB24AshdwUqPZ1czej16Z5xl8IWNXhJEHrW1HJqefbEgth/564wj4zDMyEee/QzDSNNV1AeL8+DiHg8v73P5+T1rNybKDUnRkeQdsbFo26CEKYaZIdDFzD41uCohyDK2ocINE2zd4qisJlSWXVLgxSluNKGlKBGBSbBDle3MdP8TNdOSVS3FJMh/nKbv8GtN2OWotsScBMWX8eTLHH9z8x7/wTD7eRx66mNH2x/Ev+7U4dYL2O1jSY4c+oHjDeOd9MOEzEToDr0INjgvvsGbqxE/zsXDEj+x4l2DWCu+jLeSTlHqtB0I0xJtSpwn3gee+Qu2acx1FrOZyBNcownq4k72TcGuzvEzhS4MztMfHS/XNdehZh3JCsi0N9LtLqtQzUBSC80ZJDfVxNWRQNZIF9Lh1dcFy6tPqCQmjkK07NZ0T7XsVWlk2Usqa85SV5IvC7TWqEmQi0fw7jGFt8J436mCFXa3mmOvXDHSZ0zPM+e1i4n8k2D//DXdq7fkW49cJm6D/S9CjiplSHMhu4VcfpxSRPEs+BOG7pNaqPzPEwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -875,7 +875,7 @@ e tornando-a assim em uma especificação &quot;vendor-neutral&quot;.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -886,7 +886,7 @@ e tornando-a assim em uma especificação &quot;vendor-neutral&quot;.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 44.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAYPJJLDE/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAECAzEy/9oACAEBAAEFAs7cqt6Y+z5Ef//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAMBAQAAAAAAAAAAAAAAAAABEBEx/9oACAEBAAY/AtRwcU//xAAaEAACAgMAAAAAAAAAAAAAAAAAARBBETFR/9oACAEBAAE/IbwpWYNocVxsaH//2gAMAwEAAgADAAAAEHcP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAEDAQE/EBF//8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAECAQE/EDV//8QAGxAAAgIDAQAAAAAAAAAAAAAAAREAIUFRsRD/2gAIAQEAAT8QZQAkWyqUQksEnaDvUVhIsjudfPtP/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 44.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAf/EABQBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAZ9kWjgE/8QAGRAAAwEBAQAAAAAAAAAAAAAAAAECAzEy/9oACAEBAAEFAs7aVbUx9nyI/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhABAQEAAAAAAAAAAAAAAAAAARAR/9oACAEBAAY/AtIwn//EABoQAAICAwAAAAAAAAAAAAAAAAABEUEQMVH/2gAIAQEAAT8hlTDSIdpI4rw2ND//2gAMAwEAAgADAAAAEIfP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAEDAQE/EBF//8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAECAQE/EDV//8QAHhAAAgEDBQAAAAAAAAAAAAAAAREAITGxQVGBocH/2gAIAQEAAT8QUwQFd1RRMUaElXQfEuK2Rd5mh7PJln//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

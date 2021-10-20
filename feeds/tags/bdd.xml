@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - bdd]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O popular e poderoso Pytest]]></title><description><![CDATA[Ok. Eu admito. O primeiro post de 2021 será só para cumprir tabela. Afinal,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - bdd]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O popular e poderoso Pytest]]></title><description><![CDATA[Ok. Eu admito. O primeiro post de 2021 será só para cumprir tabela. Afinal,
 se você já programa em Python, provavelmente já ouviu falar do
 Pytest.
 E é pela sua popularidade, mas acima de tudo sua versatilidade, que eu me sinto na
@@ -56,9 +56,9 @@ E
 ERROR: test_one_plus_one_is_equal_two (tests.test_my_calc.TestSum)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &amp;quot;/Users/klauslaube/Workspace/my_calc/tests/test_my_calc.py&amp;quot;, line 7, in test_one_plus_one_is_equal_two
-    result = calc(1, &amp;quot;+&amp;quot;, 1)
-NameError: name &amp;#39;calc&amp;#39; is not defined
+  File &quot;/Users/klauslaube/Workspace/my_calc/tests/test_my_calc.py&quot;, line 7, in test_one_plus_one_is_equal_two
+    result = calc(1, &quot;+&quot;, 1)
+NameError: name &apos;calc&apos; is not defined
 
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
@@ -76,15 +76,15 @@ tests/test_my_calc.py F                                                         
 ============================================================================================== FAILURES ==============================================================================================
 _______________________________________________________________________________ TestSum.test_one_plus_one_is_equal_two _______________________________________________________________________________
 
-self = &amp;lt;tests.test_my_calc.TestSum testMethod=test_one_plus_one_is_equal_two&amp;gt;
+self = &amp;lt;tests.test_my_calc.TestSum testMethod=test_one_plus_one_is_equal_two&gt;
 
     def test_one_plus_one_is_equal_two(self):
-&amp;gt;       result = calc(1, &amp;quot;+&amp;quot;, 1)
-E       NameError: name &amp;#39;calc&amp;#39; is not defined
+&gt;       result = calc(1, &quot;+&quot;, 1)
+E       NameError: name &apos;calc&apos; is not defined
 
 tests/test_my_calc.py:7: NameError
 ====================================================================================== short test summary info =======================================================================================
-FAILED tests/test_my_calc.py::TestSum::test_one_plus_one_is_equal_two - NameError: name &amp;#39;calc&amp;#39; is not defined
+FAILED tests/test_my_calc.py::TestSum::test_one_plus_one_is_equal_two - NameError: name &apos;calc&apos; is not defined
 ========================================================================================= 1 failed in 0.10s ==========================================================================================&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como é possível notar, o &lt;em&gt;output&lt;/em&gt; é um pouco mais &lt;em&gt;verbose&lt;/em&gt;. Mas o ponto alto aqui é que, mesmo que o seu projeto esteja
 utilizando &lt;code class=&quot;language-text&quot;&gt;unittest&lt;/code&gt; como biblioteca de testes, o &lt;em&gt;test runner&lt;/em&gt; do &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; ainda assim
@@ -279,7 +279,7 @@ vislumbrar a diferença entre esses dois tipos de escopo:&lt;/p&gt;
         &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Alguns pontos importantes não podem passar em branco:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Note o uso do argumento &lt;code class=&quot;language-text&quot;&gt;scope=&amp;quot;class&amp;quot;&lt;/code&gt; decorando a assinatura da &lt;em&gt;fixture&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;x_and_y&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Note o uso do argumento &lt;code class=&quot;language-text&quot;&gt;scope=&quot;class&quot;&lt;/code&gt; decorando a assinatura da &lt;em&gt;fixture&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;x_and_y&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;pytest.mark.usefixtures&lt;/code&gt; é quem ativa o uso da &lt;em&gt;fixture&lt;/em&gt; na classe &lt;code class=&quot;language-text&quot;&gt;TestAddingThingsUp&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Para visualizar o resultado dos &lt;code class=&quot;language-text&quot;&gt;print&lt;/code&gt;, é preciso executar o &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; com o parâmetro &lt;code class=&quot;language-text&quot;&gt;-s&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Note que esse é outro exemplo bobo (:&lt;/li&gt;
@@ -389,7 +389,7 @@ e que possui uma boa comunidade dando suporte.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -400,7 +400,7 @@ e que possui uma boa comunidade dando suporte.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 86.45833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMA/9oADAMBAAIQAxAAAAGeC+3Lzms5ciPUis//xAAbEAADAAIDAAAAAAAAAAAAAAAAAQIDEBETQf/aAAgBAQABBQLNdi5FLZMWxxlO1zpnv//EABkRAAEFAAAAAAAAAAAAAAAAAAEAAhARIf/aAAgBAwEBPwFpxWJ//8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEBMh/9oACAECAQE/AXHplSP/xAAdEAABBAIDAAAAAAAAAAAAAAAAAQIRIRASQXGx/9oACAEBAAY/AtuCyhXFekQ3C9in/8QAGxAAAwEBAAMAAAAAAAAAAAAAAAERITFRcbH/2gAIAQEAAT8hfqJqZBr7Yjq1CunclwYWEhW9ye4efZ8ow//aAAwDAQACAAMAAAAQw+f+/8QAGREAAwADAAAAAAAAAAAAAAAAAAERMVFx/9oACAEDAQE/EE1Rlvo8n//EABgRAAMBAQAAAAAAAAAAAAAAAAARITFR/9oACAECAQE/EJEVWcMH/8QAHRAAAgMAAgMAAAAAAAAAAAAAAREAIUEx8GGhwf/aAAgBAQABPxAcflAuyrUNZMHWVfLiKgEgo65ceWMEwqJ8iDDbTg7GgYoUCxWQ8dMnDooz3vgn/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 86.45833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAwD/2gAMAwEAAhADEAAAAZM+eXLOWzk4PVxWf//EABsQAAMBAAMBAAAAAAAAAAAAAAABAgMQERMx/9oACAEBAAEFAttLF2JNkzoxxqernhj+/wD/xAAZEQABBQAAAAAAAAAAAAAAAAABAAIQESH/2gAIAQMBAT8BacVif//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhATIf/aAAgBAgEBPwFx6ZUj/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECIRIQEUFxof/aAAgBAQAGPwLLgsocil6bYx0fYz//xAAbEAEBAQEAAwEAAAAAAAAAAAABEQAhEEFxof/aAAgBAQABPyGVAkyZNtuHppjaW8l5kHDK3sHvN6fvifq3/9oADAMBAAIAAwAAABBH53//xAAYEQADAQEAAAAAAAAAAAAAAAAAARExUf/aAAgBAwEBPxBNUZdHp//EABkRAAIDAQAAAAAAAAAAAAAAAAARASExQf/aAAgBAgEBPxCohptk8MH/xAAeEAEAAwACAgMAAAAAAAAAAAABABEhMUFh8HGBsf/aAAgBAQABPxBq+YGy2tSZwxOdreblNQKNJzc7XhinSsXyQpTe2mPcEBkFAaZ1PR9Th8P4z0PBP//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -508,7 +508,7 @@ pedaço de código &lt;em&gt;Python&lt;/em&gt; a um trecho das histórias escrit
 &lt;p&gt;Rodando o &lt;code class=&quot;language-text&quot;&gt;behave&lt;/code&gt;, teremos uma saída similar a essa:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave
 
-Creating test database for alias &amp;#39;default&amp;#39;...
+Creating test database for alias &apos;default&apos;...
 Feature: Logged in page # features/home-logada.feature:1
 
     Scenario: Access index page    # features/home-logada.feature:3
@@ -550,7 +550,7 @@ que é o passo onde validamos o resultado dos acontecimentos disparados por &lt;
 &lt;p&gt;Pronto! Executamos nossas &lt;em&gt;specs&lt;/em&gt; e temos o seguinte resultado:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave
 
-Creating test database for alias &amp;#39;default&amp;#39;...
+Creating test database for alias &apos;default&apos;...
 Feature: Logged in page # features/home-logada.feature:1
 
     Scenario: Access index page      # features/home-logada.feature:3
@@ -562,7 +562,7 @@ Feature: Logged in page # features/home-logada.feature:1
 1 scenario passed, 0 failed, 0 skipped
 3 steps passed, 0 failed, 0 skipped, 0 undefined
 Took 0m1.617s
-Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Destroying test database for alias &apos;default&apos;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Garantimos através dos cenários acima que, dado um usuário logado,
 imprimiremos o seu &lt;em&gt;username&lt;/em&gt; na rota &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;Considerações finais&lt;/h2&gt;
@@ -674,8 +674,8 @@ do que da área técnica, e automatize a validação delas.&lt;/p&gt;
 &lt;p&gt;O mais bacana é que ela já vem preparada para o &lt;em&gt;Django&lt;/em&gt;, permitindo que
 a gente execute os testes de comportamento de forma fácil e rápida:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;gherkin&quot;&gt;&lt;pre class=&quot;language-gherkin&quot;&gt;&lt;code class=&quot;language-gherkin&quot;&gt;&lt;span class=&quot;token feature&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Feature:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Rocking with lettuce and django&lt;/span&gt;
-
-&lt;/span&gt;    &lt;span class=&quot;token scenario&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Scenario:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Simple Hello World&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;
+    &lt;span class=&quot;token scenario&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Scenario:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Simple Hello World&lt;/span&gt;&lt;/span&gt;
         &lt;span class=&quot;token atrule&quot;&gt;Given&lt;/span&gt; &lt;span class=&quot;token atrule&quot;&gt;I&lt;/span&gt; access the url &lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt;
         &lt;span class=&quot;token atrule&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;token atrule&quot;&gt;I&lt;/span&gt; see the header &lt;span class=&quot;token string&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;
 

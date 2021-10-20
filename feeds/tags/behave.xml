@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - behave]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[BDD com Django e Behave]]></title><description><![CDATA[Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - behave]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[BDD com Django e Behave]]></title><description><![CDATA[Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,
 é uma grande prática no que diz respeito a escrita de testes que guiem o
 seu desenvolvimento. Deixando a polêmica do "TDD is dead"
 de lado, criar cenários que garantem um determinado fluxo, além de servir
@@ -27,7 +27,7 @@ e que possui uma boa comunidade dando suporte.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -38,7 +38,7 @@ e que possui uma boa comunidade dando suporte.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 86.45833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMA/9oADAMBAAIQAxAAAAGeC+3Lzms5ciPUis//xAAbEAADAAIDAAAAAAAAAAAAAAAAAQIDEBETQf/aAAgBAQABBQLNdi5FLZMWxxlO1zpnv//EABkRAAEFAAAAAAAAAAAAAAAAAAEAAhARIf/aAAgBAwEBPwFpxWJ//8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEBMh/9oACAECAQE/AXHplSP/xAAdEAABBAIDAAAAAAAAAAAAAAAAAQIRIRASQXGx/9oACAEBAAY/AtuCyhXFekQ3C9in/8QAGxAAAwEBAAMAAAAAAAAAAAAAAAERITFRcbH/2gAIAQEAAT8hfqJqZBr7Yjq1CunclwYWEhW9ye4efZ8ow//aAAwDAQACAAMAAAAQw+f+/8QAGREAAwADAAAAAAAAAAAAAAAAAAERMVFx/9oACAEDAQE/EE1Rlvo8n//EABgRAAMBAQAAAAAAAAAAAAAAAAARITFR/9oACAECAQE/EJEVWcMH/8QAHRAAAgMAAgMAAAAAAAAAAAAAAREAIUEx8GGhwf/aAAgBAQABPxAcflAuyrUNZMHWVfLiKgEgo65ceWMEwqJ8iDDbTg7GgYoUCxWQ8dMnDooz3vgn/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 86.45833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAwD/2gAMAwEAAhADEAAAAZM+eXLOWzk4PVxWf//EABsQAAMBAAMBAAAAAAAAAAAAAAABAgMQERMx/9oACAEBAAEFAttLF2JNkzoxxqernhj+/wD/xAAZEQABBQAAAAAAAAAAAAAAAAABAAIQESH/2gAIAQMBAT8BacVif//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhATIf/aAAgBAgEBPwFx6ZUj/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECIRIQEUFxof/aAAgBAQAGPwLLgsocil6bYx0fYz//xAAbEAEBAQEAAwEAAAAAAAAAAAABEQAhEEFxof/aAAgBAQABPyGVAkyZNtuHppjaW8l5kHDK3sHvN6fvifq3/9oADAMBAAIAAwAAABBH53//xAAYEQADAQEAAAAAAAAAAAAAAAAAARExUf/aAAgBAwEBPxBNUZdHp//EABkRAAIDAQAAAAAAAAAAAAAAAAARASExQf/aAAgBAgEBPxCohptk8MH/xAAeEAEAAwACAgMAAAAAAAAAAAABABEhMUFh8HGBsf/aAAgBAQABPxBq+YGy2tSZwxOdreblNQKNJzc7XhinSsXyQpTe2mPcEBkFAaZ1PR9Th8P4z0PBP//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -146,7 +146,7 @@ pedaço de código &lt;em&gt;Python&lt;/em&gt; a um trecho das histórias escrit
 &lt;p&gt;Rodando o &lt;code class=&quot;language-text&quot;&gt;behave&lt;/code&gt;, teremos uma saída similar a essa:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave
 
-Creating test database for alias &amp;#39;default&amp;#39;...
+Creating test database for alias &apos;default&apos;...
 Feature: Logged in page # features/home-logada.feature:1
 
     Scenario: Access index page    # features/home-logada.feature:3
@@ -188,7 +188,7 @@ que é o passo onde validamos o resultado dos acontecimentos disparados por &lt;
 &lt;p&gt;Pronto! Executamos nossas &lt;em&gt;specs&lt;/em&gt; e temos o seguinte resultado:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave
 
-Creating test database for alias &amp;#39;default&amp;#39;...
+Creating test database for alias &apos;default&apos;...
 Feature: Logged in page # features/home-logada.feature:1
 
     Scenario: Access index page      # features/home-logada.feature:3
@@ -200,7 +200,7 @@ Feature: Logged in page # features/home-logada.feature:1
 1 scenario passed, 0 failed, 0 skipped
 3 steps passed, 0 failed, 0 skipped, 0 undefined
 Took 0m1.617s
-Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Destroying test database for alias &apos;default&apos;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Garantimos através dos cenários acima que, dado um usuário logado,
 imprimiremos o seu &lt;em&gt;username&lt;/em&gt; na rota &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;Considerações finais&lt;/h2&gt;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pyflakes]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Pyflakes]]></title><description><![CDATA[Depois da dar uma pincelada na pep8 e no Pylint, chegou a hora de
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pyflakes]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:18 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Pyflakes]]></title><description><![CDATA[Depois da dar uma pincelada na pep8 e no Pylint, chegou a hora de
 falarmos um pouco sobre o Pyflakes. Resumidamente, o Pyflakes é uma ferramenta de qualidade que
 analisa o seu código Python atrás de erros (de sintaxe e
 importação, por exemplo), retornando um relatório muito objetivo com o
@@ -29,8 +29,8 @@ incrementar ainda mais o seu ambiente de desenvolvimento.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyflakes apps/notificate/views.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A resposta é muito clara. Existem classes sendo importadas, mas que não
 estão sendo usadas:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apps/notificate/views.py:3: &amp;#39;EmptyPage&amp;#39; imported but unused
-apps/notificate/views.py:3: &amp;#39;InvalidPage&amp;#39; imported but unused&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apps/notificate/views.py:3: &apos;EmptyPage&apos; imported but unused
+apps/notificate/views.py:3: &apos;InvalidPage&apos; imported but unused&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O funcionamento básico do &lt;em&gt;Pyflakes&lt;/em&gt; é esse… simples como as melhores
 coisas devem ser!&lt;/p&gt;
 &lt;h2&gt;Pyflakes + Vim&lt;/h2&gt;

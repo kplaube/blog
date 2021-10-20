@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - docker]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - docker]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Uma ode ao Docker - Parte 3]]></title><description><![CDATA[Nos posts
 anteriores
 arranhamos um pouco o conceito por trás do Docker,
 bem como introduzimos o utilitário de linha de comando . Nesse último artigo da série, vamos
@@ -24,13 +24,13 @@ $ cd ~/Workspace/helloworld/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install django gunicorn
 (...)
 
-$ pip freeze &amp;gt; requirements.txt
+$ pip freeze &gt; requirements.txt
 $ django-admin startproject helloworld ~/Workspace/helloworld&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Rodamos o &lt;code class=&quot;language-text&quot;&gt;python manage.py runserver&lt;/code&gt; só para termos certeza que está tudo ok:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 680px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -41,7 +41,7 @@ $ django-admin startproject helloworld ~/Workspace/helloworld&lt;/code&gt;&lt;/p
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 19.270833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsSAAALEgHS3X78AAAAq0lEQVQI13WKyw6CMBQF+f8/Mu6MKzcGLuVxKwIWKrQgyEOBKFirGxcmk5PJ5Bjrrb3awB7lMX9SPv6QDkH2iOTyD2MHbAcJBBc37pyogaBSrrcyaYHJPS6WUGjkHIpZy7cYCS8yUbFUJFwyLnNZp1mpylnDs7Juh7afmn5sb9NHmk6V8doNBlimQ2wCYClxiOe5vufGUUgR390G1yHKKfqUojocKCoQfcZOL97B1oafqCcPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 19.270833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqUlEQVQI13XK2Q6CMBAFUP7/m/TRyKPQUgqdCgiWfQdNwW3wWZOTyc29Y+yPbHdwLFEHxRPUskk3QmlQ+pw/wvL9j2GeItOKbGh4NLJwILJBVLZEtpao/OSOT0Hx+slI0iYr+1hVSVqjvBpUjk2Xll1W9Ji7SY+3dZjR8g3LMC3jvPaTNiixXeY4lFJCXMY87voev0QhCB97XDh3JYAEISXgiheBENck/gAIKNcM75UdDwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -83,28 +83,28 @@ Mas felizmente já existem imagens prontas com a linguagem no &lt;em&gt;Docker H
 Vamos com a &lt;a href=&quot;https://hub.docker.com/_/python/&quot; title=&quot;Imagem Python no Docker Hub&quot;&gt;imagem oficial&lt;/a&gt; como base:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Dockerfile&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Quando &quot;buildarmos&quot;, o &lt;em&gt;Docker&lt;/em&gt; baixará a imagem do &lt;em&gt;Python&lt;/em&gt; do repositório (se ela já não existir localmente
 em sua máquina), e dará sequência às instruções encontradas no &lt;code class=&quot;language-text&quot;&gt;Dockerfile&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Uma boa prática é &quot;fecharmos o escopo&quot; de trabalho ao setar explicitamente qual será o
 diretório no qual iremos realizar demais operações como cópia de arquivos ou execução de binários. Para isso
 temos o comando &lt;code class=&quot;language-text&quot;&gt;WORKDIR&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Agora podemos instalar o &lt;em&gt;Django&lt;/em&gt; e o &lt;em&gt;Gunicorn&lt;/em&gt;, assim como fizemos no início desse artigo:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./
-&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;r requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install -r requirements.txt&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Você já deve ter reparado um padrão na escrita do &lt;code class=&quot;language-text&quot;&gt;Dockerfile&lt;/code&gt;, certo? Os comandos (em maiúsculo)
 determinam qual operação será realizada. Os parâmetros (em minúsculo) determinam como isso irá ocorrer.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -137,16 +137,16 @@ determinam qual operação será realizada. Os parâmetros (em minúsculo) deter
 o &lt;em&gt;container&lt;/em&gt;, assim o &lt;em&gt;Docker&lt;/em&gt; será capaz de encontrar o arquivo e realizar a instalação das dependências
 através do comando &lt;code class=&quot;language-text&quot;&gt;pip&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Para finalizar, podemos copiar o resto do projeto e executar o servidor &lt;em&gt;WSGI&lt;/em&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;3
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;dockerfile&quot;&gt;&lt;pre class=&quot;language-dockerfile&quot;&gt;&lt;code class=&quot;language-dockerfile&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /usr/src/app&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./
-&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install &lt;span class=&quot;token punctuation&quot;&gt;-&lt;/span&gt;r requirements.txt
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; requirements.txt ./&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; pip install -r requirements.txt&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; . .
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; . .&lt;/span&gt;
 
-&lt;span class=&quot;token keyword&quot;&gt;CMD&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;gunicorn&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;helloworld.wsgi:application&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--bind=0.0.0.0:8000&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;--workers=3&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;CMD&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;gunicorn&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;helloworld.wsgi:application&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;--bind=0.0.0.0:8000&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;--workers=3&quot;&lt;/span&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Comandos &lt;code class=&quot;language-text&quot;&gt;RUN&lt;/code&gt; serão executados em tempo de &lt;em&gt;build&lt;/em&gt;. São essenciais para a construção do ambiente,
 e são responsáveis pelos &quot;layers&quot; discutidos nos &lt;em&gt;posts&lt;/em&gt; anteriores. Portanto é bem comum
 vermos comandos como &lt;code class=&quot;language-text&quot;&gt;RUN apt-get dist-upgrade -y&lt;/code&gt;. Já o &lt;code class=&quot;language-text&quot;&gt;CMD&lt;/code&gt; será executado no momento que a sua
@@ -156,12 +156,12 @@ imagem for executada.&lt;/p&gt;
 do &lt;em&gt;Docker&lt;/em&gt; e invalidação do mesmo, como pode ser visto no &lt;a href=&quot;https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#add-or-copy&quot; title=&quot;Dockerfile best practices&quot;&gt;guia de boas práticas&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;&quot;Build&quot; é quase BIRL!&lt;/h3&gt;
 &lt;p&gt;Hora de &quot;buildar&quot;! Execute o seguinte comando:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker build -t &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker build -t &amp;lt;docker-hub-user&gt;/helloworld-django-docker .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Onde:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt;: É o comando para criar uma imagem &lt;em&gt;Docker&lt;/em&gt; a partir de um &lt;em&gt;Dockerfile&lt;/em&gt;;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt;: O parâmetro &lt;code class=&quot;language-text&quot;&gt;-t&lt;/code&gt; é utilizado para nomear e tagear a imagem em questão.
-É interessante usar o padrão &lt;code class=&quot;language-text&quot;&gt;&amp;lt;usuario-ou-repositorio&amp;gt;/nome-da-imagem&lt;/code&gt;;&lt;/li&gt;
+É interessante usar o padrão &lt;code class=&quot;language-text&quot;&gt;&amp;lt;usuario-ou-repositorio&gt;/nome-da-imagem&lt;/code&gt;;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;.&lt;/code&gt;: O caminho onde encontra-se o &lt;em&gt;Dockerfile&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Se tudo der certo, será possível listar a imagem recém criada:&lt;/p&gt;
@@ -170,11 +170,11 @@ do &lt;em&gt;Docker&lt;/em&gt; e invalidação do mesmo, como pode ser visto no 
 REPOSITORY                         TAG    IMAGE ID
 kplaube/helloworld-django-docker   latest b8d3b0c234a9&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Agora sim seremos capazes de executar a aplicação &lt;em&gt;Django&lt;/em&gt; através de um &lt;em&gt;container&lt;/em&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run -it -p 8000:8000 &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run -it -p 8000:8000 &amp;lt;docker-hub-user&gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E mais uma vez seremos capazes de ver o &quot;It worked!&quot; em &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Belezura! Uma vez que a imagem esteja ok, podemos publicá-la no &lt;em&gt;Docker Hub&lt;/em&gt; (afinal,
 propaganda é a alma do negócio):&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker push &amp;lt;docker-hub-user&amp;gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker push &amp;lt;docker-hub-user&gt;/helloworld-django-docker&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E... &lt;em&gt;voilá&lt;/em&gt;! A imagem foi publicada no &lt;a href=&quot;https://hub.docker.com/r/kplaube/helloworld-django-docker/&quot;&gt;&lt;em&gt;Docker Hub&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;Antes de ir: Efêmero&lt;/h3&gt;
 &lt;p&gt;Nos &lt;em&gt;posts&lt;/em&gt; anteriores demos uma pincelada numa das características dos &lt;em&gt;containers&lt;/em&gt;
@@ -257,7 +257,7 @@ baixada novamente, mesmo se outras imagens utilizarem da mesma camada:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 610px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -268,7 +268,7 @@ baixada novamente, mesmo se outras imagens utilizarem da mesma camada:&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 69.27083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHZV1YuML//xAAZEAADAQEBAAAAAAAAAAAAAAABAgMAESH/2gAIAQEAAQUCardlQs3maI05hTv/xAAVEQEBAAAAAAAAAAAAAAAAAAAQIf/aAAgBAwEBPwGn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEQETFB/9oACAEBAAY/AuFONZacf//EABoQAAIDAQEAAAAAAAAAAAAAAAERACFREEH/2gAIAQEAAT8hDIayVZSyMIyTcbjUD5fP/9oADAMBAAIAAwAAABDnz//EABcRAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQMBAT8QC2x//8QAFhEBAQEAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/EFMn/8QAHRABAQABBAMAAAAAAAAAAAAAAREAECExwUFRcf/aAAgBAQABPxABMCCn39xavMJHeBIJl0ocA8uXkpsB1p//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 69.27083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBAgT/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB1us1hxIX/8QAGBAAAwEBAAAAAAAAAAAAAAAAAQIDABD/2gAIAQEAAQUCNW0XLNjFdOYXn//EABYRAAMAAAAAAAAAAAAAAAAAAAEQEf/aAAgBAwEBPwGFf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAIDAQAAAAAAAAAAAAAAAAABEBExIf/aAAgBAQAGPwLTsay1cf/EABoQAQACAwEAAAAAAAAAAAAAAAEAERAhUTH/2gAIAQEAAT8hvunvCLhiVyWS5BGzjeP/2gAMAwEAAgADAAAAEEfP/8QAFxEAAwEAAAAAAAAAAAAAAAAAARARIf/aAAgBAwEBPxAU1f/EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxBTJ//EAB4QAQACAgEFAAAAAAAAAAAAAAEAIRExQRBhcYHR/9oACAEBAAE/EAhSIv7S2OAAOe0BK14mc3rnZz6i15SmHT//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -303,11 +303,11 @@ uma espécie de &quot;Github para imagens Docker&quot;.&lt;/p&gt;
 REPOSITORY         TAG       IMAGE ID        CREATED          SIZE
 docker/whalesay    latest    6b362a9f73eb    23 months ago    247 MB&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;É uma prática comum o repositório/nome da imagem ser chamado de
-&lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&amp;gt;/&amp;lt;nome de imagem&amp;gt;&lt;/code&gt;. Isso evita que haja duplicidade no &lt;em&gt;Docker Hub&lt;/em&gt;. Para
+&lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&gt;/&amp;lt;nome de imagem&gt;&lt;/code&gt;. Isso evita que haja duplicidade no &lt;em&gt;Docker Hub&lt;/em&gt;. Para
 executar a imagem (e por consequência criar um &lt;em&gt;Container&lt;/em&gt;), temos o comando &lt;code class=&quot;language-text&quot;&gt;docker run&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker run docker/whalesay cowsay boo
  _____
-&amp;lt; boo &amp;gt;
+&amp;lt; boo &gt;
  -----
     \
      \
@@ -315,7 +315,7 @@ executar a imagem (e por consequência criar um &lt;em&gt;Container&lt;/em&gt;),
                     ##        .
               ## ## ##       ==
            ## ## ## ##      ===
-       /&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;&amp;quot;___/ ===
+       /&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;___/ ===
   ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
        \______ o          __/
         \    \        __/
@@ -326,13 +326,13 @@ executar a imagem (e por consequência criar um &lt;em&gt;Container&lt;/em&gt;),
 &lt;p&gt;É claro que o &lt;em&gt;Docker&lt;/em&gt; é muito mais poderoso do que isso. Por exemplo, vamos baixar o
 &lt;a href=&quot;/tag/nginx.html&quot; title=&quot;Leia mais sobre o Nginx&quot;&gt;&lt;em&gt;Nginx&lt;/em&gt;&lt;/a&gt; e ver como podemos receber uma simpática tela de &quot;It&apos;s working&quot;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker pull nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Notou a ausência do &lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&amp;gt;/&lt;/code&gt;? Repositórios oficiais no &lt;em&gt;Docker Hub&lt;/em&gt; não necessitam
-de um prefixo, e você pode encontrá-los na interface &lt;em&gt;web&lt;/em&gt; através do &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;_/&amp;lt;nome da imagem&amp;gt;&lt;/code&gt;.
+&lt;p&gt;Notou a ausência do &lt;code class=&quot;language-text&quot;&gt;&amp;lt;repositório&gt;/&lt;/code&gt;? Repositórios oficiais no &lt;em&gt;Docker Hub&lt;/em&gt; não necessitam
+de um prefixo, e você pode encontrá-los na interface &lt;em&gt;web&lt;/em&gt; através do &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;_/&amp;lt;nome da imagem&gt;&lt;/code&gt;.
 Por exemplo, o endereço do &lt;em&gt;Nginx&lt;/em&gt; no &lt;em&gt;Docker Hub&lt;/em&gt; é &lt;a href=&quot;https://hub.docker.com/_/nginx/&quot;&gt;https://hub.docker.com/_/nginx/&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 610px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -343,7 +343,7 @@ Por exemplo, o endereço do &lt;em&gt;Nginx&lt;/em&gt; no &lt;em&gt;Docker Hub&l
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAADnklEQVQozwGTA2z8AFhYVGdqaYaFh5iVl4+NjtXKx8nDwezr3eTj1ePh0+Xj1+Hc1NbPztTQ0crFyMbBwtHKzMrEx8e+wsO6vwDU1duvs7ucoa6NlaB4f4W0vMeSmqWiq7DY2tPZ08rSy8jSzMvHtrOXfHObh4bHwcTJxcrNyMu6tLikm6UA1dDRtLK0x8fKzNDQwMTC197eq7KztLu829/X5+vg5uzl2NjTsIyLmGJff1JIqp6Yu8DNq663zNHYpKayAGNiboJ8hYh/gZKSkl9iXrWyr9/b2tjV083My9TS0qWopmxiXI5kZpBjZYxgXWlNP35/gWJqdXB0eYKFigAWGRRTVFQxLyYmLSBUW1kxNTNycnNSUlE6Ojg0NDJpbnCHfICCU1WRX2KPX11gQjVfXFxub3JISUlHSksAUVNPcG1rTEtDOUAxWlpNZVpMYFtSRkg8PUA3ODs0YGVhdWdhgFZRek9IbkM6cU5Jem9nf3VzdXN0cnFwAGRmZGRiXXFtaHx4dnZwa29oXmllXGxpX21uZm5vaV5dUUBCPUlHR2lkXkoyJ11WUWFfV1pVSVlYS1VXUQBcXlpWVEtcVEiOhIOUh4Z+c2tPU0hhX1FoY1RjW0tcV0csMDNHREQvLi5wTkl1aWdpZmJyYlNxYE9vXlMAd2plfGxlhG9pgXFukYB/l4B6d2leeW5khnJilHxvjXFrODI1ISYpLCssVExWh3p/oYWDk3p0l3t3j3t/AH9wdIN1d4t7fYt6fI17fpeDhp6JjZ2JjJuJjKSEgn9bUzk0NS4tLxQSEEpHT42Bh5iIjZuLkJqHjYt4fwCBfYRmaXJucHdscXlqb3dscHdscXZzdXqYkpWAamI7JhovHhQ3IRg7IRplS0N2bm1oY2N6cnOIe31/dnoAu62wiISLVF1lXWZtXmhuXmhtWmVqZGtvfX6BVElDPTIoSkM6UjQkdEk7bE5AUlNKXFxXamdmZmNea2doAHl4fdjMyqilpmFpb2FqbmJqbl1ma319gXh6fSgtOjI2MTlFQS4lI1Q2JXRRRV1aU0tPR1BTS1JRSGRiYgBVXGF2eXuXlZZrcXRdZmphaWxtcHNscGxOWE0sMiwnLSUqMCgZIy0tKSVPRjxpaGRYWFFBRTxQT0hVVVIAUVpdS1ZaS1ZaVGBjVWFlX2doV11WPkc7LC8iIiMWISQYICEaHCYsLDQvPUU8SVBIYWFbWltWVVVPVFVTJc2TKg08qrQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAADnklEQVQozwGTA2z8AG5ubXR3eZCPk5CQlJORktXLyszIxenp3OLf0+Dc0OLe09zWz9PMy9DLzMbAw8W+wNPNzsrEx8W8v8K3vQDb2+CrsLejqLSIkpuDi5GvuMSJk5+eqK7b29PY08vSzcrUz87Aq6eObmSYgoHLxsjDwMbMyMq0sLWfmKIAycTGrquuzsvOzM/NxsnF3OLgub68xMjH3uHY6Ovh5OrizMjCqYCAmmRiflFHppmTtrvJpqqzys/Xp6i0AFJSXXlze3lxcXp8e1JVUqilo9bR0crHxr68vMTCw4+SkGhbVotfYo9iZIpfW2NKPG9ydFpia19jZ3N1egAaHRdYWFckJBkoLyJZYFwsMS1oaWg9PjspKSckIyFuc3aMfICAUVKTYGOIWFRiRTpmZWZ1c3dOTk9PUFEAWVtXc29tU1FKREo9WlhLb2JUZ2JYUFJFTVFIS09JYWdibF1VfFVQd1BHZz82cFJOdmtid25rb25ubW1tAGJkYWFgWnBrZoF8enx1cGtmXGVjWWxoX2prZGpqYltaTDk8O0tMTmJeWUwyKF5bV15eV1tWSVhWSFVWTwBcXVhWUUhiV0yOg4KUh4Z9cGdOUkZfXU5pYlFmXEtbV0ktLzJFQkAtKSl4VlN2amluZmF3ZFN2YlJ0YVgAfGxpgXBqiHNugnFulIGAln96f29ngnNrjXhqmn91i21oMS8yISgrLi0sUk5ajn+Eo4mIlX15mH59jXuAAH5xdYB0d4h6fYh6fYp7fpOBhZmHjJeGipuMj599e25PRzQwMC8pKRMOC1hQVot/g5GCh5eIjZiFi4d2fACEgYdiZ29pbnVpb3dnbXVpbnRnbnNydXqXkZJ2X1U1IhYyIBY9JRtIKiNqUEhvamhnY2F5cXKFeXp7c3gAu62xjoqQVV5lXGZtX2luX2htWmVram5xe3yASj86QjoySUQ7VDUkdEo6a09BT1JJXF1YZ2ZjY2Fba2hoAHd3e9vPzKqnqGFpbmFqbmJpbmBobYOChHB0diEoMzM6NDM/PCskJFM1JHRTSF5cVklORU1QR1JQSWRiYwBTWl9scHOHiIpmbXBcZmliam1ucXNjaWNGT0IqMCgnLSMmLCUYIy4sKiZMSUFpaGVZWVJBRTxRUElTVFEAUFpbSVRYSVVZVF9iVGBjX2ZmT1ZON0A0JygbICAUISQXHiAaHScsLzcvPUY8RU1EYGFaXl5ZWFhRU1RTNXyO35pV+QoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -374,9 +374,9 @@ o &lt;code class=&quot;language-text&quot;&gt;http://localhost:5000&lt;/code&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker ps
 
 CONTAINER ID    IMAGE    COMMAND
-796ab2f0a662    nginx    &amp;quot;nginx -g &amp;#39;daemon ...&amp;quot;
+796ab2f0a662    nginx    &quot;nginx -g &apos;daemon ...&quot;
 CREATED           STATUS           PORTS                  NAMES
-12 seconds ago    Up 11 seconds    0.0.0.0:5000-&amp;gt;80/tcp   docker-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+12 seconds ago    Up 11 seconds    0.0.0.0:5000-&gt;80/tcp   docker-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Para parar o serviço:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ docker stop docker-nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Pronto! Simples como as melhores coisas da vida.&lt;/p&gt;
@@ -417,7 +417,7 @@ bem como instalar e configurar a própria aplicação:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 400px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -428,7 +428,7 @@ bem como instalar e configurar a própria aplicação:&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 72.91666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsSAAALEgHS3X78AAACxklEQVQoz2WM2VOSYRTGv/+hy5qsbiprqskcN8q13BFFcSmRAIEIkEwKxQ8BxS02TVn8gGQVN5CtG8ZlRCsSFdRmlJtu+ju0Q0wzqO/85pnznud5DhL5Y1s+fudL9HkTwgt4TnqWj7tWTj5ctgBfohdxHjJ6N65IwrcGwhlp3EA3r6p/FJmj5OHtB+LNa7A5H7guCd9EgsdDmm8l2kjtdKQ6nalIlXm3Y2FfMLNDmopUXnCnI1VQQcK/TbYYY/6A7zrgpeOMs20xujVGtccZzjjngus64EIFmT/iiTcz5Nv3h7Yz/3NvcOu2YYcI6H4STNGXiu95g1t3YJ+WuQsVxJcQKqKPJvdwE3v5SXZBCzS7ObZDiuuI5TikLvziYDG8ejcH9v/cFHlQQTajG188RkfAavdbQOe+2p1BG6gtYLIGMHvQbPVjjuAsLFNALAWEkaWVVeHAlHQUQ4cMIyqL0eLTmdyT+gWTJTBj9ia/mEeLufVmNzbrNZg9sjGTWG4YGJ6RjGDIvDf0XqJBR3WiES2Ajun7R3VSBSZVYuJxg0xplKmMsBSP61NWKgbAjAwosIdl7TgCKx/PyKvtzK2mZZVT8BSBQDbBR1Vs4RgAQxmJm11JLahjQiyVhAoiVZmyyjuKieynBObzZm4DTQhUtPGLG9+SmH0tb1AivRes0iZODbmnAM+A+Vk9C7SIyEYG1WY4WUri4uqYRHqyWd7a1cwUVb/q5ovVHJGyC1XBrXaehMQUtbHF0AEKG9glTRxENKbPLGzJraE9fkGup34k86RtbLSZ1Y8jMKndcnrPcAdPlo/vrKMIKlr5jfReSD6poGRXvs6ppiGB0JZ8Ylapdyp0Dg3m0lqWdVa3Uu8ARqcsGmxeaXCOfLaoDHPTs0uQ+aS1J1UHASdydv6dnp6CHsb319fW1ldDfp836PcvLy6uhkJnl95fsD3tTyVDuwwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 72.91666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC2UlEQVQoz2WQ21NSURTGz9/Ro01NNaPTZDimqZlXRkU0ES+pgXJRwEs44CjqAVEU8aAE4jkcQAVBDDWV1CNOD0kQ6TFRe0me+jvKWlrNKO75zZq9vu/be/ZeyN4PfONMtRXXbMbVCWyc9a6dKTfj6E3rfRzdjmsRK12q+nhLE7qjDt2+TpIlWoLvc4Y+3UNDSQkuKNrQfWQhJsYiOW+ixaZo4XWK5mmh71BuiZaaogUJ7lS0wBwtQajvBs+R9O2xfOn49VW8Mak7JnQdCTwxie+4K8EFxX+iQMivHE3o7mj4oS6c8p9kaMmDOusXFr5fRRxU6yOPR8LJVwIp0I6FUxHXaf34fsoknW6k07ADBlQjzYDWeyr0nLQsnPB939rMh7kYnXpp/QOjGVN0JkJF1txbNl9wdnHHuRSc9QWdvp0L3JR1gZrx7ODu7Wlf0LF4KYILG8BLOZZ255AZx2oPakV1pGoIN5g89vmAmfBbiGVyNoA71m3OdTO+YiVXZ+yr5NyGBV8eGLYB/VpCM+ZACNdKr86inrChBgLq8KRjCCN1U84hzK7ByJFJp3bSgY4ToGuNFwrEgMFxHFqkRT7CKOblVLZmscWZLNGTMkEas7lBiiq1pq4Bo7RX36EyyPoM2RWtGWVCyPzlabkojyNDBN0jaUzesxdtWWxRUW0Hm6cs5ynyuTJmfSe3VVUj7oc2p0JcwG0HN4MlyK4QAxDOr5YhIsVoeklzHkcKl9VLBsoa5Wyegs1XVvCV7f1Y56CxRT5cXNfZIEPrJYOVzT3whNyqNnhpYU078lKKPsipZTD5jwqbuCJVtaiPK1axmrqfcyQt3Tqxcowj7IUDZY3dxXUdcCPEUoteQYUPIoT7Xd/ojAazqyfIUfO8kfBiuGcYBgaTM9r10wuwHzTYwNJbXGoY2AQJSdRgAx35fWOd//r5ORIOhfY+7AY3AwGKopb9fpqmL6zz86vJP+ap7Ga+Wy/1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -459,7 +459,7 @@ por abstrair diferentes Sistemas Operacionais funcionando dentro de um mesmo &lt
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 400px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -470,7 +470,7 @@ por abstrair diferentes Sistemas Operacionais funcionando dentro de um mesmo &lt
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAIAAAC+dZmEAAAACXBIWXMAAAsSAAALEgHS3X78AAAFrUlEQVQ4yzWSB1BTdxzH37W9a3tnXe31zqtVvKtnbT0VRK0sFVuGMsNGZUPYBBURZFREIDLUJCQyBAkpOyArO2SSAGYAkZF6Dk7AQs0Aw8pLeP2Hs+8+97vf+73f9zf+7w8trKjHFp6NL3YDq1rsG1/sXYF1yKzENN1inm41q9stvGVtri5viKkbvKZ1LnlD0LzOo8ATYkj0jpQnsHoyGkiUu5dKTxYID86vvUJ6go3E743tbjDlFEz6wdRsZ9bOaQK266IO6DGndPGHNZ6fG0qvQKrFnrqxQOp0OnUaQ1FFUlThH9ZnEWkR3OEKs9AwPdLUecnES9tcWly+672U775cHrZcHLCU6bjaXgyNLXQ1T6JbJxObJmLap1IaVRELq68QabGxNxDuCTL1BMDd/iZOolnz7iM2BMiW73gsF/os57mtUvKh4XkyUe5WPxZaq/SrHw8lyd3nVtQIP8vY/jvc7Qd3egJM9DDzh7f69NP662f0Gfb663a6FGsDKQUaXaBWylxrlagapW+VwhuUWFybQWQ4uBtlol010cJMoLM4x7y0sJTlrE8+psfY6q9Z1rZ0ls4+uSM6iJWeKJFYl0iOYyXW82uvkf5I48OvYNIeC7jtpnZncGC68B+1qK+1gTu0QTs1np8ZcLHQ0Fw9EN+XngCyksFjwL5fe4Mw0Eb8Drh6vwXCbhPV1ax7r4vcZxEH7NAG79Z4QIbKeGh4rqFi2JEov1gpd3us8CDK3OZXXyKcVGPdYZjyG0w5DTeeNPWHmv99q0+z1aEP6RKP6BJ+0aF/NhCTLOJKuTt5PKxG6VetRFUrvLbEmI0mO7jTC251hpscTIwI8+IbfYbDUqaT/tY5fYq1PtXGQEreGlv4E3Zr4WLJUezg8a2xY424bXDVXgv4nSaqi1k3r4vYp/X5Uuv/jTZol+YSZCDEgwOrKxAdKpWewkosZ4aV2MyB/0yL3cDvNFZbGav2GwnfgQtj0sxqI600fts0YOHgbz94ffERj4ZkC5Sy5zZ45VmcwgmncMArHBeMMwi4UrV7kcYjSOOvSN0BpB+FLP2zknzEEL7HEL3PEGP1MXTXeg0GevXu5eDowLBKNKQSbiF4oVa/HB9Ry7jTMp5awVfLBtRKsXrq7ykxb0rEmRJxp0QDEwLWzLgCGh5RNbcxqM+4HV0cALWL20pl9LMHuSIFRyRn8ka4InlnH7+VSm/rGQC09nDberlNXewBsQwan1T3MXnMATGDKwLQ2AI6R8zkiFlcEZMDEDLYQuDQ2WI6U8BgCZlsC3Qmf2hkFOrsG7iRW5FXTMq+iy95WF9NpuJrmgFVTztIdW3AEmpaCLUtj+vbgX8f//R2ISG3iHirAEd80gbROIMFZTWlleQSfAOwuJqWCtJfWIvfWEoglxHI5UQKlkB+VN2Mq24uJzaCT/cJ5KKHdQ0tfVB5VbO9N9r98jWXEIxLSNp5vySv8IysQsK1/Acpt8tSc8rTcirScx+A4IXAFJAA0lxD08/7Jydll0H3cA1HL1x19Im384pz8Eaf80t0CU4NSciJTi+Mu1EUibkbnvoneHXyTTh9MdreKw6kgWa27lFR6fegEgLZxiX8vH+SvVcsKjozCH3bPzb7j6BU15C0sNSCuIwSj7AbZzxiQhLzUNG3HLzjnHzjz6ISQCTmetEnsbN/kp1nbGhirk/UTe+IDFAlEJ2dUUjIuV91OSk/0FIxKzK90D8u284zBkz3SXzv0dOjzlccvdGOvvHBCbnom1h0JtYvJsstFBOBKYy7ifWKyABzgQgqJgvs7OCDBv1t3SJBLej1zJxEppKNTdNYgl4mv4/F7+rj0DlCi8+0+F19LBpb2MvgddM4ABZPMqKcHFZMvFC/hhAE2dzcBFY1qqB2tEslUpGQ/3xkeEgi4bAYksHBUaVCwOcJBXwum82g0xRyGfL/8x/TepHl+78bEwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -509,7 +509,7 @@ e sim compartilhamos os mesmos recursos do Sistema Operacional da máquina hospe
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 400px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -520,7 +520,7 @@ e sim compartilhamos os mesmos recursos do Sistema Operacional da máquina hospe
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAACm0lEQVQoz11Qa09SARjmr/SpvrXVZrU+5OxiossKFZRSAUUQuZhoKAKCJYIiKpbzgHmp5qWNRE28gKbJUryhHlFwmhiX1KPLLTE4nHM6s9aiZ8+e7d37Pu+NgJ0BRVFcA4GAxa2z7KisO9oBd9nm8QzmMoYniyMzyshHIbrdF5oz/2jmnLyRneifnPZWEdxu9+LCgmNpCQTBtTVn23wW4EjuXKWpP1+ePTBituc/Oy6G+9NChvPIvCrYpzuin/suSzzKu3AsIxIgCPL7fX6fD4IOnc41E1jWs07vdea+XiGvHA5gywBiJGIDqRiuqy/Cls6gOC6oSArKEk61WYR/1z6ADnrAunZQ0gHK9cvCqcAE5Oj1DvF9Y2L/kCAAvtsdN26paNsN3C1NnsdQTkDPgOBmFA0haKkTzV1EOA6E7UC5jpB4PSxzYVIXKt7AFBuw1AUzQSwXRBkgyl9H/0z+DRhBXloWnr2fru63KU02zZC9cXhONzLXaLbXm+1No/MNZnu1yYZT2Tdd/2E2yhyJRPSt3Up1c02dXl3bAhi6DG09uAKt3XpDl/5VdzPwVl0LqDWAqralsan9781nk+FIoaw+hVmWwZGRWZI0VnmBWFOk0HHL63gSLV+qJbMl6flSnHiWIayKelgYhlOZpZfiM68l5cSlchKogngKL5lWks6W3MsW3qHwYkn5MUT61SRGDJF2m8z934zXXSHSY0lsCltCyhElPi6isCTFlbpMvpxILczkye/TSq4nM3HiYZQZhuFsQeUNEvsuVZDFV7BE6oyCCnxJtqjmEVeOn0PlVDzMEd0ic2+mcR8wnkY9DG/h34M83m9f/fub255R6+SgedQyPmWd+DQ8Nm4aHB6xTn7Z9e/69jzePW9g/xfuBPA5oX/fsgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAACgklEQVQoz12O609ScRjH+Yt60So3s7ZemFfCLFO0uCqXoFDhAApeK8GA0qEcDqE5HYJbKVJeygykQiFJLh5Ae9lmL3KChgdFzvl1Zpel3333ffHs+TzPlwKORRAEmVtb353r7ZObza7N1rEII7KzAMLD2df0nLv5yFVNxIYOPBN7XeXpAeGepioNiykoii77fH7/SjAYjEbWbSHR8yjdjgr7A1cCP6ZB4MnBeH52hnE4eg5fM2Bz1qT4zG7PzWTjeTIp6XQ6lUqSwjBsYyMxFZU74kwHyh4N3whtT4IQgr8sBtOVgMxwX3ZhBFNezrQXZdSFGR2d8n/tVGrXho4hUaN13WQK62e/rXyNvEUXe1GvMb7YG0ffRD+8W4XVq8OaVUtXyGGkEMfCSZggsjihQAEnCARrgP8FCIKHEJpt3QAtCSCLA3XsqCWRZccACwWMGLibAH8/H2cOx60zXq1t1jAxr3fMDzjdZteS2eWBnW6T04288pqmPAb7PGn9+Nzgi8UTtXEcR4YcD7QmrcHSo0MGEZt5yGGy2OBndtgyDlvtRnhMo0dI9+jMT40jJ+BcDhcqdSW3pRUcJZUFlTNkXJlGrDLUQ5oGea9A+ZjKlNHYchpbQWXKa0Wdp+AcXdh2oZRzicYvrm2ksaBiuqSCLWdJuq9zFIU194vokovXeAU0fj61oaSu6TRczVedvcosoPFu8VWVXEUZQ1rFUzV39t+510lu14k6yIt5Zdy8Ui5563Ttpo6+yvqWWlGHWKWXdvU3QBqu9BE55EFapqSbB2k4TQ9rhG23BGpy/gf+JyxzkN7HyNzeSfqW/Z4lrz/wmfTHT773bo9vJbD7c38fy/z2L9VE8XnxbY2HAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -551,7 +551,7 @@ ou até mesmo o ambiente de produção.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -562,7 +562,7 @@ ou até mesmo o ambiente de produção.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 53.645833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsSAAALEgHS3X78AAACNklEQVQoz1WQS2/TQBSFLRrb47fj5zi2xzOe8diTOI82SZu0paFVJFqVImgkFlVZsEEIJLawROxgC38B/gf/DMMCCenT1dXROVc6V9oDdg84subK3QRO7y9/FtV6oBiy5gDD00xP1R1ZNWRV/0dP0STVDk0nkHVX1vsdit5XDV81AtvPfIg1K1J1H3SK9l9YATrQTWm2v6wo7Wl9xQw7VDPSLbgHwrI5WJ1eaDaUgat0p4ElA7PLK8BUgGWYduD70kgInMWWaQErVsyoc+tO7MWYiOPp6saNqN2HimYD3VE1u0MzXMPyLavv2o5083iDB2HkGiWldoANJ+lwQ3T5/O3nLz8yOne9WO9q665mOJ4XVIxFUZLAQRrHUpeEnu07ZoliOCC2h7yIFM1yef5svdkh0gZhZrsxoVUUBHma1awa1sMhrxnKpQL6eBAkQT+NfFY1acZ5Kfh4QccL1x8gRPIUwShteEWLjJeFYGzciGFV1SWReA45gjhNcgiHFb+/evTh7no1mdFSBD7sHK+uTl5slgKjtqZjUY1FPeScFZgVhcRyWBeDEmU1JQdt+/X9y1/fP96cHOYZsU2nrfDPT6+/vdvtc7Kctav59Gg+G3GOkoQiJE1r3LK8LvNJww6mi93Z6s3l+mjEK4JhGJI0vT5eXC4nDS1Pjubb84dPrraTrjLGDSmk69NmPSGCoobi9VQsGnY2bUZlLhjJkhgjwgoiumfwenux2d0+vb+7XS/2p0IcTtrfFaVSbY4zWZ8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 53.645833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACNUlEQVQoz1WQy27TQBSGLZH4NrbH9sT22HFmPPZ4fIlzqUmipm0CEZfSglqVVkIVZQH0FbpB7NiwYwk7XoDX4L0wSEggfTo60tH3n6Mj9TTY0dfsv8A/2D3VuqeYXa8CVzVcRbf7itFX9H/QJA0Gpu3JwOnpTl93ZN1VAJJ1ZLqxH3MdYkVDKkCK9p8sq7oODGm+t6hKIXcm8GTDUwxfM3FP8yI2Ptw+Mpyop9i/p6rZVzsZdBGyaurAGiAk1WWZjkLLBJoVyEagWVi3AjegtNhfbK8GUWWjUNGgokNFs7oKDMewkGk6DoTSxckuJ6FnaXnG3CAFVgggtgejzdObz19+8PEGugEwkAYcHUDHRoLzMIwjPBxiLFGMwgFE0KCRF8UMIoq8bu39+eZ0eXRO04mPiQV9lgnsB3EUiYzXoqpFySmRWOSxoR95ztBHnIuYFCnN87rN56tBQOM4GQ2JP8Aiyzgd5QkpeTYpq5rnBUuk7mZBMIvDGOMy49fPHny6fblbtDytOyel5N3zzfuToyalkyKbVGJal+NCcJpwQiU+Cosk4iQuMrY3bj68vfr57eOr3UFCOTQhJ8Ovd2++371elmw5b9aL+XrZNmVJwjAbxVJbsakg3ccbkbaz9nR/eftktW5ElxV6PonCh+3seDkt0vRg1T7ebc9fHLfTScFYlSbS2bY6nLGak5zR/Vm1qPIHe/UkJVWejiKckIQnaZOLgue77eHlxdnN9eVmvZqWxXLa/AIx/FMejNtxiQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

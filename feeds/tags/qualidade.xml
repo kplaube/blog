@@ -1,11 +1,249 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - qualidade]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Prospector]]></title><description><![CDATA[Mais um ano, mais um post sobre ferramentas de qualidade de código. Opções não faltam quando o assunto é Python, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter "um anel para a todos governar"? Tanto é interessante que um utilitário vem fazendo parte do…]]></description><link>https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 21 Jan 2020 16:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Mais um ano, mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade&quot;&gt;ferramentas de qualidade de código&lt;/a&gt;. Opções não faltam quando o assunto é &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter &quot;um anel para a todos governar&quot;?&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - qualidade]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Tipo assim... tipo em Python]]></title><description><![CDATA[Tipos em Python é aquele "tipo" de assunto que vai agitar qualquer papo de almoço entre programadores.
+Eu mesmo fui cético por muito tempo, e franzia a testa constantemente quando esse tópico aparecia.
+Mas já mudei de opinião algumas vezes, e escrever sobre tais mudanças rendeu alguns dos artigos…]]></description><link>https://klauslaube.com.br/2021/10/20/tipo-assim-tipo-python.html</link><guid isPermaLink="false">https://klauslaube.com.br/2021/10/20/tipo-assim-tipo-python.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 20 Oct 2021 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Tipos em &lt;em&gt;Python&lt;/em&gt; é aquele &quot;tipo&quot; de assunto que vai agitar qualquer papo de almoço entre programadores.
+Eu mesmo fui cético por muito tempo, e franzia a testa constantemente quando esse tópico aparecia.
+Mas já mudei de opinião algumas vezes, e escrever sobre tais mudanças rendeu alguns dos artigos
+mais acessados do &lt;em&gt;blog&lt;/em&gt;.  De &lt;a href=&quot;/2018/06/04/eu-me-rendo-vscode.html&quot; title=&quot;Eu me rendo: VS Code&quot;&gt;&lt;em&gt;IDEs vs. editores&lt;/em&gt;&lt;/a&gt;, passando por
+&lt;a href=&quot;/2020/07/01/alem-do-rest-com-graphql.html&quot; title=&quot;Além do REST com GraphQL&quot;&gt;&lt;em&gt;GraphQL&lt;/em&gt;&lt;/a&gt;
+e chegando até mesmo ao uso de &lt;a href=&quot;/tag/java.html&quot; title=&quot;Leia mais sobre Java&quot;&gt;&lt;em&gt;Java&lt;/em&gt;&lt;/a&gt;. Agora é a vez de tipagem em &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Nota-se uma &quot;nem tão recente onda&quot; na utilização de tipagem estática. Alimentada por linguagens como &lt;em&gt;Go&lt;/em&gt; e &lt;em&gt;Typescript&lt;/em&gt;, os
+argumentos (assim como prós e contras) são dos mais variados, e vem influenciando linguagens amplamente conhecidas
+por serem de tipagem dinâmica, como &lt;a href=&quot;https://realpython.com/python-type-checking/&quot; title=&quot;Python Type Checking&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt; e
+&lt;a href=&quot;https://news.ycombinator.com/item?id=19697405&quot; title=&quot;Types will be part of Ruby 3&quot;&gt;&lt;em&gt;Ruby&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Mais fundamental que entender o &quot;como&quot;, é crucial ficar por dentro da motivação por trás da &lt;a href=&quot;https://www.python.org/dev/peps/pep-0484/&quot; title=&quot;Type hints&quot;&gt;&lt;em&gt;PEP 484&lt;/em&gt;&lt;/a&gt;.
+Vamos viajar um pouquinho no tempo e tentar compreender o &quot;por quê&quot;.&lt;/p&gt;
+&lt;h2&gt;No meu tempo é que era bom&lt;/h2&gt;
+&lt;p&gt;Conheci o &lt;em&gt;Python&lt;/em&gt; lá pelos idos de 2009, e &lt;a href=&quot;https://pt.slideshare.net/kplaube/python-7648643&quot; title=&quot;Slideshare: Python&quot;&gt;venho falando sobre a linguagem desde então&lt;/a&gt;.
+Sempre posso contar com o &lt;a href=&quot;https://pt.wikipedia.org/wiki/Python&quot; title=&quot;Wikipedia - Python&quot;&gt;artigo do &lt;em&gt;Wikipedia&lt;/em&gt;&lt;/a&gt; para definir a linguagem com os atributos que mais admiro:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional, de tipagem dinâmica e forte.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;E sem mais rodeios, abrimos o nosso primeiro parênteses.&lt;/p&gt;
+&lt;h3&gt;Tipagem dinâmica e forte&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Python&lt;/em&gt;, &lt;a href=&quot;/tag/php.html&quot; title=&quot;Leia mais sobre PHP&quot;&gt;&lt;em&gt;PHP&lt;/em&gt;&lt;/a&gt;, &lt;em&gt;Javascript&lt;/em&gt; e &lt;em&gt;Ruby&lt;/em&gt; tem algo em comum: Elas são linguagens de tipagem dinâmica. Em outras palavras,
+elas são capazes de escolher o tipo de dado de acordo com o valor que está sendo atribuído a uma variável:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;foo&quot;&lt;/span&gt;
+
+a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;
+b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# 3&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ao contrário de linguagens com tipagem estática, como o &lt;em&gt;Java&lt;/em&gt;; onde uma vez que a variável esteja setada com o seu respectivo tipo,
+não podemos mais alterá-lo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MyClass&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;// TypeError&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mesmo se utilizarmos recursos mais modernos, como a inferência de tipo, ainda assim estamos sujeitos à tipagem estática:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;MyClass&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;String&lt;/span&gt; args&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+        a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;// TypeError&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O &lt;em&gt;Javascript&lt;/em&gt; é um exemplo de linguagem com tipagem fraca. Com ela somos capazes de misturar tipos sem
+maiores restrições, e contar com conversões realizadas automaticamente pela linguagem, como no exemplo abaixo:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// foo2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O mesmo não acontece com o &lt;em&gt;Python&lt;/em&gt;, que tem por característica a tipagem forte, sendo assim
+mais restritivo com esse tipo de operação:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;a &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;foo&quot;&lt;/span&gt;
+b &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;token comment&quot;&gt;# TypeError: can only concatenate str (not &quot;int&quot;) to str&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tipagem dinâmica e forte foram duas das características
+mais apaixonantes do &lt;em&gt;Python&lt;/em&gt;. A linguagem estava me ajudando a ser mais coerente com o &lt;em&gt;design&lt;/em&gt; do código,
+e com isso, me dando uma camada a mais de segurança (e por consequência, qualidade).&lt;/p&gt;
+&lt;h3&gt;Type hints&lt;/h3&gt;
+&lt;p&gt;A primeira vez que ouvi falar sobre tipagem estática em &lt;em&gt;Python&lt;/em&gt;, foi por volta de 2016. Segundo o
+&lt;a href=&quot;https://dropbox.tech/application/our-journey-to-type-checking-4-million-lines-of-python&quot; title=&quot;Leia o artigo no Dropbox.Tech&quot;&gt;&quot;Our journey to type checking 4 million lines of Python&quot;&lt;/a&gt;,
+no ano anterior (com o &lt;em&gt;Python 3.5&lt;/em&gt;) era lançada a &lt;em&gt;PEP 484&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Essa &lt;em&gt;Python Enhancement Proposal&lt;/em&gt; oficializava a proposta de &lt;em&gt;Jukka Lehtosalo&lt;/em&gt; para o uso de tipos em &lt;em&gt;Python&lt;/em&gt;. A diferença
+aqui, em relação a outras linguagens, é que utilizamos anotações para sugerir qual tipo uma variável ou parâmetro receberá (chamadas de &lt;em&gt;type hints&lt;/em&gt;):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;greeting&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;name&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;Hello &apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; name&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Por anotações entende-se que estamos sugerindo ao &lt;strong&gt;programador&lt;/strong&gt;, e não ao &lt;strong&gt;intepretador&lt;/strong&gt;, quais são os tipos.
+De fato, o interpretador ignora tais instruções e &lt;a href=&quot;https://stackoverflow.com/questions/41692473/does-python-type-hint-annotations-cause-some-run-time-effects#:~:text=2%20Answers,-2&amp;#x26;text=Type%20hints%20and%20annotations%20do,way%20that%20comments%20don&amp;#x27;t.&quot; title=&quot;Leia a thread no Stackoverflow&quot;&gt;elas não tem efeito no código rodando&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Na época, o &lt;em&gt;mypy&lt;/em&gt; não era essa &lt;em&gt;lib&lt;/em&gt; bem estabelecida que é hoje. Conceitos e ferramentas ao redor desse tópico
+ainda eram confusos, e o mesmo gerava debates acalorados.&lt;/p&gt;
+&lt;p&gt;Nem preciso dizer que fui um dos programadores que logo de cara torceu o nariz.&lt;/p&gt;
+&lt;h2&gt;Static type é cool novamente&lt;/h2&gt;
+&lt;p&gt;Quantas vezes você já precisou abrir uma função para compreender o que exatamente ela retornava? Quantos
+&lt;em&gt;Docstrings&lt;/em&gt; você leu, dando dicas de tipos de parâmetros e retorno? Quantos &lt;code class=&quot;language-text&quot;&gt;print&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;pdb.set_trace()&lt;/code&gt; para
+entender a razão de um atributo de instância estar disparando algum erro de tipo ou chave?&lt;/p&gt;
+&lt;p&gt;À medida que o seu projeto vai crescendo em tamanho e complexidade, a ausência de tipos começa a afetar a qualidade do mesmo,
+pelo menos é isso que afirma &lt;em&gt;Dustin Ingram&lt;/em&gt; no &lt;em&gt;talk&lt;/em&gt; &lt;a href=&quot;https://www.youtube.com/watch?v=ST33zDM9vOE&quot; title=&quot;Veja no Youtube&quot;&gt;&lt;em&gt;Static Typing in Python&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bdb650a32dbbd99e021beb412e73fe40/b1584/type-hint.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.77083333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB8UlEQVQoz2VSSW/TQBj1f4XkCKdKSBwQQgIJ9cCBQkslynKpSi3KUoQEagg5ICTUNhtxFkIcO/bEdsbjxHZsz8ZnJ6JFeEaeZ33z5r35nhW135NSMi6kgFXOzYngHLDg4vKEUhRymuUA6lLSq1/qitrvr8nFDue8yeah/O8RQtoW4wzQP+TeZbKpdTJzAiDwSUACmHiGfUw4E8NRxDiVXFI4QmalakNRB2syeAvSxUj/lfWHgH2fEOzbDnKn3iLAxGcWWpI0yDjNhSUtnZwrhz0NIMbEMIyxMXbcGbVQNtRXbmE3vJNE6KMUgOd5p2en3e6ALWblr03lsKv9VYb7EJ+Aew5HgL7nWch1HT4xKWP5pZJl6rme48x4iEu1pvJK61x0W4h+z9A6ePA7bNfRj8/NRq2l186Cdss/q89H+qp1RXNo+aSxJlOWx8MZDwiJo3AZxT72JzaCkX/GSRzFy3i5io0VDStXGspBu5UriyJdIdJEICuLIuo6juu4to2QPZ2YJrjNVS/I9ApEdVRERcJEUJqXszQdGCwI8RRNTVPvarY+1ke2NbZkQcp/kpXt7z+V6we7W9s7xxsP97efVPZuVW4+err7bvNj5dp+9cbe0VYdbX4b7Kgfnr19Xr2vvn6v3nnz4vju408PXt6+t/EHLTpVI2zMZEkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Gráfico com a complexidade subindo ao aumentar linhas de código&quot;
+        title=&quot;Quando migrar para Type Hint (youtube.com)&quot;
+        src=&quot;/static/bdb650a32dbbd99e021beb412e73fe40/e5715/type-hint.png&quot;
+        srcset=&quot;/static/bdb650a32dbbd99e021beb412e73fe40/8514f/type-hint.png 192w,
+/static/bdb650a32dbbd99e021beb412e73fe40/804b2/type-hint.png 384w,
+/static/bdb650a32dbbd99e021beb412e73fe40/e5715/type-hint.png 768w,
+/static/bdb650a32dbbd99e021beb412e73fe40/4ad3a/type-hint.png 1152w,
+/static/bdb650a32dbbd99e021beb412e73fe40/b1584/type-hint.png 1342w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Quando migrar para Type Hint (youtube.com)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Se você tiver 28 minutos, dê uma pausa neste artigo e confira a apresentação na íntegra:&lt;/p&gt;
+&lt;iframe src=&quot;https://www.youtube.com/embed/ST33zDM9vOE&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;Há o argumento de que se o código fosse claro, seguindo padrões e boas práticas, não precisaríamos de tais artifícios. Acho
+difícil discordar dessa afirmação. Tão difícil quanto encontrar tal código.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://trishagee.com/2020/09/07/reading-code-is-a-skill/&quot; title=&quot;Reading code is a skill&quot;&gt;Código legível é subjetivo&lt;/a&gt;, enquanto
+que tipagem estática serve como uma forma de documentação e (supostamente) auxilia na manutenibilidade de &lt;em&gt;software&lt;/em&gt;.
+Esse é um dos argumentos apresentados
+no &lt;em&gt;paper&lt;/em&gt; &lt;a href=&quot;https://www.researchgate.net/publication/259634489_An_empirical_study_on_the_impact_of_static_typing_on_software_maintainability&quot; title=&quot;Leia a pesquisa na íntegra&quot;&gt;&quot;&lt;em&gt;An empirical study on the impact of static typing on software maintainability&lt;/em&gt;&quot;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Em suma, com o passar do tempo, fazendo parte de grandes projetos &lt;em&gt;front-end&lt;/em&gt; em &lt;em&gt;React&lt;/em&gt;, e utilizando de tipagem para entender
+o que estava acontecendo, eu enxergo e entendo o argumento a favor do uso de &lt;em&gt;type hints&lt;/em&gt; em &lt;em&gt;Python&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;Como faz?&lt;/h2&gt;
+&lt;p&gt;A melhor forma de começar é através do &lt;a href=&quot;http://mypy-lang.org&quot; title=&quot;Optional static type checker for Python&quot;&gt;&lt;em&gt;mypy&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install mypy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;O próximo passo é adicionar as anotações ao código, indicando os tipos:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# calculadora.py&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;soma&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; a &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; b
+
+result &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; soma&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;2.5&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;result&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Anotamos os parâmetros da função através de &lt;code class=&quot;language-text&quot;&gt;: int&lt;/code&gt;, e o retorno com &lt;code class=&quot;language-text&quot;&gt;-&gt; int&lt;/code&gt;. Com o utilitário de linha
+de comando executamos a checagem:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mypy calculadora.py
+Success: no issues found in 1 source file&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Se alterarmos um dos parâmetros passados para &lt;code class=&quot;language-text&quot;&gt;float&lt;/code&gt;, o &lt;code class=&quot;language-text&quot;&gt;mypy&lt;/code&gt; nos alertará que há uma inconsistência:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ mypy calculadora.py
+calculadora.py:5: error: Argument 1 to &quot;soma&quot; has incompatible type &quot;float&quot;; expected &quot;int&quot;
+Found 1 error in 1 file (checked 1 source file)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Mas ainda assim será possível executar o código sem problemas.&lt;/p&gt;
+&lt;h3&gt;VS Code&lt;/h3&gt;
+&lt;p&gt;Com o &lt;a href=&quot;/tag/vscode.html&quot; title=&quot;Leia mais sobre VS Code&quot;&gt;&lt;em&gt;VS Code&lt;/em&gt;&lt;/a&gt; e
+o &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ms-python.python&quot;&gt;&lt;em&gt;plugin Python&lt;/em&gt;&lt;/a&gt;
+instalado, basta o interpretador configurado ter acesso ao &lt;em&gt;mypy&lt;/em&gt;, ou que você explicitamente
+passe o caminho do executável nas configurações do editor:&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/eef1fd579b269dbcfb7e4183384f201c/d5bfb/type-hint-vscode.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.52083333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB6UlEQVQoz53R3W/SUBQA8GpcZmAbIRsgGqeMUkp7+3Hb2xZKP6CEj42pD/juo0+N/nn+Ab5LjP/Dwqtm4YHS4ymdxEwTE5v8cs4999yT9pYzuIuDyHXfCcz92BTduCW5cZt4sSD1Y9OZxeFoEQeZaIH529h257Ege7GoBDniZz6Iiv/+2Xm7yJUfn9UoG3w3nQgcYwQ6HYJiTEE1Z2B052C5b8DsvkLXO9S+AkLHQIwJxgn2TrB2if1TqD5pSFzxuFwXiH8jaxFQNt84/UVi9i4TzR4n1I4SiUYJLwfI32uR4HcbQQlTnHF7Vn1OuEeFg7pOp6uOGoGiR1vGpqnJxqmhh6muhinTBilVB6mJ0UCWNtzlpppjeR00JVi/zAaelE7reBcrSRuB1Xu9Zc4VWNYMqOqBSvpgEh802QNKPNAxMpLnvxjES7MoS/11NRtYKJbqfMddicoA2iTc8pIHO7IPLcTf0/yzlua93nr3ycWjEr6hfyMqIQ4MNhiTXJCIeEf7SO6tlX2+yc/6t5XaOeGOjstPFWP0Q8Kf0lEHaPgPf+/JhlZqL1Tu8LBwyov2p1an963Ztr+gZVN0lrzYXWb5hYDrtnMnW1u459zVd3t4xvnaaLHP5dN6g8PnATpBVVT5T9nZEnr4E82X+x2Gd1CXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Interface do VS Code mostrando um erro de tipo&quot;
+        title=&quot;Como o erro do mypy é exibido no VS Code&quot;
+        src=&quot;/static/eef1fd579b269dbcfb7e4183384f201c/e5715/type-hint-vscode.png&quot;
+        srcset=&quot;/static/eef1fd579b269dbcfb7e4183384f201c/8514f/type-hint-vscode.png 192w,
+/static/eef1fd579b269dbcfb7e4183384f201c/804b2/type-hint-vscode.png 384w,
+/static/eef1fd579b269dbcfb7e4183384f201c/e5715/type-hint-vscode.png 768w,
+/static/eef1fd579b269dbcfb7e4183384f201c/d5bfb/type-hint-vscode.png 1072w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Como o erro do mypy é exibido no VS Code&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://code.visualstudio.com/docs/python/linting#_mypy&quot;&gt;Leia mais sobre como configurar o Mypy com VS Code&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Vim&lt;/h3&gt;
+&lt;p&gt;No &lt;a href=&quot;/tag/vim.html&quot; title=&quot;Leia mais sobre Vim&quot;&gt;&lt;em&gt;Vim&lt;/em&gt;&lt;/a&gt; há diferentes alternativas. Talvez a forma mais simples
+e prática seja com o uso do &lt;a href=&quot;https://github.com/dense-analysis/ale&quot; title=&quot;Veja o repositório no Github&quot;&gt;&lt;em&gt;vim-ale&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Caso você se aventure pelo mundo do &lt;a href=&quot;/tag/lsp.html&quot; title=&quot;Leia mais sobre Language Server Protocol&quot;&gt;&lt;em&gt;LSP&lt;/em&gt;&lt;/a&gt;,
+uma combinação interessante é a do &lt;a href=&quot;https://github.com/prabirshrestha/vim-lsp&quot; title=&quot;LSP com Vim&quot;&gt;&lt;em&gt;vim-lsp&lt;/em&gt;&lt;/a&gt; +
+&lt;a href=&quot;https://github.com/python-lsp/python-lsp-server&quot; title=&quot;Acesse o repositório no GitHub&quot;&gt;&lt;em&gt;Python Language Server&lt;/em&gt;&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip install pip install python-lsp-server pylsp-mypy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
+    &lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1d2244b4c1e0109ffcf8caa1d743cbb6/38a65/type-hint-vim.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACN0lEQVQoz52TyW4TQRCG5wDikgtKwJDFS7ae7tlnvI1npsfO7sSOgkKUQA6IIAwYSJQgAjkhzjwHb8MLGPEYYC5OF9XjGIyEIoWRPlVV16LqvzXK9m33ej2ulEmhFM/O5bnKypxqPie0xA0r4iFf536whnaDR/EGL/rLnGCN+g9m5p0RJZeanc174Xe3VId8cU04XhVMRxKDZsbgFpbB8RbByS8lvuksANUjYAjtI5gRCelnp40VJTU2oelm9WfBb4BXruPAJTBMDszgSYOqRb/twJe5AdTgOJAnA6cybBMHjjPDqnULwSYUg/o5DhT6RdEVOJcbp7OsqdxKpdk8LXcJrQChgSAswE3CBPrnWn/R3zYEwioSQbRAzOkhTGRoU7k7McPs/GrX9lbAcGpCajRAt6pg2DXUsppcT2oqY6zD/CJqug5uqSHy3qrwjSqoOaOpjIwytrfb6p4dHsDx0x3x7uVDePviAbx5tgeHB9tw9GQHjg7uwfP9Brx6tAWvH9+Hk9YunLb34ePpCXw4ey8+HbfF59YOtJejpnJzdJKprNS17RBshwvHidD2cVwuz8D1JPjibpzEg7xl+WCaZWHagdCxJjODGqbuZBjq8YOgLoSFPcKi8wRtCDbE8LnGJT3UtEdoCFNp1sCBWU2zYmHYC319Lqxu1RINLyWp7/fIOJPTt5TRsfFpVfO/UD34pmqVDtUrHWnxb+jM0+KlYF9nqOfrZJpECn7XkHEkh2T/E9k7hdz4BaOERNwvf9Z4AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Interface do Vim mostrando um erro de tipo&quot;
+        title=&quot;Como o erro do mypy é exibido no vim com vim-lsp&quot;
+        src=&quot;/static/1d2244b4c1e0109ffcf8caa1d743cbb6/e5715/type-hint-vim.png&quot;
+        srcset=&quot;/static/1d2244b4c1e0109ffcf8caa1d743cbb6/8514f/type-hint-vim.png 192w,
+/static/1d2244b4c1e0109ffcf8caa1d743cbb6/804b2/type-hint-vim.png 384w,
+/static/1d2244b4c1e0109ffcf8caa1d743cbb6/e5715/type-hint-vim.png 768w,
+/static/1d2244b4c1e0109ffcf8caa1d743cbb6/38a65/type-hint-vim.png 1075w&quot;
+        sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Como o erro do mypy é exibido no vim com vim-lsp&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;Considerações finais&lt;/h2&gt;
+&lt;p&gt;Volto a mencionar a minha experiência em um projeto complexo em &lt;em&gt;Javascript&lt;/em&gt;: Ter os tipos declarados e explícitos foi de muita ajuda,
+e sem dúvida acelerou o desenvolvimento e o &lt;em&gt;onboarding&lt;/em&gt; de novos membros à equipe com o passar do tempo. Não é tão difícil de enxergar as vantagens por esses termos.&lt;/p&gt;
+&lt;p&gt;Mas o debate sobre &lt;em&gt;Python&lt;/em&gt; em si ser um bom candidato a esse tipo de prática é muito válido. Fazendo um contraponto ao parágrafo acima,
+um código bem escrito poderia sim ser o suficiente para resolver alguns dos problemas que estamos tentando resolver com &lt;em&gt;type hint&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Eu ainda trocaria um código &lt;code class=&quot;language-text&quot;&gt;mal escrito&lt;/code&gt; por um &lt;code class=&quot;language-text&quot;&gt;bem escrito&lt;/code&gt;, ao invés de um &lt;code class=&quot;language-text&quot;&gt;mal escrito&lt;/code&gt; por um &lt;code class=&quot;language-text&quot;&gt;mal escrito com type hints&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Em cima do muro :)&lt;/p&gt;
+&lt;p&gt;Quem sabe no próximo grande projeto...&lt;/p&gt;
+&lt;p&gt;Até a próxima.&lt;/p&gt;
+&lt;h2&gt;Referência&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.to/tusharsadhwani/does-python-need-types-59if&quot;&gt;dev.to - Does Python need types?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://dev.to/tusharsadhwani/the-comprehensive-guide-to-mypy-561m&quot;&gt;dev.to - The comprehensive guide to mypy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.python.org/dev/peps/pep-0484/&quot;&gt;PEP 484 - Type hints&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.researchgate.net/publication/259634489_An_empirical_study_on_the_impact_of_static_typing_on_software_maintainability&quot;&gt;ResearchGate - An empirical study on the impact of static typing on software maintainability&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.treinaweb.com.br/blog/quais-as-diferencas-entre-tipagens-estatica-ou-dinamica-e-forte-ou-fraca/&quot;&gt;TreinaWeb - Quais as diferenças entre tipagens: estática ou dinâmica e forte ou fraca&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://pt.wikipedia.org/wiki/Python&quot;&gt;Wikipedia - Python&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Assegure a qualidade do seu código Python - Prospector]]></title><description><![CDATA[Mais um ano, mais um post sobre ferramentas de qualidade de código. Opções não faltam quando o assunto é Python, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter "um anel para a todos governar"? Tanto é interessante que um utilitário vem fazendo parte do…]]></description><link>https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</link><guid isPermaLink="false">https://klauslaube.com.br/2020/01/21/assegure-qualidade-seu-codigo-python-prospector.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Tue, 21 Jan 2020 16:15:00 GMT</pubDate><content:encoded>&lt;p&gt;Mais um ano, mais um &lt;em&gt;post&lt;/em&gt; sobre &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade&quot;&gt;ferramentas de qualidade de código&lt;/a&gt;. Opções não faltam quando o assunto é &lt;a href=&quot;/tag/python.html&quot; title=&quot;Leia mais sobre Python&quot;&gt;&lt;em&gt;Python&lt;/em&gt;&lt;/a&gt;, e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter &quot;um anel para a todos governar&quot;?&lt;/p&gt;
 &lt;p&gt;Tanto é interessante que um utilitário vem fazendo parte do &lt;em&gt;toolbelt&lt;/em&gt; dos desenvolvedores &lt;em&gt;Python&lt;/em&gt; nos últimos tempos justamente por desempenhar esse papel. Estamos falando, claro, do &lt;a href=&quot;https://prospector.readthedocs.io/en/master/&quot; title=&quot;Leia a documentação oficial&quot;&gt;&lt;em&gt;Prospector&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;h2&gt;One ring to rule them all&lt;/h2&gt;
 &lt;p&gt;O &lt;em&gt;Prospector&lt;/em&gt; é uma ferramenta &lt;a href=&quot;https://github.com/PyCQA/prospector/blob/master/LICENSE&quot; title=&quot;Confira mais no repositório do projeto&quot;&gt;livre&lt;/a&gt;, que analisa código &lt;em&gt;Python&lt;/em&gt; e retorna informações sobre potenciais problemas, erros de convenção de código, alertas sobre complexidade, etc.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -16,7 +254,7 @@
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEAf/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAGF8adEKA//xAAaEAACAwEBAAAAAAAAAAAAAAAAAQIRIgMT/9oACAEBAAEFAueJaZ5DRF07s//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAWEQADAAAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8BpX//xAAZEAACAwEAAAAAAAAAAAAAAAAAESAhMWH/2gAIAQEABj8C0VrhsP/EABsQAQEBAAIDAAAAAAAAAAAAAAEAETFBUWGR/9oACAEBAAE/IeQZfdmgHCPMh3Ry+1dqX//aAAwDAQACAAMAAAAQgA//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8QhMf/xAAXEQADAQAAAAAAAAAAAAAAAAAAARFR/9oACAECAQE/EMGVn//EABwQAQADAAMBAQAAAAAAAAAAAAEAESFBUZEx8P/aAAgBAQABPxA1iQRrZv7JV3haMd847lvUdIXNSJzJwt0MKB8I/KW9T//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAD/9oADAMBAAIQAxAAAAHDac6SaA//xAAaEAADAQADAAAAAAAAAAAAAAAAARECAxMi/9oACAEBAAEFAuPxqNnUhoy47T//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAwEBPwGH/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAR/9oACAECAQE/AaV//8QAGRAAAgMBAAAAAAAAAAAAAAAAABEBEDFh/9oACAEBAAY/AtFDXDbZ/8QAGxAAAgIDAQAAAAAAAAAAAAAAAAERITFBYVH/2gAIAQEAAT8hyFF9LaHB+lCZlUzp2bSP/9oADAMBAAIAAwAAABCTD//EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAwEBPxCEx//EABcRAAMBAAAAAAAAAAAAAAAAAAABEVH/2gAIAQIBAT8QwZWf/8QAGxABAAMAAwEAAAAAAAAAAAAAAQARITFBUZH/2gAIAQEAAT8QBuoRQJTAWwLeHN68dS1qvGrmpKZk6zA8B+EyoW+T/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -104,7 +342,7 @@ Check Information
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -115,7 +353,7 @@ Check Information
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 31.770833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA2UlEQVQY013N6WqEMBQF4HkbJzGrxph91WmKWNofff9XqeNAW4SPy+HC4dwAtoxExQtmroPqDlR3AV9Bn3e+wz83iCymaZKbGN/5mJSrs30p2lep02SKjUuob8pXLiLo1b8yNogEyguhGVPPRKCD48JzEdh4Gtww+VGG44Oouy4Tls28S9GoXCEJAFmI3cmfnhmgpyNcyuaYtelL+z3Xz5g/Qtpn3YRcB1HYmKV6DKIi4nvsEIvXMpErr9/MbCG2pW1r21yqLpaDdtn4nJclL9X40hPTAflb/gExmUrsvQrFQgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 31.770833333333332%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA5ElEQVQY012PB07EMBBF9zbEcU21Pc64JqEKWLj/XXAWtFKQnqz/Pf1CuBPCjypx5QkDwhyhvxy6ofbPsuWwrWlafefSMuAyTvPbNLx0Q7JY7FKOFzP4oiFqlzGtcd2r7cZIqDkVU+GFzLUFk150nslFdBWsu9zAqmV/hFoOp8l1GakSwoedXzuz12wqFiaRCaQVjlXXn/Z2DpXYnCZTkH02+Vv797Jdy/aVt6t1z9ru47wOUzHwNJlN9kGowFX4d7MT46rip9CPFnLIeyw7YAQMFqNxwYAPOYWSzBIptw9kvhf/AKGiSx+IsdSDAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -154,12 +392,12 @@ o &lt;a href=&quot;https://github.com/landscapeio/dodgy&quot; title=&quot;Veja o
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/hello-world-em-django/
 $ dodgy
 {
-    &amp;quot;warnings&amp;quot;: [
+    &quot;warnings&quot;: [
         {
-        &amp;quot;path&amp;quot;: &amp;quot;hello_world/settings.py&amp;quot;,
-        &amp;quot;line&amp;quot;: 23,
-        &amp;quot;code&amp;quot;: &amp;quot;secret&amp;quot;,
-        &amp;quot;message&amp;quot;: &amp;quot;Possible hardcoded secret key&amp;quot;
+        &quot;path&quot;: &quot;hello_world/settings.py&quot;,
+        &quot;line&quot;: 23,
+        &quot;code&quot;: &quot;secret&quot;,
+        &quot;message&quot;: &quot;Possible hardcoded secret key&quot;
         }
     ]
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -171,7 +409,7 @@ faz, pode ser uma alternativa.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -182,7 +420,7 @@ faz, pode ser uma alternativa.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9ALXM3L3a6bnY5s7o8OD0+Or4+vL+/uTw8O/29fv//6eusXFuca3ByZ6utnVydtfZ2/////v8+v7///L8/ABCTV2Qpa/D3eXd+vrp/v74///g5ud5eXuqp6X///+3uLqMjo6wxsybrbV/e4K/xszh6e3t8/Tj7O3f7fEACAkXGh0tP0VReISHo7Gst728iYOIZ2FmgX196/Pvv8nIt8fCu8/On624g36HU01XRTxIrr7BhoqPmqCnABIRHycnMispLSQjJjs6OkZDQVRQT2dhXGFfV2htZXl9eJWdnoWGiouNkFM/PU88NDsvM4mNj3x9f391dQAQEBseHyQnJyknJickJSkhISQlIiUqKCZDQjpDQj49OjiFgn9wbXF4cWltUUJ3X0tCNDNLPEFTRUZtYFoAFhUaMzAuNS8tFhQYJCElJCAhJSIhPjYyMi0uJycqOTQyinp3r6emoKKanoFpmYZyamBjT0RCUERDdWpjADs3OFBKR1FNREVFNVBRPV1cTigkJm5jXW1OSxMQFRYUHGQ2MsOuo9jU1H9lUnttYJeSh7u8uLe6uLu8ugBwcF5naFJqbFiHiXugpaLM099gZWlRSkOBYVRWOTJHKCaUb1eslm6jjW4ZFBgAABY7ODrDwsG/wMO8vLoAcnFqlJKUsbO/x8zdy9PnytTqvsXWtLjHgnhzUzAlfU85kHRatLGkRkA4BAUODhEgOzw/srSxvLq4t7awAMTE1MrK3MnK3MbI2MPI2cHJ28jR5dXh+7W4wlU5LGA4JJWPhs3a7GJkZAoIDh0cIWZgTbazqLq7trO0rADBv8q/vsm8vMS7u8G8vMO/wMm/wcy+wc7DyNizs7muqq6+xM/N1d6ChoQAAQgPEBlkYFCpopS5urSwsqeEXVOjgX+zbAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9AKzC0r7a6Lva6M7o8OH09+v4+fT+/tzm5enu7fv//6mvsnBucaq9xpyutnRxddXX2f////z8+/7///P8/QAzPU2Ak52709ra9vbn/v72///Y3d9wbnKinpz///+6vL2TlpSzys2dr7eCfoW3vcTR2d7m7u/Z4uTX5usACAgXFhcoMTVCZW1xlJ2YqKyqgXp/a2VofXh53OXhvMfEtsfDtsjHn622f3iBSUFKOC05qbm7gYaKk5eeABIRHignMS0sLiMiJTQzNDw6OU5KSWJcVl9dVF5hWW9ybJCWmH99hIiIi1E8OFZCOD0yM4OEh3x8fXxycAARERsgICUnJykmJSYkJCkhISUkIiUpJiVAPzhCQT48ODeGg391cXZ6c2tzV0d4X0xFNzZIOT1QQUJsX1kAFxUaNDAvODEvGRgaKCQnKCUlJSIhRDs3NjAwJCQnNjIxg29ttaypqKuln4FqnYp2c2ptW1JQXFJQfHNsAEQ/QFVRS1RQRUtMOFZXQWhoWisoKWthWnRUTxkTGBQRGmY6M76omtrV0XVeTGpdVI6IfcDCvru/vr6/vQBrbFhkZk9rbVqKjYKlqqrO1uVobXJPSUJ8XlFaOzRPLSmVcVeqlGuahWYWEhYAABYyMTa+vry9vb+6urcAeXh1nZyhuLrIyc7hy9HlxtDkxMzewsfaiIB8TSogeEo0jXJXuLewRUE8BwcPExUiQEFBsbOwu7u4trawAMnJ28zM3sjK3MXH18PH1sHI2cfQ49Pe97q+ylpBNGA5JZiTjM/d8GltbAkHDB0cIWZgTbayprq7trO0qwDBvsm+vse7u8G6ur+7u8G+v8i/v8q9v8zDydm7vsi3tr3AxtPN1N2Gi4gBAQkODxhkYFCnoJG5urSwsqdu6FGLb3JrKwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -223,7 +461,7 @@ faz, pode ser uma alternativa.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 630px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -234,7 +472,7 @@ faz, pode ser uma alternativa.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 53.125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHnNKxuTB//xAAbEAACAgMBAAAAAAAAAAAAAAAAAQISAxEhMf/aAAgBAQABBQKsTWMft5MfByZ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAgEFAAAAAAAAAAAAAAAAAAEhEBEigaH/2gAIAQEABj8ClmD4Qr7JYqf/xAAcEAEBAQACAwEAAAAAAAAAAAABEQAhoTFBUdH/2gAIAQEAAT8hY2sKv5l5VR5uMGR+nKZ0bgR8w3z1v//aAAwDAQACAAMAAAAQGA//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EMXD/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHhABAAIBBAMAAAAAAAAAAAAAAQARITFBkbFhcYH/2gAIAQEAAT8QQ2UBewofY1VwYAnPUPSLh1HMWrAbAOodEqrYvDHyGf/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 53.125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHnakYNJw//xAAaEAADAQADAAAAAAAAAAAAAAAAAQIREiEj/9oACAEBAAEFAsg8mPN51RXQ6pP/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAAARESMSH/2gAIAQEABj8C0VWzJOsUGn//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUFR0f/aAAgBAQABPyFqtTW35ETqZsjDojjc9FMOiyUgU//aAAwDAQACAAMAAAAQOA//xAAVEQEBAAAAAAAAAAAAAAAAAAAAIf/aAAgBAwEBPxCI/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxABAQEAAwEBAAAAAAAAAAAAAREAITFBgZH/2gAIAQEAAT8QqmIS7ayDVKICME99wyReCafXFFR1OsRPJy5wEfu//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -330,8 +568,8 @@ incrementar ainda mais o seu ambiente de desenvolvimento.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pyflakes apps/notificate/views.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A resposta é muito clara. Existem classes sendo importadas, mas que não
 estão sendo usadas:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apps/notificate/views.py:3: &amp;#39;EmptyPage&amp;#39; imported but unused
-apps/notificate/views.py:3: &amp;#39;InvalidPage&amp;#39; imported but unused&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apps/notificate/views.py:3: &apos;EmptyPage&apos; imported but unused
+apps/notificate/views.py:3: &apos;InvalidPage&apos; imported but unused&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O funcionamento básico do &lt;em&gt;Pyflakes&lt;/em&gt; é esse… simples como as melhores
 coisas devem ser!&lt;/p&gt;
 &lt;h2&gt;Pyflakes + Vim&lt;/h2&gt;
@@ -380,7 +618,7 @@ seguinte formato:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;C&lt;/strong&gt; é o tipo da mensagem, &lt;strong&gt;1&lt;/strong&gt; é o número da linha (no arquivo) onde
 o problema foi constatado, &lt;strong&gt;Missing docstring&lt;/strong&gt; é a mensagem gerada. O
 &lt;em&gt;Pylint&lt;/em&gt; poderá apresentar os seguintes tipos de mensagens:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[R]efactor for a &amp;quot;good practice&amp;quot; metric violation
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;[R]efactor for a &quot;good practice&quot; metric violation
 [C]onvention for coding standard violation
 [W]arning for stylistic problems, or minor programming issues
 [E]rror for important programming issues (i.e. most probably bug)
@@ -405,7 +643,7 @@ pois todas as mensagens que você julgar desnecessárias para a análise
 você adiciona no parâmetro &lt;strong&gt;-–disable&lt;/strong&gt; (separadas por vírgula).&lt;/p&gt;
 &lt;p&gt;Para que não seja necessário passar todos esses parâmetros todas as
 vezes que executar o &lt;em&gt;Pylint&lt;/em&gt; basta gerar um arquivo &lt;strong&gt;.pylintrc&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint --reports=n --include-ids=y --disable=W0232 --generate-rcfile &amp;gt; ~/.pylintrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pylint --reports=n --include-ids=y --disable=W0232 --generate-rcfile &gt; ~/.pylintrc&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;É possível gerar este arquivo por projeto, podendo mudar a
 especificidade das métricas de acordo com a necessidade. Quer saber
 mais? &lt;a href=&quot;http://www.logilab.org/card/pylint_tutorial&quot; title=&quot;Pylint tutorial&quot;&gt;Leia este tutorial muito bom&lt;/a&gt;, direto da documentação do

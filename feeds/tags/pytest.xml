@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pytest]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O popular e poderoso Pytest]]></title><description><![CDATA[Ok. Eu admito. O primeiro post de 2021 será só para cumprir tabela. Afinal,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pytest]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O popular e poderoso Pytest]]></title><description><![CDATA[Ok. Eu admito. O primeiro post de 2021 será só para cumprir tabela. Afinal,
 se você já programa em Python, provavelmente já ouviu falar do
 Pytest.
 E é pela sua popularidade, mas acima de tudo sua versatilidade, que eu me sinto na
@@ -56,9 +56,9 @@ E
 ERROR: test_one_plus_one_is_equal_two (tests.test_my_calc.TestSum)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &amp;quot;/Users/klauslaube/Workspace/my_calc/tests/test_my_calc.py&amp;quot;, line 7, in test_one_plus_one_is_equal_two
-    result = calc(1, &amp;quot;+&amp;quot;, 1)
-NameError: name &amp;#39;calc&amp;#39; is not defined
+  File &quot;/Users/klauslaube/Workspace/my_calc/tests/test_my_calc.py&quot;, line 7, in test_one_plus_one_is_equal_two
+    result = calc(1, &quot;+&quot;, 1)
+NameError: name &apos;calc&apos; is not defined
 
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
@@ -76,15 +76,15 @@ tests/test_my_calc.py F                                                         
 ============================================================================================== FAILURES ==============================================================================================
 _______________________________________________________________________________ TestSum.test_one_plus_one_is_equal_two _______________________________________________________________________________
 
-self = &amp;lt;tests.test_my_calc.TestSum testMethod=test_one_plus_one_is_equal_two&amp;gt;
+self = &amp;lt;tests.test_my_calc.TestSum testMethod=test_one_plus_one_is_equal_two&gt;
 
     def test_one_plus_one_is_equal_two(self):
-&amp;gt;       result = calc(1, &amp;quot;+&amp;quot;, 1)
-E       NameError: name &amp;#39;calc&amp;#39; is not defined
+&gt;       result = calc(1, &quot;+&quot;, 1)
+E       NameError: name &apos;calc&apos; is not defined
 
 tests/test_my_calc.py:7: NameError
 ====================================================================================== short test summary info =======================================================================================
-FAILED tests/test_my_calc.py::TestSum::test_one_plus_one_is_equal_two - NameError: name &amp;#39;calc&amp;#39; is not defined
+FAILED tests/test_my_calc.py::TestSum::test_one_plus_one_is_equal_two - NameError: name &apos;calc&apos; is not defined
 ========================================================================================= 1 failed in 0.10s ==========================================================================================&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como é possível notar, o &lt;em&gt;output&lt;/em&gt; é um pouco mais &lt;em&gt;verbose&lt;/em&gt;. Mas o ponto alto aqui é que, mesmo que o seu projeto esteja
 utilizando &lt;code class=&quot;language-text&quot;&gt;unittest&lt;/code&gt; como biblioteca de testes, o &lt;em&gt;test runner&lt;/em&gt; do &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; ainda assim
@@ -279,7 +279,7 @@ vislumbrar a diferença entre esses dois tipos de escopo:&lt;/p&gt;
         &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Alguns pontos importantes não podem passar em branco:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Note o uso do argumento &lt;code class=&quot;language-text&quot;&gt;scope=&amp;quot;class&amp;quot;&lt;/code&gt; decorando a assinatura da &lt;em&gt;fixture&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;x_and_y&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Note o uso do argumento &lt;code class=&quot;language-text&quot;&gt;scope=&quot;class&quot;&lt;/code&gt; decorando a assinatura da &lt;em&gt;fixture&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;x_and_y&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;pytest.mark.usefixtures&lt;/code&gt; é quem ativa o uso da &lt;em&gt;fixture&lt;/em&gt; na classe &lt;code class=&quot;language-text&quot;&gt;TestAddingThingsUp&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Para visualizar o resultado dos &lt;code class=&quot;language-text&quot;&gt;print&lt;/code&gt;, é preciso executar o &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; com o parâmetro &lt;code class=&quot;language-text&quot;&gt;-s&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Note que esse é outro exemplo bobo (:&lt;/li&gt;

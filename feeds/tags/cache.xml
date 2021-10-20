@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - cache]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django e Cache: Uma dupla de alta performance - Parte 2]]></title><description><![CDATA[Continuando o post Django e Cache: Uma dupla de alta performance, vamos
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - cache]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:18 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django e Cache: Uma dupla de alta performance - Parte 2]]></title><description><![CDATA[Continuando o post Django e Cache: Uma dupla de alta performance, vamos
 ver na prática como utilizar o framework de cache do Django. Embora eu esteja utilizando o Memcached para escrever estes
 artigos, vale ressaltar que a abstração do Django lhe permite utilizar
 a ferramenta mais apropriada para…]]></description><link>https://klauslaube.com.br/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2.html</link><guid isPermaLink="false">https://klauslaube.com.br/2012/07/22/django-e-cache-uma-dupla-de-alta-performance-2.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Sun, 22 Jul 2012 14:33:58 GMT</pubDate><content:encoded>&lt;p&gt;Continuando o &lt;em&gt;post&lt;/em&gt; &lt;a href=&quot;/2012/06/17/django-e-cache-uma-dupla-de-alta-performance-1.html&quot; title=&quot;Leia a parte 1 deste artigo&quot;&gt;&lt;em&gt;Django&lt;/em&gt; e &lt;em&gt;Cache&lt;/em&gt;: Uma dupla de alta performance&lt;/a&gt;, vamos
@@ -396,7 +396,7 @@ Last-Modified: Sat, 07 Apr 2012 17:51:10 GMT
 &lt;p&gt;Uma vez que o arquivo esteja em disco, o navegador tem como informar a
 data da última alteração. Então, fazemos uma nova requisição ao arquivo
 &lt;code class=&quot;language-text&quot;&gt;security.jpg&lt;/code&gt;, passando esta data no cabeçalho &lt;code class=&quot;language-text&quot;&gt;If-Modified-Since&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -H &amp;quot;If-Modified-Since: Sat, 07 Apr 2012 17:51:10 GMT&amp;quot; http://klauslaube.com.br/media/blog/security.jpg
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -H &quot;If-Modified-Since: Sat, 07 Apr 2012 17:51:10 GMT&quot; http://klauslaube.com.br/media/blog/security.jpg
 
 HTTP/1.1 304 Not Modified
 Date: Tue, 01 May 2012 19:22:00 GMT
@@ -418,17 +418,17 @@ cabeçalho:&lt;/p&gt;
 HTTP/1.1 200 OK
 ...
 Date: Tue, 01 May 2012 19:46:18 GMT
-ETag: &amp;quot;2c6b0d8-13-4befe555d6f80&amp;quot;
+ETag: &quot;2c6b0d8-13-4befe555d6f80&quot;
 ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;É através do valor &lt;code class=&quot;language-text&quot;&gt;2c6b0d8-13-4befe555d6f80&lt;/code&gt; que navegador e servidor
 saberão se aquele arquivo em questão já está armazenado em &lt;em&gt;cache&lt;/em&gt;. Isso
 é possível através do cabeçalho &lt;code class=&quot;language-text&quot;&gt;If-None-Match&lt;/code&gt;, enviado pelo
 navegador na requisição:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -I -H &amp;quot;If-None-Match: \&amp;quot;2c6b0d8-13-4befe555d6f80\&amp;quot;&amp;quot; http://localhost/exemplo-cache.html
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -i -I -H &quot;If-None-Match: \&quot;2c6b0d8-13-4befe555d6f80\&quot;&quot; http://localhost/exemplo-cache.html
 
 HTTP/1.1 304 Not Modified
 Date: Tue, 01 May 2012 19:50:40 GMT
-ETag: &amp;quot;2c6b0d8-13-4befe555d6f80&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+ETag: &quot;2c6b0d8-13-4befe555d6f80&quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Uma vez que o valor bata com o identificador do arquivo, o servidor
 informa ao navegador que não houve alterações. Então, o navegador
 utiliza a versão do arquivo que está no temporário.&lt;/p&gt;

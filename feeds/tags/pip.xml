@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pip]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Poesia pythonista com Poetry]]></title><description><![CDATA[O pip tem dado passos importantes em relação à
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - pip]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Poesia pythonista com Poetry]]></title><description><![CDATA[O pip tem dado passos importantes em relação à
 sua evolução, sendo um dos mais notórios deles a
 adoção por padrão de backtracking.
 Ainda assim, por suas atribuições serem exclusivamente de um gerenciador de dependências, ele pode deixar
@@ -22,7 +22,7 @@ de funcionalidades que &quot;adoçam&quot; o &lt;em&gt;build&lt;/em&gt; e o cont
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 423px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 423px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -33,7 +33,7 @@ de funcionalidades que &quot;adoçam&quot; o &lt;em&gt;build&lt;/em&gt; e o cont
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 173.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAjABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMEAgH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABwdzuuUE6+aoyuRm7LJA//8QAHBAAAgICAwAAAAAAAAAAAAAAAQIAEQMSECEx/9oACAEBAAEFAgzQliC5iKdzjUqVlxT1VxDjm2GF1vw7Ecf/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/AV//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAgEAABAgYDAQAAAAAAAAAAAAABAAIQESIxMpESIDNx/9oACAEBAAY/AsisjtZHaqIA+o8XzV276GbXOXi9UkgQvD//xAAfEAACAgICAwEAAAAAAAAAAAABEQAhMUFRYRBxoeH/2gAIAQEAAT8hRf0gRk1AZWHtCE62BUIAyGAhC0xHhIYC+X1CypRGdKlKtHuNOABfsZomt4f/2gAMAwEAAgADAAAAEBTGs/vv/8QAGBEAAwEBAAAAAAAAAAAAAAAAARARACH/2gAIAQMBAT8QvEDNQ//EABcRAAMBAAAAAAAAAAAAAAAAAAAQEQH/2gAIAQIBAT8QihNf/8QAIBABAAMAAgAHAAAAAAAAAAAAAQARITFBEGGBkaHR8P/aAAgBAQABPxDsHQXf7nM06I332DmiA/DLU9y3DrLmIWVoU7u8WXsU3hfM89u7glAYsVc9wEQpdbDlmRQw7wdgJBnV6fTnJtjKpeoU7pHUw34f/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 173.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAjABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAfPdLrkOhOy6oyiBBgskAf/EAB0QAAICAgMBAAAAAAAAAAAAAAECABEDEhAhIjH/2gAIAQEAAQUCtoSSC5iL7ONSpWXAequIcc3xQut/DsRx/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwFf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwFf/8QAIRAAAQMDBAMAAAAAAAAAAAAAAQACMRARIiAhMjNhkaH/2gAIAQEABj8Ckrl9UlZuAHhYvupb70G7S5dLltcCk0//xAAhEAACAQMDBQAAAAAAAAAAAAABEQAhMUEQUXFhgZGh4f/aAAgBAQABPyEKdbmCFTxABVrrCHuGBUIC8LCilcNy2QwN7uZBEwP+F7lHFzGj7RfYTYpMbR//2gAMAwEAAgADAAAAEJQCvwgv/8QAGBEAAwEBAAAAAAAAAAAAAAAAARARACH/2gAIAQMBAT8QvEDNQ//EABcRAAMBAAAAAAAAAAAAAAAAAAAQEQH/2gAIAQIBAT8QihNf/8QAHhABAQADAQACAwAAAAAAAAAAAREAITFBEFGRwdH/2gAIAQEAAT8Q+oQLedOR6H73m/WAt/3IpJbtHkLgXNBSic3dOJofQ5Z+e4aZsKDOzeISClmFobRDR6QwCAdyxvPO41HTqLMM9uHaYr8f/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -80,7 +80,7 @@ da convenção de uso do &lt;em&gt;entrypoint&lt;/em&gt; &lt;code class=&quot;la
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 768px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -91,7 +91,7 @@ da convenção de uso do &lt;em&gt;entrypoint&lt;/em&gt; &lt;code class=&quot;la
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46.35416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsSAAALEgHS3X78AAABgElEQVQoz21R20rDQBDNh/glvvkRfoA++hc+CdKH+h3Vqg+CIrYVQSgoRaUibU1ik9rcms1e0t1kb26aUhQ8D8PMzpwzw1lLV1Cz3vb9ieV2dkwhpZp6Xhwnq04V6GhG3hz9B6ahrDqDw33vdgsMD0xRFAVKkxxnmJAsy0rO5TTRi1xIkec553wjYLHoMpscI6cpy2S9SMsnG7y4GS9YklT7e71ep9utdRljQkqRhpJAS5RQFAmGQX/wkWZEcTb4DPZOzq/umloFQQTMfLvdbrValNJ0seBS4SRi3ZZ+fajP1ohQ7zsilPpT1wlz972hZ0cEwzCKsAFCBEJzcFkUQghWsOfrG384XJNJHHNKFSGVD0pTHCAMuNBRGIKc8NFYjCeIEACAIQvO5zFYZNjSUhhy2T/Dh7vLx9MQ5gShWlFKuVwuTRLbdmRXbhtiWZZKqbVhtUkSzdOLBjcRQIRg9QGrCcP3fd+Zfk1s2/M841/9Xkdr47vQ/4PVoBXM2t+tH3na9cP0WwycAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 46.35416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAABmElEQVQoz2VRTU/bQBD1D+uZY6WeufEn+gvKBXFE6qWRqkhVxa0HKk4gIVoEaqGAiEPThnzYsZN4d53dzdpe7+x0nLSoiD2MZt7MvJl5G3jvEd30y4uvb4PodAMRCeGCK62xCRoj+xPRGeCTRwkfrN3s+6u7j0F68ZL8qqpGw4f5LCGnLEvnHPya4lgAACFkH0kDK4501DKDbb88w3q8AoHrciZrrXWSJBSHt3dht0tOURRE1wwtjXc2sLpn2EU++xH2Ym0a1n7Ct/aOPxzuI+Y8V3RFu91uvWtZa+ViYWu3FMyeHfjw/O/aylQ3nR7jPBr2rx/4yelONXi9VNM4TpWUkyRJ05SajTEOwCz1z8+f2O0lNYOHmihr8AhIF5KCpbiS7LetkWVzoRTEsR/TXkYpRQW1c53eKEqyAME1In07VO/flGQtlEWx0gQB3CJfUJp1Qt69J5BSNH/1QbhS2zeVMLkRu5tVdD2Z0e6MgLWgpC3LsmEc90fDbD6XUq7VBiCGf19FhYXH548qhBC5EJwoGaO1/8/+AVih9LwXPRJNAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -270,19 +270,19 @@ pytest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Com o &lt;em&gt;Pipfile&lt;/em&gt;, é possível utilizar o mesmo arquivo:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# Pipfile&lt;/span&gt;
 
-&lt;span class=&quot;token selector&quot;&gt;[[source]&lt;/span&gt;]
-&lt;span class=&quot;token constant&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;https://pypi.org/simple&quot;&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;verify_ssl&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; true&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;pypi&quot;&lt;/span&gt;
+&lt;span class=&quot;token header&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token section-name selector&quot;&gt;[source&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;]
+&lt;span class=&quot;token key attr-name&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;&quot;&lt;span class=&quot;token inner-value&quot;&gt;https://pypi.org/simple&lt;/span&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;verify_ssl&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;&quot;&lt;span class=&quot;token inner-value&quot;&gt;pypi&lt;/span&gt;&quot;&lt;/span&gt;
 
-&lt;span class=&quot;token selector&quot;&gt;[dev-packages]&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;pytest&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;*&quot;&lt;/span&gt;
+&lt;span class=&quot;token header&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token section-name selector&quot;&gt;dev-packages&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;pytest&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;&quot;&lt;span class=&quot;token inner-value&quot;&gt;*&lt;/span&gt;&quot;&lt;/span&gt;
 
-&lt;span class=&quot;token selector&quot;&gt;[packages]&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;Django&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;*&quot;&lt;/span&gt;
+&lt;span class=&quot;token header&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token section-name selector&quot;&gt;packages&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;Django&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;&quot;&lt;span class=&quot;token inner-value&quot;&gt;*&lt;/span&gt;&quot;&lt;/span&gt;
 
-&lt;span class=&quot;token selector&quot;&gt;[requires]&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;python_version&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &quot;3.6&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token header&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token section-name selector&quot;&gt;requires&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;python_version&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;&quot;&lt;span class=&quot;token inner-value&quot;&gt;3.6&lt;/span&gt;&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Pipfile != Pipenv&lt;/h2&gt;
 &lt;p&gt;Grande parte dos artigos que lí sobre &lt;em&gt;Pipfile&lt;/em&gt; começavam com algum comando como o abaixo:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv install django&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -290,7 +290,7 @@ pytest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -301,7 +301,7 @@ pytest&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAwQG/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAAV984JdEKBP/xAAaEAACAgMAAAAAAAAAAAAAAAABAgMQISND/9oACAEBAAEFAshlYhYjr4LX/8QAFREBAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQMBAT8Bh//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AVf/xAAZEAEAAgMAAAAAAAAAAAAAAAABABAhQYH/2gAIAQEABj8CHcV7DNFf/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERMVFBcYH/2gAIAQEAAT8h7YGCXimX0lCylnY99FcR/9oADAMBAAIAAwAAABBkH//EABYRAQEBAAAAAAAAAAAAAAAAAAEQMf/aAAgBAwEBPxANz//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/ECP/xAAcEAEAAwEAAwEAAAAAAAAAAAABABExIVFhgaH/2gAIAQEAAT8QDZLi6V+ROOmstptPXfyLWqYFgrJLPG5GRVR7F3YgAtV5n//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUDBAb/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAABXzlGWhFIn//EABoQAAICAwAAAAAAAAAAAAAAAAECAxARITP/2gAIAQEAAQUC2GUkLEcxnglf/8QAFREBAQAAAAAAAAAAAAAAAAAAEEH/2gAIAQMBAT8Bh//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/AVf/xAAZEAEAAgMAAAAAAAAAAAAAAAABABAhQZH/2gAIAQEABj8CHcXsM0V//8QAGhAAAwADAQAAAAAAAAAAAAAAAAERIUFRYf/aAAgBAQABPyGdIGud1keJKDNWnGZuumkf/9oADAMBAAIAAwAAABAXH//EABcRAAMBAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8QS2U//8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAECAQE/EBE//8QAHBABAAMBAAMBAAAAAAAAAAAAAQARITFBUXGh/9oACAEBAAE/EAa1Y21ZSDaza2m35v5PEvsJBbrHRp5EhVjy/GK9Hk//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -341,7 +341,7 @@ Using /home/klaus/.pyenv/versions/2.7.14/bin/python2.7 (2.7.14) to create virtua
 &lt;p&gt;Mas você não precisa se preocupar em saber onde o &lt;code class=&quot;language-text&quot;&gt;activate.sh&lt;/code&gt; está. Para ativar o &lt;em&gt;virtualenv&lt;/em&gt; criado, o parâmetro &lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt; é a melhor saída:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv shell
 
-Spawning environment shell (/bin/zsh). Use &amp;#39;exit&amp;#39; to leave.
+Spawning environment shell (/bin/zsh). Use &apos;exit&apos; to leave.
 . /home/klaus/.local/share/virtualenvs/test-pipenv-BzNa0eOE/bin/activate&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Frustrado com o &lt;em&gt;Python 2.7&lt;/em&gt;? Sem problemas! Vamos transformar o projeto em &lt;em&gt;Python 3&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pipenv install --three&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -371,7 +371,7 @@ $ cd DjangoComHG/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Vamos aproveitar os procedimentos descritos na [parte 2][1] deste
 &lt;em&gt;post&lt;/em&gt;. Caso você ainda não tenha criado um repositório no
 &lt;a href=&quot;http://www.bitbucket.org/&quot; title=&quot;Versione e compartilhe código com o Mercurial&quot;&gt;&lt;em&gt;Bitbucket&lt;/em&gt;&lt;/a&gt;, essa é uma boa oportunidade.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg clone &amp;lt;caminho&amp;gt; django_com_hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg clone &amp;lt;caminho&gt; django_com_hg&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Não esqueça de mudar o &lt;strong&gt;caminho&lt;/strong&gt; para o &lt;strong&gt;endereço do seu
 repositório&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2&gt;Instalando o Django&lt;/h2&gt;
@@ -403,13 +403,13 @@ arquivos base do &lt;em&gt;Django&lt;/em&gt; não estão no projeto. Vamos adici
 comitá-los e dar um &lt;code class=&quot;language-text&quot;&gt;push&lt;/code&gt; deles para o repositório &lt;em&gt;Mercurial&lt;/em&gt; no
 &lt;em&gt;Bitbucket&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ hg add .
-$ hg commit -m &amp;quot;Projeto Django iniciado&amp;quot;
+$ hg commit -m &quot;Projeto Django iniciado&quot;
 $ hg push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Nos &lt;em&gt;changesets&lt;/em&gt; do repositório, veremos a contribuição enviada:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 568px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 568px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -420,7 +420,7 @@ $ hg push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 29.166666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsSAAALEgHS3X78AAAA0klEQVQY04WQ3W7DIAyF8/4vt7vdtE2TogUCBAj/4EDmSrvYqkr75Jtjyz62h4nQj8/bsm4HQKmvQIUGHWorpVSMCgD1OACj9z4wrh5fq3XOWhv+EkM0Ts/bxezEWR283/ddaU1XIZU+sXm6jZRxypWx4Twxc/4GLWWmcBisoEwp+hCpMMZFlMN4n+8zMcb4dwQfcszBpx+J68SQMw6JrbVhoYIsXGyGCZVSxmNeeN4NtZaMFVxbym0kjEn1dJ6uV875pveYcv8PnIWfCzHnUrH5G5eaWLw77kfRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 29.166666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAyUlEQVQY03WPyXLDIBBE+f+fyyknp+LIElpZJFYJGJxOfHF5eXRRdNX0MMP6SXx8fjXdlFI6XkGJUqIdxAiLspyhTERM6g3JbTOQfyRYZ87yJNezNco7hyKt9TgLiKgw3rbNpRuFFtpcn6BKal+OrK61wOJnH4LQVq4WlnV8PH03SilrrTH2meCjc+H2ds5hnhgCbkzO5kU23bDIbZiVDxGb5FzuyTgFayYqBWEp1Q+f2mGptbK+vfSc69Xcku+p/33RJO3HnxD+BT9ZWF52uq1AAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -454,7 +454,7 @@ wsgiref==0.1.2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 (nesse nosso caso, dentro do nosso ambiente virtual através do
 &lt;em&gt;virtualenv&lt;/em&gt;) e exibir para a gente em formato de lista. Com isso,
 podemos criar um arquivo que armazene as dependências do nosso projeto:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip freeze &amp;gt; requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ pip freeze &gt; requirements.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Vamos desativar o ambiente atual, criar um novo e instalar as
 dependências listadas nesta arquivo &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/code&gt; neste novo
 ambiente:&lt;/p&gt;
@@ -473,7 +473,7 @@ contidas em &lt;code class=&quot;language-text&quot;&gt;requirements.txt&lt;/cod
 facilmente versionado pelo &lt;em&gt;Mercurial&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/Projetos/DjangoComHG/post_django_com_hg
 $ hg add requirements.txt
-$ hg commit -m &amp;quot;Adicionado arquivo de dependências do pip&amp;quot;
+$ hg commit -m &quot;Adicionado arquivo de dependências do pip&quot;
 $ hg push&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Finalmente, temos um projeto &lt;em&gt;Django&lt;/em&gt; versionado com &lt;em&gt;Mercurial&lt;/em&gt;,
 disponível no &lt;em&gt;Bitbucket&lt;/em&gt;, e com dependências facilmente gerenciáveis

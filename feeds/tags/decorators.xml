@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - decorators]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Decorators em Python]]></title><description><![CDATA[E na mesma linha dos closures, eu passei a
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - decorators]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:18 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Decorators em Python]]></title><description><![CDATA[E na mesma linha dos closures, eu passei a
 saber realmente o que são decorators depois de utilizar o framework
 Django. Se você está trabalhando com Orientação a Objetos e
 até agora não se deparou com este recurso, te garanto que um dia você
@@ -68,7 +68,7 @@ meu_alvo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span c
 &lt;p&gt;Chamando o &lt;em&gt;script&lt;/em&gt; acima, teremos o seguinte resultado:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python meu_decorator.py
 
-Chamando a funcao &amp;quot;meu_alvo&amp;quot;
+Chamando a funcao &quot;meu_alvo&quot;
 Eu sou um alvo!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Vou tentar seguir um fluxo que deixe claro o que o procedimento está
 realizando.&lt;/p&gt;

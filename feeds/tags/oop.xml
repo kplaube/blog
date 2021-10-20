@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oop]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Fazendo Javascript OO de forma fácil - Parte 2]]></title><description><![CDATA[Há cerca de 5 anos, fiz um post sobre como escrever
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oop]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Fazendo Javascript OO de forma fácil - Parte 2]]></title><description><![CDATA[Há cerca de 5 anos, fiz um post sobre como escrever
 Javascript OO de forma fácil
 utilizando a orientação a objetos da linguagem através de
 Constructor Functions e Object Literal.
@@ -44,7 +44,7 @@ e fácil de lembrar.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -55,7 +55,7 @@ e fácil de lembrar.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAFOYWWVkBR//8QAGBABAQEBAQAAAAAAAAAAAAAAAQACERL/2gAIAQEAAQUCdGQc5m72S9N//8QAFhEBAQEAAAAAAAAAAAAAAAAAABES/9oACAEDAQE/AYy//8QAGBEBAQADAAAAAAAAAAAAAAAAAQADERP/2gAIAQIBAT8Bcou7sX//xAAbEAACAQUAAAAAAAAAAAAAAAAAARARITFhcf/aAAgBAQAGPwKrFtRcXDJ//8QAGhAAAwADAQAAAAAAAAAAAAAAAAERITFR4f/aAAgBAQABPyGgMHE6vRslSmqFJNwM3//aAAwDAQACAAMAAAAQKD//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQMBAT8QECWr/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERMWH/2gAIAQIBAT8QUIUYs//EABwQAQEBAQACAwAAAAAAAAAAAAERIQAxUWGB0f/aAAgBAQABPxClBUzzf3myojg26x+XaIP0dOsGx4BEaD6d5Lq7/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABxWFrLTnlH//EABkQAAMBAQEAAAAAAAAAAAAAAAABAhEQEv/aAAgBAQABBQJ0pSczzdGemf/EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwGMv//EABgRAAMBAQAAAAAAAAAAAAAAAAABEQMT/9oACAECAQE/AXrXTsj/xAAbEAACAQUAAAAAAAAAAAAAAAAAARARITFhcf/aAAgBAQAGPwKrFtRcXDJ//8QAGRABAQEBAQEAAAAAAAAAAAAAAQARIVHB/9oACAEBAAE/IdIclD5Zn2XsrItIhryMv//aAAwDAQACAAMAAAAQGP8A/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EBAlq//EABgRAAIDAAAAAAAAAAAAAAAAAAABETFh/9oACAECAQE/EFIhRiz/xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFRYXGB/9oACAEBAAE/ELyi1ZzfiY7Gk0cte06QfkCYDaYAACCPaKdU/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -108,7 +108,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;E para tornar ainda mais fácil essa prática, também ganhamos a função reservada
 &lt;code class=&quot;language-text&quot;&gt;super&lt;/code&gt;, que é responsável por executar o método pai, dada a chamada em um
 determinado método de uma classe filha.&lt;/p&gt;
-&lt;p&gt;Para finalizar o nosso exemplo, na linha &lt;code class=&quot;language-text&quot;&gt;constructor({nome, idade, esporte=&amp;#39;Basquete&amp;#39;})&lt;/code&gt;
+&lt;p&gt;Para finalizar o nosso exemplo, na linha &lt;code class=&quot;language-text&quot;&gt;constructor({nome, idade, esporte=&apos;Basquete&apos;})&lt;/code&gt;
 temos a apresentação do recurso &lt;a href=&quot;https://github.com/lukehoban/es6features#default--rest--spread&quot; title=&quot;Leia mais sobre default, rest e spread&quot;&gt;&lt;em&gt;default&lt;/em&gt;&lt;/a&gt;.
 Com ele, somos capazes de definir valores padrões caso a passagem de determinado
 parâmetro seja omitida.&lt;/p&gt;
@@ -355,7 +355,7 @@ meu_alvo&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span c
 &lt;p&gt;Chamando o &lt;em&gt;script&lt;/em&gt; acima, teremos o seguinte resultado:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python meu_decorator.py
 
-Chamando a funcao &amp;quot;meu_alvo&amp;quot;
+Chamando a funcao &quot;meu_alvo&quot;
 Eu sou um alvo!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Vou tentar seguir um fluxo que deixe claro o que o procedimento está
 realizando.&lt;/p&gt;

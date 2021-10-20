@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - desenvolvimento]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - desenvolvimento]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
 e ES6. Se você quisesse utilizar o Heroku,
 com uma aplicação Python executando operações de build
 em Node.js, seria uma tarefa um tanto árdua,
@@ -30,7 +30,7 @@ cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -41,7 +41,7 @@ cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHISawFD//EABoQAAICAwAAAAAAAAAAAAAAAAECABEQEjH/2gAIAQEAAQUCAXVas9WLj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAQAGPwLWv//EABkQAQADAQEAAAAAAAAAAAAAAAEAESFRYf/aAAgBAQABPyG4eK3sKQsziDD5FTnGKrs//9oADAMBAAIAAwAAABD7H//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0oaJu+D2KDaGsdgsFnNgLgQsD8yM6kRMeS5K2f/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHk5uBEh//EABoQAAICAwAAAAAAAAAAAAAAAAECERIAEDH/2gAIAQEAAQUCFarEnoxdf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABUQAQEAAAAAAAAAAAAAAAAAABAB/9oACAEBAAY/Amv/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhUTFh/9oACAEBAAE/ITY3WVvYUhZnE8n5MOcYtuz/2gAMAwEAAgADAAAAEGsf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QV//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/EGf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0Y0Rd8EYA0NNezQLOQloELA/MibUiJjyJclez/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -178,7 +178,7 @@ fácil e prático.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -189,7 +189,7 @@ fácil e prático.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 33.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAACAUlEQVQoz62Rb2gScRzGv+fPQRu2ijXsFHGEZgOLGvSmFvQig73qVVQUjNaLhGqk+KJREbIF3sVMHBXEjLZCAq90+Wdbeu53k+n55+48L2RvZqc2Vm8jemu2d73vgefNA88HHh6oiHAJ/pMMuT4EqcVjTGZqYkbBlqeTrJUiuzYLFtqArb6TrJ3aW7XR91NHqCRvpfp5C02uW32Dq4cpwECDoPH1Yq3vKNcfPLF00LRL9cavxoQ43WTW3OpMxtNwYY/6jPOoc9jduMndUgN5l7qxPvW1/NnVfsG6mq+wp0EXbqinNkC1VVFjMNvXmH5+/MdoeN91EMAG3hAYeQzKSIwQYaUbrUGVWgaxmNgvXk7ckd2sXo7Hod6JEPWtFVBqeE+lFbTLwbxOvsAREuS7vQLIZmloy8k6f4JjbALVUhomugTKQgJVEhmtMM1qKzquV0iGzwmBeb18OgSbk6+1m9cYJNvjSFqODCizDPpy5i0hPc7eazqzt2fPF8+Snfed4d3ZYtLszaVHFZzqKdRZ4Ocw8MMlKPoCZOGu31j2viGUiyEkmxeR9NBPVh+91EtPgodExzuNPJQbiJE5s+OfdxbC3BWWrfzOYJ3KRg60Sv6RbTWN2uNpaMEq7HQY4ns5Suw8wGh77JPh2/wHU1v5aGqhOvoFEoz/ZZAlY08tWiP+AKKz6aUcm1uAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 33.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAACPUlEQVQozw2N30sTAQDHv3fbgVg2K5nV7GaiM8mQth4MhaREfIuesggiiYKgKH9VE7ZJQZhUqFgRMjRSk8OGxmRtt93dtP1y293NdJHZ7vzVQ/gQ/gHXHj7w4fPyQWoVTbKnEdpWAx6sWmHJWlG9ewaVeT+3dhbGXSvG0jYE/lhh2M73X1YYVyzAOoC/wL4fBOqzxWjli3CILSDhf29zf7VfebIcNvW1sbTzcJ5S8bjLGDA7TnEWJyWaXf1e2vkxTjt0sXznaUeR75gTAlxIko5CTu8oX9z/1DZpMiCUnwzN3g4uzb3Y8Ahd6rNgt9LJdyuvFnrUfr5DuRW+owxGu9SIYFcX/A+3XnKdmyPCo5w92qbURqCaZF3uhM+gPB+p27FMkc2IoRzDDOoiAn6aPVQafl0aIb00Ng+R85alL3vvyvbQwczCF6xqDLWyxpLL2YAhtf72tDyQKJDPC6SICFJ5VmrEmlx7oH0PnjemA+I8/BOzEN95dUmG1ae6g+TS0ZAhGZ5oSfW6i+XmUWQfu/XZax5Cqp+j0tFPxkwvQyw3ThSkXXyPejV03XkzcaNCm9ZsYLUuiD56ZDFgzYTnydgah7grjHhFHImhgbL4/cEjSfs48b3JTWaqPlCS/XWp3DtaIvUNl0gXJ0mp8lvZbBVX03Ah3AptXAM4VsIUE7nHssJegMdvdrJUSQzVbuSCUFv8yBV6sa0xxI7vM7HdwVEblxh60zNtVvkZWkGW+IcoWowJGtXRk1RyJkn8BzBzCept2ZeRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

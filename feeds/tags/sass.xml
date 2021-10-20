@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - sass]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - sass]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
 e ES6. Se você quisesse utilizar o Heroku,
 com uma aplicação Python executando operações de build
 em Node.js, seria uma tarefa um tanto árdua,
@@ -30,7 +30,7 @@ cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -41,7 +41,7 @@ cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHISawFD//EABoQAAICAwAAAAAAAAAAAAAAAAECABEQEjH/2gAIAQEAAQUCAXVas9WLj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAQAGPwLWv//EABkQAQADAQEAAAAAAAAAAAAAAAEAESFRYf/aAAgBAQABPyG4eK3sKQsziDD5FTnGKrs//9oADAMBAAIAAwAAABD7H//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0oaJu+D2KDaGsdgsFnNgLgQsD8yM6kRMeS5K2f/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHk5uBEh//EABoQAAICAwAAAAAAAAAAAAAAAAECERIAEDH/2gAIAQEAAQUCFarEnoxdf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABUQAQEAAAAAAAAAAAAAAAAAABAB/9oACAEBAAY/Amv/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhUTFh/9oACAEBAAE/ITY3WVvYUhZnE8n5MOcYtuz/2gAMAwEAAgADAAAAEGsf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QV//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/EGf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0Y0Rd8EYA0NNezQLOQloELA/MibUiJjyJclez/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -176,40 +176,40 @@ $ pip install django-compressor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 # settings.py
 INSTALLED_APPS = (
     ...
-    &amp;#39;compressor&amp;#39;,
+    &apos;compressor&apos;,
     ...
 )&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Não esqueça de adicioná-lo ao &lt;code class=&quot;language-text&quot;&gt;STATICFILES_FINDERS&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::python
 # settings.py
 STATICFILES_FINDERS = (
-    &amp;#39;django.contrib.staticfiles.finders.FileSystemFinder&amp;#39;,
-    &amp;#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&amp;#39;,
+    &apos;django.contrib.staticfiles.finders.FileSystemFinder&apos;,
+    &apos;django.contrib.staticfiles.finders.AppDirectoriesFinder&apos;,
     ...
-    &amp;#39;compressor.finders.CompressorFinder&amp;#39;,
+    &apos;compressor.finders.CompressorFinder&apos;,
 )&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E no seu &lt;em&gt;template&lt;/em&gt; &lt;em&gt;Django&lt;/em&gt;, utilizamos a &lt;code class=&quot;language-text&quot;&gt;templatetag&lt;/code&gt; de compressão
 para &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::html
-&amp;lt;!-- index.html --&amp;gt;
+&amp;lt;!-- index.html --&gt;
 
 {% load compress %}
 {% load staticfiles %}
 
 {% compress css %}
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/normalize.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/skeleton.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;vendor/skeleton/normalize.css&apos; %}&quot; type=&quot;text/css&quot;&gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;vendor/skeleton/skeleton.css&apos; %}&quot; type=&quot;text/css&quot;&gt;
 {% endcompress %}
 
 {% compress js %}
-    &amp;lt;script src=&amp;quot;{% static &amp;#39;vendor/jquery/jquery.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;quot;{% static &amp;#39;js/app.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&quot;{% static &apos;vendor/jquery/jquery.js&apos; %}&quot;&gt;&amp;lt;/script&gt;
+    &amp;lt;script src=&quot;{% static &apos;js/app.js&apos; %}&quot;&gt;&amp;lt;/script&gt;
 {% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Quando o internauta acessar a sua página, o resultado final será parecido com esse:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;!-- index.html --&gt;
 
-&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/static/CACHE/css/0fb9d388202c.css&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/static/CACHE/js/82f4dc99bcc1.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/static/CACHE/css/0fb9d388202c.css&quot; type=&quot;text/css&quot;&gt;
+&amp;lt;script type=&quot;text/javascript&quot; src=&quot;/static/CACHE/js/82f4dc99bcc1.js&quot;&gt;&amp;lt;/script&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Bacana, não? Como a opção &lt;code class=&quot;language-text&quot;&gt;COMPRESS_ENABLED&lt;/code&gt; é por padrão o inverso de &lt;code class=&quot;language-text&quot;&gt;DEBUG&lt;/code&gt;,
 em tempo de desenvolvimento você não verá os &lt;em&gt;assets&lt;/em&gt; comprimidos,
 mas em tempo de &lt;em&gt;QA&lt;/em&gt; e produção, se o seu &lt;em&gt;Django&lt;/em&gt; estiver corretamente configurado,
@@ -225,14 +225,14 @@ determinado &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;. Vamos
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::python
 # settings.py
 COMPRESS_PRECOMPILERS = (
-    (&amp;#39;text/x-sass&amp;#39;, &amp;#39;sassc {infile} {outfile}&amp;#39;),
+    (&apos;text/x-sass&apos;, &apos;sassc {infile} {outfile}&apos;),
 )&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O binário &lt;code class=&quot;language-text&quot;&gt;sassc&lt;/code&gt; foi instalado no comando &lt;code class=&quot;language-text&quot;&gt;pip install&lt;/code&gt; acima. O parâmetro &lt;code class=&quot;language-text&quot;&gt;infile&lt;/code&gt;
 será o próprio arquivo &lt;code class=&quot;language-text&quot;&gt;scss&lt;/code&gt;, e &lt;code class=&quot;language-text&quot;&gt;outfile&lt;/code&gt; será a saída do arquivo, já compilado para &lt;em&gt;CSS&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 620px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -243,7 +243,7 @@ será o próprio arquivo &lt;code class=&quot;language-text&quot;&gt;scss&lt;/co
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 41.14583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwH/2gAMAwEAAhADEAAAAc+wTSFP/8QAGBABAAMBAAAAAAAAAAAAAAAAAQACEhP/2gAIAQEAAQUCwESpfkT/xAAXEQADAQAAAAAAAAAAAAAAAAAAARIR/9oACAEDAQE/AZWEo//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEv/aAAgBAgEBPwEW03//xAAWEAEBAQAAAAAAAAAAAAAAAAAAITH/2gAIAQEABj8CVr//xAAaEAACAgMAAAAAAAAAAAAAAAAAASExEUFR/9oACAEBAAE/IVPddZgjTSkbNj//2gAMAwEAAgADAAAAEA//AP/EABcRAQADAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QjIof/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQBh/9oACAECAQE/EFI21//EABsQAQACAwEBAAAAAAAAAAAAAAERIQBBcTFh/9oACAEBAAE/EAteaGJ+G8RR0UBDte4rMfS8/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 41.14583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwEC/9oADAMBAAIQAxAAAAHPqE0xcf/EABgQAQADAQAAAAAAAAAAAAAAAAEAAhIT/9oACAEBAAEFAsBHJfkT/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAESEf/aAAgBAwEBPwGVhKP/xAAWEQEBAQAAAAAAAAAAAAAAAAABABL/2gAIAQIBAT8BFtN//8QAFxABAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAQAGPwJUtf/EABoQAQACAwEAAAAAAAAAAAAAAAEAIRExQVH/2gAIAQEAAT8hLbr1gYltFzJ1P//aAAwDAQACAAMAAAAQ/wDv/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEx/9oACAEDAQE/EMiD/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQBh/9oACAECAQE/EFI21//EABsQAQACAwEBAAAAAAAAAAAAAAEAESFBYTFR/9oACAEBAAE/EBg2lgDl4bmFCWFg189iy0eJmf/Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -264,12 +264,12 @@ será o próprio arquivo &lt;code class=&quot;language-text&quot;&gt;scss&lt;/co
 &lt;p&gt;Agora, a jogada será declarar em nosso &lt;em&gt;template&lt;/em&gt; que todas as folhas de estilo escritas
 em &lt;em&gt;Sass&lt;/em&gt;, terão como &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt; o valor &lt;code class=&quot;language-text&quot;&gt;text/x-sass&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::html
-&amp;lt;!-- index.html --&amp;gt;
+&amp;lt;!-- index.html --&gt;
 
 {% compress css %}
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/normalize.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/skeleton.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;scss/app.scss&amp;#39; %}&amp;quot; type=&amp;quot;text/x-sass&amp;quot;&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;vendor/skeleton/normalize.css&apos; %}&quot; type=&quot;text/css&quot;&gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;vendor/skeleton/skeleton.css&apos; %}&quot; type=&quot;text/css&quot;&gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;scss/app.scss&apos; %}&quot; type=&quot;text/x-sass&quot;&gt;
 {% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A partir de agora, no momento de execução do &lt;em&gt;Compressor&lt;/em&gt;, além de minificar e concatenar
 as folhas de estilo, também interpretará arquivos &lt;em&gt;Sass&lt;/em&gt;.&lt;/p&gt;

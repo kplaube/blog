@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - dodgy]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Dodgy]]></title><description><![CDATA[Ferramentas de qualidade de código parece um tópico com conteúdo infinito
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - dodgy]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Assegure a qualidade do seu código Python - Dodgy]]></title><description><![CDATA[Ferramentas de qualidade de código parece um tópico com conteúdo infinito
 quando o assunto é Python. Hoje a dica é rápida e rasteira, de uma ferramenta
 extremamente simples, mas que pode ser muito útil para dar aquele "up" no quesito segurança do seu projeto. Apresento-lhe
 o Dodgy! Talk is cheap…]]></description><link>https://klauslaube.com.br/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/12/18/assegure-qualidade-seu-codigo-python-dodgy.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Wed, 18 Dec 2019 08:10:00 GMT</pubDate><content:encoded>&lt;p&gt;Ferramentas de &lt;a href=&quot;/tag/qualidade.html&quot; title=&quot;Leia mais sobre qualidade&quot;&gt;qualidade de código&lt;/a&gt; parece um tópico com conteúdo infinito
@@ -12,12 +12,12 @@ o &lt;a href=&quot;https://github.com/landscapeio/dodgy&quot; title=&quot;Veja o
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd ~/hello-world-em-django/
 $ dodgy
 {
-    &amp;quot;warnings&amp;quot;: [
+    &quot;warnings&quot;: [
         {
-        &amp;quot;path&amp;quot;: &amp;quot;hello_world/settings.py&amp;quot;,
-        &amp;quot;line&amp;quot;: 23,
-        &amp;quot;code&amp;quot;: &amp;quot;secret&amp;quot;,
-        &amp;quot;message&amp;quot;: &amp;quot;Possible hardcoded secret key&amp;quot;
+        &quot;path&quot;: &quot;hello_world/settings.py&quot;,
+        &quot;line&quot;: 23,
+        &quot;code&quot;: &quot;secret&quot;,
+        &quot;message&quot;: &quot;Possible hardcoded secret key&quot;
         }
     ]
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -29,7 +29,7 @@ faz, pode ser uma alternativa.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -40,7 +40,7 @@ faz, pode ser uma alternativa.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9ALXM3L3a6bnY5s7o8OD0+Or4+vL+/uTw8O/29fv//6eusXFuca3ByZ6utnVydtfZ2/////v8+v7///L8/ABCTV2Qpa/D3eXd+vrp/v74///g5ud5eXuqp6X///+3uLqMjo6wxsybrbV/e4K/xszh6e3t8/Tj7O3f7fEACAkXGh0tP0VReISHo7Gst728iYOIZ2FmgX196/Pvv8nIt8fCu8/On624g36HU01XRTxIrr7BhoqPmqCnABIRHycnMispLSQjJjs6OkZDQVRQT2dhXGFfV2htZXl9eJWdnoWGiouNkFM/PU88NDsvM4mNj3x9f391dQAQEBseHyQnJyknJickJSkhISQlIiUqKCZDQjpDQj49OjiFgn9wbXF4cWltUUJ3X0tCNDNLPEFTRUZtYFoAFhUaMzAuNS8tFhQYJCElJCAhJSIhPjYyMi0uJycqOTQyinp3r6emoKKanoFpmYZyamBjT0RCUERDdWpjADs3OFBKR1FNREVFNVBRPV1cTigkJm5jXW1OSxMQFRYUHGQ2MsOuo9jU1H9lUnttYJeSh7u8uLe6uLu8ugBwcF5naFJqbFiHiXugpaLM099gZWlRSkOBYVRWOTJHKCaUb1eslm6jjW4ZFBgAABY7ODrDwsG/wMO8vLoAcnFqlJKUsbO/x8zdy9PnytTqvsXWtLjHgnhzUzAlfU85kHRatLGkRkA4BAUODhEgOzw/srSxvLq4t7awAMTE1MrK3MnK3MbI2MPI2cHJ28jR5dXh+7W4wlU5LGA4JJWPhs3a7GJkZAoIDh0cIWZgTbazqLq7trO0rADBv8q/vsm8vMS7u8G8vMO/wMm/wcy+wc7DyNizs7muqq6+xM/N1d6ChoQAAQgPEBlkYFCpopS5urSwsqeEXVOjgX+zbAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACqklEQVQozwGfAmD9AKzC0r7a6Lva6M7o8OH09+v4+fT+/tzm5enu7fv//6mvsnBucaq9xpyutnRxddXX2f////z8+/7///P8/QAzPU2Ak52709ra9vbn/v72///Y3d9wbnKinpz///+6vL2TlpSzys2dr7eCfoW3vcTR2d7m7u/Z4uTX5usACAgXFhcoMTVCZW1xlJ2YqKyqgXp/a2VofXh53OXhvMfEtsfDtsjHn622f3iBSUFKOC05qbm7gYaKk5eeABIRHignMS0sLiMiJTQzNDw6OU5KSWJcVl9dVF5hWW9ybJCWmH99hIiIi1E8OFZCOD0yM4OEh3x8fXxycAARERsgICUnJykmJSYkJCkhISUkIiUpJiVAPzhCQT48ODeGg391cXZ6c2tzV0d4X0xFNzZIOT1QQUJsX1kAFxUaNDAvODEvGRgaKCQnKCUlJSIhRDs3NjAwJCQnNjIxg29ttaypqKuln4FqnYp2c2ptW1JQXFJQfHNsAEQ/QFVRS1RQRUtMOFZXQWhoWisoKWthWnRUTxkTGBQRGmY6M76omtrV0XVeTGpdVI6IfcDCvru/vr6/vQBrbFhkZk9rbVqKjYKlqqrO1uVobXJPSUJ8XlFaOzRPLSmVcVeqlGuahWYWEhYAABYyMTa+vry9vb+6urcAeXh1nZyhuLrIyc7hy9HlxtDkxMzewsfaiIB8TSogeEo0jXJXuLewRUE8BwcPExUiQEFBsbOwu7u4trawAMnJ28zM3sjK3MXH18PH1sHI2cfQ49Pe97q+ylpBNGA5JZiTjM/d8GltbAkHDB0cIWZgTbayprq7trO0qwDBvsm+vse7u8G6ur+7u8G+v8i/v8q9v8zDydm7vsi3tr3AxtPN1N2Gi4gBAQkODxhkYFCnoJG5urSwsqdu6FGLb3JrKwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

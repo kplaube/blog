@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - npm]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Vivendo sem o Grunt]]></title><description><![CDATA[No meu primeiro contato com o Grunt, ele não me convenceu. Qual era a
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - npm]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Vivendo sem o Grunt]]></title><description><![CDATA[No meu primeiro contato com o Grunt, ele não me convenceu. Qual era a
 necessidade de um task runner se eu já tinha o ? O mesmo valia
 para o build de estáticos... Frameworks como o Django já possuíam um
 pipeline de concatenação e minificação, não sendo necessário que um processo
@@ -39,7 +39,7 @@ montar um &lt;em&gt;pipeline&lt;/em&gt; de &lt;em&gt;build&lt;/em&gt; sem o uso 
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 610px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -50,7 +50,7 @@ montar um &lt;em&gt;pipeline&lt;/em&gt; de &lt;em&gt;build&lt;/em&gt; sem o uso 
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 67.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAdXGUoZLEf/EABsQAAICAwEAAAAAAAAAAAAAAAECAyEAERIx/9oACAEBAAEFAutLI4dTeNIxDUB5/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRABAAIDAAAAAAAAAAAAAAAAAQAQAlFh/9oACAEBAAY/AnLRO0C3/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARITFhQVH/2gAIAQEAAT8hy42MCP3b2IpwqN0qeAmvBP/aAAwDAQACAAMAAAAQuw//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQMBAT8QEX//xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAgEBPxCn/8QAGxABAAMBAQEBAAAAAAAAAAAAAQARITFxQeH/2gAIAQEAAT8QDaBU+ENjdy3uD9mxXDiKBX5ffYwABdWMUWa+z//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 67.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAMBAgQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAdXFUsZLEf/EABoQAAIDAQEAAAAAAAAAAAAAAAECAAMSITH/2gAIAQEAAQUC1muxw6nsZ2MbkHn/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAEAAgMAAAAAAAAAAAAAAAABABACUWH/2gAIAQEABj8CctE7QLf/xAAbEAACAgMBAAAAAAAAAAAAAAAAAREhMUFxYf/aAAgBAQABPyF1LYIkdekWXBKwaKoRgpH/2gAMAwEAAgADAAAAEDgP/8QAFhEAAwAAAAAAAAAAAAAAAAAAARAx/9oACAEDAQE/EBF//8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQIBAT8Qp//EABsQAQEAAgMBAAAAAAAAAAAAAAERACExQWFR/9oACAEBAAE/ELGGwPZrLi1VXfDb7iUboHzDfFsXFEAu1OcdfkOy5//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

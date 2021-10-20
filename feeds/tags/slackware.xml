@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - slackware]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Nginx: Poderoso, rápido e fácil]]></title><description><![CDATA[Para quem (assim como eu) começou com o PHP, uma das opções mais viáveis
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - slackware]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:18 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Nginx: Poderoso, rápido e fácil]]></title><description><![CDATA[Para quem (assim como eu) começou com o PHP, uma das opções mais viáveis
 para servir projetos na web sempre foi o Apache. Open source,
 prático e disponível em quase toda hospedagem de respeito (afinal, ele vem por
 padrão em quase toda distro Linux), há anos que ele faz a famosa
@@ -71,7 +71,7 @@ que criaremos a seguir:&lt;/p&gt;
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Intuitivo não?! Vamos criar o &lt;em&gt;path&lt;/em&gt; onde armazenaremos o &lt;em&gt;HTML&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;mkdir /var/www/example
-echo &amp;quot;It works! &amp;quot; &amp;gt; /var/www/example/index.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+echo &quot;It works! &quot; &gt; /var/www/example/index.html&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Basta acessar o endereço &lt;code class=&quot;language-text&quot;&gt;localhost:8080&lt;/code&gt;, e pronto!&lt;/p&gt;
 &lt;p&gt;Como é possível perceber, os arquivos de configuração do &lt;em&gt;Nginx&lt;/em&gt; são
 simples e intuitivos. Existem várias referências na &lt;em&gt;web&lt;/em&gt; ensinando a

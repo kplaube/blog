@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - css]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - css]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
 mas depois de alguns "Hello world" em Go
 admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
 programador para isso, é uma ideia excelente. Em Go temos o , que
@@ -16,7 +16,7 @@ E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -27,7 +27,7 @@ E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 60.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAHnzfONFxgP/8QAGxAAAQQDAAAAAAAAAAAAAAAAAAECAxExMjP/2gAIAQEAAQUCk3fRSjui4P/EABcRAQADAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8BnVP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFX/8QAGRAAAwADAAAAAAAAAAAAAAAAABARAiGB/9oACAEBAAY/AjGaXCr/xAAaEAADAAMBAAAAAAAAAAAAAAAAASERQXFR/9oACAEBAAE/IUjgueOkLQWE+ht9P//aAAwDAQACAAMAAAAQ1+//xAAWEQADAAAAAAAAAAAAAAAAAAABECH/2gAIAQMBAT8Qkl//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QET//xAAbEAEAAwEAAwAAAAAAAAAAAAABABFBIWFxkf/aAAgBAQABPxCrywxypqj1XYexbCAIc4+wFIxV5Kr2J//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 60.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB583zjRcYBf/EABsQAAEEAwAAAAAAAAAAAAAAAAABAgMRMTIz/9oACAEBAAEFApN30Uo7ouD/xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/AZ1T/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8BV//EABgQAAIDAAAAAAAAAAAAAAAAABARAAIh/9oACAEBAAY/ApVYWP/EABwQAAICAgMAAAAAAAAAAAAAAAABESFBcTFRgf/aAAgBAQABPyFKaFnHZciwCz4K9hl7P//aAAwDAQACAAMAAAAQ1/8A/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQMBAT8Qsf/EABYRAAMAAAAAAAAAAAAAAAAAAAEQMf/aAAgBAgEBPxARP//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExQWGR/9oACAEBAAE/EKvWHOVNQ7XsPYu5hAJp19gKBhVXyUGDqf/Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -58,8 +58,8 @@ E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prettier file.js
 
 function HelloWorld({
-    greeting = &amp;quot;hello&amp;quot;,
-    greeted = &amp;#39;&amp;quot;World&amp;quot;&amp;#39;,
+    greeting = &quot;hello&quot;,
+    greeted = &apos;&quot;World&quot;&apos;,
     silent = false,
 onMouseOver
 }) {
@@ -67,28 +67,28 @@ onMouseOver
         return null;
     }
 
-    // TODO: Don&amp;#39;t use random in render
+    // TODO: Don&apos;t use random in render
     let num = Math.floor(Math.random() * 1e7)
         .toString()
-        .replace(/\.\d+/gi, &amp;quot;&amp;quot;);
+        .replace(/\.\d+/gi, &quot;&quot;);
 
     return (
         &amp;lt;div
-        className=&amp;quot;HelloWorld&amp;quot;
+        className=&quot;HelloWorld&quot;
         title={`You are visitor number ${num}`}
         onMouseOver={onMouseOver}
-        &amp;gt;
-        &amp;lt;strong&amp;gt;
+        &gt;
+        &amp;lt;strong&gt;
             {greeting.slice(0, 1).toUpperCase() + greeting.slice(1).toLowerCase()}
-        &amp;lt;/strong&amp;gt;
-        {greeting.endsWith(&amp;quot;,&amp;quot;) ? (
-            &amp;quot; &amp;quot;
+        &amp;lt;/strong&gt;
+        {greeting.endsWith(&quot;,&quot;) ? (
+            &quot; &quot;
         ) : (
-            &amp;lt;span style={{ color: &amp;quot;grey&amp;quot; }}&amp;gt;&amp;quot;, &amp;quot;&amp;lt;/span&amp;gt;
+            &amp;lt;span style={{ color: &quot;grey&quot; }}&gt;&quot;, &quot;&amp;lt;/span&gt;
         )}
-        &amp;lt;em&amp;gt;{greeted}&amp;lt;/em&amp;gt;
-        {silent ? &amp;quot;.&amp;quot; : &amp;quot;!&amp;quot;}
-        &amp;lt;/div&amp;gt;
+        &amp;lt;em&gt;{greeted}&amp;lt;/em&gt;
+        {silent ? &quot;.&quot; : &quot;!&quot;}
+        &amp;lt;/div&gt;
     );
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O &lt;em&gt;output&lt;/em&gt; é o conteúdo do seu arquivo já formatado. Se quiser a alteração &quot;in-place&quot;, temos a opção &lt;code class=&quot;language-text&quot;&gt;--write&lt;/code&gt; disponível.&lt;/p&gt;
@@ -149,7 +149,7 @@ inclusive, é impressionante como o &lt;em&gt;autocomplete&lt;/em&gt; (através 
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -160,7 +160,7 @@ inclusive, é impressionante como o &lt;em&gt;autocomplete&lt;/em&gt; (através 
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 43.22916666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAP/2gAMAwEAAhADEAAAAc9imSgWh5//xAAcEAACAAcAAAAAAAAAAAAAAAAAAQIDEiIxMkL/2gAIAQEAAQUChuMlLZK27P/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAICAwAAAAAAAAAAAAAAAAABEBECEkH/2gAIAQEABj8CpUPU7GEf/8QAGxABAAICAwAAAAAAAAAAAAAAAQARMUFxobH/2gAIAQEAAT8hSmoZWoGhuhjsKZ+D2PdGf//aAAwDAQACAAMAAAAQQC//xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QwBn/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAECAQE/EK8If//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESFBMVGhsfD/2gAIAQEAAT8QMtRweDZFAAW9IKsFI8Li1az6XSeV9TSf/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 43.22916666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDBAX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAP/2gAMAwEAAhADEAAAAefSbSU1Dz//xAAbEAACAQUAAAAAAAAAAAAAAAAAAQIDIjEyQ//aAAgBAQABBQKNxkcWUtuh/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgIDAAAAAAAAAAAAAAAAABABAhEhQf/aAAgBAQAGPwLHDSkov//EAB0QAQABAwUAAAAAAAAAAAAAAAEAESFBMZGhscH/2gAIAQEAAT8ha00NS0gUNo3sxWXedSPJ5HE//9oADAMBAAIAAwAAABBQ7//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/EEAZ/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAECAQE/EBVLL//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExobFh/9oACAEBAAE/EFIMCKqXij7FLZCKqq9kRG/G0Tj9zoR5T//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -192,7 +192,7 @@ deve ser o suficiente. Ela é simples de configurar e muito rica, trazendo coman
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -295,7 +295,7 @@ mais leve, não ter o &lt;em&gt;jQuery&lt;/em&gt; como dependência, e ainda por
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 610px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 610px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -306,7 +306,7 @@ mais leve, não ter o &lt;em&gt;jQuery&lt;/em&gt; como dependência, e ainda por
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEBf/EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABSJp6z1zPB//EABsQAAIDAAMAAAAAAAAAAAAAAAECAAMREiIj/9oACAEBAAEFAidrZjtR62+bLA/Gf//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAbEAABBAMAAAAAAAAAAAAAAAABAAIQMRMhQf/aAAgBAQAGPwIsFlVrkY2kz//EABwQAQADAAIDAAAAAAAAAAAAAAEAESExQVFxgf/aAAgBAQABPyHaHlDCLwd1Ac059zqB23zKiOv2VqCf/9oADAMBAAIAAwAAABCX7//EABcRAAMBAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QiaRn/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAER/9oACAECAQE/EK1//8QAHBABAQACAwEBAAAAAAAAAAAAAREAMSFBUWHh/9oACAEBAAE/EN8gxqBK01+5GhI0cw9+y4Vnkc6Q7xrglObW9uF6UUB0xI8LWPef/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAWAQEBAQAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAYYims3AuB//xAAaEAACAwEBAAAAAAAAAAAAAAABAgADEiEi/9oACAEBAAEFAmOqy7E1EYt8MvILMz//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwEn/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAAcBAAAAAAAAAAAAAAAAAAEQERIxQSH/2gAIAQEABj8CgT90UTYkCpf/xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUFRof/aAAgBAQABPyGyyOBgnsThNw9jtvC+7lUNfYgoJ//aAAwDAQACAAMAAAAQFy//xAAXEQADAQAAAAAAAAAAAAAAAAAAASER/9oACAEDAQE/EIVMZ//EABcRAQADAAAAAAAAAAAAAAAAAAABETH/2gAIAQIBAT8QnVv/xAAdEAEBAQEAAQUAAAAAAAAAAAABESEAMUFhcaHR/9oACAEBAAE/EIOoVpAdr6ePvrABxgYH5wILFI0nzxI9luvzX37dDab4dMcLcZvf/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -375,7 +375,7 @@ cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -386,7 +386,7 @@ cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHISawFD//EABoQAAICAwAAAAAAAAAAAAAAAAECABEQEjH/2gAIAQEAAQUCAXVas9WLj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAQAGPwLWv//EABkQAQADAQEAAAAAAAAAAAAAAAEAESFRYf/aAAgBAQABPyG4eK3sKQsziDD5FTnGKrs//9oADAMBAAIAAwAAABD7H//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0oaJu+D2KDaGsdgsFnNgLgQsD8yM6kRMeS5K2f/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHk5uBEh//EABoQAAICAwAAAAAAAAAAAAAAAAECERIAEDH/2gAIAQEAAQUCFarEnoxdf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABUQAQEAAAAAAAAAAAAAAAAAABAB/9oACAEBAAY/Amv/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhUTFh/9oACAEBAAE/ITY3WVvYUhZnE8n5MOcYtuz/2gAMAwEAAgADAAAAEGsf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QV//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/EGf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0Y0Rd8EYA0NNezQLOQloELA/MibUiJjyJclez/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -521,40 +521,40 @@ $ pip install django-compressor&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 # settings.py
 INSTALLED_APPS = (
     ...
-    &amp;#39;compressor&amp;#39;,
+    &apos;compressor&apos;,
     ...
 )&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Não esqueça de adicioná-lo ao &lt;code class=&quot;language-text&quot;&gt;STATICFILES_FINDERS&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::python
 # settings.py
 STATICFILES_FINDERS = (
-    &amp;#39;django.contrib.staticfiles.finders.FileSystemFinder&amp;#39;,
-    &amp;#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&amp;#39;,
+    &apos;django.contrib.staticfiles.finders.FileSystemFinder&apos;,
+    &apos;django.contrib.staticfiles.finders.AppDirectoriesFinder&apos;,
     ...
-    &amp;#39;compressor.finders.CompressorFinder&amp;#39;,
+    &apos;compressor.finders.CompressorFinder&apos;,
 )&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E no seu &lt;em&gt;template&lt;/em&gt; &lt;em&gt;Django&lt;/em&gt;, utilizamos a &lt;code class=&quot;language-text&quot;&gt;templatetag&lt;/code&gt; de compressão
 para &lt;em&gt;CSS&lt;/em&gt; e &lt;em&gt;JS&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::html
-&amp;lt;!-- index.html --&amp;gt;
+&amp;lt;!-- index.html --&gt;
 
 {% load compress %}
 {% load staticfiles %}
 
 {% compress css %}
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/normalize.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/skeleton.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;vendor/skeleton/normalize.css&apos; %}&quot; type=&quot;text/css&quot;&gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;vendor/skeleton/skeleton.css&apos; %}&quot; type=&quot;text/css&quot;&gt;
 {% endcompress %}
 
 {% compress js %}
-    &amp;lt;script src=&amp;quot;{% static &amp;#39;vendor/jquery/jquery.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
-    &amp;lt;script src=&amp;quot;{% static &amp;#39;js/app.js&amp;#39; %}&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;
+    &amp;lt;script src=&quot;{% static &apos;vendor/jquery/jquery.js&apos; %}&quot;&gt;&amp;lt;/script&gt;
+    &amp;lt;script src=&quot;{% static &apos;js/app.js&apos; %}&quot;&gt;&amp;lt;/script&gt;
 {% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Quando o internauta acessar a sua página, o resultado final será parecido com esse:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;!-- index.html --&gt;
 
-&amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;/static/CACHE/css/0fb9d388202c.css&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
-&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/static/CACHE/js/82f4dc99bcc1.js&amp;quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;link rel=&quot;stylesheet&quot; href=&quot;/static/CACHE/css/0fb9d388202c.css&quot; type=&quot;text/css&quot;&gt;
+&amp;lt;script type=&quot;text/javascript&quot; src=&quot;/static/CACHE/js/82f4dc99bcc1.js&quot;&gt;&amp;lt;/script&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Bacana, não? Como a opção &lt;code class=&quot;language-text&quot;&gt;COMPRESS_ENABLED&lt;/code&gt; é por padrão o inverso de &lt;code class=&quot;language-text&quot;&gt;DEBUG&lt;/code&gt;,
 em tempo de desenvolvimento você não verá os &lt;em&gt;assets&lt;/em&gt; comprimidos,
 mas em tempo de &lt;em&gt;QA&lt;/em&gt; e produção, se o seu &lt;em&gt;Django&lt;/em&gt; estiver corretamente configurado,
@@ -570,14 +570,14 @@ determinado &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt;. Vamos
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::python
 # settings.py
 COMPRESS_PRECOMPILERS = (
-    (&amp;#39;text/x-sass&amp;#39;, &amp;#39;sassc {infile} {outfile}&amp;#39;),
+    (&apos;text/x-sass&apos;, &apos;sassc {infile} {outfile}&apos;),
 )&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O binário &lt;code class=&quot;language-text&quot;&gt;sassc&lt;/code&gt; foi instalado no comando &lt;code class=&quot;language-text&quot;&gt;pip install&lt;/code&gt; acima. O parâmetro &lt;code class=&quot;language-text&quot;&gt;infile&lt;/code&gt;
 será o próprio arquivo &lt;code class=&quot;language-text&quot;&gt;scss&lt;/code&gt;, e &lt;code class=&quot;language-text&quot;&gt;outfile&lt;/code&gt; será a saída do arquivo, já compilado para &lt;em&gt;CSS&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 620px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -588,7 +588,7 @@ será o próprio arquivo &lt;code class=&quot;language-text&quot;&gt;scss&lt;/co
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 41.14583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAwH/2gAMAwEAAhADEAAAAc+wTSFP/8QAGBABAAMBAAAAAAAAAAAAAAAAAQACEhP/2gAIAQEAAQUCwESpfkT/xAAXEQADAQAAAAAAAAAAAAAAAAAAARIR/9oACAEDAQE/AZWEo//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEv/aAAgBAgEBPwEW03//xAAWEAEBAQAAAAAAAAAAAAAAAAAAITH/2gAIAQEABj8CVr//xAAaEAACAgMAAAAAAAAAAAAAAAAAASExEUFR/9oACAEBAAE/IVPddZgjTSkbNj//2gAMAwEAAgADAAAAEA//AP/EABcRAQADAAAAAAAAAAAAAAAAAAABESH/2gAIAQMBAT8QjIof/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQBh/9oACAECAQE/EFI21//EABsQAQACAwEBAAAAAAAAAAAAAAERIQBBcTFh/9oACAEBAAE/EAteaGJ+G8RR0UBDte4rMfS8/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 41.14583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAwEC/9oADAMBAAIQAxAAAAHPqE0xcf/EABgQAQADAQAAAAAAAAAAAAAAAAEAAhIT/9oACAEBAAEFAsBHJfkT/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAESEf/aAAgBAwEBPwGVhKP/xAAWEQEBAQAAAAAAAAAAAAAAAAABABL/2gAIAQIBAT8BFtN//8QAFxABAAMAAAAAAAAAAAAAAAAAAAERMf/aAAgBAQAGPwJUtf/EABoQAQACAwEAAAAAAAAAAAAAAAEAIRExQVH/2gAIAQEAAT8hLbr1gYltFzJ1P//aAAwDAQACAAMAAAAQ/wDv/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEx/9oACAEDAQE/EMiD/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQBh/9oACAECAQE/EFI21//EABsQAQACAwEBAAAAAAAAAAAAAAEAESFBYTFR/9oACAEBAAE/EBg2lgDl4bmFCWFg189iy0eJmf/Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -609,12 +609,12 @@ será o próprio arquivo &lt;code class=&quot;language-text&quot;&gt;scss&lt;/co
 &lt;p&gt;Agora, a jogada será declarar em nosso &lt;em&gt;template&lt;/em&gt; que todas as folhas de estilo escritas
 em &lt;em&gt;Sass&lt;/em&gt;, terão como &lt;code class=&quot;language-text&quot;&gt;type&lt;/code&gt; o valor &lt;code class=&quot;language-text&quot;&gt;text/x-sass&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;::html
-&amp;lt;!-- index.html --&amp;gt;
+&amp;lt;!-- index.html --&gt;
 
 {% compress css %}
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/normalize.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;vendor/skeleton/skeleton.css&amp;#39; %}&amp;quot; type=&amp;quot;text/css&amp;quot;&amp;gt;
-    &amp;lt;link rel=&amp;quot;stylesheet&amp;quot; href=&amp;quot;{% static &amp;#39;scss/app.scss&amp;#39; %}&amp;quot; type=&amp;quot;text/x-sass&amp;quot;&amp;gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;vendor/skeleton/normalize.css&apos; %}&quot; type=&quot;text/css&quot;&gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;vendor/skeleton/skeleton.css&apos; %}&quot; type=&quot;text/css&quot;&gt;
+    &amp;lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &apos;scss/app.scss&apos; %}&quot; type=&quot;text/x-sass&quot;&gt;
 {% endcompress %}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A partir de agora, no momento de execução do &lt;em&gt;Compressor&lt;/em&gt;, além de minificar e concatenar
 as folhas de estilo, também interpretará arquivos &lt;em&gt;Sass&lt;/em&gt;.&lt;/p&gt;
@@ -648,7 +648,7 @@ supimpas como a &lt;code class=&quot;language-text&quot;&gt;section&lt;/code&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 180px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -659,7 +659,7 @@ supimpas como a &lt;code class=&quot;language-text&quot;&gt;section&lt;/code&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEYUlEQVQ4y6XUXWzbVBQHcHe8gZBASLyDBOJlL0hISLwg4GESQiBe9oIEPKAB0wSFjW1iA6pV7WBibOrKxtpuY526Qjdg7aouW5esXdcuafPZfDVxPpzacRwncRIndhKn9499s88nQFzp6Nj36vx0rn1thrkzAHQx/3G4I+lNVubEEuNwRzuTs8shptVuUyyVld8qVGojhbJ61IyBuyGVqgNZuTKQNzMnyoP228Gdh85eftSqCcT5R6ysVHTm6u0gY8oRqzs6KSvqUfyLkS3U4QoknOtK7WmrbpUVaKcXrjoZxv4AmC+pfVZBy9jQm622YV4ajWbbWPSJhm2JN4S8Rudycrkp5FWsS2VuJcpttmp9a5lNnS2vhO+BYrF60AK1Now2QDJihRwcdpEzkzEyuyySdalOlGqT1LQWchW9xcs1zLnC6eHJ+ces+pkF/8OgICn9FqimeaOZy+P8VRZHxoJQ6u17241nymQ5lCetOEvM54Z0rty44Vx9wapfCae6zJfyAFht9jd5CaVr140sr4DL1XDTm0OAVRDnVWi6AX9UxuC4jzTYJJFsdsiFaj0oFJ+z6iNcrot2uLHRAbMN9EmLK1izXTMCXA2/jPspMPRHFO/stGP/oBOvvz+G3T9eh6JUifvkaYgZSYtUjOcpmL4DNtsdMCkU+4jZrmdm1vDOOdE77MHxMT/e/XwKT70yiGe2DOHJlw/hoi0I31+TJJOWUKgTzb0ao2DYAq+7w4yqd8CEoPTqpiipxJCKGt3mjt5ZPPHSD3h2y894cesw+kcWICs6RKVJzNMDQa5rPlagYChlgnYTVGodMM4rB6rmwTCfncHlNYglHf64jBMTbvx0zgXbUhI5pYGMucaZb5wv0GvNG1unYDApdtGDnS9vUDC2XuopaICXLRoeE/Iny4gKdaQLTSQkDWtCzVpDIFUx1xQSSCpIZFXNz/IUDCTugEKx3ekwq37HyQ14o7wRW6/AsejDlG0ek1fmYb/lw8JKFJ5whs4veWKEFVSw2ZrmjnIU9LMmOOcJM+m8QcFMaeMbZyCF3oOHjYETZzAyegHHTv6Kk2fGMXx2Al/s2ovvDw9iz74eHDpynPhiElhR15zBFAW9cQpGmITYoiBfwf7ZxSDe++Aj49PPduL4qd9x4vQETo1NYXTiCl597Q1sefNtdO/+Ftu2f0kWPElE+brmDKUp6IllTdAbYWJCg4LpEtnncK1h6NwlY/LaMk6PT2P0gg3nLznw55Ul7Pr6AL7a34djw7+he08P2d69Fxdnbmk6cB+86YsykYxOQX+iuJfNA7cjBX0pLBuuaMlwRov3YiVeMdxs1XCtlaxoLayKxBMvqd54ln4p7jUTXDDBEKfdBXukBuBOqPBzjYcjY2XzGKV1eu8zczi7gVBGg7ll+i0vR/hNzMyil7nhTtEfrMPNbp6e9++47PBsm77h/fgfYtuUw/PJ5Tn/h7alwONW/fRN7/3feZirMf9n2F0hmv8GnZcHrspkuVkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE60lEQVQ4y32UW2gcVRjHT7Iigi++iAhLffJJ8FF9EBUfLIr4IPhSLeKDhSIU0SDSUm21VtpoEq2bXqy0SUhtatNcirluknaTNLvZy+wtO7PZ+/0+s/fbzJy/Z5O0Ugse+PMN33fmN9+NIStWngDYkViu7lhK6SOSZZWoqkrK1ToxmD3k/I1FYuMj3W5/gsQyRWKw+8jO0bMgg3R1QNF04SCD3iyUqleYhu4rK1WG0vnSUI7ZSCo3vGx0Hz93ff7JDWeAOLZjj0VSIkllS2SZschehpoOsANSKYWiqkwUsqKC4t9DqYq2rMDljcLiDpljxeoz/kSeuPyJbrsQJdMGGyHLu8DuDjBXrJ6TFdp5qdFqKzLzycVKU140xuTbhqiczNVl9gE5lS22fOE0omkpanQHX1x3+AknRLun71hZyRbPA2BGquiaLQV1FbLKEhKCBfr9BSMdWwjSNUeWpvJ1Wii1aKXWRrrUaPGBJO6YPL7+cf3jvaMzZHbd8TAwlSvqGuyhsh2UG6ksRmZ9OH9TQKmhPiibD4rU4s7QtiDQYrmFSKZUWlzj9umNTmL2hLruD2UHmKy0dSmbE9LKXTmWLCOSqmDdnoHDL4EPl1Gty9jgkhgcs9N2KKzG/55HNl8u2CJZrT0hElcw0fVwhg385p1bhle/JJu3JQxe42Dncxi45sbbRxbR8/M6Xv7gKk4OriKfyqjm368ikxJFLlPWunJV4gr8BxhKSufEFsDNLsncqhWnLtvw6wiH/YfG8fSrOjz31kU8+3o/5g08uMlpNZ6UkK0o4j2rW2vZCu4Cl6wewkanacogwWTxl7TYRKZC5azUhC9eweGT83jqpbN4/t0LeOWjKzj/lxUF1rt0SVEzJRnxXE00C2GtRYgQp58Blxmw3oam2gLxJ4oDsWwdoVRFDqVrSOQbcPrzuDLlwIWbHFa5GNJSC6F0ld2pqpFMDdFsTdz0BLVWIUwcHWBnsaUaNMUaiC8u9QdSNdh8eZnz5eEMFSEkagjlWghmGhBYxpxfhCtcgiMoqXZ/AcFkRWQwLbcdJXZffBeYLTFgk2WYqvXZhQTsQlwWIiL0Bgtu3V7E5MwKFu6asbrpgckRgJ71d83sUX3xMvzJqmjaCmgtfJhw2wx418aTeAGaNhtKTMJPM8ubOHm6Vz7Tr8PI2G0M6C5jeGwauksj+PKrYzjxQy+OfnMKZ/oGVVegAF+yLq45vFrTVojYvHvAcJZq6M4eovfPCT0+OfRZ+/CRHvwxOo0+3VWMji/i0vA4XnvjTex/5z188fUJfHr4c3XVGsBWuMR6GNLa/Uli3QFyPCtV0RRVkHCBnp2YN2L0lr7NLL0+tUKHbszSyQUjHZ9Zp8e+66Xfnh6gF4cnaM/RU+qRnuOYXDCJbOW0nbWzemNdZNUuECHe1njjLeIIFH50BCsw8oWmkc8rJkFUTF4moaAYmaz+smINVJRNr6SYt4syuwN7oJg38521iRKLEO8AeeKJNjXCLrDP6pOw7s7g3lb2EXX892Mda2JAzi+1N1y+fUZ3gJg8kS4yt+EgepOva9kcYNb7wtSS5ePJRdOBKf3mh5P/rwMTC6aDk0uW9+fu2Z+YZz+H6TtmQhY27ISPNYgzWGYpp4k30SCRPOtnTiXhPN1Vbs/m93wsFtnzu0IlMrduJTMGMzHYvOQflXHESVFSz8YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -696,7 +696,7 @@ como eles devem lidar com ela.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 180px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -707,7 +707,7 @@ como eles devem lidar com ela.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAADzElEQVQ4y4VU62uTdxTun7L9A/tShA3ch8GQug8yhyhuDOZKQelCly1aEWspOjYKVbSo7IMDPy2idjT2tjRCt1nXVk3apAlJk7y5Nff7pXkvSfPs+b2paWu3+YOT933J7zznOec553S1Wi2II57/Zm87+p3W7nvXXrD/cmg2m2g0GlBVFfV6HZVKRX/qftvbbdvx79oL9NpZ0zTIsqw7VatVlEol5HI5xONxRKNRSJKEdDqtB9H99vh3ABVFQbFYRD6f1y+nUikEAgG43W44HA4sLCzAbrfD5/PB5XIhFotBI2BTCqPh9qKltcE7KZfLZZ1BKBTC5uYmlpaWYLPZMDMzg9nZWVgsFkxPT8PpdGJxcVEHTjPoC8sUwuM/ozz1+0HARCKhsxLRBYju6PXCbDbDarViYmICHo9HZxzhnZmpKTx5+hSjY2NY/ePP/TUUtRKpivqEyTLo98M6P48Vprm2ugo/vwX7cDjcLsX6OpaNBmyMXMKN741Ik9A+wK2tLWQzGUTpIEATFCLJ1FMEiyeTiO2I4VpbgzsYxN+/3EP2ohHFL47DdesGFAFCQXdFoaJ5iiKJtFmfHGtXMxpRPXkSXqYuETBIZh4yc/o2sDZogvzjMDyffIwYAxxQWWiUoyi5uTnUrl5FY3AQ2uXL0Hp6kBoehkQBwiLVjQ28YLDIwDlUz30F25efo8Q+xE4vt0Wp1aBSVXl8HBqdhanXr0M+cwbK6dOoHz6MGIsfZY0DDOoc/Qm1ofPwffQBnty+Da1Nb4ch32tsD+3uXWh37kAdGYFiMkG7fx/a6ChkMpQPHUKRwFGCedmD0ncGqBcMmPvwfTy3O6CpSmfadIYF1mxLRKKprJs6MAC5t1dn2TxyBI3ubqTfeRfhl6/gfPAr8he/RfLTHpi/6YefNa9QwM7oiZ861cnfvIkGayYbDFCuXMH20BAaR48iRrCVr3v1uklU3X3hPBqXTHje/R4s7Mso+zGbzeoj2wYUg82X7LwNSn8/mmfPQj12DIkTJ9hnRlgfP4Y94EcyX4DX6cDyLRNTPgXzqc/gkkKIE1D0rxjdfX1YKRRQ6OtDnLV6de0aljm7PvbfJtWVqGwqlYF3/SXiyz/g0dhxTE7+1lkYYlRFH+8C0ig80mxaHy3O9RTlpSCBREOLhi8US7Cv/IWH432YfHAPwVAUyWQCGf4nxnY3ZaHO60XJU+YIZsgsEonokQUDMdsFZvDs2SIePprgWlP01bX9xg7tNHZnwdLqpC5qItaYWKRiLwrnfQv4jR26d0EfWLD/t+rfZuL8A95kjBNdjIKHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD5UlEQVQ4y4WV60+bdRTH+XP0lXsh+oZEM15Asr0xBiV7gXESDXPh4hRlgLuoyWaysWUQs5ho3OKCCSQDR8d1sCBQpAi09AL0Qq+0FNpybZ+nlI/n93CRwdRfcvo8aZ/zfb7ne873NG93dxd11PVl8X/n6HPqmnf8y+Mnl8uxs7ODrutkMhm2trZIpVJsb2/v5cnvRuzn5x0FUsnZbBZN04wElby+vk4ymSQejxMMBvH7/Xi8XpaXl41nDUJH2B4CptNpEokEKysrxGIxIpEILpeLmZkZJicn6e/vZ2pqCqfTic1mIxQKoQtg1jHHzoydXU3fY3jATJURDofxytvVdXh4mMHBQUwmE93d3XR0dBj3VquVkZERFhYWCAnj8c4nuJtaWOsZOAmoWLndbgKBAF1dXYyNjuKYnaW1tZW+vj46OzsN1tPT0wSCITra23kyMMC3N27gtEy+qOHGxgbRaNRguLi4iEcY9D97hkVKnpUSPR6PoZ/P58Mt91aLhb8qK5hv+IJ7X9aSFMk4qqFqQFyE9kuCVwAja2vEBDwmiaGlJQKqGQpI2Nm9Psaa75EUsHjJWRy//Iy+V+qRpkhXV6WbXinba7ez2tbGVkUF6yUluMxmvCKDW1g75LdpCdvnVWS+a8R2tojIUvRkl9UbVoRZ4vFjthsbydbVodfXoxUXE71+HZ903if62iUm2tsI13xK8sNS+io+ZnOf3eFg54SZNjRE+vZt9CtX0K9dQ2tqIl1WRqa0lK2CAoLPnxMQULeMi+2bq6S/rsVakI/p4UNye/T2GaqGyDjo9++jtbSgCaB26RL6gwfo0r3toiLS+fkkz50jIFo6JybwC7t09Sf8fvotLE4XujjowG0Gw4TDwVZzM/rdu2jV1WQqK0mXl6PdvEmu8DTaqVNEXnmVRdHO+tOPpOo/w1/8Nq11X+GTyViXkTu0nvrYFp+u3rpFtqGB9MWLBsvc5ctkCgvxvvEmY1VVTMqgexf9OGqqyNbWMPT6a5h6eoyZVe5Sft8DFDGVBvGnT8lcuEBOmKXPnCHw3vuMNjQyIC6ZUeOzmsBuMTPxQy1zle/w6HwZLhnusLglJuOm/P/CYK+J+RPnP8Jf9gETd+7w5/g47liUsBqjhXnxdxyXzUzEfJVfv3+X7t5eg1k4HDJ8rZbJP4ASimVMNFqYmyO6uSnWCuKZnzceVpslkUxhHu7lUVM5po7f8AfC4qwlA1S5TNl3r2TVnf22q5MSh0SFlbKZAlOLIiilKa8PD/9Bl6kHTc8amh1foYeDfbhgJRR1g5Gssk1hqpbqgeBHE1+25U8s2P9a+f/2F3E8/ga6tYwKPO2ZJAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -756,7 +756,7 @@ premissa da &lt;em&gt;Web 3.0&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 180px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -767,7 +767,7 @@ premissa da &lt;em&gt;Web 3.0&lt;/em&gt;.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEIElEQVQ4y5WUa0ybVRjHO2fMMtiYGhMIZHPGRCdWp5lxZgi6za0tAzcKFDa8xWiyjGWJfnDTePlgnM5Lohm7ZBPGxhDmNmGAW8JuAuFWboWWXmhLLy+lfXsvLZfSc/6eImAZjsST/HOec55zfud53uecVyCIaXK5PNrFMa1iiv8PrZr1C9IzMpYJlmhzzoTExMQ+sVhs2ykSmUQikTlWYonE9HSq0M7WHYguflYofGARKVuWGDtcIZXu8WGmESY6KzIzE56eRlOPCvveeQ9zUKFQuHwR9JWMNWzy4bXMfCk9Q+QKjkc3I8JEIhEQQmaIZCocJh0DukhwahoHDxbPQzc8k7oIujopZYV6T0EyOXRke6Sx8wTu9pyirQOl6B2qRr/xIjheRdkBtFejh8PjY2eAvv/Bh/PQ117fugCYsGlLgtno+QFq7jhRmU5Rg60KOu4i+vQ/oUX5Ebq1lZgKA0MWjtp4F+xuL+H9obn0i6OQ+Pj4+UKtTt24Ul9Wk4ZfL28lnQMn0dl/mmqH63GhNhMllRvR1FWO8UnAyNmo2mihnQNaNPeoIre7lBC+uCnEGMkLInzyqYdGP/02Dt/8/Bw5V/UuPVayGZVXD+CTrx9D8WcC1N8qwdg4hdPrgcPto3aXh3J2nvhCUygsesvDGOtjgfEr45Y3PPKoQPPqtuenzl05g9+unafV9eVouFOLxpZ6KDRK8J4AnB4/672s91GH20MmIhSFe/d5GWPdPO3ltAfncl8jkux2ekMEvHec8N4J9q0CrAhB2Jw+mEdHYLKZYbXzTE6YbQ7inwhD9g/w8RkCIFxwscWZmU4L++h6K0f01hGY7QEYRxwM5kd988do6SvDqAswcDYMma3EHZyErDAGeM9LYRHucprY6QbOQ/ScG41tJ9GqqIPOYkPpH9txs/04bneUsrGdVdxN7P4g8pcAJuwQSxjQh9a+G6T0ihQlFS9ArryDlt4GnL0kQZeqCaertjB7F+7KrxJHIIzcgsL7A98QiZxmfhIVtfvJ4aMCXG86geHRMCqvHUJFzX5mT+Nm2wUc+W4ZzlYXEH4MkMpkSwElTi3Ho0+nJjWNR/Hl90n4868y/FKWyUC/s3Tr8NWPKbh8/XN0DSqIxR1kwIL7A7cz4KB5FAo9RwbNXnSr+1F36wy+OLaB2Rq0D8jR3t8GtcWHXp2FDPM+5OQvkfK2nWJeYbBCrjZEOlQaqjC46I3mGlp+6TDtHRqh3RoT7dFaaeegjnYodRGtzYXdeTLPgnsYW+UdkiyP0TmGQSvP3rWLiYfW5oHeEWK2c1bMN+KC0myHLRRBbmFR4N4I559gUnLK8Ju5+RPZ0jw/UyBbmh+I9lk5ubP2v8rKyfPnFOwNrVv/hJXtXbuIll/0djTSlFnn/1HK5rT0mX/i35TJ+EshQbldAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEGUlEQVQ4y32Vf0yUdRzHz1hzCa1SIsgWba7VAJ2jVS6WjfTi1x0cB1eNVNBpstVm/7Razc3azLk0NqU5MFPDlPFDNprC0EAgCbmA85AH7if383nunvvxHNx5gNz3efc9Bidm3Gd77/l+P5/P8/p+vp/v80MiWbKqqqqonqDDZKrn/0fL/vXR/J1S6RpJHFsOpr6cnm5RqVS+UqXSrVQq+ZUqKy93Z23NDtC8z6PJWZs3JzxGejPnuZXTZ/fs2T2HRSNU4pLIomd2/gG61VpU7K4Ezf1sEZqV9Sh0yxvPSF7NSHpSIkl6nU6lefmKUDAMhGdBZudA5udBFhZARBEkPDtHBsd0kbkFEdUHD8agGZmZj1Wa8sqmdc5d+zfh26NyclN9Gj3Dp8WBe/UY0V/CXdN5ODwMaIHi6IQRHmGGRGjplXv3xaDb38t9pKcvvCtNdhm9JzFuPUUYy1lxytUKveMyRg0n0ac9BI3hKmi1MFjtIst7wHr8xBUI4cOKXVjuaWJiUgyakr0tyXGu9W380vw+GRo7g0HNzyJjasO5llycasjEgKYJYdpds4Olfpt4RzuJ/pHxSOftYWRs2eqnjA0rK0x9LXPtzBeHn8LRmmxS31AhHq99BxebDuDL75Nx6PBadPX/hmCYwCsI8PgDIu8LiBzvJd7pEEqUZWx0lyuB69clJrQnPS0Zyc3btnDl2hW0dDSLbV1NuHH7BnqHejBu1IP3B6lmwPsEeg3A7fMTIRRGsaKUi+4yRnsrJ3ZIyWWqiqBwP0JvuC/yQhgu3zRVkPYsgCnWginnFOwuDxUPG8cTPhCEvETB/bfC5WamlZaXh2xuL/S0+UY7B6srCJPDDQsroK37U/w91gjOC+pjYbA5CEsXjAdMVZSpQlOcB0aHX9TbOFzr/QGD2k4wZhN+vboDfw6eQddALaIxg91HbLwPsnhA2uCQxTWNnqEmsa7xA9Q15kCjG0H3nd9xvlWJYeYv1DduRzR2a6iV2D0hFMqLVwcWl5aGLO4wLrRUit8cT0BnXx1M7CwutO5D0/WvYGbncf1WLb4+JkFDWzWxex+gQCaLBywL6exuaPQ6sf3mCRw5sREdfRdRc3YH+oe70Nl/Cd/9lI4/umswqtMRA+tFQbwK5RTIWDn6ZthExipQsB5tXbU48mMW9VkwOKbGP4wWjDWAUb2VTNIDy5fFARYplDNasxPqCVNkiNERrclLOnqbSWP7MaIxcmRYZ6WyEfWEgagZY2ScLp5XJGdXfWzkStXcpNMLjckBrZnFXbMd9yxuMHY/HTuXFI05aY4dek6gW1Z4VgOmpG18yZInK/ZJC2RuaaGMX1RBEb+zoJCPzR/63fnyEiE17cXxpa/5Q1OoPpaUlH8U7xcQTxsqD1Sv+WTvfsm/qRr2fF3NJLcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

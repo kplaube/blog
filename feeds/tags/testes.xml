@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - testes]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O popular e poderoso Pytest]]></title><description><![CDATA[Ok. Eu admito. O primeiro post de 2021 será só para cumprir tabela. Afinal,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - testes]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[O popular e poderoso Pytest]]></title><description><![CDATA[Ok. Eu admito. O primeiro post de 2021 será só para cumprir tabela. Afinal,
 se você já programa em Python, provavelmente já ouviu falar do
 Pytest.
 E é pela sua popularidade, mas acima de tudo sua versatilidade, que eu me sinto na
@@ -56,9 +56,9 @@ E
 ERROR: test_one_plus_one_is_equal_two (tests.test_my_calc.TestSum)
 ----------------------------------------------------------------------
 Traceback (most recent call last):
-  File &amp;quot;/Users/klauslaube/Workspace/my_calc/tests/test_my_calc.py&amp;quot;, line 7, in test_one_plus_one_is_equal_two
-    result = calc(1, &amp;quot;+&amp;quot;, 1)
-NameError: name &amp;#39;calc&amp;#39; is not defined
+  File &quot;/Users/klauslaube/Workspace/my_calc/tests/test_my_calc.py&quot;, line 7, in test_one_plus_one_is_equal_two
+    result = calc(1, &quot;+&quot;, 1)
+NameError: name &apos;calc&apos; is not defined
 
 ----------------------------------------------------------------------
 Ran 1 test in 0.000s
@@ -76,15 +76,15 @@ tests/test_my_calc.py F                                                         
 ============================================================================================== FAILURES ==============================================================================================
 _______________________________________________________________________________ TestSum.test_one_plus_one_is_equal_two _______________________________________________________________________________
 
-self = &amp;lt;tests.test_my_calc.TestSum testMethod=test_one_plus_one_is_equal_two&amp;gt;
+self = &amp;lt;tests.test_my_calc.TestSum testMethod=test_one_plus_one_is_equal_two&gt;
 
     def test_one_plus_one_is_equal_two(self):
-&amp;gt;       result = calc(1, &amp;quot;+&amp;quot;, 1)
-E       NameError: name &amp;#39;calc&amp;#39; is not defined
+&gt;       result = calc(1, &quot;+&quot;, 1)
+E       NameError: name &apos;calc&apos; is not defined
 
 tests/test_my_calc.py:7: NameError
 ====================================================================================== short test summary info =======================================================================================
-FAILED tests/test_my_calc.py::TestSum::test_one_plus_one_is_equal_two - NameError: name &amp;#39;calc&amp;#39; is not defined
+FAILED tests/test_my_calc.py::TestSum::test_one_plus_one_is_equal_two - NameError: name &apos;calc&apos; is not defined
 ========================================================================================= 1 failed in 0.10s ==========================================================================================&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como é possível notar, o &lt;em&gt;output&lt;/em&gt; é um pouco mais &lt;em&gt;verbose&lt;/em&gt;. Mas o ponto alto aqui é que, mesmo que o seu projeto esteja
 utilizando &lt;code class=&quot;language-text&quot;&gt;unittest&lt;/code&gt; como biblioteca de testes, o &lt;em&gt;test runner&lt;/em&gt; do &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; ainda assim
@@ -279,7 +279,7 @@ vislumbrar a diferença entre esses dois tipos de escopo:&lt;/p&gt;
         &lt;span class=&quot;token keyword&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;21&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; result&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Alguns pontos importantes não podem passar em branco:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Note o uso do argumento &lt;code class=&quot;language-text&quot;&gt;scope=&amp;quot;class&amp;quot;&lt;/code&gt; decorando a assinatura da &lt;em&gt;fixture&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;x_and_y&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Note o uso do argumento &lt;code class=&quot;language-text&quot;&gt;scope=&quot;class&quot;&lt;/code&gt; decorando a assinatura da &lt;em&gt;fixture&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;x_and_y&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;pytest.mark.usefixtures&lt;/code&gt; é quem ativa o uso da &lt;em&gt;fixture&lt;/em&gt; na classe &lt;code class=&quot;language-text&quot;&gt;TestAddingThingsUp&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Para visualizar o resultado dos &lt;code class=&quot;language-text&quot;&gt;print&lt;/code&gt;, é preciso executar o &lt;code class=&quot;language-text&quot;&gt;pytest&lt;/code&gt; com o parâmetro &lt;code class=&quot;language-text&quot;&gt;-s&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Note que esse é outro exemplo bobo (:&lt;/li&gt;
@@ -382,7 +382,7 @@ possui suporte a assincronicidade, melhor controle de exceções e o fogo ardent
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -393,7 +393,7 @@ possui suporte a assincronicidade, melhor controle de exceções e o fogo ardent
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGRkZK01hP/xAAaEAEBAAIDAAAAAAAAAAAAAAABAgMiABES/9oACAEBAAEFAve0wHKwIybORKx9TH//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAACAwEBAAAAAAAAAAAAAAAAARESMUEh/9oACAEBAAY/Aq4RbZOMTPOCUH//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUEQUf/aAAgBAQABPyEKGUcLuWBFnCr5MAQgbm/JlOc/Z//aAAwDAQACAAMAAAAQx/8A/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAwEBPxCqaRH/xAAWEQADAAAAAAAAAAAAAAAAAAAQIUH/2gAIAQIBAT8QqH//xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFxkaHR/9oACAEBAAE/ED/px4O0NoWC4DUJDgGzIAjZAW3XPyDUAWAvpue4734VdL4n/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGRkRK40xP/xAAaEAEBAAIDAAAAAAAAAAAAAAACAQARAxIy/9oACAEBAAEFAo9oiTFw6p9V3sVCf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAICAwEAAAAAAAAAAAAAAAABEiECEDFB/9oACAEBAAY/Aoul6Rl1MqxPSSxP/8QAGhAAAgMBAQAAAAAAAAAAAAAAAAERITFBUf/aAAgBAQABPyFKVSa0RNLcg+BknpBWNE6c4V9Y9P/aAAwDAQACAAMAAAAQV/8A/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAwEBPxCqaQ//xAAYEQACAwAAAAAAAAAAAAAAAAAAARFBUf/aAAgBAgEBPxCyVp//xAAbEAEAAwADAQAAAAAAAAAAAAABABEhMUGhsf/aAAgBAQABPxDVaAC1TQjFbwC/nks7QNCE4WaFvHMtdQCds3PZj4cu/k//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -448,7 +448,7 @@ $ git checkout 80145ae&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 Ran 6 tests in 0.230s
 
 OK
-Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Destroying test database for alias &apos;default&apos;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;É possível fazer a troca da versão do &lt;em&gt;Python/Django&lt;/em&gt; de forma manual (através do &lt;a href=&quot;/tag/pyenv.html&quot; title=&quot;Leia mais sobre pyenv&quot;&gt;&lt;em&gt;pyenv&lt;/em&gt;&lt;/a&gt;, por exemplo).
 Obviamente que o &lt;em&gt;tox&lt;/em&gt; deixa tudo mais interessante (e automatizado).&lt;/p&gt;
 &lt;h3&gt;Instalando o tox&lt;/h3&gt;
@@ -461,7 +461,7 @@ Obviamente que o &lt;em&gt;tox&lt;/em&gt; deixa tudo mais interessante (e automa
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# requirements.txt
 
 bleach
-django&amp;gt;=1.8.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+django&gt;=1.8.0&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;A versão &lt;code class=&quot;language-text&quot;&gt;1.8.0&lt;/code&gt; (até o momento) é a &lt;em&gt;LTS&lt;/em&gt; mais antiga, portanto, garantiremos suporte dessa versão em diante.
 O &lt;a href=&quot;https://pypi.python.org/pypi/bleach&quot; title=&quot;An easy safelist-based HTML-sanitizing tool&quot;&gt;&lt;em&gt;bleach&lt;/em&gt;&lt;/a&gt; é uma dependência do projeto, não
 relevante ao exemplo desse artigo.&lt;/p&gt;
@@ -476,22 +476,22 @@ as dependências necessárias para contribuir com o &lt;em&gt;app&lt;/em&gt;.&lt
 e disparar os testes:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;ini&quot;&gt;&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# tox.ini&lt;/span&gt;
 
-&lt;span class=&quot;token selector&quot;&gt;[tox]&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;envlist&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; py27-django{18,111}, py36-django{18,111,20}&lt;/span&gt;
+&lt;span class=&quot;token header&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token section-name selector&quot;&gt;tox&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;envlist&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;py27-django{18,111}, py36-django{18,111,20}&lt;/span&gt;
 
-&lt;span class=&quot;token selector&quot;&gt;[testenv]&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;commands&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; python runtests.py&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;setenv&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;    DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;simple_contact.tests.test_settings&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;    PYTHONPATH&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;{toxinidir}&lt;/span&gt;
-&lt;span class=&quot;token constant&quot;&gt;basepython&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token header&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token section-name selector&quot;&gt;testenv&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;commands&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token value attr-value&quot;&gt;python runtests.py&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;setenv&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;
+    &lt;span class=&quot;token key attr-name&quot;&gt;DJANGO_SETTINGS_MODULE&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token value attr-value&quot;&gt;simple_contact.tests.test_settings&lt;/span&gt;
+    &lt;span class=&quot;token key attr-name&quot;&gt;PYTHONPATH&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token value attr-value&quot;&gt;{toxinidir}&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;basepython&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;
     py27: python2.7
     py36: python3.6
-&lt;span class=&quot;token constant&quot;&gt;deps&lt;/span&gt; &lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token key attr-name&quot;&gt;deps&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;
     bleach
-    django18: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;1.8&lt;/span&gt;
-    django111: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;1.11&lt;/span&gt;
-    django20: Django&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;2.0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+    &lt;span class=&quot;token key attr-name&quot;&gt;django18: Django&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token value attr-value&quot;&gt;=1.8&lt;/span&gt;
+    &lt;span class=&quot;token key attr-name&quot;&gt;django111: Django&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token value attr-value&quot;&gt;=1.11&lt;/span&gt;
+    &lt;span class=&quot;token key attr-name&quot;&gt;django20: Django&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token value attr-value&quot;&gt;=2.0&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Por partes:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;[tox]&lt;/code&gt;: Aqui colocamos as configurações globais. &lt;code class=&quot;language-text&quot;&gt;envlist&lt;/code&gt; conterá a lista de ambientes nos quais executaremos os testes.&lt;/li&gt;
@@ -533,7 +533,7 @@ py36-django20: commands succeeded&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 Ran 6 tests in 0.055s
 
 OK
-Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Destroying test database for alias &apos;default&apos;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O resultado final está disponível na &lt;em&gt;tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;0.3.0&lt;/code&gt; do projeto.&lt;/p&gt;
 &lt;h2&gt;Considerações finais&lt;/h2&gt;
 &lt;p&gt;Que esse movimento da comunidade &lt;em&gt;Django&lt;/em&gt; consiga influenciar ainda mais a adoção do &lt;em&gt;Python 3&lt;/em&gt;. Admito que sem essa
@@ -577,7 +577,7 @@ e que possui uma boa comunidade dando suporte.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 480px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 480px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -588,7 +588,7 @@ e que possui uma boa comunidade dando suporte.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 86.45833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgMA/9oADAMBAAIQAxAAAAGeC+3Lzms5ciPUis//xAAbEAADAAIDAAAAAAAAAAAAAAAAAQIDEBETQf/aAAgBAQABBQLNdi5FLZMWxxlO1zpnv//EABkRAAEFAAAAAAAAAAAAAAAAAAEAAhARIf/aAAgBAwEBPwFpxWJ//8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEBMh/9oACAECAQE/AXHplSP/xAAdEAABBAIDAAAAAAAAAAAAAAAAAQIRIRASQXGx/9oACAEBAAY/AtuCyhXFekQ3C9in/8QAGxAAAwEBAAMAAAAAAAAAAAAAAAERITFRcbH/2gAIAQEAAT8hfqJqZBr7Yjq1CunclwYWEhW9ye4efZ8ow//aAAwDAQACAAMAAAAQw+f+/8QAGREAAwADAAAAAAAAAAAAAAAAAAERMVFx/9oACAEDAQE/EE1Rlvo8n//EABgRAAMBAQAAAAAAAAAAAAAAAAARITFR/9oACAECAQE/EJEVWcMH/8QAHRAAAgMAAgMAAAAAAAAAAAAAAREAIUEx8GGhwf/aAAgBAQABPxAcflAuyrUNZMHWVfLiKgEgo65ceWMEwqJ8iDDbTg7GgYoUCxWQ8dMnDooz3vgn/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 86.45833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAARABQDASIAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAAAAMEBQH/xAAWAQEBAQAAAAAAAAAAAAAAAAACAwD/2gAMAwEAAhADEAAAAZM+eXLOWzk4PVxWf//EABsQAAMBAAMBAAAAAAAAAAAAAAABAgMQERMx/9oACAEBAAEFAttLF2JNkzoxxqernhj+/wD/xAAZEQABBQAAAAAAAAAAAAAAAAABAAIQESH/2gAIAQMBAT8BacVif//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhATIf/aAAgBAgEBPwFx6ZUj/8QAHRAAAgIBBQAAAAAAAAAAAAAAAAECIRIQEUFxof/aAAgBAQAGPwLLgsocil6bYx0fYz//xAAbEAEBAQEAAwEAAAAAAAAAAAABEQAhEEFxof/aAAgBAQABPyGVAkyZNtuHppjaW8l5kHDK3sHvN6fvifq3/9oADAMBAAIAAwAAABBH53//xAAYEQADAQEAAAAAAAAAAAAAAAAAARExUf/aAAgBAwEBPxBNUZdHp//EABkRAAIDAQAAAAAAAAAAAAAAAAARASExQf/aAAgBAgEBPxCohptk8MH/xAAeEAEAAwACAgMAAAAAAAAAAAABABEhMUFh8HGBsf/aAAgBAQABPxBq+YGy2tSZwxOdreblNQKNJzc7XhinSsXyQpTe2mPcEBkFAaZ1PR9Th8P4z0PBP//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -696,7 +696,7 @@ pedaço de código &lt;em&gt;Python&lt;/em&gt; a um trecho das histórias escrit
 &lt;p&gt;Rodando o &lt;code class=&quot;language-text&quot;&gt;behave&lt;/code&gt;, teremos uma saída similar a essa:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave
 
-Creating test database for alias &amp;#39;default&amp;#39;...
+Creating test database for alias &apos;default&apos;...
 Feature: Logged in page # features/home-logada.feature:1
 
     Scenario: Access index page    # features/home-logada.feature:3
@@ -738,7 +738,7 @@ que é o passo onde validamos o resultado dos acontecimentos disparados por &lt;
 &lt;p&gt;Pronto! Executamos nossas &lt;em&gt;specs&lt;/em&gt; e temos o seguinte resultado:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ python manage.py behave
 
-Creating test database for alias &amp;#39;default&amp;#39;...
+Creating test database for alias &apos;default&apos;...
 Feature: Logged in page # features/home-logada.feature:1
 
     Scenario: Access index page      # features/home-logada.feature:3
@@ -750,7 +750,7 @@ Feature: Logged in page # features/home-logada.feature:1
 1 scenario passed, 0 failed, 0 skipped
 3 steps passed, 0 failed, 0 skipped, 0 undefined
 Took 0m1.617s
-Destroying test database for alias &amp;#39;default&amp;#39;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Destroying test database for alias &apos;default&apos;...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Garantimos através dos cenários acima que, dado um usuário logado,
 imprimiremos o seu &lt;em&gt;username&lt;/em&gt; na rota &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/&lt;/code&gt;.&lt;/p&gt;
 &lt;h2&gt;Considerações finais&lt;/h2&gt;
@@ -787,7 +787,7 @@ comportamento em &quot;custo&quot; e tempos atrativos.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 500px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 500px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -798,7 +798,7 @@ comportamento em &quot;custo&quot; e tempos atrativos.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 80.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcKmVgkA/8QAGRABAAIDAAAAAAAAAAAAAAAAAQIQABEh/9oACAEBAAEFAh0s4tGcr//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAAGAwAAAAAAAAAAAAAAAAABAhARMRIyYf/aAAgBAQAGPwKpEYILpNY2b//EABoQAQACAwEAAAAAAAAAAAAAAAEAIRExYUH/2gAIAQEAAT8hIFHDDd543mMxW8IiL15G5//aAAwDAQACAAMAAAAQK8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAACAgMBAQAAAAAAAAAAAAAAAREhMUFRYXH/2gAIAQEAAT8QQwEvB/RTaLphJCt4kyE1rdqRyg47GbTZ/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 80.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcKmVgkA/8QAGRABAAIDAAAAAAAAAAAAAAAAAQIQABEh/9oACAEBAAEFAh0s4yozlf/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAAGAwAAAAAAAAAAAAAAAAABAhARMRIyYf/aAAgBAQAGPwKpEYILpNY2b//EABoQAQACAwEAAAAAAAAAAAAAAAEAIRExYXH/2gAIAQEAAT8hIFHDCN765jCLeERGtcjc/9oADAMBAAIAAwAAABArz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAAICAwEAAAAAAAAAAAAAAAERACExUXGB/9oACAEBAAE/EBMQcD2DLwKAUSsk05l5KNLYYbh09DdOESdz/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1060,7 +1060,7 @@ em tempo de desenvolvimento.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 612px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 612px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1071,7 +1071,7 @@ em tempo de desenvolvimento.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIEA//EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABxmRjVCgZ/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIDERIAIv/aAAgBAQABBQI5McYMbvH6rsWA9L//xAAXEQADAQAAAAAAAAAAAAAAAAAAARJR/9oACAEDAQE/AYJWn//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAMAAgMAAAAAAAAAAAAAAAABMQKRESIj/9oACAEBAAY/Al6Vway6jujkors//8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPyHFK+Ih26Oyxq2wVNPajoX92bSyl+J//9oADAMBAAIAAwAAABAD/wD/xAAXEQEBAQEAAAAAAAAAAAAAAAABACHw/9oACAEDAQE/EMA3Iv/EABgRAAMBAQAAAAAAAAAAAAAAAAABESFR/9oACAECAQE/EKnTeH//xAAcEAEBAAIDAQEAAAAAAAAAAAABEQAhMUFRYYH/2gAIAQEAAT8QCuz2PcC++S5OAU3Lt1HsyUjRu4/ROnCkGSBkZpxAYUuLbvG5bRGOfPzP/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAABjmRjVC4x/8QAGRAAAgMBAAAAAAAAAAAAAAAAAQIDERIA/9oACAEBAAEFAjgpEDGzR21UMX28D//EABcRAQADAAAAAAAAAAAAAAAAAAACERL/2gAIAQMBAT8BwqL/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAcEAACAgIDAAAAAAAAAAAAAAAAAQIxESEigZH/2gAIAQEABj8CjzeW6GpaKl4ZLEr7P//EABoQAQEBAQADAAAAAAAAAAAAAAERADEhYXH/2gAIAQEAAT8hhh+EbrbJbnRAv1g9PZvc5fOuQpKuf//aAAwDAQACAAMAAAAQVz//xAAYEQEBAAMAAAAAAAAAAAAAAAABACFRkf/aAAgBAwEBPxDAGdjy/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxCp00//xAAcEAEBAAMBAAMAAAAAAAAAAAABEQAhMUFhoeH/2gAIAQEAAT8QtwB0AYb+jvmQXOgC7dSdMvdC+DXonjkCa1AyM7+YSHdDi1d4yAGwVfjP/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1217,8 +1217,8 @@ do que da área técnica, e automatize a validação delas.&lt;/p&gt;
 &lt;p&gt;O mais bacana é que ela já vem preparada para o &lt;em&gt;Django&lt;/em&gt;, permitindo que
 a gente execute os testes de comportamento de forma fácil e rápida:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;gherkin&quot;&gt;&lt;pre class=&quot;language-gherkin&quot;&gt;&lt;code class=&quot;language-gherkin&quot;&gt;&lt;span class=&quot;token feature&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Feature:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Rocking with lettuce and django&lt;/span&gt;
-
-&lt;/span&gt;    &lt;span class=&quot;token scenario&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Scenario:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Simple Hello World&lt;/span&gt;&lt;/span&gt;
+&lt;/span&gt;
+    &lt;span class=&quot;token scenario&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;Scenario:&lt;/span&gt;&lt;span class=&quot;token important&quot;&gt; Simple Hello World&lt;/span&gt;&lt;/span&gt;
         &lt;span class=&quot;token atrule&quot;&gt;Given&lt;/span&gt; &lt;span class=&quot;token atrule&quot;&gt;I&lt;/span&gt; access the url &lt;span class=&quot;token string&quot;&gt;&quot;/&quot;&lt;/span&gt;
         &lt;span class=&quot;token atrule&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;token atrule&quot;&gt;I&lt;/span&gt; see the header &lt;span class=&quot;token string&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;
 
@@ -1592,7 +1592,7 @@ First”:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 220px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 220px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -1603,7 +1603,7 @@ First”:&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 61.979166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAAC3ElEQVQozx3Q209SARzA8bNZWz2UD2n10NbKrTncMlcP1hxeuUiClpCAeMVLy2t4AVEpbiIewHOAw+HcAD3nCKigoIIu0knWlpe2eqie+ls69fDbvi+f/fb7AROTkyKh0GkzI8uuAOTCYA/hh8JBP0MGV4nACobQBMqQaCyCZ5KxVJxlKKy7q6OazwedDoDP5wMAsGY3nLHI6QaVp5Ec5U1BC1/XsKzPeUIjRyE4BS9kUfDX/kaewXYQV3lZKUeUr+RAfYOAq4hj7jvuODMPXbgN57axE9B4hDrzpOdzGD4mXP8iAp/HiZOI7wsdKHtQwhGZtAloft44Kxd9StIXoeXfxp4/3tmfS9MH1sl9mtxdwfPpeIYN7awSR1vst8PMQZw+Sq3fK7nPYZFYDHTLW9DGZ8eQJZeO4uu0gyVtlP+dyz6FgOkks43BH+PhXDS0RXgPN1b3VrEYZMeGukGVpFetANpbWxZqK5OmKTqEGIIeHeoe99iJAOgm4GyCzjH4hyjFySTuzUWpvZUAZRz3iSoRQcWUVgMMKl4u1lSmLHrS4RwbBS0m1DbvNemXvAuo2YxZzNjhJnu6G/1xmObWMvAiaZqceVr6sLCgjntWvUBQAAATbS2s27E0awnD/njAZ9ObEIeThHzg+8VUGMvSWJbBN3E45LZDRt2jO7e4m4VCETdCrvoVzduIC7fPR0BbwGZyG94yoDVDQazbmia9iSCUDiO7EYx0WiGz8Vrh9f9YCFTV1kp5JQcjAwndMDE+QOgGHFq1p7/jwDSRmhmKTg9So52eLplTJbEqxFZ1U6ekpuhGEYcFggaguq6u+FJBO690rp6/rJQRWjnZIfNrWhmtMtanivS1RQaVXrVIX8Xrrbg7Ul/ue908IpdeuXxVLBIDCoWi+Obtx+UV0toajaxJ+7JloPWFViqZl4mDPaqY7k3CMBbTD1PDGlub2NLeyBq12/axJ2W8NqXmL4nWVcR08rjdAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 61.979166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC5ElEQVQozxWRyVNScQDHf2nqwU7NdMnSpkZtynJ0HBdGw3KZ0djcIEUE1HREE9JEQEKFEJBFePAe8FgeTx7yEHABF1wnlw46Up3q0h8TznwO38vn8Jkv4PEGqiorrDo1BltxF5Qh6IYJDxIP+sI+VwRDSX8GZzzoPdvb3ImGSAyl09pKS4q16gVQV1t3B4C4TvYzCKUj7h8B6LvbvGNaTAcdhzbtFQ6de0x7Vs0xov+bDF1gUNKmK332BADA4/aB+oY32Tl3w3ZDGlZfzwpu9FM382OXRsWBy3zqg85w5MizcuK3XRDO6xh2EXJfhj1PHxdkZHZ3N+iht6Ef2VebwXQA+qOV/PPoflvnt5fke4Q3FfJdJCIHJJZa859vk+mT3RSJ70fwly+eZ2UBBpMJuIx2c2PlsVGV3FrTR1YluHPKbZGbteOO5UQ8GHMYj8K+PdxF3g5sF3cROmVEPIgJWeJhPhB2sWBa0/aiPIDaFXbLVwRSmAw4YkF9SCpKHIcDJ+uBJAanCM/pOpbwO1DphKmxXF1XMjnIAwP0dmlVWWx+GtHoxsYMqjlEo4SkU8sGtUMqR2Ry+CRKXO+Gfx1vbXrtq1Y9Ovd5urq4IA+00WiggUrN1It6mKTNAGvUUSe84YIMMoXXqCdddnhJl8RcCT+cCDhjKOQ3L5llkqIH9zMKK9NMpVLzcrIVQu6GVe9QyZwa5bJ8xvRlMmLSJJ3La8bFLcS4btMn0JUN54rnm0o7K8m/l5+RGQwGqKmvZ78q2R8RrIuGMfEQPjVkGeQ4hrmHCvHm9DAhEaCjbAO7SdVOkbbWKDvecltqHz28vYpOp4M6CiUPgOaiQhGleoHZYuS8t3S16rtpXi6L4PfgQ5zV0V64v11OLRusKBQ3l/slPUpeZ25WLpPBAnw+v6zsdcu75t7OjlFe/4RAMCkUjvf1qnu7faKhuHImoVZsLMyGZCLLyAfTKIdc/LRjUTTXU0Tjk/8BtMdVeMGhFmkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

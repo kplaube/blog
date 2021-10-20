@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - algoritmos]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Algoritmos de ordenação - Parte 1]]></title><description><![CDATA[Voltamos a falar sobre algoritmos, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - algoritmos]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Algoritmos de ordenação - Parte 1]]></title><description><![CDATA[Voltamos a falar sobre algoritmos, e
 dessa vez o tópico é sobre ordenação de elementos. As linguagens de programação abstraem
 toda a complexidade envolvida para nós, mas mais que fundamental, compreender como tais algoritmos funcionam é mais um passo
 adiante no aprendizado das Ciências da Computação…]]></description><link>https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 10 May 2019 10:45:00 GMT</pubDate><content:encoded>&lt;p&gt;Voltamos a falar sobre &lt;a href=&quot;/tag/algoritmos.html&quot; title=&quot;Leia mais sobre Algoritmos&quot;&gt;algoritmos&lt;/a&gt;, e
@@ -86,7 +86,7 @@ adiante no aprendizado das Ciências da Computação.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -97,7 +97,7 @@ adiante no aprendizado das Ciências da Computação.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHojqeHbFwP/8QAGRABAQADAQAAAAAAAAAAAAAAAgEDEjEh/9oACAEBAAEFAn4VkNYp1zW7jp5//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAESQf/aAAgBAwEBPwHVIf/EABgRAAIDAAAAAAAAAAAAAAAAAAABERIh/9oACAECAQE/AZwuz//EABkQAAIDAQAAAAAAAAAAAAAAAAABAhAhQf/aAAgBAQAGPwIXcFpK/wD/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhQTH/2gAIAQEAAT8hYlvJtlcOwRO+z3DgVAKuDM//2gAMAwEAAgADAAAAELsv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREQ/9oACAEDAQE/EIEGH//EABYRAQEBAAAAAAAAAAAAAAAAAAEREP/aAAgBAgEBPxCmnD//xAAbEAEAAgIDAAAAAAAAAAAAAAABABEhMUFRcf/aAAgBAQABPxCj4tV7C84ERnvEIlU23cAARhmqvccgKDUJSf/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHohueHbFwP/8QAGRABAQADAQAAAAAAAAAAAAAAAgEDEjEh/9oACAEBAAEFAn4VkNYp1zW7jp5//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAESQf/aAAgBAwEBPwHVYf/EABgRAAIDAAAAAAAAAAAAAAAAAAABERIh/9oACAECAQE/AZwuz//EABkQAAIDAQAAAAAAAAAAAAAAAAABAhAhQf/aAAgBAQAGPwIXcFpK/wD/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhQTH/2gAIAQEAAT8hY1vJVmcMETrs9g4FQirgzP/aAAwDAQACAAMAAAAQ2y//xAAWEQEBAQAAAAAAAAAAAAAAAAABERD/2gAIAQMBAT8QgQZf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/EKacP//EABoQAQACAwEAAAAAAAAAAAAAAAEAESExQVH/2gAIAQEAAT8QouLVdzyF6OsTPsxk5tu4IQjFNVe4rAUGoTcT/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -186,7 +186,7 @@ adiante no aprendizado das Ciências da Computação.&lt;/p&gt;
 &lt;p&gt;Embora ele se compare aos dois algoritmos acima em &lt;em&gt;running time&lt;/em&gt;, na minha opinião, imaginar o seu funcionamento demanda um pouquinho mais de esforço. Nesse algoritmo, o propósito é achar o lugar onde o elemento deveria estar no &lt;em&gt;array&lt;/em&gt;:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Para cada elemento &lt;code class=&quot;language-text&quot;&gt;A[i]&lt;/code&gt;;&lt;/li&gt;
-&lt;li&gt;Se &lt;code class=&quot;language-text&quot;&gt;A[i] &amp;gt; A[i + 1]&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Se &lt;code class=&quot;language-text&quot;&gt;A[i] &gt; A[i + 1]&lt;/code&gt;;&lt;/li&gt;
 &lt;li&gt;Troque os elementos até &lt;code class=&quot;language-text&quot;&gt;A[i] &amp;lt;= A[i + 1]&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Abaixo a implementação em &lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;
@@ -281,7 +281,7 @@ e preciso fazer um grande esforço para imaginar o que está acontecendo.&lt;/p&
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -292,7 +292,7 @@ e preciso fazer um grande esforço para imaginar o que está acontecendo.&lt;/p&
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQDBf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAAB1c2sIhbf/8QAGhAAAgIDAAAAAAAAAAAAAAAAAAIBEwQRM//aAAgBAQABBQK5SWsVm1Jjj9P/xAAWEQEBAQAAAAAAAAAAAAAAAAAAERL/2gAIAQMBAT8BjL//xAAXEQADAQAAAAAAAAAAAAAAAAAAARES/9oACAECAQE/AdVwp//EABsQAAIBBQAAAAAAAAAAAAAAAAABAhARIjFx/9oACAEBAAY/AtmLLOkiXT//xAAbEAACAwADAAAAAAAAAAAAAAAAAREhMRBBcf/aAAgBAQABPyFqcOw+XN3cE/Qxd+8Dvcf/2gAMAwEAAgADAAAAEOTf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EMhsBL//xAAVEQEBAAAAAAAAAAAAAAAAAAABAP/aAAgBAgEBPxAcFjf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUFR/9oACAEBAAE/EOObtC1KgwEolBc0fY8gmx5ZHCrGG8n/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAKABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAP/2gAMAwEAAhADEAAAAbTNbzUCQr//xAAaEAACAgMAAAAAAAAAAAAAAAAAAgETBBEz/9oACAEBAAEFArlJaxWbUmOP0//EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwGMv//EABgRAAMBAQAAAAAAAAAAAAAAAAABEQIS/9oACAECAQE/AVquHR//xAAbEAACAQUAAAAAAAAAAAAAAAAAAgEQISIxcf/aAAgBAQAGPwLZjJejDdP/xAAbEAABBQEBAAAAAAAAAAAAAAABABEhQXEQMf/aAAgBAQABPyEiLGWIzkbzSfxAoXvAj63X/9oADAMBAAIAAwAAABAPH//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAwEBPxDIbAS//8QAFREBAQAAAAAAAAAAAAAAAAAAAQD/2gAIAQIBAT8QWChv/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFBUf/aAAgBAQABPxDjg7SalbIKgVQVdH2NrUJxfpO7YBs//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -334,7 +334,7 @@ FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -345,7 +345,7 @@ FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQozyWQa0hTYRzGD0FQmUu38573Pe973rOds53pZpt5KXOaFzZ1zrykTlFKu5FXSsoGU5NEWhDKEhX8YjcUlMrLvMzrxEviNwu/RtDXqE9B0LfOEp6Pz4/f8/8zXk5XArQdEPQpuFIGXjMqleBVE+mv9nx+PXD0YfxWRrLLSNKBJpAt+dLomwJTt5VUAV0jBsxdnr3Hg04JVYjsJS7OgbUXdJqgt2gv+DQS8P053Poefn84Ppgncu0ppMbIPcmg0/nGOsDe5AHTjeEgRb1W3JKE3CLrNnAp2rNLXc2fhvumfM3fIqEfXw6+To5lYbZYD9pswkCO9LHQ2KHnyoGOmRDRCEX+VNmt4BwKnHroFGGqgDw2s0uhlXZTSZIxS6Z5FNyx0TKzUG2jY4WWV2ZczmqZeYrGBNipGIwxMSkY1iq4QgL5JL7USKb9rVM9D4oknMrGPkwVArnyoyuJ8rk4n0m/IAlBwjGLApwicAZzuwS9teo9BpDNx+UQdtHftB/s/Xu0/3tv8fZle4PC9jgMOzX2TZFsYG5OgCGKmCUCVwhaJnAPwdFEUmRGbpmvt4ovrpcF6ooHOpqGHrfX201VCm5JlyY95l2JX8JcSICzAoyaVXiVwG0Mh0XeI5L2i5YWG7FoThfzGmf8SeXUCa+sCzgt3gT5uSxsUV71hSicE1AUDhO0RqCaTZ7bp2gkgZbJnPr5Z9dc7+7fqLDKVTIYcinb58UNANRyWIAqNa/C6uDV//A6jmZZRE1GmMHFtjmSDwb9P3dC6y/7C3iNP1O/lmtaQXBFQGECVWqBQiYc3YyOyS0ezuhRYwKqNega0syRrtZfq7OR0YALnOnK1E84DOtRU/TMY/k/0eXB+NLo+R0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAACiklEQVQozzWRWU8TURSAJz5BwmI7vXPvnTsznZmOtdSWpdRYxULagmDZCUgbYsuDaFADErCohUjiUgMqkLiCWwzRBMMuXai0QYiEiL6Y+GLiP9Doiy++OJiQnKeT853vLFQrpGsZ+gICgwpulEGjAr0i45VxpK3p4+PI19nnXeUldVbFDnJvlcp9xfwzj+GalWsGdDsLqA6sO4fBRRnVCrRNl1vCavM1WZOB+u3711M3+v5+Wf+5Hv/+ZsItolMW1CyDfjs37VHaGF0QA+oqYcZ5NGRme/LZBgl4RVhM57zqDiZGwpPng9uzL79tJD9P3DlKgFcPuguE0TJ5ttIQkmAdoKnXArrHw5DN4JCgnejcAjymh2ZGW2YgLgOpMZISrLEyWo8AzhTwlWpyPxmtME8ZSRPQUgs8muDgFYPenp3l5JDPSOokUMHRJ8zy4lBPdGTQV5R3GGt6bdzNUmnIbbbt1Q5IwpJIHhKGesvBaQLnWGaT4Kk8oVoETqxxEhAb6ExHQr+303824x1HCv2yNuwQ0y3WNZGsEmaOg/M8opYJjBMUJfA9YsZMxGXElQoJWITL9a7BBlf4ZMuloM9vkVtNXMAmPa0yrsl4mYWLHFT5HbMKxwlcY+EjHrfwbO9Bc6eVHMjNPI5zqkCGKWNPs0QPl5vbTfKwnqR4rPoWeTjPoR04RtDKTsAUy2xxaNzAeiVQI8G7/uq58Fmf3aL+/7Zb2bDqVxmgFsc4qFIL3O7YKvmOhUkWRgXUsQ86QHaXs+jTWPjXh+jWk9FylNPvEBJuJY5hnEMxAtU1l3hIqZ0SBCX/k2kMZwQUMEKfRPsLlZXQ6R+xmdSDiEeX2X9I/8IhJglM7N5Ilf8DpovB4B2EEQcAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -497,7 +497,7 @@ FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 750px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 750px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -508,7 +508,7 @@ FIM&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAWAQEBAQAAAAAAAAAAAAAAAAADAgT/2gAMAwEAAhADEAAAAV1twdc4vNZf/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAEiEDEf/aAAgBAQABBQJF9boBXJUWA1lAn//EABkRAQACAwAAAAAAAAAAAAAAAAEAAhETUf/aAAgBAwEBPwGtAMTQdn//xAAaEQABBQEAAAAAAAAAAAAAAAAAAQIDBCJx/9oACAECAQE/AX2NcElP/8QAGRAAAwADAAAAAAAAAAAAAAAAAAEREBIh/9oACAEBAAY/AlStY2nYMUSP/8QAGRAAAgMBAAAAAAAAAAAAAAAAABEBITFR/9oACAEBAAE/IYYWZKEqMRbMG8BZEhVKYrJLh//aAAwDAQACAAMAAAAQuN//xAAYEQACAwAAAAAAAAAAAAAAAAAAARExUf/aAAgBAwEBPxBq0TUP/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERQbH/2gAIAQIBAT8QdUWOoorD/8QAHRABAAICAgMAAAAAAAAAAAAAAQARITFBUWFx0f/aAAgBAQABPxAhabI8+IVuU03qKisLYFzEhBInQ9ai22tBzdr8iAgHg9z/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAADAgT/2gAMAwEAAhADEAAAAUq1Q65xaay//8QAGhABAAIDAQAAAAAAAAAAAAAAAQASAgMhIv/aAAgBAQABBQLDH1sCvJUsBNgD/8QAGREAAwADAAAAAAAAAAAAAAAAAAECERNh/9oACAEDAQE/AZhJYNHT/8QAGhEAAQUBAAAAAAAAAAAAAAAAAAECAwQicf/aAAgBAgEBPwF9jXBJD//EABoQAQACAwEAAAAAAAAAAAAAAAEAERASITH/2gAIAQEABj8CLlpjauxIUHk//8QAGxAAAgIDAQAAAAAAAAAAAAAAAAERITFBYVH/2gAIAQEAAT8hW9VlS68LYHxFKSZBTiRCILg//9oADAMBAAIAAwAAABAwP//EABcRAQEBAQAAAAAAAAAAAAAAAAEAQVH/2gAIAQMBAT8QX9Scn//EABgRAAMBAQAAAAAAAAAAAAAAAAABEUGx/9oACAECAQE/EHU5jpRWH//EABwQAQEBAAMAAwAAAAAAAAAAAAERACFBUTFhgf/aAAgBAQABPxAHMb4e/rATBEPPWqKgLwLqsvwhlMq4PNtuGKBCPXf/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -597,7 +597,7 @@ e grande parte deles apresenta a seguinte estrutura:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 331px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 331px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -608,7 +608,7 @@ e grande parte deles apresenta a seguinte estrutura:&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 155.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAfCAYAAADnTu3OAAAACXBIWXMAAAsSAAALEgHS3X78AAAEK0lEQVRIx71V23LaSBD1//9FvHZclf2EfYvtBC+IiwDdkISExFUYkBDiztnuFijEZW9VKlurqsOgme4zZ7p7Wjd47zmdZBgEHl5eSmi3WvA8H2qzidlsjn97bnb7PTbbHbZX2Gy2OByOCHsenr59w+PjE5otDeWKgih6Re6z/dmHwPM32XojzofD4QpH7Gl8Vzxhf7Z567PK1rhZk5qPnhMd/Xg8Cvj/icac8v2HxRWE4vBb+IDwVx/xYV/8n4S/etwPCX8nlvivjnx99HcVck3Zto1yuYxKpYLKeVQIVUX5aY5Rq9WosHOO7LoOC9lZhufnZ9zf3+Ph82cZPxNuP33C3d0d/ri9Ffz55QseHh5kLV0uxbco7LdHTdMU8/kcSZIgjmMsFgsBz13+X8A2fKriyNl6jf5gCNtx0Wrr0A1LGoHnedB1E27Xl/UwDCgUDr17cB0HNo0+2XS9AJ2Og144zAlZJl/80vcSqtUGNE1Dl0i0dj5Xpw7j2B001DYMs4OKUqO4NdAiuyqPJKKiVIjD+EG4WmW0i507GQYs00CtrqJNxm1Nh2VZpNaASYQ6vTdVFQ3aSDdsImzDcT2kq3UeQ25V09epGGhaR3pevaGKClVtyQYakXFIGo0mWq02NOqPDVrjkDSI3CQxU+qTopD7WNgf0G4G+v0R+mFfYjaeTCWWjsRWow1UIfX9gOLJNmNZD8IQXZobkX1x5N0+73176YOn83iUuUWc0GYmKdORbXZFT7zuj0f6OdCPHDlJlnj6+oTy34osXgxYOZcUb3YhcMM56toIemeCcnOIsjqAakZiy8gJlwlVfPkcfBuGrqNju9ju9tLSt7udtHvGMErR8eeIlxuk2VaQrbf5J4Tsz4QpKjUKNGVMNx0iNqFbDmZxhmS1wZLATkweDl9huhGSNKPvzkZILuoKwkWSoW4toNoLtJ0FFGOOJo3l9hjl1hjP9REsUsWfgV4voKJ2YVICw8EIHGWOHZMVhHGywmONYmFFULQxkUeoahPUTX6foGFNEacb+TBF0xmGowmm01dMJhGG4wmGw5HEuiDkgvSHCfqTJcJRgmC8xIBiNZqmCOh9QPMcKyb0SaHjeFJKvt+DYXVgUQ1yuXDy3nz1Th/geE7QgY4cohf06Va5crMc15dk2k6PbA4/FHr9GF2CP0hkdIIFPFLdDWNMZivszhkPiKzr9c4F3adsp3ilG5IsV9cxzKDoEUqUgBcC/292plAJDSOSEDDZjhT0glCObJM6jiWrYuWMgnAer1BSR6hRErhIFT1PyPfmSErmdDpQ0HfixOpct4tms0XHdKTTDMeR3KqisDnLrOxrdYC/SiFqRLha50UrNXYuiT0RcjIU/gwodXHmjS41WChcZRuwSsaMsFhmkrU1gdekvRF4LqZrOl/Ecr/5/YJrm38AGoEoxF2sMwoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 155.20833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAfCAYAAADnTu3OAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEQklEQVRIx8VWa3eiSBDN//8Xk8fM5Dfsp5mzmcRE8YECgrwUBBUVH7xEvVNdaDLJTvJhd87ZPqdoLLovVbduF17gt+PI11no4/Gxhl63C3c4RLfbQxRF+GhclGWJvNih+MXyosB+f0Dgj/D33Q98+/YdHbmH2mMdYTjFjvcUb/bs2H+RZjlt3r+xA8py/24U5T/WV3vSNMNFRoDvjuMRh8OB7Uj3R5qF770hsDhCsYY3/Ad7DXgqxPGDt7+fxP8B+AdTxp/kEP8q5Q+rLIaQiOM4qNfraDQaaNAs0SxJUmXCdzLxu0mWZRnvTX8HWNAJqNVquLm5wZfPn3F9fc33l58+4erqCleXl7gku729xdevX/h+sVicALMz4OtUkyThRavVim25XFZGPjHHcXzyxfQ8hji+zymLSxBMYFoOeooGVdPhuEO4rgtN68Oyh/D9McaBj8HAhE1+27JgOi5cosZxPRgDC+7IR5KeUhZAD/cPxEsTiqLAInBN1XD/4wHNdgemOUC704PWN1CXmsRdi/aoPHd7KvPZavcIkFIWl22S0iaTnaqmQdf7DNSjxWKjrutQVRX9/gAq/e52ZHpBh3wGASoUoYnNNq0As7zAgviQqef1FJ3nFoFJzTY6nS6nrRCISWl2CKhLbUylvthqy/RMZ2BNNzCbL6oqiz42DkIoFIHnBfA9HyPfx2Q6h207FLnFUbRaMnRjQNyOMBp58MchycvFcDQiXkcYU59M87xKeXfqfSVpsNy/mBir9Za463O02zT/pZ+/9PYDXfZ04ZS32wT3d/dUgBo7zwtE5IIO8bLDCcEdx2gpIVRjiroc4Ekeo6VRZBl1711ZVXmbbFn9MvEiyO0TZ7phIisKbunFrvokCJtEWxgO6W+VYZMUZDmSrKg+IQSYVoAppLaCrqpTaiZLSNEMLFbJaVPBEQjwYLKEZk6x2qTIiS8Bcv6ePAOu6WHbiNEexFCsGHVtga61wlNvSjbBXYtStBdEx4GK5sMyqyyGJOT9iTsGPgMK/dy1A7T7UzTVKVr6DJKYtRkaCs39iKLN+EMUzZcIqJpRNMd0FiGczuiUhSyXoixfhO0Ga3gTsnCNIZk/3SAkvkah8G+YK/FVG3ni+NksJZeOZ98w+PQkacrFY8D0+at3fMcOnI7YIACHQ49BdRKzaQ1Zv7rhEI9lJexzhLa/4lmY5cU8O+SbzJNnQNEkbNslQQ8ZOCaNzumECK0yh9mJQ4n4epAnqMkh6sRfR48gDyLm0SFgUWEB6HljStfmruMTd8Vuz35hr6pc604YVDZmqFMh2lSYu06IeJNxylm+438SLkVlWjY1jR70wYAl5o8nfKqEdKoqE+AjSeS7NMZfDx7qBH7WnwDKT5IQm8TZbjQkPD5JWG+2JP7qNJ1lU/VDuixJxIs4wZwsXqfMRUbCFbNYJEzcr9YbLOMVm+Be+N6u+QmEJCjAu1bxZwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -663,7 +663,7 @@ o tempo de execução é no máximo k*f(n) para alguma constante k.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 399px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 399px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -674,7 +674,7 @@ o tempo de execução é no máximo k*f(n) para alguma constante k.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABcSAAAXEgFnn9JSAAABJElEQVQoz42T226DMAyGef835KZC3IxK0zYgCTnZ/+xQOqChWiQrjmL+fD7QMDPUdG37trbjPmZbORO895imCSmlZ1yjB73YC9aEdE+JJZbgnJhNmGeDYRgQQjgKLstyEuQXwVUoIwYCHWFLTM65+FXCmm+FapcvkkB0XYe2bXG73dD3fT3lPRUJirMZVixFAkscuaUYP4jOpG8FNc0YGcrGEkfOgYkOAucyXaasdbImgWMUsQiyrlrbs39oShHKayeNkQZMFiwdJB+eZO/G7I8wrIR+dBjvo+xmTe8xX+XjU0muKJss6ZifGfbbI5iArCR6WXm9ts6Ujc7P58cXotSIKJf0dVCTjoYQXlmU2qq9EKoTQpS0Q2nOf0wf1If3P8Qm+Au3VLMLZhCDPgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 59.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABcSAAAXEgFnn9JSAAABHUlEQVQoz42S3W6DMAyFef9X5KZC3ExrqRDNr+2c2dkKKE23WbIwiflyfMhQSoGIwMLqczzf23ULIoFzDrfbDSmlvW8gIoQQGsABPENTEnhvIEHwrN9FLMsCY/wBLC/AEKQm0aE256SZq8IY43tgW4uUqmzfUwh7j2maMI4jLpcL5nmu1r0Az6qYC9yDdUSunhXtE+chqgYdXy1+BYaoI/KhSn76zlO0+XZkVpDbMop5ExNER+x529YDMe9AXQIlgnekoxJocyh6oKnrXaHedaoK7Q+p7/D3B9bPFdlApkgYpR7TH6+ncmAFbsuqsAAKpOC+2e+iVTkwC64fdyRVRGzjuqr4eb96aXvWY/mi0Arz0Zpyyt/Pf+QT3gK/APKmsulklXUPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -713,7 +713,7 @@ complexidade desse algoritmo é constante, representada por &lt;code class=&quot
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -724,7 +724,7 @@ complexidade desse algoritmo é constante, representada por &lt;code class=&quot
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAGTWkMlMmJN/wD/xAAcEAABAwUAAAAAAAAAAAAAAAAAAQMyAgQSMUP/2gAIAQEAAQUCmMPUYyOdsLv/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwEn/8QAFREBAQAAAAAAAAAAAAAAAAAAAhD/2gAIAQIBAT8BU//EABkQAAMAAwAAAAAAAAAAAAAAAAABERIgUf/aAAgBAQAGPwLJnIV6f//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExcUFh/9oACAEBAAE/Idk+0URLHM4N3Fso2zx8IMvGJFTP/9oADAMBAAIAAwAAABDE3//EABYRAAMAAAAAAAAAAAAAAAAAAAABEf/aAAgBAwEBPxC2yn//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQIBAT8QAFl//8QAHBABAQADAAMBAAAAAAAAAAAAAREAITFBYXGR/9oACAEBAAE/ENwEvB8AMflgT2+saqC95gV3yT9wGgbphMkt23P/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAQFA//EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAGTWkMlMGZN/wD/xAAdEAABAgcAAAAAAAAAAAAAAAAAAgMBBBIhMTJD/9oACAEBAAEFAtxh5FOTnLCrR//EABURAQEAAAAAAAAAAAAAAAAAAAIQ/9oACAEDAQE/ATP/xAAVEQEBAAAAAAAAAAAAAAAAAAACEP/aAAgBAgEBPwFT/8QAGRAAAgMBAAAAAAAAAAAAAAAAAAEREiEg/9oACAEBAAY/ArM3IJfH/8QAGxABAAMBAAMAAAAAAAAAAAAAAQARIUExYZH/2gAIAQEAAT8h1V92si2aHDzcW7ZbOfRBv2aQn//aAAwDAQACAAMAAAAQpx//xAAWEQEBAQAAAAAAAAAAAAAAAAARAAH/2gAIAQMBAT8QW6Tf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAECAQE/EABZf//EABsQAQADAQADAAAAAAAAAAAAAAEAESExUWGx/9oACAEBAAE/EBRndAC/AEvKqDNYzqxfYAo9SvWwlWdLRLFDut/Z/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -767,7 +767,7 @@ os passos da seguinte forma:&lt;/p&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;total = total + num&lt;/code&gt;: n * 2 operações&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Para cada elemento do &lt;em&gt;array&lt;/em&gt;, executaremos uma soma &lt;code class=&quot;language-text&quot;&gt;(total + num)&lt;/code&gt; e uma
-atribuição &lt;code class=&quot;language-text&quot;&gt;(total = &amp;lt;resultado&amp;gt;)&lt;/code&gt;. Chegamos à conclusão que
+atribuição &lt;code class=&quot;language-text&quot;&gt;(total = &amp;lt;resultado&gt;)&lt;/code&gt;. Chegamos à conclusão que
 &lt;code class=&quot;language-text&quot;&gt;complexidade = 1 + (n * 2)&lt;/code&gt;. Mas como chegamos a &lt;code class=&quot;language-text&quot;&gt;O(n)&lt;/code&gt;?&lt;/p&gt;
 &lt;p&gt;Deixando a parte matemática de lado, quando trata-se de análise assintótica,
 estamos mais interessados no que realmente interfere na performance do

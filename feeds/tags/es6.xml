@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - es6]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - es6]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Django, Sass e ES6 no Heroku com Multiple Buildpacks]]></title><description><![CDATA[Anteriormente, falamos sobre como utilizar o  com Sass
 e ES6. Se você quisesse utilizar o Heroku,
 com uma aplicação Python executando operações de build
 em Node.js, seria uma tarefa um tanto árdua,
@@ -30,7 +30,7 @@ cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -41,7 +41,7 @@ cabeça que você deveria evitar desde o princípio.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAIBAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHISawFD//EABoQAAICAwAAAAAAAAAAAAAAAAECABEQEjH/2gAIAQEAAQUCAXVas9WLj//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAABABMf/aAAgBAQAGPwLWv//EABkQAQADAQEAAAAAAAAAAAAAAAEAESFRYf/aAAgBAQABPyG4eK3sKQsziDD5FTnGKrs//9oADAMBAAIAAwAAABD7H//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EFf/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0oaJu+D2KDaGsdgsFnNgLgQsD8yM6kRMeS5K2f/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHk5uBEh//EABoQAAICAwAAAAAAAAAAAAAAAAECERIAEDH/2gAIAQEAAQUCFarEnoxdf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABUQAQEAAAAAAAAAAAAAAAAAABAB/9oACAEBAAY/Amv/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhUTFh/9oACAEBAAE/ITY3WVvYUhZnE8n5MOcYtuz/2gAMAwEAAgADAAAAEGsf/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QV//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/EGf/xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhYTFB/9oACAEBAAE/EK0Y0Rd8EYA0NNezQLOQloELA/MibUiJjyJclez/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -213,7 +213,7 @@ certo sentido. Primeiro, por nos permitir escrever &lt;em&gt;Javascript&lt;/em&g
 numa versão mais prática, legível e divertida. Segundo, que com o auxílio do
 &lt;a href=&quot;http://browserify.org/&quot; title=&quot;Browserify lets you require modules in the browser&quot;&gt;&lt;em&gt;Browserify&lt;/em&gt;&lt;/a&gt; (por exemplo),
 podemos deixar a resolução de &lt;em&gt;path&lt;/em&gt; do &lt;em&gt;JS&lt;/em&gt; nas mãos da tríade &lt;em&gt;NPM/Browserify/Babel&lt;/em&gt;
-(ou você achou que aquele &lt;code class=&quot;language-text&quot;&gt;import &amp;#39;redux&amp;#39;&lt;/code&gt; veio de graça?).&lt;/p&gt;
+(ou você achou que aquele &lt;code class=&quot;language-text&quot;&gt;import &apos;redux&apos;&lt;/code&gt; veio de graça?).&lt;/p&gt;
 &lt;p&gt;Isso nos permite escrever &lt;em&gt;Javascript&lt;/em&gt; modular, utilizando recursos que já são &lt;em&gt;built-in&lt;/em&gt;
 (na especificação) da linguagem, sem necessariamente nos preocuparmos em como resolveremos as
 questões de importação (como por exemplo, se usaremos &lt;a href=&quot;http://requirejs.org/&quot; title=&quot;RequireJS is a JavaScript file and module loader&quot;&gt;&lt;em&gt;RequireJS&lt;/em&gt;&lt;/a&gt;
@@ -222,7 +222,7 @@ e deixamos toda essa responsabilidade nas mãos da ferramenta de &lt;em&gt;bundl
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 620px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -233,7 +233,7 @@ e deixamos toda essa responsabilidade nas mãos da ferramenta de &lt;em&gt;bundl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsSAAALEgHS3X78AAABqElEQVQY00VQW0sbQRSey5mdnZ3d7G5izEZysQGVavGGSL1D+54SsGpSMSiojQ/SKFITqUalGMGoiOCDDyL4WihtH/rU39azKW0PB+Yb5rucM4RSKgAiyvIsHXPsVNSPKOVpXZiZblbenxQL80O5npivhNnbFXMtC7jBGKftIoQSCcJVOqqdwPUyMT+qrYTrflpb+XF5/lSrtor58ssRTyolTcYYpX+6LaYhZJwDcBBgmEJyJuKO3n6b/3lzeTD/5nR5KT86nPXcdiZy2f9kRjlesMNiILhBGXTa6rhc+nV3+1Dd+XJ8tPl69kWHL4XJwxiB7v+SUQo8NMMDDIH2kPQijfLS96uLr6eN85Xi5LNsrjNhWzbS2+S/YuDCAOlqJ+75jEK4BGGM0P5M6np//6yysf5qsjAykIonkEkIvqGSIwjFOCyioMPvz6UJ4Yl40BWkp8bGt0vLd81WY7f2YXWjsrCYCZKGtKRUuKGBn8Mxn5FwWwamEHPjE9Wtvd2t+vXB52+tZv1d6XCn9nj/+LFaHxwYNZWd7e7r6R163jecTqY97bim/g2WwkJ29mDhJgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 41.66666666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAABnklEQVQY02NgYGRkZWbh5+AS4OIW4eWVFRYU4ubm4+QKd3Tsy8/rS4lJNNc0lhbjZGVXlhDi5+JiZmZlYmJmBAMGBkYGVhYWPk5uQS4ecT4+aSEBYR4eYW6e8tjIrf1di6uK+2ODU+3MRLm42VjZmJiYGBkhCKwZTAIFmZlBiIWVBaiCRYibM83PY8ek/rrQwJa4yBALU2VBATYWdmZGZpBauM1MjEBdLMxgxMLMwgbSzCrEyV4bFbpv+pQVVVUbmhtzPV10RYFinEyMTCCVTKxwmyF8FgiDlZWViZkV6PL8IO81XR1rG2ubI0Os5GUVRMX4uHmBngSqRGhmYWZlY2YX4OaTEhUFBQAQgwgGFSnJ3vLyjpzsdDf7WCtTRQkpoNFgWaCHmUEqgMqAHgAyBPl5dVRkmVnY5WTklRXVPR2cyxKSJjd3tlU15iakp4dFyUlKcXDycnHxsLKwcrCxsQEDh5kZpBlsObO9mWVtaWNlQeOUuvbNPW1VkeFVucXL5i+tr2zU0zLk4OCWl1dX0zDS1TFVkFUU4uEX4OQGAIc7Q85JPpMqAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -277,8 +277,8 @@ COMPRESS_PRECOMPILERS &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt
 &lt;p&gt;O &lt;em&gt;path&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;./node_modules/.bin/browserify&lt;/code&gt; é onde está o binário após ser instalado
 via &lt;code class=&quot;language-text&quot;&gt;npm&lt;/code&gt;. Os parâmetros &lt;code class=&quot;language-text&quot;&gt;infile&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;outfile&lt;/code&gt; dizem respeito ao arquivo de entrada e
 de saída, respectivamente.&lt;/p&gt;
-&lt;p&gt;Agora basta voltarmos ao nosso &lt;em&gt;template&lt;/em&gt;, e adicionarmos o atributo &lt;code class=&quot;language-text&quot;&gt;type=&amp;quot;text/es6&lt;/code&gt; à
-nossa &lt;em&gt;tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Agora basta voltarmos ao nosso &lt;em&gt;template&lt;/em&gt;, e adicionarmos o atributo &lt;code class=&quot;language-text&quot;&gt;type=&quot;text/es6&lt;/code&gt; à
+nossa &lt;em&gt;tag&lt;/em&gt; &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&gt;&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;django-html&quot;&gt;&lt;pre class=&quot;language-django-html&quot;&gt;&lt;code class=&quot;language-django-html&quot;&gt;&amp;lt;!-- index.html --&amp;gt;
 
 {% load compress %}
@@ -350,7 +350,7 @@ e fácil de lembrar.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -361,7 +361,7 @@ e fácil de lembrar.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAFOYWWVkBR//8QAGBABAQEBAQAAAAAAAAAAAAAAAQACERL/2gAIAQEAAQUCdGQc5m72S9N//8QAFhEBAQEAAAAAAAAAAAAAAAAAABES/9oACAEDAQE/AYy//8QAGBEBAQADAAAAAAAAAAAAAAAAAQADERP/2gAIAQIBAT8Bcou7sX//xAAbEAACAQUAAAAAAAAAAAAAAAAAARARITFhcf/aAAgBAQAGPwKrFtRcXDJ//8QAGhAAAwADAQAAAAAAAAAAAAAAAAERITFR4f/aAAgBAQABPyGgMHE6vRslSmqFJNwM3//aAAwDAQACAAMAAAAQKD//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQMBAT8QECWr/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAERMWH/2gAIAQIBAT8QUIUYs//EABwQAQEBAQACAwAAAAAAAAAAAAERIQAxUWGB0f/aAAgBAQABPxClBUzzf3myojg26x+XaIP0dOsGx4BEaD6d5Lq7/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABxWFrLTnlH//EABkQAAMBAQEAAAAAAAAAAAAAAAABAhEQEv/aAAgBAQABBQJ0pSczzdGemf/EABYRAQEBAAAAAAAAAAAAAAAAAAAREv/aAAgBAwEBPwGMv//EABgRAAMBAQAAAAAAAAAAAAAAAAABEQMT/9oACAECAQE/AXrXTsj/xAAbEAACAQUAAAAAAAAAAAAAAAAAARARITFhcf/aAAgBAQAGPwKrFtRcXDJ//8QAGRABAQEBAQEAAAAAAAAAAAAAAQARIVHB/9oACAEBAAE/IdIclD5Zn2XsrItIhryMv//aAAwDAQACAAMAAAAQGP8A/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EBAlq//EABgRAAIDAAAAAAAAAAAAAAAAAAABETFh/9oACAECAQE/EFIhRiz/xAAdEAEAAwABBQAAAAAAAAAAAAABABEhMUFRYXGB/9oACAEBAAE/ELyi1ZzfiY7Gk0cte06QfkCYDaYAACCPaKdU/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -414,7 +414,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;E para tornar ainda mais fácil essa prática, também ganhamos a função reservada
 &lt;code class=&quot;language-text&quot;&gt;super&lt;/code&gt;, que é responsável por executar o método pai, dada a chamada em um
 determinado método de uma classe filha.&lt;/p&gt;
-&lt;p&gt;Para finalizar o nosso exemplo, na linha &lt;code class=&quot;language-text&quot;&gt;constructor({nome, idade, esporte=&amp;#39;Basquete&amp;#39;})&lt;/code&gt;
+&lt;p&gt;Para finalizar o nosso exemplo, na linha &lt;code class=&quot;language-text&quot;&gt;constructor({nome, idade, esporte=&apos;Basquete&apos;})&lt;/code&gt;
 temos a apresentação do recurso &lt;a href=&quot;https://github.com/lukehoban/es6features#default--rest--spread&quot; title=&quot;Leia mais sobre default, rest e spread&quot;&gt;&lt;em&gt;default&lt;/em&gt;&lt;/a&gt;.
 Com ele, somos capazes de definir valores padrões caso a passagem de determinado
 parâmetro seja omitida.&lt;/p&gt;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oauth2]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[OAuth2.0: Autorização simples (or is it?)]]></title><description><![CDATA[É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - oauth2]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[OAuth2.0: Autorização simples (or is it?)]]></title><description><![CDATA[É isso mesmo, meu caro leitor! Já pincelamos alguns assuntos que cerceiam o desenvolvimento
 de APIs, desde
 bibliotecas
 até a construção de especificações.
@@ -34,7 +34,7 @@ o interessado provavelmente já o conhece e já possui as ferramentas necessári
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -45,7 +45,7 @@ o interessado provavelmente já o conhece e já possui as ferramentas necessári
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEEA//EABUBAQEAAAAAAAAAAAAAAAAAAAIB/9oADAMBAAIQAxAAAAGGVZFUCKf/xAAZEAEBAAMBAAAAAAAAAAAAAAABAAIREjH/2gAIAQEAAQUC9swFLvRLf//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/AVn/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPwEJ/8QAFxAAAwEAAAAAAAAAAAAAAAAAABARIf/aAAgBAQAGPwKmKP8A/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERMXH/2gAIAQEAAT8hbwJJqoTZWB0bt4Mp/9oADAMBAAIAAwAAABCTL//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/EASf/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qgf/EABsQAQADAQEBAQAAAAAAAAAAAAEAESExQVFx/9oACAEBAAE/EEKDZi/Mjk2jG/SUJXhOKDdvT8iJMO7n/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABRVjIpkqU/wD/xAAYEAEBAAMAAAAAAAAAAAAAAAABAAMSMf/aAAgBAQABBQLtkAUt0Jb/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwFZ/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BCf/EABcQAQADAAAAAAAAAAAAAAAAABAAESH/2gAIAQEABj8CmFP/xAAaEAADAAMBAAAAAAAAAAAAAAAAAREhQXGR/9oACAEBAAE/IW4q9IJ8QkzQHRu3gyn/2gAMAwEAAgADAAAAEJAv/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8QBJ//xAAVEQEBAAAAAAAAAAAAAAAAAAAQEf/aAAgBAgEBPxCB/8QAGxABAAMAAwEAAAAAAAAAAAAAAQARITFBUXH/2gAIAQEAAT8QRi0x8ZFpHTG+yUpXRHBBu3k+REmHc5//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -67,7 +67,7 @@ o interessado provavelmente já o conhece e já possui as ferramentas necessári
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -120,7 +120,7 @@ por exemplo) e prover funcionalidades da nossa própria &lt;em&gt;API&lt;/em&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -131,7 +131,7 @@ por exemplo) e prover funcionalidades da nossa própria &lt;em&gt;API&lt;/em&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 97.39583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACeElEQVQ4y41U2bKbMAzl//+rD31rZzq37W2zEJaAsdnXAFF1BCYk02mvZhyILaSjoyM7XT9QrFLSJqdxmsjaMNwoig0F14TCSFOic3lif2/4f+V9kxZ0v9/JGW4jZXlJRVFTVTVU1a0czPMsT2tdN7BftfixT8m+8IFNDGRa/R0cAAmyX/xYkE7T4ogPgR6JEp1RyGh/H306nkPZtwH35jRtR1lWkuFAgrSsN0cgUkkqiVAWEuMJGrwgZr87jeMkfgAmCLFx8DW511Sg70tFmXgHP9hHwhtTBL/bOIpP3XSSwA+V+Dh123NAQ8cglYwwGxAlp4weqPBh1/UbHdZAh+tF5HIVghBR67qhlkvHhl2whoPYRoCKlgO++qDLivmFjwRcDmlzAspt7T5+7M+y0FVLkVS1VubsM75mByo/UNxdvSnhumoz5maBioqre+oy/cNq5lAlmYgajcE7AkNaKBUc51wq+IVaJCDQxKYinS8c9f2N10A9fwD+gAqaQyAELFfx16u40TR7Ll2uOPoPN6H3i+YSG8kOERtTkKdi+nz4Rp++f6U377gR/1oFdOp63GXm2AGxeVHJAZBB5EAmqygpyTJShss22SbePc+QUsQIt1nGj8ziNNNHbOv6bt7tUwL+1XmVQpoVdHRD7rKigCcB4wm5YLosQkwMkNdN+xB2oAqK0+opsJVNrAx5cS7jGemCuzuQe4mkCbZkNA5rGT1uyk9uyi9PS/Z9QPDohZreToq+vAfkRakkOJwCXv5yV64XxdnbjR6Q1Os9+BywplNg6BxoOvkJmaySC0LGkb+BZCAlLTdV9eBwL4XnoOB0pnU2/9Oo5f0PPc+/pxlfiU0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 97.39583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAATCAYAAACQjC21AAAACXBIWXMAAAsTAAALEwEAmpwYAAACg0lEQVQ4y3VU2Y7bMAz0//9b0YcC3WaTNOvblnzfZ1gObbnZZFeAoESmyJnhSFbddBTFKekkp2EYyYxpnilWGfmBpiBK+HshcdM00+MYxolC/p6kJd3vd7KWZaWibKiuWwlGAMY8L9RzAeyNvNe2PWV5JSv2+n6UBOt6p64f5JwkrDgREGDabiRIl3XdUPJBMJgZbVHWgvBmh/ThhKQ0xy0rPQ+raTsqioohFwK7ZLQmEHuOF8t0fSXU8BuFsQLdysW7bhC5BCGoOUFKfpQJtXGHjgEqOADU2EcB7IEugGC0XU9eoCgItcRaLWc/OSmdvfRIZFboBcqgh4Q9J3umie8eN87eEQvCnMUuq0Y2ONuREPoimWKEaEjDBYDCNENYMCCP5QALobx9XCXABBptTOJH1M/j8cyR8Ktp6MCLqA794EWsQI3fSmeC+jG59U3hI2HIVpGknAgr7IUVVCFTVW3+HXfDW3KwHbh7MPEkNwQB0BYWUnFOaVKSUjnFjAhaYl/sxmualcIAaKUp6PLvm6I/tpaKMHDOviyKhoJU08+PE/24vtE5cCTRupveyNIwC3h08yXbBnbQbOiMg+EpVMLUrFOUpHTxXbaVTTc/EDesX1jLZw9GLINoiE0kxfX61D36vqums8Yhw37+6PJr8EYLEsBjBvVG+XP8siccp+k/wqxsqWr6F89BSzxfbsiPgqe4KduNQafzopYYXEPc8UilW1MaNOVD07uTvAgOhLDNu5vSr2tMflywjiVdbh5d/nrSYUw0xXb3psAieGWyvH4RPMkqOjuaTreI3q4BRXp7ZDFh7iBMyOXumv8HZVx4o83jTVmWRfRBUUzD4Hngm3k0/gEOOL8BdFzrPwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -167,7 +167,7 @@ de e-mail e consequentemente ter certeza de que &quot;você é você&quot;.&lt;/
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -178,7 +178,7 @@ de e-mail e consequentemente ter certeza de que &quot;você é você&quot;.&lt;/
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 81.77083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAABv0lEQVQ4y6VU7Y7bIBD0+79gf1RqpbTXxIkTDOYb4+ksTlLndJbuVKTRsqwYlp2FLueMECJiTERErRXLstxtffoyxL7HPfD0OyFTaoTWBt6Hl43b8d7frm8jXaqALwtMmDGFApcXcMo1wDJ4NZ6x0jblXBBTajaljFJKI6l1gXURZa7obkzqMDj8OBzx823A8WrR3yyuU8R5dPj2/VcjlQTVTeHP2xHn/oxTP2C4KpYrYLIBh989Eg/qbAaGKZHI4KQLelMwMj0Ta7P96DFxXslorYNhaabJwrgM7WdmObc6u5DWDGemO/P0WVIXu0Vd10qzOzVcNXlog847Bz1SlFFhVIoZ6HY1Y0wTS07fU/gjdD7NMH6FdoXCrFdYan2SfWV0LAV0qCQsTWlR1CUiFshhYh8QP7IWe8hEU/k4Zlyo6EBlL9qjV67hPMrc4vzwGTOJLZZwt6+QlmOGFcolnNgqFx0aZKOQCdFg4joXtTN2yZ6E5GO6aNcJdBwdy+s9sPUDH0DcgcSSXFlUlt6y7C3ps/8dXeJTciRd4f99Dh/gU20jP8w0TdDsO+m92tpluduvYN3Tvfway+cbeA9/AZto5qwfPYV+AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 81.77083333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQ4y6VUa2+jMBD0//+H9+G+tL0oCWDwC7+A6awhd9UlqSLV0mQWg8fr2XVUKQUpZeRcMM+xxbVWyLwg54xlWSFj27Y7/D+vYozQesQ0GQrOeDZuix/Nf32nCjeP/Al5xUxOC8CwcawbPAOZX7lGMq3Esq4tXtYjQyLXpT2rKQGnMeLt1OP9rNGZGb2NGENp8a/fH+jJssgYg+ulwzBo9P3QTiW2+BDx/ueKXOohqHfBty7iY4gU2gUHl7nJCBMrM9xgKNB3PbQITtzY7J4XCo3GozBLtXDregN2Xg4uAh4/c0JOtz3z92D5hkWZ4ayFd7Zx8A7WCAdYPq/r8wo/ggqxYHKxYbQzjE9IUY4inL5UcMMrQ9Ee+PwPtA5iww2V53gVrcqsAU5TRje5Vt1uCjgPDmftcBl9iy+aTFz4zuYNrFXjG9zBgaYrz0AzratUjV822LSLs4pDe44Nj8TuBKWBPTt5pHdmLuSM0SVoeiqYQv4bywKxZOd7yEVQYn7glZN+Enw3tlbt79HusrMOznl4toq0yast8rBtUk4Uc63nrNv77idQa7voS/vLqrw6P8lO8Akuj+Y6qSKTZwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

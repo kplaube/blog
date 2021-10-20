@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - restless]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Construindo APIs em Django com Restless]]></title><description><![CDATA[Construir APIs REST em
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - restless]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Construindo APIs em Django com Restless]]></title><description><![CDATA[Construir APIs REST em
 Django nos dias atuais é uma
 tarefa no máximo corriqueira. Com a ajuda de bibliotecas consagradas, como
 Django REST Framework e
@@ -114,11 +114,11 @@ manualmente.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X GET http://localhost:8000/movies/ | json_pp
 
 {
-   &amp;quot;objects&amp;quot; : [
+   &quot;objects&quot; : [
       {
-         &amp;quot;description&amp;quot; : &amp;quot;The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow. (133 mins.)&amp;quot;,
-         &amp;quot;id&amp;quot; : &amp;quot;7e383f9c-5dc4-4b0d-9864-71e05a5d271b&amp;quot;,
-         &amp;quot;title&amp;quot; : &amp;quot;Rogue One&amp;quot;
+         &quot;description&quot; : &quot;The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow. (133 mins.)&quot;,
+         &quot;id&quot; : &quot;7e383f9c-5dc4-4b0d-9864-71e05a5d271b&quot;,
+         &quot;title&quot; : &quot;Rogue One&quot;
       },
       (...)
    ]
@@ -143,14 +143,14 @@ manualmente.&lt;/p&gt;
 &lt;p&gt;Mais uma vez o &lt;em&gt;Restless&lt;/em&gt; não introspecta o modelo, logo, é necessário fazer a validação e criação do objeto
 em banco &quot;na mão&quot;.&lt;/p&gt;
 &lt;p&gt;Vamos testar se o comportamento é o esperado:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X POST -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;{&amp;quot;title&amp;quot;: &amp;quot;just a test&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;foo bar&amp;quot;}&amp;#39; http://localhost:8000/movies/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X POST -H &quot;Content-Type: application/json&quot; -d &apos;{&quot;title&quot;: &quot;just a test&quot;, &quot;description&quot;: &quot;foo bar&quot;}&apos; http://localhost:8000/movies/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Provavelmente retornará um &lt;em&gt;exception&lt;/em&gt; dizendo que o acesso não foi autorizado. O &lt;em&gt;Restless&lt;/em&gt; por padrão espera
 que todo o &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt; seja realizado através de uma requisição autenticada. Para isso, antes
 de executar cada verbo, ele consulta o método &lt;code class=&quot;language-text&quot;&gt;is_authenticated&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -161,7 +161,7 @@ de executar cada verbo, ele consulta o método &lt;code class=&quot;language-tex
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7ydaX4mWf8A/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAEQMSEyH/2gAIAQEAAQUCxlL6rS+gRZsZ/8QAFhEAAwAAAAAAAAAAAAAAAAAAAhAx/9oACAEDAQE/ASi//8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEQISIx/9oACAEBAAY/AulYow0i8+n/xAAaEAEBAAIDAAAAAAAAAAAAAAABABExIUFR/9oACAEBAAE/ISc8RjD0mMnbbXdkdK//2gAMAwEAAgADAAAAEBQv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEx/9oACAEDAQE/ENEj/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQIBAT8Qo//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExQWH/2gAIAQEAAT8QZPJAefYb2oA7Kklzp2LRMUdlQAAMGf/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7idqX4eWf8A/8QAGRAAAwADAAAAAAAAAAAAAAAAAAECAxET/9oACAEBAAEFAsThPtJD2iR0z//EABYRAAMAAAAAAAAAAAAAAAAAAAIQMf/aAAgBAwEBPwEov//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/ASf/xAAbEAACAgMBAAAAAAAAAAAAAAAAAgERECEiMf/aAAgBAQAGPwLpbIVdQXn0/8QAFxABAQEBAAAAAAAAAAAAAAAAAQAxEf/aAAgBAQABPyFRUQDw0g6HWNsdujV//9oADAMBAAIAAwAAABDz/wD/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQMBAT8Q0SP/xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAgEBPxCj/8QAGRABAAMBAQAAAAAAAAAAAAAAAQAhMRFB/9oACAEBAAE/EERA1XKJuRwHBYnQLObGiJVDX2F4AAMZ/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -219,9 +219,9 @@ seu &lt;em&gt;ID&lt;/em&gt;? Simples! O método &lt;code class=&quot;language-te
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X GET http://localhost:8000/movies/7e383f9c-5dc4-4b0d-9864-71e05a5d271b/
 
 {
-  &amp;quot;description&amp;quot;: &amp;quot;The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow. (133 mins.)&amp;quot;,
-  &amp;quot;id&amp;quot;: &amp;quot;7e383f9c-5dc4-4b0d-9864-71e05a5d271b&amp;quot;,
-  &amp;quot;title&amp;quot;: &amp;quot;Rogue One&amp;quot;
+  &quot;description&quot;: &quot;The Rebel Alliance makes a risky move to steal the plans for the Death Star, setting up the epic saga to follow. (133 mins.)&quot;,
+  &quot;id&quot;: &quot;7e383f9c-5dc4-4b0d-9864-71e05a5d271b&quot;,
+  &quot;title&quot;: &quot;Rogue One&quot;
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Note que o &lt;code class=&quot;language-text&quot;&gt;DjangoResource&lt;/code&gt; resolveu a passagem do parâmetro &lt;code class=&quot;language-text&quot;&gt;pk&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Para finalizar, vamos criar os métodos &lt;code class=&quot;language-text&quot;&gt;update&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;delete&lt;/code&gt;, que serão responsáveis
@@ -253,12 +253,12 @@ por atualizar e remover o recurso:&lt;/p&gt;
 &lt;p&gt;Assim como o método &lt;code class=&quot;language-text&quot;&gt;create&lt;/code&gt;, não há nenhuma &quot;mágica&quot; resolvendo a operação para a gente.
 Precisamos explicitamente realizar a atualização e remoção do dado através do &lt;em&gt;ORM&lt;/em&gt; do &lt;em&gt;Django&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Agora somos capazes de atualizar:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X PUT -H &amp;quot;Content-Type: application/json&amp;quot; -d &amp;#39;{&amp;quot;title&amp;quot;: &amp;quot;Zombieland&amp;quot;, &amp;quot;description&amp;quot;: &amp;quot;So much fun&amp;quot;}&amp;#39; http://localhost:8000/movies/bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4/
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ curl -X PUT -H &quot;Content-Type: application/json&quot; -d &apos;{&quot;title&quot;: &quot;Zombieland&quot;, &quot;description&quot;: &quot;So much fun&quot;}&apos; http://localhost:8000/movies/bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4/
 
 {
-  &amp;quot;title&amp;quot;: &amp;quot;Zombieland&amp;quot;,
-  &amp;quot;description&amp;quot;: &amp;quot;So much fun&amp;quot;,
-  &amp;quot;id&amp;quot;: &amp;quot;bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4&amp;quot;
+  &quot;title&quot;: &quot;Zombieland&quot;,
+  &quot;description&quot;: &quot;So much fun&quot;,
+  &quot;id&quot;: &quot;bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4&quot;
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E remover um filme através da API:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -X DELETE http://localhost:8000/movies/bd02d0eb-4b75-4bfe-8222-ba24f7a1cad4/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;

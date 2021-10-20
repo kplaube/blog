@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - css3]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[As pseudo-classes e os pseudo-elementos]]></title><description><![CDATA[O CSS tem diversas coisas legais. Uma quantidade
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - css3]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:18 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[As pseudo-classes e os pseudo-elementos]]></title><description><![CDATA[O CSS tem diversas coisas legais. Uma quantidade
 de propriedades, valores e funcionalidades, que por inúmeras vezes me
 fogem da memória. Uma das coisas mais interessantes do CSS, mas que
 geralmente me confunde, são as pseudo-classes e os
@@ -102,7 +102,7 @@ pelas grandes pessoas que estiveram “em cima dos palcos”.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 300px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 300px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -113,7 +113,7 @@ pelas grandes pessoas que estiveram “em cima dos palcos”.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 68.22916666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAQFBv/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAGXb52oKyf/xAAYEAADAQEAAAAAAAAAAAAAAAABAgMRE//aAAgBAQABBQJa6RAFbUE6qMNaPwSU2T//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAZEAACAwEAAAAAAAAAAAAAAAAAAQIRIRL/2gAIAQEABj8CoT6Y4raGc3hFyjtH/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARIVFh/9oACAEBAAE/IW2Eqo2RRgqrZ22xRwLvsv6sW9n/2gAMAwEAAgADAAAAEPP/AP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EIj/xAAWEQEBAQAAAAAAAAAAAAAAAAARECH/2gAIAQIBAT8QdJ//xAAbEAEAAwEAAwAAAAAAAAAAAAABABEhMUFxof/aAAgBAQABPxCguwOUy5CBdE+ksXSDTdaZACeUL2iA8YQ7rnqE0aXOq7P/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 68.22916666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBBQb/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABVu860SNCf//EABgQAAMBAQAAAAAAAAAAAAAAAAECAxEU/9oACAEBAAEFAlrpEAVtQTqow1o/Okpun//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAIDAQAAAAAAAAAAAAAAAAABAhEhEv/aAAgBAQAGPwKhPpjitoZzeEZSjtH/xAAbEAEAAwEAAwAAAAAAAAAAAAABABEhMUFRYf/aAAgBAQABPyFthKuNkUY5Wz3bfMUMC79l9Fi2+z//2gAMAwEAAgADAAAAELA//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QiP/EABYRAQEBAAAAAAAAAAAAAAAAABEQIf/aAAgBAgEBPxB0n//EABwQAQADAQADAQAAAAAAAAAAAAEAESExUWFxof/aAAgBAQABPxCkr7pymXgQLon6Ql27HTdaZAD6TwIIxwndc+QyW0mqq5//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -276,7 +276,7 @@ em sua versão 9.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 180px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 180px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -287,7 +287,7 @@ em sua versão 9.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 129.44444444444446%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAaABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQCBQYD/8QAGAEAAgMAAAAAAAAAAAAAAAAAAwQBAgX/2gAMAwEAAhADEAAAAeU2Wl7oFkKTnWKyeiPQFGLk/8QAGxAAAgMBAQEAAAAAAAAAAAAAAQIAAxESEyH/2gAIAQEAAQUC4aeN2im2FlU6Ml7FbqbW5VvhikzTP//EABsRAAIBBQAAAAAAAAAAAAAAAAABEQISEyEx/9oACAEDAQE/AYpfCxC05Mh//8QAGhEAAgMBAQAAAAAAAAAAAAAAAAECAxQRIf/aAAgBAgEBPwGVliSNVg/Y8MyP/8QAIBAAAQMCBwAAAAAAAAAAAAAAAAIRMQEQEiEiQUJRYf/aAAgBAQAGPwJ9PRwJQKoZbWUNgf0i81P/xAAdEAEBAQACAgMAAAAAAAAAAAABEQAhMWHBcaHx/9oACAEBAAE/IWNPflPuY6ifeEem6UOt84LqPOCPN0WwsjMEXxkry3EGKc79zf/aAAwDAQACAAMAAAAQpDPA/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAFhEXH/2gAIAQMBAT8Q3yTHTkOT/8QAHBEBAAIBBQAAAAAAAAAAAAAAAQARUTFBkaHw/9oACAECAQE/EGA3MRy9QIN0ird+5n//xAAdEAEBAAIDAAMAAAAAAAAAAAABEQAhMUFRcYGx/9oACAEBAAE/EG1O1SHnp95YJD30O+HFlJVUvl85YErkN1dlxFLNKdzAgGiUxJrGG9I8ZLEVNX2PeDSunuWSKdtwmMjhmNn9mf/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 129.44444444444446%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAaABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUBAwQC/8QAFwEBAQEBAAAAAAAAAAAAAAAABAIBA//aAAwDAQACEAMQAAABqnZpPa4aBdQWL+3w9FAbp//EAB0QAAIDAAIDAAAAAAAAAAAAAAECAAMRBCISEyH/2gAIAQEAAQUCKNPTboptjFVPzNnIZlupu6o3VjsrJE8mn//EABoRAAICAwAAAAAAAAAAAAAAAAABAhIRITH/2gAIAQMBAT8BrF8KIWnkuf/EABoRAQACAwEAAAAAAAAAAAAAAAEAAwIUQlH/2gAIAQIBAT8BbcwH2bdk4CNBP//EABwQAAEEAwEAAAAAAAAAAAAAAAABAhEhEBIxYf/aAAgBAQAGPwKdW1RTWHGDisKRrPpxSxYU6p//xAAdEAEBAQEAAgMBAAAAAAAAAAABEQAhYXExQYHx/9oACAEBAAE/IY1KKmcxV+i/O6OdcFJ5w+cFwEp94RrHuco+pJZogeGZFL7wlB6d/a3/2gAMAwEAAgADAAAAEEclgP/EABkRAQACAwAAAAAAAAAAAAAAAAEAERBBcf/aAAgBAwEBPxC1WmIiicz/xAAbEQEBAAEFAAAAAAAAAAAAAAABABExQVFhkf/aAAgBAgEBPxAqGjienycrdiS5v//EAB4QAQACAgIDAQAAAAAAAAAAAAEAESExQWFRkdGx/9oACAEBAAE/EAalAn2m2oEPCto+QIliKKvrEKpdNqtFzADHCnOD5ASYFkoEUAtpKnBgOwGutRSVoYuJCgbVwIyZsI2P75//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

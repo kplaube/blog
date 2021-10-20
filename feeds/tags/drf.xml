@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - drf]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API-First: Processo e ferramentas]]></title><description><![CDATA[No post anterior tive a oportunidade de falar
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - drf]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[API-First: Processo e ferramentas]]></title><description><![CDATA[No post anterior tive a oportunidade de falar
 de uma forma mais abrangente sobre o API-First.
 O exercício é interessante, uma vez que é possível focar no conceito,
 ao invés de ferramentas e processos. Mas o objetivo
@@ -14,7 +14,7 @@ e &lt;em&gt;Kubernetes&lt;/em&gt;, vamos focar primeiro na especificação.&lt;/
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 422px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 422px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -25,7 +25,7 @@ e &lt;em&gt;Kubernetes&lt;/em&gt;, vamos focar primeiro na especificação.&lt;/
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 70.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsSAAALEgHS3X78AAACE0lEQVQoz6WTXUvbUBjH++H8AAoFL0T03m8giNbBeqFChnSInTDohXdjY4jTrTYtXaxual/WrmkS0qYnabo2aZs0zes5Z4m2pLLdjD38eC7+PD8C/0Mi+D8mEiyEMIQhCHmOU6/VGJqWRFECALruUx4Syr4+hz8QIRYAThRFRWnKMpxdh/OYBLJ3TaHDQ3xygpJJnEy6b5L22RnOZgNI0t/o4sIkM5MGbTcaVv2n3e2GX7ZSqdbCghCNdqJRfmlpsrwMNzb0vb3mzo4Qi/Hb2714HBOvzPfvFCo/yOfM24Ld+zWV3dNTdXGxv7Y2WF3tr6xY6+ve1paTSKgHBz79/X2dILzj40kmrX+70QuUWSl5hjGVYa+HaBpzHGIYzLIeyzqiCCUJy3JAp4MAsOWOMxq6quqqimdZzwqDczyVY7ruyDJ1y7LxH3XNCo9Mu56zEQwyjmHr1Vrp/oFnucd79Pd3HsJBGwkSFkUE2p4gOUA3RrqtjR3N8Mb+Hju67mh+olnD4US1PTuU804uPnxJDAhCI47w0WuY+Kh8qEjlslQsMBRV/3pN+1C3bKEEipVOud6tTpxZYaSd2QSbMX53F7xI4ASBiZT+1jf9u893l+eF8083AVfF9F3re1X+URTvVaM3lRmX/oIuczhLokzaTZPWFac0BLXVUnlx1Jb0tqgFAE0QBk1e4RSj/6ztaWfo336M3/Cz8WcA9s4KAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 70.3125%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAACE0lEQVQoz6WRS08aURzF/W5+ABMWrtwLfgdgYQIEXNimI03ctLEJSUtjhGXRWhzbYpVhmAHSKA9HmBnmwcxc5v24twPFgLFNmvSfk//mnt89N+euof+YtdmCEAXBUhD6rksSBEWSg36/3+sFnjfzrGoJh/iK5rdBVhBGgiCqKitJwaP7D8ne2VkQj8NsNkinYTrtZjL20REql1GphE5Owg2LRbNcMkjCpimLbNgPzBJ2CoXe+no3EhlGIrcbG/rmZhCLTnPZu0Sil0zexuN8KoX2963iB/krPsGrdu2bzXGPycfH+tbWNBYzolGwve3s7HiZjHd4qGOYfnAwxTArn3ffvjHxqlG/Nq5qVqcdOM4CDgAIWBbyPOS4cPs878kyVFUEwEyqGkiSp0xcXfcB8EKz6y6fHbYRPFU4wDBERRFVxXDs1S6ffRV60jWcd8vcM927bptuD/qD5z3DuXUG8z5Hw+ZP1OnAFu012w4taLxiyootA1/TXGViSaFkUxJ1YQw4w9GXyZcuvivu5sa5vcnea5TH0KuP6vvmiKRYEm9fnDc/V6nzKv3lsoM3GKLF0y2eAra2gHHnIjlOpEbpFJfCEPYCvSxo75psg+KokKzUP50SldN6JeTr9zc0T4VHijlZwA8+U4PfCVS/gddXXu3G/jFSGU5jWW0oGJxojgWDDzXWOQ6MhioDLPWvhf3L/C7sF6uI8WUC/ORLAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -73,7 +73,7 @@ e repita o processo. &lt;em&gt;API-First&lt;/em&gt; é tão sobre negócios quan
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -84,7 +84,7 @@ e repita o processo. &lt;em&gt;API-First&lt;/em&gt; é tão sobre negócios quan
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 18.229166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAmklEQVQI13WK2QrCMBBF8/+/VvRFcCnYkmaxLRXUbJPJotP63OEwHC6HfffPOWeMqbXuBSyXEiEgRojZOLAOEDNAoHGeJyVFxOQ8YqKMZo8xWb9mAZANkxmklo+5Fe/mog/XsVMvPsierwipKTi2SzdaLnTPRa+eh9vYnNXpvrCPTxbKRvZYXawmkNc/BooJeRszNSSU0d+k/AD1l+RzfKFz7gAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 18.229166666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAmUlEQVQI13WK2w6CMBBE+/+/ZtQnDfpg6AUoKhFbe91tccVnJpvJ7Jlhy4Zqrc457/2yLVZKzSkiQMroQwoxA2BKMeek9dB3ChBDJCtEiFPrY6YZ7Zm8G6G6fnw24rU7d4eL5sPcCtlyOioGPtrj9cHHD5eKC3lT077RtDy1E5tdtgGNBxPQxmJDMR7Jf3Dlbw8rBLvy//sPXyaB5IHjA/9BAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -147,8 +147,8 @@ e a princípio apresentaremos apenas respostas em &lt;em&gt;JSON&lt;/em&gt;.&lt;
 &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Além disso, esboçamos as seguintes rotas:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/channels/&amp;lt;id-do-channel&amp;gt;&lt;/code&gt;: Pega a lista de artigos&lt;/li&gt;
-&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/articles/&amp;lt;id-do-artigo&amp;gt;&lt;/code&gt;: Pega o artigo completo&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/channels/&amp;lt;id-do-channel&gt;&lt;/code&gt;: Pega a lista de artigos&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;GET /api/v1/articles/&amp;lt;id-do-artigo&gt;&lt;/code&gt;: Pega o artigo completo&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Vamos ocultar complexidades fora do escopo da &lt;em&gt;user story&lt;/em&gt; apresentada (como por exemplo, paginação e
 autenticação). Além disso, propositalmente não definimos um formato &quot;oficial&quot; para &lt;code class=&quot;language-text&quot;&gt;pub_date&lt;/code&gt;, apenas
@@ -259,7 +259,7 @@ se quisermos manter uma linguagem ubíqua é fundamental renomearmos esse elemen
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 600px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 600px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -270,7 +270,7 @@ se quisermos manter uma linguagem ubíqua é fundamental renomearmos esse elemen
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7ydaX4mWf8A/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAEQMSEyH/2gAIAQEAAQUCxlL6rS+gRZsZ/8QAFhEAAwAAAAAAAAAAAAAAAAAAAhAx/9oACAEDAQE/ASi//8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABsQAAICAwEAAAAAAAAAAAAAAAABAhEQISIx/9oACAEBAAY/AulYow0i8+n/xAAaEAEBAAIDAAAAAAAAAAAAAAABABExIUFR/9oACAEBAAE/ISc8RjD0mMnbbXdkdK//2gAMAwEAAgADAAAAEBQv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAAEx/9oACAEDAQE/ENEj/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQIBAT8Qo//EABoQAQADAQEBAAAAAAAAAAAAAAEAESExQWH/2gAIAQEAAT8QZPJAefYb2oA7Kklzp2LRMUdlQAAMGf/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABQADBP/EABYBAQEBAAAAAAAAAAAAAAAAAAIBA//aAAwDAQACEAMQAAABL7idqX4eWf8A/8QAGRAAAwADAAAAAAAAAAAAAAAAAAECAxET/9oACAEBAAEFAsThPtJD2iR0z//EABYRAAMAAAAAAAAAAAAAAAAAAAIQMf/aAAgBAwEBPwEov//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/ASf/xAAbEAACAgMBAAAAAAAAAAAAAAAAAgERECEiMf/aAAgBAQAGPwLpbIVdQXn0/8QAFxABAQEBAAAAAAAAAAAAAAAAAQAxEf/aAAgBAQABPyFRUQDw0g6HWNsdujV//9oADAMBAAIAAwAAABDz/wD/xAAWEQEBAQAAAAAAAAAAAAAAAAAAATH/2gAIAQMBAT8Q0SP/xAAVEQEBAAAAAAAAAAAAAAAAAAAQMf/aAAgBAgEBPxCj/8QAGRABAAMBAQAAAAAAAAAAAAAAAQAhMRFB/9oACAEBAAE/EERA1XKJuRwHBYnQLObGiJVDX2F4AAMZ/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -326,7 +326,7 @@ uma ferramenta escrita em &lt;em&gt;Javascript&lt;/em&gt;, fácil de instalar e 
 
 $ curl http://127.0.0.1:4010/channels/1/items/1
 
-{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Anthony Mackie fala sobre se tornar o Capitão América&amp;quot;,&amp;quot;pub_date&amp;quot;:&amp;quot;Sat, 29 Feb 2020 19:21:37 +0000&amp;quot;,&amp;quot;summary&amp;quot;:&amp;quot;Quero que o meu Capitão América represente todo mundo, não só um grupo específico de pessoas&amp;quot;,&amp;quot;image&amp;quot;:&amp;quot;https://uploads.jovemnerd.com.br/wp-content/uploads/2020/02/anthony-mackie-capitao-america.jpg&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;Conteúdo completo&amp;quot;,&amp;quot;url&amp;quot;:&amp;quot;https://jovemnerd.com.br/nerdbunker/anthony-mackie-fala-sobre-se-tornar-o-capitao-america/&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+{&quot;id&quot;:1,&quot;title&quot;:&quot;Anthony Mackie fala sobre se tornar o Capitão América&quot;,&quot;pub_date&quot;:&quot;Sat, 29 Feb 2020 19:21:37 +0000&quot;,&quot;summary&quot;:&quot;Quero que o meu Capitão América represente todo mundo, não só um grupo específico de pessoas&quot;,&quot;image&quot;:&quot;https://uploads.jovemnerd.com.br/wp-content/uploads/2020/02/anthony-mackie-capitao-america.jpg&quot;,&quot;content&quot;:&quot;Conteúdo completo&quot;,&quot;url&quot;:&quot;https://jovemnerd.com.br/nerdbunker/anthony-mackie-fala-sobre-se-tornar-o-capitao-america/&quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Isso permite que novas avaliações sejam realizadas, modificações aconteçam com antecedência, casos de uso sejam testados,
 e até mesmo que outros &lt;em&gt;stakeholders&lt;/em&gt; comecem a desenvolver a parte deles sem precisar esperar pelo &lt;em&gt;backend&lt;/em&gt; todo estar pronto.&lt;/p&gt;
 &lt;h2&gt;3: Oficialize a especificação&lt;/h2&gt;
@@ -340,7 +340,7 @@ seja a ferramenta mais estilosa para gerar documentação a partir do &lt;em&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -351,7 +351,7 @@ seja a ferramenta mais estilosa para gerar documentação a partir do &lt;em&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAwUlEQVQY05XNzQ7BQBSG4d4rTUisxV/EApWwsRBX4iaEsJciBJ1qzOi002nn9AztyqqpL89y3jNG01rU+1Oza5mdcbU9KqPSGtZ6k8ZgZogo8ug9ljEA6D9n8IA/XgelFECKf0zjN/45hLky+6bZS4P4yf7KwxgihSWJJJUqzeKNo+drOD3YxQsdHzyh3RCLkQBZlP+8I3q5hbPztu/s6Pg3Kl2ePgMs4HJkIo9tqlcHcFlIqCAsQwW8JRZgEoMkiz9eRbKeMkZCywAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAvElEQVQY05XPuQ6CQBCA4X1LlU4fwKMxFmhiQmn0SXwQrb0aLQSy4VKugT1gVqCyIjD5iinmL4ZMt/vx0tDm69F8PZzpXQxmurbYTFYGEUK6Pk0h5VyonkMY45Z34zIrS+wd/+3Y6Dj1JQFeXKw4YZIXiknsKJdFVRMzVrsTXs3IDoDGIsiVB9jOBQwyrL6s48O5vNvJi4ZPGlkf5iSll2ILN0UfmtgDdXzg28+cL9AP0C8EiQhzbBczRFQ/hiGwedbB1x0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -381,9 +381,9 @@ levantarmos o nosso serviço, e ela operará como uma espécie de &lt;em&gt;Comp
 &lt;p&gt;Executando contra o nosso servidor &lt;em&gt;mockado&lt;/em&gt;, tudo deveria funcionar &quot;out of the box&quot;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ dredd ./openapi.yml http://127.0.0.1:4010
 
-warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:66 (from line 66 column 7 to column 13): &amp;#39;Parameter Object&amp;#39; contains unsupported key &amp;#39;schema&amp;#39;
-warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:73 (from line 73 column 7 to column 13): &amp;#39;Parameter Object&amp;#39; contains unsupported key &amp;#39;schema&amp;#39;
-warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:102 (from line 102 column 7 to column 12): &amp;#39;Schema Object&amp;#39; contains unsupported key &amp;#39;allOf&amp;#39;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:66 (from line 66 column 7 to column 13): &apos;Parameter Object&apos; contains unsupported key &apos;schema&apos;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:73 (from line 73 column 7 to column 13): &apos;Parameter Object&apos; contains unsupported key &apos;schema&apos;
+warn: API description parser warning in /Users/klaus/Desktop/openapi.yml:102 (from line 102 column 7 to column 12): &apos;Schema Object&apos; contains unsupported key &apos;allOf&apos;
 pass: GET (200) /channels duration: 63ms
 pass: GET (200) /channels/1 duration: 20ms
 pass: GET (200) /channels/1/items duration: 14ms
@@ -407,7 +407,7 @@ muito bem:&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -418,7 +418,7 @@ muito bem:&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 26.5625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABH0lEQVQY0yWOT0sCQRyG90P1SaprEASd6lAXL0GXCCJED1YQFAQdgiKoU1IrFGWReEkio9VyyVWb3Z3RmW3+7Mz8cu3huT4vr6PfW9r7tAD/amOEVEJIKxWoVKpUCS4pFkIYAKOYpeFISu55uuw6sWVjsWXEUDzWUioThGLOhZQim+u+2MvcWVy5GjWg85Z6jxxANW/gYNaJLI2AhSnpkx6iqEcCQgmOh3KC1qAVc4+L1+7pQJMh+w3HT8BUHp4WZ6azOAbWFbjW81/JTx19B0Oc0EROzgPAIETn22vu3pY/CDq0f9G4v2vW/NvD+ZVNJzKjCDjqtlFhJyzth/kSfq5HNBEZWex/tYrLcyfrS9Wqiy1f3ShM5RYaH+X87tEfcCQF6Xb7oJ8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 26.5625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAABJ0lEQVQY0yXOO0vDUBjG8XwcP4uD4Oagm4O7IkVROgiVDkUUdBG8LSIVBCtesK1K6WgFoYKt1jQxjcfmpDm5nHteo8J//fE8Bu9b3LYl6P9EqhjnSUK1lKCkUKmIA2k/D+NhDFKRgf56JZLTbltfnBgexL+loa8JVoGvA8IihLw4oYxSDaAHbVqeP3YvK6NWar2xXisBiF5qeHPc8DTJJOK+iWxn5H6gPiZ+EIRSSi6EUilXrLK3UT09GKnIS6JPEYXAbhrNyYlpI5MYIof7j47ZxoMnZDm+F5KIc8EYAwAXuWfFpepOoWP1TOIePlyV766Dxu5CvvS3DPS738HLa3h1HS/mg/tmdprRzPIMW+Z7cW5qPzdbvz0PQeYKW2MrM7VevbR99AMPyQNmgnC7sAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -572,7 +572,7 @@ porção de lógica repetitiva (como &lt;em&gt;CRUD&lt;/em&gt;) através de uma 
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -583,7 +583,7 @@ porção de lógica repetitiva (como &lt;em&gt;CRUD&lt;/em&gt;) através de uma 
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 42.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABw6BIH//EABcQAAMBAAAAAAAAAAAAAAAAAAACMQH/2gAIAQEAAQUCXSDX/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERMWH/2gAIAQEAAT8hgN0ump//2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qp//EAB0QAAIBBAMAAAAAAAAAAAAAAAERACExQVFhoeH/2gAIAQEAAT8QCjQLQOuZVSLP3qDaLBzP/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 42.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAMF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABw6BIH//EABcQAAMBAAAAAAAAAAAAAAAAAAACMQH/2gAIAQEAAQUCXSDX/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERMUH/2gAIAQEAAT8hgN0u01P/2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Qp//EABsQAAICAwEAAAAAAAAAAAAAAAERACFBUZHw/9oACAEBAAE/EKQKbQOpakx+5BuBYOZ//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -602,7 +602,7 @@ porção de lógica repetitiva (como &lt;em&gt;CRUD&lt;/em&gt;) através de uma 
     &lt;figcaption class=&quot;gatsby-resp-image-figcaption&quot;&gt;Usar DRF é como entrar em hyperdrive (pinpointe.com)&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;Uma das vantagens de utilizar um &lt;em&gt;viewset&lt;/em&gt; é que ele também se encarrega de fazer o mapeamento das &lt;em&gt;URLs&lt;/em&gt;. Por exemplo, o &lt;code class=&quot;language-text&quot;&gt;ChannelViewSet&lt;/code&gt; uma vez que mapeado,
-responderá para rotas terminando em &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;/&amp;lt;id-do-channel&amp;gt;&lt;/code&gt;. Além disso compreenderá que um &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; é relacionado à criação de um novo elemento, bem como &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;/&amp;lt;id-do-channel&amp;gt;&lt;/code&gt; está relação à remoção:&lt;/p&gt;
+responderá para rotas terminando em &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; e &lt;code class=&quot;language-text&quot;&gt;/&amp;lt;id-do-channel&gt;&lt;/code&gt;. Além disso compreenderá que um &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;/&lt;/code&gt; é relacionado à criação de um novo elemento, bem como &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;/&amp;lt;id-do-channel&gt;&lt;/code&gt; está relação à remoção:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# urls.py&lt;/span&gt;
 
 &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; django&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;urls &lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; include&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; path
@@ -620,7 +620,7 @@ urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -631,7 +631,7 @@ urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 54.6875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABYlAAAWJQFJUiTwAAABj0lEQVQoz32R2UrDUBCG+yYa8UahthVv1Noaalu3otblxmcS8RkEn8HaNHF5ABFEhEosiCbaJmma5WxZnKR1K9LDx89wmG/mwElslPfy2fVyYYfPra8sV9aK1VJhu5DfzC2ufrO0UC7kKyW+srtR4osHayvVIr8FPYn02Pj81DSfzuRT6WwymZtJzU1OZriJ2b9kOC6+hOQGN+NcQpQkQRTP63VBEqEALgShVq/XhGEaYkOSGmKckiQ2Li8TYRgGQUApDXw/HHlMEr47fpeGCiSOmiNZVVVZlpvNpqIovu8zRhljUAQwL04vnnty0zo8uzu6kvdPb4+v5YFsmr23N6Xd7miarutGJzoapeCHnhfpfQIgCKJ3+nH2ZcdxwXFdzAijmBJMESIjgE4YPdgMe+7vH55ary9ts/VudC0XI/IDHgahX7LW0R6fWs9KWzVstWvrlosIHfDfK2AzIV8yoQybDjFs0rWpYRG9hz6MiI6JDAvhkTJlHrYR6TnYwcRyoSBmDBQOgr4hMIbf8ED8BMauEY/dCRS/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 54.6875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABYlAAAWJQFJUiTwAAABoklEQVQoz32QXU8aQRSG+TksxCvrCkgQKAhVY/wJ3vqHeul9b/ozetGYsB125SN2iV+ALbMfyHyc2dndnlVrUJuePHkzczLvnHcm160f7G63OrX9Rrn1sdrpNg7btU/Nyl7NbK7RwE672jlu1+u7R3i4Ve02y+2caeQbHza7O5VOudQyzb3SdmVjo1wsvqFULJhGYSuPmt8yUI1Swcg5wyGx7fNejzjOD9tGLEJ6hFj9vkUQ8qh97AwHzuXoAvXn6GI8GtiDQS5NU621FAI1/W9NArDmYhKo8ym/CgE7mXk2m7muOx6PcBFFkZSgFMSxTpIY60nTNPn87er0q4N68oWcfb9+Nofhcj6/p57n+wH1/AXNCkBpHUdRjPq0SJJkPQhuMzNjfLHwGRcKIgQAhysh4A2MyxWXjMMDw3DR82Qc27PI0L2ZzP3LqeeF7L1zHc7xXX/NHvXd67vbXz4NGV3yYCUETgaV6b8ivDLj6yBYAV1Kbwk0FL8DPqV8Rvm9z/EyofD0OowBvMSOtFZcKiZAKsXkIyJjJbIASr8HvxCNfwCaXhd1UyI/swAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -655,20 +655,20 @@ urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span
 &lt;p&gt;Considerando tudo o que foi dito até então, podemos esperar que temos o recurso mapeado no endereço &lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api/channels&lt;/code&gt;,
 e que a partir desse, poderemos desempenhar a listagem, adição, edição e exclusão de dados desse recurso.&lt;/p&gt;
 &lt;p&gt;Começamos então adicionando um elemento, ao enviar o método &lt;code class=&quot;language-text&quot;&gt;POST&lt;/code&gt; para o endereço com final &lt;code class=&quot;language-text&quot;&gt;channels/&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -XPOST http://localhost:8000/api/channels/ --data &amp;#39;{
-    &amp;quot;id&amp;quot;: 1,
-    &amp;quot;title&amp;quot;: &amp;quot;Klaus Laube&amp;quot;,
-    &amp;quot;description&amp;quot;: &amp;quot;Python, Django e desenvolvimento Web&amp;quot;,
-    &amp;quot;link&amp;quot;: &amp;quot;https://klauslaube.com.br&amp;quot;
-}&amp;#39; --header &amp;quot;Content-Type: application/json&amp;quot;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -XPOST http://localhost:8000/api/channels/ --data &apos;{
+    &quot;id&quot;: 1,
+    &quot;title&quot;: &quot;Klaus Laube&quot;,
+    &quot;description&quot;: &quot;Python, Django e desenvolvimento Web&quot;,
+    &quot;link&quot;: &quot;https://klauslaube.com.br&quot;
+}&apos; --header &quot;Content-Type: application/json&quot;
 
-{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Klaus Laube&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Python, Django e desenvolvimento Web&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+{&quot;id&quot;:1,&quot;title&quot;:&quot;Klaus Laube&quot;,&quot;description&quot;:&quot;Python, Django e desenvolvimento Web&quot;,&quot;link&quot;:&quot;https://klauslaube.com.br&quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como o serializador espelha as propriedades do modelo &lt;code class=&quot;language-text&quot;&gt;Channel&lt;/code&gt;, caso um campo obrigatório não seja enviado
 no &lt;em&gt;payload&lt;/em&gt;, o próprio serializador se encarregará de fazer essa validação e de retornar detalhes do erro ao usuário:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -i -XPOST http://localhost:8000/api/channels/ --data &amp;#39;{
-    &amp;quot;title&amp;quot;: &amp;quot;Klaus Laube&amp;quot;,
-    &amp;quot;description&amp;quot;: &amp;quot;Python, Django, APIs, e desenvolvimento Web&amp;quot;
-}&amp;#39; --header &amp;quot;Content-Type: application/json&amp;quot;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -i -XPOST http://localhost:8000/api/channels/ --data &apos;{
+    &quot;title&quot;: &quot;Klaus Laube&quot;,
+    &quot;description&quot;: &quot;Python, Django, APIs, e desenvolvimento Web&quot;
+}&apos; --header &quot;Content-Type: application/json&quot;
 
 HTTP/1.1 400 Bad Request
 Date: Tue, 11 Feb 2020 18:00:44 GMT
@@ -680,23 +680,23 @@ X-Frame-Options: DENY
 Content-Length: 36
 X-Content-Type-Options: nosniff
 
-{&amp;quot;link&amp;quot;:[&amp;quot;This field is required.&amp;quot;]}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+{&quot;link&quot;:[&quot;This field is required.&quot;]}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Como estamos falando de uma &lt;em&gt;API&lt;/em&gt; &lt;em&gt;REST&lt;/em&gt;, é normal esperarmos que um &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt; no mesmo endereço traga uma lista de &lt;em&gt;channels&lt;/em&gt;:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl http://localhost:8000/api/channels/
 
-[{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Klaus Laube&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Python, Django e desenvolvimento Web&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br&amp;quot;}]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+[{&quot;id&quot;:1,&quot;title&quot;:&quot;Klaus Laube&quot;,&quot;description&quot;:&quot;Python, Django e desenvolvimento Web&quot;,&quot;link&quot;:&quot;https://klauslaube.com.br&quot;}]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E normalmente, um &lt;code class=&quot;language-text&quot;&gt;GET&lt;/code&gt; em &lt;code class=&quot;language-text&quot;&gt;channels/1&lt;/code&gt; deve trazer detalhes daquele recurso:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl http://localhost:8000/api/channels/1/
 
-{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Klaus Laube&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Python, Django e desenvolvimento Web&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+{&quot;id&quot;:1,&quot;title&quot;:&quot;Klaus Laube&quot;,&quot;description&quot;:&quot;Python, Django e desenvolvimento Web&quot;,&quot;link&quot;:&quot;https://klauslaube.com.br&quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Para atualizar o registro, enviamos o método &lt;code class=&quot;language-text&quot;&gt;PUT&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -XPUT http://localhost:8000/api/channels/1/ --data &amp;#39;{
-    &amp;quot;title&amp;quot;: &amp;quot;Klaus Laube&amp;quot;,
-    &amp;quot;description&amp;quot;: &amp;quot;Python, Django, APIs, e desenvolvimento Web&amp;quot;,
-    &amp;quot;link&amp;quot;: &amp;quot;https://klauslaube.com.br&amp;quot;
-}&amp;#39; --header &amp;quot;Content-Type: application/json&amp;quot;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -XPUT http://localhost:8000/api/channels/1/ --data &apos;{
+    &quot;title&quot;: &quot;Klaus Laube&quot;,
+    &quot;description&quot;: &quot;Python, Django, APIs, e desenvolvimento Web&quot;,
+    &quot;link&quot;: &quot;https://klauslaube.com.br&quot;
+}&apos; --header &quot;Content-Type: application/json&quot;
 
-{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Klaus Laube&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Python, Django, APIs, e desenvolvimento Web&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br&amp;quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+{&quot;id&quot;:1,&quot;title&quot;:&quot;Klaus Laube&quot;,&quot;description&quot;:&quot;Python, Django, APIs, e desenvolvimento Web&quot;,&quot;link&quot;:&quot;https://klauslaube.com.br&quot;}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;E para finalizar, com &lt;code class=&quot;language-text&quot;&gt;DELETE&lt;/code&gt; é possível remover o recurso:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl -XDELETE http://localhost:8000/api/channels/2/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Mágico, não?!&lt;/p&gt;
@@ -705,7 +705,7 @@ X-Content-Type-Options: nosniff
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -716,7 +716,7 @@ X-Content-Type-Options: nosniff
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUCAwT/xAAWAQEBAQAAAAAAAAAAAAAAAAACAQP/2gAMAwEAAhADEAAAAVzVJo0VJAo//8QAGhAAAgMBAQAAAAAAAAAAAAAAAAMBAhESE//aAAgBAQABBQJGejGdVKjJnD//xAAXEQADAQAAAAAAAAAAAAAAAAABAhAR/9oACAEDAQE/AQ2T/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEQESFBQv/aAAgBAQAGPwLJfK1CFH//xAAYEAADAQEAAAAAAAAAAAAAAAAAARExIf/aAAgBAQABPyFmQRbUJWtm6KuhpF4I/9oADAMBAAIAAwAAABBY7//EABYRAQEBAAAAAAAAAAAAAAAAAAEREP/aAAgBAwEBPxARJn//xAAWEQEBAQAAAAAAAAAAAAAAAAARAAH/2gAIAQIBAT8Q10m//8QAHBABAQACAgMAAAAAAAAAAAAAAREAITFhQVGB/9oACAEBAAE/ELpIjVKHeBMI1/AHveaSja5xjbu/ccHsgBcTOc//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFAv/EABYBAQEBAAAAAAAAAAAAAAAAAAMBAv/aAAwDAQACEAMQAAABm1oj00owU//EABoQAAICAwAAAAAAAAAAAAAAAAECAAMQEhP/2gAIAQEAAQUCoI6PZssWWMcf/8QAFxEAAwEAAAAAAAAAAAAAAAAAAQIQEf/aAAgBAwEBPwENk//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABkQAAIDAQAAAAAAAAAAAAAAAAEQABFBIf/aAAgBAQAGPwLsvBiD/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARITEQ/9oACAEBAAE/IUCO7KqFOwmogC88/9oADAMBAAIAAwAAABCYP//EABURAQEAAAAAAAAAAAAAAAAAABEQ/9oACAEDAQE/EBBP/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAB/9oACAECAQE/ENdJv//EAB4QAQACAgEFAAAAAAAAAAAAAAEAESExQVFhcYGR/9oACAEBAAE/EGBlI2pdd4QVOea6H7MJUys1rKXfuJbwAEF6z//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -747,19 +747,19 @@ X-Content-Type-Options: nosniff
 de &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt; terá uma propriedade &lt;code class=&quot;language-text&quot;&gt;channel&lt;/code&gt;, com a chave primária do elemento relacionado como valor:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;(...)
 
-&amp;gt;&amp;gt;&amp;gt; item = Item.objects.first()
-&amp;gt;&amp;gt;&amp;gt; serializer = ItemSerializer(item)
-&amp;gt;&amp;gt;&amp;gt; data = serializer.data
+&gt;&gt;&gt; item = Item.objects.first()
+&gt;&gt;&gt; serializer = ItemSerializer(item)
+&gt;&gt;&gt; data = serializer.data
 
-&amp;gt;&amp;gt;&amp;gt; print(data[&amp;quot;channel&amp;quot;])
+&gt;&gt;&gt; print(data[&quot;channel&quot;])
 1&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Antes de passarmos para o &lt;em&gt;viewset&lt;/em&gt;, vamos discutir como ficará a &lt;em&gt;URL&lt;/em&gt; desse recurso. Se seguirmos a mesma receita utilizada para &lt;code class=&quot;language-text&quot;&gt;Channel&lt;/code&gt;,
 teremos um endereço semelhante com o abaixo:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api/items/&amp;lt;id&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api/items/&amp;lt;id&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Mas que tal se &lt;code class=&quot;language-text&quot;&gt;channels&lt;/code&gt; fosse parte da &lt;em&gt;URL&lt;/em&gt; de &lt;code class=&quot;language-text&quot;&gt;items&lt;/code&gt;? É possível atingir tal resultado com o conceito de recurso aninhado.&lt;/p&gt;
 &lt;h2&gt;Nested resources&lt;/h2&gt;
 &lt;p&gt;O que queremos, na prática, é o seguinte:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api/channels/&amp;lt;id-do-channel&amp;gt;/items/&amp;lt;id-do-item&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;http://localhost:8000/api/channels/&amp;lt;id-do-channel&gt;/items/&amp;lt;id-do-item&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Com isso, ao acessar &lt;code class=&quot;language-text&quot;&gt;channels/1/items&lt;/code&gt; (por exemplo), teremos uma listagem de todos os itens relacionados
 com o canal &lt;code class=&quot;language-text&quot;&gt;1&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Infelizmente o &lt;em&gt;DRF&lt;/em&gt; não possui nenhuma &quot;classe mágica&quot; que faça isso acontecer com poucas linhas de código. Estratégias
@@ -808,7 +808,7 @@ urlpatterns &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span
 &lt;ul&gt;
 &lt;li&gt;Importamos &lt;code class=&quot;language-text&quot;&gt;routers&lt;/code&gt; de &lt;code class=&quot;language-text&quot;&gt;rest_framework_nested&lt;/code&gt;, e não mais de &lt;code class=&quot;language-text&quot;&gt;rest_framework&lt;/code&gt;;&lt;/li&gt;
 &lt;li&gt;Agora lidamos com duas instâncias de &lt;code class=&quot;language-text&quot;&gt;Router&lt;/code&gt;, a primeiro vindo de &lt;code class=&quot;language-text&quot;&gt;api_router = routers.DefaultRouter()&lt;/code&gt;,
-e a segunda vindo de &lt;code class=&quot;language-text&quot;&gt;channels_router = routers.NestedDefaultRouter(api_router, r&amp;quot;channels&amp;quot;, lookup=&amp;quot;channel&amp;quot;)&lt;/code&gt;;&lt;/li&gt;
+e a segunda vindo de &lt;code class=&quot;language-text&quot;&gt;channels_router = routers.NestedDefaultRouter(api_router, r&quot;channels&quot;, lookup=&quot;channel&quot;)&lt;/code&gt;;&lt;/li&gt;
 &lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;DefaultRouter&lt;/code&gt; continua com o mesmo comportamento do exemplo anterior;&lt;/li&gt;
 &lt;li&gt;Precisamos adicionar ao &lt;code class=&quot;language-text&quot;&gt;urlpatterns&lt;/code&gt; a instância de &lt;code class=&quot;language-text&quot;&gt;DefaultRouter&lt;/code&gt; e as instâncias de &lt;code class=&quot;language-text&quot;&gt;NestedDefaultRouter&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -822,7 +822,7 @@ e a segunda vindo de &lt;code class=&quot;language-text&quot;&gt;channels_router
 &lt;p&gt;Pronto! O recurso &lt;code class=&quot;language-text&quot;&gt;Item&lt;/code&gt; está disponível para as operações exibidas anteriormente:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;curl http://localhost:8000/api/channels/1/items/
 
-[{&amp;quot;id&amp;quot;:1,&amp;quot;title&amp;quot;:&amp;quot;Eu me rendo: Django REST Framework&amp;quot;,&amp;quot;description&amp;quot;:&amp;quot;Confesso que nunca fui muito simpático ao Django REST Framework...&amp;quot;,&amp;quot;link&amp;quot;:&amp;quot;https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html&amp;quot;,&amp;quot;pub_date&amp;quot;:&amp;quot;2020-02-06T09:40:00Z&amp;quot;,&amp;quot;channel&amp;quot;:1}]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+[{&quot;id&quot;:1,&quot;title&quot;:&quot;Eu me rendo: Django REST Framework&quot;,&quot;description&quot;:&quot;Confesso que nunca fui muito simpático ao Django REST Framework...&quot;,&quot;link&quot;:&quot;https://klauslaube.com.br/2020/02/06/eu-me-rendo-django-rest-framework.html&quot;,&quot;pub_date&quot;:&quot;2020-02-06T09:40:00Z&quot;,&quot;channel&quot;:1}]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O &lt;em&gt;payload&lt;/em&gt; retorna uma chave &lt;code class=&quot;language-text&quot;&gt;channel&lt;/code&gt; para cada item. Uma vez que estamos falando de um &lt;em&gt;nested resource&lt;/em&gt;, não faz muito sentido retornarmos essa informação. A maneira mais prática de corrigirmos isso é alterando a classe serializadora:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# channels/serializers.py&lt;/span&gt;
 
@@ -857,7 +857,7 @@ passou a ser muito menos custoso graças à biblioteca.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -868,7 +868,7 @@ passou a ser muito menos custoso graças à biblioteca.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 72.39583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABVI9FmkA//8QAGhABAAIDAQAAAAAAAAAAAAAAAQADAhESIv/aAAgBAQABBQLfIPmV45WpQoOp/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8BJ//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/AWf/xAAaEAACAgMAAAAAAAAAAAAAAAAAARAxERIh/9oACAEBAAY/AjOzh1wuP//EABsQAAMBAAMBAAAAAAAAAAAAAAABETEhQVFh/9oACAEBAAE/IY0h6xdrFnBEGn0YiuxiTw//2gAMAwEAAgADAAAAEDff/8QAFhEBAQEAAAAAAAAAAAAAAAAAAQAR/9oACAEDAQE/EHkN/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxDQ6z//xAAcEAEAAgMAAwAAAAAAAAAAAAABABEhMVFhgdH/2gAIAQEAAT8QCkYzpzFa2FrduSvAjsYy8s3fya4EoC17irsmPDU//9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 72.39583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABRJdCaQK//8QAGhABAAIDAQAAAAAAAAAAAAAAAQADAhESIv/aAAgBAQABBQLfIPmV4NkKIM//xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwEn/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BZ//EABgQAAIDAAAAAAAAAAAAAAAAAAARARAx/9oACAEBAAY/Ahupl4bX/8QAGhAAAwEAAwAAAAAAAAAAAAAAAAERMSFRcf/aAAgBAQABPyGdJ4cGtu1iwdoRUNaz2TUP/9oADAMBAAIAAwAAABD/AB//xAAWEQEBAQAAAAAAAAAAAAAAAAABABH/2gAIAQMBAT8QeQ3/xAAVEQEBAAAAAAAAAAAAAAAAAAAAIf/aAAgBAgEBPxClf//EABoQAQEBAQEBAQAAAAAAAAAAAAERIQAxUWH/2gAIAQEAAT8QRGx+t4ZJtLTdJ0RHOHxEIjtL3gygAs37y5vFO//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - prettier]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - prettier]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Deixe darem pitaco no seu código com Prettier]]></title><description><![CDATA[Code formatters são uma boa ideia. Acredite! Demorei a dar o braço a torcer,
 mas depois de alguns "Hello world" em Go
 admito que a ideia de ter um código bem formatado, sem necessitar da destreza do
 programador para isso, é uma ideia excelente. Em Go temos o , que
@@ -16,7 +16,7 @@ E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 640px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -27,7 +27,7 @@ E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 60.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAHnzfONFxgP/8QAGxAAAQQDAAAAAAAAAAAAAAAAAAECAxExMjP/2gAIAQEAAQUCk3fRSjui4P/EABcRAQADAAAAAAAAAAAAAAAAAAABETH/2gAIAQMBAT8BnVP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPwFX/8QAGRAAAwADAAAAAAAAAAAAAAAAABARAiGB/9oACAEBAAY/AjGaXCr/xAAaEAADAAMBAAAAAAAAAAAAAAAAASERQXFR/9oACAEBAAE/IUjgueOkLQWE+ht9P//aAAwDAQACAAMAAAAQ1+//xAAWEQADAAAAAAAAAAAAAAAAAAABECH/2gAIAQMBAT8Qkl//xAAWEQADAAAAAAAAAAAAAAAAAAABEDH/2gAIAQIBAT8QET//xAAbEAEAAwEAAwAAAAAAAAAAAAABABFBIWFxkf/aAAgBAQABPxCrywxypqj1XYexbCAIc4+wFIxV5Kr2J//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 60.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQBAgMF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB583zjRcYBf/EABsQAAEEAwAAAAAAAAAAAAAAAAABAgMRMTIz/9oACAEBAAEFApN30Uo7ouD/xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/AZ1T/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQIBAT8BV//EABgQAAIDAAAAAAAAAAAAAAAAABARAAIh/9oACAEBAAY/ApVYWP/EABwQAAICAgMAAAAAAAAAAAAAAAABESFBcTFRgf/aAAgBAQABPyFKaFnHZciwCz4K9hl7P//aAAwDAQACAAMAAAAQ1/8A/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQMBAT8Qsf/EABYRAAMAAAAAAAAAAAAAAAAAAAEQMf/aAAgBAgEBPxARP//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExQWGR/9oACAEBAAE/EKvWHOVNQ7XsPYu5hAJp19gKBhVXyUGDqf/Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -58,8 +58,8 @@ E é sobre ele que falaremos nesse artigo.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ prettier file.js
 
 function HelloWorld({
-    greeting = &amp;quot;hello&amp;quot;,
-    greeted = &amp;#39;&amp;quot;World&amp;quot;&amp;#39;,
+    greeting = &quot;hello&quot;,
+    greeted = &apos;&quot;World&quot;&apos;,
     silent = false,
 onMouseOver
 }) {
@@ -67,28 +67,28 @@ onMouseOver
         return null;
     }
 
-    // TODO: Don&amp;#39;t use random in render
+    // TODO: Don&apos;t use random in render
     let num = Math.floor(Math.random() * 1e7)
         .toString()
-        .replace(/\.\d+/gi, &amp;quot;&amp;quot;);
+        .replace(/\.\d+/gi, &quot;&quot;);
 
     return (
         &amp;lt;div
-        className=&amp;quot;HelloWorld&amp;quot;
+        className=&quot;HelloWorld&quot;
         title={`You are visitor number ${num}`}
         onMouseOver={onMouseOver}
-        &amp;gt;
-        &amp;lt;strong&amp;gt;
+        &gt;
+        &amp;lt;strong&gt;
             {greeting.slice(0, 1).toUpperCase() + greeting.slice(1).toLowerCase()}
-        &amp;lt;/strong&amp;gt;
-        {greeting.endsWith(&amp;quot;,&amp;quot;) ? (
-            &amp;quot; &amp;quot;
+        &amp;lt;/strong&gt;
+        {greeting.endsWith(&quot;,&quot;) ? (
+            &quot; &quot;
         ) : (
-            &amp;lt;span style={{ color: &amp;quot;grey&amp;quot; }}&amp;gt;&amp;quot;, &amp;quot;&amp;lt;/span&amp;gt;
+            &amp;lt;span style={{ color: &quot;grey&quot; }}&gt;&quot;, &quot;&amp;lt;/span&gt;
         )}
-        &amp;lt;em&amp;gt;{greeted}&amp;lt;/em&amp;gt;
-        {silent ? &amp;quot;.&amp;quot; : &amp;quot;!&amp;quot;}
-        &amp;lt;/div&amp;gt;
+        &amp;lt;em&gt;{greeted}&amp;lt;/em&gt;
+        {silent ? &quot;.&quot; : &quot;!&quot;}
+        &amp;lt;/div&gt;
     );
 }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;O &lt;em&gt;output&lt;/em&gt; é o conteúdo do seu arquivo já formatado. Se quiser a alteração &quot;in-place&quot;, temos a opção &lt;code class=&quot;language-text&quot;&gt;--write&lt;/code&gt; disponível.&lt;/p&gt;

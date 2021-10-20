@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - ordenacao]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:23 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Algoritmos de ordenação - Parte 1]]></title><description><![CDATA[Voltamos a falar sobre algoritmos, e
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - ordenacao]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:17 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Algoritmos de ordenação - Parte 1]]></title><description><![CDATA[Voltamos a falar sobre algoritmos, e
 dessa vez o tópico é sobre ordenação de elementos. As linguagens de programação abstraem
 toda a complexidade envolvida para nós, mas mais que fundamental, compreender como tais algoritmos funcionam é mais um passo
 adiante no aprendizado das Ciências da Computação…]]></description><link>https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</link><guid isPermaLink="false">https://klauslaube.com.br/2019/05/10/algoritmos-de-ordenacao-parte-1.html</guid><dc:creator><![CDATA[Klaus Peter Laube]]></dc:creator><pubDate>Fri, 10 May 2019 10:45:00 GMT</pubDate><content:encoded>&lt;p&gt;Voltamos a falar sobre &lt;a href=&quot;/tag/algoritmos.html&quot; title=&quot;Leia mais sobre Algoritmos&quot;&gt;algoritmos&lt;/a&gt;, e
@@ -86,7 +86,7 @@ adiante no aprendizado das Ciências da Computação.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&quot;gatsby-resp-image-figure&quot; style=&quot;&quot;&gt;
     &lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 740px;&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 740px; &quot;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
@@ -97,7 +97,7 @@ adiante no aprendizado das Ciências da Computação.&lt;/p&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHojqeHbFwP/8QAGRABAQADAQAAAAAAAAAAAAAAAgEDEjEh/9oACAEBAAEFAn4VkNYp1zW7jp5//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAESQf/aAAgBAwEBPwHVIf/EABgRAAIDAAAAAAAAAAAAAAAAAAABERIh/9oACAECAQE/AZwuz//EABkQAAIDAQAAAAAAAAAAAAAAAAABAhAhQf/aAAgBAQAGPwIXcFpK/wD/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhQTH/2gAIAQEAAT8hYlvJtlcOwRO+z3DgVAKuDM//2gAMAwEAAgADAAAAELsv/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREQ/9oACAEDAQE/EIEGH//EABYRAQEBAAAAAAAAAAAAAAAAAAEREP/aAAgBAgEBPxCmnD//xAAbEAEAAgIDAAAAAAAAAAAAAAABABEhMUFRcf/aAAgBAQABPxCj4tV7C84ERnvEIlU23cAARhmqvccgKDUJSf/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAgP/xAAUAQEAAAAAAAAAAAAAAAAAAAAC/9oADAMBAAIQAxAAAAHohueHbFwP/8QAGRABAQADAQAAAAAAAAAAAAAAAgEDEjEh/9oACAEBAAEFAn4VkNYp1zW7jp5//8QAFxEBAAMAAAAAAAAAAAAAAAAAAAESQf/aAAgBAwEBPwHVYf/EABgRAAIDAAAAAAAAAAAAAAAAAAABERIh/9oACAECAQE/AZwuz//EABkQAAIDAQAAAAAAAAAAAAAAAAABAhAhQf/aAAgBAQAGPwIXcFpK/wD/xAAZEAEAAwEBAAAAAAAAAAAAAAABABEhQTH/2gAIAQEAAT8hY1vJVmcMETrs9g4FQirgzP/aAAwDAQACAAMAAAAQ2y//xAAWEQEBAQAAAAAAAAAAAAAAAAABERD/2gAIAQMBAT8QgQZf/8QAFhEBAQEAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/EKacP//EABoQAQACAwEAAAAAAAAAAAAAAAEAESExQVH/2gAIAQEAAT8QouLVdzyF6OsTPsxk5tu4IQjFNVe4rAUGoTcT/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -186,7 +186,7 @@ adiante no aprendizado das Ciências da Computação.&lt;/p&gt;
 &lt;p&gt;Embora ele se compare aos dois algoritmos acima em &lt;em&gt;running time&lt;/em&gt;, na minha opinião, imaginar o seu funcionamento demanda um pouquinho mais de esforço. Nesse algoritmo, o propósito é achar o lugar onde o elemento deveria estar no &lt;em&gt;array&lt;/em&gt;:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Para cada elemento &lt;code class=&quot;language-text&quot;&gt;A[i]&lt;/code&gt;;&lt;/li&gt;
-&lt;li&gt;Se &lt;code class=&quot;language-text&quot;&gt;A[i] &amp;gt; A[i + 1]&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;Se &lt;code class=&quot;language-text&quot;&gt;A[i] &gt; A[i + 1]&lt;/code&gt;;&lt;/li&gt;
 &lt;li&gt;Troque os elementos até &lt;code class=&quot;language-text&quot;&gt;A[i] &amp;lt;= A[i + 1]&lt;/code&gt;.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Abaixo a implementação em &lt;em&gt;Python&lt;/em&gt;:&lt;/p&gt;

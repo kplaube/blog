@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - gunicorn]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Mon, 01 Mar 2021 20:46:24 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Entendendo o CGI, FastCGI e WSGI]]></title><description><![CDATA[Pelos vários anos que programei com o PHP e Apache,
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Klaus Laube - gunicorn]]></title><description><![CDATA[Python, Django e desenvolvimento Web]]></description><link>https://klauslaube.com.br</link><generator>RSS for Node</generator><lastBuildDate>Wed, 20 Oct 2021 18:01:18 GMT</lastBuildDate><author><![CDATA[Klaus Peter Laube]]></author><item><title><![CDATA[Entendendo o CGI, FastCGI e WSGI]]></title><description><![CDATA[Pelos vários anos que programei com o PHP e Apache,
 nunca precisei me preocupar com o que acontecia entre esses dois. Para
 mim, era tudo uma “mágica” maravilhosa, que entregava as minhas páginas
 web de forma dinâmica. Era uma troca justa: Eles não me traziam
@@ -189,7 +189,7 @@ como por exemplo, no &lt;a href=&quot;http://klauslaube.com.br/tags/nginx/&quot;
 &lt;p&gt;Com o &lt;em&gt;mod&lt;/em&gt;wsgi&lt;em&gt;, você não precisa de nenhum “código de cola” (como
 apresentado nos exemplos de _CGI&lt;/em&gt; e &lt;em&gt;FastCGI&lt;/em&gt;), basta &lt;a href=&quot;http://code.google.com/p/modwsgi/wiki/QuickConfigurationGuide&quot; title=&quot;Veja instruções para configurar o Apache com mod_wsgi&quot;&gt;configurar o seu &lt;em&gt;Apache&lt;/em&gt;&lt;/a&gt;
 e apontar o seu script &lt;em&gt;WSGI&lt;/em&gt; através da instrução &lt;code class=&quot;language-text&quot;&gt;WSGIScriptAlias&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;VirtualHost *:80&amp;gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;VirtualHost *:80&gt;
 
     ServerName www.example.com
     ServerAlias example.com
@@ -202,19 +202,19 @@ e apontar o seu script &lt;em&gt;WSGI&lt;/em&gt; através da instrução &lt;cod
 
     Alias /media/ /usr/local/www/documents/media/
 
-    &amp;lt;Directory /usr/local/www/documents&amp;gt;
+    &amp;lt;Directory /usr/local/www/documents&gt;
     Order allow,deny
     Allow from all
-    &amp;lt;/Directory&amp;gt;
+    &amp;lt;/Directory&gt;
 
     WSGIScriptAlias / /usr/local/www/wsgi-scripts/wsgi.py
 
-    &amp;lt;Directory /usr/local/www/wsgi-scripts&amp;gt;
+    &amp;lt;Directory /usr/local/www/wsgi-scripts&gt;
     Order allow,deny
     Allow from all
-    &amp;lt;/Directory&amp;gt;
+    &amp;lt;/Directory&gt;
 
-&amp;lt;/VirtualHost&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&amp;lt;/VirtualHost&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Uma particularidade do mod_wsgi é a escolha de execução no modo
 &lt;code class=&quot;language-text&quot;&gt;daemon&lt;/code&gt;, que opera de uma forma &lt;a href=&quot;http://code.google.com/p/modwsgi/#Server_Performance&quot; title=&quot;Leia mais sobre performance com mod_wsgi&quot;&gt;similar ao esquema utilizado pelo
 &lt;em&gt;FastCGI&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;
