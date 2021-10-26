@@ -1,12 +1,13 @@
 import { Link } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { textColor } from "./color";
-import { devices, localedDate, localedReadingTime } from "./helpers";
-import Thumbnail from "./thumbnail";
-import { Subtitle } from "./typograph";
+import { textColor } from "../color";
+import { devices, localedDate, localedReadingTime } from "../helpers";
+import Thumbnail from "../thumbnail";
+import { Subtitle } from "../typograph";
 
-const Summary = styled.article`
+const LinkedSummary = styled.article`
   margin-bottom: 32px;
   overflow: auto;
 
@@ -57,7 +58,7 @@ const SummaryThumbnail = styled(Thumbnail)`
   }
 `;
 
-export default ({
+const Summary = ({
   node: {
     excerpt,
     frontmatter: { date, title, thumbnail },
@@ -67,7 +68,7 @@ export default ({
     },
   },
 }) => (
-  <Summary>
+  <LinkedSummary>
     <Link to={slug}>
       {thumbnail && (
         <SummaryThumbnail fixed={thumbnail.childImageSharp.fixed} />
@@ -78,5 +79,11 @@ export default ({
         {localedDate(date)} - {localedReadingTime(minutes)} de leitura
       </SummaryMeta>
     </Link>
-  </Summary>
+  </LinkedSummary>
 );
+
+Summary.propTypes = {
+  node: PropTypes.node.isRequired,
+};
+
+export default Summary;

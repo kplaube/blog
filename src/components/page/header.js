@@ -1,11 +1,12 @@
 import { Mail } from "@styled-icons/feather/Mail";
 import { Link } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
-import { secondaryColor, textColor } from "./color";
-import Container from "./container";
-import { devices } from "./helpers";
-import Brand from "./page-header-brand";
+import { secondaryColor, textColor } from "../color";
+import Container from "../container";
+import { devices } from "../helpers";
+import Brand from "./header-brand";
 
 const BaseIconStyles = css`
   color: ${secondaryColor};
@@ -16,7 +17,7 @@ const GreyMail = styled(Mail)`
   ${BaseIconStyles};
 `;
 
-const Header = styled.div`
+const StyledHeader = styled.div`
   box-shadow: 0 -8px 16px 0 ${textColor};
   font-size: 1.1rem;
   margin-bottom: 24px;
@@ -42,17 +43,24 @@ const StyledA = styled.a`
   text-decoration: none;
 `;
 
-export default ({ siteTitle }) => (
-  <Header>
+const Header = ({ contact, siteTitle }) => (
+  <StyledHeader>
     <HeaderContainer>
       <StyledLink to="/">
         <Brand siteTitle={siteTitle} />
       </StyledLink>
       <div>
-        <StyledA href="https://about.me/klauslaube" title="Contato">
+        <StyledA href={contact} title="Contato">
           <GreyMail />
         </StyledA>
       </div>
     </HeaderContainer>
-  </Header>
+  </StyledHeader>
 );
+
+Header.propTypes = {
+  contact: PropTypes.string.isRequired,
+  siteTitle: PropTypes.string.isRequired,
+};
+
+export default Header;

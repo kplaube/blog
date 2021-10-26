@@ -1,9 +1,10 @@
 import { Link } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { lightSeparator, textColor } from "./color";
+import { lightSeparator, textColor } from "../color";
 
-const Tags = styled.div`
+const StyledTags = styled.div`
   margin-bottom: 24px;
 `;
 
@@ -17,12 +18,18 @@ const Tag = styled(Link)`
   text-decoration: none;
 `;
 
-export default ({ tags }) => (
-  <Tags>
+const Tags = ({ tags }) => (
+  <StyledTags>
     {tags.map((tag) => (
       <Tag key={tag} to={`/tag/${tag}.html`}>
         {tag}
       </Tag>
     ))}
-  </Tags>
+  </StyledTags>
 );
+
+Tags.propTypes = {
+  tags: PropTypes.arrayOf(PropTypes.string),
+};
+
+export default Tags;

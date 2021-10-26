@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { primaryColor, secondaryColor } from "./color";
-import { devices } from "./helpers";
+import { primaryColor, secondaryColor } from "../color";
+import { devices } from "../helpers";
+import PropTypes from "prop-types";
 
-const Brand = styled.div`
+const StyledBrand = styled.div`
   align-items: center;
   color: ${primaryColor};
   display: flex;
@@ -42,10 +43,16 @@ const prepareSiteTitle = (siteTitle) =>
       </React.Fragment>
     ));
 
-export default ({ siteTitle }) => (
-  <Brand>
+const Brand = ({ siteTitle }) => (
+  <StyledBrand>
     <Bracket>{"{"}</Bracket>
     {prepareSiteTitle(siteTitle)}
     <Bracket>{"}"}</Bracket>
-  </Brand>
+  </StyledBrand>
 );
+
+Brand.propTypes = {
+  siteTitle: PropTypes.string.isRequired,
+};
+
+export default Brand;

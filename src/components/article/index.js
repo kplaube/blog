@@ -1,18 +1,19 @@
 import { DiscussionEmbed } from "disqus-react";
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import Share from "./article-share";
-import Tags from "./article-tags";
-import Avatar from "./avatar";
+import Avatar from "../avatar";
 import {
   lightSeparator,
   primaryColor,
   secondaryColor,
   strongTextColor,
   textColor,
-} from "./color";
-import { devices, localedDate, localedReadingTime } from "./helpers";
-import { Title } from "./typograph";
+} from "../color";
+import { devices, localedDate, localedReadingTime } from "../helpers";
+import { Title } from "../typograph";
+import Share from "./share";
+import Tags from "./tags";
 
 const AuthorName = styled.div`
   color: ${strongTextColor};
@@ -133,6 +134,11 @@ const Content = styled.div`
   p {
     margin-bottom: 28px;
 
+    & > .language-text {
+      background-color: ${lightSeparator};
+      color: ${secondaryColor};
+    }
+
     @media ${devices.tablet} {
       margin-bottom: 42px;
     }
@@ -199,7 +205,7 @@ const StyledTitle = styled(Title)`
   }
 `;
 
-export default ({
+const Article = ({
   author,
   node: {
     frontmatter: { date, tags, title },
@@ -240,3 +246,11 @@ export default ({
     </DiscussionWrapper>
   </>
 );
+
+Article.propTypes = {
+  author: PropTypes.node.isRequired,
+  node: PropTypes.node.isRequired,
+  siteUrl: PropTypes.string.isRequired,
+};
+
+export default Article;

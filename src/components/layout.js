@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import { createGlobalStyle } from "styled-components";
 import { strongTextColor } from "./color";
-import Header from "./page-header";
-import PageFooter from "./page-footer";
+import PageFooter from "./page/footer";
+import Header from "./page/header";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -32,9 +32,17 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyle />
 
-      <Header siteTitle={siteMetadata.title} siteUrl={siteMetadata.siteUrl} />
+      <Header
+        contact={siteMetadata.contact}
+        siteTitle={siteMetadata.title}
+        siteUrl={siteMetadata.siteUrl}
+      />
       <div>{children}</div>
-      <PageFooter />
+      <PageFooter
+        licenseName={siteMetadata.licenseName}
+        licenseUrl={siteMetadata.licenseUrl}
+        repositoryUrl={siteMetadata.repositoryUrl}
+      />
     </>
   );
 };

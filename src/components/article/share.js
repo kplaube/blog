@@ -4,8 +4,8 @@ import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Whatsapp } from "@styled-icons/boxicons-logos/Whatsapp";
 import React from "react";
 import styled, { css } from "styled-components";
-import { strongTextColor } from "./color";
-import { devices } from "./helpers";
+import { strongTextColor } from "../color";
+import { devices } from "../helpers";
 
 const BaseIconStyles = css`
   color: ${strongTextColor};

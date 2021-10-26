@@ -291,7 +291,7 @@ Segundo _Miguel Grinberg_, no _talk_ ["Asynchronous Python for the Complete Begi
 - _Async_ (_async IO_, _asynchoronous_, ou _asynchronous IO_) e _asyncio_ não são exatamente a mesma coisa;
 - O _asynchronous IO_, de forma geral, é um estilo de programação concorrente;
 - Já o [_asyncio_](https://docs.python.org/3/library/asyncio.html "Leia mais na documentação oficial") é uma das implementações _Python_ desse estilo (há outras implementações,
-como o [_uvloop_](http://github.com/MagicStack/uvloop "Veja o repositório")).
+  como o [_uvloop_](http://github.com/MagicStack/uvloop "Veja o repositório")).
 
 Continuamos dentro dos domínios da concorrência, mas ainda assim, apresentando uma técnica completamente diferente.
 
@@ -355,11 +355,11 @@ Voltamos a citar o _RealPython_, [trazendo o exemplo da enxadrista](https://real
 > - Games average 30 pair-moves (60 moves total)
 >
 > **Synchronous version:** Judit plays one game at a time, never two at the same time, until the game is complete.
-> Each game takes (55 + 5) * 30 == 1800 seconds, or 30 minutes. The entire exhibition takes 24 * 30 == 720 minutes, or **12 hours**.
+> Each game takes (55 + 5) _ 30 == 1800 seconds, or 30 minutes. The entire exhibition takes 24 _ 30 == 720 minutes, or **12 hours**.
 >
 > **Asynchronous version:** Judit moves from table to table, making one move at each table. She leaves the table and lets the opponent
-> make their next move during the wait time. One move on all 24 games takes Judit 24 * 5 == 120 seconds, or 2 minutes.
-> The entire exhibition is now cut down to 120 * 30 == 3600 seconds, or just **1 hour**.
+> make their next move during the wait time. One move on all 24 games takes Judit 24 _ 5 == 120 seconds, or 2 minutes.
+> The entire exhibition is now cut down to 120 _ 30 == 3600 seconds, or just **1 hour**.
 
 Temos apenas uma _Judit_, que pode fazer um movimento por vez por ela mesma. Ela jogar cada jogo de forma síncrona limita ela
 também ao tempo que o outro enxadrista tem para respondê-la. Mas de forma assíncrona, ela consegue lidar com múltiplas tarefas acontecendo concorrentemente,
@@ -462,7 +462,7 @@ Vai depender do contexto do problema sendo resolvido.
 ## Considerações finais
 
 Eu lembro de estar em mais de uma entrevista de emprego, e ser perguntado
-sobre como fazer _CPU-bound_ e _IO-bound_ em _Python_. 
+sobre como fazer _CPU-bound_ e _IO-bound_ em _Python_.
 
 Agora sabemos o básico sobre os principais conceitos relacionados à concorrência em _Python_. Temos uma perspectiva
 mais detalhada sobre a _GIL_, e não entramos no mérito de debater se ela é boa ou ruim.

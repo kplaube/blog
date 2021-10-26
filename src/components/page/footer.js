@@ -1,8 +1,9 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { lightSeparator, strongTextColor, textColor } from "./color";
-import Container from "./container";
-import { devices } from "./helpers";
+import { lightSeparator, strongTextColor, textColor } from "../color";
+import Container from "../container";
+import { devices } from "../helpers";
 
 const Footer = styled.footer`
   border-top: 1px solid ${lightSeparator};
@@ -25,19 +26,24 @@ const Link = styled.a`
   }
 `;
 
-export default () => (
+const PageFooter = ({ licenseName, licenseUrl, repositoryUrl }) => (
   <Footer>
     <Container>
       <p>
         O conteúdo desse blog está sob a licença{" "}
-        <Link href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR">
-          Creative Commons Attribution
-        </Link>
-        .
+        <Link href={licenseUrl}>{licenseName}</Link>.
       </p>
       <p>
-        <Link href="https://github.com/kplaube/blog">Fork me on Github</Link>.
+        <Link href={repositoryUrl}>Fork me on Github</Link>.
       </p>
     </Container>
   </Footer>
 );
+
+PageFooter.propTypes = {
+  licenseName: PropTypes.string.isRequired,
+  licenseUrl: PropTypes.string.isRequired,
+  repositoryUrl: PropTypes.string.isRequired,
+};
+
+export default PageFooter;

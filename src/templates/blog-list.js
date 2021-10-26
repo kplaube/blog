@@ -1,6 +1,6 @@
 import { graphql } from "gatsby";
 import React from "react";
-import Summary from "../components/article-summary";
+import Summary from "../components/article/summary";
 import Author from "../components/author";
 import Container from "../components/container";
 import Layout from "../components/layout";
