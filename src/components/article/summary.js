@@ -83,7 +83,7 @@ const Summary = ({
 );
 
 Summary.propTypes = {
-  node: PropTypes.node.isRequired,
+  node: PropTypes.object.isRequired,
 };
 
 export default Summary;

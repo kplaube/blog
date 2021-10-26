@@ -248,8 +248,8 @@ const Article = ({
 );
 
 Article.propTypes = {
-  author: PropTypes.node.isRequired,
-  node: PropTypes.node.isRequired,
+  author: PropTypes.object.isRequired,
+  node: PropTypes.object.isRequired,
   siteUrl: PropTypes.string.isRequired,
 };
 
