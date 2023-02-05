@@ -1,13 +1,14 @@
 import { graphql } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import Article from "../components/article";
 import Container from "../components/container";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const BlogPost = (props) => {
-  const { author, siteUrl } = props.data.site.siteMetadata;
-  const post = props.data.markdownRemark;
+function BlogPost({ data }) {
+  const { author, siteUrl } = data.site.siteMetadata;
+  const post = data.markdownRemark;
   const { tags, title, thumbnail } = post.frontmatter;
 
   const seoMeta = [
@@ -33,6 +34,27 @@ const BlogPost = (props) => {
       </Container>
     </Layout>
   );
+}
+
+BlogPost.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        author: PropTypes.string.isRequired,
+        siteUrl: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+    markdownRemark: PropTypes.shape({
+      excerpt: PropTypes.string,
+      frontmatter: PropTypes.shape({
+        tags: PropTypes.arrayOf(PropTypes.string),
+        title: PropTypes.string,
+        thumbnail: PropTypes.shape({
+          publicURL: PropTypes.string,
+        }),
+      }).isRequired,
+    }),
+  }).isRequired,
 };
 
 export default BlogPost;

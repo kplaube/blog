@@ -1,10 +1,11 @@
 import { Link } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { primaryColor } from "./color";
 import { devices } from "./helpers";
 
-const Pagination = styled.div`
+const PaginationWrapper = styled.div`
   margin-bottom: 64px;
   padding: 16px 0 0 0;
   text-align: center;
@@ -53,13 +54,12 @@ const PaginationNumbers = styled.div`
   }
 `;
 
-export default ({ currentPage, numPages, prefix }) => {
-  const resolveUrl = (page) =>
-    page > 1
-      ? `/${prefix}${page}.html`
-      : prefix === "index"
-      ? `/`
-      : `/${prefix}.html`;
+function Pagination({ currentPage, numPages, prefix }) {
+  const resolveUrl = (page) => {
+    const formattedPrefix = prefix === "index" ? `/` : `/${prefix}.html`;
+
+    return page > 1 ? `/${prefix}${page}.html` : formattedPrefix;
+  };
 
   const pages = Array.from({ length: numPages }).map((_, i) => {
     const page = i + 1;
@@ -86,11 +86,11 @@ export default ({ currentPage, numPages, prefix }) => {
   });
 
   if (numPages < 2) {
-    return <div></div>;
+    return <div />;
   }
 
   return (
-    <Pagination>
+    <PaginationWrapper>
       {currentPage > 1 && (
         <PaginationLink to={resolveUrl(currentPage - 1)}>
           «<span> Página anterior</span>
@@ -118,6 +118,14 @@ export default ({ currentPage, numPages, prefix }) => {
           <span>Próxima página </span>»
         </PaginationLink>
       )}
-    </Pagination>
+    </PaginationWrapper>
   );
+}
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  numPages: PropTypes.number.isRequired,
+  prefix: PropTypes.number.isRequired,
 };
+
+export default Pagination;

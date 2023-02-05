@@ -1,4 +1,5 @@
 import { graphql } from "gatsby";
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import Summary from "../components/article/summary";
@@ -13,12 +14,12 @@ const PageTitle = styled(Title)`
   text-align: center;
 `;
 
-const Tags = ({
+function Tags({
   data: {
     allMarkdownRemark: { edges },
   },
   pageContext: { currentPage, numPages, tag },
-}) => {
+}) {
   return (
     <Layout>
       <SEO title={`Posts com ${tag}`} />
@@ -38,6 +39,19 @@ const Tags = ({
       </Container>
     </Layout>
   );
+}
+
+Tags.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: {
+      edges: PropTypes.array.isRequired,
+    },
+  }).isRequired,
+  pageContext: PropTypes.shape({
+    currentPage: PropTypes.number,
+    numPages: PropTypes.number,
+    tag: PropTypes.string,
+  }).isRequired,
 };
 
 export default Tags;

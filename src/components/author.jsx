@@ -1,6 +1,7 @@
 import { Github } from "@styled-icons/boxicons-logos/Github";
 import { LinkedinSquare } from "@styled-icons/boxicons-logos/LinkedinSquare";
 import { MediumSquare } from "@styled-icons/boxicons-logos/MediumSquare";
+import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
 import Avatar from "./avatar";
@@ -25,7 +26,7 @@ const MediumGrey = styled(MediumSquare)`
   ${BaseIconStyles};
 `;
 
-const Author = styled.div`
+const AuthorWrapper = styled.div`
   margin-bottom: 48px;
 
   @media ${devices.tablet} {
@@ -64,23 +65,34 @@ const StyledAvatar = styled(Avatar)`
   }
 `;
 
-export default ({ github, gravatar, linkedin, medium, name }) => (
-  <Author>
-    <StyledAvatar src={gravatar} alt="Avatar" />
-    <div>
-      <Name>{name}</Name>
-      <Headline>Desenvolvedor web, apaixonado por Python e Django.</Headline>
-      <Social>
-        <a href={github}>
-          <GithubGrey />
-        </a>
-        <a href={linkedin}>
-          <LinkedinGrey />
-        </a>
-        <a href={medium}>
-          <MediumGrey />
-        </a>
-      </Social>
-    </div>
-  </Author>
-);
+function Author({ github, gravatar, linkedin, medium }) {
+  return (
+    <AuthorWrapper>
+      <StyledAvatar src={gravatar} alt="Avatar" />
+      <div>
+        <Name />
+        <Headline>Desenvolvedor web, apaixonado por Python e Django.</Headline>
+        <Social>
+          <a href={github}>
+            <GithubGrey />
+          </a>
+          <a href={linkedin}>
+            <LinkedinGrey />
+          </a>
+          <a href={medium}>
+            <MediumGrey />
+          </a>
+        </Social>
+      </div>
+    </AuthorWrapper>
+  );
+}
+
+Author.propTypes = {
+  github: PropTypes.string.isRequired,
+  gravatar: PropTypes.string.isRequired,
+  linkedin: PropTypes.string.isRequired,
+  medium: PropTypes.string.isRequired,
+};
+
+export default Author;

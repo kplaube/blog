@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { primaryColor, secondaryColor } from "../color";
 import { devices } from "../helpers";
-import PropTypes from "prop-types";
 
 const StyledBrand = styled.div`
   align-items: center;
@@ -36,20 +36,22 @@ const prepareSiteTitle = (siteTitle) =>
   siteTitle
     .toLowerCase()
     .split(" ")
-    .map((fragment, indx) => (
-      <React.Fragment key={indx}>
+    .map((fragment) => (
+      <React.Fragment key={fragment}>
         {fragment[0]}
         <BrandFragment>{fragment.slice(1)}</BrandFragment>
       </React.Fragment>
     ));
 
-const Brand = ({ siteTitle }) => (
-  <StyledBrand>
-    <Bracket>{"{"}</Bracket>
-    {prepareSiteTitle(siteTitle)}
-    <Bracket>{"}"}</Bracket>
-  </StyledBrand>
-);
+function Brand({ siteTitle }) {
+  return (
+    <StyledBrand>
+      <Bracket>{"{"}</Bracket>
+      {prepareSiteTitle(siteTitle)}
+      <Bracket>{"}"}</Bracket>
+    </StyledBrand>
+  );
+}
 
 Brand.propTypes = {
   siteTitle: PropTypes.string.isRequired,

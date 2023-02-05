@@ -43,20 +43,22 @@ const StyledA = styled.a`
   text-decoration: none;
 `;
 
-const Header = ({ contact, siteTitle }) => (
-  <StyledHeader>
-    <HeaderContainer>
-      <StyledLink to="/">
-        <Brand siteTitle={siteTitle} />
-      </StyledLink>
-      <div>
-        <StyledA href={contact} title="Contato">
-          <GreyMail />
-        </StyledA>
-      </div>
-    </HeaderContainer>
-  </StyledHeader>
-);
+function Header({ contact, siteTitle }) {
+  return (
+    <StyledHeader>
+      <HeaderContainer>
+        <StyledLink to="/">
+          <Brand siteTitle={siteTitle} />
+        </StyledLink>
+        <div>
+          <StyledA href={contact} title="Contato">
+            <GreyMail />
+          </StyledA>
+        </div>
+      </HeaderContainer>
+    </StyledHeader>
+  );
+}
 
 Header.propTypes = {
   contact: PropTypes.string.isRequired,

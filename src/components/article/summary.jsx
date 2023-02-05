@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { textColor } from "../color";
-import { devices, localedDate} from "../helpers";
+import { devices, localedDate } from "../helpers";
 import Thumbnail from "../thumbnail";
 import { Subtitle } from "../typograph";
 
@@ -58,31 +58,44 @@ const SummaryThumbnail = styled(Thumbnail)`
   }
 `;
 
-const Summary = ({
+function Summary({
   node: {
     excerpt,
     frontmatter: { date, title, thumbnail },
-    fields: {
-      slug,
-    },
+    fields: { slug },
   },
-}) => (
-  <LinkedSummary>
-    <Link to={slug}>
-      {thumbnail && (
-        <SummaryThumbnail fixed={thumbnail.childImageSharp.fixed} />
-      )}
-      <SummaryTitle>{title}</SummaryTitle>
-      <SummaryDescription>{excerpt}</SummaryDescription>
-      <SummaryMeta>
-        {localedDate(date)}
-      </SummaryMeta>
-    </Link>
-  </LinkedSummary>
-);
+}) {
+  return (
+    <LinkedSummary>
+      <Link to={slug}>
+        {thumbnail && (
+          <SummaryThumbnail fixed={thumbnail.childImageSharp.fixed} />
+        )}
+        <SummaryTitle>{title}</SummaryTitle>
+        <SummaryDescription>{excerpt}</SummaryDescription>
+        <SummaryMeta>{localedDate(date)}</SummaryMeta>
+      </Link>
+    </LinkedSummary>
+  );
+}
 
 Summary.propTypes = {
-  node: PropTypes.object.isRequired,
+  node: PropTypes.shape({
+    excerpt: PropTypes.string,
+    frontmatter: PropTypes.shape({
+      date: PropTypes.string,
+      title: PropTypes.string,
+      thumbnail: PropTypes.shape({
+        childImageSharp: PropTypes.shape({
+          fixed: PropTypes.bool,
+        }),
+        publicURL: PropTypes.string,
+      }),
+    }),
+    fields: PropTypes.shape({
+      slug: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default Summary;

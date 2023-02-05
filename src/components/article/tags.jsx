@@ -18,18 +18,20 @@ const Tag = styled(Link)`
   text-decoration: none;
 `;
 
-const Tags = ({ tags }) => (
-  <StyledTags>
-    {tags.map((tag) => (
-      <Tag key={tag} to={`/tag/${tag}.html`}>
-        {tag}
-      </Tag>
-    ))}
-  </StyledTags>
-);
+function Tags({ tags }) {
+  return (
+    <StyledTags>
+      {tags.map((tag) => (
+        <Tag key={tag} to={`/tag/${tag}.html`}>
+          {tag}
+        </Tag>
+      ))}
+    </StyledTags>
+  );
+}
 
 Tags.propTypes = {
-  tags: PropTypes.arrayOf(PropTypes.string),
+  tags: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Tags;

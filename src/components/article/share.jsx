@@ -2,6 +2,7 @@ import { FacebookSquare } from "@styled-icons/boxicons-logos/FacebookSquare";
 import { LinkedinSquare } from "@styled-icons/boxicons-logos/LinkedinSquare";
 import { Twitter } from "@styled-icons/boxicons-logos/Twitter";
 import { Whatsapp } from "@styled-icons/boxicons-logos/Whatsapp";
+import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
 import { strongTextColor } from "../color";
@@ -45,7 +46,7 @@ const SocialWrapper = styled.div`
   }
 `;
 
-export default ({ siteUrl, slug, title }) => {
+function Share({ siteUrl, slug, title }) {
   const fullUrl = siteUrl + slug;
 
   const twitter = `https://twitter.com/intent/tweet?url=${fullUrl}&text=${title}`;
@@ -89,4 +90,12 @@ export default ({ siteUrl, slug, title }) => {
       </SocialLink>
     </SocialWrapper>
   );
+}
+
+Share.propTypes = {
+  siteUrl: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
+
+export default Share;

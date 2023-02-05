@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout = ({ children }) => {
+function Layout({ children }) {
   const {
     site: { siteMetadata },
   } = useStaticQuery(graphql`
@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
       />
     </>
   );
-};
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

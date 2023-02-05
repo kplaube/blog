@@ -26,19 +26,21 @@ const Link = styled.a`
   }
 `;
 
-const PageFooter = ({ licenseName, licenseUrl, repositoryUrl }) => (
-  <Footer>
-    <Container>
-      <p>
-        O conteúdo desse blog está sob a licença{" "}
-        <Link href={licenseUrl}>{licenseName}</Link>.
-      </p>
-      <p>
-        <Link href={repositoryUrl}>Fork me on Github</Link>.
-      </p>
-    </Container>
-  </Footer>
-);
+function PageFooter({ licenseName, licenseUrl, repositoryUrl }) {
+  return (
+    <Footer>
+      <Container>
+        <p>
+          O conteúdo desse blog está sob a licença{" "}
+          <Link href={licenseUrl}>{licenseName}</Link>.
+        </p>
+        <p>
+          <Link href={repositoryUrl}>Fork me on Github</Link>.
+        </p>
+      </Container>
+    </Footer>
+  );
+}
 
 PageFooter.propTypes = {
   licenseName: PropTypes.string.isRequired,

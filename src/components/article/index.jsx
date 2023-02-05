@@ -205,50 +205,68 @@ const StyledTitle = styled(Title)`
   }
 `;
 
-const Article = ({
+function Article({
   author,
   node: {
     frontmatter: { date, tags, title },
-    fields: {
-      slug,
-    },
+    fields: { slug },
     html,
   },
   siteUrl,
-}) => (
-  <>
-    <StyledTitle>{title}</StyledTitle>
+}) {
+  return (
+    <>
+      <StyledTitle>{title}</StyledTitle>
 
-    <Meta>
-      <StyledAvatar src={author.gravatar} width="48" height="48" alt="Avatar" />
+      <Meta>
+        <StyledAvatar
+          src={author.gravatar}
+          width="48"
+          height="48"
+          alt="Avatar"
+        />
 
-      <MetaText>
-        <AuthorName>{author.name}</AuthorName>
-        {localedDate(date)}
-      </MetaText>
-    </Meta>
+        <MetaText>
+          <AuthorName>{author.name}</AuthorName>
+          {localedDate(date)}
+        </MetaText>
+      </Meta>
 
-    <Share siteUrl={siteUrl} slug={slug} title={title} />
+      <Share siteUrl={siteUrl} slug={slug} title={title} />
 
-    <Content dangerouslySetInnerHTML={{ __html: html }} />
+      <Content dangerouslySetInnerHTML={{ __html: html }} />
 
-    <Tags tags={tags} />
+      <Tags tags={tags} />
 
-    <DiscussionWrapper>
-      <DiscussionEmbed
-        shortname={process.env.GATSBY_DISQUS_NAME || `klauslaube`}
-        config={{
-          title,
-          identifier: slug,
-        }}
-      />
-    </DiscussionWrapper>
-  </>
-);
+      <DiscussionWrapper>
+        <DiscussionEmbed
+          shortname={process.env.GATSBY_DISQUS_NAME || `klauslaube`}
+          config={{
+            title,
+            identifier: slug,
+          }}
+        />
+      </DiscussionWrapper>
+    </>
+  );
+}
 
 Article.propTypes = {
-  author: PropTypes.object.isRequired,
-  node: PropTypes.object.isRequired,
+  author: PropTypes.shape({
+    gravatar: PropTypes.string,
+    name: PropTypes.string,
+  }).isRequired,
+  node: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      date: PropTypes.string,
+      tags: PropTypes.arrayOf(PropTypes.string),
+      title: PropTypes.string,
+    }),
+    fields: PropTypes.shape({
+      slug: PropTypes.string,
+    }),
+    html: PropTypes.string,
+  }).isRequired,
   siteUrl: PropTypes.string.isRequired,
 };
 

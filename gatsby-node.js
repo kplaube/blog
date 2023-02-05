@@ -4,19 +4,19 @@ const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 const RSS = require(`rss`);
 
-const blogPostTemplate = path.resolve(`./src/templates/blog-post.js`);
-const blogListTemplate = path.resolve(`./src/templates/blog-list.js`);
-const tagsTemplate = path.resolve(`./src/templates/tag.js`);
+const blogPostTemplate = path.resolve(`./src/templates/blog-post.jsx`);
+const blogListTemplate = path.resolve(`./src/templates/blog-list.jsx`);
+const tagsTemplate = path.resolve(`./src/templates/tag.jsx`);
 
-const _resolveDateForPath = (node) =>
+const resolveDateForPath = (node) =>
   node.frontmatter && node.frontmatter.date
     ? node.frontmatter.date
-        .match(/\d+\-\d+\-\d+/)[0]
+        .match(/\d+-\d+-\d+/)[0]
         .split("-")
         .join("/")
     : "";
 
-const _resolveSlug = (node, getNode) => {
+const resolveSlug = (node, getNode) => {
   if (node.frontmatter && node.frontmatter.slug) {
     return `/${node.frontmatter.slug}`;
   }
@@ -52,7 +52,7 @@ exports.createPages = async ({ actions, graphql }) => {
     throw result.errors;
   }
 
-  let allTags = {};
+  const allTags = {};
   const posts = result.data.allMarkdownRemark.edges;
 
   // Create blog-post page and collect tags
@@ -77,7 +77,7 @@ exports.createPages = async ({ actions, graphql }) => {
   // Create blog-list page
   const postsPerPage = 10;
   const numPages = Math.ceil(posts.length / postsPerPage);
-  Array.from({ length: numPages }).forEach((_, i) => {
+  Array.from({ length: numPages }).forEach((_h, i) => {
     const options = {
       component: blogListTemplate,
       context: {
@@ -110,13 +110,13 @@ exports.createPages = async ({ actions, graphql }) => {
 
   // Create tag page
   Object.keys(allTags).forEach((tag) => {
-    const numPages = Math.ceil(allTags[tag] / postsPerPage);
+    const contextNumPages = Math.ceil(allTags[tag] / postsPerPage);
 
-    Array.from({ length: numPages }).forEach((_f, i) => {
+    Array.from({ length: contextNumPages }).forEach((_f, i) => {
       const options = {
         component: tagsTemplate,
         context: {
-          numPages,
+          numPages: contextNumPages,
           tag,
           currentPage: i + 1,
           limit: postsPerPage,
@@ -140,15 +140,15 @@ exports.createPages = async ({ actions, graphql }) => {
   });
 };
 
-exports.onCreateNode = ({ node, getNode, getNodes, actions }) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
   if (node.internal.type !== "MarkdownRemark") {
     return;
   }
 
-  const slug = _resolveSlug(node, getNode);
-  const dateForPath = _resolveDateForPath(node);
+  const slug = resolveSlug(node, getNode);
+  const dateForPath = resolveDateForPath(node);
 
   createNodeField({
     node,
@@ -223,12 +223,8 @@ exports.onPostBuild = async ({ graphql }) => {
     )
   );
 
-  const {
-    title,
-    description,
-    siteUrl,
-    author,
-  } = siteResult.data.site.siteMetadata;
+  const { title, description, siteUrl, author } =
+    siteResult.data.site.siteMetadata;
 
   [...tags].forEach((tag) => {
     const rssFeed = new RSS({
