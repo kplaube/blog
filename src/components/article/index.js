@@ -10,7 +10,7 @@ import {
   strongTextColor,
   textColor,
 } from "../color";
-import { devices, localedDate, localedReadingTime } from "../helpers";
+import { devices, localedDate } from "../helpers";
 import { Title } from "../typograph";
 import Share from "./share";
 import Tags from "./tags";
@@ -210,7 +210,6 @@ const Article = ({
   node: {
     frontmatter: { date, tags, title },
     fields: {
-      readingTime: { minutes },
       slug,
     },
     html,
@@ -225,7 +224,7 @@ const Article = ({
 
       <MetaText>
         <AuthorName>{author.name}</AuthorName>
-        {localedDate(date)} - {localedReadingTime(minutes)} de leitura
+        {localedDate(date)}
       </MetaText>
     </Meta>
 

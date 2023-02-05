@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { textColor } from "../color";
-import { devices, localedDate, localedReadingTime } from "../helpers";
+import { devices, localedDate} from "../helpers";
 import Thumbnail from "../thumbnail";
 import { Subtitle } from "../typograph";
 
@@ -63,7 +63,6 @@ const Summary = ({
     excerpt,
     frontmatter: { date, title, thumbnail },
     fields: {
-      readingTime: { minutes },
       slug,
     },
   },
@@ -76,7 +75,7 @@ const Summary = ({
       <SummaryTitle>{title}</SummaryTitle>
       <SummaryDescription>{excerpt}</SummaryDescription>
       <SummaryMeta>
-        {localedDate(date)} - {localedReadingTime(minutes)} de leitura
+        {localedDate(date)}
       </SummaryMeta>
     </Link>
   </LinkedSummary>

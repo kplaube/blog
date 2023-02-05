@@ -45,7 +45,6 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          `gatsby-remark-reading-time`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-prismjs`,
           {
@@ -70,6 +69,16 @@ module.exports = {
       options: {
         feeds: [
           {
+            serialize: ({ query: { site, allMarkdownRemark }}) => {
+              return allMarkdownRemark.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + node.fields.slug
+                })
+              })
+            },
             query: `
             {
               allMarkdownRemark(
