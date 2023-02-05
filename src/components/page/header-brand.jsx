@@ -1,7 +1,7 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
-import { primaryColor, secondaryColor } from "../color";
+import { primaryColor, secondaryColor } from "../../colors";
 import { devices } from "../helpers";
 
 const StyledBrand = styled.div`

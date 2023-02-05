@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { textColor } from "../color";
+import { textColor } from "../../colors";
 import { devices, localedDate } from "../helpers";
 import Thumbnail from "../thumbnail";
 import { Subtitle } from "../typograph";

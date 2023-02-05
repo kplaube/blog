@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
-import { secondaryColor, textColor } from "../color";
+import { secondaryColor, textColor } from "../../colors";
 import Container from "../container";
 import { devices } from "../helpers";
 import Brand from "./header-brand";

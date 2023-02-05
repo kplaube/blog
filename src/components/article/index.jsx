@@ -2,14 +2,14 @@ import { DiscussionEmbed } from "disqus-react";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import Avatar from "../avatar";
 import {
   lightSeparator,
   primaryColor,
   secondaryColor,
   strongTextColor,
   textColor,
-} from "../color";
+} from "../../colors";
+import Avatar from "../avatar";
 import { devices, localedDate } from "../helpers";
 import { Title } from "../typograph";
 import Share from "./share";

@@ -5,7 +5,7 @@ import { Whatsapp } from "@styled-icons/boxicons-logos/Whatsapp";
 import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
-import { strongTextColor } from "../color";
+import { strongTextColor } from "../../colors";
 import { devices } from "../helpers";
 
 const BaseIconStyles = css`

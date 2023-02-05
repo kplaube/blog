@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import { createGlobalStyle } from "styled-components";
-import { strongTextColor } from "./color";
+import { strongTextColor } from "../colors";
 import PageFooter from "./page/footer";
 import Header from "./page/header";
 

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { lightSeparator, strongTextColor, textColor } from "../color";
+import { lightSeparator, strongTextColor, textColor } from "../../colors";
 import Container from "../container";
 import { devices } from "../helpers";
 

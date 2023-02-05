@@ -6,9 +6,9 @@ import Container from "../components/container";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-function BlogPost({ data }) {
-  const { author, siteUrl } = data.site.siteMetadata;
-  const post = data.markdownRemark;
+function BlogPost({ data: { markdownRemark, site } }) {
+  const { author, siteUrl } = site.siteMetadata;
+  const post = markdownRemark;
   const { tags, title, thumbnail } = post.frontmatter;
 
   const seoMeta = [

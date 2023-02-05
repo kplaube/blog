@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { lightSeparator, textColor } from "../color";
+import { lightSeparator, textColor } from "../../colors";
 
 const StyledTags = styled.div`
   margin-bottom: 24px;

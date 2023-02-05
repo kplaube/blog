@@ -4,8 +4,8 @@ import { MediumSquare } from "@styled-icons/boxicons-logos/MediumSquare";
 import PropTypes from "prop-types";
 import React from "react";
 import styled, { css } from "styled-components";
+import { textColor } from "../colors";
 import Avatar from "./avatar";
-import { textColor } from "./color";
 import { devices } from "./helpers";
 import { Text, Title } from "./typograph";
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { strongTextColor } from "./color";
+import { strongTextColor } from "../colors";
 
 export const Text = styled.p`
   font-size: 16px;
