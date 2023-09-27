@@ -6,7 +6,14 @@ export function getPosts(): Post[] {
   return Object.entries(paths).map(([, globEntry]) => (
     {
       ...globEntry.metadata,
+      component: globEntry.default,
       urlPath: getPathForPost(globEntry.metadata)
     }
   ));
+}
+
+export function getPost(slug: string): Post | undefined {
+  const posts = getPosts();
+
+  return posts.find(post => post.slug === slug);
 }

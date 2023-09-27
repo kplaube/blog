@@ -1,16 +1,16 @@
 ---
 title: "Hello World!"
 date: 2010-11-12 20:10
-tags: ["informativos"]
+modified: 2023-09-27 18:10
 slug: hello-world
 ---
 
 Por dois longos anos esperei por este momento (talvez tenha esperado até demais),
-mas enfim… posso dizer que tenho um _blog_!
+mas enfim posso dizer que tenho um _blog_!
 
-Devo confidenciar: Já trabalhei com _WordPress_ antes, mas sempre como o cara
+ Já trabalhei com _WordPress_ antes, mas sempre como o cara
 que estava desenvolvendo um _Blog/CMS_ para alguém. Desta vez eu posso me
-considerar “do outro lado”, e é difícil hein?! Pretendo contribuir com vocês,
+considerar “do outro lado”, e é difícil hein? Pretendo contribuir com vocês,
 caros leitores, com todo o conhecimento que possuo (e seguindo a regra da
 reciprocidade, absorver conhecimento de vocês também).
 
@@ -22,7 +22,7 @@ passando pelo [_Joomla!_](http://www.joomla.org/ "Visite o site oficial do CMS J
 _Spaghetti_, [_CodeIgniter_](http://codeigniter.com/ "Visite o site oficial da framework CodeIgniter")
 e mais recentemente pela [_CakePHP_](http://cakephp.org/ "Visite o site da framework para desenvolvimento rápido, CakePHP").
 Pretendo sim falar sobre _PHP_, mas de uma forma bem “light“, pois na verdade
-o objetivo principal deste _blog_ é transmitir meus conhecimentos sobre
+o objetivo principal deste _blog_ é abordar 
 [_Python_](/tag/python.html "Leia mais sobre Python"),
 [_Django_](/tag/django.html "Leia mais sobre Django"),
 padrões [_Web_](/tag/desenvolvimento-web.html "Leia mais sobre Web"),
@@ -30,8 +30,7 @@ _Software_ Livre e [_Linux_](/tag/linux.html "Leia mais sobre Linux").
 
 Não que eu seja um “guru” nas tecnologias mencionadas, mas aprendi contribuindo
 com o [_Profissionais TI_](http://profissionaisti.com.br "Leia sobre tecnologia, telecomunicações, desenvolvimento, entre outros")
-que escrever _posts_ é uma excelente maneira de aprender. Então podem apostar
-que eu vou estar aprendendo junto com vocês.
+que escrever é uma excelente maneira de aprender.
 
 ## Casa de ferreiro…
 
@@ -44,10 +43,10 @@ Não que eu não vá aplicar minhas (poucas) habilidades em _WordPress_ neste bl
 Só pretendo fazer deste uma espécie de “jardim Zen“, ou seja, quando achar que
 vai ser maneiro escrever um tema todo em [_HTML5_](/tag/html5.html "Leia mais sobre HTML5")
 com altos efeitos em [_CSS3_](/tag/css3.html "Leia mais sobre CSS3")
-(se eu tiver tempo para isso), com certeza farei… e com certeza mostrarei como fiz,
+(se eu tiver tempo para isso), com certeza farei... e com certeza mostrarei como fiz,
 e podem ter certeza que este tema será _open source_.
 
-## Are you ready?
+## Preparado?
 
 Gostaria de agradecer ao [_Jackson Caset_](http://www.twitter.com/jcaset/ "Visite o perfil do Jackson no Twitter")
 do [_Profissionais TI_](http://profissionaisti.com.br "Leia sobre tecnologia, telecomunicações, desenvolvimento, entre outros"),
@@ -57,7 +56,6 @@ do [_Profissionais TI_](http://profissionaisti.com.br "Leia sobre tecnologia, te
 ao [_Akita_](http://akitaonrails.com/ "Você não conhece o Akita?!"),
 pessoal do [_Tableless_](http://www.tableless.com.br/ "[IMO] A melhor referência sobre padrões Web no Brasil")
 e ao _Pedro_ do [_Pinceladas da Web_](http://www.pinceladasdaweb.com.br/blog/ "Outra excelente fonte para desenvolvedores Web").
-Eles podem até não saber, mas foram influências para a criação deste _blog_ …
-sem dúvida, se não fossem por estes caras, eu estaria jogando _Winning Eleven_ numa hora dessas :)
+Eles podem até não saber, mas foram influências para a criação deste _blog_, e se não fossem por estes caras, eu estaria jogando _Winning Eleven_ numa hora dessas 🙂
 
-Boa leitura…
+Boa leitura.
