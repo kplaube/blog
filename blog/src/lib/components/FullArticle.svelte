@@ -43,7 +43,7 @@
 			color: var(--secondary-color);
 			font-style: italic;
 			margin-left: 0;
-			padding-left: 2rem;
+			padding-left: 1.25rem;
 		}
 
 		& :global(p > code) {
@@ -77,7 +77,9 @@
 
 		& :global(img) {
 			border-radius: 0.5rem;
+			display: block;
 			height: auto;
+			margin: 0 auto;
 			max-width: 100%;
 		}
 
