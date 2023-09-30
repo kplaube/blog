@@ -1,5 +1,6 @@
 export type Post = {
   date: string;
+  filename: string;
   urlPath: string;
   slug: string;
   tags: string[];

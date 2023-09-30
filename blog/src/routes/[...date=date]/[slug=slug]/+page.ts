@@ -1,10 +1,12 @@
+import { getPost } from "$lib/data/posts";
 import type { PageLoad } from "./$types";
 
 export const load: PageLoad = async ({ params }) => {
-  const post = await import(`../../../posts/${params.slug}.md`);
+  const post = getPost(params.slug);
+  const component = await import(`${post.filename}`);
 
   return {
-    post: post.metadata,
-    component: post.default,
+    post,
+    component: component.default,
   };
 }

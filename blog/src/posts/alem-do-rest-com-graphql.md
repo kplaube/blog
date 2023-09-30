@@ -1,6 +1,7 @@
 ---
 title: Além do REST com GraphQL
 date: 2020-07-01 17:17:00
+modified: 2023-09-30 11:31
 tags: ["desenvolvimento-web", "rest", "graphql", "api", "pokemon"]
 slug: alem-do-rest-com-graphql
 thumbnail: ./images/graphql-logo.png
@@ -13,10 +14,10 @@ escolher uma biblioteca ou _framework_ com bom suporte a [_REST_](/tag/rest.html
 é parte fundamental da tomada de decisão ao iniciar um projeto.
 
 Em tempos de [_API-First_](/tag/api-first.html "Leia mais sobre API-First"), debater arquitetura, _design_, e considerar
-opções deve fazer parte da concepção de um produto (por mais "padrãozinho" que ele possa parecer). E nessa etapa,
+opções deve fazer parte da concepção de um produto. E nessa etapa,
 questionar a adoção do _REST_ pode resultar em impactos positivos, dependendo do contexto e público alvo.
 
-![Grafos, árvores e florestas](./images/graph.jpg "Grafos! Grafos everywhere! (sitepoint.com)")
+![Grafos, árvores e florestas](/media/graph.jpg "Grafos! Grafos everywhere! (sitepoint.com)")
 
 Uma das alternativas é o _GraphQL_. E agora, com o _hype_ ao redor da tecnologia um pouco mais frio, dá para falar
 sobre ela com menos paixão e mais razão.
@@ -60,12 +61,12 @@ conhecido por _over-fetching_ e _under-fetching_:
 - **over-fetching:** É quando você está recebendo dados demais, não necessários para o seu propósito, em sua requisição;
 - **under-fetching:** O oposto. Quando você não recebe dados o suficiente, e precisa realizar outras chamadas para cumprir o seu propósito.
 
-![Diagrama com três diferentes chamadas REST para os endpoints de perfil do usuário, artigos, e seguidores](./images/graphql-rest-calls.png "Imagine uma aplicação com a necessidade de exibir o perfil do usuário, seus artigos e seguidores, em uma mesma visualização (howtographql.com)")
+![Diagrama com três diferentes chamadas REST para os endpoints de perfil do usuário, artigos, e seguidores](/media/graphql-rest-calls.png "Imagine uma aplicação com a necessidade de exibir o perfil do usuário, seus artigos e seguidores, em uma mesma visualização (howtographql.com)")
 
 Já com a flexibilidade do _GraphQL_, é possível obter toda a informação necessária através de uma consulta, como ilustrado
 no diagrama abaixo:
 
-![Diagrama com apenas uma requisição HTTP, utilizando GraphQL, e consultando por perfil do usuário, seus artigos e seguidores](./images/graphql-query.png "Através de uma requisição HTTP, o cliente é capaz de obter os dados na medida certa (howtographql.com)")
+![Diagrama com apenas uma requisição HTTP, utilizando GraphQL, e consultando por perfil do usuário, seus artigos e seguidores](/media/graphql-query.png "Através de uma requisição HTTP, o cliente é capaz de obter os dados na medida certa (howtographql.com)")
 
 Vale lembrar que existe complementos ao _REST_ que possibilitam uma maior flexibilidade do
 _payload_ (como por exemplo, passar quais campos você quer coletar através de _query string_),
@@ -93,13 +94,12 @@ mas ainda assim, uma complexidade a mais.
 Possivelmente a melhor forma de adicionar o _GraphQL_ ao seu projeto é através de plataformas como o [_Apollo_](https://www.apollographql.com/ "Simplify app development by combining APIs, databases, and microservices into a single data graph that you can query with GraphQL"), ou com a utilização de bibliotecas, como é o caso (para _servers_ em [_Django_](/tag/django.html "Leia mais sobre Django")) da [_graphene-django_](https://github.com/graphql-python/graphene-django "A Django integration for Graphene") e
 (para _clients_ em _Javascript_) da [_Relay_](https://relay.dev/ "The production-ready GraphQL client for React").
 
-![Diagrama exibindo uma arquitetura com Serverless e Apollo Platform](./images/graphql-apollo-serverless-architecture.png "Exemplo de arquitetura GraphQL e Serverless com Apollo-Server-Lambda (serverless.com)")
+![Diagrama exibindo uma arquitetura com Serverless e Apollo Platform](/media/graphql-apollo-serverless-architecture.png "Exemplo de arquitetura GraphQL e Serverless com Apollo-Server-Lambda (serverless.com)")
 
 Por tratar-se de uma especificação, implementações existirão para diferentes linguagens, arquiteturas, e fins (o próprio [_Gatsby_](https://www.gatsbyjs.org/ "Fast in every way that matters") é um bom exemplo).
 
 Não vamos focar em como desenvolver sua _API_ com _GraphQL_, e sim em como utilizar a _query language_. [Esse repositório no _Github_](https://github.com/APIs-guru/graphql-apis "Public GraphQL APIs")
-disponibiliza algumas _APIs_ públicas na qual podemos utilizar para exercitar esse _skill_. A [_GraphQL Pokémon_](https://github.com/lucasbento/graphql-pokemon "Visite o repositório") parece
-uma boa candidata para este momento do artigo.
+disponibiliza algumas _APIs_ públicas na qual podemos utilizar para praticar. A [_GraphQL Pokémon_](https://github.com/lucasbento/graphql-pokemon "Visite o repositório") parece uma boa candidata.
 
 ### Tipos
 
@@ -129,7 +129,7 @@ type Pokemon {
 
 [Veja o _schema_ na íntegra](https://github.com/lucasbento/graphql-pokemon/blob/master/schemas/schema.graphql "Veja o arquivo no Github").
 
-Para quem já teve o mínimo contato com [_Swagger_](/tag/swagger.html "Leia mais sobre Swagger"), a sintaxe acima não é estranha. A estrutura consiste em basicamente
+Para quem já teve contato com [_Swagger_](/tag/swagger.html "Leia mais sobre Swagger"), a sintaxe acima não é estranha. A estrutura consiste em basicamente
 `field: type`. Onde em `field` damos o nome do campo, e `type` descrevemos o tipo.
 
 Além dos tipos básicos
@@ -158,9 +158,9 @@ Para aquecer, vamos visualizar o _schema_:
 
 Ou utilizando o `curl`:
 
-```
-curl 'https://graphql-pokemon.now.sh/?' \
-  -H 'content-type: application/json' \
+```shell
+curl 'https://graphql-pokemon.now.sh/?' \\
+  -H 'content-type: application/json' \\
   --data-binary '{"query":"{ __schema { types{ name } } }", "variables":null, "operationName":null}'
 ```
 
@@ -558,7 +558,7 @@ Existem outros conceitos não explorados nesse artigo, como por exemplo as [_Sub
 pode estar confuso para você é como que o servidor interpreta o _GraphQL_, e coleta os dados para formar
 a resposta da requisição.
 
-![Imagem do filme Detective Pikachu, mostrando o Pikachu com uma lupa](./images/detective-pikachu.jpg "Será que conseguimos encontrar um emprego de detetive, para Pokémons, utilizando GraphQL? (www.geekgirlauthority.com/)")
+![Imagem do filme Detective Pikachu, mostrando o Pikachu com uma lupa](/media/detective-pikachu.jpg "Será que conseguimos encontrar um emprego de detetive, para Pokémons, utilizando GraphQL? (www.geekgirlauthority.com/)")
 
 Comigo o "click" aconteceu depois de checar o código dos repositórios abaixo:
 
@@ -590,7 +590,7 @@ O que talvez precise ficar claro na sua tomada de decisão é que um não substi
 Dependendo da sua _stack_, disponibilizar os dois formatos não é nenhum sacrifício. Aliás, ter o _GraphQL_ como uma
 espécie de _API Gateway_, agregando o resultado de demais _endpoints_ _REST_ [parece ser uma tendência](https://levelup.gitconnected.com/graphql-is-the-new-api-gateway-383edeed4bcd "GraphQL is the New API Gateway").
 
-![Topologia de serviços quando adicionado GraphQL como API Gateway](./images/graphql-api-gateway.png "Exemplo de uso de GraphQL como API Gateway, à frente de outras APIs GraphQL e REST (labs.getninjas.com.br)")
+![Topologia de serviços quando adicionado GraphQL como API Gateway](/media/graphql-api-gateway.png "Exemplo de uso de GraphQL como API Gateway, à frente de outras APIs GraphQL e REST (labs.getninjas.com.br)")
 
 ## Considerações finais
 
@@ -605,7 +605,7 @@ Como o livro ["GraphQL or Bust: To Use It Or Not: That is the Question"](https:/
 
 > GraphQL has often been sold as a perfect solution for every problem, but the reality is that it meets one requirement better than most other, and if that’s not part of your requirements, it may not be the best solution for your implementation.
 
-A discussão continua nas referências abaixo. Não deixe de conferir!
+A discussão continua nas referências abaixo. Não deixe de conferir.
 
 Até a próxima.
 

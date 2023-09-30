@@ -1,6 +1,7 @@
 ---
 title: Tipo assim... tipo em Python
 date: 2021-10-20 15:00:00
+modified: 2023-09-30 17:20
 tags: ["python", "typing-hints", "qualidade", "linter", "mypy"]
 slug: tipo-assim-tipo-python
 thumbnail: ./images/python-logo.png
@@ -110,8 +111,6 @@ De fato, o interpretador ignora tais instruções e [elas não tem efeito no có
 Na época, o _mypy_ não era essa _lib_ bem estabelecida que é hoje. Conceitos e ferramentas ao redor desse tópico
 ainda eram confusos, e o mesmo gerava debates acalorados.
 
-Nem preciso dizer que fui um dos programadores que logo de cara torceu o nariz.
-
 ## Static type é cool novamente
 
 Quantas vezes você já precisou abrir uma função para compreender o que exatamente ela retornava? Quantos
@@ -121,7 +120,7 @@ entender a razão de um atributo de instância estar disparando algum erro de ti
 À medida que o seu projeto vai crescendo em tamanho e complexidade, a ausência de tipos começa a afetar a qualidade do mesmo,
 pelo menos é isso que afirma _Dustin Ingram_ no _talk_ [_Static Typing in Python_](https://www.youtube.com/watch?v=ST33zDM9vOE "Veja no Youtube"):
 
-![Gráfico com a complexidade subindo ao aumentar linhas de código](./images/type-hint.png "Quando migrar para Type Hint (youtube.com)")
+![Gráfico com a complexidade subindo ao aumentar linhas de código](/media/type-hint.png "Quando migrar para Type Hint (youtube.com)")
 
 Se você tiver 28 minutos, dê uma pausa neste artigo e confira a apresentação na íntegra:
 
@@ -142,8 +141,8 @@ o que estava acontecendo, eu enxergo e entendo o argumento a favor do uso de _ty
 
 A melhor forma de começar é através do [_mypy_](http://mypy-lang.org "Optional static type checker for Python"):
 
-```text
-$ pip install mypy
+```shell
+pip install mypy
 ```
 
 O próximo passo é adicionar as anotações ao código, indicando os tipos:
@@ -163,6 +162,7 @@ de comando executamos a checagem:
 
 ```text
 $ mypy calculadora.py
+
 Success: no issues found in 1 source file
 ```
 
@@ -170,6 +170,7 @@ Se alterarmos um dos parâmetros passados para `float`, o `mypy` nos alertará q
 
 ```text
 $ mypy calculadora.py
+
 calculadora.py:5: error: Argument 1 to "soma" has incompatible type "float"; expected "int"
 Found 1 error in 1 file (checked 1 source file)
 ```
@@ -183,7 +184,7 @@ o [_plugin Python_](https://marketplace.visualstudio.com/items?itemName=ms-pytho
 instalado, basta o interpretador configurado ter acesso ao _mypy_, ou que você explicitamente
 passe o caminho do executável nas configurações do editor:
 
-![Interface do VS Code mostrando um erro de tipo](./images/type-hint-vscode.png "Como o erro do mypy é exibido no VS Code")
+![Interface do VS Code mostrando um erro de tipo](/media/type-hint-vscode.png "Como o erro do mypy é exibido no VS Code")
 
 [Leia mais sobre como configurar o Mypy com VS Code](https://code.visualstudio.com/docs/python/linting#_mypy).
 
@@ -196,11 +197,11 @@ Caso você se aventure pelo mundo do [_LSP_](/tag/lsp.html "Leia mais sobre Lang
 uma combinação interessante é a do [_vim-lsp_](https://github.com/prabirshrestha/vim-lsp "LSP com Vim") +
 [_Python Language Server_](https://github.com/python-lsp/python-lsp-server "Acesse o repositório no GitHub"):
 
-```
-$ pip install pip install python-lsp-server pylsp-mypy
+```text
+pip install pip install python-lsp-server pylsp-mypy
 ```
 
-![Interface do Vim mostrando um erro de tipo](./images/type-hint-vim.png "Como o erro do mypy é exibido no vim com vim-lsp")
+![Interface do Vim mostrando um erro de tipo](/media/type-hint-vim.png "Como o erro do mypy é exibido no vim com vim-lsp")
 
 ## Considerações finais
 
@@ -210,9 +211,9 @@ e sem dúvida acelerou o desenvolvimento e o _onboarding_ de novos membros à eq
 Mas o debate sobre _Python_ em si ser um bom candidato a esse tipo de prática é muito válido. Fazendo um contraponto ao parágrafo acima,
 um código bem escrito poderia sim ser o suficiente para resolver alguns dos problemas que estamos tentando resolver com _type hint_.
 
-Eu ainda trocaria um código `mal escrito` por um `bem escrito`, ao invés de um `mal escrito` por um `mal escrito com type hints`.
+Eu ainda trocaria um código **mal escrito** por um **bem escrito**, ao invés de um **mal escrito** por um **mal escrito com type hints**.
 
-Em cima do muro :)
+Em cima do muro 🙂
 
 Quem sabe no próximo grande projeto...
 

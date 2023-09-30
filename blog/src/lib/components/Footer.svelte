@@ -17,6 +17,7 @@
 	div {
 		color: var(--secondary-color);
 		border-top: 1px solid #f4f4f4;
+		font-size: 0.8rem;
 		margin: 4rem 0;
 		padding-top: 2rem;
 		text-align: right;

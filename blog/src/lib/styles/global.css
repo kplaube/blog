@@ -2,6 +2,7 @@
   --brand-color: rgb(196, 23, 12);
   --primary-color: rgba(0, 0, 0, 0.87);
   --secondary-color: rgba(0, 0, 0, 0.54);
+  --light-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
 body {

@@ -37,6 +37,9 @@
 	a:hover h1 {
 		color: var(--primary-color);
 	}
+	a:hover img {
+		filter: grayscale(60%);
+	}
 
 	header {
 		padding: 3.5rem 0;
@@ -54,7 +57,6 @@
 	img {
 		background-color: var(--secondary-color);
 		border-radius: 50%;
-		filter: grayscale(60%);
 		height: 64px;
 		margin-right: 16px;
 		width: 64px;
