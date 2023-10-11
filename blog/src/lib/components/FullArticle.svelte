@@ -46,7 +46,8 @@
 			padding-left: 1.25rem;
 		}
 
-		& :global(p > code) {
+		& :global(p > code),
+		& :global(li > code) {
 			background-color: var(--light-highlight-color);
 			border-radius: 0.25rem;
 			color: var(--primary-color);
