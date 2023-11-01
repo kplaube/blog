@@ -98,7 +98,7 @@ negociar escopo e coletando _feedbacks_ rápidos do cliente; além de
 desenvolvimento de _software_: **agilidade**. Esta me permitiu entregar
 o escopo prometido (e negociado durante o desenvolvimento) dentro do
 prazo prometido (que influenciou diretamente na negociação do escopo)
-sem denegrir qualidade.
+sem diminuir qualidade.
 
 ## Considerações finais
 
