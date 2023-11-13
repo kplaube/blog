@@ -19,7 +19,7 @@ thumbnail: ./images/vscode-logo.png
 serie: "Eu me rendo"
 ---
 
-É, caro leitor... chegou o dia de admitir que tenho usado outro editor
+É... chegou o dia de admitir que tenho usado outro editor
 além do [_Vim_](/tag/vim.html "Leia mais sobre o melhor editor do universo"). Pode
 me julgar, me chamar de "poser" ou de "vendido", mas acontece que tenho descoberto no
 [_VS Code_](https://code.visualstudio.com/ "Conheça o VS Code"), da _Microsoft_,

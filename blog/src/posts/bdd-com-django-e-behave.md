@@ -27,7 +27,7 @@ como um excelente contrato à sua suite de aceitação, é uma ótima ferramenta
 para garantir que a integração _back-end/front-end_ está funcionando de acordo
 com o esperado.
 
-Devo ser sincero com você, caro leitor: Fazer [_BDD_](/tag/bdd.html "Leia mais sobre BDD")
+Devo ser sincero com você: Fazer [_BDD_](/tag/bdd.html "Leia mais sobre BDD")
 com [_Django_](/tag/django.html "Leia mais sobre Django") (IMO) sempre foi uma dor de cabeça.
 Já utilizei algumas ferramentas, como [_unittest_](/2011/07/18/ferramentas-de-testes-em-django-parte-1.html)
 focado em comportamento, [_doctests_](/2011/07/18/ferramentas-de-testes-em-django-parte-1.html),

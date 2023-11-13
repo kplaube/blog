@@ -287,7 +287,7 @@ securitySchemes:
       authorizationGrants: [ authorization_code, implicit ]
 ```
 
-Serei sincero com você, caro leitor, o código acima é uma receita de bolo para descrever
+Serei sincero com você, o código acima é uma receita de bolo para descrever
 o `securitySchemes` do tipo _OAuth 2_. Nada de muito diferente do que a gente viu até aqui,
 com exceção do uso do `|`, que nesse caso serve para fazer textos em bloco, e da
 propriedade `type` com valor `OAuth 2.0`.

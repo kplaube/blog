@@ -19,7 +19,7 @@ e me mudei para a cidade grande.
 
 De lá para cá aconteceram inúmeras coisas na minha vida pessoal e profissional.
 Aprendi muito, mais do que qualquer instituição de ensino poderia me ensinar.
-Logo, caro leitor, se o seu destino é ir para a cidade grande, trabalhar em
+Logo, se o seu destino é ir para a cidade grande, trabalhar em
 uma grande empresa, talvez você se interesse pelo que eu tenho a dizer.
 
 ## Adapte-se
