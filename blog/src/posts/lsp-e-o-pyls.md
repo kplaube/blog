@@ -203,7 +203,7 @@ Pronto! O cliente está configurado, e com os seguintes comandos você pode expl
 - `:call LanguageClient#textDocument_documentSymbol()`: Lista de _Symbols_
 - `:call LanguageClient#textDocument_rename()`: _Renaming_
 - `:call LanguageClient#textDocument_formatting()`: _Formatting_
-- `:call :call LanguageClient_contextMenu()`: Menu de contexto mostrando todas as opções disponíveis
+- `:call LanguageClient_contextMenu()`: Menu de contexto mostrando todas as opções disponíveis
 
 ![Exemplo do LSP funcionando com o Vim](/media/vim-lsp-autocomplete.png "Exemplo do LSP funcionando com o Vim")
 

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import Container from './Container.svelte';
-
 	export let avatar: string;
 	export let description: string;
 	export let title: string;
@@ -8,19 +6,17 @@
 </script>
 
 <header>
-	<Container>
-		<div class="inside-container">
-			<a href={url}>
-				<img src={avatar} alt="Avatar" />
+	<div class="inside-container">
+		<a href={url}>
+			<img src={avatar} alt="Avatar" />
 
-				<div>
-					<h1>{title}</h1>
+			<div>
+				<h1>{title}</h1>
 
-					<span>{description}</span>
-				</div>
-			</a>
-		</div>
-	</Container>
+				<span>{description}</span>
+			</div>
+		</a>
+	</div>
 </header>
 
 <style>

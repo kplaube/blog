@@ -1,5 +1,5 @@
 import type { GlobEntry, Post } from "$lib/types";
-import { getPathForPost } from "$lib/utils";
+import { getPathForPost } from "$lib/helpers";
 
 export function getPosts(): Post[] {
   const paths = import.meta.glob<GlobEntry>("/src/posts/*.md", { eager: true });

@@ -16,13 +16,11 @@
 <svelte:head>
 	<title>{data.post.title} | {title}</title>
 	<meta name="author" content={authorName} />
-	<meta name="description" content={data.post.description} />
-	<meta name="keywords" content={data.post.tags} />
+	<meta name="keywords" content={data.post.tags.join(', ')} />
 </svelte:head>
 
-<Header avatar={authorAvatar} {description} {title} {url} />
-
 <Container>
+	<Header avatar={authorAvatar} {description} {title} {url} />
 	<FullArticle post={data.post}>
 		<svelte:component this={data.component} />
 	</FullArticle>
