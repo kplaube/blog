@@ -13,7 +13,7 @@ tags:
     "vcs",
   ]
 slug: como-versionar-projetos-django-mercurial-parte-2
-thumbnail: ./images/mercurial-logo.png
+thumbnail: /media/mercurial-logo.png
 ---
 
 Dando continuidade ao _post_ [Como versionar

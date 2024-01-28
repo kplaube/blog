@@ -3,7 +3,7 @@ title: "Como organizar seus projetos Django"
 date: 2011-04-11 20:11
 tags: ["desenvolvimento-web", "python", "django", "virtualenv"]
 slug: como-organizar-seus-projetos-django
-thumbnail: ./images/django-logo.png
+thumbnail: /media/django-logo.png
 ---
 
 Pretendo compartilhar com vocês a forma que venho utilizando para

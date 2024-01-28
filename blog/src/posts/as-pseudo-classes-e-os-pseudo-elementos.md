@@ -4,7 +4,7 @@ date: 2012-09-05 09:42:49
 category: desenvolvimento
 tags: ["desenvolvimento", "web", "padroes-web", "css3"]
 slug: pseudo-classes-e-os-pseudo-elementos
-thumbnail: ./images/css3-logo.png
+thumbnail: /media/css3-logo.png
 ---
 
 O [*CSS*][] tem diversas coisas legais. Uma quantidade

@@ -14,7 +14,7 @@ tags:
     "splinter",
   ]
 slug: bdd-com-django-e-behave
-thumbnail: ./images/bdd-given-when-then.jpg
+thumbnail: /media/bdd-given-when-then.jpg
 ---
 
 Testar o comportamento da sua aplicação, ao invés de pequenos módulos isolados,

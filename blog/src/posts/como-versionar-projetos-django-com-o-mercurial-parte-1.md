@@ -3,7 +3,7 @@ title: "Como versionar projetos Django com o Mercurial - Parte 1"
 date: 2011-05-10 23:34
 tags: ["desenvolvimento-web", "python", "django", "git", "mercurial", "vcs"]
 slug: como-versionar-projetos-django-mercurial-parte
-thumbnail: ./images/mercurial-logo.png
+thumbnail: /media/mercurial-logo.png
 ---
 
 Se você está começando em [*Django*][], e nunca utilizou uma ferramenta

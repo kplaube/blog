@@ -4,7 +4,7 @@ date: 2018-11-09 16:34:00
 modified: 2023-11-13 16:36:00
 tags: ["estrutura-de-dados", "algoritmos"]
 slug: analise-assintotica
-thumbnail: ./images/algoritmos.jpg
+thumbnail: /media/algoritmos.jpg
 ---
 
 Devo confessar que durante a minha graduação, nunca prestei muita atenção na

@@ -4,7 +4,7 @@ date: 2019-12-18 08:10:00
 modified: 2023-11-07 15:42:00
 tags: ["python", "qualidade", "linter", "seguranca", "dodgy"]
 slug: assegure-qualidade-seu-codigo-python-dodgy
-thumbnail: ./images/python-logo.png
+thumbnail: /media/python-logo.png
 ---
 
 Ferramentas de [qualidade de código](/tag/qualidade.html "Leia mais sobre qualidade") parece um tópico com conteúdo infinito

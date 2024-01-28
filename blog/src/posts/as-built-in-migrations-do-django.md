@@ -12,7 +12,7 @@ tags:
     "banco-de-dados",
   ]
 slug: as-built-in-migrations-do-django
-thumbnail: ./images/django-logo.png
+thumbnail: /media/django-logo.png
 ---
 
 Quem usa o [_Django_](/tag/django.html "Leia mais sobre Django") há mais tempo já ouviu

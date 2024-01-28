@@ -3,7 +3,7 @@ title: "BDD: Desenvolvimento Orientado a Comportamento"
 date: 2011-02-02 12:48
 tags: ["testes", "bdd", "agile"]
 slug: bdd-desenvolvimento-orientado-comportamento
-thumbnail: ./images/bdd.jpg
+thumbnail: /media/bdd.jpg
 ---
 
 Esse post foi originalmente escrito para o [*Profissionais TI*][], você

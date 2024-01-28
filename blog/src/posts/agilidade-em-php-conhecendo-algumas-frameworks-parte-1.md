@@ -13,7 +13,7 @@ tags:
     "zend framework",
   ]
 slug: agilidade-em-php-conhecendo-algumas-frameworks
-thumbnail: ./images/php-logo.png
+thumbnail: /media/php-logo.png
 ---
 
 Embora eu me considere um admirador do [_Python_][python] e [_Django_][django], é o

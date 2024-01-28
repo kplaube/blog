@@ -5,7 +5,7 @@ modified: 2023-11-13 16:57:00
 tags:
   ["desenvolvimento-web", "rest", "api", "api-first", "api-blueprint", "mson"]
 slug: api-blueprint-markdown-e-vida
-thumbnail: ./images/api-blueprint-logo.png
+thumbnail: /media/api-blueprint-logo.png
 ---
 
 Estamos falando sobre escrever especificações de [_APIs_](/tag/api.html "Leia mais sobre APIs")

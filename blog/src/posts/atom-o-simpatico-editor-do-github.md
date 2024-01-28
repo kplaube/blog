@@ -4,7 +4,7 @@ date: 2018-12-27 18:35:00
 modified: 2023-11-01 09:58:00
 tags: ["desenvolvimento-web", "editores", "ide", "atom", "python", "vim"]
 slug: atom-o-simpatico-editor-do-github
-thumbnail: ./images/atom-editor-logo.png
+thumbnail: /media/atom-editor-logo.png
 ---
 
 Tenho "peregrinado" por diferentes editores e _IDEs_ nesses últimos meses. Além

@@ -11,7 +11,7 @@ tags:
     "html5",
   ]
 slug: css3-cantos-arredondados-sombras-degrades-ate
-thumbnail: ./images/css3-logo.png
+thumbnail: /media/css3-logo.png
 ---
 
 Enquanto o [movimento em prol do HTML5 ganha cada vez mais força][], o

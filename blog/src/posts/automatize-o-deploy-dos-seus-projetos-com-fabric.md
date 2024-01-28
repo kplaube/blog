@@ -4,7 +4,7 @@ date: 2012-02-26 19:40:13
 modified: 2023-10-04 16:20
 tags: ["desenvolvimento-web", "python", "django", "fabric", "deploy"]
 slug: automatize-o-deploy-dos-seus-projetos-com-fabric
-thumbnail: ./images/deploy.jpg
+thumbnail: /media/deploy.jpg
 ---
 
 Durante a minha árdua trajetória com o [*PHP*][],
@@ -89,7 +89,7 @@ ambiente o _deploy_ será realizado. Por exemplo, a cada nova subida de
 _release_, executo o seguinte comando:
 
 ```text
-$ fab production deploy http_restart
+fab production deploy http_restart
 ```
 
 Onde basicamente:

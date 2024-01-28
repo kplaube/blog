@@ -13,7 +13,7 @@ tags:
     "eisenhower-box",
   ]
 slug: 5-ferramentas-para-ajudar-na-produtividade-durante-a-quarentena
-thumbnail: ./images/focus-kevin-ku-unsplash.jpg
+thumbnail: /media/focus-kevin-ku-unsplash.jpg
 ---
 
 Esse _post_ é inspirado em uma conversa que tive com a minha sobrinha, há alguns

@@ -5,7 +5,7 @@ modified: 2023-11-08 15:45:00
 category: desenvolvimento
 tags: ["python", "pyflakes", "linter", "qualidade"]
 slug: assegure-qualidade-seu-codigo-python-pyflakes
-thumbnail: ./images/software-quality.jpg
+thumbnail: /media/software-quality.jpg
 ---
 
 Depois da dar uma pincelada na [*pep8*][] e no [*Pylint*][], chegou a hora de

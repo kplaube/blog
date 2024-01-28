@@ -4,7 +4,7 @@ date: 2019-02-21 12:45:00
 modified: 2023-11-08 15:39:00
 tags: ["python", "qualidade", "linter", "seguranca", "bandit"]
 slug: assegure-qualidade-seu-codigo-python-bandit
-thumbnail: ./images/bandit-logo.png
+thumbnail: /media/bandit-logo.png
 ---
 
 Já falamos sobre algumas ferramentas de qualidade de código [_Python_](/tag/python.html "Leia mais sobre Python") aqui no _blog_. De [_pycodestyle_](/2011/08/26/assegure-qualidade-seu-codigo-python-pep.html "Assegure a qualidade do seu código Python - pep8") a [_Clone Digger_](/2011/10/16/assegure-qualidade-seu-codigo-python-clone-digger.html "Assegure a qualidade do seu código Python - Clone digger"), passando por [_Pyflakes_](/2011/10/02/assegure-qualidade-seu-codigo-python-pyflakes.html "Assegure a qualidade do seu código Python - Pyflakes") e [_Pylint_](/2011/09/06/assegura-a-qualidade-de-codigo-python-pylint.html "Assegure a qualidade do seu código Python - Pylint"). Além do _flake8_ (que acredito não precisar de apresentações), uma ferramenta que passei a ter sempre no meu _toolbelt_ foi o [_Bandit_](https://github.com/PyCQA/bandit "Repositório do Bandit").

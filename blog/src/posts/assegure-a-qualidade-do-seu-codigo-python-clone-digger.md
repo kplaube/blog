@@ -5,7 +5,7 @@ modified: 2023-11-08 15:41:00
 category: desenvolvimento
 tags: ["python", "qualidade", "linter", "clone-digger"]
 slug: assegure-qualidade-seu-codigo-python-clone-digger
-thumbnail: ./images/ovelha-dolly.jpg
+thumbnail: /media/ovelha-dolly.jpg
 ---
 
 Mesmo que você possa verificar a qualidade do seu

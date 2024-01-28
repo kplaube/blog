@@ -15,7 +15,7 @@ tags:
     "oai",
   ]
 slug: api-first-processo-e-ferramentas
-thumbnail: ./images/swaggerhub-logo.png
+thumbnail: /media/swaggerhub-logo.png
 ---
 
 No [_post_ anterior](/2020/02/21/o-api-first.html "O API-First") tive a oportunidade de falar

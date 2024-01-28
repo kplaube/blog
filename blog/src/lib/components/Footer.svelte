@@ -1,17 +1,11 @@
-<script>
-	import Container from './Container.svelte';
-</script>
-
-<Container>
-	<div>
-		<p>
-			O conteúdo desse site está sob a licença <a
-				href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR">Creative Commons Attribution</a
-			>.
-		</p>
-		<p><a href="https://github.com/kplaube/blog">Fork me no Github</a>.</p>
-	</div>
-</Container>
+<div>
+	<p>
+		O conteúdo desse site está sob a licença <a
+			href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR">Creative Commons Attribution</a
+		>.
+	</p>
+	<p><a href="https://github.com/kplaube/blog">Fork me no Github</a>.</p>
+</div>
 
 <style>
 	div {

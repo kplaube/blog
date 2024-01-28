@@ -1,20 +1,12 @@
 <script lang="ts">
 	import type { Post } from '$lib/types';
+	import ArticleHeader from './ArticleHeader.svelte';
 
 	export let post: Post;
-
-	const formattedDate = new Date(post.date).toLocaleDateString('pt-BR', {
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric'
-	});
 </script>
 
 <article>
-	<header>
-		<h1>{post.title}</h1>
-		<time datetime={post.date}>{formattedDate}</time>
-	</header>
+	<ArticleHeader {post} />
 
 	<div class="content">
 		<slot />
@@ -92,22 +84,5 @@
 
 	.content :global(strong) {
 		font-weight: 600;
-	}
-
-	article header {
-		margin-bottom: 3rem;
-	}
-
-	article header h1 {
-		font-size: 2.5rem;
-		margin-bottom: 0.3rem;
-	}
-
-	header {
-		text-align: center;
-	}
-
-	time {
-		color: var(--secondary-color);
 	}
 </style>

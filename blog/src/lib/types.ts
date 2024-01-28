@@ -4,6 +4,7 @@ export type Post = {
   urlPath: string;
   slug: string;
   tags: string[];
+  thumbnail: string;
   title: string;
 }
 

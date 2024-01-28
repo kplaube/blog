@@ -4,7 +4,7 @@ date: 2020-07-01 17:17:00
 modified: 2023-09-30 11:31
 tags: ["desenvolvimento-web", "rest", "graphql", "api", "pokemon"]
 slug: alem-do-rest-com-graphql
-thumbnail: ./images/graphql-logo.png
+thumbnail: /media/graphql-logo.png
 serie: Além do REST
 ---
 

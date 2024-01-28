@@ -3,7 +3,7 @@ title: "Construindo APIs em Django com Restless"
 date: 2017-01-06 10:45:00
 modified: 2023-11-09 21:58:00
 tags: ["desenvolvimento-web", "api", "python", "django", "rest", "restless"]
-thumbnail: ./images/rest-api-logo.png
+thumbnail: /media/rest-api-logo.png
 slug: construindo-apis-em-django-com-restless
 ---
 

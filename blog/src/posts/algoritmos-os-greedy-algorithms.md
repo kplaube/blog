@@ -4,7 +4,7 @@ date: 2019-01-27 15:28:00
 modified: 2023-11-13 17:04:00
 tags: ["estrutura-de-dados", "algoritmos"]
 slug: os-greedy-algorithms
-thumbnail: ./images/algoritmos-3.png
+thumbnail: /media/algoritmos-3.png
 ---
 
 Quando estive revisando a disciplina de [algoritmos](/tag/algoritmos.html "Leia mais sobre Algoritmos"), me deparei com os tais "algoritmos gulosos", ou _greedy algorithms_. Lembro que na época eu automaticamente associei o termo a soluções de baixa utilidade ou performance. Mal sabia eu que estive equivocado esse tempo todo.

@@ -4,7 +4,7 @@ date: 2011-02-16 16:09
 modified: 2023-11-01 10:03
 tags: ["desenvolvimento-web", "html", "css", "javascript", "acessibilidade"]
 slug: camadas-desenvolvimento-web
-thumbnail: ./images/www.jpg
+thumbnail: /media/www.jpg
 ---
 
 Se eu aprendi alguma coisa com o _xHTML_, foi:

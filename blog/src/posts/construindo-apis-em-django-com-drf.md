@@ -3,7 +3,7 @@ title: Construindo APIs em Django com Django REST Framework
 date: 2020-02-13 06:15:00
 modified: 2023-11-12 19:46:00
 tags: ["desenvolvimento-web", "api", "python", "django", "rest", "drf"]
-thumbnail: ./images/django-logo.png
+thumbnail: /media/django-logo.png
 slug: construindo-apis-em-django-com-django-rest-framework
 ---
 

@@ -4,7 +4,7 @@ date: 2019-05-10 10:45:00
 modified: 2023-11-13 16:59:00
 tags: ["estrutura-de-dados", "ordenacao", "algoritmos"]
 slug: algoritmos-de-ordenacao-parte-1
-thumbnail: ./images/algoritmos-ordernacao.jpeg
+thumbnail: /media/algoritmos-ordernacao.jpeg
 ---
 
 Voltamos a falar sobre [algoritmos](/tag/algoritmos.html "Leia mais sobre Algoritmos"), e

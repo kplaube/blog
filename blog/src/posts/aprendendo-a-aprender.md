@@ -4,7 +4,7 @@ date: 2017-07-27 20:30:00
 modified: 2023-10-04 16:09
 tags: ["produtividade", "estudos", "carreira", "cursos"]
 slug: aprendendo-a-aprender
-thumbnail: ./images/books.jpg
+thumbnail: /media/books.jpg
 ---
 
 Já mencionei o "[Aprendendo a Aprender](https://www.coursera.org/learn/aprender "Veja o curso em pt-BR")"

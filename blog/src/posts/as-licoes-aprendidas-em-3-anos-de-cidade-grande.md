@@ -3,7 +3,7 @@ title: "As lições aprendidas em 3 anos de cidade grande"
 date: 2014-05-05 22:00
 modified: 2023-10-11 13:48
 tags: ["profissao", "carreira"]
-thumbnail: ./images/cristo-redentor.jpg
+thumbnail: /media/cristo-redentor.jpg
 slug: as-licoes-aprendidas-em-3-anos-de-cidade-grande
 ---
 

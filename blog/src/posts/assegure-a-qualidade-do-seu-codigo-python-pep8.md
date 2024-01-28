@@ -4,7 +4,7 @@ date: 2011-08-26 13:51:00
 modified: 2023-11-02 18:50:00
 tags: ["python", "qualidade", "linter", "pep8"]
 slug: assegure-qualidade-seu-codigo-python-pep
-thumbnail: ./images/python-code.jpg
+thumbnail: /media/python-code.jpg
 ---
 
 Convenções de código! Já tive a oportunidade de [escrever sobre elas no *Profissionais TI*][]. Benção ou

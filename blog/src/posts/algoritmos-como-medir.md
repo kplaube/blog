@@ -4,7 +4,7 @@ date: 2018-12-09 21:30:00
 modified: 2023-11-13 16:38:00
 tags: ["estrutura-de-dados", "algoritmos"]
 slug: algoritmos-como-medir
-thumbnail: ./images/algoritmos-2.png
+thumbnail: /media/algoritmos-2.png
 ---
 
 No [_post_ anterior](/2018/11/09/analise-assintotica.html "Leia mais sobre Análise Assintótica"),

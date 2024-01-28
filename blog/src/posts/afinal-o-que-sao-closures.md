@@ -4,7 +4,7 @@ date: 2011-05-29 13:52:00
 modified: 2023-09-30 17:53
 tags: ["closures", "oop", "javascript"]
 slug: afinal-o-que-sao-closures
-thumbnail: ./images/closures.jpg
+thumbnail: /media/closures.jpg
 ---
 
 Entendi o conceito de _closures_ enquanto estudava _Ruby_. Na verdade,

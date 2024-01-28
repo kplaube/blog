@@ -4,7 +4,7 @@ date: 2020-01-21 16:15:00
 modified: 2023-11-08 15:46:00
 tags: ["python", "qualidade", "linter", "prospector"]
 slug: assegure-qualidade-seu-codigo-python-prospector
-thumbnail: ./images/python-logo-2.png
+thumbnail: /media/python-logo-2.png
 ---
 
 Mais um ano, mais um _post_ sobre [ferramentas de qualidade de código](/tag/qualidade.html "Leia mais sobre qualidade"). Opções não faltam quando o assunto é [_Python_](/tag/python.html "Leia mais sobre Python"), e elas são dos mais variados fins e complexidade. Com tanta opção, não seria interessante ter "um anel para a todos governar"?

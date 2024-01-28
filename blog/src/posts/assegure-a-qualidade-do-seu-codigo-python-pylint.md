@@ -5,7 +5,7 @@ modified: 2023-11-08 15:44:00
 category: desenvolvimento
 tags: ["python", "pylint", "linter", "qualidade"]
 slug: assegura-a-qualidade-de-codigo-python-pylint
-thumbnail: ./images/code-quality.png
+thumbnail: /media/code-quality.png
 ---
 
 Se você precisa de uma ferramenta mais poderosa que o [*pep8*][], talvez você
