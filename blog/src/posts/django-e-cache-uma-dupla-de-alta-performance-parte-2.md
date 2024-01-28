@@ -11,7 +11,7 @@ tags:
     "cache",
   ]
 slug: django-e-cache-uma-dupla-de-alta-performance-2
-thumbnail: ./images/memcached-logo.jpg
+thumbnail: /media/memcached-logo.jpg
 ---
 
 Continuando o _post_ [*Django* e *Cache*: Uma dupla de alta performance][], vamos

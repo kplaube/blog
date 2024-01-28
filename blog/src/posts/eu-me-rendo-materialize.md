@@ -14,7 +14,7 @@ tags:
     "eu-me-rendo",
   ]
 slug: eu-me-rendo-material-design
-thumbnail: ./images/mdl-logo.png
+thumbnail: /media/mdl-logo.png
 serie: "Eu me rendo"
 ---
 

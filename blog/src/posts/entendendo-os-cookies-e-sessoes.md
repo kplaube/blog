@@ -4,7 +4,7 @@ date: 2012-04-05 16:53:12
 modified: 2023-11-08 16:58:00
 tags: ["desenvolvimento-web", "infraestrutura", "cookies", "sessões", "php"]
 slug: entendendo-os-cookies-e-sessoes
-thumbnail: ./images/cookies.jpg
+thumbnail: /media/cookies.jpg
 ---
 
 Por muito tempo eu abstrai o conceito de

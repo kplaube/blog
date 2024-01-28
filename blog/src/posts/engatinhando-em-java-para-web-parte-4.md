@@ -4,7 +4,7 @@ date: 2020-05-20 05:25:00
 modified: 2023-10-13 10:24:00
 tags: ["desenvolvimento-web", "java", "spring", "spring-boot"]
 slug: engatinhando-em-java-web-spring-boot
-thumbnail: ./images/spring-boot-project-logo.png
+thumbnail: /media/spring-boot-project-logo.png
 serie: "Engatinhando em Java para a web"
 ---
 

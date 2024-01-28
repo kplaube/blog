@@ -5,7 +5,7 @@ modified: 2023-11-13 16:24:00
 category: desenvolvimento
 tags: ["desenvolvimento", "web", "python", "django", "sass", "es6", "css", "js", "heroku", "buildpack"]
 slug: django-sass-es6-no-heroku-com-multiple-buildpacks
-thumbnail: ./images/heroku-logo.png
+thumbnail: /media/heroku-logo.png
 ---
 
 Anteriormente, falamos sobre como utilizar o `django-compressor` com [_Sass_](/tag/sass.html "Leia mais sobre Sass")

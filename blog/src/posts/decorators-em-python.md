@@ -4,7 +4,7 @@ date: 2011-08-02 20:00:00
 modified: 2023-11-01 09:16:00
 tags: ["python", "oop", "design-patterns", "decorators"]
 slug: decorators-em-python
-thumbnail: ./images/python-logo.png
+thumbnail: /media/python-logo.png
 ---
 
 E na mesma linha dos [*closures*][], eu passei a

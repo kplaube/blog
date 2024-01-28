@@ -4,7 +4,7 @@ date: 2019-11-28 11:35:00
 modified: 2023-10-13 09:47
 tags: ["desenvolvimento-web", "java", "servlet"]
 slug: engatinhando-em-java-web-parte-1
-thumbnail: ./images/java-logo.png
+thumbnail: /media/java-logo.png
 ---
 
 Uma constante nesses dois últimos anos da minha vida profissional tem sido "reavaliar" algumas opiniões que tive durante a minha carreira. Não à toa costumo escrever [alguns artigos do tipo "eu me rendo"](/2017/04/19/eu-me-rendo-material-design.html "Já me rendi até ao Material Design"). Já me rendi ao [VS Code, ao uso de IDEs](/2018/06/04/eu-me-rendo-vscode.html "Relato onde admito estar traindo o Vim"), e até mesmo ao _React_. Agora chegou a hora do [_Java_](/tag/java.html "Leia mais sobre Java").

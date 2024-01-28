@@ -12,7 +12,7 @@ tags:
     "gunicorn",
   ]
 slug: entendendo-o-cgi-fastcgi-e-wsgi
-thumbnail: ./images/apache-fcgi-logo.png
+thumbnail: /media/apache-fcgi-logo.png
 ---
 
 Pelos vários anos que programei com o [*PHP*][] e _Apache_,

@@ -4,7 +4,7 @@ date: 2017-09-16 00:15:00
 modified: 2023-11-01 09:42:00
 tags: ["desenvolvimento-web", "rest", "api", "raml", "nodejs"]
 slug: documentando-sua-api-com-raml2html
-thumbnail: ./images/raml-logo.jpg
+thumbnail: /media/raml-logo.jpg
 ---
 
 Uma das coisas mais legais em relação ao [_RAML_](/tag/raml.html "Leia mais sobre RAML")

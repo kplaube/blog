@@ -4,7 +4,7 @@ date: 2011-03-07 12:37
 modified: 2023-10-04 15:52
 tags: ["desenvolvimento-web", "infraestrutura", "agile", "qualidade", "testes"]
 slug: diferentes-ambientes
-thumbnail: ./images/server-rack.jpg
+thumbnail: /media/server-rack.jpg
 ---
 
 Uma das práticas mais interessantes nessa

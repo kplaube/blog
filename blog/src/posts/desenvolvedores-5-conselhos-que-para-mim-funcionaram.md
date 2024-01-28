@@ -3,7 +3,7 @@ title: "Desenvolvedores: 5 conselhos que para mim funcionaram!"
 date: 2011-01-24 12:00
 tags: ["profissao", "desenvolvedor", "midias-sociais"]
 slug: desenvolvedores-5-conselhos-para-mim-funcionaram
-thumbnail: ./images/code-for-food.jpg
+thumbnail: /media/code-for-food.jpg
 ---
 
 Este post foi originalmente escrito para o [*Profissionais TI*][], você

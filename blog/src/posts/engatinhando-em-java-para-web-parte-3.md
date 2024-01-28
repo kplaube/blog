@@ -4,7 +4,7 @@ date: 2019-12-10 13:50:00
 modified: 2023-10-13 10:13:00
 tags: ["desenvolvimento-web", "java", "servlet"]
 slug: engatinhando-em-java-web-parte-3
-thumbnail: ./images/java-mascot.png
+thumbnail: /media/java-mascot.png
 ---
 
 No [_post_ anterior](/2019/12/02/engatinhando-em-java-web-parte-2.html "Confira a parte 2") falamos sobre a especificação

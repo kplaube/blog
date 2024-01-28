@@ -4,7 +4,7 @@ date: 2015-10-03 14:00:00
 modified: 2023-11-01 10:08:00
 tags: ["infraestrutura", "virtualizacao", "provisionamento", "vagrant"]
 slug: esse-e-mais-um-post-sobre-vagrant
-thumbnail: ./images/vagrant-logo.png
+thumbnail: /media/vagrant-logo.png
 ---
 
 Sim! Esse é mais um _post_ sobre _Vagrant_, entre tantos outros espalhados pela

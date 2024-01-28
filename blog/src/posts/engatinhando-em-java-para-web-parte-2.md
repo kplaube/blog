@@ -4,7 +4,7 @@ date: 2019-12-02 09:15:00
 modified: 2023-10-13 09:56
 tags: ["desenvolvimento-web", "java", "servlet", "jsp", "jstl"]
 slug: engatinhando-em-java-web-parte-2
-thumbnail: ./images/java-logo-2.png
+thumbnail: /media/java-logo-2.png
 ---
 
 No [_post_ anterior](/2019/11/28/engatinhando-em-java-web-parte-1.html "Engatinhando em Java para a web - Parte 1") demos uma breve pincelada sobre _JDK_, _JRE_, _JSE_ e _JEE_. Uma vez que temos a infrastrutura funcionando para os fins desse artigo, através do uso de _Maven_ e _Tomcat_, vamos partir para uma abordagem mais prática, e finalmente falar sobre _Servlets_.

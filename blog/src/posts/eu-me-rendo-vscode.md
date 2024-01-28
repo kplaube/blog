@@ -15,7 +15,7 @@ tags:
     "eu-me-rendo",
   ]
 slug: eu-me-rendo-vscode
-thumbnail: ./images/vscode-logo.png
+thumbnail: /media/vscode-logo.png
 serie: "Eu me rendo"
 ---
 

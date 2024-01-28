@@ -13,7 +13,7 @@ tags:
     "browserify",
   ]
 slug: django-e-es6-com-django-compressor
-thumbnail: ./images/django-js-logo.png
+thumbnail: /media/django-js-logo.png
 ---
 
 No [_post_ anterior](/2016/06/04/django-e-sass-com-django-compressor.html "Django e Sass com django-compressor"),

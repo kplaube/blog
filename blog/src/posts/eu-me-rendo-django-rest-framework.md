@@ -12,7 +12,7 @@ tags:
     "drf",
     "eu-me-rendo",
   ]
-thumbnail: ./images/django-rest-framework-logo.png
+thumbnail: /media/django-rest-framework-logo.png
 slug: eu-me-rendo-django-rest-framework
 serie: "Eu me rendo"
 ---

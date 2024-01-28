@@ -16,7 +16,7 @@ tags:
     "desenvolvimento-web",
   ]
 slug: do-wsgi-ao-asgi-parte-1
-thumbnail: ./images/python-logo-2.png
+thumbnail: /media/python-logo-2.png
 ---
 
 O [_Django 3_](/tag/django.html "Leia mais sobre Django") veio para sacudir as estruturas. Parece que foi ontem, mas

@@ -4,7 +4,7 @@ date: 2016-06-04 16:00:00
 modified: 2023-11-13 15:40:00
 tags: ["desenvolvimento-web", "python", "django", "sass", "css"]
 slug: django-e-sass-com-django-compressor
-thumbnail: ./images/django-sass-logo.png
+thumbnail: /media/django-sass-logo.png
 ---
 
 Eu sempre gostei da proposta do `django-compressor`: Concatenar e comprimir

@@ -13,7 +13,7 @@ tags:
     "css",
   ]
 slug: deixe-darem-pitaco-no-seu-codigo-com-prettier
-thumbnail: ./images/prettier-logo.png
+thumbnail: /media/prettier-logo.png
 ---
 
 _Code formatters_ são uma boa ideia. Acredite! Demorei a dar o braço a torcer,

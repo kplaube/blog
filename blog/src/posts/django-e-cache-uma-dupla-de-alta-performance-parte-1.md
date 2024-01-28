@@ -3,7 +3,7 @@ title: "Django e Cache: Uma dupla de alta performance - Parte 1"
 date: 2012-06-17 15:52:22
 tags: ["desenvolvimento-web", "python", "django", "memcached", "cache"]
 slug: django-e-cache-uma-dupla-de-alta-performance-1
-thumbnail: ./images/django-logo.png
+thumbnail: /media/django-logo.png
 ---
 
 Embora o [*caching HTTP*][] seja essencial
