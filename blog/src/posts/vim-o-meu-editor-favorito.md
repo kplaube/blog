@@ -5,7 +5,7 @@ modified: 2023-11-08 15:35:00
 category: desenvolvimento
 tags: ["desenvolvimento", "ambiente-de-desenvolvimento", "editores-de-texto", "vim"]
 slug: vim-o-meu-editor-favorito
-thumbnail: ./images/vim-logo.png
+thumbnail: /media/vim-logo.png
 ---
 
 Há um bom tempo que eu trabalho com o [*Vim*][],

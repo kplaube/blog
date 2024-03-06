@@ -4,7 +4,7 @@ date: 2010-11-13 11:30
 modified: 2023-10-04 16:00
 tags: ["desenvolvimento-web", "html5", "css3"]
 slug: usando-html5-sem-medo
-thumbnail: ./images/html5-logo.png
+thumbnail: /media/html5-logo.png
 ---
 
 É notável como gradativamente a gente vem ouvindo cada vez mais sobre

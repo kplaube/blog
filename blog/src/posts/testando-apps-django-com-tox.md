@@ -13,7 +13,7 @@ tags:
     "virtualenv",
   ]
 slug: testando-apps-django-com-tox
-thumbnail: ./images/django-logo.png
+thumbnail: /media/django-logo.png
 ---
 
 O [_Django 2.0_](https://docs.djangoproject.com/pt-br/2.0/releases/2.0/ "Django 2.0 release notes") foi lançado,

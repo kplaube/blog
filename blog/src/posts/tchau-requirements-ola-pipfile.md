@@ -4,7 +4,7 @@ date: 2018-06-11 16:40:00
 modified: 2023-11-09 21:38:00
 tags: ["python", "pip", "virtualenv", "pipfile", "pipenv"]
 slug: tchau-requirements-ola-pipfile
-thumbnail: ./images/python-logo.png
+thumbnail: /media/python-logo.png
 ---
 
 Admito que no começo fui cético em relação ao [_Pipfile_](https://github.com/pypa/pipfile "The replacement for requirements.txt"). Pode ser a idade, mas questionei a real necessidade do mesmo. Para mim era muito óbvio! Eu já tinha o [_pip_](/tag/pip.html "Leia mais sobre pip"), o [_virtualenv_](/tag/virtualenv.html "Leia mais sobre virtualenv") e até mesmo o [_pyenv_](/tag/pyenv.html "Leia mais sobre Pyenv"). Hoje, após ler alguns artigos e debater com alguns colegas, fico até envergonhado de não ter visto o potencial da ferramenta no seu primeiro momento.

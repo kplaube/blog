@@ -14,7 +14,7 @@ tags:
     "django",
   ]
 slug: uma-ode-ao-docker-parte-3
-thumbnail: ./images/docker-logo-3.jpg
+thumbnail: /media/docker-logo-3.jpg
 ---
 
 Nos [_posts_](/2017/01/14/uma-ode-ao-docker-parte-1.html "Uma ode ao Docker - Parte 1")

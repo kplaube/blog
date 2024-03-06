@@ -9,7 +9,7 @@ tags:
     "objeto-relacional",
   ]
 slug: uma-ode-ao-postgresql
-thumbnail: ./images/postgresql-logo.png
+thumbnail: /media/postgresql-logo.png
 ---
 
 O [*MySQL*][] é um dos meus mais leais companheiros de

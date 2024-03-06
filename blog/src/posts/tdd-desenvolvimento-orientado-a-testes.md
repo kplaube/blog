@@ -4,7 +4,7 @@ date: 2011-01-27 11:30:00
 modified: 2023-11-09 21:36:00
 tags: ["testes", "tdd", "agile"]
 slug: tdd-desenvolvimento-orientado-testes
-thumbnail: ./images/tdd-all-code-is-guilty.jpg
+thumbnail: /media/tdd-all-code-is-guilty.jpg
 ---
 
 Esse post foi originalmente escrito para o [*Profissionais TI*][], você

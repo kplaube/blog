@@ -4,7 +4,7 @@ date: 2011-01-11 12:16
 modified: 2023-09-30 17:52
 tags: ["noticias", "tiobe", "python"]
 slug: tiobe-elege-python-como-linguagem-de-programacao
-thumbnail: ./images/python-logo.png
+thumbnail: /media/python-logo.png
 ---
 
 Não é de hoje que [*Python*][] conquistou o

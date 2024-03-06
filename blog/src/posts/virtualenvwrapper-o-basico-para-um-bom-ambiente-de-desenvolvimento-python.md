@@ -4,7 +4,7 @@ date: 2015-07-23 12:30:00
 modified: 2023-10-04 15:52
 tags: ["virtualenv", "virtualenvwrapper", "python"]
 slug: virtualenvwrapper-o-basico-para-um-bom-ambiente-de-desenvolvimento-python
-thumbnail: ./images/python-logo.png
+thumbnail: /media/python-logo.png
 ---
 
 Já falamos sobre o [virtualenv](/tag/virtualenv.html "Leia mais sobre Virtualenv") há muito tempo atrás, aqui no _blog_. Tirando alguns

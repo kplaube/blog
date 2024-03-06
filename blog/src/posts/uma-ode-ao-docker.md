@@ -4,7 +4,7 @@ date: 2017-01-14 18:20:00
 modified: 2023-11-02 20:46:00
 tags: ["infraestrutura", "virtualizacao", "containerizacao", "docker"]
 slug: uma-ode-ao-docker-parte-1
-thumbnail: ./images/docker-logo.png
+thumbnail: /media/docker-logo.png
 ---
 
 Virtualização é um dos assuntos que mais evoluiu nesses últimos anos de TI. Mas

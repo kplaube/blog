@@ -4,7 +4,7 @@ date: 2010-12-01 21:14
 modified: 2023-10-04 15:09
 tags: ["infraestrutura", "sistemas-operacionais", "virtualizacao", "virtualbox"]
 slug: virtualbox-varios-sos-numa-maquina-so
-thumbnail: ./images/virtualizacao.jpg
+thumbnail: /media/virtualizacao.jpg
 ---
 
 Sabe quando você quer testar uma distribuição ou Sistema Operacional diferente mas não quer mexer diretamente no

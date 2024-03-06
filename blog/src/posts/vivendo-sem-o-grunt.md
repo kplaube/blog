@@ -4,7 +4,7 @@ date: 2016-02-22 12:35:00
 modified: 2023-09-30 18:00:00
 tags: ["desenvolvimento-web", "javascript", "node", "npm", "grunt"]
 slug: vivendo-sem-o-grunt
-thumbnail: ./images/grunt-logo.png
+thumbnail: /media/grunt-logo.png
 ---
 
 No meu primeiro contato com o _Grunt_, ele não me convenceu. Qual era a

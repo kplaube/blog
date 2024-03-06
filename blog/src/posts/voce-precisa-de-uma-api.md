@@ -14,7 +14,7 @@ tags:
     "microservice",
   ]
 slug: voce-precisa-de-uma-api
-thumbnail: ./images/modern-web-development.jpg
+thumbnail: /media/modern-web-development.jpg
 ---
 
 Nos últimos anos tenho advogado em prol do [_API-First_](/tag/api-first.html "Leia mais sobre API-First"). Não apenas

@@ -4,7 +4,7 @@ date: 2017-05-01 22:25:00
 modified: 2023-11-08 16:34:00
 tags: ["infraestrutura", "virtualizacao", "containerizacao", "docker", "nginx"]
 slug: uma-ode-ao-docker-parte-2
-thumbnail: ./images/docker-logo-2.png
+thumbnail: /media/docker-logo-2.png
 ---
 
 No [_post_ anterior](/2017/01/14/uma-ode-ao-docker-parte-1.html "Uma ode ao Docker - Parte 1")

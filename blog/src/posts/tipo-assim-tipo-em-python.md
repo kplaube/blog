@@ -4,7 +4,7 @@ date: 2021-10-20 15:00:00
 modified: 2023-09-30 17:20
 tags: ["python", "typing-hints", "qualidade", "linter", "mypy"]
 slug: tipo-assim-tipo-python
-thumbnail: ./images/python-logo.png
+thumbnail: /media/python-logo.png
 ---
 
 Tipos em _Python_ é aquele "tipo" de assunto que vai agitar qualquer papo de almoço entre programadores.

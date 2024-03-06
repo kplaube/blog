@@ -4,7 +4,7 @@ date: 2017-10-15 19:20:00
 modified: 2023-11-08 15:23:00
 tags: ["editores-de-texto", "vim", "python"]
 slug: vim-para-desenvolvimento-python
-thumbnail: ./images/macvim-logo.png
+thumbnail: /media/macvim-logo.png
 ---
 
 Já mencionei as motivações de utilizar [_Vim_](/tag/vim.html "Leia mais sobre Vim")
