@@ -10,7 +10,7 @@ tags:
     "angularjs",
   ]
 slug: injecao-de-dependencia
-thumbnail: ./images/angular-logo.png
+thumbnail: /media/angular-logo.png
 ---
 
 Se você já teve contato com [_Laravel_](http://laravel.com/ "PHP framework for web artisans")

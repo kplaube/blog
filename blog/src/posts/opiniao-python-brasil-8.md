@@ -4,7 +4,7 @@ date: 2012-12-09 14:38:15
 modified: 2023-11-08 17:07:00
 tags: ["opiniao", "python brasil", "python", "evento"]
 slug: opiniao-python-brasil-8
-thumbnail: ./images/python-brasil-8.jpg
+thumbnail: /media/python-brasil-8.jpg
 ---
 
 Nos dias 21 a 24 de Novembro de 2012 aconteceu

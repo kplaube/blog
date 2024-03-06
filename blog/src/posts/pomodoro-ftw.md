@@ -4,7 +4,7 @@ date: 2017-06-29 18:20:00
 modified: 2023-09-30 18:23
 tags: ["produtividade", "foco", "home-office", "pomodoro"]
 slug: pomodoro-ftw
-thumbnail: ./images/pomodoro-timer.png
+thumbnail: /media/pomodoro-timer.png
 ---
 
 Sim, meus amigos! O título poderia ser "esse é mais um post sobre Pomodoro Technique",

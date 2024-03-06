@@ -1,11 +1,11 @@
 ---
-title: Recursividade e o "dividir e conquistar"
+title: Recursividade e o dividir e conquistar
 date: 2019-03-25 18:55:00
 modified: 2023-11-12 19:24:00
 tags:
   ["estrutura-de-dados", "algoritmos", "recursividade", "divide-and-conquer"]
 slug: recursividade-e-dividir-e-conquistar
-thumbnail: ./images/recursion.jpeg
+thumbnail: /media/recursion.jpeg
 ---
 
 Sabe aquelas pessoas que têm problemas em determinar qual lado é o esquerdo e qual lado é o direito?

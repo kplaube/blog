@@ -4,7 +4,7 @@ date: 2015-06-29 12:30:00
 modified: 2023-11-12 19:32:00
 tags: ["testes", "mock", "python"]
 slug: os-testes-e-os-dubles-parte-2
-thumbnail: ./images/tdd-red-green-refactor.png
+thumbnail: /media/tdd-red-green-refactor.png
 ---
 
 No [_post_ anterior](/2014/08/07/os-testes-e-os-dubles-parte-1.html "Os testes e os Dublês - Parte 1"), vimos um dos

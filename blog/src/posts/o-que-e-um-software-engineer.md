@@ -4,7 +4,7 @@ date: 2015-03-29 22:10:00
 modified: 2023-11-13 15:38:00
 tags: ["profissao", "carreira", "desenvolvedor", "software engineer"]
 slug: o-que-e-um-software-engineer
-thumbnail: ./images/engineering.jpg
+thumbnail: /media/engineering.jpg
 ---
 
 Certa vez, estava eu atualizando o meu _LinkedIn_ quando o

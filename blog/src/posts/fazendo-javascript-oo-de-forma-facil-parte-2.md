@@ -4,7 +4,7 @@ date: 2016-03-15 13:20
 modified: 2023-11-08 16:55
 tags: ["desenvolvimento-web", "javascript", "es6", "oop"]
 slug: fazendo-javascript-oo-de-forma-facil-parte-2
-thumbnail: ./images/javascript-logo.png
+thumbnail: /media/javascript-logo.png
 ---
 
 Há cerca de 5 anos, fiz um _post_ sobre como escrever

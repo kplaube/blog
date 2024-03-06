@@ -3,7 +3,7 @@ title: "Ferramentas de testes em Django - Parte 1"
 date: 2011-07-18 22:06:00
 tags: ["desenvolvimento-web", "python", "django", "testes", "bdd", "tdd"]
 slug: ferramentas-de-testes-em-django-parte-1
-thumbnail: ./images/crash-test.jpg
+thumbnail: /media/crash-test.jpg
 ---
 
 Dando continuidade à série

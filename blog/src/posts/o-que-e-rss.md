@@ -4,7 +4,7 @@ date: 2010-11-12 20:15
 modified: 2023-09-30 18:08:00
 tags: ["informativos", "rss", "web"]
 slug: o-que-e-rss
-thumbnail: ./images/rss-logo.png
+thumbnail: /media/rss-logo.png
 ---
 
 Conheço pessoas experientes da _TI_ que não sabem o que é _RSS_.

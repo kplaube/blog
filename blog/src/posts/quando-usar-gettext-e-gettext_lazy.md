@@ -3,7 +3,7 @@ title: "Quando usar gettext e gettext_lazy?"
 date: 2011-06-01 09:41:00
 tags: ["desenvolvimento-web", "python", "django", "i18n"]
 slug: quando-usar-gettext-gettext_lazy
-thumbnail: ./images/python-logo.png
+thumbnail: /media/python-logo.png
 ---
 
 Para vocês que desenvolvem em [*Python*][] e [*Django*][] preocupando-se

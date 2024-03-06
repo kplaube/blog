@@ -4,7 +4,7 @@ date: 2016-01-06 13:00:00
 modified: 2023-11-09 21:54:00
 tags: ["desenvolvimento-web", "rest", "microservices", "api"]
 slug: rest-parte-1
-thumbnail: ./images/soap-vs-rest.png
+thumbnail: /media/soap-vs-rest.png
 ---
 
 Em tempos onde os [microservices](http://www.infoq.com/br/news/2015/04/microservices-current-state "O estado da arte em micro serviços") ganham cada vez mais força, e [aplicações de sucesso](https://dev.twitter.com/rest/public "Conheça a API do Twitter") liberam a sua _API_ para desenvolvedores construírem um ecossistema ao redor delas, não considerar seguir boas práticas na construção de um serviço pode ser uma tomada de decisão arriscada, tanto no quesito do negócio, quanto no quesito técnico.

@@ -4,7 +4,7 @@ date: 2012-03-05 10:06:57
 modified: 2023-11-01 09:27:00
 tags: ["desenvolvimento-web", "php", "codeigniter"]
 slug: php-agil-e-divertido-com-codeigniter
-thumbnail: ./images/ci-logo.png
+thumbnail: /media/ci-logo.png
 ---
 
 Após experimentar [alguns *frameworks*][] [*PHP*][], recentemente tenho

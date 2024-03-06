@@ -3,7 +3,7 @@ title: "Javascript: A diferença entre Constructor Function e Object Literal"
 date: 2011-10-23 15:07:00
 tags: ["desenvolvimento-web", "javascript", "prototype", "oop"]
 slug: javascript-constructor-function-object-literal
-thumbnail: ./images/javascript-code.jpg
+thumbnail: /media/javascript-code.jpg
 ---
 
 Meses atrás, [escrevi sobre como era fácil criar objetos em *Javascript*][].

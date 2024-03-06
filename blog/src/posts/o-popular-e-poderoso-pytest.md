@@ -3,7 +3,7 @@ title: O popular e poderoso Pytest
 date: 2021-01-24 17:37:00
 tags: ["python", "testes", "tdd", "pytest", "django", "bdd"]
 slug: o-popular-e-poderoso-pytest
-thumbnail: ./images/python-logo.png
+thumbnail: /media/python-logo.png
 ---
 
 Ok. Eu admito. O primeiro _post_ de 2021 será só para cumprir tabela. Afinal,

@@ -3,7 +3,7 @@ title: "O cache e o HTTP"
 date: 2012-05-14 23:14:46
 tags: ["desenvolvimento-web", "infraestrutura", "cache", "http"]
 slug: o-cache-e-o-http
-thumbnail: ./images/performance.jpg
+thumbnail: /media/performance.jpg
 ---
 
 Em tempos de alta demanda, o **_cache_** pode tornar-se o melhor amigo das

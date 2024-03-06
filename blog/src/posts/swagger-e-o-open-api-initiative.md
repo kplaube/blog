@@ -4,7 +4,7 @@ date: 2017-11-25 20:52:00
 modified: 2023-11-09 21:44:00
 tags: ["desenvolvimento-web", "rest", "microservices", "api", "swagger", "oai"]
 slug: swagger-e-o-open-api-initiative
-thumbnail: ./images/oai-logo.png
+thumbnail: /media/oai-logo.png
 ---
 
 Já falamos sobre [_RAML_](/tag/raml.html "Leia mais sobre RAML") aqui no _blog_. Uma maneira
@@ -63,7 +63,7 @@ Em janeiro de 2016, a _SmartBear Software_ renomeou a _Swagger Specification_ pa
 Disponibilizando-a no _Github_ em [github.com/OAI/OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification "The OpenAPI Specification Repository"),
 e tornando-a assim em uma especificação "vendor-neutral".
 
-!Vingadores reunidos](./images/oai-avengers.jpg "A OAI é tipo os Avengers do mundo das APIs (bestbuy.com)")
+!Vingadores reunidos](/media/oai-avengers.jpg "A OAI é tipo os Avengers do mundo das APIs (bestbuy.com)")
 
 Isso tudo, claro, com supervisão do consórcio que a mesma _SmartBear_ ajudou a construir:
 O [_Open API Initiative_](https://www.openapis.org/ "OAI Consortium"). Que é também "curador"

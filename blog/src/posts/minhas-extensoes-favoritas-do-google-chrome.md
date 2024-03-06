@@ -4,7 +4,7 @@ date: 2011-08-09 23:17:00
 modified: 2023-11-01 09:50:00
 tags: ["desenvolvimento-web", "google-chrome"]
 slug: minhas-extensoes-favoritas-google-chrome
-thumbnail: ./images/google-chrome-logo.png
+thumbnail: /media/google-chrome-logo.png
 ---
 
 O [*Google Chrome*][] há muito já provou ser um fantástico navegador, me

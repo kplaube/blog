@@ -3,7 +3,7 @@ title: "Front in Rio 2011 - Eu fui!"
 date: 2011-06-19 21:24:00
 modified: 2023-11-01 09:36:00
 tags: ["eventos", "android", "canvas", "css3", "frontinrio", "html5", "svg"]
-thumbnail: ./images/front-in-rio-logo.png
+thumbnail: /media/front-in-rio-logo.png
 slug: front-in-rio-2011-eu-fui
 ---
 

@@ -3,7 +3,7 @@ title: "Opinião: Imersão Javascript - e-Genial"
 date: 2012-05-29 22:09:07
 tags: ["opiniao", "javascript", "curso"]
 slug: opiniao-imersao-javascript-e-genial
-thumbnail: ./images/imersao-javascript-egenial.jpeg
+thumbnail: /media/imersao-javascript-egenial.jpeg
 ---
 
 Para inaugurar a série

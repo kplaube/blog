@@ -4,7 +4,7 @@ date: 2020-01-07 16:00:00
 modified: 2023-11-12 19:41:00
 tags: ["arquitetura-de-software", "design-de-software", "agile", "safe"]
 slug: software-design-software-architecture
-thumbnail: ./images/postits.jpg
+thumbnail: /media/postits.jpg
 ---
 
 Uma das características que eu mais gosto no [_agile_](/tag/agile.html "Leia mais sobre ágil")

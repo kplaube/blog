@@ -4,7 +4,7 @@ date: 2014-08-07 23:00:00
 modified: 2023-11-12 19:30:00
 tags: ["testes", "mock", "python"]
 slug: os-testes-e-os-dubles-parte-1
-thumbnail: ./images/test-double.jpg
+thumbnail: /media/test-double.jpg
 ---
 
 Em tempos onde [discussões envolvendo a relevância][2] dos [testes][3] têm

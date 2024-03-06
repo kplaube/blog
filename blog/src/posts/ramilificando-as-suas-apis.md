@@ -4,7 +4,7 @@ date: 2017-01-31 21:30:00
 modified: 2023-10-11 13:41:00
 tags: ["desenvolvimento-web", "rest", "microservices", "api", "raml"]
 slug: ramilificando-as-suas-apis
-thumbnail: ./images/raml-logo.png
+thumbnail: /media/raml-logo.png
 ---
 
 Você já tem a sua [_API_](/tag/api.html "Leia mais sobre APIs"). Ela é [_REST_](/tag/rest.html "Leia mais sobre REST"),

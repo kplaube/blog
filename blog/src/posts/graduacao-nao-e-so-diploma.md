@@ -4,7 +4,7 @@ date: 2012-02-14 23:21:39
 modified: 2023-10-04 16:04
 tags: ["profissao", "carreira", "graduacao"]
 slug: graduacao-nao-e-so-diploma
-thumbnail: ./images/books.jpg
+thumbnail: /media/books.jpg
 ---
 
 Se eu fizer o exercício proposto por _Steve Jobs_, de “ligar os

@@ -12,7 +12,7 @@ tags:
     "banco-de-dados",
   ]
 slug: migrations-em-django-south
-thumbnail: ./images/south-logo.png
+thumbnail: /media/south-logo.png
 ---
 
 E quem nunca precisou adicionar ou remover alguma

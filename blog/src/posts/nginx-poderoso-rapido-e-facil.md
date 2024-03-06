@@ -4,7 +4,7 @@ date: 2011-12-19 20:41:00
 modified: 2023-11-01 09:48:00
 tags: ["infraestrutura", "nginx", "linux", "slackware", "desenvolvimento-web"]
 slug: nginx-poderoso-rapido-facil
-thumbnail: ./images/nginx-logo.png
+thumbnail: /media/nginx-logo.png
 ---
 
 Para quem (assim como eu) começou com o [*PHP*][], uma das opções mais viáveis

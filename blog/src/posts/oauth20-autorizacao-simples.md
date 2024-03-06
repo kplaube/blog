@@ -4,7 +4,7 @@ date: 2018-02-06 11:45:00
 modified: 2023-11-13 15:34:00
 tags: ["desenvolvimento-web", "oauth", "oauth2", "auth", "api"]
 slug: oauth20-autorizacao-simples-or-is-it
-thumbnail: ./images/oauth2-logo.jpg
+thumbnail: /media/oauth2-logo.jpg
 ---
 
 Já pincelamos alguns assuntos que cerceiam o desenvolvimento

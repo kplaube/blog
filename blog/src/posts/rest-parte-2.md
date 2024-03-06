@@ -4,7 +4,7 @@ date: 2016-05-20 12:35:00
 modified: 2023-11-09 21:56:00
 tags: ["desenvolvimento-web", "rest", "microservices", "api"]
 slug: rest-parte-2
-thumbnail: ./images/rest-logo.png
+thumbnail: /media/rest-logo.png
 ---
 
 No [_post_ anterior](/2016/01/06/rest-parte-1.html "Leia a parte 1"), demos uma pequena introdução

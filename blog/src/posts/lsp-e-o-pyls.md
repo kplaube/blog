@@ -14,7 +14,7 @@ tags:
     "lsp",
   ]
 slug: lsp-e-o-pyls
-thumbnail: ./images/python-code.jpg
+thumbnail: /media/python-code.jpg
 ---
 
 Uma das virtudes do [_VS Code_](/tag/vscode.html "Leia mais sobre o editor") é como ele integra-se facilmente com diferentes linguagens.

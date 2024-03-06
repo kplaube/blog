@@ -4,7 +4,7 @@ date: 2011-06-12 21:38:00
 modified: 2023-10-04 15:57
 tags: ["desenvolvimento-web", "html5", "rgraph", "padroes-web"]
 slug: graficos-estatisticos-em-canvas-rgraph
-thumbnail: ./images/rgraph-exemplo.png
+thumbnail: /media/rgraph-exemplo.png
 ---
 
 O [_RGraph_] é uma fantástica _lib_ [*Javascript*][], que gera

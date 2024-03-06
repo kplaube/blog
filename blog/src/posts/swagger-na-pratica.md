@@ -4,7 +4,7 @@ date: 2018-03-15 18:15:00
 modified: 2023-11-09 21:31:00
 tags: ["desenvolvimento-web", "rest", "microservices", "api", "swagger", "oai"]
 slug: swagger-na-pratica
-thumbnail: ./images/swaggerhub-logo.png
+thumbnail: /media/swaggerhub-logo.png
 ---
 
 Voltamos a falar de [_APIs_](/tag/api.html "Leia mais sobre APIs"), e voltamos a falar sobre especificações.

@@ -4,7 +4,7 @@ date: 2012-01-23 21:28:00
 modified: 2023-11-02 18:48:00
 tags: ["desenvolvimento-web", "infraestrutura", "supervisor", "linux"]
 slug: supervisor-gerencie-os-processos-seu-servidor-web
-thumbnail: ./images/supervisor-logo.png
+thumbnail: /media/supervisor-logo.png
 ---
 
 E se você pudesse controlar uma série de processos

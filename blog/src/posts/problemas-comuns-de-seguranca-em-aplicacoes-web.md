@@ -14,7 +14,7 @@ tags:
     "codeigniter",
   ]
 slug: problemas-de-seguranca-em-aplicacoes-web
-thumbnail: ./images/security.jpg
+thumbnail: /media/security.jpg
 ---
 
 Seria perfeito se o mundo fosse feito apenas de pessoas

@@ -3,7 +3,7 @@ title: "Opinião: Facebook World Hack"
 date: 2012-09-02 12:37:10
 tags: ["opiniao", "facebook", "world hack", "evento"]
 slug: opiniao-facebook-world-hack
-thumbnail: ./images/facebook-developers.jpg
+thumbnail: /media/facebook-developers.jpg
 ---
 
 No dia 30 de agosto de 2012 (sexta-feira), rolou o [*Facebook Developers World Hack – São Paulo*][],

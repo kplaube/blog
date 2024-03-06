@@ -4,7 +4,7 @@ date: 2019-04-30 17:30:00
 modified: 2023-11-02 17:48:00
 tags: ["profissao", "carreira", "desenvolvedor", "sindrome-impostor"]
 slug: peca-ajuda
-thumbnail: ./images/help.png
+thumbnail: /media/help.png
 ---
 
 Desde que assisti ao (razoável) [Eu Sou a Lenda](https://www.imdb.com/title/tt0480249/ "I Am Legend"), uma pergunta instalou-se em minha cabeça: E se eu fosse o último ser humano vivo depois de um apocalipse zumbi? Alguns bons anos depois da estreia do filme, posso dizer com toda a sobriedade que, se eu o fosse, seria por muita sorte e possivelmente não viveria muito tempo mais.

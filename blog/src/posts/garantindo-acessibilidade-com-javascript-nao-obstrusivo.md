@@ -3,7 +3,7 @@ title: "Garantindo acessibilidade com Javascript não obstrusivo"
 date: 2010-11-18 09:00
 tags: ["desenvolvimento-web", "javascript", "acessibilidade"]
 slug: acessibilidade-javascript-nao-obstrusivo
-thumbnail: ./images/accessibility.png
+thumbnail: /media/accessibility.png
 ---
 
 Em épocas onde _RIA_ está cada vez mais comum, e as interfaces [_web_][web] resolveram

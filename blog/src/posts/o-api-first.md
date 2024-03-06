@@ -4,7 +4,7 @@ date: 2020-02-21 09:15:00
 modified: 2023-11-08 10:04:00
 tags: ["desenvolvimento-web", "rest", "api", "api-first"]
 slug: o-api-first
-thumbnail: ./images/rest-api-logo.png
+thumbnail: /media/rest-api-logo.png
 ---
 
 Tratar _APIs_ como "first-class citizens" pode ser um desafio e tanto, principalmente quando estamos em um contexto

@@ -4,7 +4,7 @@ date: 2011-03-03 21:16
 modified: 2023-11-02 20:56:00
 tags: ["desenvolvimento-web", "python", "django", "linux"]
 slug: montando-seu-ambiente-de-desenvolvimento-django
-thumbnail: ./images/django-logo.png
+thumbnail: /media/django-logo.png
 ---
 
 Vou iniciar uma série de publicações mostrando na prática como montar o

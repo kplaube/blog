@@ -3,7 +3,7 @@ title: "Fazendo Javascript OO de forma fácil"
 date: 2011-05-16 22:27
 tags: ["desenvolvimento-web", "javascript", "oop"]
 slug: fazendo-javascript-oo-de-forma-facil
-thumbnail: ./images/javascript-logo.png
+thumbnail: /media/javascript-logo.png
 ---
 
 Embora o _Javascript_ (em sua essência) seja orientado a objetos, temos

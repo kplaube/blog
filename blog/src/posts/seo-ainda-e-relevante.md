@@ -4,7 +4,7 @@ date: 2019-08-20 16:05:00
 modified: 2023-11-02 18:34:00
 tags: ["desenvolvimento-web", "seo"]
 slug: seo-ainda-e-relevante
-thumbnail: ./images/seo.jpg
+thumbnail: /media/seo.jpg
 ---
 
 Se há uma constante em desenvolvimento de _software_ é o [_hype_](https://www.significados.com.br/hype/ "Significado de hype"). Hoje vivemos o _buzz_

@@ -4,7 +4,7 @@ date: 2020-12-30 07:00:00
 modified: 2023-11-09 21:46:00
 tags: ["python", "pip", "virtualenv", "poetry", "pyproject", "toml"]
 slug: poesia-pythonista-com-poetry
-thumbnail: ./images/python-poetry.jpeg
+thumbnail: /media/python-poetry.jpeg
 ---
 
 O [_pip_](/tag/pip.html "Leia mais sobre pip") tem dado passos importantes em relação à
@@ -33,16 +33,17 @@ A sua instalação pode ocorrer de maneiras diferentes, dependendo do SO que voc
 [uma visita à sua documentação é essencial](https://python-poetry.org/docs/#installation "Leia mais sobre como instalar o Poetry"). Ainda
 assim, nada que o `pip` (que ironia) não resolva:
 
-```
-$ pip install --user poetry
+```text
+pip install --user poetry
 ```
 
 Para compreender como a ferramenta funciona de fato, vamos seguir os mesmos passos do _getting started_ da documentação oficial:
 
-```
+```text
 $ poetry new poetry-demo
 $ cd poetry-demo/
 $ ls
+
 README.rst     poetry_demo    pyproject.toml tests
 ```
 
@@ -146,8 +147,8 @@ no _Python Package Index_.
 
 Para adicionar uma dependência ao projeto, passamos a utilizar o comando `poetry add`:
 
-```
-$ poetry add django
+```text
+poetry add django
 ```
 
 Com isso, o _Django_ passa a ser adicionado ao "requirements":
@@ -168,7 +169,7 @@ Django = "^3.1.4"
 Por consequência um arquivo `poetry.lock` foi criado, e é ele quem garantirá o determinismo durante
 a instalação de dependências do projeto:
 
-```
+```text
 $ poetry install
 
 Installing dependencies from lock file
@@ -177,22 +178,23 @@ Installing dependencies from lock file
 Outra consequência do comando `add` foi a criação automática de um _virtualenv_. Agora, através do comando
 `poetry run`, podemos executar dependências _Python_ diretamente do ambiente virtual:
 
-```
-$ poetry run django-admin.py -h
+```text
+poetry run django-admin.py -h
 ```
 
 Ou ainda através do comando `shell`:
 
-```
+```text
 $ poetry shell
 $ which django-admin.py
+
 /Users/klauslaube/Library/Caches/pypoetry/virtualenvs/poetry-demo-IqTsQBT7-py3.9/bin/django-admin
 ```
 
 Note que em um ambiente diferente de _development_, [talvez você precise do parâmetro `--no-root`](https://python-poetry.org/docs/basic-usage/#installing-dependencies-only "Installing dependencies only"):
 
-```
-$ poetry install --no-root
+```text
+poetry install --no-root
 ```
 
 ## Conclusão

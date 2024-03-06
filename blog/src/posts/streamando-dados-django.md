@@ -13,7 +13,7 @@ tags:
     "csv",
   ]
 slug: streaming-dados-django
-thumbnail: ./images/django-pony.png
+thumbnail: /media/django-pony.png
 ---
 
 Recentemente na [_Loadsmart_](http://loadsmart.com/ "Book a truck with Loadsmart"),

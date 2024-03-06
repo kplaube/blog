@@ -4,7 +4,7 @@ date: 2014-03-26 12:00:00
 tags:
   ["desenvolvimento-web", "blog", "pelican", "python", "static-site-generators"]
 slug: pelican-e-os-static-site-generators
-thumbnail: ./images/pelican.png
+thumbnail: /media/pelican.png
 ---
 
 O [*Django*][] é de longe o meu _framework_ [*Python*][] favorito. Fácil,

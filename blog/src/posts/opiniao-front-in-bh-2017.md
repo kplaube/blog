@@ -4,7 +4,7 @@ date: 2017-09-26 15:15:00
 modified: 2023-11-08 17:03:00
 tags: ["opiniao", "front-end", "evento"]
 slug: opiniao-front-in-bh-2017
-thumbnail: ./images/front-in-bh-2k17-logo.jpg
+thumbnail: /media/front-in-bh-2k17-logo.jpg
 ---
 
 E [mais uma vez](/2013/08/05/opiniao-front-bh-2013.html "Opinião sobre a edição de 2013") tive

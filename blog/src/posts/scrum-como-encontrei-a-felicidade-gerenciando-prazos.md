@@ -4,7 +4,7 @@ date: 2010-12-09 12:53
 modified: 2023-10-04 16:12
 tags: ["agile", "scrum", "gerencia-de-projetos"]
 slug: scrum-como-encontrei-felicidade-gerenciando-prazos
-thumbnail: ./images/prazos.jpg
+thumbnail: /media/prazos.jpg
 ---
 
 Como desenvolvedor, nunca tive real interesse em

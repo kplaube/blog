@@ -4,7 +4,7 @@ date: 2011-03-18 20:24
 modified: 2023-11-08 15:36
 tags: ["desenvolvimento-web", "python", "django", "slackware", "virtualenv"]
 slug: python-django-virtualenv
-thumbnail: ./images/python-django.jpg
+thumbnail: /media/python-django.jpg
 ---
 
 Dando continuidade a série “[Montando seu ambiente de desenvolvimento

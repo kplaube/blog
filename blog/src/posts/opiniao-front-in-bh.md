@@ -3,7 +3,7 @@ title: "Opinião: Front in BH 2013"
 date: 2013-08-05 15:39:45
 tags: ["opiniao", "front-end", "evento"]
 slug: opiniao-front-bh-2013
-thumbnail: ./images/front-in-bh-logo.png
+thumbnail: /media/front-in-bh-logo.png
 ---
 
 No dia 03 de agosto de 2013, tive o prazer de participar do [*Front in BH*][],

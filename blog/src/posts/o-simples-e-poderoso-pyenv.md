@@ -4,7 +4,7 @@ date: 2016-04-26 09:53:00
 modified: 2023-11-12 19:36:00
 tags: ["python", "pyenv", "virtualenv", "virtualenvwrapper", "macosx"]
 slug: o-simples-e-poderoso-pyenv
-thumbnail: ./images/pyenv.jpg
+thumbnail: /media/pyenv.jpg
 ---
 
 Num certo dia, eu resolvi deixar a preguiça de lado e atualizar
