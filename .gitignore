@@ -1,6 +1,17 @@
+# OS
 .cache
 .DS_Store
+
+# Editor
+.idea
 .vscode
-node_modules
-public
-yarn-error.log
+
+# Flask-Freezer folders
+build
+
+# Flask-Assets folders
+.webassets-cache
+static/gen
+
+# Python files
+__pycache__

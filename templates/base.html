@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Artigos sobre Python, Django e desenvolvimento Web">
+
+  {% assets filters="libsass,cssmin", output="gen/packed.css",
+  "scss/main.scss" %}
+  <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+  {% endassets %}
+
+  <title>Python, Django e desenvolvimento Web | Klaus Laube</title>
+</head>
+<body>
+<header id="header">
+  <div class="container">
+    <h1><a href="{{ url_for('index') }}">Klaus Laube</a></h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <div class="container">
+    <h1>{% block title %}{% endblock %}</h1>
+
+    {% block content %}{% endblock %}
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <p>O conteúdo desse blog está sob a licença
+      <a href="http://creativecommons.org/licenses/by/3.0/deed.pt_BR" target="_blank">Creative Commons Attribution</a>.
+    </p>
+    <p>Feito com ❤️ e Python+Flask.</p>
+  </div>
+</footer>
+</body>
+</html>
