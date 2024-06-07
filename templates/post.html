@@ -4,4 +4,12 @@
 
 {% block content %}
   {{ page.html|safe }}
+
+  {% if page.tags %}
+  <ul>
+    {% for tag in page.tags %}
+      <li><a href="{{ url_for('tag', slug=tag) }}">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
 {% endblock %}

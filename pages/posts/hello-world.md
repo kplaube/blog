@@ -1,16 +1,17 @@
 ---
 title: "Hello World!"
 date: 2010-11-12 20:10:00
-tags: ["informativos"]
+updated: 2024-06-07 12:31:00
+tags: ["recados"]
 slug: hello-world
 ---
 
 Por dois longos anos esperei por este momento (talvez tenha esperado até demais),
-mas enfim… posso dizer que tenho um _blog_!
+mas enfim posso dizer que tenho um _blog_!
 
-Devo confidenciar: Já trabalhei com _WordPress_ antes, mas sempre como o cara
+Já trabalhei com _WordPress_ antes, mas sempre como o cara
 que estava desenvolvendo um _Blog/CMS_ para alguém. Desta vez eu posso me
-considerar “do outro lado”, e é difícil hein?! Pretendo contribuir com vocês,
+considerar “do outro lado”, e é difícil, hein?! Pretendo contribuir com vocês,
 caros leitores, com todo o conhecimento que possuo (e seguindo a regra da
 reciprocidade, absorver conhecimento de vocês também).
 
@@ -33,7 +34,7 @@ com o [_Profissionais TI_](http://profissionaisti.com.br "Leia sobre tecnologia,
 que escrever _posts_ é uma excelente maneira de aprender. Então podem apostar
 que eu vou estar aprendendo junto com vocês.
 
-## Casa de ferreiro…
+## Casa de ferreiro
 
 Eu sei. Vocês devem estar pensando “como raios um desenvolvedor _Web_ tem um
 _blog_ com um template free?“. Sou programador, meus dons artísticos não são
@@ -57,7 +58,7 @@ do [_Profissionais TI_](http://profissionaisti.com.br "Leia sobre tecnologia, te
 ao [_Akita_](http://akitaonrails.com/ "Você não conhece o Akita?!"),
 pessoal do [_Tableless_](http://www.tableless.com.br/ "[IMO] A melhor referência sobre padrões Web no Brasil")
 e ao _Pedro_ do [_Pinceladas da Web_](http://www.pinceladasdaweb.com.br/blog/ "Outra excelente fonte para desenvolvedores Web").
-Eles podem até não saber, mas foram influências para a criação deste _blog_ …
-sem dúvida, se não fossem por estes caras, eu estaria jogando _Winning Eleven_ numa hora dessas :)
+Eles podem até não saber, mas foram influências para a criação deste _blog_.
+Sem dúvida alguma se não fossem por estes caras, eu estaria jogando _Winning Eleven_ numa hora dessas 😄
 
-Boa leitura…
+Boa leitura!

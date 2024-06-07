@@ -9,12 +9,22 @@ assets = Environment(app)
 pages = FlatPages(app)
 
 
-@app.route("/")
-def index():
+@app.route("/", defaults={"page_number": 1})
+@app.route("/index<int:page_number>.html")
+def index(page_number):
+    if page_number < 1:
+        return "Not found!", 404
+
     posts = [page for page in pages if "date" in page.meta and "slug" in page.meta]
     sorted_pages = sorted(posts, reverse=True, key=lambda page: page.meta["date"])
 
-    return render_template("index.html", pages=sorted_pages)
+    paginated_page = [sorted_pages[page_number - 1]] if len(sorted_pages) > 0 else []
+
+    return render_template(
+        "index.html",
+        pages=paginated_page,
+        page_number=page_number,
+    )
 
 
 @app.route("/<int:year>/<int:month>/<int:day>/<slug>.html")
@@ -30,6 +40,21 @@ def blog_post(year, month, day, slug):
             return render_template("post.html", page=page)
 
     return "Not found!", 404
+
+
+@app.route("/tag/<slug>.html")
+def tag(slug):
+    pages_with_tag = [
+        page for page in pages if "tags" in page.meta and slug in page.meta["tags"]
+    ]
+    sorted_pages = sorted(
+        pages_with_tag, reverse=True, key=lambda page: page.meta["date"]
+    )
+
+    if not pages_with_tag:
+        return "Not found!", 404
+
+    return render_template("index.html", pages=sorted_pages)
 
 
 @app.template_filter("url_for_post")
