@@ -8,7 +8,7 @@ thumbnail: ./images/rss-logo.png
 ---
 
 Conheço pessoas bem instruídas em _TI_ que simplesmente não sabem o que é _RSS_.
-Esta é a minha motivação para escrever este “primeiro post oficial” e lhe explicar,
+Esta é a minha motivação para escrever este primeiro artigo oficial e lhe explicar,
 caso você não saiba, como você pode ler o conteúdo deste _blog_ sem visitar este endereço.
 
 ## In a nutshell…

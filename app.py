@@ -8,6 +8,27 @@ app.config.from_object("settings.Config")
 assets = Environment(app)
 pages = FlatPages(app)
 
+PAGINATION_PER_PAGE = 8
+
+
+class Paginator:
+
+    def __init__(self, entries, page_number):
+        self.all_entries = entries
+        self.number_of_pages = len(self.all_entries) // PAGINATION_PER_PAGE + 1
+        self.page_number = page_number
+        self.previous_page = page_number - 1 if page_number > 0 else None
+        self.next_page = page_number + 1 if page_number + 1 < self.number_of_pages else None
+        self.pages = range(1, self.number_of_pages)
+
+        self.entries = self._paginate()
+    
+    def _paginate(self):
+        start = self.page_number - 1
+        offset = PAGINATION_PER_PAGE * self.page_number
+
+        return self.all_entries[start:offset] if len(self.all_entries) > 0 else []
+
 
 @app.route("/", defaults={"page_number": 1})
 @app.route("/index<int:page_number>.html")
@@ -18,12 +39,9 @@ def index(page_number):
     posts = [page for page in pages if "date" in page.meta and "slug" in page.meta]
     sorted_pages = sorted(posts, reverse=True, key=lambda page: page.meta["date"])
 
-    paginated_page = [sorted_pages[page_number - 1]] if len(sorted_pages) > 0 else []
-
     return render_template(
         "index.html",
-        pages=paginated_page,
-        page_number=page_number,
+        paginator=Paginator(sorted_pages, page_number)
     )
 
 
@@ -42,8 +60,9 @@ def blog_post(year, month, day, slug):
     return "Not found!", 404
 
 
-@app.route("/tag/<slug>.html")
-def tag(slug):
+@app.route("/tag/<slug>.html", defaults={"page_number": 1})
+@app.route("/tag/<slug><int:page_number>.html")
+def tag(slug, page_number):
     pages_with_tag = [
         page for page in pages if "tags" in page.meta and slug in page.meta["tags"]
     ]
@@ -54,7 +73,7 @@ def tag(slug):
     if not pages_with_tag:
         return "Not found!", 404
 
-    return render_template("index.html", pages=sorted_pages)
+    return render_template("index.html", paginator=Paginator(sorted_pages, page_number))
 
 
 @app.template_filter("url_for_post")
@@ -63,4 +82,4 @@ def url_for_post(page):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=8000)

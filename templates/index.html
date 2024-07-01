@@ -3,8 +3,34 @@
 {% block title %}Posts{% endblock %}
 
 {% block content %}
-  {% for post in pages %}
+  {% for post in paginator.entries %}
     <h2><a href="{{ post|url_for_post }}">{{ post.title }}</a></h2>
     <p>{{ post.content }}</p>
   {% endfor %}
+
+  {% if paginator.number_of_pages > 1%}
+    <div>
+      {% if paginator.previous_page %}
+        <div>
+          <a href="{{ url_for('index', page_number=paginator.previous_page) }}">Anterior</a>
+        </div>
+      {% endif %}
+
+      {% for page in paginator.pages %}
+        <div>
+          {% if page == paginator.page_number %}
+            <span>{{ page }}</span>
+          {% else %}
+            <a href="{{ url_for('index', page_number=page) }}">{{ page }}</a>
+          {% endif %}
+        </div>
+      {% endfor %}
+
+      {% if paginator.next_page %}
+        <div>
+          <a href="{{ url_for('index', page_number=paginator.next_page) }}">Próximo</a>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
 {% endblock %}
