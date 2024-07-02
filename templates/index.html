@@ -1,11 +1,23 @@
 {% extends "base.html" %}
 
-{% block title %}Posts{% endblock %}
-
 {% block content %}
   {% for post in paginator.entries %}
-    <h2><a href="{{ post|url_for_post }}">{{ post.title }}</a></h2>
-    <p>{{ post.content }}</p>
+    <div class="article-list">
+      <article class="article-list__item">
+        <header>
+          <h2 class="article-list__item__title">
+            <a
+              href="{{ post|url_for_post }}"
+              class="article-list__item__link"
+            >{{ post.title }}</a>
+          </h2>
+
+          <time class="article-list__item__date">
+            {{ post.date }}
+          </time>
+        </header>
+      </article>
+    </div>
   {% endfor %}
 
   {% if paginator.number_of_pages > 1%}

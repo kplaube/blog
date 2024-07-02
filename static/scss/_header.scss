@@ -1,0 +1,36 @@
+.header {
+  padding: 2rem 0;
+
+  &__headline {
+    margin: 0;
+  }
+
+  &__logo {
+    color: $primary-color;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2rem;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: lowercase;
+
+    &:hover {
+      color: $secondary-color;
+    }
+
+    &--highlight {
+      color: $secondary-color;
+    }
+  }
+
+  &__callout {
+    color: rgb(107, 114, 128);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-top: 0.400rem;
+    text-align: center;
+  }
+
+}

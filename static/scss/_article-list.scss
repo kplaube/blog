@@ -1,0 +1,31 @@
+.article-list {
+
+  &__item {
+    border-bottom: 1px solid lighten($color: $primary-color, $amount: 85);
+    padding: 1.5rem 0;
+
+    &__date {
+      color: lighten($color: $primary-color, $amount: 65);
+      display: block;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    &__link {
+      color: $secondary-color;
+      display: block;
+      text-align: center;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &__title {
+      font-size: 1.4rem;
+      margin: 0 0 0.450rem 0;
+    }
+  }
+
+}
