@@ -1,0 +1,14 @@
+.footer {
+  color: $callout-color;
+  font-size: 0.875rem;
+  padding: 2rem 0;
+  text-align: center;
+
+  &__link {
+    color: $secondary-color;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

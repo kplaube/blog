@@ -22,7 +22,7 @@ passando pelo [_Joomla!_](http://www.joomla.org/ "Visite o site oficial do CMS J
 [_WordPress_](http://www.wordpress.org/ "Visite o site oficial da engine de blogs Wordpress"),
 _Spaghetti_, [_CodeIgniter_](http://codeigniter.com/ "Visite o site oficial da framework CodeIgniter")
 e mais recentemente pela [_CakePHP_](http://cakephp.org/ "Visite o site da framework para desenvolvimento rápido, CakePHP").
-Pretendo sim falar sobre _PHP_, mas de uma forma bem leve, pois na verdade
+Pretendo sim falar sobre _PHP_ mas de uma forma bem leve, pois na verdade
 o objetivo principal deste _blog_ é compartilhar sobre
 [_Python_](/tag/python.html "Leia mais sobre Python"),
 [_Django_](/tag/django.html "Leia mais sobre Django"),
