@@ -21,28 +21,31 @@
   {% endfor %}
 
   {% if paginator.number_of_pages > 1%}
-    <div>
+    <section class="pagination">
       {% if paginator.previous_page %}
-        <div>
-          <a href="{{ url_for('index', page_number=paginator.previous_page) }}">Anterior</a>
-        </div>
+        <a
+          href="{{ url_for('index', page_number=paginator.previous_page) }}"
+          class="pagination__link"
+        ><<</a>
       {% endif %}
 
       {% for page in paginator.pages %}
-        <div>
-          {% if page == paginator.page_number %}
-            <span>{{ page }}</span>
-          {% else %}
-            <a href="{{ url_for('index', page_number=page) }}">{{ page }}</a>
-          {% endif %}
-        </div>
+        {% if page == paginator.page_number %}
+          <span class="pagination__current">{{ page }}</span>
+        {% else %}
+          <a
+            class="pagination__link"
+            href="{{ url_for('index', page_number=page) }}"
+          >{{ page }}</a>
+        {% endif %}
       {% endfor %}
 
       {% if paginator.next_page %}
-        <div>
-          <a href="{{ url_for('index', page_number=paginator.next_page) }}">Próximo</a>
-        </div>
+        <a
+          class="pagination__link"
+          href="{{ url_for('index', page_number=paginator.next_page) }}"
+        >>></a>
       {% endif %}
-    </div>
+    </section>
   {% endif %}
 {% endblock %}

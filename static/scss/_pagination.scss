@@ -1,0 +1,24 @@
+.pagination {
+  padding: 2rem 0;
+  text-align: center;
+
+  &__current,
+  &__link {
+    border-radius: 0.25rem;
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    padding: 0.5rem 0;
+    text-align: center;
+    width: 2rem;
+  }
+
+  &__link {
+    background-color: $secondary-color;
+    color: white;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+}

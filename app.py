@@ -9,6 +9,7 @@ assets = Environment(app)
 pages = FlatPages(app)
 
 PAGINATION_PER_PAGE = 8
+HOW_MANY_PAGES_TO_SHOW = 5
 
 
 class Paginator:
@@ -23,9 +24,12 @@ class Paginator:
 
         self.entries = self._paginate()
     
+    def __iter__(self):
+        return iter(self.pages)
+    
     def _paginate(self):
-        start = self.page_number - 1
-        offset = PAGINATION_PER_PAGE * self.page_number
+        offset = PAGINATION_PER_PAGE * self.page_number + 1
+        start = offset - PAGINATION_PER_PAGE
 
         return self.all_entries[start:offset] if len(self.all_entries) > 0 else []
 
