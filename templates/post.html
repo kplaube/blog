@@ -2,14 +2,24 @@
 
 {% block title %}{{ page.title }}{% endblock %}
 
-{% block content %}
-  {{ page.html|safe }}
+{% block content_title %}{{ page.title }}{% endblock %}
 
-  {% if page.tags %}
-  <ul>
-    {% for tag in page.tags %}
-      <li><a href="{{ url_for('tag', slug=tag) }}">{{ tag }}</a></li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+{% block content %}
+  <div class="article">
+    <div class="article__content">
+      {{ page.html|safe }}
+    </div>
+
+    {% if page.tags %}
+    <ul class="article__taglist">
+      {% for tag in page.tags %}
+        <li class="article__tagentry">
+          <a
+            class="article__tag"
+            href="{{ url_for('tag', slug=tag) }}"
+          >{{ tag }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 {% endblock %}

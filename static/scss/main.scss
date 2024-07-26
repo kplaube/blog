@@ -1,7 +1,7 @@
 @import "./normalize";
 
 body {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -11,7 +11,10 @@ body {
 }
 
 @import "variables";
+
+@import "article";
 @import "article-list";
+@import "content";
 @import "footer";
 @import "header";
 @import "pagination";

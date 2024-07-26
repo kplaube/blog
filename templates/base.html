@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
   {% endassets %}
 
-  <title>Python, Django e desenvolvimento Web | Klaus Laube</title>
+  <title>{% block title %}Python, Django e desenvolvimento Web{% endblock %} | Klaus Laube</title>
 </head>
 <body>
 <header class="header">
@@ -29,7 +29,7 @@
 
 <main id="content">
   <div class="container">
-    {% block title %}{% endblock %}
+    <div class="content__title">{% block content_title %}{% endblock %}</div>
 
     {% block content %}{% endblock %}
   </div>

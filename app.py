@@ -77,7 +77,7 @@ def tag(slug, page_number):
     if not pages_with_tag:
         return "Not found!", 404
 
-    return render_template("index.html", paginator=Paginator(sorted_pages, page_number))
+    return render_template("tags.html", paginator=Paginator(sorted_pages, page_number))
 
 
 @app.template_filter("url_for_post")
